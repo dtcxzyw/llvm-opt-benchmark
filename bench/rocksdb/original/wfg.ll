@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.toku::wfg" = type { %"class.toku::omt" }
 %"class.toku::omt" = type { i8, i32, %union.anon }
@@ -32,13 +32,11 @@ $_ZNKSt8functionIFvmEEclEm = comdat any
 
 $_ZNSt8functionIFvmEEC2ERKS1_ = comdat any
 
-$_ZNSt8functionIFvmEED2Ev = comdat any
+$_ZNSt14_Function_baseD2Ev = comdat any
 
 $_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj = comdat any
 
 $_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE9insert_atERKS3_j = comdat any
-
-$_ZNSt14_Function_baseD2Ev = comdat any
 
 $__clang_call_terminate = comdat any
 
@@ -101,1115 +99,1211 @@ $_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE28fill_array_with_subtree_idxsEPjRKNS_12omt
 $_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_subtree_from_idxsEPNS_12omt_internal17subtree_templatedILb0EEEPKjj = comdat any
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku3wfg6createEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_nodes = getelementptr inbounds %"class.toku::wfg", ptr %this1, i32 0, i32 0
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE6createEv(ptr noundef nonnull align 8 dereferenceable(24) %m_nodes)
+define void @_ZN4toku3wfg6createEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.toku::wfg", ptr %3, i32 0, i32 0
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE6createEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE6createEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15create_internalEj(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 2)
+define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE6createEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15create_internalEj(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku3wfg7destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n_nodes = alloca i32, align 4
-  %i = alloca i32, align 4
-  %n = alloca ptr, align 8
-  %r = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_nodes = getelementptr inbounds %"class.toku::wfg", ptr %this1, i32 0, i32 0
-  %call = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %m_nodes)
-  store i32 %call, ptr %n_nodes, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define void @_ZN4toku3wfg7destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %8 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #10
+  %9 = getelementptr inbounds nuw %"class.toku::wfg", ptr %8, i32 0, i32 0
+  %10 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
+  store i32 %10, ptr %3, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  store i32 0, ptr %4, align 4, !tbaa !11
+  br label %11
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr %n_nodes, align 4
-  %cmp = icmp ult i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
+11:                                               ; preds = %28, %1
+  %12 = load i32, ptr %4, align 4, !tbaa !11
+  %13 = load i32, ptr %3, align 4, !tbaa !11
+  %14 = icmp ult i32 %12, %13
+  br i1 %14, label %16, label %15
 
-for.body:                                         ; preds = %for.cond
-  %m_nodes2 = getelementptr inbounds %"class.toku::wfg", ptr %this1, i32 0, i32 0
-  %2 = load i32, ptr %i, align 4
-  %call3 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_nodes2, i32 noundef %2, ptr noundef %n)
-  store i32 %call3, ptr %r, align 4
-  %3 = load i32, ptr %r, align 4
-  %tobool = icmp ne i32 %3, 0
-  br i1 %tobool, label %if.then, label %if.end
+15:                                               ; preds = %11
+  store i32 2, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  br label %31
 
-if.then:                                          ; preds = %for.body
-  br label %for.inc
+16:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %17 = getelementptr inbounds nuw %"class.toku::wfg", ptr %8, i32 0, i32 0
+  %18 = load i32, ptr %4, align 4, !tbaa !11
+  %19 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %17, i32 noundef %18, ptr noundef %6)
+  store i32 %19, ptr %7, align 4, !tbaa !11
+  %20 = load i32, ptr %7, align 4, !tbaa !11
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %23
 
-if.end:                                           ; preds = %for.body
-  %4 = load ptr, ptr %n, align 8
-  call void @_ZN4toku3wfg4node4freeEPS1_(ptr noundef %4)
-  br label %for.inc
+22:                                               ; preds = %16
+  store i32 4, ptr %5, align 4
+  br label %25
 
-for.inc:                                          ; preds = %if.end, %if.then
-  %5 = load i32, ptr %i, align 4
-  %inc = add i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !4
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %6, align 8, !tbaa !13
+  call void @_ZN4toku3wfg4node4freeEPS1_(ptr noundef %24)
+  store i32 0, ptr %5, align 4
+  br label %25
 
-for.end:                                          ; preds = %for.cond
-  %m_nodes4 = getelementptr inbounds %"class.toku::wfg", ptr %this1, i32 0, i32 0
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE7destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %m_nodes4)
+25:                                               ; preds = %23, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %26 = load i32, ptr %5, align 4
+  switch i32 %26, label %33 [
+    i32 0, label %27
+    i32 4, label %28
+  ]
+
+27:                                               ; preds = %25
+  br label %28
+
+28:                                               ; preds = %27, %25
+  %29 = load i32, ptr %4, align 4, !tbaa !11
+  %30 = add i32 %29, 1
+  store i32 %30, ptr %4, align 4, !tbaa !11
+  br label %11, !llvm.loop !15
+
+31:                                               ; preds = %15
+  %32 = getelementptr inbounds nuw %"class.toku::wfg", ptr %8, i32 0, i32 0
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE7destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %32)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #10
+  ret void
+
+33:                                               ; preds = %25
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.toku::omt", ptr %4, i32 0, i32 0
+  %6 = load i8, ptr %5, align 8, !tbaa !17, !range !20, !noundef !21
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.toku::omt", ptr %4, i32 0, i32 2
+  %10 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 4, !tbaa !22
+  store i32 %11, ptr %2, align 4
+  br label %16
+
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds nuw %"class.toku::omt", ptr %4, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %13, i32 0, i32 0
+  %15 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  store i32 %15, ptr %2, align 4
+  br label %16
+
+16:                                               ; preds = %12, %8
+  %17 = load i32, ptr %2, align 4
+  ret i32 %17
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store i32 %1, ptr %6, align 4, !tbaa !11
+  store ptr %2, ptr %7, align 8, !tbaa !23
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i32, ptr %6, align 4, !tbaa !11
+  %10 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %11 = icmp uge i32 %9, %10
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %3
+  store i32 22, ptr %4, align 4
+  br label %26
+
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 0
+  %15 = load i8, ptr %14, align 8, !tbaa !17, !range !20, !noundef !21
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %13
+  %18 = load i32, ptr %6, align 4, !tbaa !11
+  %19 = load ptr, ptr %7, align 8, !tbaa !23
+  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE20fetch_internal_arrayEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %18, ptr noundef %19)
+  br label %25
+
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %22 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %6, align 4, !tbaa !11
+  %24 = load ptr, ptr %7, align 8, !tbaa !23
+  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE14fetch_internalERKNS_12omt_internal17subtree_templatedILb0EEEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 4 dereferenceable(4) %22, i32 noundef %23, ptr noundef %24)
+  br label %25
+
+25:                                               ; preds = %20, %17
+  store i32 0, ptr %4, align 4
+  br label %26
+
+26:                                               ; preds = %25, %12
+  %27 = load i32, ptr %4, align 4
+  ret i32 %27
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN4toku3wfg4node4freeEPS1_(ptr noundef %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !13
+  %3 = load ptr, ptr %2, align 8, !tbaa !13
+  %4 = getelementptr inbounds nuw %"struct.toku::wfg::node", ptr %3, i32 0, i32 1
+  call void @_ZN4toku9txnid_set7destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %5 = load ptr, ptr %2, align 8, !tbaa !13
+  call void @_Z9toku_freePv(ptr noundef %5)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE7destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %4 = getelementptr inbounds nuw %"class.toku::omt", ptr %3, i32 0, i32 1
+  store i32 0, ptr %4, align 4, !tbaa !26
+  %5 = getelementptr inbounds nuw %"class.toku::omt", ptr %3, i32 0, i32 0
+  %6 = load i8, ptr %5, align 8, !tbaa !17, !range !20, !noundef !21
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %20
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.toku::omt", ptr %3, i32 0, i32 2
+  %10 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %9, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8, !tbaa !22
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %17
+
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds nuw %"class.toku::omt", ptr %3, i32 0, i32 2
+  %15 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  call void @_Z9toku_freePv(ptr noundef %16)
+  br label %17
+
+17:                                               ; preds = %13, %8
+  %18 = getelementptr inbounds nuw %"class.toku::omt", ptr %3, i32 0, i32 2
+  %19 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %18, i32 0, i32 2
+  store ptr null, ptr %19, align 8, !tbaa !22
+  br label %32
+
+20:                                               ; preds = %1
+  %21 = getelementptr inbounds nuw %"class.toku::omt", ptr %3, i32 0, i32 2
+  %22 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !22
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %29
+
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds nuw %"class.toku::omt", ptr %3, i32 0, i32 2
+  %27 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %26, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8, !tbaa !22
+  call void @_Z9toku_freePv(ptr noundef %28)
+  br label %29
+
+29:                                               ; preds = %25, %20
+  %30 = getelementptr inbounds nuw %"class.toku::omt", ptr %3, i32 0, i32 2
+  %31 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %30, i32 0, i32 2
+  store ptr null, ptr %31, align 8, !tbaa !22
+  br label %32
+
+32:                                               ; preds = %29, %17
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %is_array = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 0
-  %0 = load i8, ptr %is_array, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %num_values = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d, i32 0, i32 1
-  %1 = load i32, ptr %num_values, align 4
-  store i32 %1, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %d2 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %root = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d2, i32 0, i32 0
-  %call = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %root)
-  store i32 %call, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  %2 = load i32, ptr %retval, align 4
-  ret i32 %2
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %idx, ptr noundef %value) #0 comdat align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %idx.addr = alloca i32, align 4
-  %value.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %idx, ptr %idx.addr, align 4
-  store ptr %value, ptr %value.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %idx.addr, align 4
-  %call = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  %cmp = icmp uge i32 %0, %call
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 22, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %is_array = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 0
-  %1 = load i8, ptr %is_array, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then2, label %if.else
-
-if.then2:                                         ; preds = %if.end
-  %2 = load i32, ptr %idx.addr, align 4
-  %3 = load ptr, ptr %value.addr, align 8
-  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE20fetch_internal_arrayEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %2, ptr noundef %3)
-  br label %if.end3
-
-if.else:                                          ; preds = %if.end
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %root = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d, i32 0, i32 0
-  %4 = load i32, ptr %idx.addr, align 4
-  %5 = load ptr, ptr %value.addr, align 8
-  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE14fetch_internalERKNS_12omt_internal17subtree_templatedILb0EEEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %root, i32 noundef %4, ptr noundef %5)
-  br label %if.end3
-
-if.end3:                                          ; preds = %if.else, %if.then2
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end3, %if.then
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN4toku3wfg4node4freeEPS1_(ptr noundef %n) #0 align 2 {
-entry:
-  %n.addr = alloca ptr, align 8
-  store ptr %n, ptr %n.addr, align 8
-  %0 = load ptr, ptr %n.addr, align 8
-  %edges = getelementptr inbounds %"struct.toku::wfg::node", ptr %0, i32 0, i32 1
-  call void @_ZN4toku9txnid_set7destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %edges)
-  %1 = load ptr, ptr %n.addr, align 8
-  call void @_Z9toku_freePv(ptr noundef %1)
+define void @_ZN4toku3wfg8add_edgeEmm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i64 %1, ptr %5, align 8, !tbaa !27
+  store i64 %2, ptr %6, align 8, !tbaa !27
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %10 = load i64, ptr %5, align 8, !tbaa !27
+  %11 = call noundef ptr @_ZN4toku3wfg16find_create_nodeEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %10)
+  store ptr %11, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %12 = load i64, ptr %6, align 8, !tbaa !27
+  %13 = call noundef ptr @_ZN4toku3wfg16find_create_nodeEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %12)
+  store ptr %13, ptr %8, align 8, !tbaa !13
+  %14 = load ptr, ptr %7, align 8, !tbaa !13
+  %15 = getelementptr inbounds nuw %"struct.toku::wfg::node", ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %8, align 8, !tbaa !13
+  %17 = getelementptr inbounds nuw %"struct.toku::wfg::node", ptr %16, i32 0, i32 0
+  %18 = load i64, ptr %17, align 8, !tbaa !29
+  call void @_ZN4toku9txnid_set3addEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %18)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE7destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  %capacity = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 1
-  store i32 0, ptr %capacity, align 4
-  %is_array = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 0
-  %0 = load i8, ptr %is_array, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.else
+define noundef ptr @_ZN4toku3wfg16find_create_nodeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !27
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %9 = getelementptr inbounds nuw %"class.toku::wfg", ptr %8, i32 0, i32 0
+  %10 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5, ptr noundef %6)
+  store i32 %10, ptr %7, align 4, !tbaa !11
+  %11 = load i32, ptr %7, align 4, !tbaa !11
+  %12 = icmp eq i32 %11, -30989
+  br i1 %12, label %13, label %19
 
-if.then:                                          ; preds = %entry
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %values = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d, i32 0, i32 2
-  %1 = load ptr, ptr %values, align 8
-  %cmp = icmp ne ptr %1, null
-  br i1 %cmp, label %if.then2, label %if.end
+13:                                               ; preds = %2
+  %14 = load i64, ptr %4, align 8, !tbaa !27
+  %15 = call noundef ptr @_ZN4toku3wfg4node5allocEm(i64 noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !13
+  %16 = getelementptr inbounds nuw %"class.toku::wfg", ptr %8, i32 0, i32 0
+  %17 = load i32, ptr %6, align 4, !tbaa !11
+  %18 = call noundef i32 @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE9insert_atERKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %17)
+  store i32 %18, ptr %7, align 4, !tbaa !11
+  br label %19
 
-if.then2:                                         ; preds = %if.then
-  %d3 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %values4 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d3, i32 0, i32 2
-  %2 = load ptr, ptr %values4, align 8
-  call void @_Z9toku_freePv(ptr noundef %2)
-  br label %if.end
+19:                                               ; preds = %13, %2
+  %20 = load ptr, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  ret ptr %20
+}
 
-if.end:                                           ; preds = %if.then2, %if.then
-  %d5 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %values6 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d5, i32 0, i32 2
-  store ptr null, ptr %values6, align 8
-  br label %if.end15
+declare void @_ZN4toku9txnid_set3addEm(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) #2
 
-if.else:                                          ; preds = %entry
-  %d7 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d7, i32 0, i32 2
-  %3 = load ptr, ptr %nodes, align 8
-  %cmp8 = icmp ne ptr %3, null
-  br i1 %cmp8, label %if.then9, label %if.end12
-
-if.then9:                                         ; preds = %if.else
-  %d10 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes11 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d10, i32 0, i32 2
-  %4 = load ptr, ptr %nodes11, align 8
-  call void @_Z9toku_freePv(ptr noundef %4)
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.then9, %if.else
-  %d13 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes14 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d13, i32 0, i32 2
-  store ptr null, ptr %nodes14, align 8
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.end12, %if.end
-  ret void
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN4toku3wfg11node_existsEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !27
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %7 = load i64, ptr %4, align 8, !tbaa !27
+  %8 = call noundef ptr @_ZN4toku3wfg9find_nodeEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %7)
+  store ptr %8, ptr %5, align 8, !tbaa !13
+  %9 = load ptr, ptr %5, align 8, !tbaa !13
+  %10 = icmp ne ptr %9, null
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku3wfg8add_edgeEmm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %a_txnid, i64 noundef %b_txnid) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a_txnid.addr = alloca i64, align 8
-  %b_txnid.addr = alloca i64, align 8
-  %a_node = alloca ptr, align 8
-  %b_node = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %a_txnid, ptr %a_txnid.addr, align 8
-  store i64 %b_txnid, ptr %b_txnid.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %a_txnid.addr, align 8
-  %call = call noundef ptr @_ZN4toku3wfg16find_create_nodeEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %0)
-  store ptr %call, ptr %a_node, align 8
-  %1 = load i64, ptr %b_txnid.addr, align 8
-  %call2 = call noundef ptr @_ZN4toku3wfg16find_create_nodeEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %1)
-  store ptr %call2, ptr %b_node, align 8
-  %2 = load ptr, ptr %a_node, align 8
-  %edges = getelementptr inbounds %"struct.toku::wfg::node", ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %b_node, align 8
-  %txnid = getelementptr inbounds %"struct.toku::wfg::node", ptr %3, i32 0, i32 0
-  %4 = load i64, ptr %txnid, align 8
-  call void @_ZN4toku9txnid_set3addEm(ptr noundef nonnull align 8 dereferenceable(24) %edges, i64 noundef %4)
-  ret void
+define noundef ptr @_ZN4toku3wfg9find_nodeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !27
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  store ptr null, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %8 = getelementptr inbounds nuw %"class.toku::wfg", ptr %7, i32 0, i32 0
+  %9 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5, ptr noundef null)
+  store i32 %9, ptr %6, align 4, !tbaa !11
+  %10 = load i32, ptr %6, align 4, !tbaa !11
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %13, label %12
+
+12:                                               ; preds = %2
+  br label %13
+
+13:                                               ; preds = %12, %2
+  %14 = load ptr, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  ret ptr %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4toku3wfg16find_create_nodeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %txnid) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %txnid.addr = alloca i64, align 8
-  %n = alloca ptr, align 8
-  %idx = alloca i32, align 4
-  %r = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %txnid, ptr %txnid.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_nodes = getelementptr inbounds %"class.toku::wfg", ptr %this1, i32 0, i32 0
-  %call = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %m_nodes, ptr noundef nonnull align 8 dereferenceable(8) %txnid.addr, ptr noundef %n, ptr noundef %idx)
-  store i32 %call, ptr %r, align 4
-  %0 = load i32, ptr %r, align 4
-  %cmp = icmp eq i32 %0, -30989
-  br i1 %cmp, label %if.then, label %if.end
+define noundef zeroext i1 @_ZN4toku3wfg22cycle_exists_from_nodeEPNS0_4nodeES2_St8functionIFvmEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca %"class.std::function", align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !13
+  store ptr %2, ptr %7, align 8, !tbaa !13
+  store ptr %3, ptr %8, align 8, !tbaa !33
+  %17 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #10
+  store i8 0, ptr %9, align 1, !tbaa !35
+  %18 = load ptr, ptr %7, align 8, !tbaa !13
+  %19 = getelementptr inbounds nuw %"struct.toku::wfg::node", ptr %18, i32 0, i32 2
+  store i8 1, ptr %19, align 8, !tbaa !36
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  %20 = load ptr, ptr %7, align 8, !tbaa !13
+  %21 = getelementptr inbounds nuw %"struct.toku::wfg::node", ptr %20, i32 0, i32 1
+  %22 = call noundef i32 @_ZNK4toku9txnid_set4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %21)
+  store i32 %22, ptr %10, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  store i32 0, ptr %11, align 4, !tbaa !11
+  br label %23
 
-if.then:                                          ; preds = %entry
-  %1 = load i64, ptr %txnid.addr, align 8
-  %call2 = call noundef ptr @_ZN4toku3wfg4node5allocEm(i64 noundef %1)
-  store ptr %call2, ptr %n, align 8
-  %m_nodes3 = getelementptr inbounds %"class.toku::wfg", ptr %this1, i32 0, i32 0
-  %2 = load i32, ptr %idx, align 4
-  %call4 = call noundef i32 @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE9insert_atERKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %m_nodes3, ptr noundef nonnull align 8 dereferenceable(8) %n, i32 noundef %2)
-  store i32 %call4, ptr %r, align 4
-  br label %if.end
+23:                                               ; preds = %78, %4
+  %24 = load i32, ptr %11, align 4, !tbaa !11
+  %25 = load i32, ptr %10, align 4, !tbaa !11
+  %26 = icmp ult i32 %24, %25
+  br i1 %26, label %27, label %31
 
-if.end:                                           ; preds = %if.then, %entry
-  %3 = load ptr, ptr %n, align 8
-  ret ptr %3
-}
+27:                                               ; preds = %23
+  %28 = load i8, ptr %9, align 1, !tbaa !35, !range !20, !noundef !21
+  %29 = trunc i8 %28 to i1
+  %30 = xor i1 %29, true
+  br label %31
 
-declare void @_ZN4toku9txnid_set3addEm(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) #1
+31:                                               ; preds = %27, %23
+  %32 = phi i1 [ false, %23 ], [ %30, %27 ]
+  br i1 %32, label %34, label %33
 
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4toku3wfg11node_existsEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %txnid) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %txnid.addr = alloca i64, align 8
-  %n = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %txnid, ptr %txnid.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %txnid.addr, align 8
-  %call = call noundef ptr @_ZN4toku3wfg9find_nodeEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %0)
-  store ptr %call, ptr %n, align 8
-  %1 = load ptr, ptr %n, align 8
-  %cmp = icmp ne ptr %1, null
-  ret i1 %cmp
-}
+33:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  br label %81
 
-; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4toku3wfg9find_nodeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %txnid) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %txnid.addr = alloca i64, align 8
-  %n = alloca ptr, align 8
-  %r = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %txnid, ptr %txnid.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store ptr null, ptr %n, align 8
-  %m_nodes = getelementptr inbounds %"class.toku::wfg", ptr %this1, i32 0, i32 0
-  %call = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %m_nodes, ptr noundef nonnull align 8 dereferenceable(8) %txnid.addr, ptr noundef %n, ptr noundef null)
-  store i32 %call, ptr %r, align 4
-  %0 = load i32, ptr %r, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %lor.end, label %lor.rhs
+34:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %35 = load ptr, ptr %7, align 8, !tbaa !13
+  %36 = getelementptr inbounds nuw %"struct.toku::wfg::node", ptr %35, i32 0, i32 1
+  %37 = load i32, ptr %11, align 4, !tbaa !11
+  %38 = call noundef i64 @_ZNK4toku9txnid_set3getEj(ptr noundef nonnull align 8 dereferenceable(24) %36, i32 noundef %37)
+  store i64 %38, ptr %12, align 8, !tbaa !27
+  %39 = load ptr, ptr %6, align 8, !tbaa !13
+  %40 = getelementptr inbounds nuw %"struct.toku::wfg::node", ptr %39, i32 0, i32 0
+  %41 = load i64, ptr %40, align 8, !tbaa !29
+  %42 = load i64, ptr %12, align 8, !tbaa !27
+  %43 = icmp eq i64 %41, %42
+  br i1 %43, label %44, label %49
 
-lor.rhs:                                          ; preds = %entry
-  br label %lor.end
+44:                                               ; preds = %34
+  store i8 1, ptr %9, align 1, !tbaa !35
+  %45 = call noundef zeroext i1 @_ZNKSt8functionIFvmEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
+  br i1 %45, label %46, label %48
 
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %1 = load ptr, ptr %n, align 8
-  ret ptr %1
-}
+46:                                               ; preds = %44
+  %47 = load i64, ptr %12, align 8, !tbaa !27
+  call void @_ZNKSt8functionIFvmEEclEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %47)
+  br label %48
 
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4toku3wfg22cycle_exists_from_nodeEPNS0_4nodeES2_St8functionIFvmEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %target, ptr noundef %head, ptr noundef %reporter) #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %target.addr = alloca ptr, align 8
-  %head.addr = alloca ptr, align 8
-  %reporter.indirect_addr = alloca ptr, align 8
-  %cycle_found = alloca i8, align 1
-  %n_edges = alloca i32, align 4
-  %i = alloca i32, align 4
-  %edge_id = alloca i64, align 8
-  %new_head = alloca ptr, align 8
-  %agg.tmp = alloca %"class.std::function", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %target, ptr %target.addr, align 8
-  store ptr %head, ptr %head.addr, align 8
-  store ptr %reporter, ptr %reporter.indirect_addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i8 0, ptr %cycle_found, align 1
-  %0 = load ptr, ptr %head.addr, align 8
-  %visited = getelementptr inbounds %"struct.toku::wfg::node", ptr %0, i32 0, i32 2
-  store i8 1, ptr %visited, align 8
-  %1 = load ptr, ptr %head.addr, align 8
-  %edges = getelementptr inbounds %"struct.toku::wfg::node", ptr %1, i32 0, i32 1
-  %call = call noundef i32 @_ZNK4toku9txnid_set4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %edges)
-  store i32 %call, ptr %n_edges, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+48:                                               ; preds = %46, %44
+  br label %77
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %i, align 4
-  %3 = load i32, ptr %n_edges, align 4
-  %cmp = icmp ult i32 %2, %3
-  br i1 %cmp, label %land.rhs, label %land.end
+49:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  %50 = load i64, ptr %12, align 8, !tbaa !27
+  %51 = call noundef ptr @_ZN4toku3wfg9find_nodeEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %50)
+  store ptr %51, ptr %13, align 8, !tbaa !13
+  %52 = load ptr, ptr %13, align 8, !tbaa !13
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %76
 
-land.rhs:                                         ; preds = %for.cond
-  %4 = load i8, ptr %cycle_found, align 1
-  %tobool = trunc i8 %4 to i1
-  %lnot = xor i1 %tobool, true
-  br label %land.end
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %13, align 8, !tbaa !13
+  %56 = getelementptr inbounds nuw %"struct.toku::wfg::node", ptr %55, i32 0, i32 2
+  %57 = load i8, ptr %56, align 8, !tbaa !36, !range !20, !noundef !21
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %76, label %59
 
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %5 = phi i1 [ false, %for.cond ], [ %lnot, %land.rhs ]
-  br i1 %5, label %for.body, label %for.end
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %6, align 8, !tbaa !13
+  %61 = load ptr, ptr %13, align 8, !tbaa !13
+  call void @_ZNSt8functionIFvmEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %62 = invoke noundef zeroext i1 @_ZN4toku3wfg22cycle_exists_from_nodeEPNS0_4nodeES2_St8functionIFvmEE(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %60, ptr noundef %61, ptr noundef %14)
+          to label %63 unwind label %71
 
-for.body:                                         ; preds = %land.end
-  %6 = load ptr, ptr %head.addr, align 8
-  %edges2 = getelementptr inbounds %"struct.toku::wfg::node", ptr %6, i32 0, i32 1
-  %7 = load i32, ptr %i, align 4
-  %call3 = call noundef i64 @_ZNK4toku9txnid_set3getEj(ptr noundef nonnull align 8 dereferenceable(24) %edges2, i32 noundef %7)
-  store i64 %call3, ptr %edge_id, align 8
-  %8 = load ptr, ptr %target.addr, align 8
-  %txnid = getelementptr inbounds %"struct.toku::wfg::node", ptr %8, i32 0, i32 0
-  %9 = load i64, ptr %txnid, align 8
-  %10 = load i64, ptr %edge_id, align 8
-  %cmp4 = icmp eq i64 %9, %10
-  br i1 %cmp4, label %if.then, label %if.else
+63:                                               ; preds = %59
+  %64 = zext i1 %62 to i8
+  store i8 %64, ptr %9, align 1, !tbaa !35
+  call void @_ZNSt14_Function_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #10
+  %65 = load i8, ptr %9, align 1, !tbaa !35, !range !20, !noundef !21
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %75
 
-if.then:                                          ; preds = %for.body
-  store i8 1, ptr %cycle_found, align 1
-  %call5 = call noundef zeroext i1 @_ZNKSt8functionIFvmEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %reporter) #7
-  br i1 %call5, label %if.then6, label %if.end
+67:                                               ; preds = %63
+  %68 = call noundef zeroext i1 @_ZNKSt8functionIFvmEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
+  br i1 %68, label %69, label %75
 
-if.then6:                                         ; preds = %if.then
-  %11 = load i64, ptr %edge_id, align 8
-  call void @_ZNKSt8functionIFvmEEclEm(ptr noundef nonnull align 8 dereferenceable(32) %reporter, i64 noundef %11)
-  br label %if.end
+69:                                               ; preds = %67
+  %70 = load i64, ptr %12, align 8, !tbaa !27
+  call void @_ZNKSt8functionIFvmEEclEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %70)
+  br label %75
 
-if.end:                                           ; preds = %if.then6, %if.then
-  br label %if.end19
-
-if.else:                                          ; preds = %for.body
-  %12 = load i64, ptr %edge_id, align 8
-  %call7 = call noundef ptr @_ZN4toku3wfg9find_nodeEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %12)
-  store ptr %call7, ptr %new_head, align 8
-  %13 = load ptr, ptr %new_head, align 8
-  %tobool8 = icmp ne ptr %13, null
-  br i1 %tobool8, label %land.lhs.true, label %if.end18
-
-land.lhs.true:                                    ; preds = %if.else
-  %14 = load ptr, ptr %new_head, align 8
-  %visited9 = getelementptr inbounds %"struct.toku::wfg::node", ptr %14, i32 0, i32 2
-  %15 = load i8, ptr %visited9, align 8
-  %tobool10 = trunc i8 %15 to i1
-  br i1 %tobool10, label %if.end18, label %if.then11
-
-if.then11:                                        ; preds = %land.lhs.true
-  %16 = load ptr, ptr %target.addr, align 8
-  %17 = load ptr, ptr %new_head, align 8
-  call void @_ZNSt8functionIFvmEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %reporter)
-  %call12 = invoke noundef zeroext i1 @_ZN4toku3wfg22cycle_exists_from_nodeEPNS0_4nodeES2_St8functionIFvmEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %16, ptr noundef %17, ptr noundef %agg.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.then11
-  %frombool = zext i1 %call12 to i8
-  store i8 %frombool, ptr %cycle_found, align 1
-  call void @_ZNSt8functionIFvmEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #7
-  %18 = load i8, ptr %cycle_found, align 1
-  %tobool13 = trunc i8 %18 to i1
-  br i1 %tobool13, label %land.lhs.true14, label %if.end17
-
-land.lhs.true14:                                  ; preds = %invoke.cont
-  %call15 = call noundef zeroext i1 @_ZNKSt8functionIFvmEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %reporter) #7
-  br i1 %call15, label %if.then16, label %if.end17
-
-if.then16:                                        ; preds = %land.lhs.true14
-  %19 = load i64, ptr %edge_id, align 8
-  call void @_ZNKSt8functionIFvmEEclEm(ptr noundef nonnull align 8 dereferenceable(32) %reporter, i64 noundef %19)
-  br label %if.end17
-
-lpad:                                             ; preds = %if.then11
-  %20 = landingpad { ptr, i32 }
+71:                                               ; preds = %59
+  %72 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
-  call void @_ZNSt8functionIFvmEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #7
-  br label %eh.resume
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %15, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %16, align 4
+  call void @_ZNSt14_Function_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #10
+  br label %86
 
-if.end17:                                         ; preds = %if.then16, %land.lhs.true14, %invoke.cont
-  br label %if.end18
+75:                                               ; preds = %69, %67, %63
+  br label %76
 
-if.end18:                                         ; preds = %if.end17, %land.lhs.true, %if.else
-  br label %if.end19
+76:                                               ; preds = %75, %54, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  br label %77
 
-if.end19:                                         ; preds = %if.end18, %if.end
-  br label %for.inc
+77:                                               ; preds = %76, %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  br label %78
 
-for.inc:                                          ; preds = %if.end19
-  %23 = load i32, ptr %i, align 4
-  %inc = add i32 %23, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !6
+78:                                               ; preds = %77
+  %79 = load i32, ptr %11, align 4, !tbaa !11
+  %80 = add i32 %79, 1
+  store i32 %80, ptr %11, align 4, !tbaa !11
+  br label %23, !llvm.loop !37
 
-for.end:                                          ; preds = %land.end
-  %24 = load ptr, ptr %head.addr, align 8
-  %visited20 = getelementptr inbounds %"struct.toku::wfg::node", ptr %24, i32 0, i32 2
-  store i8 0, ptr %visited20, align 8
-  %25 = load i8, ptr %cycle_found, align 1
-  %tobool21 = trunc i8 %25 to i1
-  ret i1 %tobool21
+81:                                               ; preds = %33
+  %82 = load ptr, ptr %7, align 8, !tbaa !13
+  %83 = getelementptr inbounds nuw %"struct.toku::wfg::node", ptr %82, i32 0, i32 2
+  store i8 0, ptr %83, align 8, !tbaa !36
+  %84 = load i8, ptr %9, align 1, !tbaa !35, !range !20, !noundef !21
+  %85 = trunc i8 %84 to i1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #10
+  ret i1 %85
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val22 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val22
+86:                                               ; preds = %71
+  %87 = load ptr, ptr %15, align 8
+  %88 = load i32, ptr %16, align 4
+  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
+  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
+  resume { ptr, i32 } %90
 }
 
-declare noundef i32 @_ZNK4toku9txnid_set4sizeEv(ptr noundef nonnull align 8 dereferenceable(24)) #1
+declare noundef i32 @_ZNK4toku9txnid_set4sizeEv(ptr noundef nonnull align 8 dereferenceable(24)) #2
 
-declare noundef i64 @_ZNK4toku9txnid_set3getEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) #1
+declare noundef i64 @_ZNK4toku9txnid_set3getEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNKSt8functionIFvmEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = invoke noundef zeroext i1 @_ZNKSt14_Function_base8_M_emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr noundef zeroext i1 @_ZNKSt8functionIFvmEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8
+  %4 = invoke noundef zeroext i1 @_ZNKSt14_Function_base8_M_emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %5 unwind label %7
 
-invoke.cont:                                      ; preds = %entry
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
+5:                                                ; preds = %1
+  %6 = xor i1 %4, true
+  ret i1 %6
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #8
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #11
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNKSt8functionIFvmEEclEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__args) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__args.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__args, ptr %__args.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZNKSt14_Function_base8_M_emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  br i1 %call, label %if.then, label %if.end
+define linkonce_odr void @_ZNKSt8functionIFvmEEclEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store i64 %1, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef zeroext i1 @_ZNKSt14_Function_base8_M_emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  br i1 %6, label %7, label %8
 
-if.then:                                          ; preds = %entry
-  call void @_ZSt25__throw_bad_function_callv() #9
+7:                                                ; preds = %2
+  call void @_ZSt25__throw_bad_function_callv() #12
   unreachable
 
-if.end:                                           ; preds = %entry
-  %_M_invoker = getelementptr inbounds %"class.std::function", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_M_invoker, align 8
-  %_M_functor = getelementptr inbounds %"class.std::_Function_base", ptr %this1, i32 0, i32 0
-  call void %0(ptr noundef nonnull align 8 dereferenceable(16) %_M_functor, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr)
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw %"class.std::function", ptr %5, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8, !tbaa !38
+  %11 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %5, i32 0, i32 0
+  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt8functionIFvmEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %__x) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__x.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds i8, ptr %this1, i64 0
-  call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 24, i1 false)
-  call void @_ZNSt14_Function_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  %_M_invoker = getelementptr inbounds %"class.std::function", ptr %this1, i32 0, i32 1
-  store ptr null, ptr %_M_invoker, align 8
-  %1 = load ptr, ptr %__x.addr, align 8
-  %call = call noundef zeroext i1 @_ZNKSt8functionIFvmEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #7
-  br i1 %call, label %if.then, label %if.end
+define linkonce_odr void @_ZNSt8functionIFvmEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store ptr %1, ptr %4, align 8, !tbaa !33
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 0
+  call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 24, i1 false)
+  call void @_ZNSt14_Function_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
+  %9 = getelementptr inbounds nuw %"class.std::function", ptr %7, i32 0, i32 1
+  store ptr null, ptr %9, align 8, !tbaa !38
+  %10 = load ptr, ptr %4, align 8, !tbaa !33
+  %11 = call noundef zeroext i1 @_ZNKSt8functionIFvmEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #10
+  br i1 %11, label %12, label %33
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__x.addr, align 8
-  %_M_manager = getelementptr inbounds %"class.std::_Function_base", ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %_M_manager, align 8
-  %_M_functor = getelementptr inbounds %"class.std::_Function_base", ptr %this1, i32 0, i32 0
-  %4 = load ptr, ptr %__x.addr, align 8
-  %_M_functor2 = getelementptr inbounds %"class.std::_Function_base", ptr %4, i32 0, i32 0
-  %call3 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %_M_functor, ptr noundef nonnull align 8 dereferenceable(16) %_M_functor2, i32 noundef 2)
-          to label %invoke.cont unwind label %lpad
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !33
+  %14 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !41
+  %16 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %7, i32 0, i32 0
+  %17 = load ptr, ptr %4, align 8, !tbaa !33
+  %18 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %17, i32 0, i32 0
+  %19 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef 2)
+          to label %20 unwind label %29
 
-invoke.cont:                                      ; preds = %if.then
-  %5 = load ptr, ptr %__x.addr, align 8
-  %_M_invoker4 = getelementptr inbounds %"class.std::function", ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %_M_invoker4, align 8
-  %_M_invoker5 = getelementptr inbounds %"class.std::function", ptr %this1, i32 0, i32 1
-  store ptr %6, ptr %_M_invoker5, align 8
-  %7 = load ptr, ptr %__x.addr, align 8
-  %_M_manager6 = getelementptr inbounds %"class.std::_Function_base", ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %_M_manager6, align 8
-  %_M_manager7 = getelementptr inbounds %"class.std::_Function_base", ptr %this1, i32 0, i32 1
-  store ptr %8, ptr %_M_manager7, align 8
-  br label %if.end
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %4, align 8, !tbaa !33
+  %22 = getelementptr inbounds nuw %"class.std::function", ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !38
+  %24 = getelementptr inbounds nuw %"class.std::function", ptr %7, i32 0, i32 1
+  store ptr %23, ptr %24, align 8, !tbaa !38
+  %25 = load ptr, ptr %4, align 8, !tbaa !33
+  %26 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8, !tbaa !41
+  %28 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %7, i32 0, i32 1
+  store ptr %27, ptr %28, align 8, !tbaa !41
+  br label %33
 
-lpad:                                             ; preds = %if.then
-  %9 = landingpad { ptr, i32 }
+29:                                               ; preds = %12
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  call void @_ZNSt14_Function_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  br label %eh.resume
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %5, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %6, align 4
+  call void @_ZNSt14_Function_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
+  br label %34
 
-if.end:                                           ; preds = %invoke.cont, %entry
+33:                                               ; preds = %20, %2
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val8 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val8
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %5, align 8
+  %36 = load i32, ptr %6, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt8functionIFvmEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt14_Function_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  ret void
-}
+define linkonce_odr void @_ZNSt14_Function_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !41
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %14
 
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4toku3wfg23cycle_exists_from_txnidEmSt8functionIFvmEE(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %txnid, ptr noundef %reporter) #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %txnid.addr = alloca i64, align 8
-  %reporter.indirect_addr = alloca ptr, align 8
-  %a_node = alloca ptr, align 8
-  %cycles_found = alloca i8, align 1
-  %agg.tmp = alloca %"class.std::function", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %txnid, ptr %txnid.addr, align 8
-  store ptr %reporter, ptr %reporter.indirect_addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %txnid.addr, align 8
-  %call = call noundef ptr @_ZN4toku3wfg9find_nodeEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %0)
-  store ptr %call, ptr %a_node, align 8
-  store i8 0, ptr %cycles_found, align 1
-  %1 = load ptr, ptr %a_node, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %3, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
+  %10 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %3, i32 0, i32 0
+  %12 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+          to label %13 unwind label %15
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %a_node, align 8
-  %3 = load ptr, ptr %a_node, align 8
-  call void @_ZNSt8functionIFvmEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %reporter)
-  %call2 = invoke noundef zeroext i1 @_ZN4toku3wfg22cycle_exists_from_nodeEPNS0_4nodeES2_St8functionIFvmEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %2, ptr noundef %3, ptr noundef %agg.tmp)
-          to label %invoke.cont unwind label %lpad
+13:                                               ; preds = %7
+  br label %14
 
-invoke.cont:                                      ; preds = %if.then
-  %frombool = zext i1 %call2 to i8
-  store i8 %frombool, ptr %cycles_found, align 1
-  call void @_ZNSt8functionIFvmEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #7
-  br label %if.end
-
-lpad:                                             ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  call void @_ZNSt8functionIFvmEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #7
-  br label %eh.resume
-
-if.end:                                           ; preds = %invoke.cont, %entry
-  %7 = load i8, ptr %cycles_found, align 1
-  %tobool3 = trunc i8 %7 to i1
-  ret i1 %tobool3
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val4 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val4
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN4toku3wfg11apply_nodesEPFimPvES1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %fn, ptr noundef %extra) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %extra.addr = alloca ptr, align 8
-  %r = alloca i32, align 4
-  %n_nodes = alloca i32, align 4
-  %i = alloca i32, align 4
-  %n = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  store ptr %extra, ptr %extra.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %r, align 4
-  %m_nodes = getelementptr inbounds %"class.toku::wfg", ptr %this1, i32 0, i32 0
-  %call = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %m_nodes)
-  store i32 %call, ptr %n_nodes, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr %n_nodes, align 4
-  %cmp = icmp ult i32 %0, %1
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %for.cond
-  %2 = load i32, ptr %r, align 4
-  %cmp2 = icmp eq i32 %2, 0
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %3 = phi i1 [ false, %for.cond ], [ %cmp2, %land.rhs ]
-  br i1 %3, label %for.body, label %for.end
-
-for.body:                                         ; preds = %land.end
-  %m_nodes3 = getelementptr inbounds %"class.toku::wfg", ptr %this1, i32 0, i32 0
-  %4 = load i32, ptr %i, align 4
-  %call4 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_nodes3, i32 noundef %4, ptr noundef %n)
-  store i32 %call4, ptr %r, align 4
-  %5 = load i32, ptr %r, align 4
-  %tobool = icmp ne i32 %5, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  br label %for.inc
-
-if.end:                                           ; preds = %for.body
-  %6 = load ptr, ptr %fn.addr, align 8
-  %7 = load ptr, ptr %n, align 8
-  %txnid = getelementptr inbounds %"struct.toku::wfg::node", ptr %7, i32 0, i32 0
-  %8 = load i64, ptr %txnid, align 8
-  %9 = load ptr, ptr %extra.addr, align 8
-  %call5 = call noundef i32 %6(i64 noundef %8, ptr noundef %9)
-  store i32 %call5, ptr %r, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end, %if.then
-  %10 = load i32, ptr %i, align 4
-  %inc = add i32 %10, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
-
-for.end:                                          ; preds = %land.end
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN4toku3wfg11apply_edgesEmPFimmPvES1_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %txnid, ptr noundef %fn, ptr noundef %extra) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %txnid.addr = alloca i64, align 8
-  %fn.addr = alloca ptr, align 8
-  %extra.addr = alloca ptr, align 8
-  %n = alloca ptr, align 8
-  %r = alloca i32, align 4
-  %n_edges = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %txnid, ptr %txnid.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  store ptr %extra, ptr %extra.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %txnid.addr, align 8
-  %call = call noundef ptr @_ZN4toku3wfg9find_nodeEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %0)
-  store ptr %call, ptr %n, align 8
-  %1 = load ptr, ptr %n, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %r, align 4
-  %2 = load ptr, ptr %n, align 8
-  %edges = getelementptr inbounds %"struct.toku::wfg::node", ptr %2, i32 0, i32 1
-  %call2 = call noundef i32 @_ZNK4toku9txnid_set4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %edges)
-  store i32 %call2, ptr %n_edges, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then
-  %3 = load i32, ptr %i, align 4
-  %4 = load i32, ptr %n_edges, align 4
-  %cmp = icmp ult i32 %3, %4
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %for.cond
-  %5 = load i32, ptr %r, align 4
-  %cmp3 = icmp eq i32 %5, 0
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %6 = phi i1 [ false, %for.cond ], [ %cmp3, %land.rhs ]
-  br i1 %6, label %for.body, label %for.end
-
-for.body:                                         ; preds = %land.end
-  %7 = load ptr, ptr %fn.addr, align 8
-  %8 = load i64, ptr %txnid.addr, align 8
-  %9 = load ptr, ptr %n, align 8
-  %edges4 = getelementptr inbounds %"struct.toku::wfg::node", ptr %9, i32 0, i32 1
-  %10 = load i32, ptr %i, align 4
-  %call5 = call noundef i64 @_ZNK4toku9txnid_set3getEj(ptr noundef nonnull align 8 dereferenceable(24) %edges4, i32 noundef %10)
-  %11 = load ptr, ptr %extra.addr, align 8
-  %call6 = call noundef i32 %7(i64 noundef %8, i64 noundef %call5, ptr noundef %11)
-  store i32 %call6, ptr %r, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %12 = load i32, ptr %i, align 4
-  %inc = add i32 %12, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !8
-
-for.end:                                          ; preds = %land.end
-  br label %if.end
-
-if.end:                                           ; preds = %for.end, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %extra, ptr noundef %value, ptr noundef %idxp) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %extra.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  %idxp.addr = alloca ptr, align 8
-  %tmp_index = alloca i32, align 4
-  %child_idxp = alloca ptr, align 8
-  %r = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %extra, ptr %extra.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  store ptr %idxp, ptr %idxp.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %idxp.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %1 = load ptr, ptr %idxp.addr, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %1, %cond.true ], [ %tmp_index, %cond.false ]
-  store ptr %cond, ptr %child_idxp, align 8
-  %is_array = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 0
-  %2 = load i8, ptr %is_array, align 8
-  %tobool = trunc i8 %2 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %cond.end
-  %3 = load ptr, ptr %extra.addr, align 8
-  %4 = load ptr, ptr %value.addr, align 8
-  %5 = load ptr, ptr %child_idxp, align 8
-  %call = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, ptr noundef %5)
-  store i32 %call, ptr %r, align 4
-  br label %if.end
-
-if.else:                                          ; preds = %cond.end
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %root = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d, i32 0, i32 0
-  %6 = load ptr, ptr %extra.addr, align 8
-  %7 = load ptr, ptr %value.addr, align 8
-  %8 = load ptr, ptr %child_idxp, align 8
-  %call2 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE18find_internal_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEESA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %root, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7, ptr noundef %8)
-  store i32 %call2, ptr %r, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %9 = load i32, ptr %r, align 4
-  ret i32 %9
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN4toku3wfg13find_by_txnidERKPNS0_4nodeERKm(ptr noundef nonnull align 8 dereferenceable(8) %node_a, ptr noundef nonnull align 8 dereferenceable(8) %txnid_b) #2 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %node_a.addr = alloca ptr, align 8
-  %txnid_b.addr = alloca ptr, align 8
-  %txnid_a = alloca i64, align 8
-  store ptr %node_a, ptr %node_a.addr, align 8
-  store ptr %txnid_b, ptr %txnid_b.addr, align 8
-  %0 = load ptr, ptr %node_a.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  %txnid = getelementptr inbounds %"struct.toku::wfg::node", ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %txnid, align 8
-  store i64 %2, ptr %txnid_a, align 8
-  %3 = load i64, ptr %txnid_a, align 8
-  %4 = load ptr, ptr %txnid_b.addr, align 8
-  %5 = load i64, ptr %4, align 8
-  %cmp = icmp ult i64 %3, %5
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %6 = load i64, ptr %txnid_a, align 8
-  %7 = load ptr, ptr %txnid_b.addr, align 8
-  %8 = load i64, ptr %7, align 8
-  %cmp1 = icmp eq i64 %6, %8
-  br i1 %cmp1, label %if.then2, label %if.else3
-
-if.then2:                                         ; preds = %if.else
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.else3:                                         ; preds = %if.else
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.else3, %if.then2, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
-}
-
-; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4toku3wfg4node5allocEm(i64 noundef %txnid) #0 align 2 {
-entry:
-  %txnid.addr = alloca i64, align 8
-  %n = alloca ptr, align 8
-  store i64 %txnid, ptr %txnid.addr, align 8
-  %call = call noundef ptr @_Z12toku_xcallocmm(i64 noundef 1, i64 noundef 40)
-  store ptr %call, ptr %n, align 8
-  %0 = load i64, ptr %txnid.addr, align 8
-  %1 = load ptr, ptr %n, align 8
-  %txnid1 = getelementptr inbounds %"struct.toku::wfg::node", ptr %1, i32 0, i32 0
-  store i64 %0, ptr %txnid1, align 8
-  %2 = load ptr, ptr %n, align 8
-  %visited = getelementptr inbounds %"struct.toku::wfg::node", ptr %2, i32 0, i32 2
-  store i8 0, ptr %visited, align 8
-  %3 = load ptr, ptr %n, align 8
-  %edges = getelementptr inbounds %"struct.toku::wfg::node", ptr %3, i32 0, i32 1
-  call void @_ZN4toku9txnid_set6createEv(ptr noundef nonnull align 8 dereferenceable(24) %edges)
-  %4 = load ptr, ptr %n, align 8
-  ret ptr %4
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE9insert_atERKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %value, i32 noundef %idx) #0 comdat align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  %idx.addr = alloca i32, align 4
-  %rebalance_subtree = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  store i32 %idx, ptr %idx.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4tokuL14barf_if_markedIPNS_3wfg4nodeES3_EEvRKNS_3omtIT_T0_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  %0 = load i32, ptr %idx.addr, align 4
-  %call = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  %cmp = icmp ugt i32 %0, %call
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 22, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call2 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  %add = add i32 %call2, 1
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE23maybe_resize_or_convertEj(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %add)
-  %is_array = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 0
-  %1 = load i8, ptr %is_array, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %land.lhs.true, label %if.end9
-
-land.lhs.true:                                    ; preds = %if.end
-  %2 = load i32, ptr %idx.addr, align 4
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %num_values = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d, i32 0, i32 1
-  %3 = load i32, ptr %num_values, align 4
-  %cmp3 = icmp ne i32 %2, %3
-  br i1 %cmp3, label %land.lhs.true4, label %if.end9
-
-land.lhs.true4:                                   ; preds = %land.lhs.true
-  %4 = load i32, ptr %idx.addr, align 4
-  %cmp5 = icmp ne i32 %4, 0
-  br i1 %cmp5, label %if.then8, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.lhs.true4
-  %d6 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %start_idx = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d6, i32 0, i32 0
-  %5 = load i32, ptr %start_idx, align 8
-  %cmp7 = icmp eq i32 %5, 0
-  br i1 %cmp7, label %if.then8, label %if.end9
-
-if.then8:                                         ; preds = %lor.lhs.false, %land.lhs.true4
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15convert_to_treeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.then8, %lor.lhs.false, %land.lhs.true, %if.end
-  %is_array10 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 0
-  %6 = load i8, ptr %is_array10, align 8
-  %tobool11 = trunc i8 %6 to i1
-  br i1 %tobool11, label %if.then12, label %if.else32
-
-if.then12:                                        ; preds = %if.end9
-  %7 = load i32, ptr %idx.addr, align 4
-  %d13 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %num_values14 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d13, i32 0, i32 1
-  %8 = load i32, ptr %num_values14, align 4
-  %cmp15 = icmp eq i32 %7, %8
-  br i1 %cmp15, label %if.then16, label %if.else
-
-if.then16:                                        ; preds = %if.then12
-  %9 = load ptr, ptr %value.addr, align 8
-  %10 = load ptr, ptr %9, align 8
-  %d17 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %values = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d17, i32 0, i32 2
-  %11 = load ptr, ptr %values, align 8
-  %d18 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %start_idx19 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d18, i32 0, i32 0
-  %12 = load i32, ptr %start_idx19, align 8
-  %d20 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %num_values21 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d20, i32 0, i32 1
-  %13 = load i32, ptr %num_values21, align 4
-  %add22 = add i32 %12, %13
-  %idxprom = zext i32 %add22 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %idxprom
-  store ptr %10, ptr %arrayidx, align 8
-  br label %if.end29
-
-if.else:                                          ; preds = %if.then12
-  %14 = load ptr, ptr %value.addr, align 8
-  %15 = load ptr, ptr %14, align 8
-  %d23 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %values24 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d23, i32 0, i32 2
-  %16 = load ptr, ptr %values24, align 8
-  %d25 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %start_idx26 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d25, i32 0, i32 0
-  %17 = load i32, ptr %start_idx26, align 8
-  %dec = add i32 %17, -1
-  store i32 %dec, ptr %start_idx26, align 8
-  %idxprom27 = zext i32 %dec to i64
-  %arrayidx28 = getelementptr inbounds ptr, ptr %16, i64 %idxprom27
-  store ptr %15, ptr %arrayidx28, align 8
-  br label %if.end29
-
-if.end29:                                         ; preds = %if.else, %if.then16
-  %d30 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %num_values31 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d30, i32 0, i32 1
-  %18 = load i32, ptr %num_values31, align 4
-  %inc = add i32 %18, 1
-  store i32 %inc, ptr %num_values31, align 4
-  br label %if.end37
-
-if.else32:                                        ; preds = %if.end9
-  store ptr null, ptr %rebalance_subtree, align 8
-  %d33 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %root = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d33, i32 0, i32 0
-  %19 = load ptr, ptr %value.addr, align 8
-  %20 = load i32, ptr %idx.addr, align 4
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15insert_internalEPNS_12omt_internal17subtree_templatedILb0EEERKS3_jPS8_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %root, ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef %20, ptr noundef %rebalance_subtree)
-  %21 = load ptr, ptr %rebalance_subtree, align 8
-  %cmp34 = icmp ne ptr %21, null
-  br i1 %cmp34, label %if.then35, label %if.end36
-
-if.then35:                                        ; preds = %if.else32
-  %22 = load ptr, ptr %rebalance_subtree, align 8
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE9rebalanceEPNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %22)
-  br label %if.end36
-
-if.end36:                                         ; preds = %if.then35, %if.else32
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.end36, %if.end29
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end37, %if.then
-  %23 = load i32, ptr %retval, align 4
-  ret i32 %23
-}
-
-declare noundef ptr @_Z12toku_xcallocmm(i64 noundef, i64 noundef) #1
-
-declare void @_ZN4toku9txnid_set6createEv(ptr noundef nonnull align 8 dereferenceable(24)) #1
-
-declare void @_ZN4toku9txnid_set7destroyEv(ptr noundef nonnull align 8 dereferenceable(24)) #1
-
-declare void @_Z9toku_freePv(ptr noundef) #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt14_Function_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_manager = getelementptr inbounds %"class.std::_Function_base", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_M_manager, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %_M_manager2 = getelementptr inbounds %"class.std::_Function_base", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %_M_manager2, align 8
-  %_M_functor = getelementptr inbounds %"class.std::_Function_base", ptr %this1, i32 0, i32 0
-  %_M_functor3 = getelementptr inbounds %"class.std::_Function_base", ptr %this1, i32 0, i32 0
-  %call = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %_M_functor, ptr noundef nonnull align 8 dereferenceable(16) %_M_functor3, i32 noundef 3)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %if.then
-  br label %if.end
-
-if.end:                                           ; preds = %invoke.cont, %entry
+14:                                               ; preds = %13, %1
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+15:                                               ; preds = %7
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #8
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #11
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #3 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #7
-  call void @_ZSt9terminatev() #8
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN4toku3wfg23cycle_exists_from_txnidEmSt8functionIFvmEE(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca %"class.std::function", align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i64 %1, ptr %5, align 8, !tbaa !27
+  store ptr %2, ptr %6, align 8, !tbaa !33
+  %12 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %13 = load i64, ptr %5, align 8, !tbaa !27
+  %14 = call noundef ptr @_ZN4toku3wfg9find_nodeEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %13)
+  store ptr %14, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #10
+  store i8 0, ptr %8, align 1, !tbaa !35
+  %15 = load ptr, ptr %7, align 8, !tbaa !13
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %27
+
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %7, align 8, !tbaa !13
+  %19 = load ptr, ptr %7, align 8, !tbaa !13
+  call void @_ZNSt8functionIFvmEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %20 = invoke noundef zeroext i1 @_ZN4toku3wfg22cycle_exists_from_nodeEPNS0_4nodeES2_St8functionIFvmEE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %18, ptr noundef %19, ptr noundef %9)
+          to label %21 unwind label %23
+
+21:                                               ; preds = %17
+  %22 = zext i1 %20 to i8
+  store i8 %22, ptr %8, align 1, !tbaa !35
+  call void @_ZNSt14_Function_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
+  br label %27
+
+23:                                               ; preds = %17
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %10, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %11, align 4
+  call void @_ZNSt14_Function_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  br label %30
+
+27:                                               ; preds = %21, %3
+  %28 = load i8, ptr %8, align 1, !tbaa !35, !range !20, !noundef !21
+  %29 = trunc i8 %28 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  ret i1 %29
+
+30:                                               ; preds = %23
+  %31 = load ptr, ptr %10, align 8
+  %32 = load i32, ptr %11, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN4toku3wfg11apply_nodesEPFimPvES1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !44
+  store ptr %2, ptr %6, align 8, !tbaa !44
+  %12 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  store i32 0, ptr %7, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  %13 = getelementptr inbounds nuw %"class.toku::wfg", ptr %12, i32 0, i32 0
+  %14 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
+  store i32 %14, ptr %8, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  store i32 0, ptr %9, align 4, !tbaa !11
+  br label %15
+
+15:                                               ; preds = %42, %3
+  %16 = load i32, ptr %9, align 4, !tbaa !11
+  %17 = load i32, ptr %8, align 4, !tbaa !11
+  %18 = icmp ult i32 %16, %17
+  br i1 %18, label %19, label %22
+
+19:                                               ; preds = %15
+  %20 = load i32, ptr %7, align 4, !tbaa !11
+  %21 = icmp eq i32 %20, 0
+  br label %22
+
+22:                                               ; preds = %19, %15
+  %23 = phi i1 [ false, %15 ], [ %21, %19 ]
+  br i1 %23, label %25, label %24
+
+24:                                               ; preds = %22
+  store i32 2, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  br label %45
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %26 = getelementptr inbounds nuw %"class.toku::wfg", ptr %12, i32 0, i32 0
+  %27 = load i32, ptr %9, align 4, !tbaa !11
+  %28 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %26, i32 noundef %27, ptr noundef %11)
+  store i32 %28, ptr %7, align 4, !tbaa !11
+  %29 = load i32, ptr %7, align 4, !tbaa !11
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %25
+  store i32 4, ptr %10, align 4
+  br label %39
+
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %5, align 8, !tbaa !44
+  %34 = load ptr, ptr %11, align 8, !tbaa !13
+  %35 = getelementptr inbounds nuw %"struct.toku::wfg::node", ptr %34, i32 0, i32 0
+  %36 = load i64, ptr %35, align 8, !tbaa !29
+  %37 = load ptr, ptr %6, align 8, !tbaa !44
+  %38 = call noundef i32 %33(i64 noundef %36, ptr noundef %37)
+  store i32 %38, ptr %7, align 4, !tbaa !11
+  store i32 0, ptr %10, align 4
+  br label %39
+
+39:                                               ; preds = %32, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  %40 = load i32, ptr %10, align 4
+  switch i32 %40, label %46 [
+    i32 0, label %41
+    i32 4, label %42
+  ]
+
+41:                                               ; preds = %39
+  br label %42
+
+42:                                               ; preds = %41, %39
+  %43 = load i32, ptr %9, align 4, !tbaa !11
+  %44 = add i32 %43, 1
+  store i32 %44, ptr %9, align 4, !tbaa !11
+  br label %15, !llvm.loop !45
+
+45:                                               ; preds = %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  ret void
+
+46:                                               ; preds = %39
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN4toku3wfg11apply_edgesEmPFimmPvES1_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i64 %1, ptr %6, align 8, !tbaa !27
+  store ptr %2, ptr %7, align 8, !tbaa !44
+  store ptr %3, ptr %8, align 8, !tbaa !44
+  %13 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %14 = load i64, ptr %6, align 8, !tbaa !27
+  %15 = call noundef ptr @_ZN4toku3wfg9find_nodeEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %14)
+  store ptr %15, ptr %9, align 8, !tbaa !13
+  %16 = load ptr, ptr %9, align 8, !tbaa !13
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %45
+
+18:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  store i32 0, ptr %10, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  %19 = load ptr, ptr %9, align 8, !tbaa !13
+  %20 = getelementptr inbounds nuw %"struct.toku::wfg::node", ptr %19, i32 0, i32 1
+  %21 = call noundef i32 @_ZNK4toku9txnid_set4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %20)
+  store i32 %21, ptr %11, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  store i32 0, ptr %12, align 4, !tbaa !11
+  br label %22
+
+22:                                               ; preds = %41, %18
+  %23 = load i32, ptr %12, align 4, !tbaa !11
+  %24 = load i32, ptr %11, align 4, !tbaa !11
+  %25 = icmp ult i32 %23, %24
+  br i1 %25, label %26, label %29
+
+26:                                               ; preds = %22
+  %27 = load i32, ptr %10, align 4, !tbaa !11
+  %28 = icmp eq i32 %27, 0
+  br label %29
+
+29:                                               ; preds = %26, %22
+  %30 = phi i1 [ false, %22 ], [ %28, %26 ]
+  br i1 %30, label %32, label %31
+
+31:                                               ; preds = %29
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  br label %44
+
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %7, align 8, !tbaa !44
+  %34 = load i64, ptr %6, align 8, !tbaa !27
+  %35 = load ptr, ptr %9, align 8, !tbaa !13
+  %36 = getelementptr inbounds nuw %"struct.toku::wfg::node", ptr %35, i32 0, i32 1
+  %37 = load i32, ptr %12, align 4, !tbaa !11
+  %38 = call noundef i64 @_ZNK4toku9txnid_set3getEj(ptr noundef nonnull align 8 dereferenceable(24) %36, i32 noundef %37)
+  %39 = load ptr, ptr %8, align 8, !tbaa !44
+  %40 = call noundef i32 %33(i64 noundef %34, i64 noundef %38, ptr noundef %39)
+  store i32 %40, ptr %10, align 4, !tbaa !11
+  br label %41
+
+41:                                               ; preds = %32
+  %42 = load i32, ptr %12, align 4, !tbaa !11
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %12, align 4, !tbaa !11
+  br label %22, !llvm.loop !46
+
+44:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  br label %45
+
+45:                                               ; preds = %44, %4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store ptr %1, ptr %6, align 8, !tbaa !47
+  store ptr %2, ptr %7, align 8, !tbaa !23
+  store ptr %3, ptr %8, align 8, !tbaa !49
+  %12 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %13 = load ptr, ptr %8, align 8, !tbaa !49
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %8, align 8, !tbaa !49
+  br label %18
+
+17:                                               ; preds = %4
+  br label %18
+
+18:                                               ; preds = %17, %15
+  %19 = phi ptr [ %16, %15 ], [ %9, %17 ]
+  store ptr %19, ptr %10, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  %20 = getelementptr inbounds nuw %"class.toku::omt", ptr %12, i32 0, i32 0
+  %21 = load i8, ptr %20, align 8, !tbaa !17, !range !20, !noundef !21
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %28
+
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %6, align 8, !tbaa !47
+  %25 = load ptr, ptr %7, align 8, !tbaa !23
+  %26 = load ptr, ptr %10, align 8, !tbaa !49
+  %27 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %25, ptr noundef %26)
+  store i32 %27, ptr %11, align 4, !tbaa !11
+  br label %35
+
+28:                                               ; preds = %18
+  %29 = getelementptr inbounds nuw %"class.toku::omt", ptr %12, i32 0, i32 2
+  %30 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %6, align 8, !tbaa !47
+  %32 = load ptr, ptr %7, align 8, !tbaa !23
+  %33 = load ptr, ptr %10, align 8, !tbaa !49
+  %34 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE18find_internal_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEESA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %32, ptr noundef %33)
+  store i32 %34, ptr %11, align 4, !tbaa !11
+  br label %35
+
+35:                                               ; preds = %28, %23
+  %36 = load i32, ptr %11, align 4, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  ret i32 %36
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define noundef i32 @_ZN4toku3wfg13find_by_txnidERKPNS0_4nodeERKm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !23
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %8 = load ptr, ptr %4, align 8, !tbaa !23
+  %9 = load ptr, ptr %8, align 8, !tbaa !13
+  %10 = getelementptr inbounds nuw %"struct.toku::wfg::node", ptr %9, i32 0, i32 0
+  %11 = load i64, ptr %10, align 8, !tbaa !29
+  store i64 %11, ptr %6, align 8, !tbaa !27
+  %12 = load i64, ptr %6, align 8, !tbaa !27
+  %13 = load ptr, ptr %5, align 8, !tbaa !47
+  %14 = load i64, ptr %13, align 8, !tbaa !27
+  %15 = icmp ult i64 %12, %14
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %2
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %24
+
+17:                                               ; preds = %2
+  %18 = load i64, ptr %6, align 8, !tbaa !27
+  %19 = load ptr, ptr %5, align 8, !tbaa !47
+  %20 = load i64, ptr %19, align 8, !tbaa !27
+  %21 = icmp eq i64 %18, %20
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %17
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %24
+
+23:                                               ; preds = %17
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %24
+
+24:                                               ; preds = %23, %22, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %25 = load i32, ptr %3, align 4
+  ret i32 %25
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef ptr @_ZN4toku3wfg4node5allocEm(i64 noundef %0) #0 align 2 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %4 = call noundef ptr @_Z12toku_xcallocmm(i64 noundef 1, i64 noundef 40)
+  store ptr %4, ptr %3, align 8, !tbaa !13
+  %5 = load i64, ptr %2, align 8, !tbaa !27
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  %7 = getelementptr inbounds nuw %"struct.toku::wfg::node", ptr %6, i32 0, i32 0
+  store i64 %5, ptr %7, align 8, !tbaa !29
+  %8 = load ptr, ptr %3, align 8, !tbaa !13
+  %9 = getelementptr inbounds nuw %"struct.toku::wfg::node", ptr %8, i32 0, i32 2
+  store i8 0, ptr %9, align 8, !tbaa !36
+  %10 = load ptr, ptr %3, align 8, !tbaa !13
+  %11 = getelementptr inbounds nuw %"struct.toku::wfg::node", ptr %10, i32 0, i32 1
+  call void @_ZN4toku9txnid_set6createEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
+  %12 = load ptr, ptr %3, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  ret ptr %12
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i32 @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE9insert_atERKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) #0 comdat align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store ptr %1, ptr %6, align 8, !tbaa !23
+  store i32 %2, ptr %7, align 4, !tbaa !11
+  %9 = load ptr, ptr %5, align 8
+  call void @_ZN4tokuL14barf_if_markedIPNS_3wfg4nodeES3_EEvRKNS_3omtIT_T0_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %9)
+  %10 = load i32, ptr %7, align 4, !tbaa !11
+  %11 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
+  %12 = icmp ugt i32 %10, %11
+  br i1 %12, label %13, label %14
+
+13:                                               ; preds = %3
+  store i32 22, ptr %4, align 4
+  br label %88
+
+14:                                               ; preds = %3
+  %15 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = add i32 %15, 1
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE23maybe_resize_or_convertEj(ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %16)
+  %17 = getelementptr inbounds nuw %"class.toku::omt", ptr %9, i32 0, i32 0
+  %18 = load i8, ptr %17, align 8, !tbaa !17, !range !20, !noundef !21
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %35
+
+20:                                               ; preds = %14
+  %21 = load i32, ptr %7, align 4, !tbaa !11
+  %22 = getelementptr inbounds nuw %"class.toku::omt", ptr %9, i32 0, i32 2
+  %23 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !22
+  %25 = icmp ne i32 %21, %24
+  br i1 %25, label %26, label %35
+
+26:                                               ; preds = %20
+  %27 = load i32, ptr %7, align 4, !tbaa !11
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %34, label %29
+
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw %"class.toku::omt", ptr %9, i32 0, i32 2
+  %31 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %30, i32 0, i32 0
+  %32 = load i32, ptr %31, align 8, !tbaa !22
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %35
+
+34:                                               ; preds = %29, %26
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15convert_to_treeEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
+  br label %35
+
+35:                                               ; preds = %34, %29, %20, %14
+  %36 = getelementptr inbounds nuw %"class.toku::omt", ptr %9, i32 0, i32 0
+  %37 = load i8, ptr %36, align 8, !tbaa !17, !range !20, !noundef !21
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %77
+
+39:                                               ; preds = %35
+  %40 = load i32, ptr %7, align 4, !tbaa !11
+  %41 = getelementptr inbounds nuw %"class.toku::omt", ptr %9, i32 0, i32 2
+  %42 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %41, i32 0, i32 1
+  %43 = load i32, ptr %42, align 4, !tbaa !22
+  %44 = icmp eq i32 %40, %43
+  br i1 %44, label %45, label %60
+
+45:                                               ; preds = %39
+  %46 = load ptr, ptr %6, align 8, !tbaa !23
+  %47 = load ptr, ptr %46, align 8, !tbaa !13
+  %48 = getelementptr inbounds nuw %"class.toku::omt", ptr %9, i32 0, i32 2
+  %49 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %48, i32 0, i32 2
+  %50 = load ptr, ptr %49, align 8, !tbaa !22
+  %51 = getelementptr inbounds nuw %"class.toku::omt", ptr %9, i32 0, i32 2
+  %52 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %51, i32 0, i32 0
+  %53 = load i32, ptr %52, align 8, !tbaa !22
+  %54 = getelementptr inbounds nuw %"class.toku::omt", ptr %9, i32 0, i32 2
+  %55 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %54, i32 0, i32 1
+  %56 = load i32, ptr %55, align 4, !tbaa !22
+  %57 = add i32 %53, %56
+  %58 = zext i32 %57 to i64
+  %59 = getelementptr inbounds nuw ptr, ptr %50, i64 %58
+  store ptr %47, ptr %59, align 8, !tbaa !13
+  br label %72
+
+60:                                               ; preds = %39
+  %61 = load ptr, ptr %6, align 8, !tbaa !23
+  %62 = load ptr, ptr %61, align 8, !tbaa !13
+  %63 = getelementptr inbounds nuw %"class.toku::omt", ptr %9, i32 0, i32 2
+  %64 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %63, i32 0, i32 2
+  %65 = load ptr, ptr %64, align 8, !tbaa !22
+  %66 = getelementptr inbounds nuw %"class.toku::omt", ptr %9, i32 0, i32 2
+  %67 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %66, i32 0, i32 0
+  %68 = load i32, ptr %67, align 8, !tbaa !22
+  %69 = add i32 %68, -1
+  store i32 %69, ptr %67, align 8, !tbaa !22
+  %70 = zext i32 %69 to i64
+  %71 = getelementptr inbounds nuw ptr, ptr %65, i64 %70
+  store ptr %62, ptr %71, align 8, !tbaa !13
+  br label %72
+
+72:                                               ; preds = %60, %45
+  %73 = getelementptr inbounds nuw %"class.toku::omt", ptr %9, i32 0, i32 2
+  %74 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %73, i32 0, i32 1
+  %75 = load i32, ptr %74, align 4, !tbaa !22
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %74, align 4, !tbaa !22
+  br label %87
+
+77:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  store ptr null, ptr %8, align 8, !tbaa !51
+  %78 = getelementptr inbounds nuw %"class.toku::omt", ptr %9, i32 0, i32 2
+  %79 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %78, i32 0, i32 0
+  %80 = load ptr, ptr %6, align 8, !tbaa !23
+  %81 = load i32, ptr %7, align 4, !tbaa !11
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15insert_internalEPNS_12omt_internal17subtree_templatedILb0EEERKS3_jPS8_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %79, ptr noundef nonnull align 8 dereferenceable(8) %80, i32 noundef %81, ptr noundef %8)
+  %82 = load ptr, ptr %8, align 8, !tbaa !51
+  %83 = icmp ne ptr %82, null
+  br i1 %83, label %84, label %86
+
+84:                                               ; preds = %77
+  %85 = load ptr, ptr %8, align 8, !tbaa !51
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE9rebalanceEPNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %85)
+  br label %86
+
+86:                                               ; preds = %84, %77
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  br label %87
+
+87:                                               ; preds = %86, %72
+  store i32 0, ptr %4, align 4
+  br label %88
+
+88:                                               ; preds = %87, %13
+  %89 = load i32, ptr %4, align 4
+  ret i32 %89
+}
+
+declare noundef ptr @_Z12toku_xcallocmm(i64 noundef, i64 noundef) #2
+
+declare void @_ZN4toku9txnid_set6createEv(ptr noundef nonnull align 8 dereferenceable(24)) #2
+
+declare void @_ZN4toku9txnid_set7destroyEv(ptr noundef nonnull align 8 dereferenceable(24)) #2
+
+declare void @_Z9toku_freePv(ptr noundef) #2
+
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #4 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #10
+  call void @_ZSt9terminatev() #11
   unreachable
 }
 
@@ -1218,1573 +1312,1648 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15create_internalEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %new_capacity) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %new_capacity.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %new_capacity, ptr %new_capacity.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %new_capacity.addr, align 4
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE24create_internal_no_arrayEj(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  %capacity = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %capacity, align 4
-  %conv = zext i32 %1 to i64
-  %mul = mul i64 %conv, 8
-  %call = call noundef ptr @_Z12toku_xmallocm(i64 noundef %mul)
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %values = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d, i32 0, i32 2
-  store ptr %call, ptr %values, align 8
+define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15create_internalEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !11
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE24create_internal_no_arrayEj(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %6)
+  %7 = getelementptr inbounds nuw %"class.toku::omt", ptr %5, i32 0, i32 1
+  %8 = load i32, ptr %7, align 4, !tbaa !26
+  %9 = zext i32 %8 to i64
+  %10 = mul i64 %9, 8
+  %11 = call noundef ptr @_Z12toku_xmallocm(i64 noundef %10)
+  %12 = getelementptr inbounds nuw %"class.toku::omt", ptr %5, i32 0, i32 2
+  %13 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %12, i32 0, i32 2
+  store ptr %11, ptr %13, align 8, !tbaa !22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE24create_internal_no_arrayEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %new_capacity) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %new_capacity.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %new_capacity, ptr %new_capacity.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %is_array = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 0
-  store i8 1, ptr %is_array, align 8
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %start_idx = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d, i32 0, i32 0
-  store i32 0, ptr %start_idx, align 8
-  %d2 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %num_values = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d2, i32 0, i32 1
-  store i32 0, ptr %num_values, align 4
-  %d3 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %values = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d3, i32 0, i32 2
-  store ptr null, ptr %values, align 8
-  %0 = load i32, ptr %new_capacity.addr, align 4
-  %capacity = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 1
-  store i32 %0, ptr %capacity, align 4
+define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE24create_internal_no_arrayEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.toku::omt", ptr %5, i32 0, i32 0
+  store i8 1, ptr %6, align 8, !tbaa !17
+  %7 = getelementptr inbounds nuw %"class.toku::omt", ptr %5, i32 0, i32 2
+  %8 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %7, i32 0, i32 0
+  store i32 0, ptr %8, align 8, !tbaa !22
+  %9 = getelementptr inbounds nuw %"class.toku::omt", ptr %5, i32 0, i32 2
+  %10 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %9, i32 0, i32 1
+  store i32 0, ptr %10, align 4, !tbaa !22
+  %11 = getelementptr inbounds nuw %"class.toku::omt", ptr %5, i32 0, i32 2
+  %12 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %11, i32 0, i32 2
+  store ptr null, ptr %12, align 8, !tbaa !22
+  %13 = load i32, ptr %4, align 4, !tbaa !11
+  %14 = getelementptr inbounds nuw %"class.toku::omt", ptr %5, i32 0, i32 1
+  store i32 %13, ptr %14, align 4, !tbaa !26
   ret void
 }
 
-declare noundef ptr @_Z12toku_xmallocm(i64 noundef) #1
+declare noundef ptr @_Z12toku_xmallocm(i64 noundef) #2
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %st) #0 comdat align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %st.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %st, ptr %st.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %st.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4toku12omt_internal17subtree_templatedILb0EE7is_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %0)
-  br i1 %call, label %if.then, label %if.else
+define linkonce_odr noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #0 comdat align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  store ptr %1, ptr %5, align 8, !tbaa !51
+  %6 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %5, align 8, !tbaa !51
+  %8 = call noundef zeroext i1 @_ZNK4toku12omt_internal17subtree_templatedILb0EE7is_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %7)
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+9:                                                ; preds = %2
+  store i32 0, ptr %3, align 4
+  br label %20
 
-if.else:                                          ; preds = %entry
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d, i32 0, i32 2
-  %1 = load ptr, ptr %nodes, align 8
-  %2 = load ptr, ptr %st.addr, align 8
-  %call2 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %idxprom = zext i32 %call2 to i64
-  %arrayidx = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %1, i64 %idxprom
-  %weight = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %arrayidx, i32 0, i32 1
-  %3 = load i32, ptr %weight, align 8
-  store i32 %3, ptr %retval, align 4
-  br label %return
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw %"class.toku::omt", ptr %6, i32 0, i32 2
+  %12 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %11, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
+  %14 = load ptr, ptr %5, align 8, !tbaa !51
+  %15 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %16 = zext i32 %15 to i64
+  %17 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %13, i64 %16
+  %18 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %17, i32 0, i32 1
+  %19 = load i32, ptr %18, align 8, !tbaa !53
+  store i32 %19, ptr %3, align 4
+  br label %20
 
-return:                                           ; preds = %if.else, %if.then
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
+20:                                               ; preds = %10, %9
+  %21 = load i32, ptr %3, align 4
+  ret i32 %21
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK4toku12omt_internal17subtree_templatedILb0EE7is_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %5 = icmp eq i32 -1, %4
+  ret i1 %5
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.toku::omt_internal::subtree_templated", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 4, !tbaa !56
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK4toku12omt_internal17subtree_templatedILb0EE7is_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %this1)
-  %cmp = icmp eq i32 -1, %call
-  ret i1 %cmp
-}
+define linkonce_odr void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE20fetch_internal_arrayEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  store i32 %1, ptr %5, align 4, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !23
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %22
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_index = getelementptr inbounds %"class.toku::omt_internal::subtree_templated", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %m_index, align 4
-  ret i32 %0
-}
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %6, align 8, !tbaa !23
+  %12 = getelementptr inbounds nuw %"class.toku::omt", ptr %7, i32 0, i32 2
+  %13 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !22
+  %15 = getelementptr inbounds nuw %"class.toku::omt", ptr %7, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %15, i32 0, i32 0
+  %17 = load i32, ptr %16, align 8, !tbaa !22
+  %18 = load i32, ptr %5, align 4, !tbaa !11
+  %19 = add i32 %17, %18
+  %20 = zext i32 %19 to i64
+  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %20
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE7copyoutEPS3_PKS3_(ptr noundef %11, ptr noundef %21)
+  br label %22
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE20fetch_internal_arrayEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %i, ptr noundef %value) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %i.addr = alloca i32, align 4
-  %value.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %i, ptr %i.addr, align 4
-  store ptr %value, ptr %value.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %value.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %value.addr, align 8
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %values = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d, i32 0, i32 2
-  %2 = load ptr, ptr %values, align 8
-  %d2 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %start_idx = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d2, i32 0, i32 0
-  %3 = load i32, ptr %start_idx, align 8
-  %4 = load i32, ptr %i.addr, align 4
-  %add = add i32 %3, %4
-  %idxprom = zext i32 %add to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE7copyoutEPS3_PKS3_(ptr noundef %1, ptr noundef %arrayidx)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
+22:                                               ; preds = %10, %3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE14fetch_internalERKNS_12omt_internal17subtree_templatedILb0EEEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %st, i32 noundef %i, ptr noundef %value) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %st.addr = alloca ptr, align 8
-  %i.addr = alloca i32, align 4
-  %value.addr = alloca ptr, align 8
-  %n = alloca ptr, align 8
-  %leftweight = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %st, ptr %st.addr, align 8
-  store i32 %i, ptr %i.addr, align 4
-  store ptr %value, ptr %value.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d, i32 0, i32 2
-  %0 = load ptr, ptr %nodes, align 8
-  %1 = load ptr, ptr %st.addr, align 8
-  %call = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %idxprom = zext i32 %call to i64
-  %arrayidx = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %0, i64 %idxprom
-  store ptr %arrayidx, ptr %n, align 8
-  %2 = load ptr, ptr %n, align 8
-  %left = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %2, i32 0, i32 2
-  %call2 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %left)
-  store i32 %call2, ptr %leftweight, align 4
-  %3 = load i32, ptr %i.addr, align 4
-  %4 = load i32, ptr %leftweight, align 4
-  %cmp = icmp ult i32 %3, %4
-  br i1 %cmp, label %if.then, label %if.else
+define linkonce_odr void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE14fetch_internalERKNS_12omt_internal17subtree_templatedILb0EEEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, ptr noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store ptr %1, ptr %6, align 8, !tbaa !51
+  store i32 %2, ptr %7, align 4, !tbaa !11
+  store ptr %3, ptr %8, align 8, !tbaa !23
+  %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %12 = getelementptr inbounds nuw %"class.toku::omt", ptr %11, i32 0, i32 2
+  %13 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !22
+  %15 = load ptr, ptr %6, align 8, !tbaa !51
+  %16 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %15)
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %14, i64 %17
+  store ptr %18, ptr %9, align 8, !tbaa !57
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  %19 = load ptr, ptr %9, align 8, !tbaa !57
+  %20 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %19, i32 0, i32 2
+  %21 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 4 dereferenceable(4) %20)
+  store i32 %21, ptr %10, align 4, !tbaa !11
+  %22 = load i32, ptr %7, align 4, !tbaa !11
+  %23 = load i32, ptr %10, align 4, !tbaa !11
+  %24 = icmp ult i32 %22, %23
+  br i1 %24, label %25, label %30
 
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %n, align 8
-  %left3 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %5, i32 0, i32 2
-  %6 = load i32, ptr %i.addr, align 4
-  %7 = load ptr, ptr %value.addr, align 8
-  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE14fetch_internalERKNS_12omt_internal17subtree_templatedILb0EEEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %left3, i32 noundef %6, ptr noundef %7)
-  br label %if.end11
+25:                                               ; preds = %4
+  %26 = load ptr, ptr %9, align 8, !tbaa !57
+  %27 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %26, i32 0, i32 2
+  %28 = load i32, ptr %7, align 4, !tbaa !11
+  %29 = load ptr, ptr %8, align 8, !tbaa !23
+  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE14fetch_internalERKNS_12omt_internal17subtree_templatedILb0EEEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 4 dereferenceable(4) %27, i32 noundef %28, ptr noundef %29)
+  br label %50
 
-if.else:                                          ; preds = %entry
-  %8 = load i32, ptr %i.addr, align 4
-  %9 = load i32, ptr %leftweight, align 4
-  %cmp4 = icmp eq i32 %8, %9
-  br i1 %cmp4, label %if.then5, label %if.else8
+30:                                               ; preds = %4
+  %31 = load i32, ptr %7, align 4, !tbaa !11
+  %32 = load i32, ptr %10, align 4, !tbaa !11
+  %33 = icmp eq i32 %31, %32
+  br i1 %33, label %34, label %41
 
-if.then5:                                         ; preds = %if.else
-  %10 = load ptr, ptr %value.addr, align 8
-  %cmp6 = icmp ne ptr %10, null
-  br i1 %cmp6, label %if.then7, label %if.end
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %8, align 8, !tbaa !23
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %40
 
-if.then7:                                         ; preds = %if.then5
-  %11 = load ptr, ptr %value.addr, align 8
-  %12 = load ptr, ptr %n, align 8
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE7copyoutEPS3_PKNS_12omt_internal18omt_node_templatedIS3_Lb0EEE(ptr noundef %11, ptr noundef %12)
-  br label %if.end
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %8, align 8, !tbaa !23
+  %39 = load ptr, ptr %9, align 8, !tbaa !57
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE7copyoutEPS3_PKNS_12omt_internal18omt_node_templatedIS3_Lb0EEE(ptr noundef %38, ptr noundef %39)
+  br label %40
 
-if.end:                                           ; preds = %if.then7, %if.then5
-  br label %if.end10
+40:                                               ; preds = %37, %34
+  br label %49
 
-if.else8:                                         ; preds = %if.else
-  %13 = load ptr, ptr %n, align 8
-  %right = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %13, i32 0, i32 3
-  %14 = load i32, ptr %i.addr, align 4
-  %15 = load i32, ptr %leftweight, align 4
-  %sub = sub i32 %14, %15
-  %sub9 = sub i32 %sub, 1
-  %16 = load ptr, ptr %value.addr, align 8
-  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE14fetch_internalERKNS_12omt_internal17subtree_templatedILb0EEEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %right, i32 noundef %sub9, ptr noundef %16)
-  br label %if.end10
+41:                                               ; preds = %30
+  %42 = load ptr, ptr %9, align 8, !tbaa !57
+  %43 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %42, i32 0, i32 3
+  %44 = load i32, ptr %7, align 4, !tbaa !11
+  %45 = load i32, ptr %10, align 4, !tbaa !11
+  %46 = sub i32 %44, %45
+  %47 = sub i32 %46, 1
+  %48 = load ptr, ptr %8, align 8, !tbaa !23
+  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE14fetch_internalERKNS_12omt_internal17subtree_templatedILb0EEEjPS3_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 4 dereferenceable(4) %43, i32 noundef %47, ptr noundef %48)
+  br label %49
 
-if.end10:                                         ; preds = %if.else8, %if.end
-  br label %if.end11
+49:                                               ; preds = %41, %40
+  br label %50
 
-if.end11:                                         ; preds = %if.end10, %if.then
+50:                                               ; preds = %49, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE7copyoutEPS3_PKS3_(ptr noundef nonnull %out, ptr noundef nonnull %stored_value_ptr) #2 comdat align 2 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %stored_value_ptr.addr = alloca ptr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %stored_value_ptr, ptr %stored_value_ptr.addr, align 8
-  %0 = load ptr, ptr %stored_value_ptr.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  %2 = load ptr, ptr %out.addr, align 8
-  store ptr %1, ptr %2, align 8
+define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE7copyoutEPS3_PKS3_(ptr noundef nonnull %0, ptr noundef nonnull %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %4, align 8, !tbaa !23
+  %6 = load ptr, ptr %5, align 8, !tbaa !13
+  %7 = load ptr, ptr %3, align 8, !tbaa !23
+  store ptr %6, ptr %7, align 8, !tbaa !13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE7copyoutEPS3_PKNS_12omt_internal18omt_node_templatedIS3_Lb0EEE(ptr noundef nonnull %out, ptr noundef nonnull %n) #2 comdat align 2 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %n.addr = alloca ptr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %n, ptr %n.addr, align 8
-  %0 = load ptr, ptr %n.addr, align 8
-  %value = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %value, align 8
-  %2 = load ptr, ptr %out.addr, align 8
-  store ptr %1, ptr %2, align 8
+define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE7copyoutEPS3_PKNS_12omt_internal18omt_node_templatedIS3_Lb0EEE(ptr noundef nonnull %0, ptr noundef nonnull %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !57
+  %5 = load ptr, ptr %4, align 8, !tbaa !57
+  %6 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !59
+  %8 = load ptr, ptr %3, align 8, !tbaa !23
+  store ptr %7, ptr %8, align 8, !tbaa !13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %is_array = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 0
-  %0 = load i8, ptr %is_array, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.else
+define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.toku::omt", ptr %3, i32 0, i32 0
+  %5 = load i8, ptr %4, align 8, !tbaa !17, !range !20, !noundef !21
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %12
 
-if.then:                                          ; preds = %entry
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %start_idx = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d, i32 0, i32 0
-  store i32 0, ptr %start_idx, align 8
-  %d2 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %num_values = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d2, i32 0, i32 1
-  store i32 0, ptr %num_values, align 4
-  br label %if.end
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"class.toku::omt", ptr %3, i32 0, i32 2
+  %9 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %8, i32 0, i32 0
+  store i32 0, ptr %9, align 8, !tbaa !22
+  %10 = getelementptr inbounds nuw %"class.toku::omt", ptr %3, i32 0, i32 2
+  %11 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %10, i32 0, i32 1
+  store i32 0, ptr %11, align 4, !tbaa !22
+  br label %17
 
-if.else:                                          ; preds = %entry
-  %d3 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %root = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d3, i32 0, i32 0
-  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE11set_to_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %root)
-  %d4 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %free_idx = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d4, i32 0, i32 1
-  store i32 0, ptr %free_idx, align 4
-  br label %if.end
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds nuw %"class.toku::omt", ptr %3, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %13, i32 0, i32 0
+  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE11set_to_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %15 = getelementptr inbounds nuw %"class.toku::omt", ptr %3, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %15, i32 0, i32 1
+  store i32 0, ptr %16, align 4, !tbaa !22
+  br label %17
 
-if.end:                                           ; preds = %if.else, %if.then
+17:                                               ; preds = %12, %7
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN4toku12omt_internal17subtree_templatedILb0EE11set_to_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.toku::omt_internal::subtree_templated", ptr %3, i32 0, i32 0
+  store i32 -1, ptr %4, align 4, !tbaa !56
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4toku12omt_internal17subtree_templatedILb0EE11set_to_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_index = getelementptr inbounds %"class.toku::omt_internal::subtree_templated", ptr %this1, i32 0, i32 0
-  store i32 -1, ptr %m_index, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNKSt14_Function_base8_M_emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_manager = getelementptr inbounds %"class.std::_Function_base", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_M_manager, align 8
-  %tobool = icmp ne ptr %0, null
-  %lnot = xor i1 %tobool, true
-  ret i1 %lnot
+define linkonce_odr noundef zeroext i1 @_ZNKSt14_Function_base8_M_emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !41
+  %6 = icmp ne ptr %5, null
+  %7 = xor i1 %6, true
+  ret i1 %7
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() #4
+declare void @_ZSt25__throw_bad_function_callv() #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt14_Function_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_functor = getelementptr inbounds %"class.std::_Function_base", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %_M_functor, align 8
-  %_M_manager = getelementptr inbounds %"class.std::_Function_base", ptr %this1, i32 0, i32 1
-  store ptr null, ptr %_M_manager, align 8
+define linkonce_odr void @_ZNSt14_Function_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !22
+  %5 = getelementptr inbounds nuw %"class.std::_Function_base", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8, !tbaa !41
   ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %extra, ptr noundef %value, ptr noundef %idxp) #2 comdat align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %extra.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  %idxp.addr = alloca ptr, align 8
-  %min = alloca i32, align 4
-  %limit = alloca i32, align 4
-  %best_pos = alloca i32, align 4
-  %best_zero = alloca i32, align 4
-  %mid = alloca i32, align 4
-  %hv = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %extra, ptr %extra.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  store ptr %idxp, ptr %idxp.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %start_idx = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d, i32 0, i32 0
-  %0 = load i32, ptr %start_idx, align 8
-  store i32 %0, ptr %min, align 4
-  %d2 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %start_idx3 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d2, i32 0, i32 0
-  %1 = load i32, ptr %start_idx3, align 8
-  %d4 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %num_values = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d4, i32 0, i32 1
-  %2 = load i32, ptr %num_values, align 4
-  %add = add i32 %1, %2
-  store i32 %add, ptr %limit, align 4
-  store i32 -1, ptr %best_pos, align 4
-  store i32 -1, ptr %best_zero, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end12, %entry
-  %3 = load i32, ptr %min, align 4
-  %4 = load i32, ptr %limit, align 4
-  %cmp = icmp ne i32 %3, %4
-  br i1 %cmp, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %5 = load i32, ptr %min, align 4
-  %6 = load i32, ptr %limit, align 4
-  %add5 = add i32 %5, %6
-  %div = udiv i32 %add5, 2
-  store i32 %div, ptr %mid, align 4
-  %d6 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %values = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d6, i32 0, i32 2
-  %7 = load ptr, ptr %values, align 8
-  %8 = load i32, ptr %mid, align 4
-  %idxprom = zext i32 %8 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %idxprom
-  %9 = load ptr, ptr %extra.addr, align 8
-  %call = call noundef i32 @_ZN4toku3wfg13find_by_txnidERKPNS0_4nodeERKm(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store i32 %call, ptr %hv, align 4
-  %10 = load i32, ptr %hv, align 4
-  %cmp7 = icmp slt i32 %10, 0
-  br i1 %cmp7, label %if.then, label %if.else
-
-if.then:                                          ; preds = %while.body
-  %11 = load i32, ptr %mid, align 4
-  %add8 = add i32 %11, 1
-  store i32 %add8, ptr %min, align 4
-  br label %if.end12
-
-if.else:                                          ; preds = %while.body
-  %12 = load i32, ptr %hv, align 4
-  %cmp9 = icmp sgt i32 %12, 0
-  br i1 %cmp9, label %if.then10, label %if.else11
-
-if.then10:                                        ; preds = %if.else
-  %13 = load i32, ptr %mid, align 4
-  store i32 %13, ptr %best_pos, align 4
-  %14 = load i32, ptr %mid, align 4
-  store i32 %14, ptr %limit, align 4
-  br label %if.end
-
-if.else11:                                        ; preds = %if.else
-  %15 = load i32, ptr %mid, align 4
-  store i32 %15, ptr %best_zero, align 4
-  %16 = load i32, ptr %mid, align 4
-  store i32 %16, ptr %limit, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else11, %if.then10
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.end, %if.then
-  br label %while.cond, !llvm.loop !9
-
-while.end:                                        ; preds = %while.cond
-  %17 = load i32, ptr %best_zero, align 4
-  %cmp13 = icmp ne i32 %17, -1
-  br i1 %cmp13, label %if.then14, label %if.end24
-
-if.then14:                                        ; preds = %while.end
-  %18 = load ptr, ptr %value.addr, align 8
-  %cmp15 = icmp ne ptr %18, null
-  br i1 %cmp15, label %if.then16, label %if.end21
-
-if.then16:                                        ; preds = %if.then14
-  %19 = load ptr, ptr %value.addr, align 8
-  %d17 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %values18 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d17, i32 0, i32 2
-  %20 = load ptr, ptr %values18, align 8
-  %21 = load i32, ptr %best_zero, align 4
-  %idxprom19 = zext i32 %21 to i64
-  %arrayidx20 = getelementptr inbounds ptr, ptr %20, i64 %idxprom19
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE7copyoutEPS3_PKS3_(ptr noundef %19, ptr noundef %arrayidx20)
-  br label %if.end21
-
-if.end21:                                         ; preds = %if.then16, %if.then14
-  %22 = load i32, ptr %best_zero, align 4
-  %d22 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %start_idx23 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d22, i32 0, i32 0
-  %23 = load i32, ptr %start_idx23, align 8
-  %sub = sub i32 %22, %23
-  %24 = load ptr, ptr %idxp.addr, align 8
-  store i32 %sub, ptr %24, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end24:                                         ; preds = %while.end
-  %25 = load i32, ptr %best_pos, align 4
-  %cmp25 = icmp ne i32 %25, -1
-  br i1 %cmp25, label %if.then26, label %if.else30
-
-if.then26:                                        ; preds = %if.end24
-  %26 = load i32, ptr %best_pos, align 4
-  %d27 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %start_idx28 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d27, i32 0, i32 0
-  %27 = load i32, ptr %start_idx28, align 8
-  %sub29 = sub i32 %26, %27
-  %28 = load ptr, ptr %idxp.addr, align 8
-  store i32 %sub29, ptr %28, align 4
-  br label %if.end33
-
-if.else30:                                        ; preds = %if.end24
-  %d31 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %num_values32 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d31, i32 0, i32 1
-  %29 = load i32, ptr %num_values32, align 4
-  %30 = load ptr, ptr %idxp.addr, align 8
-  store i32 %29, ptr %30, align 4
-  br label %if.end33
-
-if.end33:                                         ; preds = %if.else30, %if.then26
-  store i32 -30989, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end33, %if.end21
-  %31 = load i32, ptr %retval, align 4
-  ret i32 %31
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE18find_internal_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEESA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %st, ptr noundef nonnull align 8 dereferenceable(8) %extra, ptr noundef %value, ptr noundef %idxp) #0 comdat align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %st.addr = alloca ptr, align 8
-  %extra.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  %idxp.addr = alloca ptr, align 8
-  %n = alloca ptr, align 8
-  %hv = alloca i32, align 4
-  %r = alloca i32, align 4
-  %r14 = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %st, ptr %st.addr, align 8
-  store ptr %extra, ptr %extra.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  store ptr %idxp, ptr %idxp.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %st.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4toku12omt_internal17subtree_templatedILb0EE7is_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %0)
-  br i1 %call, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %idxp.addr, align 8
-  store i32 0, ptr %1, align 4
-  store i32 -30989, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d, i32 0, i32 2
-  %2 = load ptr, ptr %nodes, align 8
-  %3 = load ptr, ptr %st.addr, align 8
-  %call2 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %idxprom = zext i32 %call2 to i64
-  %arrayidx = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %2, i64 %idxprom
-  store ptr %arrayidx, ptr %n, align 8
-  %4 = load ptr, ptr %n, align 8
-  %value3 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %extra.addr, align 8
-  %call4 = call noundef i32 @_ZN4toku3wfg13find_by_txnidERKPNS0_4nodeERKm(ptr noundef nonnull align 8 dereferenceable(8) %value3, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store i32 %call4, ptr %hv, align 4
-  %6 = load i32, ptr %hv, align 4
-  %cmp = icmp slt i32 %6, 0
-  br i1 %cmp, label %if.then5, label %if.else
-
-if.then5:                                         ; preds = %if.end
-  %7 = load ptr, ptr %n, align 8
-  %right = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %7, i32 0, i32 3
-  %8 = load ptr, ptr %extra.addr, align 8
-  %9 = load ptr, ptr %value.addr, align 8
-  %10 = load ptr, ptr %idxp.addr, align 8
-  %call6 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE18find_internal_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEESA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %right, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9, ptr noundef %10)
-  store i32 %call6, ptr %r, align 4
-  %11 = load ptr, ptr %n, align 8
-  %left = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %11, i32 0, i32 2
-  %call7 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %left)
-  %add = add i32 %call7, 1
-  %12 = load ptr, ptr %idxp.addr, align 8
-  %13 = load i32, ptr %12, align 4
-  %add8 = add i32 %13, %add
-  store i32 %add8, ptr %12, align 4
-  %14 = load i32, ptr %r, align 4
-  store i32 %14, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %if.end
-  %15 = load i32, ptr %hv, align 4
-  %cmp9 = icmp sgt i32 %15, 0
-  br i1 %cmp9, label %if.then10, label %if.else13
-
-if.then10:                                        ; preds = %if.else
-  %16 = load ptr, ptr %n, align 8
-  %left11 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %16, i32 0, i32 2
-  %17 = load ptr, ptr %extra.addr, align 8
-  %18 = load ptr, ptr %value.addr, align 8
-  %19 = load ptr, ptr %idxp.addr, align 8
-  %call12 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE18find_internal_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEESA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %left11, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %18, ptr noundef %19)
-  store i32 %call12, ptr %retval, align 4
-  br label %return
-
-if.else13:                                        ; preds = %if.else
-  %20 = load ptr, ptr %n, align 8
-  %left15 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %20, i32 0, i32 2
-  %21 = load ptr, ptr %extra.addr, align 8
-  %22 = load ptr, ptr %value.addr, align 8
-  %23 = load ptr, ptr %idxp.addr, align 8
-  %call16 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE18find_internal_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEESA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %left15, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %22, ptr noundef %23)
-  store i32 %call16, ptr %r14, align 4
-  %24 = load i32, ptr %r14, align 4
-  %cmp17 = icmp eq i32 %24, -30989
-  br i1 %cmp17, label %if.then18, label %if.end24
-
-if.then18:                                        ; preds = %if.else13
-  %25 = load ptr, ptr %n, align 8
-  %left19 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %25, i32 0, i32 2
-  %call20 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %left19)
-  %26 = load ptr, ptr %idxp.addr, align 8
-  store i32 %call20, ptr %26, align 4
-  %27 = load ptr, ptr %value.addr, align 8
-  %cmp21 = icmp ne ptr %27, null
-  br i1 %cmp21, label %if.then22, label %if.end23
-
-if.then22:                                        ; preds = %if.then18
-  %28 = load ptr, ptr %value.addr, align 8
-  %29 = load ptr, ptr %n, align 8
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE7copyoutEPS3_PKNS_12omt_internal18omt_node_templatedIS3_Lb0EEE(ptr noundef %28, ptr noundef %29)
-  br label %if.end23
-
-if.end23:                                         ; preds = %if.then22, %if.then18
-  store i32 0, ptr %r14, align 4
-  br label %if.end24
-
-if.end24:                                         ; preds = %if.end23, %if.else13
-  %30 = load i32, ptr %r14, align 4
-  store i32 %30, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end24, %if.then10, %if.then5, %if.then
-  %31 = load i32, ptr %retval, align 4
-  ret i32 %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4tokuL14barf_if_markedIPNS_3wfg4nodeES3_EEvRKNS_3omtIT_T0_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %omt) #2 {
-entry:
-  %omt.addr = alloca ptr, align 8
-  store ptr %omt, ptr %omt.addr, align 8
+define linkonce_odr noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3) #3 comdat align 2 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !9
+  store ptr %1, ptr %7, align 8, !tbaa !47
+  store ptr %2, ptr %8, align 8, !tbaa !23
+  store ptr %3, ptr %9, align 8, !tbaa !49
+  %17 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  %18 = getelementptr inbounds nuw %"class.toku::omt", ptr %17, i32 0, i32 2
+  %19 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %18, i32 0, i32 0
+  %20 = load i32, ptr %19, align 8, !tbaa !22
+  store i32 %20, ptr %10, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  %21 = getelementptr inbounds nuw %"class.toku::omt", ptr %17, i32 0, i32 2
+  %22 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8, !tbaa !22
+  %24 = getelementptr inbounds nuw %"class.toku::omt", ptr %17, i32 0, i32 2
+  %25 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %24, i32 0, i32 1
+  %26 = load i32, ptr %25, align 4, !tbaa !22
+  %27 = add i32 %23, %26
+  store i32 %27, ptr %11, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  store i32 -1, ptr %12, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  store i32 -1, ptr %13, align 4, !tbaa !11
+  br label %28
+
+28:                                               ; preds = %60, %4
+  %29 = load i32, ptr %10, align 4, !tbaa !11
+  %30 = load i32, ptr %11, align 4, !tbaa !11
+  %31 = icmp ne i32 %29, %30
+  br i1 %31, label %32, label %61
+
+32:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  %33 = load i32, ptr %10, align 4, !tbaa !11
+  %34 = load i32, ptr %11, align 4, !tbaa !11
+  %35 = add i32 %33, %34
+  %36 = udiv i32 %35, 2
+  store i32 %36, ptr %14, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #10
+  %37 = getelementptr inbounds nuw %"class.toku::omt", ptr %17, i32 0, i32 2
+  %38 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %37, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8, !tbaa !22
+  %40 = load i32, ptr %14, align 4, !tbaa !11
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %41
+  %43 = load ptr, ptr %7, align 8, !tbaa !47
+  %44 = call noundef i32 @_ZN4toku3wfg13find_by_txnidERKPNS0_4nodeERKm(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %43)
+  store i32 %44, ptr %15, align 4, !tbaa !11
+  %45 = load i32, ptr %15, align 4, !tbaa !11
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %47, label %50
+
+47:                                               ; preds = %32
+  %48 = load i32, ptr %14, align 4, !tbaa !11
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %10, align 4, !tbaa !11
+  br label %60
+
+50:                                               ; preds = %32
+  %51 = load i32, ptr %15, align 4, !tbaa !11
+  %52 = icmp sgt i32 %51, 0
+  br i1 %52, label %53, label %56
+
+53:                                               ; preds = %50
+  %54 = load i32, ptr %14, align 4, !tbaa !11
+  store i32 %54, ptr %12, align 4, !tbaa !11
+  %55 = load i32, ptr %14, align 4, !tbaa !11
+  store i32 %55, ptr %11, align 4, !tbaa !11
+  br label %59
+
+56:                                               ; preds = %50
+  %57 = load i32, ptr %14, align 4, !tbaa !11
+  store i32 %57, ptr %13, align 4, !tbaa !11
+  %58 = load i32, ptr %14, align 4, !tbaa !11
+  store i32 %58, ptr %11, align 4, !tbaa !11
+  br label %59
+
+59:                                               ; preds = %56, %53
+  br label %60
+
+60:                                               ; preds = %59, %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  br label %28, !llvm.loop !60
+
+61:                                               ; preds = %28
+  %62 = load i32, ptr %13, align 4, !tbaa !11
+  %63 = icmp ne i32 %62, -1
+  br i1 %63, label %64, label %82
+
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %8, align 8, !tbaa !23
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %75
+
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %8, align 8, !tbaa !23
+  %69 = getelementptr inbounds nuw %"class.toku::omt", ptr %17, i32 0, i32 2
+  %70 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %69, i32 0, i32 2
+  %71 = load ptr, ptr %70, align 8, !tbaa !22
+  %72 = load i32, ptr %13, align 4, !tbaa !11
+  %73 = zext i32 %72 to i64
+  %74 = getelementptr inbounds nuw ptr, ptr %71, i64 %73
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE7copyoutEPS3_PKS3_(ptr noundef %68, ptr noundef %74)
+  br label %75
+
+75:                                               ; preds = %67, %64
+  %76 = load i32, ptr %13, align 4, !tbaa !11
+  %77 = getelementptr inbounds nuw %"class.toku::omt", ptr %17, i32 0, i32 2
+  %78 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %77, i32 0, i32 0
+  %79 = load i32, ptr %78, align 8, !tbaa !22
+  %80 = sub i32 %76, %79
+  %81 = load ptr, ptr %9, align 8, !tbaa !49
+  store i32 %80, ptr %81, align 4, !tbaa !11
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %98
+
+82:                                               ; preds = %61
+  %83 = load i32, ptr %12, align 4, !tbaa !11
+  %84 = icmp ne i32 %83, -1
+  br i1 %84, label %85, label %92
+
+85:                                               ; preds = %82
+  %86 = load i32, ptr %12, align 4, !tbaa !11
+  %87 = getelementptr inbounds nuw %"class.toku::omt", ptr %17, i32 0, i32 2
+  %88 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %87, i32 0, i32 0
+  %89 = load i32, ptr %88, align 8, !tbaa !22
+  %90 = sub i32 %86, %89
+  %91 = load ptr, ptr %9, align 8, !tbaa !49
+  store i32 %90, ptr %91, align 4, !tbaa !11
+  br label %97
+
+92:                                               ; preds = %82
+  %93 = getelementptr inbounds nuw %"class.toku::omt", ptr %17, i32 0, i32 2
+  %94 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %93, i32 0, i32 1
+  %95 = load i32, ptr %94, align 4, !tbaa !22
+  %96 = load ptr, ptr %9, align 8, !tbaa !49
+  store i32 %95, ptr %96, align 4, !tbaa !11
+  br label %97
+
+97:                                               ; preds = %92, %85
+  store i32 -30989, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %98
+
+98:                                               ; preds = %97, %75
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  %99 = load i32, ptr %5, align 4
+  ret i32 %99
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE18find_internal_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEESA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef %4) #0 comdat align 2 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !9
+  store ptr %1, ptr %8, align 8, !tbaa !51
+  store ptr %2, ptr %9, align 8, !tbaa !47
+  store ptr %3, ptr %10, align 8, !tbaa !23
+  store ptr %4, ptr %11, align 8, !tbaa !49
+  %17 = load ptr, ptr %7, align 8
+  %18 = load ptr, ptr %8, align 8, !tbaa !51
+  %19 = call noundef zeroext i1 @_ZNK4toku12omt_internal17subtree_templatedILb0EE7is_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %18)
+  br i1 %19, label %20, label %22
+
+20:                                               ; preds = %5
+  %21 = load ptr, ptr %11, align 8, !tbaa !49
+  store i32 0, ptr %21, align 4, !tbaa !11
+  store i32 -30989, ptr %6, align 4
+  br label %84
+
+22:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %23 = getelementptr inbounds nuw %"class.toku::omt", ptr %17, i32 0, i32 2
+  %24 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %23, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8, !tbaa !22
+  %26 = load ptr, ptr %8, align 8, !tbaa !51
+  %27 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %26)
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %25, i64 %28
+  store ptr %29, ptr %12, align 8, !tbaa !57
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  %30 = load ptr, ptr %12, align 8, !tbaa !57
+  %31 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %9, align 8, !tbaa !47
+  %33 = call noundef i32 @_ZN4toku3wfg13find_by_txnidERKPNS0_4nodeERKm(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
+  store i32 %33, ptr %13, align 4, !tbaa !11
+  %34 = load i32, ptr %13, align 4, !tbaa !11
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %36, label %51
+
+36:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  %37 = load ptr, ptr %12, align 8, !tbaa !57
+  %38 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %37, i32 0, i32 3
+  %39 = load ptr, ptr %9, align 8, !tbaa !47
+  %40 = load ptr, ptr %10, align 8, !tbaa !23
+  %41 = load ptr, ptr %11, align 8, !tbaa !49
+  %42 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE18find_internal_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEESA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 4 dereferenceable(4) %38, ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %40, ptr noundef %41)
+  store i32 %42, ptr %14, align 4, !tbaa !11
+  %43 = load ptr, ptr %12, align 8, !tbaa !57
+  %44 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %43, i32 0, i32 2
+  %45 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 4 dereferenceable(4) %44)
+  %46 = add i32 %45, 1
+  %47 = load ptr, ptr %11, align 8, !tbaa !49
+  %48 = load i32, ptr %47, align 4, !tbaa !11
+  %49 = add i32 %48, %46
+  store i32 %49, ptr %47, align 4, !tbaa !11
+  %50 = load i32, ptr %14, align 4, !tbaa !11
+  store i32 %50, ptr %6, align 4
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  br label %83
+
+51:                                               ; preds = %22
+  %52 = load i32, ptr %13, align 4, !tbaa !11
+  %53 = icmp sgt i32 %52, 0
+  br i1 %53, label %54, label %61
+
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %12, align 8, !tbaa !57
+  %56 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %55, i32 0, i32 2
+  %57 = load ptr, ptr %9, align 8, !tbaa !47
+  %58 = load ptr, ptr %10, align 8, !tbaa !23
+  %59 = load ptr, ptr %11, align 8, !tbaa !49
+  %60 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE18find_internal_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEESA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 4 dereferenceable(4) %56, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef %58, ptr noundef %59)
+  store i32 %60, ptr %6, align 4
+  store i32 1, ptr %15, align 4
+  br label %83
+
+61:                                               ; preds = %51
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #10
+  %62 = load ptr, ptr %12, align 8, !tbaa !57
+  %63 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %62, i32 0, i32 2
+  %64 = load ptr, ptr %9, align 8, !tbaa !47
+  %65 = load ptr, ptr %10, align 8, !tbaa !23
+  %66 = load ptr, ptr %11, align 8, !tbaa !49
+  %67 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE18find_internal_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEESA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 4 dereferenceable(4) %63, ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef %65, ptr noundef %66)
+  store i32 %67, ptr %16, align 4, !tbaa !11
+  %68 = load i32, ptr %16, align 4, !tbaa !11
+  %69 = icmp eq i32 %68, -30989
+  br i1 %69, label %70, label %81
+
+70:                                               ; preds = %61
+  %71 = load ptr, ptr %12, align 8, !tbaa !57
+  %72 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %71, i32 0, i32 2
+  %73 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 4 dereferenceable(4) %72)
+  %74 = load ptr, ptr %11, align 8, !tbaa !49
+  store i32 %73, ptr %74, align 4, !tbaa !11
+  %75 = load ptr, ptr %10, align 8, !tbaa !23
+  %76 = icmp ne ptr %75, null
+  br i1 %76, label %77, label %80
+
+77:                                               ; preds = %70
+  %78 = load ptr, ptr %10, align 8, !tbaa !23
+  %79 = load ptr, ptr %12, align 8, !tbaa !57
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE7copyoutEPS3_PKNS_12omt_internal18omt_node_templatedIS3_Lb0EEE(ptr noundef %78, ptr noundef %79)
+  br label %80
+
+80:                                               ; preds = %77, %70
+  store i32 0, ptr %16, align 4, !tbaa !11
+  br label %81
+
+81:                                               ; preds = %80, %61
+  %82 = load i32, ptr %16, align 4, !tbaa !11
+  store i32 %82, ptr %6, align 4
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #10
+  br label %83
+
+83:                                               ; preds = %81, %54, %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  br label %84
+
+84:                                               ; preds = %83, %20
+  %85 = load i32, ptr %6, align 4
+  ret i32 %85
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN4tokuL14barf_if_markedIPNS_3wfg4nodeES3_EEvRKNS_3omtIT_T0_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE23maybe_resize_or_convertEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %n) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %new_size = alloca i32, align 4
-  %num_nodes = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %is_array = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 0
-  %0 = load i8, ptr %is_array, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.else
+define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE23maybe_resize_or_convertEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"class.toku::omt", ptr %7, i32 0, i32 0
+  %9 = load i8, ptr %8, align 8, !tbaa !17, !range !20, !noundef !21
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %n.addr, align 4
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE18maybe_resize_arrayEj(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %1)
-  br label %if.end11
+11:                                               ; preds = %2
+  %12 = load i32, ptr %4, align 4, !tbaa !11
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE18maybe_resize_arrayEj(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %12)
+  br label %48
 
-if.else:                                          ; preds = %entry
-  %2 = load i32, ptr %n.addr, align 4
-  %cmp = icmp ule i32 %2, 2
-  br i1 %cmp, label %cond.true, label %cond.false
+13:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  %14 = load i32, ptr %4, align 4, !tbaa !11
+  %15 = icmp ule i32 %14, 2
+  br i1 %15, label %16, label %17
 
-cond.true:                                        ; preds = %if.else
-  br label %cond.end
+16:                                               ; preds = %13
+  br label %20
 
-cond.false:                                       ; preds = %if.else
-  %3 = load i32, ptr %n.addr, align 4
-  %mul = mul i32 2, %3
-  br label %cond.end
+17:                                               ; preds = %13
+  %18 = load i32, ptr %4, align 4, !tbaa !11
+  %19 = mul i32 2, %18
+  br label %20
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 4, %cond.true ], [ %mul, %cond.false ]
-  store i32 %cond, ptr %new_size, align 4
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %root = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d, i32 0, i32 0
-  %call = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %root)
-  store i32 %call, ptr %num_nodes, align 4
-  %capacity = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 1
-  %4 = load i32, ptr %capacity, align 4
-  %div = udiv i32 %4, 2
-  %5 = load i32, ptr %new_size, align 4
-  %cmp2 = icmp uge i32 %div, %5
-  br i1 %cmp2, label %if.then10, label %lor.lhs.false
+20:                                               ; preds = %17, %16
+  %21 = phi i32 [ 4, %16 ], [ %19, %17 ]
+  store i32 %21, ptr %5, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %22 = getelementptr inbounds nuw %"class.toku::omt", ptr %7, i32 0, i32 2
+  %23 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %22, i32 0, i32 0
+  %24 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(4) %23)
+  store i32 %24, ptr %6, align 4, !tbaa !11
+  %25 = getelementptr inbounds nuw %"class.toku::omt", ptr %7, i32 0, i32 1
+  %26 = load i32, ptr %25, align 4, !tbaa !26
+  %27 = udiv i32 %26, 2
+  %28 = load i32, ptr %5, align 4, !tbaa !11
+  %29 = icmp uge i32 %27, %28
+  br i1 %29, label %46, label %30
 
-lor.lhs.false:                                    ; preds = %cond.end
-  %d3 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %free_idx = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d3, i32 0, i32 1
-  %6 = load i32, ptr %free_idx, align 4
-  %capacity4 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 1
-  %7 = load i32, ptr %capacity4, align 4
-  %cmp5 = icmp uge i32 %6, %7
-  br i1 %cmp5, label %land.lhs.true, label %lor.lhs.false7
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw %"class.toku::omt", ptr %7, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4, !tbaa !22
+  %34 = getelementptr inbounds nuw %"class.toku::omt", ptr %7, i32 0, i32 1
+  %35 = load i32, ptr %34, align 4, !tbaa !26
+  %36 = icmp uge i32 %33, %35
+  br i1 %36, label %37, label %41
 
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %8 = load i32, ptr %num_nodes, align 4
-  %9 = load i32, ptr %n.addr, align 4
-  %cmp6 = icmp ult i32 %8, %9
-  br i1 %cmp6, label %if.then10, label %lor.lhs.false7
+37:                                               ; preds = %30
+  %38 = load i32, ptr %6, align 4, !tbaa !11
+  %39 = load i32, ptr %4, align 4, !tbaa !11
+  %40 = icmp ult i32 %38, %39
+  br i1 %40, label %46, label %41
 
-lor.lhs.false7:                                   ; preds = %land.lhs.true, %lor.lhs.false
-  %capacity8 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 1
-  %10 = load i32, ptr %capacity8, align 4
-  %11 = load i32, ptr %n.addr, align 4
-  %cmp9 = icmp ult i32 %10, %11
-  br i1 %cmp9, label %if.then10, label %if.end
+41:                                               ; preds = %37, %30
+  %42 = getelementptr inbounds nuw %"class.toku::omt", ptr %7, i32 0, i32 1
+  %43 = load i32, ptr %42, align 4, !tbaa !26
+  %44 = load i32, ptr %4, align 4, !tbaa !11
+  %45 = icmp ult i32 %43, %44
+  br i1 %45, label %46, label %47
 
-if.then10:                                        ; preds = %lor.lhs.false7, %land.lhs.true, %cond.end
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE16convert_to_arrayEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  br label %if.end
+46:                                               ; preds = %41, %37, %20
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE16convert_to_arrayEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  br label %47
 
-if.end:                                           ; preds = %if.then10, %lor.lhs.false7
-  br label %if.end11
+47:                                               ; preds = %46, %41
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  br label %48
 
-if.end11:                                         ; preds = %if.end, %if.then
+48:                                               ; preds = %47, %11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15convert_to_treeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %num_nodes = alloca i32, align 4
-  %new_size = alloca i32, align 4
-  %new_nodes = alloca ptr, align 8
-  %values = alloca ptr, align 8
-  %tmp_values = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %is_array = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 0
-  %0 = load i8, ptr %is_array, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.end
+define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15convert_to_treeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 0
+  %10 = load i8, ptr %9, align 8, !tbaa !17, !range !20, !noundef !21
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %51
 
-if.then:                                          ; preds = %entry
-  %call = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store i32 %call, ptr %num_nodes, align 4
-  %1 = load i32, ptr %num_nodes, align 4
-  %mul = mul i32 %1, 2
-  store i32 %mul, ptr %new_size, align 4
-  %2 = load i32, ptr %new_size, align 4
-  %cmp = icmp ult i32 %2, 4
-  br i1 %cmp, label %cond.true, label %cond.false
+12:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #10
+  %13 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
+  store i32 %13, ptr %3, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  %14 = load i32, ptr %3, align 4, !tbaa !11
+  %15 = mul i32 %14, 2
+  store i32 %15, ptr %4, align 4, !tbaa !11
+  %16 = load i32, ptr %4, align 4, !tbaa !11
+  %17 = icmp ult i32 %16, 4
+  br i1 %17, label %18, label %19
 
-cond.true:                                        ; preds = %if.then
-  br label %cond.end
+18:                                               ; preds = %12
+  br label %21
 
-cond.false:                                       ; preds = %if.then
-  %3 = load i32, ptr %new_size, align 4
-  br label %cond.end
+19:                                               ; preds = %12
+  %20 = load i32, ptr %4, align 4, !tbaa !11
+  br label %21
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 4, %cond.true ], [ %3, %cond.false ]
-  store i32 %cond, ptr %new_size, align 4
-  %4 = load i32, ptr %new_size, align 4
-  %conv = zext i32 %4 to i64
-  %mul2 = mul i64 %conv, 24
-  %call3 = call noundef ptr @_Z12toku_xmallocm(i64 noundef %mul2)
-  store ptr %call3, ptr %new_nodes, align 8
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %values4 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d, i32 0, i32 2
-  %5 = load ptr, ptr %values4, align 8
-  store ptr %5, ptr %values, align 8
-  %6 = load ptr, ptr %values, align 8
-  %d5 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %start_idx = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d5, i32 0, i32 0
-  %7 = load i32, ptr %start_idx, align 8
-  %idxprom = zext i32 %7 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
-  store ptr %arrayidx, ptr %tmp_values, align 8
-  %is_array6 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 0
-  store i8 0, ptr %is_array6, align 8
-  %8 = load ptr, ptr %new_nodes, align 8
-  %d7 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d7, i32 0, i32 2
-  store ptr %8, ptr %nodes, align 8
-  %9 = load i32, ptr %new_size, align 4
-  %capacity = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 1
-  store i32 %9, ptr %capacity, align 4
-  %d8 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %free_idx = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d8, i32 0, i32 1
-  store i32 0, ptr %free_idx, align 4
-  %d9 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %root = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d9, i32 0, i32 0
-  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE11set_to_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %root)
-  %d10 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %root11 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d10, i32 0, i32 0
-  %10 = load ptr, ptr %tmp_values, align 8
-  %11 = load i32, ptr %num_nodes, align 4
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_from_sorted_arrayEPNS_12omt_internal17subtree_templatedILb0EEEPKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %root11, ptr noundef %10, i32 noundef %11)
-  %12 = load ptr, ptr %values, align 8
-  call void @_Z9toku_freePv(ptr noundef %12)
-  br label %if.end
+21:                                               ; preds = %19, %18
+  %22 = phi i32 [ 4, %18 ], [ %20, %19 ]
+  store i32 %22, ptr %4, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %23 = load i32, ptr %4, align 4, !tbaa !11
+  %24 = zext i32 %23 to i64
+  %25 = mul i64 %24, 24
+  %26 = call noundef ptr @_Z12toku_xmallocm(i64 noundef %25)
+  store ptr %26, ptr %5, align 8, !tbaa !57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %27 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %28 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %27, i32 0, i32 2
+  %29 = load ptr, ptr %28, align 8, !tbaa !22
+  store ptr %29, ptr %6, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %30 = load ptr, ptr %6, align 8, !tbaa !23
+  %31 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %31, i32 0, i32 0
+  %33 = load i32, ptr %32, align 8, !tbaa !22
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds nuw ptr, ptr %30, i64 %34
+  store ptr %35, ptr %7, align 8, !tbaa !23
+  %36 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 0
+  store i8 0, ptr %36, align 8, !tbaa !17
+  %37 = load ptr, ptr %5, align 8, !tbaa !57
+  %38 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %39 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %38, i32 0, i32 2
+  store ptr %37, ptr %39, align 8, !tbaa !22
+  %40 = load i32, ptr %4, align 4, !tbaa !11
+  %41 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 1
+  store i32 %40, ptr %41, align 4, !tbaa !26
+  %42 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %43 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %42, i32 0, i32 1
+  store i32 0, ptr %43, align 4, !tbaa !22
+  %44 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %45 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %44, i32 0, i32 0
+  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE11set_to_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %45)
+  %46 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %47 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %7, align 8, !tbaa !23
+  %49 = load i32, ptr %3, align 4, !tbaa !11
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_from_sorted_arrayEPNS_12omt_internal17subtree_templatedILb0EEEPKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %47, ptr noundef %48, i32 noundef %49)
+  %50 = load ptr, ptr %6, align 8, !tbaa !23
+  call void @_Z9toku_freePv(ptr noundef %50)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #10
+  br label %51
 
-if.end:                                           ; preds = %cond.end, %entry
+51:                                               ; preds = %21, %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15insert_internalEPNS_12omt_internal17subtree_templatedILb0EEERKS3_jPS8_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %subtreep, ptr noundef nonnull align 8 dereferenceable(8) %value, i32 noundef %idx, ptr noundef nonnull %rebalance_subtree) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %subtreep.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  %idx.addr = alloca i32, align 4
-  %rebalance_subtree.addr = alloca ptr, align 8
-  %newidx = alloca i32, align 4
-  %newnode = alloca ptr, align 8
-  %n = alloca ptr, align 8
-  %sub_index = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %subtreep, ptr %subtreep.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  store i32 %idx, ptr %idx.addr, align 4
-  store ptr %rebalance_subtree, ptr %rebalance_subtree.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %subtreep.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4toku12omt_internal17subtree_templatedILb0EE7is_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %0)
-  br i1 %call, label %if.then, label %if.else
+define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15insert_internalEPNS_12omt_internal17subtree_templatedILb0EEERKS3_jPS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3, ptr noundef nonnull %4) #0 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !9
+  store ptr %1, ptr %7, align 8, !tbaa !51
+  store ptr %2, ptr %8, align 8, !tbaa !23
+  store i32 %3, ptr %9, align 4, !tbaa !11
+  store ptr %4, ptr %10, align 8, !tbaa !61
+  %15 = load ptr, ptr %6, align 8
+  %16 = load ptr, ptr %7, align 8, !tbaa !51
+  %17 = call noundef zeroext i1 @_ZNK4toku12omt_internal17subtree_templatedILb0EE7is_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %16)
+  br i1 %17, label %18, label %38
 
-if.then:                                          ; preds = %entry
-  %call2 = call noundef i32 @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE11node_mallocEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store i32 %call2, ptr %newidx, align 4
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d, i32 0, i32 2
-  %1 = load ptr, ptr %nodes, align 8
-  %2 = load i32, ptr %newidx, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %1, i64 %idxprom
-  store ptr %arrayidx, ptr %newnode, align 8
-  %3 = load ptr, ptr %newnode, align 8
-  %weight = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %3, i32 0, i32 1
-  store i32 1, ptr %weight, align 8
-  %4 = load ptr, ptr %newnode, align 8
-  %left = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %4, i32 0, i32 2
-  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE11set_to_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %left)
-  %5 = load ptr, ptr %newnode, align 8
-  %right = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %5, i32 0, i32 3
-  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE11set_to_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %right)
-  %6 = load ptr, ptr %value.addr, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %newnode, align 8
-  %value3 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %8, i32 0, i32 0
-  store ptr %7, ptr %value3, align 8
-  %9 = load ptr, ptr %subtreep.addr, align 8
-  %10 = load i32, ptr %newidx, align 4
-  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE9set_indexEj(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef %10)
-  br label %if.end28
+18:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  %19 = call noundef i32 @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE11node_mallocEv(ptr noundef nonnull align 8 dereferenceable(24) %15)
+  store i32 %19, ptr %11, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %20 = getelementptr inbounds nuw %"class.toku::omt", ptr %15, i32 0, i32 2
+  %21 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %20, i32 0, i32 2
+  %22 = load ptr, ptr %21, align 8, !tbaa !22
+  %23 = load i32, ptr %11, align 4, !tbaa !11
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %22, i64 %24
+  store ptr %25, ptr %12, align 8, !tbaa !57
+  %26 = load ptr, ptr %12, align 8, !tbaa !57
+  %27 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %26, i32 0, i32 1
+  store i32 1, ptr %27, align 8, !tbaa !53
+  %28 = load ptr, ptr %12, align 8, !tbaa !57
+  %29 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %28, i32 0, i32 2
+  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE11set_to_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %29)
+  %30 = load ptr, ptr %12, align 8, !tbaa !57
+  %31 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %30, i32 0, i32 3
+  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE11set_to_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %31)
+  %32 = load ptr, ptr %8, align 8, !tbaa !23
+  %33 = load ptr, ptr %32, align 8, !tbaa !13
+  %34 = load ptr, ptr %12, align 8, !tbaa !57
+  %35 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %34, i32 0, i32 0
+  store ptr %33, ptr %35, align 8, !tbaa !59
+  %36 = load ptr, ptr %7, align 8, !tbaa !51
+  %37 = load i32, ptr %11, align 4, !tbaa !11
+  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE9set_indexEj(ptr noundef nonnull align 4 dereferenceable(4) %36, i32 noundef %37)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  br label %94
 
-if.else:                                          ; preds = %entry
-  %d4 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes5 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d4, i32 0, i32 2
-  %11 = load ptr, ptr %nodes5, align 8
-  %12 = load ptr, ptr %subtreep.addr, align 8
-  %call6 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %12)
-  %idxprom7 = zext i32 %call6 to i64
-  %arrayidx8 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %11, i64 %idxprom7
-  store ptr %arrayidx8, ptr %n, align 8
-  %13 = load ptr, ptr %n, align 8
-  %weight9 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %13, i32 0, i32 1
-  %14 = load i32, ptr %weight9, align 8
-  %inc = add i32 %14, 1
-  store i32 %inc, ptr %weight9, align 8
-  %15 = load i32, ptr %idx.addr, align 4
-  %16 = load ptr, ptr %n, align 8
-  %left10 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %16, i32 0, i32 2
-  %call11 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %left10)
-  %cmp = icmp ule i32 %15, %call11
-  br i1 %cmp, label %if.then12, label %if.else17
+38:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  %39 = getelementptr inbounds nuw %"class.toku::omt", ptr %15, i32 0, i32 2
+  %40 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %39, i32 0, i32 2
+  %41 = load ptr, ptr %40, align 8, !tbaa !22
+  %42 = load ptr, ptr %7, align 8, !tbaa !51
+  %43 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %42)
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %41, i64 %44
+  store ptr %45, ptr %13, align 8, !tbaa !57
+  %46 = load ptr, ptr %13, align 8, !tbaa !57
+  %47 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %46, i32 0, i32 1
+  %48 = load i32, ptr %47, align 8, !tbaa !53
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %47, align 8, !tbaa !53
+  %50 = load i32, ptr %9, align 4, !tbaa !11
+  %51 = load ptr, ptr %13, align 8, !tbaa !57
+  %52 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %51, i32 0, i32 2
+  %53 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 4 dereferenceable(4) %52)
+  %54 = icmp ule i32 %50, %53
+  br i1 %54, label %55, label %71
 
-if.then12:                                        ; preds = %if.else
-  %17 = load ptr, ptr %rebalance_subtree.addr, align 8
-  %18 = load ptr, ptr %17, align 8
-  %cmp13 = icmp eq ptr %18, null
-  br i1 %cmp13, label %land.lhs.true, label %if.end
+55:                                               ; preds = %38
+  %56 = load ptr, ptr %10, align 8, !tbaa !61
+  %57 = load ptr, ptr %56, align 8, !tbaa !51
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %59, label %65
 
-land.lhs.true:                                    ; preds = %if.then12
-  %19 = load ptr, ptr %subtreep.addr, align 8
-  %call14 = call noundef zeroext i1 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef 1, i32 noundef 0)
-  br i1 %call14, label %if.then15, label %if.end
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %7, align 8, !tbaa !51
+  %61 = call noundef zeroext i1 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 4 dereferenceable(4) %60, i32 noundef 1, i32 noundef 0)
+  br i1 %61, label %62, label %65
 
-if.then15:                                        ; preds = %land.lhs.true
-  %20 = load ptr, ptr %subtreep.addr, align 8
-  %21 = load ptr, ptr %rebalance_subtree.addr, align 8
-  store ptr %20, ptr %21, align 8
-  br label %if.end
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %7, align 8, !tbaa !51
+  %64 = load ptr, ptr %10, align 8, !tbaa !61
+  store ptr %63, ptr %64, align 8, !tbaa !51
+  br label %65
 
-if.end:                                           ; preds = %if.then15, %land.lhs.true, %if.then12
-  %22 = load ptr, ptr %n, align 8
-  %left16 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %22, i32 0, i32 2
-  %23 = load ptr, ptr %value.addr, align 8
-  %24 = load i32, ptr %idx.addr, align 4
-  %25 = load ptr, ptr %rebalance_subtree.addr, align 8
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15insert_internalEPNS_12omt_internal17subtree_templatedILb0EEERKS3_jPS8_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %left16, ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %24, ptr noundef %25)
-  br label %if.end27
+65:                                               ; preds = %62, %59, %55
+  %66 = load ptr, ptr %13, align 8, !tbaa !57
+  %67 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %66, i32 0, i32 2
+  %68 = load ptr, ptr %8, align 8, !tbaa !23
+  %69 = load i32, ptr %9, align 4, !tbaa !11
+  %70 = load ptr, ptr %10, align 8, !tbaa !61
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15insert_internalEPNS_12omt_internal17subtree_templatedILb0EEERKS3_jPS8_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %67, ptr noundef nonnull align 8 dereferenceable(8) %68, i32 noundef %69, ptr noundef %70)
+  br label %93
 
-if.else17:                                        ; preds = %if.else
-  %26 = load ptr, ptr %rebalance_subtree.addr, align 8
-  %27 = load ptr, ptr %26, align 8
-  %cmp18 = icmp eq ptr %27, null
-  br i1 %cmp18, label %land.lhs.true19, label %if.end22
+71:                                               ; preds = %38
+  %72 = load ptr, ptr %10, align 8, !tbaa !61
+  %73 = load ptr, ptr %72, align 8, !tbaa !51
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %75, label %81
 
-land.lhs.true19:                                  ; preds = %if.else17
-  %28 = load ptr, ptr %subtreep.addr, align 8
-  %call20 = call noundef zeroext i1 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %28, i32 noundef 0, i32 noundef 1)
-  br i1 %call20, label %if.then21, label %if.end22
+75:                                               ; preds = %71
+  %76 = load ptr, ptr %7, align 8, !tbaa !51
+  %77 = call noundef zeroext i1 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 4 dereferenceable(4) %76, i32 noundef 0, i32 noundef 1)
+  br i1 %77, label %78, label %81
 
-if.then21:                                        ; preds = %land.lhs.true19
-  %29 = load ptr, ptr %subtreep.addr, align 8
-  %30 = load ptr, ptr %rebalance_subtree.addr, align 8
-  store ptr %29, ptr %30, align 8
-  br label %if.end22
+78:                                               ; preds = %75
+  %79 = load ptr, ptr %7, align 8, !tbaa !51
+  %80 = load ptr, ptr %10, align 8, !tbaa !61
+  store ptr %79, ptr %80, align 8, !tbaa !51
+  br label %81
 
-if.end22:                                         ; preds = %if.then21, %land.lhs.true19, %if.else17
-  %31 = load i32, ptr %idx.addr, align 4
-  %32 = load ptr, ptr %n, align 8
-  %left23 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %32, i32 0, i32 2
-  %call24 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %left23)
-  %sub = sub i32 %31, %call24
-  %sub25 = sub i32 %sub, 1
-  store i32 %sub25, ptr %sub_index, align 4
-  %33 = load ptr, ptr %n, align 8
-  %right26 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %33, i32 0, i32 3
-  %34 = load ptr, ptr %value.addr, align 8
-  %35 = load i32, ptr %sub_index, align 4
-  %36 = load ptr, ptr %rebalance_subtree.addr, align 8
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15insert_internalEPNS_12omt_internal17subtree_templatedILb0EEERKS3_jPS8_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %right26, ptr noundef nonnull align 8 dereferenceable(8) %34, i32 noundef %35, ptr noundef %36)
-  br label %if.end27
+81:                                               ; preds = %78, %75, %71
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  %82 = load i32, ptr %9, align 4, !tbaa !11
+  %83 = load ptr, ptr %13, align 8, !tbaa !57
+  %84 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %83, i32 0, i32 2
+  %85 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 4 dereferenceable(4) %84)
+  %86 = sub i32 %82, %85
+  %87 = sub i32 %86, 1
+  store i32 %87, ptr %14, align 4, !tbaa !11
+  %88 = load ptr, ptr %13, align 8, !tbaa !57
+  %89 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %88, i32 0, i32 3
+  %90 = load ptr, ptr %8, align 8, !tbaa !23
+  %91 = load i32, ptr %14, align 4, !tbaa !11
+  %92 = load ptr, ptr %10, align 8, !tbaa !61
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15insert_internalEPNS_12omt_internal17subtree_templatedILb0EEERKS3_jPS8_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %89, ptr noundef nonnull align 8 dereferenceable(8) %90, i32 noundef %91, ptr noundef %92)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  br label %93
 
-if.end27:                                         ; preds = %if.end22, %if.end
-  br label %if.end28
+93:                                               ; preds = %81, %65
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  br label %94
 
-if.end28:                                         ; preds = %if.end27, %if.then
+94:                                               ; preds = %93, %18
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE9rebalanceEPNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %st) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %st.addr = alloca ptr, align 8
-  %idx = alloca i32, align 4
-  %n = alloca ptr, align 8
-  %tmp_array = alloca ptr, align 8
-  %mem_needed = alloca i64, align 8
-  %mem_free = alloca i64, align 8
-  %malloced = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %st, ptr %st.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %st.addr, align 8
-  %call = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %0)
-  store i32 %call, ptr %idx, align 4
-  %1 = load i32, ptr %idx, align 4
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %root = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d, i32 0, i32 0
-  %call2 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %root)
-  %cmp = icmp eq i32 %1, %call2
-  br i1 %cmp, label %if.then, label %if.else
+define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE9rebalanceEPNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !51
+  %11 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  %12 = load ptr, ptr %4, align 8, !tbaa !51
+  %13 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %12)
+  store i32 %13, ptr %5, align 4, !tbaa !11
+  %14 = load i32, ptr %5, align 4, !tbaa !11
+  %15 = getelementptr inbounds nuw %"class.toku::omt", ptr %11, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %15, i32 0, i32 0
+  %17 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %18 = icmp eq i32 %14, %17
+  br i1 %18, label %19, label %20
 
-if.then:                                          ; preds = %entry
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE16convert_to_arrayEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  br label %if.end23
+19:                                               ; preds = %2
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE16convert_to_arrayEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
+  br label %72
 
-if.else:                                          ; preds = %entry
-  %d3 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d3, i32 0, i32 2
-  %2 = load ptr, ptr %nodes, align 8
-  %3 = load i32, ptr %idx, align 4
-  %idxprom = zext i32 %3 to i64
-  %arrayidx = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %2, i64 %idxprom
-  store ptr %arrayidx, ptr %n, align 8
-  %4 = load ptr, ptr %n, align 8
-  %weight = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %4, i32 0, i32 1
-  %5 = load i32, ptr %weight, align 8
-  %conv = zext i32 %5 to i64
-  %mul = mul i64 %conv, 4
-  store i64 %mul, ptr %mem_needed, align 8
-  %capacity = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 1
-  %6 = load i32, ptr %capacity, align 4
-  %d4 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %free_idx = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d4, i32 0, i32 1
-  %7 = load i32, ptr %free_idx, align 4
-  %sub = sub i32 %6, %7
-  %conv5 = zext i32 %sub to i64
-  %mul6 = mul i64 %conv5, 24
-  store i64 %mul6, ptr %mem_free, align 8
-  %8 = load i64, ptr %mem_needed, align 8
-  %9 = load i64, ptr %mem_free, align 8
-  %cmp7 = icmp ule i64 %8, %9
-  br i1 %cmp7, label %if.then8, label %if.else15
+20:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %21 = getelementptr inbounds nuw %"class.toku::omt", ptr %11, i32 0, i32 2
+  %22 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !22
+  %24 = load i32, ptr %5, align 4, !tbaa !11
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %23, i64 %25
+  store ptr %26, ptr %6, align 8, !tbaa !57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %27 = load ptr, ptr %6, align 8, !tbaa !57
+  %28 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %27, i32 0, i32 1
+  %29 = load i32, ptr %28, align 8, !tbaa !53
+  %30 = zext i32 %29 to i64
+  %31 = mul i64 %30, 4
+  store i64 %31, ptr %8, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %32 = getelementptr inbounds nuw %"class.toku::omt", ptr %11, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4, !tbaa !26
+  %34 = getelementptr inbounds nuw %"class.toku::omt", ptr %11, i32 0, i32 2
+  %35 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %34, i32 0, i32 1
+  %36 = load i32, ptr %35, align 4, !tbaa !22
+  %37 = sub i32 %33, %36
+  %38 = zext i32 %37 to i64
+  %39 = mul i64 %38, 24
+  store i64 %39, ptr %9, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #10
+  %40 = load i64, ptr %8, align 8, !tbaa !27
+  %41 = load i64, ptr %9, align 8, !tbaa !27
+  %42 = icmp ule i64 %40, %41
+  br i1 %42, label %43, label %52
 
-if.then8:                                         ; preds = %if.else
-  store i8 0, ptr %malloced, align 1
-  %d9 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes10 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d9, i32 0, i32 2
-  %10 = load ptr, ptr %nodes10, align 8
-  %d11 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %free_idx12 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d11, i32 0, i32 1
-  %11 = load i32, ptr %free_idx12, align 4
-  %idxprom13 = zext i32 %11 to i64
-  %arrayidx14 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %10, i64 %idxprom13
-  store ptr %arrayidx14, ptr %tmp_array, align 8
-  br label %if.end
+43:                                               ; preds = %20
+  store i8 0, ptr %10, align 1, !tbaa !35
+  %44 = getelementptr inbounds nuw %"class.toku::omt", ptr %11, i32 0, i32 2
+  %45 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %44, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8, !tbaa !22
+  %47 = getelementptr inbounds nuw %"class.toku::omt", ptr %11, i32 0, i32 2
+  %48 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %47, i32 0, i32 1
+  %49 = load i32, ptr %48, align 4, !tbaa !22
+  %50 = zext i32 %49 to i64
+  %51 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %46, i64 %50
+  store ptr %51, ptr %7, align 8, !tbaa !49
+  br label %59
 
-if.else15:                                        ; preds = %if.else
-  store i8 1, ptr %malloced, align 1
-  %12 = load ptr, ptr %n, align 8
-  %weight16 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %12, i32 0, i32 1
-  %13 = load i32, ptr %weight16, align 8
-  %conv17 = zext i32 %13 to i64
-  %mul18 = mul i64 %conv17, 4
-  %call19 = call noundef ptr @_Z12toku_xmallocm(i64 noundef %mul18)
-  store ptr %call19, ptr %tmp_array, align 8
-  br label %if.end
+52:                                               ; preds = %20
+  store i8 1, ptr %10, align 1, !tbaa !35
+  %53 = load ptr, ptr %6, align 8, !tbaa !57
+  %54 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %53, i32 0, i32 1
+  %55 = load i32, ptr %54, align 8, !tbaa !53
+  %56 = zext i32 %55 to i64
+  %57 = mul i64 %56, 4
+  %58 = call noundef ptr @_Z12toku_xmallocm(i64 noundef %57)
+  store ptr %58, ptr %7, align 8, !tbaa !49
+  br label %59
 
-if.end:                                           ; preds = %if.else15, %if.then8
-  %14 = load ptr, ptr %tmp_array, align 8
-  %15 = load ptr, ptr %st.addr, align 8
-  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE28fill_array_with_subtree_idxsEPjRKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %15)
-  %16 = load ptr, ptr %st.addr, align 8
-  %17 = load ptr, ptr %tmp_array, align 8
-  %18 = load ptr, ptr %n, align 8
-  %weight20 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %18, i32 0, i32 1
-  %19 = load i32, ptr %weight20, align 8
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_subtree_from_idxsEPNS_12omt_internal17subtree_templatedILb0EEEPKjj(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %16, ptr noundef %17, i32 noundef %19)
-  %20 = load i8, ptr %malloced, align 1
-  %tobool = trunc i8 %20 to i1
-  br i1 %tobool, label %if.then21, label %if.end22
+59:                                               ; preds = %52, %43
+  %60 = load ptr, ptr %7, align 8, !tbaa !49
+  %61 = load ptr, ptr %4, align 8, !tbaa !51
+  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE28fill_array_with_subtree_idxsEPjRKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %60, ptr noundef nonnull align 4 dereferenceable(4) %61)
+  %62 = load ptr, ptr %4, align 8, !tbaa !51
+  %63 = load ptr, ptr %7, align 8, !tbaa !49
+  %64 = load ptr, ptr %6, align 8, !tbaa !57
+  %65 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %64, i32 0, i32 1
+  %66 = load i32, ptr %65, align 8, !tbaa !53
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_subtree_from_idxsEPNS_12omt_internal17subtree_templatedILb0EEEPKjj(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %62, ptr noundef %63, i32 noundef %66)
+  %67 = load i8, ptr %10, align 1, !tbaa !35, !range !20, !noundef !21
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %71
 
-if.then21:                                        ; preds = %if.end
-  %21 = load ptr, ptr %tmp_array, align 8
-  call void @_Z9toku_freePv(ptr noundef %21)
-  br label %if.end22
+69:                                               ; preds = %59
+  %70 = load ptr, ptr %7, align 8, !tbaa !49
+  call void @_Z9toku_freePv(ptr noundef %70)
+  br label %71
 
-if.end22:                                         ; preds = %if.then21, %if.end
-  br label %if.end23
+71:                                               ; preds = %69, %59
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  br label %72
 
-if.end23:                                         ; preds = %if.end22, %if.then
+72:                                               ; preds = %71, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE18maybe_resize_arrayEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %n) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %new_size = alloca i32, align 4
-  %room = alloca i32, align 4
-  %tmp_values = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %n.addr, align 4
-  %cmp = icmp ule i32 %0, 2
-  br i1 %cmp, label %cond.true, label %cond.false
+define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE18maybe_resize_arrayEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  %9 = load i32, ptr %4, align 4, !tbaa !11
+  %10 = icmp ule i32 %9, 2
+  br i1 %10, label %11, label %12
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+11:                                               ; preds = %2
+  br label %15
 
-cond.false:                                       ; preds = %entry
-  %1 = load i32, ptr %n.addr, align 4
-  %mul = mul i32 2, %1
-  br label %cond.end
+12:                                               ; preds = %2
+  %13 = load i32, ptr %4, align 4, !tbaa !11
+  %14 = mul i32 2, %13
+  br label %15
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 4, %cond.true ], [ %mul, %cond.false ]
-  store i32 %cond, ptr %new_size, align 4
-  %capacity = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %capacity, align 4
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %start_idx = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d, i32 0, i32 0
-  %3 = load i32, ptr %start_idx, align 8
-  %sub = sub i32 %2, %3
-  store i32 %sub, ptr %room, align 4
-  %4 = load i32, ptr %room, align 4
-  %5 = load i32, ptr %n.addr, align 4
-  %cmp2 = icmp ult i32 %4, %5
-  br i1 %cmp2, label %if.then, label %lor.lhs.false
+15:                                               ; preds = %12, %11
+  %16 = phi i32 [ 4, %11 ], [ %14, %12 ]
+  store i32 %16, ptr %5, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %17 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4, !tbaa !26
+  %19 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %20 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %19, i32 0, i32 0
+  %21 = load i32, ptr %20, align 8, !tbaa !22
+  %22 = sub i32 %18, %21
+  store i32 %22, ptr %6, align 4, !tbaa !11
+  %23 = load i32, ptr %6, align 4, !tbaa !11
+  %24 = load i32, ptr %4, align 4, !tbaa !11
+  %25 = icmp ult i32 %23, %24
+  br i1 %25, label %32, label %26
 
-lor.lhs.false:                                    ; preds = %cond.end
-  %capacity3 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 1
-  %6 = load i32, ptr %capacity3, align 4
-  %div = udiv i32 %6, 2
-  %7 = load i32, ptr %new_size, align 4
-  %cmp4 = icmp uge i32 %div, %7
-  br i1 %cmp4, label %if.then, label %if.end22
+26:                                               ; preds = %15
+  %27 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 1
+  %28 = load i32, ptr %27, align 4, !tbaa !26
+  %29 = udiv i32 %28, 2
+  %30 = load i32, ptr %5, align 4, !tbaa !11
+  %31 = icmp uge i32 %29, %30
+  br i1 %31, label %32, label %67
 
-if.then:                                          ; preds = %lor.lhs.false, %cond.end
-  %8 = load i32, ptr %new_size, align 4
-  %conv = zext i32 %8 to i64
-  %mul5 = mul i64 %conv, 8
-  %call = call noundef ptr @_Z12toku_xmallocm(i64 noundef %mul5)
-  store ptr %call, ptr %tmp_values, align 8
-  %d6 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %num_values = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d6, i32 0, i32 1
-  %9 = load i32, ptr %num_values, align 4
-  %tobool = icmp ne i32 %9, 0
-  br i1 %tobool, label %if.then7, label %if.end
+32:                                               ; preds = %26, %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %33 = load i32, ptr %5, align 4, !tbaa !11
+  %34 = zext i32 %33 to i64
+  %35 = mul i64 %34, 8
+  %36 = call noundef ptr @_Z12toku_xmallocm(i64 noundef %35)
+  store ptr %36, ptr %7, align 8, !tbaa !23
+  %37 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %38 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %37, i32 0, i32 1
+  %39 = load i32, ptr %38, align 4, !tbaa !22
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %56
 
-if.then7:                                         ; preds = %if.then
-  %10 = load ptr, ptr %tmp_values, align 8
-  %d8 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %values = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d8, i32 0, i32 2
-  %11 = load ptr, ptr %values, align 8
-  %d9 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %start_idx10 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d9, i32 0, i32 0
-  %12 = load i32, ptr %start_idx10, align 8
-  %idxprom = zext i32 %12 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %idxprom
-  %d11 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %num_values12 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d11, i32 0, i32 1
-  %13 = load i32, ptr %num_values12, align 4
-  %conv13 = zext i32 %13 to i64
-  %mul14 = mul i64 %conv13, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %arrayidx, i64 %mul14, i1 false)
-  br label %if.end
+41:                                               ; preds = %32
+  %42 = load ptr, ptr %7, align 8, !tbaa !23
+  %43 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %44 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %43, i32 0, i32 2
+  %45 = load ptr, ptr %44, align 8, !tbaa !22
+  %46 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %47 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %46, i32 0, i32 0
+  %48 = load i32, ptr %47, align 8, !tbaa !22
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %49
+  %51 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %52 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %51, i32 0, i32 1
+  %53 = load i32, ptr %52, align 4, !tbaa !22
+  %54 = zext i32 %53 to i64
+  %55 = mul i64 %54, 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %50, i64 %55, i1 false)
+  br label %56
 
-if.end:                                           ; preds = %if.then7, %if.then
-  %d15 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %start_idx16 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d15, i32 0, i32 0
-  store i32 0, ptr %start_idx16, align 8
-  %14 = load i32, ptr %new_size, align 4
-  %capacity17 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 1
-  store i32 %14, ptr %capacity17, align 4
-  %d18 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %values19 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d18, i32 0, i32 2
-  %15 = load ptr, ptr %values19, align 8
-  call void @_Z9toku_freePv(ptr noundef %15)
-  %16 = load ptr, ptr %tmp_values, align 8
-  %d20 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %values21 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d20, i32 0, i32 2
-  store ptr %16, ptr %values21, align 8
-  br label %if.end22
+56:                                               ; preds = %41, %32
+  %57 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %58 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %57, i32 0, i32 0
+  store i32 0, ptr %58, align 8, !tbaa !22
+  %59 = load i32, ptr %5, align 4, !tbaa !11
+  %60 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 1
+  store i32 %59, ptr %60, align 4, !tbaa !26
+  %61 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %62 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %61, i32 0, i32 2
+  %63 = load ptr, ptr %62, align 8, !tbaa !22
+  call void @_Z9toku_freePv(ptr noundef %63)
+  %64 = load ptr, ptr %7, align 8, !tbaa !23
+  %65 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %66 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %65, i32 0, i32 2
+  store ptr %64, ptr %66, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  br label %67
 
-if.end22:                                         ; preds = %if.end, %lor.lhs.false
+67:                                               ; preds = %56, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE16convert_to_arrayEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %num_values = alloca i32, align 4
-  %new_size = alloca i32, align 4
-  %tmp_values = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %is_array = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 0
-  %0 = load i8, ptr %is_array, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.end, label %if.then
+define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE16convert_to_arrayEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %"class.toku::omt", ptr %6, i32 0, i32 0
+  %8 = load i8, ptr %7, align 8, !tbaa !17, !range !20, !noundef !21
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %42, label %10
 
-if.then:                                          ; preds = %entry
-  %call = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store i32 %call, ptr %num_values, align 4
-  %1 = load i32, ptr %num_values, align 4
-  %mul = mul i32 2, %1
-  store i32 %mul, ptr %new_size, align 4
-  %2 = load i32, ptr %new_size, align 4
-  %cmp = icmp ult i32 %2, 4
-  br i1 %cmp, label %cond.true, label %cond.false
+10:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #10
+  %11 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
+  store i32 %11, ptr %3, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  %12 = load i32, ptr %3, align 4, !tbaa !11
+  %13 = mul i32 2, %12
+  store i32 %13, ptr %4, align 4, !tbaa !11
+  %14 = load i32, ptr %4, align 4, !tbaa !11
+  %15 = icmp ult i32 %14, 4
+  br i1 %15, label %16, label %17
 
-cond.true:                                        ; preds = %if.then
-  br label %cond.end
+16:                                               ; preds = %10
+  br label %19
 
-cond.false:                                       ; preds = %if.then
-  %3 = load i32, ptr %new_size, align 4
-  br label %cond.end
+17:                                               ; preds = %10
+  %18 = load i32, ptr %4, align 4, !tbaa !11
+  br label %19
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 4, %cond.true ], [ %3, %cond.false ]
-  store i32 %cond, ptr %new_size, align 4
-  %4 = load i32, ptr %new_size, align 4
-  %conv = zext i32 %4 to i64
-  %mul2 = mul i64 %conv, 8
-  %call3 = call noundef ptr @_Z12toku_xmallocm(i64 noundef %mul2)
-  store ptr %call3, ptr %tmp_values, align 8
-  %5 = load ptr, ptr %tmp_values, align 8
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %root = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d, i32 0, i32 0
-  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE30fill_array_with_subtree_valuesEPS3_RKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %root)
-  %d4 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d4, i32 0, i32 2
-  %6 = load ptr, ptr %nodes, align 8
-  call void @_Z9toku_freePv(ptr noundef %6)
-  %is_array5 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 0
-  store i8 1, ptr %is_array5, align 8
-  %7 = load i32, ptr %new_size, align 4
-  %capacity = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 1
-  store i32 %7, ptr %capacity, align 4
-  %8 = load i32, ptr %num_values, align 4
-  %d6 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %num_values7 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d6, i32 0, i32 1
-  store i32 %8, ptr %num_values7, align 4
-  %9 = load ptr, ptr %tmp_values, align 8
-  %d8 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %values = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d8, i32 0, i32 2
-  store ptr %9, ptr %values, align 8
-  %d9 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %start_idx = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %d9, i32 0, i32 0
-  store i32 0, ptr %start_idx, align 8
-  br label %if.end
+19:                                               ; preds = %17, %16
+  %20 = phi i32 [ 4, %16 ], [ %18, %17 ]
+  store i32 %20, ptr %4, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %21 = load i32, ptr %4, align 4, !tbaa !11
+  %22 = zext i32 %21 to i64
+  %23 = mul i64 %22, 8
+  %24 = call noundef ptr @_Z12toku_xmallocm(i64 noundef %23)
+  store ptr %24, ptr %5, align 8, !tbaa !23
+  %25 = load ptr, ptr %5, align 8, !tbaa !23
+  %26 = getelementptr inbounds nuw %"class.toku::omt", ptr %6, i32 0, i32 2
+  %27 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %26, i32 0, i32 0
+  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE30fill_array_with_subtree_valuesEPS3_RKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %25, ptr noundef nonnull align 4 dereferenceable(4) %27)
+  %28 = getelementptr inbounds nuw %"class.toku::omt", ptr %6, i32 0, i32 2
+  %29 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !22
+  call void @_Z9toku_freePv(ptr noundef %30)
+  %31 = getelementptr inbounds nuw %"class.toku::omt", ptr %6, i32 0, i32 0
+  store i8 1, ptr %31, align 8, !tbaa !17
+  %32 = load i32, ptr %4, align 4, !tbaa !11
+  %33 = getelementptr inbounds nuw %"class.toku::omt", ptr %6, i32 0, i32 1
+  store i32 %32, ptr %33, align 4, !tbaa !26
+  %34 = load i32, ptr %3, align 4, !tbaa !11
+  %35 = getelementptr inbounds nuw %"class.toku::omt", ptr %6, i32 0, i32 2
+  %36 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %35, i32 0, i32 1
+  store i32 %34, ptr %36, align 4, !tbaa !22
+  %37 = load ptr, ptr %5, align 8, !tbaa !23
+  %38 = getelementptr inbounds nuw %"class.toku::omt", ptr %6, i32 0, i32 2
+  %39 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %38, i32 0, i32 2
+  store ptr %37, ptr %39, align 8, !tbaa !22
+  %40 = getelementptr inbounds nuw %"class.toku::omt", ptr %6, i32 0, i32 2
+  %41 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_array", ptr %40, i32 0, i32 0
+  store i32 0, ptr %41, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #10
+  br label %42
 
-if.end:                                           ; preds = %cond.end, %entry
+42:                                               ; preds = %19, %1
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE30fill_array_with_subtree_valuesEPS3_RKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %array, ptr noundef nonnull align 4 dereferenceable(4) %st) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %array.addr = alloca ptr, align 8
-  %st.addr = alloca ptr, align 8
-  %tree = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %array, ptr %array.addr, align 8
-  store ptr %st, ptr %st.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %st.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4toku12omt_internal17subtree_templatedILb0EE7is_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %0)
-  br i1 %call, label %if.then, label %if.end
+define linkonce_odr void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE30fill_array_with_subtree_valuesEPS3_RKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  store ptr %1, ptr %5, align 8, !tbaa !23
+  store ptr %2, ptr %6, align 8, !tbaa !51
+  %8 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %6, align 8, !tbaa !51
+  %10 = call noundef zeroext i1 @_ZNK4toku12omt_internal17subtree_templatedILb0EE7is_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %9)
+  br i1 %10, label %11, label %12
 
-if.then:                                          ; preds = %entry
-  br label %return
+11:                                               ; preds = %3
+  br label %42
 
-if.end:                                           ; preds = %entry
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d, i32 0, i32 2
-  %1 = load ptr, ptr %nodes, align 8
-  %2 = load ptr, ptr %st.addr, align 8
-  %call2 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %idxprom = zext i32 %call2 to i64
-  %arrayidx = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %1, i64 %idxprom
-  store ptr %arrayidx, ptr %tree, align 8
-  %3 = load ptr, ptr %array.addr, align 8
-  %arrayidx3 = getelementptr inbounds ptr, ptr %3, i64 0
-  %4 = load ptr, ptr %tree, align 8
-  %left = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %4, i32 0, i32 2
-  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE30fill_array_with_subtree_valuesEPS3_RKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %arrayidx3, ptr noundef nonnull align 4 dereferenceable(4) %left)
-  %5 = load ptr, ptr %tree, align 8
-  %value = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %value, align 8
-  %7 = load ptr, ptr %array.addr, align 8
-  %8 = load ptr, ptr %tree, align 8
-  %left4 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %8, i32 0, i32 2
-  %call5 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %left4)
-  %idxprom6 = zext i32 %call5 to i64
-  %arrayidx7 = getelementptr inbounds ptr, ptr %7, i64 %idxprom6
-  store ptr %6, ptr %arrayidx7, align 8
-  %9 = load ptr, ptr %array.addr, align 8
-  %10 = load ptr, ptr %tree, align 8
-  %left8 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %10, i32 0, i32 2
-  %call9 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %left8)
-  %add = add i32 %call9, 1
-  %idxprom10 = zext i32 %add to i64
-  %arrayidx11 = getelementptr inbounds ptr, ptr %9, i64 %idxprom10
-  %11 = load ptr, ptr %tree, align 8
-  %right = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %11, i32 0, i32 3
-  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE30fill_array_with_subtree_valuesEPS3_RKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %arrayidx11, ptr noundef nonnull align 4 dereferenceable(4) %right)
-  br label %return
+12:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %13 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8, !tbaa !22
+  %16 = load ptr, ptr %6, align 8, !tbaa !51
+  %17 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %15, i64 %18
+  store ptr %19, ptr %7, align 8, !tbaa !57
+  %20 = load ptr, ptr %5, align 8, !tbaa !23
+  %21 = getelementptr inbounds ptr, ptr %20, i64 0
+  %22 = load ptr, ptr %7, align 8, !tbaa !57
+  %23 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %22, i32 0, i32 2
+  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE30fill_array_with_subtree_valuesEPS3_RKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %21, ptr noundef nonnull align 4 dereferenceable(4) %23)
+  %24 = load ptr, ptr %7, align 8, !tbaa !57
+  %25 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !59
+  %27 = load ptr, ptr %5, align 8, !tbaa !23
+  %28 = load ptr, ptr %7, align 8, !tbaa !57
+  %29 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %28, i32 0, i32 2
+  %30 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 4 dereferenceable(4) %29)
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %31
+  store ptr %26, ptr %32, align 8, !tbaa !13
+  %33 = load ptr, ptr %5, align 8, !tbaa !23
+  %34 = load ptr, ptr %7, align 8, !tbaa !57
+  %35 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %34, i32 0, i32 2
+  %36 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 4 dereferenceable(4) %35)
+  %37 = add i32 %36, 1
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw ptr, ptr %33, i64 %38
+  %40 = load ptr, ptr %7, align 8, !tbaa !57
+  %41 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %40, i32 0, i32 3
+  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE30fill_array_with_subtree_valuesEPS3_RKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %39, ptr noundef nonnull align 4 dereferenceable(4) %41)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  br label %42
 
-return:                                           ; preds = %if.end, %if.then
+42:                                               ; preds = %12, %11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_from_sorted_arrayEPNS_12omt_internal17subtree_templatedILb0EEEPKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %st, ptr noundef nonnull %values, i32 noundef %numvalues) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %st.addr = alloca ptr, align 8
-  %values.addr = alloca ptr, align 8
-  %numvalues.addr = alloca i32, align 4
-  %halfway = alloca i32, align 4
-  %newidx = alloca i32, align 4
-  %newnode = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %st, ptr %st.addr, align 8
-  store ptr %values, ptr %values.addr, align 8
-  store i32 %numvalues, ptr %numvalues.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %numvalues.addr, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.else
+define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_from_sorted_arrayEPNS_12omt_internal17subtree_templatedILb0EEEPKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store ptr %1, ptr %6, align 8, !tbaa !51
+  store ptr %2, ptr %7, align 8, !tbaa !23
+  store i32 %3, ptr %8, align 4, !tbaa !11
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i32, ptr %8, align 4, !tbaa !11
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %17
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %st.addr, align 8
-  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE11set_to_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %1)
-  br label %if.end
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %6, align 8, !tbaa !51
+  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE11set_to_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %16)
+  br label %55
 
-if.else:                                          ; preds = %entry
-  %2 = load i32, ptr %numvalues.addr, align 4
-  %div = udiv i32 %2, 2
-  store i32 %div, ptr %halfway, align 4
-  %call = call noundef i32 @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE11node_mallocEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store i32 %call, ptr %newidx, align 4
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d, i32 0, i32 2
-  %3 = load ptr, ptr %nodes, align 8
-  %4 = load i32, ptr %newidx, align 4
-  %idxprom = zext i32 %4 to i64
-  %arrayidx = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %3, i64 %idxprom
-  store ptr %arrayidx, ptr %newnode, align 8
-  %5 = load i32, ptr %numvalues.addr, align 4
-  %6 = load ptr, ptr %newnode, align 8
-  %weight = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %6, i32 0, i32 1
-  store i32 %5, ptr %weight, align 8
-  %7 = load ptr, ptr %values.addr, align 8
-  %8 = load i32, ptr %halfway, align 4
-  %idxprom2 = zext i32 %8 to i64
-  %arrayidx3 = getelementptr inbounds ptr, ptr %7, i64 %idxprom2
-  %9 = load ptr, ptr %arrayidx3, align 8
-  %10 = load ptr, ptr %newnode, align 8
-  %value = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %10, i32 0, i32 0
-  store ptr %9, ptr %value, align 8
-  %11 = load ptr, ptr %st.addr, align 8
-  %12 = load i32, ptr %newidx, align 4
-  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE9set_indexEj(ptr noundef nonnull align 4 dereferenceable(4) %11, i32 noundef %12)
-  %13 = load ptr, ptr %newnode, align 8
-  %left = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %13, i32 0, i32 2
-  %14 = load ptr, ptr %values.addr, align 8
-  %arrayidx4 = getelementptr inbounds ptr, ptr %14, i64 0
-  %15 = load i32, ptr %halfway, align 4
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_from_sorted_arrayEPNS_12omt_internal17subtree_templatedILb0EEEPKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %left, ptr noundef %arrayidx4, i32 noundef %15)
-  %16 = load ptr, ptr %newnode, align 8
-  %right = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %16, i32 0, i32 3
-  %17 = load ptr, ptr %values.addr, align 8
-  %18 = load i32, ptr %halfway, align 4
-  %add = add i32 %18, 1
-  %idxprom5 = zext i32 %add to i64
-  %arrayidx6 = getelementptr inbounds ptr, ptr %17, i64 %idxprom5
-  %19 = load i32, ptr %numvalues.addr, align 4
-  %20 = load i32, ptr %halfway, align 4
-  %add7 = add i32 %20, 1
-  %sub = sub i32 %19, %add7
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_from_sorted_arrayEPNS_12omt_internal17subtree_templatedILb0EEEPKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %right, ptr noundef %arrayidx6, i32 noundef %sub)
-  br label %if.end
+17:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  %18 = load i32, ptr %8, align 4, !tbaa !11
+  %19 = udiv i32 %18, 2
+  store i32 %19, ptr %9, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  %20 = call noundef i32 @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE11node_mallocEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
+  store i32 %20, ptr %10, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %21 = getelementptr inbounds nuw %"class.toku::omt", ptr %12, i32 0, i32 2
+  %22 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !22
+  %24 = load i32, ptr %10, align 4, !tbaa !11
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %23, i64 %25
+  store ptr %26, ptr %11, align 8, !tbaa !57
+  %27 = load i32, ptr %8, align 4, !tbaa !11
+  %28 = load ptr, ptr %11, align 8, !tbaa !57
+  %29 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %28, i32 0, i32 1
+  store i32 %27, ptr %29, align 8, !tbaa !53
+  %30 = load ptr, ptr %7, align 8, !tbaa !23
+  %31 = load i32, ptr %9, align 4, !tbaa !11
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %32
+  %34 = load ptr, ptr %33, align 8, !tbaa !13
+  %35 = load ptr, ptr %11, align 8, !tbaa !57
+  %36 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %35, i32 0, i32 0
+  store ptr %34, ptr %36, align 8, !tbaa !59
+  %37 = load ptr, ptr %6, align 8, !tbaa !51
+  %38 = load i32, ptr %10, align 4, !tbaa !11
+  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE9set_indexEj(ptr noundef nonnull align 4 dereferenceable(4) %37, i32 noundef %38)
+  %39 = load ptr, ptr %11, align 8, !tbaa !57
+  %40 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %39, i32 0, i32 2
+  %41 = load ptr, ptr %7, align 8, !tbaa !23
+  %42 = getelementptr inbounds ptr, ptr %41, i64 0
+  %43 = load i32, ptr %9, align 4, !tbaa !11
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_from_sorted_arrayEPNS_12omt_internal17subtree_templatedILb0EEEPKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %40, ptr noundef %42, i32 noundef %43)
+  %44 = load ptr, ptr %11, align 8, !tbaa !57
+  %45 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %44, i32 0, i32 3
+  %46 = load ptr, ptr %7, align 8, !tbaa !23
+  %47 = load i32, ptr %9, align 4, !tbaa !11
+  %48 = add i32 %47, 1
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %49
+  %51 = load i32, ptr %8, align 4, !tbaa !11
+  %52 = load i32, ptr %9, align 4, !tbaa !11
+  %53 = add i32 %52, 1
+  %54 = sub i32 %51, %53
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_from_sorted_arrayEPNS_12omt_internal17subtree_templatedILb0EEEPKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %45, ptr noundef %50, i32 noundef %54)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  br label %55
 
-if.end:                                           ; preds = %if.else, %if.then
+55:                                               ; preds = %17, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE11node_mallocEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d, i32 0, i32 2
-  %0 = load ptr, ptr %nodes, align 8
-  %d2 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %free_idx = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d2, i32 0, i32 1
-  %1 = load i32, ptr %free_idx, align 4
-  %idxprom = zext i32 %1 to i64
-  %arrayidx = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %0, i64 %idxprom
-  store ptr %arrayidx, ptr %n, align 8
-  %2 = load ptr, ptr %n, align 8
-  call void @_ZN4toku12omt_internal18omt_node_templatedIPNS_3wfg4nodeELb0EE17clear_stolen_bitsEv(ptr noundef nonnull align 8 dereferenceable(20) %2)
-  %d3 = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %free_idx4 = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d3, i32 0, i32 1
-  %3 = load i32, ptr %free_idx4, align 4
-  %inc = add i32 %3, 1
-  store i32 %inc, ptr %free_idx4, align 4
-  ret i32 %3
+define linkonce_odr noundef i32 @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE11node_mallocEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %5 = getelementptr inbounds nuw %"class.toku::omt", ptr %4, i32 0, i32 2
+  %6 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !22
+  %8 = getelementptr inbounds nuw %"class.toku::omt", ptr %4, i32 0, i32 2
+  %9 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %8, i32 0, i32 1
+  %10 = load i32, ptr %9, align 4, !tbaa !22
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %7, i64 %11
+  store ptr %12, ptr %3, align 8, !tbaa !57
+  %13 = load ptr, ptr %3, align 8, !tbaa !57
+  call void @_ZN4toku12omt_internal18omt_node_templatedIPNS_3wfg4nodeELb0EE17clear_stolen_bitsEv(ptr noundef nonnull align 8 dereferenceable(20) %13)
+  %14 = getelementptr inbounds nuw %"class.toku::omt", ptr %4, i32 0, i32 2
+  %15 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 4, !tbaa !22
+  %17 = add i32 %16, 1
+  store i32 %17, ptr %15, align 4, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  ret i32 %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4toku12omt_internal17subtree_templatedILb0EE9set_indexEj(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %index) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %index.addr, align 4
-  %m_index = getelementptr inbounds %"class.toku::omt_internal::subtree_templated", ptr %this1, i32 0, i32 0
-  store i32 %0, ptr %m_index, align 4
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN4toku12omt_internal17subtree_templatedILb0EE9set_indexEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !51
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !11
+  %7 = getelementptr inbounds nuw %"class.toku::omt_internal::subtree_templated", ptr %5, i32 0, i32 0
+  store i32 %6, ptr %7, align 4, !tbaa !56
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4toku12omt_internal18omt_node_templatedIPNS_3wfg4nodeELb0EE17clear_stolen_bitsEv(ptr noundef nonnull align 8 dereferenceable(20) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %st, i32 noundef %leftmod, i32 noundef %rightmod) #0 comdat align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %st.addr = alloca ptr, align 8
-  %leftmod.addr = alloca i32, align 4
-  %rightmod.addr = alloca i32, align 4
-  %n = alloca ptr, align 8
-  %weight_left = alloca i32, align 4
-  %weight_right = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %st, ptr %st.addr, align 8
-  store i32 %leftmod, ptr %leftmod.addr, align 4
-  store i32 %rightmod, ptr %rightmod.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %st.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4toku12omt_internal17subtree_templatedILb0EE7is_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %0)
-  br i1 %call, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d, i32 0, i32 2
-  %1 = load ptr, ptr %nodes, align 8
-  %2 = load ptr, ptr %st.addr, align 8
-  %call2 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %idxprom = zext i32 %call2 to i64
-  %arrayidx = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %1, i64 %idxprom
-  store ptr %arrayidx, ptr %n, align 8
-  %3 = load ptr, ptr %n, align 8
-  %left = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %3, i32 0, i32 2
-  %call3 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %left)
-  %4 = load i32, ptr %leftmod.addr, align 4
-  %add = add i32 %call3, %4
-  store i32 %add, ptr %weight_left, align 4
-  %5 = load ptr, ptr %n, align 8
-  %right = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %5, i32 0, i32 3
-  %call4 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %right)
-  %6 = load i32, ptr %rightmod.addr, align 4
-  %add5 = add i32 %call4, %6
-  store i32 %add5, ptr %weight_right, align 4
-  %7 = load i32, ptr %weight_left, align 4
-  %add6 = add i32 1, %7
-  %8 = load i32, ptr %weight_right, align 4
-  %add7 = add i32 2, %8
-  %div = udiv i32 %add7, 2
-  %cmp = icmp ult i32 %add6, %div
-  br i1 %cmp, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %if.end
-  %9 = load i32, ptr %weight_right, align 4
-  %add8 = add i32 1, %9
-  %10 = load i32, ptr %weight_left, align 4
-  %add9 = add i32 2, %10
-  %div10 = udiv i32 %add9, 2
-  %cmp11 = icmp ult i32 %add8, %div10
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %if.end
-  %11 = phi i1 [ true, %if.end ], [ %cmp11, %lor.rhs ]
-  store i1 %11, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %lor.end, %if.then
-  %12 = load i1, ptr %retval, align 1
-  ret i1 %12
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE28fill_array_with_subtree_idxsEPjRKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %array, ptr noundef nonnull align 4 dereferenceable(4) %st) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %array.addr = alloca ptr, align 8
-  %st.addr = alloca ptr, align 8
-  %tree = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %array, ptr %array.addr, align 8
-  store ptr %st, ptr %st.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %st.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4toku12omt_internal17subtree_templatedILb0EE7is_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %0)
-  br i1 %call, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d, i32 0, i32 2
-  %1 = load ptr, ptr %nodes, align 8
-  %2 = load ptr, ptr %st.addr, align 8
-  %call2 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %idxprom = zext i32 %call2 to i64
-  %arrayidx = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %1, i64 %idxprom
-  store ptr %arrayidx, ptr %tree, align 8
-  %3 = load ptr, ptr %array.addr, align 8
-  %arrayidx3 = getelementptr inbounds i32, ptr %3, i64 0
-  %4 = load ptr, ptr %tree, align 8
-  %left = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %4, i32 0, i32 2
-  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE28fill_array_with_subtree_idxsEPjRKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %arrayidx3, ptr noundef nonnull align 4 dereferenceable(4) %left)
-  %5 = load ptr, ptr %st.addr, align 8
-  %call4 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %6 = load ptr, ptr %array.addr, align 8
-  %7 = load ptr, ptr %tree, align 8
-  %left5 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %7, i32 0, i32 2
-  %call6 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %left5)
-  %idxprom7 = zext i32 %call6 to i64
-  %arrayidx8 = getelementptr inbounds i32, ptr %6, i64 %idxprom7
-  store i32 %call4, ptr %arrayidx8, align 4
-  %8 = load ptr, ptr %array.addr, align 8
-  %9 = load ptr, ptr %tree, align 8
-  %left9 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %9, i32 0, i32 2
-  %call10 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %left9)
-  %add = add i32 %call10, 1
-  %idxprom11 = zext i32 %add to i64
-  %arrayidx12 = getelementptr inbounds i32, ptr %8, i64 %idxprom11
-  %10 = load ptr, ptr %tree, align 8
-  %right = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %10, i32 0, i32 3
-  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE28fill_array_with_subtree_idxsEPjRKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %arrayidx12, ptr noundef nonnull align 4 dereferenceable(4) %right)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN4toku12omt_internal18omt_node_templatedIPNS_3wfg4nodeELb0EE17clear_stolen_bitsEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !57
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_subtree_from_idxsEPNS_12omt_internal17subtree_templatedILb0EEEPKjj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %st, ptr noundef nonnull %idxs, i32 noundef %numvalues) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %st.addr = alloca ptr, align 8
-  %idxs.addr = alloca ptr, align 8
-  %numvalues.addr = alloca i32, align 4
-  %halfway = alloca i32, align 4
-  %newnode = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %st, ptr %st.addr, align 8
-  store ptr %idxs, ptr %idxs.addr, align 8
-  store i32 %numvalues, ptr %numvalues.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %numvalues.addr, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.else
+define linkonce_odr noundef zeroext i1 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i32 noundef %3) #0 comdat align 2 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !9
+  store ptr %1, ptr %7, align 8, !tbaa !51
+  store i32 %2, ptr %8, align 4, !tbaa !11
+  store i32 %3, ptr %9, align 4, !tbaa !11
+  %13 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %7, align 8, !tbaa !51
+  %15 = call noundef zeroext i1 @_ZNK4toku12omt_internal17subtree_templatedILb0EE7is_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %14)
+  br i1 %15, label %16, label %17
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %st.addr, align 8
-  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE11set_to_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %1)
-  br label %if.end
+16:                                               ; preds = %4
+  store i1 false, ptr %5, align 1
+  br label %50
 
-if.else:                                          ; preds = %entry
-  %2 = load i32, ptr %numvalues.addr, align 4
-  %div = udiv i32 %2, 2
-  store i32 %div, ptr %halfway, align 4
-  %3 = load ptr, ptr %st.addr, align 8
-  %4 = load ptr, ptr %idxs.addr, align 8
-  %5 = load i32, ptr %halfway, align 4
-  %idxprom = zext i32 %5 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %4, i64 %idxprom
-  %6 = load i32, ptr %arrayidx, align 4
-  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE9set_indexEj(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef %6)
-  %d = getelementptr inbounds %"class.toku::omt", ptr %this1, i32 0, i32 2
-  %nodes = getelementptr inbounds %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %d, i32 0, i32 2
-  %7 = load ptr, ptr %nodes, align 8
-  %8 = load ptr, ptr %st.addr, align 8
-  %call = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %8)
-  %idxprom2 = zext i32 %call to i64
-  %arrayidx3 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %7, i64 %idxprom2
-  store ptr %arrayidx3, ptr %newnode, align 8
-  %9 = load i32, ptr %numvalues.addr, align 4
-  %10 = load ptr, ptr %newnode, align 8
-  %weight = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %10, i32 0, i32 1
-  store i32 %9, ptr %weight, align 8
-  %11 = load ptr, ptr %newnode, align 8
-  %left = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %11, i32 0, i32 2
-  %12 = load ptr, ptr %idxs.addr, align 8
-  %arrayidx4 = getelementptr inbounds i32, ptr %12, i64 0
-  %13 = load i32, ptr %halfway, align 4
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_subtree_from_idxsEPNS_12omt_internal17subtree_templatedILb0EEEPKjj(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %left, ptr noundef %arrayidx4, i32 noundef %13)
-  %14 = load ptr, ptr %newnode, align 8
-  %right = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %14, i32 0, i32 3
-  %15 = load ptr, ptr %idxs.addr, align 8
-  %16 = load i32, ptr %halfway, align 4
-  %add = add i32 %16, 1
-  %idxprom5 = zext i32 %add to i64
-  %arrayidx6 = getelementptr inbounds i32, ptr %15, i64 %idxprom5
-  %17 = load i32, ptr %numvalues.addr, align 4
-  %18 = load i32, ptr %halfway, align 4
-  %add7 = add i32 %18, 1
-  %sub = sub i32 %17, %add7
-  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_subtree_from_idxsEPNS_12omt_internal17subtree_templatedILb0EEEPKjj(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %right, ptr noundef %arrayidx6, i32 noundef %sub)
-  br label %if.end
+17:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %18 = getelementptr inbounds nuw %"class.toku::omt", ptr %13, i32 0, i32 2
+  %19 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %18, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8, !tbaa !22
+  %21 = load ptr, ptr %7, align 8, !tbaa !51
+  %22 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %21)
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %20, i64 %23
+  store ptr %24, ptr %10, align 8, !tbaa !57
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  %25 = load ptr, ptr %10, align 8, !tbaa !57
+  %26 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %25, i32 0, i32 2
+  %27 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 4 dereferenceable(4) %26)
+  %28 = load i32, ptr %8, align 4, !tbaa !11
+  %29 = add i32 %27, %28
+  store i32 %29, ptr %11, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  %30 = load ptr, ptr %10, align 8, !tbaa !57
+  %31 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %30, i32 0, i32 3
+  %32 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 4 dereferenceable(4) %31)
+  %33 = load i32, ptr %9, align 4, !tbaa !11
+  %34 = add i32 %32, %33
+  store i32 %34, ptr %12, align 4, !tbaa !11
+  %35 = load i32, ptr %11, align 4, !tbaa !11
+  %36 = add i32 1, %35
+  %37 = load i32, ptr %12, align 4, !tbaa !11
+  %38 = add i32 2, %37
+  %39 = udiv i32 %38, 2
+  %40 = icmp ult i32 %36, %39
+  br i1 %40, label %48, label %41
 
-if.end:                                           ; preds = %if.else, %if.then
+41:                                               ; preds = %17
+  %42 = load i32, ptr %12, align 4, !tbaa !11
+  %43 = add i32 1, %42
+  %44 = load i32, ptr %11, align 4, !tbaa !11
+  %45 = add i32 2, %44
+  %46 = udiv i32 %45, 2
+  %47 = icmp ult i32 %43, %46
+  br label %48
+
+48:                                               ; preds = %41, %17
+  %49 = phi i1 [ true, %17 ], [ %47, %41 ]
+  store i1 %49, ptr %5, align 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  br label %50
+
+50:                                               ; preds = %48, %16
+  %51 = load i1, ptr %5, align 1
+  ret i1 %51
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE28fill_array_with_subtree_idxsEPjRKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  store ptr %1, ptr %5, align 8, !tbaa !49
+  store ptr %2, ptr %6, align 8, !tbaa !51
+  %8 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %6, align 8, !tbaa !51
+  %10 = call noundef zeroext i1 @_ZNK4toku12omt_internal17subtree_templatedILb0EE7is_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %9)
+  br i1 %10, label %40, label %11
+
+11:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %12 = getelementptr inbounds nuw %"class.toku::omt", ptr %8, i32 0, i32 2
+  %13 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !22
+  %15 = load ptr, ptr %6, align 8, !tbaa !51
+  %16 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %15)
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %14, i64 %17
+  store ptr %18, ptr %7, align 8, !tbaa !57
+  %19 = load ptr, ptr %5, align 8, !tbaa !49
+  %20 = getelementptr inbounds i32, ptr %19, i64 0
+  %21 = load ptr, ptr %7, align 8, !tbaa !57
+  %22 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %21, i32 0, i32 2
+  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE28fill_array_with_subtree_idxsEPjRKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %20, ptr noundef nonnull align 4 dereferenceable(4) %22)
+  %23 = load ptr, ptr %6, align 8, !tbaa !51
+  %24 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %23)
+  %25 = load ptr, ptr %5, align 8, !tbaa !49
+  %26 = load ptr, ptr %7, align 8, !tbaa !57
+  %27 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %26, i32 0, i32 2
+  %28 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 4 dereferenceable(4) %27)
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr inbounds nuw i32, ptr %25, i64 %29
+  store i32 %24, ptr %30, align 4, !tbaa !11
+  %31 = load ptr, ptr %5, align 8, !tbaa !49
+  %32 = load ptr, ptr %7, align 8, !tbaa !57
+  %33 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %32, i32 0, i32 2
+  %34 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 4 dereferenceable(4) %33)
+  %35 = add i32 %34, 1
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr inbounds nuw i32, ptr %31, i64 %36
+  %38 = load ptr, ptr %7, align 8, !tbaa !57
+  %39 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %38, i32 0, i32 3
+  call void @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE28fill_array_with_subtree_idxsEPjRKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %37, ptr noundef nonnull align 4 dereferenceable(4) %39)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  br label %40
+
+40:                                               ; preds = %11, %3
   ret void
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #1 = { "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #3 = { noreturn nounwind uwtable "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #4 = { noreturn "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
-attributes #9 = { noreturn }
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_subtree_from_idxsEPNS_12omt_internal17subtree_templatedILb0EEEPKjj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store ptr %1, ptr %6, align 8, !tbaa !51
+  store ptr %2, ptr %7, align 8, !tbaa !49
+  store i32 %3, ptr %8, align 4, !tbaa !11
+  %11 = load ptr, ptr %5, align 8
+  %12 = load i32, ptr %8, align 4, !tbaa !11
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %16
+
+14:                                               ; preds = %4
+  %15 = load ptr, ptr %6, align 8, !tbaa !51
+  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE11set_to_nullEv(ptr noundef nonnull align 4 dereferenceable(4) %15)
+  br label %51
+
+16:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  %17 = load i32, ptr %8, align 4, !tbaa !11
+  %18 = udiv i32 %17, 2
+  store i32 %18, ptr %9, align 4, !tbaa !11
+  %19 = load ptr, ptr %6, align 8, !tbaa !51
+  %20 = load ptr, ptr %7, align 8, !tbaa !49
+  %21 = load i32, ptr %9, align 4, !tbaa !11
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %22
+  %24 = load i32, ptr %23, align 4, !tbaa !11
+  call void @_ZN4toku12omt_internal17subtree_templatedILb0EE9set_indexEj(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %24)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %25 = getelementptr inbounds nuw %"class.toku::omt", ptr %11, i32 0, i32 2
+  %26 = getelementptr inbounds nuw %"struct.toku::omt<toku::wfg::node *>::omt_tree", ptr %25, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8, !tbaa !22
+  %28 = load ptr, ptr %6, align 8, !tbaa !51
+  %29 = call noundef i32 @_ZNK4toku12omt_internal17subtree_templatedILb0EE9get_indexEv(ptr noundef nonnull align 4 dereferenceable(4) %28)
+  %30 = zext i32 %29 to i64
+  %31 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %27, i64 %30
+  store ptr %31, ptr %10, align 8, !tbaa !57
+  %32 = load i32, ptr %8, align 4, !tbaa !11
+  %33 = load ptr, ptr %10, align 8, !tbaa !57
+  %34 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %33, i32 0, i32 1
+  store i32 %32, ptr %34, align 8, !tbaa !53
+  %35 = load ptr, ptr %10, align 8, !tbaa !57
+  %36 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %35, i32 0, i32 2
+  %37 = load ptr, ptr %7, align 8, !tbaa !49
+  %38 = getelementptr inbounds i32, ptr %37, i64 0
+  %39 = load i32, ptr %9, align 4, !tbaa !11
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_subtree_from_idxsEPNS_12omt_internal17subtree_templatedILb0EEEPKjj(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %36, ptr noundef %38, i32 noundef %39)
+  %40 = load ptr, ptr %10, align 8, !tbaa !57
+  %41 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %40, i32 0, i32 3
+  %42 = load ptr, ptr %7, align 8, !tbaa !49
+  %43 = load i32, ptr %9, align 4, !tbaa !11
+  %44 = add i32 %43, 1
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr inbounds nuw i32, ptr %42, i64 %45
+  %47 = load i32, ptr %8, align 4, !tbaa !11
+  %48 = load i32, ptr %9, align 4, !tbaa !11
+  %49 = add i32 %48, 1
+  %50 = sub i32 %47, %49
+  call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_subtree_from_idxsEPNS_12omt_internal17subtree_templatedILb0EEEPKjj(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %41, ptr noundef %46, i32 noundef %50)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  br label %51
+
+51:                                               ; preds = %16, %14
+  ret void
+}
+
+attributes #0 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #4 = { noinline noreturn nounwind uwtable "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #5 = { inlinehint mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #7 = { noreturn "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -2792,9 +2961,62 @@ attributes #9 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 1}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTSN4toku3wfgE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTSN4toku3omtIPNS_3wfg4nodeES3_Lb0EEE", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTSN4toku3wfg4nodeE", !6, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"_ZTSN4toku3omtIPNS_3wfg4nodeES3_Lb0EEE", !19, i64 0, !12, i64 4, !7, i64 8}
+!19 = !{!"bool", !7, i64 0}
+!20 = !{i8 0, i8 2}
+!21 = !{}
+!22 = !{!7, !7, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p2 _ZTSN4toku3wfg4nodeE", !25, i64 0}
+!25 = !{!"any p2 pointer", !6, i64 0}
+!26 = !{!18, !12, i64 4}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"long", !7, i64 0}
+!29 = !{!30, !28, i64 0}
+!30 = !{!"_ZTSN4toku3wfg4nodeE", !28, i64 0, !31, i64 8, !19, i64 32}
+!31 = !{!"_ZTSN4toku9txnid_setE", !32, i64 0}
+!32 = !{!"_ZTSN4toku3omtImmLb0EEE", !19, i64 0, !12, i64 4, !7, i64 8}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTSSt8functionIFvmEE", !6, i64 0}
+!35 = !{!19, !19, i64 0}
+!36 = !{!30, !19, i64 32}
+!37 = distinct !{!37, !16}
+!38 = !{!39, !6, i64 24}
+!39 = !{!"_ZTSSt8functionIFvmEE", !40, i64 0, !6, i64 24}
+!40 = !{!"_ZTSSt14_Function_base", !7, i64 0, !6, i64 16}
+!41 = !{!40, !6, i64 16}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTSSt14_Function_base", !6, i64 0}
+!44 = !{!6, !6, i64 0}
+!45 = distinct !{!45, !16}
+!46 = distinct !{!46, !16}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 long", !6, i64 0}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 int", !6, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTSN4toku12omt_internal17subtree_templatedILb0EEE", !6, i64 0}
+!53 = !{!54, !12, i64 8}
+!54 = !{!"_ZTSN4toku12omt_internal18omt_node_templatedIPNS_3wfg4nodeELb0EEE", !14, i64 0, !12, i64 8, !55, i64 12, !55, i64 16}
+!55 = !{!"_ZTSN4toku12omt_internal17subtree_templatedILb0EEE", !12, i64 0}
+!56 = !{!55, !12, i64 0}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTSN4toku12omt_internal18omt_node_templatedIPNS_3wfg4nodeELb0EEE", !6, i64 0}
+!59 = !{!54, !14, i64 0}
+!60 = distinct !{!60, !16}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p2 _ZTSN4toku12omt_internal17subtree_templatedILb0EEE", !25, i64 0}

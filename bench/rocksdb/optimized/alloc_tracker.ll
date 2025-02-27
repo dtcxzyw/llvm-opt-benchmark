@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/rocksdb/original/alloc_tracker.ll'
 source_filename = "bench/rocksdb/original/alloc_tracker.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 $__clang_call_terminate = comdat any
 
@@ -9,175 +9,172 @@ $__clang_call_terminate = comdat any
 @_ZN7rocksdb12AllocTrackerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb12AllocTrackerD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb12AllocTrackerC2EPNS_18WriteBufferManagerE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(18) initializes((0, 18)) %this, ptr noundef %write_buffer_manager) unnamed_addr #0 align 2 {
-entry:
-  store ptr %write_buffer_manager, ptr %this, align 8
-  %bytes_allocated_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i64 0, ptr %bytes_allocated_, align 8
-  %done_allocating_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %done_allocating_, align 8
-  %freed_ = getelementptr inbounds nuw i8, ptr %this, i64 17
-  store i8 0, ptr %freed_, align 1
+define void @_ZN7rocksdb12AllocTrackerC2EPNS_18WriteBufferManagerE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(18) initializes((0, 18)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  store ptr %1, ptr %0, align 8, !tbaa !4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %3, align 8, !tbaa !14
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %4, align 8, !tbaa !15
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  store i8 0, ptr %5, align 1, !tbaa !16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb12AllocTrackerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(18) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %done_allocating_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load i8, ptr %done_allocating_.i, align 8
-  %tobool.i = trunc i8 %0 to i1
-  %.pr.pre3.i = load ptr, ptr %this, align 8
-  br i1 %tobool.i, label %if.end.i, label %if.then.i
+define void @_ZN7rocksdb12AllocTrackerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(18) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load i8, ptr %2, align 8, !tbaa !15, !range !17, !noundef !18
+  %4 = trunc nuw i8 %3 to i1
+  %.pr.pre4.i = load ptr, ptr %0, align 8, !tbaa !4
+  br i1 %4, label %_ZN7rocksdb12AllocTracker14DoneAllocatingEv.exit.i, label %5
 
-if.then.i:                                        ; preds = %entry
-  %cmp.not.i.i = icmp eq ptr %.pr.pre3.i, null
-  br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
+5:                                                ; preds = %1
+  %.not.i.i = icmp eq ptr %.pr.pre4.i, null
+  br i1 %.not.i.i, label %_ZN7rocksdb12AllocTracker7FreeMemEv.exit, label %6
 
-if.then.i.i:                                      ; preds = %if.then.i
-  %1 = load atomic i64, ptr %.pr.pre3.i monotonic, align 8
-  %cmp.i.not.i.i = icmp eq i64 %1, 0
-  br i1 %cmp.i.not.i.i, label %lor.lhs.false.i.i, label %if.then5.i.i
+6:                                                ; preds = %5
+  %7 = load atomic i64, ptr %.pr.pre4.i monotonic, align 8
+  %.not1.i.i = icmp eq i64 %7, 0
+  br i1 %.not1.i.i, label %8, label %11
 
-lor.lhs.false.i.i:                                ; preds = %if.then.i.i
-  %cache_res_mgr_.i.i.i = getelementptr inbounds nuw i8, ptr %.pr.pre3.i, i64 32
-  %2 = load ptr, ptr %cache_res_mgr_.i.i.i, align 8
-  %cmp.i.i.i.not.i.i = icmp eq ptr %2, null
-  br i1 %cmp.i.i.i.not.i.i, label %if.end.i.i, label %if.then5.i.i
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %.pr.pre4.i, i64 32
+  %10 = load ptr, ptr %9, align 8, !tbaa !19
+  %.not2.i.i = icmp eq ptr %10, null
+  br i1 %.not2.i.i, label %14, label %11
 
-if.then5.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.then.i.i
-  %bytes_allocated_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load atomic i64, ptr %bytes_allocated_.i.i monotonic, align 8
-  invoke void @_ZN7rocksdb18WriteBufferManager15ScheduleFreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %.pr.pre3.i, i64 noundef %3)
-          to label %.noexc unwind label %terminate.lpad
+11:                                               ; preds = %8, %6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load atomic i64, ptr %12 monotonic, align 8
+  invoke void @_ZN7rocksdb18WriteBufferManager15ScheduleFreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %.pr.pre4.i, i64 noundef %13)
+          to label %.noexc unwind label %27
 
-.noexc:                                           ; preds = %if.then5.i.i
-  %.pr.pre.pre.i = load ptr, ptr %this, align 8
-  br label %if.end.i.i
+.noexc:                                           ; preds = %11
+  %.pr.pre.pre.i = load ptr, ptr %0, align 8, !tbaa !4
+  br label %14
 
-if.end.i.i:                                       ; preds = %.noexc, %lor.lhs.false.i.i
-  %.pr.pre.i = phi ptr [ %.pr.pre.pre.i, %.noexc ], [ %.pr.pre3.i, %lor.lhs.false.i.i ]
-  store i8 1, ptr %done_allocating_.i, align 8
-  br label %if.end.i
+14:                                               ; preds = %.noexc, %8
+  %.pr.pre.i = phi ptr [ %.pr.pre.pre.i, %.noexc ], [ %.pr.pre4.i, %8 ]
+  store i8 1, ptr %2, align 8, !tbaa !15
+  br label %_ZN7rocksdb12AllocTracker14DoneAllocatingEv.exit.i
 
-if.end.i:                                         ; preds = %if.end.i.i, %entry
-  %.pr.i = phi ptr [ %.pr.pre.i, %if.end.i.i ], [ %.pr.pre3.i, %entry ]
-  %cmp.not.i = icmp eq ptr %.pr.i, null
-  br i1 %cmp.not.i, label %invoke.cont, label %land.lhs.true.i
+_ZN7rocksdb12AllocTracker14DoneAllocatingEv.exit.i: ; preds = %14, %1
+  %.pr.i = phi ptr [ %.pr.pre.i, %14 ], [ %.pr.pre4.i, %1 ]
+  %.not.i = icmp eq ptr %.pr.i, null
+  br i1 %.not.i, label %_ZN7rocksdb12AllocTracker7FreeMemEv.exit, label %15
 
-land.lhs.true.i:                                  ; preds = %if.end.i
-  %freed_.i = getelementptr inbounds nuw i8, ptr %this, i64 17
-  %4 = load i8, ptr %freed_.i, align 1
-  %tobool2.i = trunc i8 %4 to i1
-  br i1 %tobool2.i, label %invoke.cont, label %if.then3.i
+15:                                               ; preds = %_ZN7rocksdb12AllocTracker14DoneAllocatingEv.exit.i
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %17 = load i8, ptr %16, align 1, !tbaa !16, !range !17, !noundef !18
+  %18 = trunc nuw i8 %17 to i1
+  br i1 %18, label %_ZN7rocksdb12AllocTracker7FreeMemEv.exit, label %19
 
-if.then3.i:                                       ; preds = %land.lhs.true.i
-  %5 = load atomic i64, ptr %.pr.i monotonic, align 8
-  %cmp.i.not.i = icmp eq i64 %5, 0
-  br i1 %cmp.i.not.i, label %lor.lhs.false.i, label %if.then7.i
+19:                                               ; preds = %15
+  %20 = load atomic i64, ptr %.pr.i monotonic, align 8
+  %.not2.i = icmp eq i64 %20, 0
+  br i1 %.not2.i, label %21, label %24
 
-lor.lhs.false.i:                                  ; preds = %if.then3.i
-  %cache_res_mgr_.i.i = getelementptr inbounds nuw i8, ptr %.pr.i, i64 32
-  %6 = load ptr, ptr %cache_res_mgr_.i.i, align 8
-  %cmp.i.i.i.not.i = icmp eq ptr %6, null
-  br i1 %cmp.i.i.i.not.i, label %if.end10.i, label %if.then7.i
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 32
+  %23 = load ptr, ptr %22, align 8, !tbaa !19
+  %.not3.i = icmp eq ptr %23, null
+  br i1 %.not3.i, label %.noexc1, label %24
 
-if.then7.i:                                       ; preds = %lor.lhs.false.i, %if.then3.i
-  %bytes_allocated_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %7 = load atomic i64, ptr %bytes_allocated_.i monotonic, align 8
-  invoke void @_ZN7rocksdb18WriteBufferManager7FreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %.pr.i, i64 noundef %7)
-          to label %if.end10.i unwind label %terminate.lpad
+24:                                               ; preds = %21, %19
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load atomic i64, ptr %25 monotonic, align 8
+  invoke void @_ZN7rocksdb18WriteBufferManager7FreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %.pr.i, i64 noundef %26)
+          to label %.noexc1 unwind label %27
 
-if.end10.i:                                       ; preds = %if.then7.i, %lor.lhs.false.i
-  store i8 1, ptr %freed_.i, align 1
-  br label %invoke.cont
+.noexc1:                                          ; preds = %24, %21
+  store i8 1, ptr %16, align 1, !tbaa !16
+  br label %_ZN7rocksdb12AllocTracker7FreeMemEv.exit
 
-invoke.cont:                                      ; preds = %if.end10.i, %land.lhs.true.i, %if.end.i, %if.then.i
+_ZN7rocksdb12AllocTracker7FreeMemEv.exit:         ; preds = %.noexc1, %15, %_ZN7rocksdb12AllocTracker14DoneAllocatingEv.exit.i, %5
   ret void
 
-terminate.lpad:                                   ; preds = %if.then7.i, %if.then5.i.i
-  %8 = landingpad { ptr, i32 }
+27:                                               ; preds = %24, %11
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #6
+  %29 = extractvalue { ptr, i32 } %28, 0
+  tail call void @__clang_call_terminate(ptr %29) #6
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb12AllocTracker7FreeMemEv(ptr noundef nonnull align 8 captures(none) dereferenceable(18) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %done_allocating_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load i8, ptr %done_allocating_, align 8
-  %tobool = trunc i8 %0 to i1
-  %.pr.pre3 = load ptr, ptr %this, align 8
-  br i1 %tobool, label %if.end, label %if.then
+define void @_ZN7rocksdb12AllocTracker7FreeMemEv(ptr noundef nonnull align 8 captures(none) dereferenceable(18) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load i8, ptr %2, align 8, !tbaa !15, !range !17, !noundef !18
+  %4 = trunc nuw i8 %3 to i1
+  %.pr.pre4 = load ptr, ptr %0, align 8, !tbaa !4
+  br i1 %4, label %_ZN7rocksdb12AllocTracker14DoneAllocatingEv.exit, label %5
 
-if.then:                                          ; preds = %entry
-  %cmp.not.i = icmp eq ptr %.pr.pre3, null
-  br i1 %cmp.not.i, label %if.end12, label %if.then.i
+5:                                                ; preds = %1
+  %.not.i = icmp eq ptr %.pr.pre4, null
+  br i1 %.not.i, label %_ZN7rocksdb12AllocTracker14DoneAllocatingEv.exit.thread, label %6
 
-if.then.i:                                        ; preds = %if.then
-  %1 = load atomic i64, ptr %.pr.pre3 monotonic, align 8
-  %cmp.i.not.i = icmp eq i64 %1, 0
-  br i1 %cmp.i.not.i, label %lor.lhs.false.i, label %if.then5.i
+6:                                                ; preds = %5
+  %7 = load atomic i64, ptr %.pr.pre4 monotonic, align 8
+  %.not1.i = icmp eq i64 %7, 0
+  br i1 %.not1.i, label %8, label %11
 
-lor.lhs.false.i:                                  ; preds = %if.then.i
-  %cache_res_mgr_.i.i = getelementptr inbounds nuw i8, ptr %.pr.pre3, i64 32
-  %2 = load ptr, ptr %cache_res_mgr_.i.i, align 8
-  %cmp.i.i.i.not.i = icmp eq ptr %2, null
-  br i1 %cmp.i.i.i.not.i, label %if.end.i, label %if.then5.i
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %.pr.pre4, i64 32
+  %10 = load ptr, ptr %9, align 8, !tbaa !19
+  %.not2.i = icmp eq ptr %10, null
+  br i1 %.not2.i, label %14, label %11
 
-if.then5.i:                                       ; preds = %lor.lhs.false.i, %if.then.i
-  %bytes_allocated_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load atomic i64, ptr %bytes_allocated_.i monotonic, align 8
-  tail call void @_ZN7rocksdb18WriteBufferManager15ScheduleFreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %.pr.pre3, i64 noundef %3)
-  %.pr.pre.pre = load ptr, ptr %this, align 8
-  br label %if.end.i
+11:                                               ; preds = %8, %6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load atomic i64, ptr %12 monotonic, align 8
+  tail call void @_ZN7rocksdb18WriteBufferManager15ScheduleFreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %.pr.pre4, i64 noundef %13)
+  %.pr.pre.pre = load ptr, ptr %0, align 8, !tbaa !4
+  br label %14
 
-if.end.i:                                         ; preds = %if.then5.i, %lor.lhs.false.i
-  %.pr.pre = phi ptr [ %.pr.pre.pre, %if.then5.i ], [ %.pr.pre3, %lor.lhs.false.i ]
-  store i8 1, ptr %done_allocating_, align 8
-  br label %if.end
+14:                                               ; preds = %11, %8
+  %.pr.pre = phi ptr [ %.pr.pre.pre, %11 ], [ %.pr.pre4, %8 ]
+  store i8 1, ptr %2, align 8, !tbaa !15
+  br label %_ZN7rocksdb12AllocTracker14DoneAllocatingEv.exit
 
-if.end:                                           ; preds = %if.end.i, %entry
-  %.pr = phi ptr [ %.pr.pre, %if.end.i ], [ %.pr.pre3, %entry ]
-  %cmp.not = icmp eq ptr %.pr, null
-  br i1 %cmp.not, label %if.end12, label %land.lhs.true
+_ZN7rocksdb12AllocTracker14DoneAllocatingEv.exit: ; preds = %14, %1
+  %.pr = phi ptr [ %.pr.pre, %14 ], [ %.pr.pre4, %1 ]
+  %.not = icmp eq ptr %.pr, null
+  br i1 %.not, label %_ZN7rocksdb12AllocTracker14DoneAllocatingEv.exit.thread, label %15
 
-land.lhs.true:                                    ; preds = %if.end
-  %freed_ = getelementptr inbounds nuw i8, ptr %this, i64 17
-  %4 = load i8, ptr %freed_, align 1
-  %tobool2 = trunc i8 %4 to i1
-  br i1 %tobool2, label %if.end12, label %if.then3
+15:                                               ; preds = %_ZN7rocksdb12AllocTracker14DoneAllocatingEv.exit
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %17 = load i8, ptr %16, align 1, !tbaa !16, !range !17, !noundef !18
+  %18 = trunc nuw i8 %17 to i1
+  br i1 %18, label %_ZN7rocksdb12AllocTracker14DoneAllocatingEv.exit.thread, label %19
 
-if.then3:                                         ; preds = %land.lhs.true
-  %5 = load atomic i64, ptr %.pr monotonic, align 8
-  %cmp.i.not = icmp eq i64 %5, 0
-  br i1 %cmp.i.not, label %lor.lhs.false, label %if.then7
+19:                                               ; preds = %15
+  %20 = load atomic i64, ptr %.pr monotonic, align 8
+  %.not2 = icmp eq i64 %20, 0
+  br i1 %.not2, label %21, label %24
 
-lor.lhs.false:                                    ; preds = %if.then3
-  %cache_res_mgr_.i = getelementptr inbounds nuw i8, ptr %.pr, i64 32
-  %6 = load ptr, ptr %cache_res_mgr_.i, align 8
-  %cmp.i.i.i.not = icmp eq ptr %6, null
-  br i1 %cmp.i.i.i.not, label %if.end10, label %if.then7
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
+  %23 = load ptr, ptr %22, align 8, !tbaa !19
+  %.not3 = icmp eq ptr %23, null
+  br i1 %.not3, label %27, label %24
 
-if.then7:                                         ; preds = %lor.lhs.false, %if.then3
-  %bytes_allocated_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %7 = load atomic i64, ptr %bytes_allocated_ monotonic, align 8
-  tail call void @_ZN7rocksdb18WriteBufferManager7FreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %.pr, i64 noundef %7)
-  br label %if.end10
+24:                                               ; preds = %21, %19
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load atomic i64, ptr %25 monotonic, align 8
+  tail call void @_ZN7rocksdb18WriteBufferManager7FreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %.pr, i64 noundef %26)
+  br label %27
 
-if.end10:                                         ; preds = %lor.lhs.false, %if.then7
-  store i8 1, ptr %freed_, align 1
-  br label %if.end12
+27:                                               ; preds = %21, %24
+  store i8 1, ptr %16, align 1, !tbaa !16
+  br label %_ZN7rocksdb12AllocTracker14DoneAllocatingEv.exit.thread
 
-if.end12:                                         ; preds = %if.then, %if.end10, %land.lhs.true, %if.end
+_ZN7rocksdb12AllocTracker14DoneAllocatingEv.exit.thread: ; preds = %5, %27, %15, %_ZN7rocksdb12AllocTracker14DoneAllocatingEv.exit
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
   tail call void @_ZSt9terminatev() #6
@@ -190,66 +187,64 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb12AllocTracker8AllocateEm(ptr noundef nonnull align 8 captures(none) dereferenceable(18) %this, i64 noundef %bytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %1 = load atomic i64, ptr %0 monotonic, align 8
-  %cmp.i.not = icmp eq i64 %1, 0
-  br i1 %cmp.i.not, label %lor.lhs.false, label %monotonic.i
+define void @_ZN7rocksdb12AllocTracker8AllocateEm(ptr noundef nonnull align 8 captures(none) dereferenceable(18) %0, i64 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !4
+  %4 = load atomic i64, ptr %3 monotonic, align 8
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %5, label %8
 
-lor.lhs.false:                                    ; preds = %entry
-  %cache_res_mgr_.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2 = load ptr, ptr %cache_res_mgr_.i, align 8
-  %cmp.i.i.i.not = icmp eq ptr %2, null
-  br i1 %cmp.i.i.i.not, label %if.end, label %monotonic.i
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %7 = load ptr, ptr %6, align 8, !tbaa !19
+  %.not2 = icmp eq ptr %7, null
+  br i1 %.not2, label %11, label %8
 
-monotonic.i:                                      ; preds = %entry, %lor.lhs.false
-  %bytes_allocated_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = atomicrmw add ptr %bytes_allocated_, i64 %bytes monotonic, align 8
-  tail call void @_ZN7rocksdb18WriteBufferManager10ReserveMemEm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %bytes)
-  br label %if.end
+8:                                                ; preds = %5, %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = atomicrmw add ptr %9, i64 %1 monotonic, align 8
+  tail call void @_ZN7rocksdb18WriteBufferManager10ReserveMemEm(ptr noundef nonnull align 8 dereferenceable(160) %3, i64 noundef %1)
+  br label %11
 
-if.end:                                           ; preds = %monotonic.i, %lor.lhs.false
+11:                                               ; preds = %8, %5
   ret void
 }
 
 declare void @_ZN7rocksdb18WriteBufferManager10ReserveMemEm(ptr noundef nonnull align 8 dereferenceable(160), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb12AllocTracker14DoneAllocatingEv(ptr noundef nonnull align 8 captures(none) dereferenceable(18) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end9, label %land.lhs.true
+define void @_ZN7rocksdb12AllocTracker14DoneAllocatingEv(ptr noundef nonnull align 8 captures(none) dereferenceable(18) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !4
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %16, label %3
 
-land.lhs.true:                                    ; preds = %entry
-  %done_allocating_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i8, ptr %done_allocating_, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.end9, label %if.then
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load i8, ptr %4, align 8, !tbaa !15, !range !17, !noundef !18
+  %6 = trunc nuw i8 %5 to i1
+  br i1 %6, label %16, label %7
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load atomic i64, ptr %0 monotonic, align 8
-  %cmp.i.not = icmp eq i64 %2, 0
-  br i1 %cmp.i.not, label %lor.lhs.false, label %if.then5
+7:                                                ; preds = %3
+  %8 = load atomic i64, ptr %2 monotonic, align 8
+  %.not1 = icmp eq i64 %8, 0
+  br i1 %.not1, label %9, label %12
 
-lor.lhs.false:                                    ; preds = %if.then
-  %cache_res_mgr_.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %cache_res_mgr_.i, align 8
-  %cmp.i.i.i.not = icmp eq ptr %3, null
-  br i1 %cmp.i.i.i.not, label %if.end, label %if.then5
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %11 = load ptr, ptr %10, align 8, !tbaa !19
+  %.not2 = icmp eq ptr %11, null
+  br i1 %.not2, label %15, label %12
 
-if.then5:                                         ; preds = %lor.lhs.false, %if.then
-  %bytes_allocated_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %4 = load atomic i64, ptr %bytes_allocated_ monotonic, align 8
-  tail call void @_ZN7rocksdb18WriteBufferManager15ScheduleFreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %4)
-  br label %if.end
+12:                                               ; preds = %9, %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load atomic i64, ptr %13 monotonic, align 8
+  tail call void @_ZN7rocksdb18WriteBufferManager15ScheduleFreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %2, i64 noundef %14)
+  br label %15
 
-if.end:                                           ; preds = %lor.lhs.false, %if.then5
-  store i8 1, ptr %done_allocating_, align 8
-  br label %if.end9
+15:                                               ; preds = %9, %12
+  store i8 1, ptr %4, align 8, !tbaa !15
+  br label %16
 
-if.end9:                                          ; preds = %if.end, %land.lhs.true, %entry
+16:                                               ; preds = %15, %3, %1
   ret void
 }
 
@@ -257,12 +252,12 @@ declare void @_ZN7rocksdb18WriteBufferManager15ScheduleFreeMemEm(ptr noundef non
 
 declare void @_ZN7rocksdb18WriteBufferManager7FreeMemEm(ptr noundef nonnull align 8 dereferenceable(160), i64 noundef) local_unnamed_addr #5
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #2 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #3 = { noreturn nounwind uwtable "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #2 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #3 = { noinline noreturn nounwind uwtable "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #4 = { cold nofree noreturn }
-attributes #5 = { "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #5 = { "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #6 = { noreturn nounwind }
 attributes #7 = { nounwind }
 
@@ -272,3 +267,23 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 1}
+!4 = !{!5, !6, i64 0}
+!5 = !{!"_ZTSN7rocksdb12AllocTrackerE", !6, i64 0, !10, i64 8, !13, i64 16, !13, i64 17}
+!6 = !{!"p1 _ZTSN7rocksdb18WriteBufferManagerE", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!"_ZTSSt6atomicImE", !11, i64 0}
+!11 = !{!"_ZTSSt13__atomic_baseImE", !12, i64 0}
+!12 = !{!"long", !8, i64 0}
+!13 = !{!"bool", !8, i64 0}
+!14 = !{!11, !12, i64 0}
+!15 = !{!5, !13, i64 16}
+!16 = !{!5, !13, i64 17}
+!17 = !{i8 0, i8 2}
+!18 = !{}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"_ZTSSt12__shared_ptrIN7rocksdb23CacheReservationManagerELN9__gnu_cxx12_Lock_policyE2EE", !21, i64 0, !22, i64 8}
+!21 = !{!"p1 _ZTSN7rocksdb23CacheReservationManagerE", !7, i64 0}
+!22 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !23, i64 0}
+!23 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !7, i64 0}

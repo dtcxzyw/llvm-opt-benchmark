@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/rocksdb/original/compression_context_cache.ll'
 source_filename = "bench/rocksdb/original/compression_context_cache.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.rocksdb::CompressionContextCache" = type { ptr }
 %"class.rocksdb::ZSTDUncompressCachedData" = type { ptr, i64 }
@@ -27,22 +27,21 @@ $_ZN7rocksdb24ZSTDUncompressCachedDataD2Ev = comdat any
 @_ZN7rocksdb23CompressionContextCacheD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb23CompressionContextCacheD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23CompressionContextCacheC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call, i8 0, i64 16, i1 false)
-  invoke void @_ZN7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
-          to label %invoke.cont unwind label %lpad
+define void @_ZN7rocksdb23CompressionContextCacheC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  invoke void @_ZN7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
+          to label %_ZN7rocksdb23CompressionContextCache3RepC2Ev.exit unwind label %3
 
-invoke.cont:                                      ; preds = %entry
-  store ptr %call, ptr %this, align 8
+_ZN7rocksdb23CompressionContextCache3RepC2Ev.exit: ; preds = %1
+  store ptr %2, ptr %0, align 8, !tbaa !4
   ret void
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+3:                                                ; preds = %1
+  %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #14
-  resume { ptr, i32 } %0
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 16) #14
+  resume { ptr, i32 } %4
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -54,37 +53,36 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN7rocksdb23CompressionContextCache8InstanceEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i8, ptr @_ZGVZN7rocksdb23CompressionContextCache8InstanceEvE8instance acquire, align 8
-  %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !4
+  %1 = load atomic i8, ptr @_ZGVZN7rocksdb23CompressionContextCache8InstanceEvE8instance acquire, align 8
+  %2 = icmp eq i8 %1, 0
+  br i1 %2, label %3, label %8, !prof !10
 
-init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb23CompressionContextCache8InstanceEvE8instance) #15
-  %tobool.not = icmp eq i32 %1, 0
-  br i1 %tobool.not, label %init.end, label %init
+3:                                                ; preds = %0
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb23CompressionContextCache8InstanceEvE8instance) #15
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %8, label %5
 
-init:                                             ; preds = %init.check
+5:                                                ; preds = %3
   invoke void @_ZN7rocksdb23CompressionContextCacheC1Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN7rocksdb23CompressionContextCache8InstanceEvE8instance)
-          to label %invoke.cont unwind label %lpad
+          to label %6 unwind label %9
 
-invoke.cont:                                      ; preds = %init
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7rocksdb23CompressionContextCacheD1Ev, ptr nonnull @_ZZN7rocksdb23CompressionContextCache8InstanceEvE8instance, ptr nonnull @__dso_handle) #15
+6:                                                ; preds = %5
+  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7rocksdb23CompressionContextCacheD1Ev, ptr nonnull @_ZZN7rocksdb23CompressionContextCache8InstanceEvE8instance, ptr nonnull @__dso_handle) #15
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb23CompressionContextCache8InstanceEvE8instance) #15
-  br label %init.end
+  br label %8
 
-init.end:                                         ; preds = %invoke.cont, %init.check, %entry
+8:                                                ; preds = %6, %3, %0
   ret ptr @_ZZN7rocksdb23CompressionContextCache8InstanceEvE8instance
 
-lpad:                                             ; preds = %init
-  %3 = landingpad { ptr, i32 }
+9:                                                ; preds = %5
+  %10 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7rocksdb23CompressionContextCache8InstanceEvE8instance) #15
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %10
 }
 
 ; Function Attrs: nofree nounwind
@@ -101,304 +99,302 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb23CompressionContextCache13InitSingletonEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i8, ptr @_ZGVZN7rocksdb23CompressionContextCache8InstanceEvE8instance acquire, align 8
-  %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN7rocksdb23CompressionContextCache8InstanceEv.exit, !prof !4
+  %1 = load atomic i8, ptr @_ZGVZN7rocksdb23CompressionContextCache8InstanceEvE8instance acquire, align 8
+  %2 = icmp eq i8 %1, 0
+  br i1 %2, label %3, label %_ZN7rocksdb23CompressionContextCache8InstanceEv.exit, !prof !10
 
-init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb23CompressionContextCache8InstanceEvE8instance) #15
-  %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %_ZN7rocksdb23CompressionContextCache8InstanceEv.exit, label %init.i
+3:                                                ; preds = %0
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb23CompressionContextCache8InstanceEvE8instance) #15
+  %.not.i = icmp eq i32 %4, 0
+  br i1 %.not.i, label %_ZN7rocksdb23CompressionContextCache8InstanceEv.exit, label %5
 
-init.i:                                           ; preds = %init.check.i
+5:                                                ; preds = %3
   invoke void @_ZN7rocksdb23CompressionContextCacheC1Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN7rocksdb23CompressionContextCache8InstanceEvE8instance)
-          to label %invoke.cont.i unwind label %lpad.i
+          to label %6 unwind label %8
 
-invoke.cont.i:                                    ; preds = %init.i
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7rocksdb23CompressionContextCacheD1Ev, ptr nonnull @_ZZN7rocksdb23CompressionContextCache8InstanceEvE8instance, ptr nonnull @__dso_handle) #15
+6:                                                ; preds = %5
+  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7rocksdb23CompressionContextCacheD1Ev, ptr nonnull @_ZZN7rocksdb23CompressionContextCache8InstanceEvE8instance, ptr nonnull @__dso_handle) #15
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb23CompressionContextCache8InstanceEvE8instance) #15
   br label %_ZN7rocksdb23CompressionContextCache8InstanceEv.exit
 
-lpad.i:                                           ; preds = %init.i
-  %3 = landingpad { ptr, i32 }
+8:                                                ; preds = %5
+  %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7rocksdb23CompressionContextCache8InstanceEvE8instance) #15
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %9
 
-_ZN7rocksdb23CompressionContextCache8InstanceEv.exit: ; preds = %entry, %init.check.i, %invoke.cont.i
+_ZN7rocksdb23CompressionContextCache8InstanceEv.exit: ; preds = %0, %3, %6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23CompressionContextCache27GetCachedZSTDUncompressDataEv(ptr noalias sret(%"class.rocksdb::ZSTDUncompressCachedData") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  tail call void @_ZN7rocksdb23CompressionContextCache3Rep21GetZSTDUncompressDataEv(ptr sret(%"class.rocksdb::ZSTDUncompressCachedData") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %0)
+define void @_ZN7rocksdb23CompressionContextCache27GetCachedZSTDUncompressDataEv(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::ZSTDUncompressCachedData") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+  %3 = load ptr, ptr %1, align 8, !tbaa !4
+  tail call void @_ZN7rocksdb23CompressionContextCache3Rep21GetZSTDUncompressDataEv(ptr dead_on_unwind writable sret(%"class.rocksdb::ZSTDUncompressCachedData") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN7rocksdb23CompressionContextCache3Rep21GetZSTDUncompressDataEv(ptr noalias sret(%"class.rocksdb::ZSTDUncompressCachedData") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %call.i = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
-  %cmp.i = icmp slt i32 %call.i, 0
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
+define linkonce_odr void @_ZN7rocksdb23CompressionContextCache3Rep21GetZSTDUncompressDataEv(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::ZSTDUncompressCachedData") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
+  %4 = icmp slt i32 %3, 0
+  br i1 %4, label %5, label %21, !prof !11
 
-if.then.i:                                        ; preds = %entry
-  %call2.i = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
-  %size_shift_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i32, ptr %size_shift_.i, align 8
-  %1 = load i32, ptr %call2.i, align 4
-  %conv.i.i.i = zext i32 %1 to i64
-  %mul.i.i.i = mul nuw nsw i64 %conv.i.i.i, 16807
-  %shr.i.i.i = lshr i64 %mul.i.i.i, 31
-  %and.i.i.i = and i64 %mul.i.i.i, 2147483647
-  %add.i.i.i = add nuw nsw i64 %shr.i.i.i, %and.i.i.i
-  %conv2.i.i.i = trunc nuw i64 %add.i.i.i to i32
-  %cmp.i.i.i = icmp slt i32 %conv2.i.i.i, 0
-  %sub.i.i.i = add i32 %conv2.i.i.i, -2147483647
-  %spec.select.i.i.i = select i1 %cmp.i.i.i, i32 %sub.i.i.i, i32 %conv2.i.i.i
-  store i32 %spec.select.i.i.i, ptr %call2.i, align 4
-  %notmask.i = shl nsw i32 -1, %0
-  %2 = xor i32 %notmask.i, -1
-  %rem.i.i = and i32 %spec.select.i.i.i, %2
-  %conv.i = zext nneg i32 %rem.i.i to i64
+5:                                                ; preds = %2
+  %6 = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load i32, ptr %7, align 8, !tbaa !12
+  %9 = load i32, ptr %6, align 4, !tbaa !22
+  %10 = zext i32 %9 to i64
+  %11 = mul nuw nsw i64 %10, 16807
+  %12 = lshr i64 %11, 31
+  %13 = and i64 %11, 2147483647
+  %14 = add nuw nsw i64 %12, %13
+  %15 = trunc nuw i64 %14 to i32
+  %16 = icmp slt i32 %15, 0
+  %17 = add i32 %15, -2147483647
+  %spec.select.i.i.i = select i1 %16, i32 %17, i32 %15
+  store i32 %spec.select.i.i.i, ptr %6, align 4, !tbaa !22
+  %notmask.i = shl nsw i32 -1, %8
+  %18 = xor i32 %notmask.i, -1
+  %19 = and i32 %spec.select.i.i.i, %18
+  %20 = zext nneg i32 %19 to i64
   br label %_ZNK7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEE21AccessElementAndIndexEv.exit
 
-if.else.i:                                        ; preds = %entry
-  %size_shift_4.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load i32, ptr %size_shift_4.i, align 8
-  %4 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %call.i, i32 %3)
-  %conv6.i = sext i32 %4 to i64
+21:                                               ; preds = %2
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %24 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %3, i32 %23)
+  %25 = sext i32 %24 to i64
   br label %_ZNK7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEE21AccessElementAndIndexEv.exit
 
-_ZNK7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEE21AccessElementAndIndexEv.exit: ; preds = %if.then.i, %if.else.i
-  %storemerge.i = phi i64 [ %conv6.i, %if.else.i ], [ %conv.i, %if.then.i ]
-  %5 = load ptr, ptr %this, align 8
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %5, i64 %storemerge.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  store ptr null, ptr %agg.result, align 8, !alias.scope !5
-  %cache_idx_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 -1, ptr %cache_idx_.i.i, align 8, !alias.scope !5
-  %zstd_uncomp_sentinel_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 16
-  %6 = ptrtoint ptr %arrayidx.i.i.i to i64
-  %7 = cmpxchg ptr %zstd_uncomp_sentinel_.i, i64 %6, i64 0 seq_cst seq_cst, align 8, !noalias !5
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %if.then.i2, label %if.else.i1
+_ZNK7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEE21AccessElementAndIndexEv.exit: ; preds = %5, %21
+  %storemerge.i = phi i64 [ %25, %21 ], [ %20, %5 ]
+  %26 = load ptr, ptr %1, align 8, !tbaa !24
+  %27 = getelementptr inbounds nuw %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %26, i64 %storemerge.i
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  store ptr null, ptr %0, align 8, !tbaa !28, !alias.scope !25
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -1, ptr %28, align 8, !tbaa !32, !alias.scope !25
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %30 = ptrtoint ptr %27 to i64
+  %31 = cmpxchg ptr %29, i64 %30, i64 0 seq_cst seq_cst, align 8, !noalias !25
+  %32 = extractvalue { i64, i1 } %31, 1
+  br i1 %32, label %33, label %41
 
-if.then.i2:                                       ; preds = %_ZNK7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEE21AccessElementAndIndexEv.exit
-  %9 = load ptr, ptr %arrayidx.i.i.i, align 8, !noalias !5
-  %cmp.i.i = icmp eq ptr %9, null
-  br i1 %cmp.i.i, label %if.then.i.i, label %nrvo.skipdtor.sink.split.i
+33:                                               ; preds = %_ZNK7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEE21AccessElementAndIndexEv.exit
+  %34 = load ptr, ptr %27, align 8, !tbaa !28, !noalias !25
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %_ZN7rocksdb24ZSTDUncompressCachedData14CreateIfNeededEv.exit5.sink.split.i
 
-if.then.i.i:                                      ; preds = %if.then.i2
-  %call.i2.i = invoke ptr @ZSTD_createDCtx()
-          to label %call.i.noexc.i unwind label %lpad.i, !noalias !5
+36:                                               ; preds = %33
+  %37 = invoke ptr @ZSTD_createDCtx()
+          to label %.noexc.i unwind label %39, !noalias !25
 
-call.i.noexc.i:                                   ; preds = %if.then.i.i
-  store ptr %call.i2.i, ptr %arrayidx.i.i.i, align 8, !noalias !5
-  %cache_idx_.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
-  store i64 -1, ptr %cache_idx_.i1.i, align 8, !noalias !5
-  br label %nrvo.skipdtor.sink.split.i
+.noexc.i:                                         ; preds = %36
+  store ptr %37, ptr %27, align 8, !tbaa !28, !noalias !25
+  %38 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store i64 -1, ptr %38, align 8, !tbaa !32, !noalias !25
+  br label %_ZN7rocksdb24ZSTDUncompressCachedData14CreateIfNeededEv.exit5.sink.split.i
 
-lpad.i:                                           ; preds = %if.then.i5.i, %if.then.i.i
-  %10 = landingpad { ptr, i32 }
+39:                                               ; preds = %44, %36
+  %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7rocksdb24ZSTDUncompressCachedDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #15
-  resume { ptr, i32 } %10
+  tail call void @_ZN7rocksdb24ZSTDUncompressCachedDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  resume { ptr, i32 } %40
 
-if.else.i1:                                       ; preds = %_ZNK7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEE21AccessElementAndIndexEv.exit
-  %11 = load ptr, ptr %agg.result, align 8, !alias.scope !5
-  %cmp.i4.i = icmp eq ptr %11, null
-  br i1 %cmp.i4.i, label %if.then.i5.i, label %_ZN7rocksdb17compression_cache14ZSTDCachedData17GetUncompressDataEl.exit
+41:                                               ; preds = %_ZNK7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEE21AccessElementAndIndexEv.exit
+  %42 = load ptr, ptr %0, align 8, !tbaa !28, !alias.scope !25
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %_ZN7rocksdb17compression_cache14ZSTDCachedData17GetUncompressDataEl.exit
 
-if.then.i5.i:                                     ; preds = %if.else.i1
-  %call.i8.i = invoke ptr @ZSTD_createDCtx()
-          to label %nrvo.skipdtor.sink.split.i unwind label %lpad.i, !noalias !5
+44:                                               ; preds = %41
+  %45 = invoke ptr @ZSTD_createDCtx()
+          to label %_ZN7rocksdb24ZSTDUncompressCachedData14CreateIfNeededEv.exit5.sink.split.i unwind label %39, !noalias !25
 
-nrvo.skipdtor.sink.split.i:                       ; preds = %if.then.i5.i, %call.i.noexc.i, %if.then.i2
-  %call.i8.sink.i = phi ptr [ %call.i2.i, %call.i.noexc.i ], [ %9, %if.then.i2 ], [ %call.i8.i, %if.then.i5.i ]
-  %.sink.i = phi i64 [ %storemerge.i, %call.i.noexc.i ], [ %storemerge.i, %if.then.i2 ], [ -1, %if.then.i5.i ]
-  store ptr %call.i8.sink.i, ptr %agg.result, align 8, !alias.scope !5
-  store i64 %.sink.i, ptr %cache_idx_.i.i, align 8, !alias.scope !5
+_ZN7rocksdb24ZSTDUncompressCachedData14CreateIfNeededEv.exit5.sink.split.i: ; preds = %44, %.noexc.i, %33
+  %.sink7.i = phi ptr [ %37, %.noexc.i ], [ %34, %33 ], [ %45, %44 ]
+  %.sink.i = phi i64 [ %storemerge.i, %.noexc.i ], [ %storemerge.i, %33 ], [ -1, %44 ]
+  store ptr %.sink7.i, ptr %0, align 8, !tbaa !28, !alias.scope !25
+  store i64 %.sink.i, ptr %28, align 8, !tbaa !32, !alias.scope !25
   br label %_ZN7rocksdb17compression_cache14ZSTDCachedData17GetUncompressDataEl.exit
 
-_ZN7rocksdb17compression_cache14ZSTDCachedData17GetUncompressDataEl.exit: ; preds = %if.else.i1, %nrvo.skipdtor.sink.split.i
+_ZN7rocksdb17compression_cache14ZSTDCachedData17GetUncompressDataEl.exit: ; preds = %41, %_ZN7rocksdb24ZSTDUncompressCachedData14CreateIfNeededEv.exit5.sink.split.i
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb23CompressionContextCache30ReturnCachedZSTDUncompressDataEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %idx) local_unnamed_addr #5 align 2 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %1 = load ptr, ptr %0, align 8
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %1, i64 %idx
-  %zstd_uncomp_sentinel_.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 16
-  %2 = ptrtoint ptr %arrayidx.i.i.i to i64
-  %3 = atomicrmw xchg ptr %zstd_uncomp_sentinel_.i.i, i64 %2 seq_cst, align 8
+define void @_ZN7rocksdb23CompressionContextCache30ReturnCachedZSTDUncompressDataEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !4
+  %4 = load ptr, ptr %3, align 8, !tbaa !24
+  %5 = getelementptr inbounds nuw %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %4, i64 %1
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = ptrtoint ptr %5 to i64
+  %8 = atomicrmw xchg ptr %6, i64 %7 seq_cst, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb23CompressionContextCacheD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+define void @_ZN7rocksdb23CompressionContextCacheD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !4
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %25, label %4
 
-delete.notnull:                                   ; preds = %entry
-  %1 = load ptr, ptr %0, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i.i, label %_ZN7rocksdb23CompressionContextCache3RepD2Ev.exit, label %delete.notnull.i.i.i.i
+4:                                                ; preds = %1
+  %5 = load ptr, ptr %2, align 8, !tbaa !24
+  %.not.i.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i.i, label %_ZN7rocksdb23CompressionContextCache3RepD2Ev.exit, label %6
 
-delete.notnull.i.i.i.i:                           ; preds = %delete.notnull
-  %2 = getelementptr inbounds i8, ptr %1, i64 -8
-  %3 = load i64, ptr %2, align 8
-  %arraydestroy.isempty.i.i.i.i = icmp eq i64 %3, 0
-  br i1 %arraydestroy.isempty.i.i.i.i, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i, label %arraydestroy.body.preheader.i.i.i.i
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds i8, ptr %5, i64 -8
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i, label %.preheader.preheader.i.i.i.i
 
-arraydestroy.body.preheader.i.i.i.i:              ; preds = %delete.notnull.i.i.i.i
-  %delete.end.i.i.i.i = getelementptr inbounds %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %1, i64 %3
-  br label %arraydestroy.body.i.i.i.i
+.preheader.preheader.i.i.i.i:                     ; preds = %6
+  %10 = getelementptr inbounds %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %5, i64 %8
+  br label %.preheader.i.i.i.i
 
-arraydestroy.body.i.i.i.i:                        ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i
-  %arraydestroy.elementPast.i.i.i.i = phi ptr [ %arraydestroy.element.i.i.i.i, %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i ], [ %delete.end.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i ]
-  %arraydestroy.element.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i, i64 -64
-  %4 = load ptr, ptr %arraydestroy.element.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ne ptr %4, null
-  %cache_idx_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i, i64 -56
-  %5 = load i64, ptr %cache_idx_.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp eq i64 %5, -1
-  %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i
+.preheader.i.i.i.i:                               ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i, %.preheader.preheader.i.i.i.i
+  %11 = phi ptr [ %12, %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i ], [ %10, %.preheader.preheader.i.i.i.i ]
+  %12 = getelementptr inbounds i8, ptr %11, i64 -64
+  %13 = load ptr, ptr %12, align 8, !tbaa !28
+  %.not.i.i.i.i.i.i = icmp ne ptr %13, null
+  %14 = getelementptr inbounds i8, ptr %11, i64 -56
+  %15 = load i64, ptr %14, align 8
+  %16 = icmp eq i64 %15, -1
+  %or.cond.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 %16, i1 false
+  br i1 %or.cond.i.i.i.i.i.i, label %17, label %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %arraydestroy.body.i.i.i.i
-  %call.i.i.i.i.i.i = invoke i64 @ZSTD_freeDCtx(ptr noundef nonnull %4)
-          to label %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
+17:                                               ; preds = %.preheader.i.i.i.i
+  %18 = invoke i64 @ZSTD_freeDCtx(ptr noundef nonnull %13)
+          to label %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i unwind label %19
 
-terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
-  %6 = landingpad { ptr, i32 }
+19:                                               ; preds = %17
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #16
+  %21 = extractvalue { ptr, i32 } %20, 0
+  tail call void @__clang_call_terminate(ptr %21) #16
   unreachable
 
-_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %arraydestroy.body.i.i.i.i
-  %arraydestroy.done.i.i.i.i = icmp eq ptr %arraydestroy.element.i.i.i.i, %1
-  br i1 %arraydestroy.done.i.i.i.i, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i, label %arraydestroy.body.i.i.i.i
+_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i: ; preds = %17, %.preheader.i.i.i.i
+  %22 = icmp eq ptr %12, %5
+  br i1 %22, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i, label %.preheader.i.i.i.i
 
-_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i: ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i, %delete.notnull.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #14
+_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i: ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i, %6
+  %23 = shl i64 %8, 6
+  %24 = or disjoint i64 %23, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %7, i64 noundef %24) #14
   br label %_ZN7rocksdb23CompressionContextCache3RepD2Ev.exit
 
-_ZN7rocksdb23CompressionContextCache3RepD2Ev.exit: ; preds = %delete.notnull, %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef %0) #14
-  br label %delete.end
+_ZN7rocksdb23CompressionContextCache3RepD2Ev.exit: ; preds = %4, %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i
+  tail call void @_ZdlPvm(ptr noundef %2, i64 noundef 16) #14
+  br label %25
 
-delete.end:                                       ; preds = %_ZN7rocksdb23CompressionContextCache3RepD2Ev.exit, %entry
+25:                                               ; preds = %_ZN7rocksdb23CompressionContextCache3RepD2Ev.exit, %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr null, ptr %this, align 8
-  %call = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #15
-  br label %while.cond
+define linkonce_odr void @_ZN7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  store ptr null, ptr %0, align 8, !tbaa !33
+  %2 = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #15
+  br label %3
 
-while.cond:                                       ; preds = %while.cond, %entry
-  %storemerge = phi i32 [ 3, %entry ], [ %inc, %while.cond ]
-  %shl = shl nuw i32 1, %storemerge
-  %cmp = icmp slt i32 %shl, %call
-  %inc = add nuw nsw i32 %storemerge, 1
-  br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !8
+3:                                                ; preds = %3, %1
+  %storemerge = phi i32 [ 3, %1 ], [ %6, %3 ]
+  %4 = shl nuw i32 1, %storemerge
+  %5 = icmp slt i32 %4, %2
+  %6 = add nuw nsw i32 %storemerge, 1
+  br i1 %5, label %3, label %7, !llvm.loop !34
 
-while.end:                                        ; preds = %while.cond
-  %size_shift_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i32 %storemerge, ptr %size_shift_, align 8
-  %sh_prom = zext nneg i32 %storemerge to i64
-  %0 = icmp samesign ugt i32 %storemerge, 57
-  %1 = shl i64 64, %sh_prom
-  %2 = or disjoint i64 %1, 8
-  %3 = select i1 %0, i64 -1, i64 %2
-  %call7 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %3) #13
-          to label %invoke.cont unwind label %lpad
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %storemerge, ptr %8, align 8, !tbaa !12
+  %9 = zext nneg i32 %storemerge to i64
+  %10 = icmp samesign ugt i32 %storemerge, 57
+  %11 = shl i64 64, %9
+  %12 = or disjoint i64 %11, 8
+  %13 = select i1 %10, i64 -1, i64 %12
+  %14 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %13) #13
+          to label %15 unwind label %43
 
-invoke.cont:                                      ; preds = %while.end
-  %shl6 = shl nuw i64 1, %sh_prom
-  store i64 %shl6, ptr %call7, align 16
-  %.ptr = getelementptr inbounds nuw i8, ptr %call7, i64 8
-  %arrayctor.end = getelementptr inbounds %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %.ptr, i64 %shl6
-  br label %invoke.cont9
+15:                                               ; preds = %7
+  %16 = shl nuw i64 1, %9
+  store i64 %16, ptr %14, align 16
+  %.ptr7 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %17 = getelementptr inbounds %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %.ptr7, i64 %16
+  br label %18
 
-invoke.cont9:                                     ; preds = %invoke.cont, %invoke.cont9
-  %arrayctor.cur.idx = phi i64 [ 8, %invoke.cont ], [ %arrayctor.cur.add, %invoke.cont9 ]
-  %arrayctor.cur.ptr.ptr = getelementptr inbounds nuw i8, ptr %call7, i64 %arrayctor.cur.idx
-  store ptr null, ptr %arrayctor.cur.ptr.ptr, align 8
-  %cache_idx_.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
-  store i64 -1, ptr %cache_idx_.i.i, align 8
-  %zstd_uncomp_sentinel_.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 16
-  store ptr %arrayctor.cur.ptr.ptr, ptr %zstd_uncomp_sentinel_.i, align 8
-  %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
-  %arrayctor.next.ptr = getelementptr inbounds nuw i8, ptr %call7, i64 %arrayctor.cur.add
-  %arrayctor.done = icmp eq ptr %arrayctor.next.ptr, %arrayctor.end
-  br i1 %arrayctor.done, label %arrayctor.cont, label %invoke.cont9
+18:                                               ; preds = %15, %18
+  %.idx = phi i64 [ 8, %15 ], [ %.add, %18 ]
+  %.ptr.ptr = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
+  store ptr null, ptr %.ptr.ptr, align 8, !tbaa !28
+  %19 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
+  store i64 -1, ptr %19, align 8, !tbaa !32
+  %20 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 16
+  store ptr %.ptr.ptr, ptr %20, align 8, !tbaa !36
+  %.add = add nuw nsw i64 %.idx, 64
+  %.ptr6 = getelementptr inbounds nuw i8, ptr %14, i64 %.add
+  %21 = icmp eq ptr %.ptr6, %17
+  br i1 %21, label %22, label %18
 
-arrayctor.cont:                                   ; preds = %invoke.cont9
-  %4 = load ptr, ptr %this, align 8
-  store ptr %.ptr, ptr %this, align 8
-  %tobool.not.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIA_N7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit, label %delete.notnull.i.i.i
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %0, align 8, !tbaa !24
+  store ptr %.ptr7, ptr %0, align 8, !tbaa !24
+  %.not.i.i = icmp eq ptr %23, null
+  br i1 %.not.i.i, label %_ZNSt10unique_ptrIA_N7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit, label %24
 
-delete.notnull.i.i.i:                             ; preds = %arrayctor.cont
-  %5 = getelementptr inbounds i8, ptr %4, i64 -8
-  %6 = load i64, ptr %5, align 8
-  %arraydestroy.isempty.i.i.i = icmp eq i64 %6, 0
-  br i1 %arraydestroy.isempty.i.i.i, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %arraydestroy.body.preheader.i.i.i
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds i8, ptr %23, i64 -8
+  %26 = load i64, ptr %25, align 8
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %.preheader.preheader.i.i.i
 
-arraydestroy.body.preheader.i.i.i:                ; preds = %delete.notnull.i.i.i
-  %delete.end.i.i.i = getelementptr inbounds %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %4, i64 %6
-  br label %arraydestroy.body.i.i.i
+.preheader.preheader.i.i.i:                       ; preds = %24
+  %28 = getelementptr inbounds %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %23, i64 %26
+  br label %.preheader.i.i.i
 
-arraydestroy.body.i.i.i:                          ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i, %arraydestroy.body.preheader.i.i.i
-  %arraydestroy.elementPast.i.i.i = phi ptr [ %arraydestroy.element.i.i.i, %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i ], [ %delete.end.i.i.i, %arraydestroy.body.preheader.i.i.i ]
-  %arraydestroy.element.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i, i64 -64
-  %7 = load ptr, ptr %arraydestroy.element.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ne ptr %7, null
-  %cache_idx_.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i, i64 -56
-  %8 = load i64, ptr %cache_idx_.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp eq i64 %8, -1
-  %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i
+.preheader.i.i.i:                                 ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i, %.preheader.preheader.i.i.i
+  %29 = phi ptr [ %30, %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i ], [ %28, %.preheader.preheader.i.i.i ]
+  %30 = getelementptr inbounds i8, ptr %29, i64 -64
+  %31 = load ptr, ptr %30, align 8, !tbaa !28
+  %.not.i.i.i.i.i = icmp ne ptr %31, null
+  %32 = getelementptr inbounds i8, ptr %29, i64 -56
+  %33 = load i64, ptr %32, align 8
+  %34 = icmp eq i64 %33, -1
+  %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %34, i1 false
+  br i1 %or.cond.i.i.i.i.i, label %35, label %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i
 
-if.then.i.i.i.i.i:                                ; preds = %arraydestroy.body.i.i.i
-  %call.i.i.i.i.i = invoke i64 @ZSTD_freeDCtx(ptr noundef nonnull %7)
-          to label %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
+35:                                               ; preds = %.preheader.i.i.i
+  %36 = invoke i64 @ZSTD_freeDCtx(ptr noundef nonnull %31)
+          to label %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i unwind label %37
 
-terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
-  %9 = landingpad { ptr, i32 }
+37:                                               ; preds = %35
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #16
+  %39 = extractvalue { ptr, i32 } %38, 0
+  tail call void @__clang_call_terminate(ptr %39) #16
   unreachable
 
-_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %arraydestroy.body.i.i.i
-  %arraydestroy.done.i.i.i = icmp eq ptr %arraydestroy.element.i.i.i, %4
-  br i1 %arraydestroy.done.i.i.i, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %arraydestroy.body.i.i.i
+_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i: ; preds = %35, %.preheader.i.i.i
+  %40 = icmp eq ptr %30, %23
+  br i1 %40, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %.preheader.i.i.i
 
-_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i, %delete.notnull.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #14
+_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i, %24
+  %41 = shl i64 %26, 6
+  %42 = or disjoint i64 %41, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %25, i64 noundef %42) #14
   br label %_ZNSt10unique_ptrIA_N7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit
 
-_ZNSt10unique_ptrIA_N7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %arrayctor.cont, %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
+_ZNSt10unique_ptrIA_N7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %22, %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
   ret void
 
-lpad:                                             ; preds = %while.end
-  %11 = landingpad { ptr, i32 }
+43:                                               ; preds = %7
+  %44 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt10unique_ptrIA_N7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
-  resume { ptr, i32 } %11
+  tail call void @_ZNSt10unique_ptrIA_N7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  resume { ptr, i32 } %44
 }
 
 ; Function Attrs: nounwind
@@ -408,61 +404,62 @@ declare noundef i32 @_ZNSt6thread20hardware_concurrencyEv() local_unnamed_addr #
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
+declare void @_ZdaPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10unique_ptrIA_N7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %delete.notnull.i
+define linkonce_odr void @_ZNSt10unique_ptrIA_N7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !24
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %22, label %3
 
-delete.notnull.i:                                 ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 -8
-  %2 = load i64, ptr %1, align 8
-  %arraydestroy.isempty.i = icmp eq i64 %2, 0
-  br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit, label %arraydestroy.body.preheader.i
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds i8, ptr %2, i64 -8
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit, label %.preheader.preheader.i
 
-arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %0, i64 %2
-  br label %arraydestroy.body.i
+.preheader.preheader.i:                           ; preds = %3
+  %7 = getelementptr inbounds %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %2, i64 %5
+  br label %.preheader.i
 
-arraydestroy.body.i:                              ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i, %arraydestroy.body.preheader.i
-  %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i ], [ %delete.end.i, %arraydestroy.body.preheader.i ]
-  %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -64
-  %3 = load ptr, ptr %arraydestroy.element.i, align 8
-  %cmp.not.i.i.i = icmp ne ptr %3, null
-  %cache_idx_.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -56
-  %4 = load i64, ptr %cache_idx_.i.i.i, align 8
-  %cmp2.i.i.i = icmp eq i64 %4, -1
-  %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i
+.preheader.i:                                     ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i, %.preheader.preheader.i
+  %8 = phi ptr [ %9, %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i ], [ %7, %.preheader.preheader.i ]
+  %9 = getelementptr inbounds i8, ptr %8, i64 -64
+  %10 = load ptr, ptr %9, align 8, !tbaa !28
+  %.not.i.i.i = icmp ne ptr %10, null
+  %11 = getelementptr inbounds i8, ptr %8, i64 -56
+  %12 = load i64, ptr %11, align 8
+  %13 = icmp eq i64 %12, -1
+  %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %13, i1 false
+  br i1 %or.cond.i.i.i, label %14, label %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i
 
-if.then.i.i.i:                                    ; preds = %arraydestroy.body.i
-  %call.i.i.i = invoke i64 @ZSTD_freeDCtx(ptr noundef nonnull %3)
-          to label %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i unwind label %terminate.lpad.i.i.i
+14:                                               ; preds = %.preheader.i
+  %15 = invoke i64 @ZSTD_freeDCtx(ptr noundef nonnull %10)
+          to label %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i unwind label %16
 
-terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %5 = landingpad { ptr, i32 }
+16:                                               ; preds = %14
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #16
+  %18 = extractvalue { ptr, i32 } %17, 0
+  tail call void @__clang_call_terminate(ptr %18) #16
   unreachable
 
-_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i: ; preds = %if.then.i.i.i, %arraydestroy.body.i
-  %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, %0
-  br i1 %arraydestroy.done.i, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit, label %arraydestroy.body.i
+_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i: ; preds = %14, %.preheader.i
+  %19 = icmp eq ptr %9, %2
+  br i1 %19, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit, label %.preheader.i
 
-_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit: ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i, %delete.notnull.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #14
-  br label %if.end
+_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit: ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i, %3
+  %20 = shl i64 %5, 6
+  %21 = or disjoint i64 %20, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %4, i64 noundef %21) #14
+  br label %22
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit, %entry
-  store ptr null, ptr %this, align 8
+22:                                               ; preds = %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit, %1
+  store ptr null, ptr %0, align 8, !tbaa !24
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
   tail call void @_ZSt9terminatev() #16
@@ -475,28 +472,27 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN7rocksdb24ZSTDUncompressCachedDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %cmp.not = icmp ne ptr %0, null
-  %cache_idx_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load i64, ptr %cache_idx_, align 8
-  %cmp2 = icmp eq i64 %1, -1
-  %or.cond = select i1 %cmp.not, i1 %cmp2, i1 false
-  br i1 %or.cond, label %if.then, label %if.end
+define linkonce_odr void @_ZN7rocksdb24ZSTDUncompressCachedDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !28
+  %.not = icmp ne ptr %2, null
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8
+  %5 = icmp eq i64 %4, -1
+  %or.cond = select i1 %.not, i1 %5, i1 false
+  br i1 %or.cond, label %6, label %8
 
-if.then:                                          ; preds = %entry
-  %call = invoke i64 @ZSTD_freeDCtx(ptr noundef nonnull %0)
-          to label %if.end unwind label %terminate.lpad
+6:                                                ; preds = %1
+  %7 = invoke i64 @ZSTD_freeDCtx(ptr noundef nonnull %2)
+          to label %8 unwind label %9
 
-if.end:                                           ; preds = %if.then, %entry
+8:                                                ; preds = %6, %1
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+9:                                                ; preds = %6
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #16
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #16
   unreachable
 }
 
@@ -514,17 +510,17 @@ declare ptr @ZSTD_createDCtx() local_unnamed_addr #10
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #0 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nobuiltin nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #3 = { nobuiltin nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #4 = { nofree nounwind }
-attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #7 = { nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #7 = { nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #8 = { noinline noreturn nounwind uwtable "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #9 = { cold nofree noreturn }
-attributes #10 = { "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #10 = { "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #13 = { builtin allocsize(0) }
@@ -538,9 +534,37 @@ attributes #16 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 1}
-!4 = !{!"branch_weights", i32 1, i32 1048575}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN7rocksdb17compression_cache14ZSTDCachedData17GetUncompressDataEl: %agg.result"}
-!7 = distinct !{!7, !"_ZN7rocksdb17compression_cache14ZSTDCachedData17GetUncompressDataEl"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !6, i64 0}
+!5 = !{!"_ZTSN7rocksdb23CompressionContextCacheE", !6, i64 0}
+!6 = !{!"p1 _ZTSN7rocksdb23CompressionContextCache3RepE", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!"branch_weights", i32 1, i32 1048575}
+!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!12 = !{!13, !21, i64 8}
+!13 = !{!"_ZTSN7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEEE", !14, i64 0, !21, i64 8}
+!14 = !{!"_ZTSSt10unique_ptrIA_N7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIS3_EE", !15, i64 0}
+!15 = !{!"_ZTSSt15__uniq_ptr_dataIN7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIA_S2_ELb1ELb1EE", !16, i64 0}
+!16 = !{!"_ZTSSt15__uniq_ptr_implIN7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIA_S2_EE", !17, i64 0}
+!17 = !{!"_ZTSSt5tupleIJPN7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIA_S2_EEE", !18, i64 0}
+!18 = !{!"_ZTSSt11_Tuple_implILm0EJPN7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIA_S2_EEE", !19, i64 0}
+!19 = !{!"_ZTSSt10_Head_baseILm0EPN7rocksdb17compression_cache14ZSTDCachedDataELb0EE", !20, i64 0}
+!20 = !{!"p1 _ZTSN7rocksdb17compression_cache14ZSTDCachedDataE", !7, i64 0}
+!21 = !{!"int", !8, i64 0}
+!22 = !{!23, !21, i64 0}
+!23 = !{!"_ZTSN7rocksdb6RandomE", !21, i64 0}
+!24 = !{!20, !20, i64 0}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN7rocksdb17compression_cache14ZSTDCachedData17GetUncompressDataEl: argument 0"}
+!27 = distinct !{!27, !"_ZN7rocksdb17compression_cache14ZSTDCachedData17GetUncompressDataEl"}
+!28 = !{!29, !30, i64 0}
+!29 = !{!"_ZTSN7rocksdb24ZSTDUncompressCachedDataE", !30, i64 0, !31, i64 8}
+!30 = !{!"p1 _ZTS11ZSTD_DCtx_s", !7, i64 0}
+!31 = !{!"long", !8, i64 0}
+!32 = !{!29, !31, i64 8}
+!33 = !{!19, !20, i64 0}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.mustprogress"}
+!36 = !{!37, !7, i64 0}
+!37 = !{!"_ZTSSt13__atomic_baseIPvE", !7, i64 0}

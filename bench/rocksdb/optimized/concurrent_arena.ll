@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/rocksdb/original/concurrent_arena.ll'
 source_filename = "bench/rocksdb/original/concurrent_arena.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"struct.rocksdb::ConcurrentArena::Shard" = type { [40 x i8], %"class.rocksdb::SpinMutex", ptr, %"struct.std::atomic.8" }
 %"class.rocksdb::SpinMutex" = type { %"struct.std::atomic" }
@@ -36,986 +36,1003 @@ $_ZTVN7rocksdb15ConcurrentArenaE = comdat any
 @_ZN7rocksdb15ConcurrentArenaC1EmPNS_12AllocTrackerEm = unnamed_addr alias void (ptr, i64, ptr, i64), ptr @_ZN7rocksdb15ConcurrentArenaC2EmPNS_12AllocTrackerEm
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15ConcurrentArenaC2EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2472) initializes((0, 8), (64, 80)) %this, i64 noundef %block_size, ptr noundef %tracker, i64 noundef %huge_page_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 16), ptr %this, align 16
-  %shard_block_size_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %div2 = lshr i64 %block_size, 3
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %div2, i64 131072)
-  store i64 %.sroa.speculated, ptr %shard_block_size_, align 16
-  %shards_ = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr null, ptr %shards_, align 8
-  %call.i = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #11
-  br label %while.cond.i
+define void @_ZN7rocksdb15ConcurrentArenaC2EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2472) initializes((0, 8), (64, 80)) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 16), ptr %0, align 16, !tbaa !4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %6 = lshr i64 %1, 3
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %6, i64 131072)
+  store i64 %.sroa.speculated, ptr %5, align 16, !tbaa !7
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr null, ptr %7, align 8, !tbaa !46
+  %8 = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #12
+  br label %9
 
-while.cond.i:                                     ; preds = %while.cond.i, %entry
-  %storemerge.i = phi i32 [ 3, %entry ], [ %inc.i, %while.cond.i ]
-  %shl.i = shl nuw i32 1, %storemerge.i
-  %cmp.i5 = icmp slt i32 %shl.i, %call.i
-  %inc.i = add nuw nsw i32 %storemerge.i, 1
-  br i1 %cmp.i5, label %while.cond.i, label %while.end.i, !llvm.loop !4
+9:                                                ; preds = %9, %4
+  %storemerge.i = phi i32 [ 3, %4 ], [ %12, %9 ]
+  %10 = shl nuw i32 1, %storemerge.i
+  %11 = icmp slt i32 %10, %8
+  %12 = add nuw nsw i32 %storemerge.i, 1
+  br i1 %11, label %9, label %13, !llvm.loop !47
 
-while.end.i:                                      ; preds = %while.cond.i
-  %size_shift_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store i32 %storemerge.i, ptr %size_shift_.i, align 16
-  %sh_prom.i = zext nneg i32 %storemerge.i to i64
-  %0 = icmp samesign ugt i32 %storemerge.i, 57
-  %1 = shl i64 64, %sh_prom.i
-  %2 = select i1 %0, i64 -1, i64 %1
-  %call7.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %2) #12
-          to label %new.ctorloop.i unwind label %lpad.i
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 %storemerge.i, ptr %14, align 16, !tbaa !49
+  %15 = zext nneg i32 %storemerge.i to i64
+  %16 = icmp samesign ugt i32 %storemerge.i, 57
+  %17 = shl i64 64, %15
+  %18 = select i1 %16, i64 -1, i64 %17
+  %19 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %18) #13
+          to label %20 unwind label %31
 
-new.ctorloop.i:                                   ; preds = %while.end.i
-  %shl6.i = shl nuw i64 1, %sh_prom.i
-  %arrayctor.end.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %call7.i, i64 %shl6.i
-  br label %invoke.cont9.i
+20:                                               ; preds = %13
+  %21 = shl nuw i64 1, %15
+  %22 = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %19, i64 %21
+  br label %23
 
-invoke.cont9.i:                                   ; preds = %invoke.cont9.i, %new.ctorloop.i
-  %arrayctor.cur.i = phi ptr [ %call7.i, %new.ctorloop.i ], [ %arrayctor.next.i, %invoke.cont9.i ]
-  %mutex.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 40
-  store i8 0, ptr %mutex.i.i, align 1
-  %free_begin_.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %free_begin_.i.i, i8 0, i64 16, i1 false)
-  %arrayctor.next.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 64
-  %arrayctor.done.i = icmp eq ptr %arrayctor.next.i, %arrayctor.end.i
-  br i1 %arrayctor.done.i, label %arrayctor.cont.i, label %invoke.cont9.i
+23:                                               ; preds = %23, %20
+  %24 = phi ptr [ %19, %20 ], [ %27, %23 ]
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  store i8 0, ptr %25, align 1, !tbaa !50
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %28 = icmp eq ptr %27, %22
+  br i1 %28, label %29, label %23
 
-arrayctor.cont.i:                                 ; preds = %invoke.cont9.i
-  %3 = load ptr, ptr %shards_, align 8
-  store ptr %call7.i, ptr %shards_, align 8
-  %tobool.not.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i, label %invoke.cont2, label %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %7, align 8, !tbaa !51
+  store ptr %19, ptr %7, align 8, !tbaa !51
+  %.not.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i.i, label %_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEEC2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i
 
-_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i: ; preds = %arrayctor.cont.i
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #13
-  br label %invoke.cont2
+_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i: ; preds = %29
+  tail call void @_ZdaPv(ptr noundef nonnull %30) #14
+  br label %_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEEC2Ev.exit
 
-lpad.i:                                           ; preds = %while.end.i
-  %4 = landingpad { ptr, i32 }
+31:                                               ; preds = %13
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %5 = load ptr, ptr %shards_, align 8
-  %cmp.not.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i.i, label %ehcleanup8, label %ehcleanup8.sink.split
+  %33 = load ptr, ptr %7, align 8, !tbaa !51
+  %.not.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i, label %.body, label %.body.sink.split
 
-invoke.cont2:                                     ; preds = %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i, %arrayctor.cont.i
-  %arena_ = getelementptr inbounds nuw i8, ptr %this, i64 96
-  invoke void @_ZN7rocksdb5ArenaC1EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2288) %arena_, i64 noundef %block_size, ptr noundef %tracker, i64 noundef %huge_page_size)
-          to label %invoke.cont7 unwind label %lpad3
+_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEEC2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i, %29
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  invoke void @_ZN7rocksdb5ArenaC1EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2288) %34, i64 noundef %1, ptr noundef %2, i64 noundef %3)
+          to label %35 unwind label %46
 
-invoke.cont7:                                     ; preds = %invoke.cont2
-  %arena_mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 2384
-  store i8 0, ptr %arena_mutex_, align 16
-  %alloc_bytes_remaining_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2352
-  %6 = load i64, ptr %alloc_bytes_remaining_.i.i, align 16
-  %arena_allocated_and_unused_.i = getelementptr inbounds nuw i8, ptr %this, i64 2392
-  store atomic i64 %6, ptr %arena_allocated_and_unused_.i monotonic, align 8
-  %blocks_memory_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2368
-  %7 = load i64, ptr %blocks_memory_.i.i, align 16
-  %memory_allocated_bytes_.i = getelementptr inbounds nuw i8, ptr %this, i64 2400
-  store atomic i64 %7, ptr %memory_allocated_bytes_.i monotonic, align 16
-  %irregular_block_num.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2328
-  %8 = load i64, ptr %irregular_block_num.i.i, align 8
-  %irregular_block_num_.i = getelementptr inbounds nuw i8, ptr %this, i64 2408
-  store atomic i64 %8, ptr %irregular_block_num_.i monotonic, align 8
+35:                                               ; preds = %_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEEC2Ev.exit
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2384
+  store i8 0, ptr %36, align 16, !tbaa !50
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2392
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2352
+  %39 = load i64, ptr %38, align 16, !tbaa !52
+  store atomic i64 %39, ptr %37 monotonic, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2400
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2368
+  %42 = load i64, ptr %41, align 16, !tbaa !53
+  store atomic i64 %42, ptr %40 monotonic, align 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2408
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2328
+  %45 = load i64, ptr %44, align 8, !tbaa !54
+  store atomic i64 %45, ptr %43 monotonic, align 8
   ret void
 
-lpad3:                                            ; preds = %invoke.cont2
-  %9 = landingpad { ptr, i32 }
+46:                                               ; preds = %_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEEC2Ev.exit
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %10 = load ptr, ptr %shards_, align 8
-  %cmp.not.i.i6 = icmp eq ptr %10, null
-  br i1 %cmp.not.i.i6, label %ehcleanup8, label %ehcleanup8.sink.split
+  %48 = load ptr, ptr %7, align 8, !tbaa !51
+  %.not.i.i10 = icmp eq ptr %48, null
+  br i1 %.not.i.i10, label %.body, label %.body.sink.split
 
-ehcleanup8.sink.split:                            ; preds = %lpad3, %lpad.i
-  %.sink = phi ptr [ %5, %lpad.i ], [ %10, %lpad3 ]
-  %.pn.pn.ph = phi { ptr, i32 } [ %4, %lpad.i ], [ %9, %lpad3 ]
-  tail call void @_ZdaPv(ptr noundef nonnull %.sink) #13
-  br label %ehcleanup8
+.body.sink.split:                                 ; preds = %46, %31
+  %.sink = phi ptr [ %33, %31 ], [ %48, %46 ]
+  %.pn.pn.ph = phi { ptr, i32 } [ %32, %31 ], [ %47, %46 ]
+  tail call void @_ZdaPv(ptr noundef nonnull %.sink) #14
+  br label %.body
 
-ehcleanup8:                                       ; preds = %ehcleanup8.sink.split, %lpad3, %lpad.i
-  %.pn.pn = phi { ptr, i32 } [ %4, %lpad.i ], [ %9, %lpad3 ], [ %.pn.pn.ph, %ehcleanup8.sink.split ]
-  store ptr null, ptr %shards_, align 8
+.body:                                            ; preds = %.body.sink.split, %46, %31
+  %.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %47, %46 ], [ %.pn.pn.ph, %.body.sink.split ]
+  store ptr null, ptr %7, align 8, !tbaa !51
   resume { ptr, i32 } %.pn.pn
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 declare i32 @__gxx_personality_v0(...)
 
-declare void @_ZN7rocksdb5ArenaC1EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2288), i64 noundef, ptr noundef, i64 noundef) unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @_ZN7rocksdb5ArenaC1EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2288), i64 noundef, ptr noundef, i64 noundef) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288)) unnamed_addr #2
+declare void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb15ConcurrentArena6RepickEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(2472) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %call.i = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
-  %cmp.i = icmp slt i32 %call.i, 0
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
+define noundef ptr @_ZN7rocksdb15ConcurrentArena6RepickEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(2472) %0) local_unnamed_addr #0 align 2 {
+  %2 = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
+  %3 = icmp slt i32 %2, 0
+  br i1 %3, label %4, label %20, !prof !55
 
-if.then.i:                                        ; preds = %entry
-  %call2.i = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
-  %size_shift_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %0 = load i32, ptr %size_shift_.i, align 16
-  %1 = load i32, ptr %call2.i, align 4
-  %conv.i.i.i = zext i32 %1 to i64
-  %mul.i.i.i = mul nuw nsw i64 %conv.i.i.i, 16807
-  %shr.i.i.i = lshr i64 %mul.i.i.i, 31
-  %and.i.i.i = and i64 %mul.i.i.i, 2147483647
-  %add.i.i.i = add nuw nsw i64 %shr.i.i.i, %and.i.i.i
-  %conv2.i.i.i = trunc nuw i64 %add.i.i.i to i32
-  %cmp.i.i.i = icmp slt i32 %conv2.i.i.i, 0
-  %sub.i.i.i = add i32 %conv2.i.i.i, -2147483647
-  %spec.select.i.i.i = select i1 %cmp.i.i.i, i32 %sub.i.i.i, i32 %conv2.i.i.i
-  store i32 %spec.select.i.i.i, ptr %call2.i, align 4
-  %notmask.i = shl nsw i32 -1, %0
-  %2 = xor i32 %notmask.i, -1
-  %rem.i.i = and i32 %spec.select.i.i.i, %2
-  %conv.i = zext nneg i32 %rem.i.i to i64
-  %.pre = load i32, ptr %size_shift_.i, align 16
+4:                                                ; preds = %1
+  %5 = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %7 = load i32, ptr %6, align 16, !tbaa !49
+  %8 = load i32, ptr %5, align 4, !tbaa !56
+  %9 = zext i32 %8 to i64
+  %10 = mul nuw nsw i64 %9, 16807
+  %11 = lshr i64 %10, 31
+  %12 = and i64 %10, 2147483647
+  %13 = add nuw nsw i64 %11, %12
+  %14 = trunc nuw i64 %13 to i32
+  %15 = icmp slt i32 %14, 0
+  %16 = add i32 %14, -2147483647
+  %spec.select.i.i.i = select i1 %15, i32 %16, i32 %14
+  store i32 %spec.select.i.i.i, ptr %5, align 4, !tbaa !56
+  %notmask.i = shl nsw i32 -1, %7
+  %17 = xor i32 %notmask.i, -1
+  %18 = and i32 %spec.select.i.i.i, %17
+  %19 = zext nneg i32 %18 to i64
   br label %_ZNK7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEE21AccessElementAndIndexEv.exit
 
-if.else.i:                                        ; preds = %entry
-  %size_shift_4.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %3 = load i32, ptr %size_shift_4.i, align 16
-  %4 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %call.i, i32 %3)
-  %conv6.i = sext i32 %4 to i64
+20:                                               ; preds = %1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %22 = load i32, ptr %21, align 16, !tbaa !49
+  %23 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %2, i32 %22)
+  %24 = sext i32 %23 to i64
   br label %_ZNK7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEE21AccessElementAndIndexEv.exit
 
-_ZNK7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEE21AccessElementAndIndexEv.exit: ; preds = %if.then.i, %if.else.i
-  %5 = phi i32 [ %3, %if.else.i ], [ %.pre, %if.then.i ]
-  %storemerge.i = phi i64 [ %conv6.i, %if.else.i ], [ %conv.i, %if.then.i ]
-  %shards_ = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %6 = load ptr, ptr %shards_, align 8
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %6, i64 %storemerge.i
-  %sh_prom.i = zext nneg i32 %5 to i64
-  %shl.i = shl nuw i64 1, %sh_prom.i
-  %or = or i64 %shl.i, %storemerge.i
-  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15ConcurrentArena9tls_cpuidE)
-  store i64 %or, ptr %7, align 8
-  ret ptr %arrayidx.i.i.i
+_ZNK7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEE21AccessElementAndIndexEv.exit: ; preds = %4, %20
+  %25 = phi i32 [ %22, %20 ], [ %7, %4 ]
+  %storemerge.i = phi i64 [ %24, %20 ], [ %19, %4 ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %27 = load ptr, ptr %26, align 8, !tbaa !51
+  %28 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %27, i64 %storemerge.i
+  %29 = zext nneg i32 %25 to i64
+  %30 = shl nuw i64 1, %29
+  %31 = or i64 %30, %storemerge.i
+  %32 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15ConcurrentArena9tls_cpuidE)
+  store i64 %31, ptr %32, align 8, !tbaa !58
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN7rocksdb15ConcurrentArenaD2Ev(ptr noundef nonnull align 16 dereferenceable(2472) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 16), ptr %this, align 16
-  %arena_ = getelementptr inbounds nuw i8, ptr %this, i64 96
-  tail call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %arena_) #11
-  %shards_ = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %0 = load ptr, ptr %shards_, align 8
-  %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEED2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN7rocksdb15ConcurrentArenaD2Ev(ptr noundef nonnull align 16 dereferenceable(2472) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 16), ptr %0, align 16, !tbaa !4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  tail call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %2) #12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %4 = load ptr, ptr %3, align 8, !tbaa !51
+  %.not.i.i = icmp eq ptr %4, null
+  br i1 %.not.i.i, label %_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEED2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
 
-_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
+_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %1
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #14
   br label %_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEED2Ev.exit
 
-_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
-  store ptr null, ptr %shards_, align 8
+_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
+  store ptr null, ptr %3, align 8, !tbaa !51
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN7rocksdb15ConcurrentArenaD0Ev(ptr noundef nonnull align 16 dereferenceable(2472) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 16), ptr %this, align 16
-  %arena_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  tail call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i) #11
-  %shards_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %0 = load ptr, ptr %shards_.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i.i, label %_ZN7rocksdb15ConcurrentArenaD2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN7rocksdb15ConcurrentArenaD0Ev(ptr noundef nonnull align 16 dereferenceable(2472) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 16), ptr %0, align 16, !tbaa !4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  tail call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %2) #12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %4 = load ptr, ptr %3, align 8, !tbaa !51
+  %.not.i.i.i = icmp eq ptr %4, null
+  br i1 %.not.i.i.i, label %_ZN7rocksdb15ConcurrentArenaD2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i
 
-_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
+_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i: ; preds = %1
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #14
   br label %_ZN7rocksdb15ConcurrentArenaD2Ev.exit
 
-_ZN7rocksdb15ConcurrentArenaD2Ev.exit:            ; preds = %entry, %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
+_ZN7rocksdb15ConcurrentArenaD2Ev.exit:            ; preds = %1, %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 2480) #14
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena8AllocateEm(ptr noundef nonnull align 16 dereferenceable(2472) %this, i64 noundef %bytes) unnamed_addr #0 comdat align 2 {
-entry:
-  %ref.tmp = alloca %class.anon, align 8
-  store ptr %this, ptr %ref.tmp, align 8
-  %0 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store i64 %bytes, ptr %0, align 8
-  %call = call noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_8AllocateEmEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %this, i64 noundef %bytes, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  ret ptr %call
+define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena8AllocateEm(ptr noundef nonnull align 16 dereferenceable(2472) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca %class.anon, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %1, ptr %4, align 8, !tbaa !62
+  %5 = call noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_8AllocateEmEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %0, i64 noundef %1, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2472) %this, i64 noundef %bytes, i64 noundef %huge_page_size, ptr noundef %logger) unnamed_addr #0 comdat align 2 {
-entry:
-  %ref.tmp = alloca %class.anon.10, align 8
-  %sub = add i64 %bytes, -1
-  %or = or i64 %sub, 7
-  %add = add i64 %or, 1
-  %cmp = icmp ne i64 %huge_page_size, 0
-  store ptr %this, ptr %ref.tmp, align 8
-  %0 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store i64 %add, ptr %0, align 8
-  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store i64 %huge_page_size, ptr %1, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  store ptr %logger, ptr %2, align 8
-  %call = call noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_15AllocateAlignedEmmPNS_6LoggerEEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %this, i64 noundef %add, i1 noundef zeroext %cmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
-  ret ptr %call
+define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2472) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 {
+  %5 = alloca %class.anon.10, align 8
+  %6 = add i64 %1, -1
+  %7 = or i64 %6, 7
+  %8 = add i64 %7, 1
+  %9 = icmp ne i64 %2, 0
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
+  store ptr %0, ptr %5, align 8, !tbaa !63
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %8, ptr %10, align 8, !tbaa !66
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %2, ptr %11, align 8, !tbaa !67
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %3, ptr %12, align 8, !tbaa !68
+  %13 = call noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_15AllocateAlignedEmmPNS_6LoggerEEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %0, i64 noundef %8, i1 noundef zeroext %9, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
+  ret ptr %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i64 @_ZNK7rocksdb15ConcurrentArena9BlockSizeEv(ptr noundef nonnull align 16 dereferenceable(2472) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %kBlockSize.i = getelementptr inbounds nuw i8, ptr %this, i64 2160
-  %0 = load i64, ptr %kBlockSize.i, align 16
-  ret i64 %0
+define linkonce_odr noundef i64 @_ZNK7rocksdb15ConcurrentArena9BlockSizeEv(ptr noundef nonnull align 16 dereferenceable(2472) %0) unnamed_addr #0 comdat align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2160
+  %3 = load i64, ptr %2, align 16, !tbaa !69
+  ret i64 %3
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare noundef i32 @_ZNSt6thread20hardware_concurrencyEv() local_unnamed_addr #2
+declare noundef i32 @_ZNSt6thread20hardware_concurrencyEv() local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-declare noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv() local_unnamed_addr #1
+declare noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv() local_unnamed_addr #2
 
-declare noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv() local_unnamed_addr #1
+declare noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.bmi.bzhi.32(i32, i32) #8
+declare i32 @llvm.x86.bmi.bzhi.32(i32, i32) #9
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_8AllocateEmEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %this, i64 noundef %bytes, i1 noundef zeroext %force_arena, ptr noundef nonnull align 8 dereferenceable(16) %func) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %arena_mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 2384
-  %shard_block_size_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %0 = load i64, ptr %shard_block_size_, align 16
-  %div29 = lshr i64 %0, 2
-  %cmp = icmp ugt i64 %bytes, %div29
-  %brmerge = or i1 %force_arena, %cmp
-  br i1 %brmerge, label %for.cond.i.i, label %lor.lhs.false2
+define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_8AllocateEmEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2384
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %7 = load i64, ptr %6, align 16, !tbaa !7
+  %8 = lshr i64 %7, 2
+  %9 = icmp ugt i64 %1, %8
+  %brmerge = or i1 %2, %9
+  br i1 %brmerge, label %.preheader.i, label %10
 
-lor.lhs.false2:                                   ; preds = %entry
-  %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15ConcurrentArena9tls_cpuidE)
-  %2 = load i64, ptr %1, align 8
-  %cmp3 = icmp eq i64 %2, 0
-  br i1 %cmp3, label %invoke.cont, label %invoke.cont19
+10:                                               ; preds = %4
+  %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15ConcurrentArena9tls_cpuidE)
+  %12 = load i64, ptr %11, align 8, !tbaa !58
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %14, label %.thread
 
-invoke.cont:                                      ; preds = %lor.lhs.false2
-  %shards_ = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %3 = load ptr, ptr %shards_, align 8
-  %allocated_and_unused_ = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %4 = load atomic i64, ptr %allocated_and_unused_ monotonic, align 8
-  %tobool5.not = icmp eq i64 %4, 0
-  br i1 %tobool5.not, label %if.else4.i, label %invoke.cont19
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %16 = load ptr, ptr %15, align 8, !tbaa !51
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %18 = load atomic i64, ptr %17 monotonic, align 8
+  %.not = icmp eq i64 %18, 0
+  br i1 %.not, label %19, label %.thread
 
-if.else4.i:                                       ; preds = %invoke.cont
-  %5 = load atomic i8, ptr %arena_mutex_ monotonic, align 16
-  %tobool.i.i.i.i = trunc i8 %5 to i1
-  br i1 %tobool.i.i.i.i, label %invoke.cont19, label %invoke.cont7
+19:                                               ; preds = %14
+  %20 = load atomic i8, ptr %5 monotonic, align 16
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %.thread, label %22
 
-invoke.cont7:                                     ; preds = %if.else4.i
-  %6 = cmpxchg weak ptr %arena_mutex_, i8 0, i8 1 acquire monotonic, align 1
-  %7 = extractvalue { i8, i1 } %6, 1
-  br i1 %7, label %if.end, label %invoke.cont19
+22:                                               ; preds = %19
+  %23 = cmpxchg weak ptr %5, i8 0, i8 1 acquire monotonic, align 1
+  %24 = extractvalue { i8, i1 } %23, 1
+  br i1 %24, label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit, label %.thread
 
-for.cond.i.i:                                     ; preds = %entry, %for.inc.i.i
-  %tries.0.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %entry ]
-  %8 = load atomic i8, ptr %arena_mutex_ monotonic, align 16
-  %tobool.i.i.i.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.end.i.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i
+.preheader.i:                                     ; preds = %4, %32
+  %.0.i.i = phi i64 [ %33, %32 ], [ 0, %4 ]
+  %25 = load atomic i8, ptr %5 monotonic, align 16
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i
 
-_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i:        ; preds = %for.cond.i.i
-  %9 = cmpxchg weak ptr %arena_mutex_, i8 0, i8 1 acquire monotonic, align 1
-  %10 = extractvalue { i8, i1 } %9, 1
-  br i1 %10, label %if.end, label %if.end.i.i
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i:        ; preds = %.preheader.i
+  %27 = cmpxchg weak ptr %5, i8 0, i8 1 acquire monotonic, align 1
+  %28 = extractvalue { i8, i1 } %27, 1
+  br i1 %28, label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i
 
-if.end.i.i:                                       ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %for.cond.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %cmp.i.i = icmp ugt i64 %tries.0.i.i, 100
-  br i1 %cmp.i.i, label %if.then2.i.i, label %for.inc.i.i
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %.preheader.i
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !70
+  %29 = icmp ugt i64 %.0.i.i, 100
+  br i1 %29, label %30, label %32
 
-if.then2.i.i:                                     ; preds = %if.end.i.i
-  %call.i.i.i.i = tail call noundef i32 @sched_yield() #11
-  br label %for.inc.i.i
+30:                                               ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i
+  %31 = tail call noundef i32 @sched_yield() #12
+  br label %32
 
-for.inc.i.i:                                      ; preds = %if.then2.i.i, %if.end.i.i
-  %inc.i.i = add i64 %tries.0.i.i, 1
-  br label %for.cond.i.i, !llvm.loop !7
+32:                                               ; preds = %30, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i
+  %33 = add i64 %.0.i.i, 1
+  br label %.preheader.i, !llvm.loop !71
 
-if.end:                                           ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %invoke.cont7
-  %11 = load ptr, ptr %func, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %func, i64 8
-  %13 = load i64, ptr %12, align 8
-  %alloc_bytes_remaining_.i.i = getelementptr inbounds nuw i8, ptr %11, i64 2352
-  %14 = load i64, ptr %alloc_bytes_remaining_.i.i, align 16
-  %cmp.not.i.i = icmp ugt i64 %13, %14
-  br i1 %cmp.not.i.i, label %if.end.i.i45, label %if.then.i.i
+_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %22
+  %34 = load ptr, ptr %3, align 8, !tbaa !59
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %36 = load i64, ptr %35, align 8, !tbaa !62
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 2352
+  %38 = load i64, ptr %37, align 16, !tbaa !52
+  %.not.i.i = icmp ugt i64 %36, %38
+  br i1 %.not.i.i, label %45, label %39
 
-if.then.i.i:                                      ; preds = %if.end
-  %unaligned_alloc_ptr_.i.i = getelementptr inbounds nuw i8, ptr %11, i64 2336
-  %15 = load ptr, ptr %unaligned_alloc_ptr_.i.i, align 16
-  %idx.neg.i.i = sub i64 0, %13
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 %idx.neg.i.i
-  store ptr %add.ptr.i.i, ptr %unaligned_alloc_ptr_.i.i, align 16
-  %sub.i.i = sub nuw i64 %14, %13
-  store i64 %sub.i.i, ptr %alloc_bytes_remaining_.i.i, align 16
-  br label %cleanup74.thread
+39:                                               ; preds = %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 2336
+  %41 = load ptr, ptr %40, align 16, !tbaa !72
+  %42 = sub i64 0, %36
+  %43 = getelementptr inbounds i8, ptr %41, i64 %42
+  store ptr %43, ptr %40, align 16, !tbaa !72
+  %44 = sub nuw i64 %38, %36
+  store i64 %44, ptr %37, align 16, !tbaa !52
+  br label %.thread99
 
-if.end.i.i45:                                     ; preds = %if.end
-  %arena_.i = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %call.i.i46 = invoke noundef ptr @_ZN7rocksdb5Arena16AllocateFallbackEmb(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i, i64 noundef %13, i1 noundef zeroext false)
-          to label %cleanup74.thread unwind label %if.then3.i.i114
+45:                                               ; preds = %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 96
+  %47 = invoke noundef ptr @_ZN7rocksdb5Arena16AllocateFallbackEmb(ptr noundef nonnull align 16 dereferenceable(2288) %46, i64 noundef %36, i1 noundef zeroext false)
+          to label %.thread99 unwind label %.thread104
 
-cleanup74.thread:                                 ; preds = %if.end.i.i45, %if.then.i.i
-  %retval.0.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %call.i.i46, %if.end.i.i45 ]
-  %alloc_bytes_remaining_.i.i47 = getelementptr inbounds nuw i8, ptr %this, i64 2352
-  %16 = load i64, ptr %alloc_bytes_remaining_.i.i47, align 16
-  %arena_allocated_and_unused_.i = getelementptr inbounds nuw i8, ptr %this, i64 2392
-  store atomic i64 %16, ptr %arena_allocated_and_unused_.i monotonic, align 8
-  %blocks_memory_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2368
-  %17 = load i64, ptr %blocks_memory_.i.i, align 16
-  %memory_allocated_bytes_.i = getelementptr inbounds nuw i8, ptr %this, i64 2400
-  store atomic i64 %17, ptr %memory_allocated_bytes_.i monotonic, align 16
-  %irregular_block_num.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2328
-  %18 = load i64, ptr %irregular_block_num.i.i, align 8
-  %irregular_block_num_.i = getelementptr inbounds nuw i8, ptr %this, i64 2408
-  store atomic i64 %18, ptr %irregular_block_num_.i monotonic, align 8
-  store atomic i8 0, ptr %arena_mutex_ release, align 16
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit108
+.thread99:                                        ; preds = %45, %39
+  %.0.i.i63 = phi ptr [ %43, %39 ], [ %47, %45 ]
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2392
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 2352
+  %50 = load i64, ptr %49, align 16, !tbaa !52
+  store atomic i64 %50, ptr %48 monotonic, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 2400
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 2368
+  %53 = load i64, ptr %52, align 16, !tbaa !53
+  store atomic i64 %53, ptr %51 monotonic, align 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2408
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 2328
+  %56 = load i64, ptr %55, align 8, !tbaa !54
+  store atomic i64 %56, ptr %54 monotonic, align 8
+  store atomic i8 0, ptr %5 release, align 16
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit78
 
-invoke.cont19:                                    ; preds = %if.else4.i, %lor.lhs.false2, %invoke.cont, %invoke.cont7
-  %shards_16 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %size_shift_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %19 = load i32, ptr %size_shift_.i, align 16
-  %sh_prom.i = zext nneg i32 %19 to i64
-  %notmask = shl nsw i64 -1, %sh_prom.i
-  %sub = xor i64 %notmask, -1
-  %and = and i64 %2, %sub
-  %20 = load ptr, ptr %shards_16, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %20, i64 %and
-  %mutex = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 40
-  %21 = load atomic i8, ptr %mutex monotonic, align 1
-  %tobool.i.i.i = trunc i8 %21 to i1
-  br i1 %tobool.i.i.i, label %if.then23, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit
-
-_ZN7rocksdb9SpinMutex8try_lockEv.exit:            ; preds = %invoke.cont19
-  %22 = cmpxchg weak ptr %mutex, i8 0, i8 1 acquire monotonic, align 1
-  %23 = extractvalue { i8, i1 } %22, 1
-  br i1 %23, label %if.end28, label %if.then23
-
-if.then23:                                        ; preds = %invoke.cont19, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
-  %call.i.i52 = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
-  %cmp.i.i49 = icmp slt i32 %call.i.i52, 0
-  br i1 %cmp.i.i49, label %if.then.i.i50, label %if.else.i.i
-
-if.then.i.i50:                                    ; preds = %if.then23
-  %call2.i.i53 = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
-  %24 = load i32, ptr %size_shift_.i, align 16
-  %25 = load i32, ptr %call2.i.i53, align 4
-  %conv.i.i.i.i = zext i32 %25 to i64
-  %mul.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i, 16807
-  %shr.i.i.i.i = lshr i64 %mul.i.i.i.i, 31
-  %and.i.i.i.i = and i64 %mul.i.i.i.i, 2147483647
-  %add.i.i.i.i = add nuw nsw i64 %shr.i.i.i.i, %and.i.i.i.i
-  %conv2.i.i.i.i = trunc nuw i64 %add.i.i.i.i to i32
-  %cmp.i.i.i.i = icmp slt i32 %conv2.i.i.i.i, 0
-  %sub.i.i.i.i = add i32 %conv2.i.i.i.i, -2147483647
-  %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i, i32 %sub.i.i.i.i, i32 %conv2.i.i.i.i
-  store i32 %spec.select.i.i.i.i, ptr %call2.i.i53, align 4
-  %notmask.i.i = shl nsw i32 -1, %24
-  %26 = xor i32 %notmask.i.i, -1
-  %rem.i.i.i = and i32 %spec.select.i.i.i.i, %26
-  %conv.i.i = zext nneg i32 %rem.i.i.i to i64
-  %.pre.i = load i32, ptr %size_shift_.i, align 16
-  br label %invoke.cont24
-
-if.else.i.i:                                      ; preds = %if.then23
-  %27 = load i32, ptr %size_shift_.i, align 16
-  %28 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %call.i.i52, i32 %27)
-  %conv6.i.i = sext i32 %28 to i64
-  br label %invoke.cont24
-
-invoke.cont24:                                    ; preds = %if.else.i.i, %if.then.i.i50
-  %29 = phi i32 [ %27, %if.else.i.i ], [ %.pre.i, %if.then.i.i50 ]
-  %storemerge.i.i = phi i64 [ %conv6.i.i, %if.else.i.i ], [ %conv.i.i, %if.then.i.i50 ]
-  %30 = load ptr, ptr %shards_16, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %30, i64 %storemerge.i.i
-  %sh_prom.i.i = zext nneg i32 %29 to i64
-  %shl.i.i = shl nuw i64 1, %sh_prom.i.i
-  %or.i = or i64 %shl.i.i, %storemerge.i.i
-  store i64 %or.i, ptr %1, align 8
-  %mutex26 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 40
-  br label %for.cond.i
-
-for.cond.i:                                       ; preds = %for.inc.i, %invoke.cont24
-  %tries.0.i = phi i64 [ 0, %invoke.cont24 ], [ %inc.i, %for.inc.i ]
-  %31 = load atomic i8, ptr %mutex26 monotonic, align 1
-  %tobool.i.i.i.i54 = trunc i8 %31 to i1
-  br i1 %tobool.i.i.i.i54, label %if.end.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i
-
-_ZN7rocksdb9SpinMutex8try_lockEv.exit.i:          ; preds = %for.cond.i
-  %32 = cmpxchg weak ptr %mutex26, i8 0, i8 1 acquire monotonic, align 1
-  %33 = extractvalue { i8, i1 } %32, 1
-  br i1 %33, label %if.end28, label %if.end.i
-
-if.end.i:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %for.cond.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %cmp.i = icmp ugt i64 %tries.0.i, 100
-  br i1 %cmp.i, label %if.then2.i, label %for.inc.i
-
-if.then2.i:                                       ; preds = %if.end.i
-  %call.i.i.i = tail call noundef i32 @sched_yield() #11
-  br label %for.inc.i
-
-for.inc.i:                                        ; preds = %if.then2.i, %if.end.i
-  %inc.i = add i64 %tries.0.i, 1
-  br label %for.cond.i, !llvm.loop !7
-
-if.end28:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
-  %s.0 = phi ptr [ %arrayidx.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %arrayidx.i.i.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i ]
-  %mutex29 = getelementptr inbounds nuw i8, ptr %s.0, i64 40
-  %allocated_and_unused_31 = getelementptr inbounds nuw i8, ptr %s.0, i64 56
-  %34 = load atomic i64, ptr %allocated_and_unused_31 monotonic, align 8
-  %cmp33 = icmp ult i64 %34, %bytes
-  br i1 %cmp33, label %for.cond.i.i56, label %if.end61
-
-for.cond.i.i56:                                   ; preds = %if.end28, %for.inc.i.i62
-  %tries.0.i.i57 = phi i64 [ %inc.i.i63, %for.inc.i.i62 ], [ 0, %if.end28 ]
-  %35 = load atomic i8, ptr %arena_mutex_ monotonic, align 16
-  %tobool.i.i.i.i.i58 = trunc i8 %35 to i1
-  br i1 %tobool.i.i.i.i.i58, label %if.end.i.i60, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i59
-
-_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i59:      ; preds = %for.cond.i.i56
-  %36 = cmpxchg weak ptr %arena_mutex_, i8 0, i8 1 acquire monotonic, align 1
-  %37 = extractvalue { i8, i1 } %36, 1
-  br i1 %37, label %invoke.cont37, label %if.end.i.i60
-
-if.end.i.i60:                                     ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i59, %for.cond.i.i56
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %cmp.i.i61 = icmp ugt i64 %tries.0.i.i57, 100
-  br i1 %cmp.i.i61, label %if.then2.i.i64, label %for.inc.i.i62
-
-if.then2.i.i64:                                   ; preds = %if.end.i.i60
-  %call.i.i.i.i65 = tail call noundef i32 @sched_yield() #11
-  br label %for.inc.i.i62
-
-for.inc.i.i62:                                    ; preds = %if.then2.i.i64, %if.end.i.i60
-  %inc.i.i63 = add i64 %tries.0.i.i57, 1
-  br label %for.cond.i.i56, !llvm.loop !7
-
-invoke.cont37:                                    ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i59
-  %arena_allocated_and_unused_ = getelementptr inbounds nuw i8, ptr %this, i64 2392
-  %38 = load atomic i64, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %cmp39.not = icmp ult i64 %38, %bytes
-  br i1 %cmp39.not, label %if.end49, label %land.lhs.true40
-
-land.lhs.true40:                                  ; preds = %invoke.cont37
-  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2216
-  %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2184
-  %39 = load ptr, ptr %_M_finish.i.i, align 8
-  %40 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %39, %40
-  %_M_finish.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 2296
-  %_M_start.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 2264
-  %41 = load ptr, ptr %_M_finish.i1.i, align 8
-  %42 = load ptr, ptr %_M_start.i2.i, align 8
-  %cmp.i.i3.i = icmp eq ptr %41, %42
-  %43 = select i1 %cmp.i.i.i, i1 %cmp.i.i3.i, i1 false
-  br i1 %43, label %if.then44, label %if.end49
-
-if.then44:                                        ; preds = %land.lhs.true40
-  %44 = load ptr, ptr %func, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %func, i64 8
-  %46 = load i64, ptr %45, align 8
-  %alloc_bytes_remaining_.i.i66 = getelementptr inbounds nuw i8, ptr %44, i64 2352
-  %47 = load i64, ptr %alloc_bytes_remaining_.i.i66, align 16
-  %cmp.not.i.i67 = icmp ugt i64 %46, %47
-  br i1 %cmp.not.i.i67, label %if.end.i.i74, label %if.then.i.i68
-
-if.then.i.i68:                                    ; preds = %if.then44
-  %unaligned_alloc_ptr_.i.i69 = getelementptr inbounds nuw i8, ptr %44, i64 2336
-  %48 = load ptr, ptr %unaligned_alloc_ptr_.i.i69, align 16
-  %idx.neg.i.i70 = sub i64 0, %46
-  %add.ptr.i.i71 = getelementptr inbounds i8, ptr %48, i64 %idx.neg.i.i70
-  store ptr %add.ptr.i.i71, ptr %unaligned_alloc_ptr_.i.i69, align 16
-  %sub.i.i72 = sub nuw i64 %47, %46
-  store i64 %sub.i.i72, ptr %alloc_bytes_remaining_.i.i66, align 16
-  br label %cleanup
-
-if.end.i.i74:                                     ; preds = %if.then44
-  %arena_.i75 = getelementptr inbounds nuw i8, ptr %44, i64 96
-  %call.i.i77 = invoke noundef ptr @_ZN7rocksdb5Arena16AllocateFallbackEmb(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i75, i64 noundef %46, i1 noundef zeroext false)
-          to label %cleanup unwind label %ehcleanup75.thread
-
-ehcleanup75.thread:                               ; preds = %if.end49, %if.end.i.i74
-  %49 = landingpad { ptr, i32 }
+.thread104:                                       ; preds = %45
+  %57 = landingpad { ptr, i32 }
           cleanup
-  store atomic i8 0, ptr %arena_mutex_ release, align 16
-  store atomic i8 0, ptr %mutex29 release, align 1
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit115
+  store atomic i8 0, ptr %5 release, align 16
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit80
 
-if.end49:                                         ; preds = %land.lhs.true40, %invoke.cont37
-  %50 = load i64, ptr %shard_block_size_, align 16
-  %div5130 = lshr i64 %50, 1
-  %cmp52.not = icmp uge i64 %38, %div5130
-  %mul = shl i64 %50, 1
-  %cmp55 = icmp ult i64 %38, %mul
-  %or.cond = and i1 %cmp52.not, %cmp55
-  %cond = select i1 %or.cond, i64 %38, i64 %50
-  %arena_57 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %call59 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_57, i64 noundef %cond, i64 noundef 0, ptr noundef null)
-          to label %cleanup.thread unwind label %ehcleanup75.thread
+.thread:                                          ; preds = %19, %10, %14, %22
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %60 = load i32, ptr %59, align 16, !tbaa !49
+  %61 = zext nneg i32 %60 to i64
+  %notmask = shl nsw i64 -1, %61
+  %62 = xor i64 %notmask, -1
+  %63 = and i64 %12, %62
+  %64 = load ptr, ptr %58, align 8, !tbaa !51
+  %65 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %64, i64 %63
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
+  %67 = load atomic i8, ptr %66 monotonic, align 1
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit
 
-cleanup.thread:                                   ; preds = %if.end49
-  %free_begin_ = getelementptr inbounds nuw i8, ptr %s.0, i64 48
-  store ptr %call59, ptr %free_begin_, align 8
-  %alloc_bytes_remaining_.i.i85 = getelementptr inbounds nuw i8, ptr %this, i64 2352
-  %51 = load i64, ptr %alloc_bytes_remaining_.i.i85, align 16
-  store atomic i64 %51, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %blocks_memory_.i.i87 = getelementptr inbounds nuw i8, ptr %this, i64 2368
-  %52 = load i64, ptr %blocks_memory_.i.i87, align 16
-  %memory_allocated_bytes_.i88 = getelementptr inbounds nuw i8, ptr %this, i64 2400
-  store atomic i64 %52, ptr %memory_allocated_bytes_.i88 monotonic, align 16
-  %irregular_block_num.i.i89 = getelementptr inbounds nuw i8, ptr %this, i64 2328
-  %53 = load i64, ptr %irregular_block_num.i.i89, align 8
-  %irregular_block_num_.i90 = getelementptr inbounds nuw i8, ptr %this, i64 2408
-  store atomic i64 %53, ptr %irregular_block_num_.i90 monotonic, align 8
-  store atomic i8 0, ptr %arena_mutex_ release, align 16
-  br label %if.end61
+_ZN7rocksdb9SpinMutex8try_lockEv.exit:            ; preds = %.thread
+  %69 = cmpxchg weak ptr %66, i8 0, i8 1 acquire monotonic, align 1
+  %70 = extractvalue { i8, i1 } %69, 1
+  br i1 %70, label %_ZN7rocksdb9SpinMutex4lockEv.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread
 
-cleanup:                                          ; preds = %if.end.i.i74, %if.then.i.i68
-  %retval.0.i.i73 = phi ptr [ %add.ptr.i.i71, %if.then.i.i68 ], [ %call.i.i77, %if.end.i.i74 ]
-  %alloc_bytes_remaining_.i.i79 = getelementptr inbounds nuw i8, ptr %this, i64 2352
-  %54 = load i64, ptr %alloc_bytes_remaining_.i.i79, align 16
-  store atomic i64 %54, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %blocks_memory_.i.i81 = getelementptr inbounds nuw i8, ptr %this, i64 2368
-  %55 = load i64, ptr %blocks_memory_.i.i81, align 16
-  %memory_allocated_bytes_.i82 = getelementptr inbounds nuw i8, ptr %this, i64 2400
-  store atomic i64 %55, ptr %memory_allocated_bytes_.i82 monotonic, align 16
-  %irregular_block_num.i.i83 = getelementptr inbounds nuw i8, ptr %this, i64 2328
-  %56 = load i64, ptr %irregular_block_num.i.i83, align 8
-  %irregular_block_num_.i84 = getelementptr inbounds nuw i8, ptr %this, i64 2408
-  store atomic i64 %56, ptr %irregular_block_num_.i84 monotonic, align 8
-  store atomic i8 0, ptr %arena_mutex_ release, align 16
-  br label %cleanup74
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread:     ; preds = %.thread, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
+  %71 = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
+  %72 = icmp slt i32 %71, 0
+  br i1 %72, label %.noexc66, label %87, !prof !55
 
-if.end61:                                         ; preds = %cleanup.thread, %if.end28
-  %avail.0 = phi i64 [ %34, %if.end28 ], [ %cond, %cleanup.thread ]
-  %sub63 = sub i64 %avail.0, %bytes
-  store atomic i64 %sub63, ptr %allocated_and_unused_31 monotonic, align 8
-  %rem = and i64 %bytes, 7
-  %cmp65 = icmp eq i64 %rem, 0
-  %free_begin_67 = getelementptr inbounds nuw i8, ptr %s.0, i64 48
-  %57 = load ptr, ptr %free_begin_67, align 8
-  br i1 %cmp65, label %if.then66, label %if.else
+.noexc66:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread
+  %73 = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
+  %74 = load i32, ptr %59, align 16, !tbaa !49
+  %75 = load i32, ptr %73, align 4, !tbaa !56
+  %76 = zext i32 %75 to i64
+  %77 = mul nuw nsw i64 %76, 16807
+  %78 = lshr i64 %77, 31
+  %79 = and i64 %77, 2147483647
+  %80 = add nuw nsw i64 %78, %79
+  %81 = trunc nuw i64 %80 to i32
+  %82 = icmp slt i32 %81, 0
+  %83 = add i32 %81, -2147483647
+  %spec.select.i.i.i.i = select i1 %82, i32 %83, i32 %81
+  store i32 %spec.select.i.i.i.i, ptr %73, align 4, !tbaa !56
+  %notmask.i.i = shl nsw i32 -1, %74
+  %84 = xor i32 %notmask.i.i, -1
+  %85 = and i32 %spec.select.i.i.i.i, %84
+  %86 = zext nneg i32 %85 to i64
+  br label %91
 
-if.then66:                                        ; preds = %if.end61
-  %add.ptr = getelementptr inbounds nuw i8, ptr %57, i64 %bytes
-  store ptr %add.ptr, ptr %free_begin_67, align 8
-  br label %cleanup74
+87:                                               ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread
+  %88 = load i32, ptr %59, align 16, !tbaa !49
+  %89 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %71, i32 %88)
+  %90 = sext i32 %89 to i64
+  br label %91
 
-if.else:                                          ; preds = %if.end61
-  %add.ptr70 = getelementptr inbounds i8, ptr %57, i64 %avail.0
-  %idx.neg = sub nsw i64 0, %bytes
-  %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 %idx.neg
-  br label %cleanup74
+91:                                               ; preds = %87, %.noexc66
+  %92 = phi i32 [ %88, %87 ], [ %74, %.noexc66 ]
+  %storemerge.i.i = phi i64 [ %90, %87 ], [ %86, %.noexc66 ]
+  %93 = load ptr, ptr %58, align 8, !tbaa !51
+  %94 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %93, i64 %storemerge.i.i
+  %95 = zext nneg i32 %92 to i64
+  %96 = shl nuw i64 1, %95
+  %97 = or i64 %96, %storemerge.i.i
+  store i64 %97, ptr %11, align 8, !tbaa !58
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 40
+  br label %99
 
-cleanup74:                                        ; preds = %cleanup, %if.then66, %if.else
-  %retval.2 = phi ptr [ %retval.0.i.i73, %cleanup ], [ %57, %if.then66 ], [ %add.ptr71, %if.else ]
-  store atomic i8 0, ptr %mutex29 release, align 1
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit108
+99:                                               ; preds = %107, %91
+  %.0.i = phi i64 [ 0, %91 ], [ %108, %107 ]
+  %100 = load atomic i8, ptr %98 monotonic, align 1
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i
 
-_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit108: ; preds = %cleanup74, %cleanup74.thread
-  %retval.0135 = phi ptr [ %retval.2, %cleanup74 ], [ %retval.0.i.i, %cleanup74.thread ]
-  ret ptr %retval.0135
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.i:          ; preds = %99
+  %102 = cmpxchg weak ptr %98, i8 0, i8 1 acquire monotonic, align 1
+  %103 = extractvalue { i8, i1 } %102, 1
+  br i1 %103, label %_ZN7rocksdb9SpinMutex4lockEv.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i
 
-if.then3.i.i114:                                  ; preds = %if.end.i.i45
-  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i:   ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %99
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !70
+  %104 = icmp ugt i64 %.0.i, 100
+  br i1 %104, label %105, label %107
+
+105:                                              ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i
+  %106 = tail call noundef i32 @sched_yield() #12
+  br label %107
+
+107:                                              ; preds = %105, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i
+  %108 = add i64 %.0.i, 1
+  br label %99, !llvm.loop !71
+
+_ZN7rocksdb9SpinMutex4lockEv.exit:                ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
+  %.041 = phi ptr [ %65, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %94, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i ]
+  %109 = getelementptr inbounds nuw i8, ptr %.041, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %.041, i64 56
+  %111 = load atomic i64, ptr %110 monotonic, align 8
+  %112 = icmp ult i64 %111, %1
+  br i1 %112, label %.preheader, label %182
+
+.preheader:                                       ; preds = %_ZN7rocksdb9SpinMutex4lockEv.exit, %120
+  %.0.i.i67 = phi i64 [ %121, %120 ], [ 0, %_ZN7rocksdb9SpinMutex4lockEv.exit ]
+  %113 = load atomic i8, ptr %5 monotonic, align 16
+  %114 = trunc i8 %113 to i1
+  br i1 %114, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i69, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i68
+
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i68:      ; preds = %.preheader
+  %115 = cmpxchg weak ptr %5, i8 0, i8 1 acquire monotonic, align 1
+  %116 = extractvalue { i8, i1 } %115, 1
+  br i1 %116, label %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i69
+
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i69: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i68, %.preheader
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !70
+  %117 = icmp ugt i64 %.0.i.i67, 100
+  br i1 %117, label %118, label %120
+
+118:                                              ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i69
+  %119 = tail call noundef i32 @sched_yield() #12
+  br label %120
+
+120:                                              ; preds = %118, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i69
+  %121 = add i64 %.0.i.i67, 1
+  br label %.preheader, !llvm.loop !71
+
+_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i68
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 2392
+  %123 = load atomic i64, ptr %122 monotonic, align 8
+  %.not51 = icmp ult i64 %123, %1
+  br i1 %.not51, label %155, label %124
+
+124:                                              ; preds = %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 2216
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 2184
+  %127 = load ptr, ptr %125, align 8, !tbaa !73
+  %128 = load ptr, ptr %126, align 8, !tbaa !73
+  %129 = icmp eq ptr %127, %128
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 2296
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 2264
+  %132 = load ptr, ptr %130, align 8
+  %133 = load ptr, ptr %131, align 8
+  %134 = icmp eq ptr %132, %133
+  %135 = select i1 %129, i1 %134, i1 false
+  br i1 %135, label %136, label %155
+
+136:                                              ; preds = %124
+  %137 = load ptr, ptr %3, align 8, !tbaa !59
+  %138 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %139 = load i64, ptr %138, align 8, !tbaa !62
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 2352
+  %141 = load i64, ptr %140, align 16, !tbaa !52
+  %.not.i.i70 = icmp ugt i64 %139, %141
+  br i1 %.not.i.i70, label %148, label %142
+
+142:                                              ; preds = %136
+  %143 = getelementptr inbounds nuw i8, ptr %137, i64 2336
+  %144 = load ptr, ptr %143, align 16, !tbaa !72
+  %145 = sub i64 0, %139
+  %146 = getelementptr inbounds i8, ptr %144, i64 %145
+  store ptr %146, ptr %143, align 16, !tbaa !72
+  %147 = sub nuw i64 %141, %139
+  store i64 %147, ptr %140, align 16, !tbaa !52
+  br label %172
+
+148:                                              ; preds = %136
+  %149 = getelementptr inbounds nuw i8, ptr %137, i64 96
+  %150 = invoke noundef ptr @_ZN7rocksdb5Arena16AllocateFallbackEmb(ptr noundef nonnull align 16 dereferenceable(2288) %149, i64 noundef %139, i1 noundef zeroext false)
+          to label %172 unwind label %153
+
+151:                                              ; preds = %155
+  %152 = landingpad { ptr, i32 }
           cleanup
-  store atomic i8 0, ptr %arena_mutex_ release, align 16
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit115
+  br label %181
 
-_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit115: ; preds = %ehcleanup75.thread, %if.then3.i.i114
-  %.pn32139 = phi { ptr, i32 } [ %49, %ehcleanup75.thread ], [ %lpad.thr_comm.split-lp, %if.then3.i.i114 ]
-  resume { ptr, i32 } %.pn32139
+153:                                              ; preds = %148
+  %154 = landingpad { ptr, i32 }
+          cleanup
+  br label %181
+
+155:                                              ; preds = %124, %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit
+  %156 = load i64, ptr %6, align 16, !tbaa !7
+  %157 = lshr i64 %156, 1
+  %.not52 = icmp uge i64 %123, %157
+  %158 = shl i64 %156, 1
+  %159 = icmp ult i64 %123, %158
+  %or.cond = and i1 %.not52, %159
+  %160 = select i1 %or.cond, i64 %123, i64 %156
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %162 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %161, i64 noundef %160, i64 noundef 0, ptr noundef null)
+          to label %.thread95 unwind label %151
+
+.thread95:                                        ; preds = %155
+  %163 = getelementptr inbounds nuw i8, ptr %.041, i64 48
+  store ptr %162, ptr %163, align 8, !tbaa !74
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 2352
+  %165 = load i64, ptr %164, align 16, !tbaa !52
+  store atomic i64 %165, ptr %122 monotonic, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 2400
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 2368
+  %168 = load i64, ptr %167, align 16, !tbaa !53
+  store atomic i64 %168, ptr %166 monotonic, align 16
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 2408
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 2328
+  %171 = load i64, ptr %170, align 8, !tbaa !54
+  store atomic i64 %171, ptr %169 monotonic, align 8
+  store atomic i8 0, ptr %5 release, align 16
+  br label %182
+
+172:                                              ; preds = %148, %142
+  %.0.i.i71 = phi ptr [ %146, %142 ], [ %150, %148 ]
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 2352
+  %174 = load i64, ptr %173, align 16, !tbaa !52
+  store atomic i64 %174, ptr %122 monotonic, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 2400
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 2368
+  %177 = load i64, ptr %176, align 16, !tbaa !53
+  store atomic i64 %177, ptr %175 monotonic, align 16
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 2408
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 2328
+  %180 = load i64, ptr %179, align 8, !tbaa !54
+  store atomic i64 %180, ptr %178 monotonic, align 8
+  store atomic i8 0, ptr %5 release, align 16
+  br label %194
+
+181:                                              ; preds = %153, %151
+  %.pn = phi { ptr, i32 } [ %154, %153 ], [ %152, %151 ]
+  store atomic i8 0, ptr %5 release, align 16
+  store atomic i8 0, ptr %109 release, align 1
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit80
+
+182:                                              ; preds = %.thread95, %_ZN7rocksdb9SpinMutex4lockEv.exit
+  %.039 = phi i64 [ %111, %_ZN7rocksdb9SpinMutex4lockEv.exit ], [ %160, %.thread95 ]
+  %183 = sub i64 %.039, %1
+  store atomic i64 %183, ptr %110 monotonic, align 8
+  %184 = and i64 %1, 7
+  %185 = icmp eq i64 %184, 0
+  %186 = getelementptr inbounds nuw i8, ptr %.041, i64 48
+  %187 = load ptr, ptr %186, align 8, !tbaa !74
+  br i1 %185, label %188, label %190
+
+188:                                              ; preds = %182
+  %189 = getelementptr inbounds nuw i8, ptr %187, i64 %1
+  store ptr %189, ptr %186, align 8, !tbaa !74
+  br label %194
+
+190:                                              ; preds = %182
+  %191 = getelementptr inbounds nuw i8, ptr %187, i64 %.039
+  %192 = sub nsw i64 0, %1
+  %193 = getelementptr inbounds i8, ptr %191, i64 %192
+  br label %194
+
+194:                                              ; preds = %172, %188, %190
+  %.2 = phi ptr [ %.0.i.i71, %172 ], [ %187, %188 ], [ %193, %190 ]
+  store atomic i8 0, ptr %109 release, align 1
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit78
+
+_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit78: ; preds = %194, %.thread99
+  %.035102 = phi ptr [ %.2, %194 ], [ %.0.i.i63, %.thread99 ]
+  ret ptr %.035102
+
+_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit80: ; preds = %181, %.thread104
+  %.pn56107 = phi { ptr, i32 } [ %.pn, %181 ], [ %57, %.thread104 ]
+  resume { ptr, i32 } %.pn56107
 }
 
-declare noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288), i64 noundef, i64 noundef, ptr noundef) unnamed_addr #1
+declare noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288), i64 noundef, i64 noundef, ptr noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN7rocksdb5Arena16AllocateFallbackEmb(ptr noundef nonnull align 16 dereferenceable(2288), i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare noundef ptr @_ZN7rocksdb5Arena16AllocateFallbackEmb(ptr noundef nonnull align 16 dereferenceable(2288), i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @sched_yield() local_unnamed_addr #2
+declare i32 @sched_yield() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_15AllocateAlignedEmmPNS_6LoggerEEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %this, i64 noundef %bytes, i1 noundef zeroext %force_arena, ptr noundef nonnull align 8 dereferenceable(32) %func) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %arena_mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 2384
-  %shard_block_size_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %0 = load i64, ptr %shard_block_size_, align 16
-  %div29 = lshr i64 %0, 2
-  %cmp = icmp ugt i64 %bytes, %div29
-  %brmerge = or i1 %force_arena, %cmp
-  br i1 %brmerge, label %for.cond.i.i, label %lor.lhs.false2
+define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_15AllocateAlignedEmmPNS_6LoggerEEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2384
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %7 = load i64, ptr %6, align 16, !tbaa !7
+  %8 = lshr i64 %7, 2
+  %9 = icmp ugt i64 %1, %8
+  %brmerge = or i1 %2, %9
+  br i1 %brmerge, label %.preheader.i, label %10
 
-lor.lhs.false2:                                   ; preds = %entry
-  %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15ConcurrentArena9tls_cpuidE)
-  %2 = load i64, ptr %1, align 8
-  %cmp3 = icmp eq i64 %2, 0
-  br i1 %cmp3, label %invoke.cont, label %invoke.cont19
+10:                                               ; preds = %4
+  %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15ConcurrentArena9tls_cpuidE)
+  %12 = load i64, ptr %11, align 8, !tbaa !58
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %14, label %.thread
 
-invoke.cont:                                      ; preds = %lor.lhs.false2
-  %shards_ = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %3 = load ptr, ptr %shards_, align 8
-  %allocated_and_unused_ = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %4 = load atomic i64, ptr %allocated_and_unused_ monotonic, align 8
-  %tobool5.not = icmp eq i64 %4, 0
-  br i1 %tobool5.not, label %if.else4.i, label %invoke.cont19
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %16 = load ptr, ptr %15, align 8, !tbaa !51
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %18 = load atomic i64, ptr %17 monotonic, align 8
+  %.not = icmp eq i64 %18, 0
+  br i1 %.not, label %19, label %.thread
 
-if.else4.i:                                       ; preds = %invoke.cont
-  %5 = load atomic i8, ptr %arena_mutex_ monotonic, align 16
-  %tobool.i.i.i.i = trunc i8 %5 to i1
-  br i1 %tobool.i.i.i.i, label %invoke.cont19, label %invoke.cont7
+19:                                               ; preds = %14
+  %20 = load atomic i8, ptr %5 monotonic, align 16
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %.thread, label %22
 
-invoke.cont7:                                     ; preds = %if.else4.i
-  %6 = cmpxchg weak ptr %arena_mutex_, i8 0, i8 1 acquire monotonic, align 1
-  %7 = extractvalue { i8, i1 } %6, 1
-  br i1 %7, label %if.end, label %invoke.cont19
+22:                                               ; preds = %19
+  %23 = cmpxchg weak ptr %5, i8 0, i8 1 acquire monotonic, align 1
+  %24 = extractvalue { i8, i1 } %23, 1
+  br i1 %24, label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit, label %.thread
 
-for.cond.i.i:                                     ; preds = %entry, %for.inc.i.i
-  %tries.0.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %entry ]
-  %8 = load atomic i8, ptr %arena_mutex_ monotonic, align 16
-  %tobool.i.i.i.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.end.i.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i
+.preheader.i:                                     ; preds = %4, %32
+  %.0.i.i = phi i64 [ %33, %32 ], [ 0, %4 ]
+  %25 = load atomic i8, ptr %5 monotonic, align 16
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i
 
-_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i:        ; preds = %for.cond.i.i
-  %9 = cmpxchg weak ptr %arena_mutex_, i8 0, i8 1 acquire monotonic, align 1
-  %10 = extractvalue { i8, i1 } %9, 1
-  br i1 %10, label %if.end, label %if.end.i.i
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i:        ; preds = %.preheader.i
+  %27 = cmpxchg weak ptr %5, i8 0, i8 1 acquire monotonic, align 1
+  %28 = extractvalue { i8, i1 } %27, 1
+  br i1 %28, label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i
 
-if.end.i.i:                                       ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %for.cond.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %cmp.i.i = icmp ugt i64 %tries.0.i.i, 100
-  br i1 %cmp.i.i, label %if.then2.i.i, label %for.inc.i.i
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %.preheader.i
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !70
+  %29 = icmp ugt i64 %.0.i.i, 100
+  br i1 %29, label %30, label %32
 
-if.then2.i.i:                                     ; preds = %if.end.i.i
-  %call.i.i.i.i = tail call noundef i32 @sched_yield() #11
-  br label %for.inc.i.i
+30:                                               ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i
+  %31 = tail call noundef i32 @sched_yield() #12
+  br label %32
 
-for.inc.i.i:                                      ; preds = %if.then2.i.i, %if.end.i.i
-  %inc.i.i = add i64 %tries.0.i.i, 1
-  br label %for.cond.i.i, !llvm.loop !7
+32:                                               ; preds = %30, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i
+  %33 = add i64 %.0.i.i, 1
+  br label %.preheader.i, !llvm.loop !71
 
-if.end:                                           ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %invoke.cont7
-  %11 = load ptr, ptr %func, align 8
-  %arena_.i = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %12 = getelementptr inbounds nuw i8, ptr %func, i64 8
-  %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %func, i64 16
-  %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %func, i64 24
-  %17 = load ptr, ptr %16, align 8
-  %call.i4546 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i, i64 noundef %13, i64 noundef %15, ptr noundef %17)
-          to label %cleanup72.thread unwind label %if.then3.i.i102
+_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %22
+  %34 = load ptr, ptr %3, align 8, !tbaa !63
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %37 = load i64, ptr %36, align 8, !tbaa !66
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %39 = load i64, ptr %38, align 8, !tbaa !67
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %41 = load ptr, ptr %40, align 8, !tbaa !68
+  %42 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %35, i64 noundef %37, i64 noundef %39, ptr noundef %41)
+          to label %.thread95 unwind label %.thread100
 
-cleanup72.thread:                                 ; preds = %if.end
-  %alloc_bytes_remaining_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2352
-  %18 = load i64, ptr %alloc_bytes_remaining_.i.i, align 16
-  %arena_allocated_and_unused_.i = getelementptr inbounds nuw i8, ptr %this, i64 2392
-  store atomic i64 %18, ptr %arena_allocated_and_unused_.i monotonic, align 8
-  %blocks_memory_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2368
-  %19 = load i64, ptr %blocks_memory_.i.i, align 16
-  %memory_allocated_bytes_.i = getelementptr inbounds nuw i8, ptr %this, i64 2400
-  store atomic i64 %19, ptr %memory_allocated_bytes_.i monotonic, align 16
-  %irregular_block_num.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2328
-  %20 = load i64, ptr %irregular_block_num.i.i, align 8
-  %irregular_block_num_.i = getelementptr inbounds nuw i8, ptr %this, i64 2408
-  store atomic i64 %20, ptr %irregular_block_num_.i monotonic, align 8
-  store atomic i8 0, ptr %arena_mutex_ release, align 16
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit96
+.thread95:                                        ; preds = %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2392
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2352
+  %45 = load i64, ptr %44, align 16, !tbaa !52
+  store atomic i64 %45, ptr %43 monotonic, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 2400
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 2368
+  %48 = load i64, ptr %47, align 16, !tbaa !53
+  store atomic i64 %48, ptr %46 monotonic, align 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 2408
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 2328
+  %51 = load i64, ptr %50, align 8, !tbaa !54
+  store atomic i64 %51, ptr %49 monotonic, align 8
+  store atomic i8 0, ptr %5 release, align 16
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit74
 
-invoke.cont19:                                    ; preds = %if.else4.i, %lor.lhs.false2, %invoke.cont, %invoke.cont7
-  %shards_16 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %size_shift_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %21 = load i32, ptr %size_shift_.i, align 16
-  %sh_prom.i = zext nneg i32 %21 to i64
-  %notmask = shl nsw i64 -1, %sh_prom.i
-  %sub = xor i64 %notmask, -1
-  %and = and i64 %2, %sub
-  %22 = load ptr, ptr %shards_16, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %22, i64 %and
-  %mutex = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 40
-  %23 = load atomic i8, ptr %mutex monotonic, align 1
-  %tobool.i.i.i = trunc i8 %23 to i1
-  br i1 %tobool.i.i.i, label %if.then22, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit
-
-_ZN7rocksdb9SpinMutex8try_lockEv.exit:            ; preds = %invoke.cont19
-  %24 = cmpxchg weak ptr %mutex, i8 0, i8 1 acquire monotonic, align 1
-  %25 = extractvalue { i8, i1 } %24, 1
-  br i1 %25, label %if.end27, label %if.then22
-
-if.then22:                                        ; preds = %invoke.cont19, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
-  %call.i.i49 = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
-  %cmp.i.i48 = icmp slt i32 %call.i.i49, 0
-  br i1 %cmp.i.i48, label %if.then.i.i, label %if.else.i.i
-
-if.then.i.i:                                      ; preds = %if.then22
-  %call2.i.i50 = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
-  %26 = load i32, ptr %size_shift_.i, align 16
-  %27 = load i32, ptr %call2.i.i50, align 4
-  %conv.i.i.i.i = zext i32 %27 to i64
-  %mul.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i, 16807
-  %shr.i.i.i.i = lshr i64 %mul.i.i.i.i, 31
-  %and.i.i.i.i = and i64 %mul.i.i.i.i, 2147483647
-  %add.i.i.i.i = add nuw nsw i64 %shr.i.i.i.i, %and.i.i.i.i
-  %conv2.i.i.i.i = trunc nuw i64 %add.i.i.i.i to i32
-  %cmp.i.i.i.i = icmp slt i32 %conv2.i.i.i.i, 0
-  %sub.i.i.i.i = add i32 %conv2.i.i.i.i, -2147483647
-  %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i, i32 %sub.i.i.i.i, i32 %conv2.i.i.i.i
-  store i32 %spec.select.i.i.i.i, ptr %call2.i.i50, align 4
-  %notmask.i.i = shl nsw i32 -1, %26
-  %28 = xor i32 %notmask.i.i, -1
-  %rem.i.i.i = and i32 %spec.select.i.i.i.i, %28
-  %conv.i.i = zext nneg i32 %rem.i.i.i to i64
-  %.pre.i = load i32, ptr %size_shift_.i, align 16
-  br label %invoke.cont23
-
-if.else.i.i:                                      ; preds = %if.then22
-  %29 = load i32, ptr %size_shift_.i, align 16
-  %30 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %call.i.i49, i32 %29)
-  %conv6.i.i = sext i32 %30 to i64
-  br label %invoke.cont23
-
-invoke.cont23:                                    ; preds = %if.else.i.i, %if.then.i.i
-  %31 = phi i32 [ %29, %if.else.i.i ], [ %.pre.i, %if.then.i.i ]
-  %storemerge.i.i = phi i64 [ %conv6.i.i, %if.else.i.i ], [ %conv.i.i, %if.then.i.i ]
-  %32 = load ptr, ptr %shards_16, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %32, i64 %storemerge.i.i
-  %sh_prom.i.i = zext nneg i32 %31 to i64
-  %shl.i.i = shl nuw i64 1, %sh_prom.i.i
-  %or.i = or i64 %shl.i.i, %storemerge.i.i
-  store i64 %or.i, ptr %1, align 8
-  %mutex25 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 40
-  br label %for.cond.i
-
-for.cond.i:                                       ; preds = %for.inc.i, %invoke.cont23
-  %tries.0.i = phi i64 [ 0, %invoke.cont23 ], [ %inc.i, %for.inc.i ]
-  %33 = load atomic i8, ptr %mutex25 monotonic, align 1
-  %tobool.i.i.i.i51 = trunc i8 %33 to i1
-  br i1 %tobool.i.i.i.i51, label %if.end.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i
-
-_ZN7rocksdb9SpinMutex8try_lockEv.exit.i:          ; preds = %for.cond.i
-  %34 = cmpxchg weak ptr %mutex25, i8 0, i8 1 acquire monotonic, align 1
-  %35 = extractvalue { i8, i1 } %34, 1
-  br i1 %35, label %if.end27, label %if.end.i
-
-if.end.i:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %for.cond.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %cmp.i = icmp ugt i64 %tries.0.i, 100
-  br i1 %cmp.i, label %if.then2.i, label %for.inc.i
-
-if.then2.i:                                       ; preds = %if.end.i
-  %call.i.i.i = tail call noundef i32 @sched_yield() #11
-  br label %for.inc.i
-
-for.inc.i:                                        ; preds = %if.then2.i, %if.end.i
-  %inc.i = add i64 %tries.0.i, 1
-  br label %for.cond.i, !llvm.loop !7
-
-if.end27:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
-  %s.0 = phi ptr [ %arrayidx.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %arrayidx.i.i.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i ]
-  %mutex28 = getelementptr inbounds nuw i8, ptr %s.0, i64 40
-  %allocated_and_unused_30 = getelementptr inbounds nuw i8, ptr %s.0, i64 56
-  %36 = load atomic i64, ptr %allocated_and_unused_30 monotonic, align 8
-  %cmp32 = icmp ult i64 %36, %bytes
-  br i1 %cmp32, label %for.cond.i.i53, label %if.end59
-
-for.cond.i.i53:                                   ; preds = %if.end27, %for.inc.i.i59
-  %tries.0.i.i54 = phi i64 [ %inc.i.i60, %for.inc.i.i59 ], [ 0, %if.end27 ]
-  %37 = load atomic i8, ptr %arena_mutex_ monotonic, align 16
-  %tobool.i.i.i.i.i55 = trunc i8 %37 to i1
-  br i1 %tobool.i.i.i.i.i55, label %if.end.i.i57, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i56
-
-_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i56:      ; preds = %for.cond.i.i53
-  %38 = cmpxchg weak ptr %arena_mutex_, i8 0, i8 1 acquire monotonic, align 1
-  %39 = extractvalue { i8, i1 } %38, 1
-  br i1 %39, label %invoke.cont36, label %if.end.i.i57
-
-if.end.i.i57:                                     ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i56, %for.cond.i.i53
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %cmp.i.i58 = icmp ugt i64 %tries.0.i.i54, 100
-  br i1 %cmp.i.i58, label %if.then2.i.i61, label %for.inc.i.i59
-
-if.then2.i.i61:                                   ; preds = %if.end.i.i57
-  %call.i.i.i.i62 = tail call noundef i32 @sched_yield() #11
-  br label %for.inc.i.i59
-
-for.inc.i.i59:                                    ; preds = %if.then2.i.i61, %if.end.i.i57
-  %inc.i.i60 = add i64 %tries.0.i.i54, 1
-  br label %for.cond.i.i53, !llvm.loop !7
-
-invoke.cont36:                                    ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i56
-  %arena_allocated_and_unused_ = getelementptr inbounds nuw i8, ptr %this, i64 2392
-  %40 = load atomic i64, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %cmp38.not = icmp ult i64 %40, %bytes
-  br i1 %cmp38.not, label %if.end47, label %land.lhs.true39
-
-land.lhs.true39:                                  ; preds = %invoke.cont36
-  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2216
-  %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2184
-  %41 = load ptr, ptr %_M_finish.i.i, align 8
-  %42 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %41, %42
-  %_M_finish.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 2296
-  %_M_start.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 2264
-  %43 = load ptr, ptr %_M_finish.i1.i, align 8
-  %44 = load ptr, ptr %_M_start.i2.i, align 8
-  %cmp.i.i3.i = icmp eq ptr %43, %44
-  %45 = select i1 %cmp.i.i.i, i1 %cmp.i.i3.i, i1 false
-  br i1 %45, label %if.then41, label %if.end47
-
-if.then41:                                        ; preds = %land.lhs.true39
-  %46 = load ptr, ptr %func, align 8
-  %arena_.i63 = getelementptr inbounds nuw i8, ptr %46, i64 96
-  %47 = getelementptr inbounds nuw i8, ptr %func, i64 8
-  %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %func, i64 16
-  %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %func, i64 24
-  %52 = load ptr, ptr %51, align 8
-  %call.i6465 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i63, i64 noundef %48, i64 noundef %50, ptr noundef %52)
-          to label %cleanup unwind label %ehcleanup73.thread
-
-ehcleanup73.thread:                               ; preds = %if.end47, %if.then41
-  %53 = landingpad { ptr, i32 }
+.thread100:                                       ; preds = %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit
+  %52 = landingpad { ptr, i32 }
           cleanup
-  store atomic i8 0, ptr %arena_mutex_ release, align 16
-  store atomic i8 0, ptr %mutex28 release, align 1
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit103
+  store atomic i8 0, ptr %5 release, align 16
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit76
 
-if.end47:                                         ; preds = %land.lhs.true39, %invoke.cont36
-  %54 = load i64, ptr %shard_block_size_, align 16
-  %div4930 = lshr i64 %54, 1
-  %cmp50.not = icmp uge i64 %40, %div4930
-  %mul = shl i64 %54, 1
-  %cmp53 = icmp ult i64 %40, %mul
-  %or.cond = and i1 %cmp50.not, %cmp53
-  %cond = select i1 %or.cond, i64 %40, i64 %54
-  %arena_55 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %call57 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_55, i64 noundef %cond, i64 noundef 0, ptr noundef null)
-          to label %cleanup.thread unwind label %ehcleanup73.thread
+.thread:                                          ; preds = %19, %10, %14, %22
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %55 = load i32, ptr %54, align 16, !tbaa !49
+  %56 = zext nneg i32 %55 to i64
+  %notmask = shl nsw i64 -1, %56
+  %57 = xor i64 %notmask, -1
+  %58 = and i64 %12, %57
+  %59 = load ptr, ptr %53, align 8, !tbaa !51
+  %60 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %59, i64 %58
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
+  %62 = load atomic i8, ptr %61 monotonic, align 1
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit
 
-cleanup.thread:                                   ; preds = %if.end47
-  %free_begin_ = getelementptr inbounds nuw i8, ptr %s.0, i64 48
-  store ptr %call57, ptr %free_begin_, align 8
-  %alloc_bytes_remaining_.i.i73 = getelementptr inbounds nuw i8, ptr %this, i64 2352
-  %55 = load i64, ptr %alloc_bytes_remaining_.i.i73, align 16
-  store atomic i64 %55, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %blocks_memory_.i.i75 = getelementptr inbounds nuw i8, ptr %this, i64 2368
-  %56 = load i64, ptr %blocks_memory_.i.i75, align 16
-  %memory_allocated_bytes_.i76 = getelementptr inbounds nuw i8, ptr %this, i64 2400
-  store atomic i64 %56, ptr %memory_allocated_bytes_.i76 monotonic, align 16
-  %irregular_block_num.i.i77 = getelementptr inbounds nuw i8, ptr %this, i64 2328
-  %57 = load i64, ptr %irregular_block_num.i.i77, align 8
-  %irregular_block_num_.i78 = getelementptr inbounds nuw i8, ptr %this, i64 2408
-  store atomic i64 %57, ptr %irregular_block_num_.i78 monotonic, align 8
-  store atomic i8 0, ptr %arena_mutex_ release, align 16
-  br label %if.end59
+_ZN7rocksdb9SpinMutex8try_lockEv.exit:            ; preds = %.thread
+  %64 = cmpxchg weak ptr %61, i8 0, i8 1 acquire monotonic, align 1
+  %65 = extractvalue { i8, i1 } %64, 1
+  br i1 %65, label %_ZN7rocksdb9SpinMutex4lockEv.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread
 
-cleanup:                                          ; preds = %if.then41
-  %alloc_bytes_remaining_.i.i67 = getelementptr inbounds nuw i8, ptr %this, i64 2352
-  %58 = load i64, ptr %alloc_bytes_remaining_.i.i67, align 16
-  store atomic i64 %58, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %blocks_memory_.i.i69 = getelementptr inbounds nuw i8, ptr %this, i64 2368
-  %59 = load i64, ptr %blocks_memory_.i.i69, align 16
-  %memory_allocated_bytes_.i70 = getelementptr inbounds nuw i8, ptr %this, i64 2400
-  store atomic i64 %59, ptr %memory_allocated_bytes_.i70 monotonic, align 16
-  %irregular_block_num.i.i71 = getelementptr inbounds nuw i8, ptr %this, i64 2328
-  %60 = load i64, ptr %irregular_block_num.i.i71, align 8
-  %irregular_block_num_.i72 = getelementptr inbounds nuw i8, ptr %this, i64 2408
-  store atomic i64 %60, ptr %irregular_block_num_.i72 monotonic, align 8
-  store atomic i8 0, ptr %arena_mutex_ release, align 16
-  br label %cleanup72
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread:     ; preds = %.thread, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
+  %66 = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
+  %67 = icmp slt i32 %66, 0
+  br i1 %67, label %.noexc65, label %82, !prof !55
 
-if.end59:                                         ; preds = %cleanup.thread, %if.end27
-  %avail.0 = phi i64 [ %36, %if.end27 ], [ %cond, %cleanup.thread ]
-  %sub61 = sub i64 %avail.0, %bytes
-  store atomic i64 %sub61, ptr %allocated_and_unused_30 monotonic, align 8
-  %rem = and i64 %bytes, 7
-  %cmp63 = icmp eq i64 %rem, 0
-  %free_begin_65 = getelementptr inbounds nuw i8, ptr %s.0, i64 48
-  %61 = load ptr, ptr %free_begin_65, align 8
-  br i1 %cmp63, label %if.then64, label %if.else
+.noexc65:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread
+  %68 = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
+  %69 = load i32, ptr %54, align 16, !tbaa !49
+  %70 = load i32, ptr %68, align 4, !tbaa !56
+  %71 = zext i32 %70 to i64
+  %72 = mul nuw nsw i64 %71, 16807
+  %73 = lshr i64 %72, 31
+  %74 = and i64 %72, 2147483647
+  %75 = add nuw nsw i64 %73, %74
+  %76 = trunc nuw i64 %75 to i32
+  %77 = icmp slt i32 %76, 0
+  %78 = add i32 %76, -2147483647
+  %spec.select.i.i.i.i = select i1 %77, i32 %78, i32 %76
+  store i32 %spec.select.i.i.i.i, ptr %68, align 4, !tbaa !56
+  %notmask.i.i = shl nsw i32 -1, %69
+  %79 = xor i32 %notmask.i.i, -1
+  %80 = and i32 %spec.select.i.i.i.i, %79
+  %81 = zext nneg i32 %80 to i64
+  br label %86
 
-if.then64:                                        ; preds = %if.end59
-  %add.ptr = getelementptr inbounds nuw i8, ptr %61, i64 %bytes
-  store ptr %add.ptr, ptr %free_begin_65, align 8
-  br label %cleanup72
+82:                                               ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread
+  %83 = load i32, ptr %54, align 16, !tbaa !49
+  %84 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %66, i32 %83)
+  %85 = sext i32 %84 to i64
+  br label %86
 
-if.else:                                          ; preds = %if.end59
-  %add.ptr68 = getelementptr inbounds i8, ptr %61, i64 %avail.0
-  %idx.neg = sub nsw i64 0, %bytes
-  %add.ptr69 = getelementptr inbounds i8, ptr %add.ptr68, i64 %idx.neg
-  br label %cleanup72
+86:                                               ; preds = %82, %.noexc65
+  %87 = phi i32 [ %83, %82 ], [ %69, %.noexc65 ]
+  %storemerge.i.i = phi i64 [ %85, %82 ], [ %81, %.noexc65 ]
+  %88 = load ptr, ptr %53, align 8, !tbaa !51
+  %89 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %88, i64 %storemerge.i.i
+  %90 = zext nneg i32 %87 to i64
+  %91 = shl nuw i64 1, %90
+  %92 = or i64 %91, %storemerge.i.i
+  store i64 %92, ptr %11, align 8, !tbaa !58
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 40
+  br label %94
 
-cleanup72:                                        ; preds = %cleanup, %if.then64, %if.else
-  %retval.2 = phi ptr [ %call.i6465, %cleanup ], [ %61, %if.then64 ], [ %add.ptr69, %if.else ]
-  store atomic i8 0, ptr %mutex28 release, align 1
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit96
+94:                                               ; preds = %102, %86
+  %.0.i = phi i64 [ 0, %86 ], [ %103, %102 ]
+  %95 = load atomic i8, ptr %93 monotonic, align 1
+  %96 = trunc i8 %95 to i1
+  br i1 %96, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i
 
-_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit96: ; preds = %cleanup72, %cleanup72.thread
-  %retval.0123 = phi ptr [ %retval.2, %cleanup72 ], [ %call.i4546, %cleanup72.thread ]
-  ret ptr %retval.0123
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.i:          ; preds = %94
+  %97 = cmpxchg weak ptr %93, i8 0, i8 1 acquire monotonic, align 1
+  %98 = extractvalue { i8, i1 } %97, 1
+  br i1 %98, label %_ZN7rocksdb9SpinMutex4lockEv.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i
 
-if.then3.i.i102:                                  ; preds = %if.end
-  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i:   ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %94
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !70
+  %99 = icmp ugt i64 %.0.i, 100
+  br i1 %99, label %100, label %102
+
+100:                                              ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i
+  %101 = tail call noundef i32 @sched_yield() #12
+  br label %102
+
+102:                                              ; preds = %100, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i
+  %103 = add i64 %.0.i, 1
+  br label %94, !llvm.loop !71
+
+_ZN7rocksdb9SpinMutex4lockEv.exit:                ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
+  %.041 = phi ptr [ %60, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %89, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i ]
+  %104 = getelementptr inbounds nuw i8, ptr %.041, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %.041, i64 56
+  %106 = load atomic i64, ptr %105 monotonic, align 8
+  %107 = icmp ult i64 %106, %1
+  br i1 %107, label %.preheader, label %172
+
+.preheader:                                       ; preds = %_ZN7rocksdb9SpinMutex4lockEv.exit, %115
+  %.0.i.i66 = phi i64 [ %116, %115 ], [ 0, %_ZN7rocksdb9SpinMutex4lockEv.exit ]
+  %108 = load atomic i8, ptr %5 monotonic, align 16
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i68, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i67
+
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i67:      ; preds = %.preheader
+  %110 = cmpxchg weak ptr %5, i8 0, i8 1 acquire monotonic, align 1
+  %111 = extractvalue { i8, i1 } %110, 1
+  br i1 %111, label %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i68
+
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i68: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i67, %.preheader
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !70
+  %112 = icmp ugt i64 %.0.i.i66, 100
+  br i1 %112, label %113, label %115
+
+113:                                              ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i68
+  %114 = tail call noundef i32 @sched_yield() #12
+  br label %115
+
+115:                                              ; preds = %113, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i68
+  %116 = add i64 %.0.i.i66, 1
+  br label %.preheader, !llvm.loop !71
+
+_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i67
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 2392
+  %118 = load atomic i64, ptr %117 monotonic, align 8
+  %.not51 = icmp ult i64 %118, %1
+  br i1 %.not51, label %143, label %119
+
+119:                                              ; preds = %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 2216
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 2184
+  %122 = load ptr, ptr %120, align 8, !tbaa !73
+  %123 = load ptr, ptr %121, align 8, !tbaa !73
+  %124 = icmp eq ptr %122, %123
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 2296
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 2264
+  %127 = load ptr, ptr %125, align 8
+  %128 = load ptr, ptr %126, align 8
+  %129 = icmp eq ptr %127, %128
+  %130 = select i1 %124, i1 %129, i1 false
+  br i1 %130, label %131, label %143
+
+131:                                              ; preds = %119
+  %132 = load ptr, ptr %3, align 8, !tbaa !63
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 96
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %135 = load i64, ptr %134, align 8, !tbaa !66
+  %136 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %137 = load i64, ptr %136, align 8, !tbaa !67
+  %138 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %139 = load ptr, ptr %138, align 8, !tbaa !68
+  %140 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %133, i64 noundef %135, i64 noundef %137, ptr noundef %139)
+          to label %160 unwind label %141
+
+141:                                              ; preds = %131
+  %142 = landingpad { ptr, i32 }
           cleanup
-  store atomic i8 0, ptr %arena_mutex_ release, align 16
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit103
+  br label %171
 
-_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit103: ; preds = %ehcleanup73.thread, %if.then3.i.i102
-  %.pn32127 = phi { ptr, i32 } [ %53, %ehcleanup73.thread ], [ %lpad.thr_comm.split-lp, %if.then3.i.i102 ]
-  resume { ptr, i32 } %.pn32127
+143:                                              ; preds = %119, %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit
+  %144 = load i64, ptr %6, align 16, !tbaa !7
+  %145 = lshr i64 %144, 1
+  %.not52 = icmp uge i64 %118, %145
+  %146 = shl i64 %144, 1
+  %147 = icmp ult i64 %118, %146
+  %or.cond = and i1 %.not52, %147
+  %148 = select i1 %or.cond, i64 %118, i64 %144
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %150 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %149, i64 noundef %148, i64 noundef 0, ptr noundef null)
+          to label %.thread91 unwind label %169
+
+.thread91:                                        ; preds = %143
+  %151 = getelementptr inbounds nuw i8, ptr %.041, i64 48
+  store ptr %150, ptr %151, align 8, !tbaa !74
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 2352
+  %153 = load i64, ptr %152, align 16, !tbaa !52
+  store atomic i64 %153, ptr %117 monotonic, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 2400
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 2368
+  %156 = load i64, ptr %155, align 16, !tbaa !53
+  store atomic i64 %156, ptr %154 monotonic, align 16
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 2408
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 2328
+  %159 = load i64, ptr %158, align 8, !tbaa !54
+  store atomic i64 %159, ptr %157 monotonic, align 8
+  store atomic i8 0, ptr %5 release, align 16
+  br label %172
+
+160:                                              ; preds = %131
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 2352
+  %162 = load i64, ptr %161, align 16, !tbaa !52
+  store atomic i64 %162, ptr %117 monotonic, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 2400
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 2368
+  %165 = load i64, ptr %164, align 16, !tbaa !53
+  store atomic i64 %165, ptr %163 monotonic, align 16
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 2408
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 2328
+  %168 = load i64, ptr %167, align 8, !tbaa !54
+  store atomic i64 %168, ptr %166 monotonic, align 8
+  store atomic i8 0, ptr %5 release, align 16
+  br label %184
+
+169:                                              ; preds = %143
+  %170 = landingpad { ptr, i32 }
+          cleanup
+  br label %171
+
+171:                                              ; preds = %169, %141
+  %.pn = phi { ptr, i32 } [ %142, %141 ], [ %170, %169 ]
+  store atomic i8 0, ptr %5 release, align 16
+  store atomic i8 0, ptr %104 release, align 1
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit76
+
+172:                                              ; preds = %.thread91, %_ZN7rocksdb9SpinMutex4lockEv.exit
+  %.039 = phi i64 [ %106, %_ZN7rocksdb9SpinMutex4lockEv.exit ], [ %148, %.thread91 ]
+  %173 = sub i64 %.039, %1
+  store atomic i64 %173, ptr %105 monotonic, align 8
+  %174 = and i64 %1, 7
+  %175 = icmp eq i64 %174, 0
+  %176 = getelementptr inbounds nuw i8, ptr %.041, i64 48
+  %177 = load ptr, ptr %176, align 8, !tbaa !74
+  br i1 %175, label %178, label %180
+
+178:                                              ; preds = %172
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 %1
+  store ptr %179, ptr %176, align 8, !tbaa !74
+  br label %184
+
+180:                                              ; preds = %172
+  %181 = getelementptr inbounds nuw i8, ptr %177, i64 %.039
+  %182 = sub nsw i64 0, %1
+  %183 = getelementptr inbounds i8, ptr %181, i64 %182
+  br label %184
+
+184:                                              ; preds = %160, %178, %180
+  %.2 = phi ptr [ %140, %160 ], [ %177, %178 ], [ %183, %180 ]
+  store atomic i8 0, ptr %104 release, align 1
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit74
+
+_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit74: ; preds = %184, %.thread95
+  %.03598 = phi ptr [ %.2, %184 ], [ %42, %.thread95 ]
+  ret ptr %.03598
+
+_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit76: ; preds = %171, %.thread100
+  %.pn56103 = phi { ptr, i32 } [ %.pn, %171 ], [ %52, %.thread100 ]
+  resume { ptr, i32 } %.pn56103
 }
 
 ; Function Attrs: uwtable
-define weak_odr hidden noundef ptr @_ZTWN7rocksdb15ConcurrentArena9tls_cpuidE() local_unnamed_addr #9 comdat {
+define weak_odr hidden noundef ptr @_ZTWN7rocksdb15ConcurrentArena9tls_cpuidE() local_unnamed_addr #10 comdat {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15ConcurrentArena9tls_cpuidE)
   ret ptr %1
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #10
+declare i64 @llvm.umin.i64(i64, i64) #11
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #1 = { "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #2 = { nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #9 = { uwtable "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { builtin allocsize(0) }
-attributes #13 = { builtin nounwind }
+attributes #0 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #3 = { nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #6 = { nobuiltin nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #10 = { uwtable "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { builtin allocsize(0) }
+attributes #14 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -1023,7 +1040,75 @@ attributes #13 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 1}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i64 4057372}
-!7 = distinct !{!7, !5}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"vtable pointer", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !11, i64 64}
+!8 = !{!"_ZTSN7rocksdb15ConcurrentArenaE", !9, i64 0, !10, i64 8, !11, i64 64, !12, i64 72, !22, i64 96, !40, i64 2384, !44, i64 2392, !44, i64 2400, !44, i64 2408, !10, i64 2416}
+!9 = !{!"_ZTSN7rocksdb9AllocatorE"}
+!10 = !{!"omnipotent char", !6, i64 0}
+!11 = !{!"long", !10, i64 0}
+!12 = !{!"_ZTSN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEEE", !13, i64 0, !21, i64 8}
+!13 = !{!"_ZTSSt10unique_ptrIA_N7rocksdb15ConcurrentArena5ShardESt14default_deleteIS3_EE", !14, i64 0}
+!14 = !{!"_ZTSSt15__uniq_ptr_dataIN7rocksdb15ConcurrentArena5ShardESt14default_deleteIA_S2_ELb1ELb1EE", !15, i64 0}
+!15 = !{!"_ZTSSt15__uniq_ptr_implIN7rocksdb15ConcurrentArena5ShardESt14default_deleteIA_S2_EE", !16, i64 0}
+!16 = !{!"_ZTSSt5tupleIJPN7rocksdb15ConcurrentArena5ShardESt14default_deleteIA_S2_EEE", !17, i64 0}
+!17 = !{!"_ZTSSt11_Tuple_implILm0EJPN7rocksdb15ConcurrentArena5ShardESt14default_deleteIA_S2_EEE", !18, i64 0}
+!18 = !{!"_ZTSSt10_Head_baseILm0EPN7rocksdb15ConcurrentArena5ShardELb0EE", !19, i64 0}
+!19 = !{!"p1 _ZTSN7rocksdb15ConcurrentArena5ShardE", !20, i64 0}
+!20 = !{!"any pointer", !10, i64 0}
+!21 = !{!"int", !10, i64 0}
+!22 = !{!"_ZTSN7rocksdb5ArenaE", !9, i64 0, !10, i64 16, !11, i64 2064, !23, i64 2072, !31, i64 2152, !11, i64 2232, !38, i64 2240, !38, i64 2248, !11, i64 2256, !11, i64 2264, !11, i64 2272, !39, i64 2280}
+!23 = !{!"_ZTSSt5dequeISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE", !24, i64 0}
+!24 = !{!"_ZTSSt11_Deque_baseISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE", !25, i64 0}
+!25 = !{!"_ZTSNSt11_Deque_baseISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_Deque_implE", !26, i64 0}
+!26 = !{!"_ZTSNSt11_Deque_baseISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE16_Deque_impl_dataE", !27, i64 0, !11, i64 8, !29, i64 16, !29, i64 48}
+!27 = !{!"p2 _ZTSSt10unique_ptrIA_cSt14default_deleteIS0_EE", !28, i64 0}
+!28 = !{!"any p2 pointer", !20, i64 0}
+!29 = !{!"_ZTSSt15_Deque_iteratorISt10unique_ptrIA_cSt14default_deleteIS1_EERS4_PS4_E", !30, i64 0, !30, i64 8, !30, i64 16, !27, i64 24}
+!30 = !{!"p1 _ZTSSt10unique_ptrIA_cSt14default_deleteIS0_EE", !20, i64 0}
+!31 = !{!"_ZTSSt5dequeIN7rocksdb10MemMappingESaIS1_EE", !32, i64 0}
+!32 = !{!"_ZTSSt11_Deque_baseIN7rocksdb10MemMappingESaIS1_EE", !33, i64 0}
+!33 = !{!"_ZTSNSt11_Deque_baseIN7rocksdb10MemMappingESaIS1_EE11_Deque_implE", !34, i64 0}
+!34 = !{!"_ZTSNSt11_Deque_baseIN7rocksdb10MemMappingESaIS1_EE16_Deque_impl_dataE", !35, i64 0, !11, i64 8, !36, i64 16, !36, i64 48}
+!35 = !{!"p2 _ZTSN7rocksdb10MemMappingE", !28, i64 0}
+!36 = !{!"_ZTSSt15_Deque_iteratorIN7rocksdb10MemMappingERS1_PS1_E", !37, i64 0, !37, i64 8, !37, i64 16, !35, i64 24}
+!37 = !{!"p1 _ZTSN7rocksdb10MemMappingE", !20, i64 0}
+!38 = !{!"p1 omnipotent char", !20, i64 0}
+!39 = !{!"p1 _ZTSN7rocksdb12AllocTrackerE", !20, i64 0}
+!40 = !{!"_ZTSN7rocksdb9SpinMutexE", !41, i64 0}
+!41 = !{!"_ZTSSt6atomicIbE", !42, i64 0}
+!42 = !{!"_ZTSSt13__atomic_baseIbE", !43, i64 0}
+!43 = !{!"bool", !10, i64 0}
+!44 = !{!"_ZTSSt6atomicImE", !45, i64 0}
+!45 = !{!"_ZTSSt13__atomic_baseImE", !11, i64 0}
+!46 = !{!18, !19, i64 0}
+!47 = distinct !{!47, !48}
+!48 = !{!"llvm.loop.mustprogress"}
+!49 = !{!12, !21, i64 8}
+!50 = !{!42, !43, i64 0}
+!51 = !{!19, !19, i64 0}
+!52 = !{!22, !11, i64 2256}
+!53 = !{!22, !11, i64 2272}
+!54 = !{!22, !11, i64 2232}
+!55 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!56 = !{!57, !21, i64 0}
+!57 = !{!"_ZTSN7rocksdb6RandomE", !21, i64 0}
+!58 = !{!11, !11, i64 0}
+!59 = !{!60, !61, i64 0}
+!60 = !{!"_ZTSZN7rocksdb15ConcurrentArena8AllocateEmEUlvE_", !61, i64 0, !11, i64 8}
+!61 = !{!"p1 _ZTSN7rocksdb15ConcurrentArenaE", !20, i64 0}
+!62 = !{!60, !11, i64 8}
+!63 = !{!64, !61, i64 0}
+!64 = !{!"_ZTSZN7rocksdb15ConcurrentArena15AllocateAlignedEmmPNS_6LoggerEEUlvE_", !61, i64 0, !11, i64 8, !11, i64 16, !65, i64 24}
+!65 = !{!"p1 _ZTSN7rocksdb6LoggerE", !20, i64 0}
+!66 = !{!64, !11, i64 8}
+!67 = !{!64, !11, i64 16}
+!68 = !{!64, !65, i64 24}
+!69 = !{!22, !11, i64 2064}
+!70 = !{i64 4099399}
+!71 = distinct !{!71, !48}
+!72 = !{!22, !38, i64 2240}
+!73 = !{!29, !30, i64 0}
+!74 = !{!75, !38, i64 48}
+!75 = !{!"_ZTSN7rocksdb15ConcurrentArena5ShardE", !10, i64 0, !40, i64 40, !38, i64 48, !44, i64 56}

@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %class.toku_instr_key = type { i8 }
 %class.LTM_STATUS_S = type <{ [19 x %struct.__toku_engine_status_row], i8, [7 x i8] }>
@@ -84,12 +84,11 @@ $_ZN12LTM_STATUS_SC2Ev = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_standalone_port.cc, ptr null }]
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z9toku_freePv(ptr noundef %p) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  call void @free(ptr noundef %0) #7
+define void @_Z9toku_freePv(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @free(ptr noundef %3) #8
   ret void
 }
 
@@ -97,861 +96,866 @@ entry:
 declare void @free(ptr noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z12toku_xmallocm(i64 noundef %size) #0 {
-entry:
-  %size.addr = alloca i64, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load i64, ptr %size.addr, align 8
-  %call = call noalias ptr @malloc(i64 noundef %0) #9
-  ret ptr %call
+define noundef ptr @_Z12toku_xmallocm(i64 noundef %0) #0 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !8
+  %3 = load i64, ptr %2, align 8, !tbaa !8
+  %4 = call noalias ptr @malloc(i64 noundef %3) #12
+  ret ptr %4
 }
 
 ; Function Attrs: nounwind allocsize(0)
 declare noalias ptr @malloc(i64 noundef) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z13toku_xreallocPvm(ptr noundef %v, i64 noundef %size) #0 {
-entry:
-  %v.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  store ptr %v, ptr %v.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %call = call ptr @realloc(ptr noundef %0, i64 noundef %1) #10
-  ret ptr %call
+define noundef ptr @_Z13toku_xreallocPvm(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = load i64, ptr %4, align 8, !tbaa !8
+  %7 = call ptr @realloc(ptr noundef %5, i64 noundef %6) #13
+  ret ptr %7
 }
 
 ; Function Attrs: nounwind allocsize(1)
 declare ptr @realloc(ptr noundef, i64 noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z12toku_xmemdupPKvm(ptr noundef %v, i64 noundef %len) #0 {
-entry:
-  %v.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %p = alloca ptr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load i64, ptr %len.addr, align 8
-  %call = call noundef ptr @_Z12toku_xmallocm(i64 noundef %0)
-  store ptr %call, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  %2 = load ptr, ptr %v.addr, align 8
-  %3 = load i64, ptr %len.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %2, i64 %3, i1 false)
-  %4 = load ptr, ptr %p, align 8
-  ret ptr %4
+define noundef ptr @_Z12toku_xmemdupPKvm(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load i64, ptr %4, align 8, !tbaa !8
+  %7 = call noundef ptr @_Z12toku_xmallocm(i64 noundef %6)
+  store ptr %7, ptr %5, align 8, !tbaa !4
+  %8 = load ptr, ptr %5, align 8, !tbaa !4
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = load i64, ptr %4, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %9, i64 %10, i1 false)
+  %11 = load ptr, ptr %5, align 8, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  ret ptr %11
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z12toku_xcallocmm(i64 noundef %nmemb, i64 noundef %size) #0 {
-entry:
-  %nmemb.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  store i64 %nmemb, ptr %nmemb.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load i64, ptr %nmemb.addr, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %call = call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #11
-  ret ptr %call
+define noundef ptr @_Z12toku_xcallocmm(i64 noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !8
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  %5 = load i64, ptr %3, align 8, !tbaa !8
+  %6 = load i64, ptr %4, align 8, !tbaa !8
+  %7 = call noalias ptr @calloc(i64 noundef %5, i64 noundef %6) #14
+  ret ptr %7
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #5
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #6
 
 ; Function Attrs: uwtable
-define internal void @__cxx_global_var_init() #6 section ".text.startup" {
-entry:
+define internal void @__cxx_global_var_init() #7 section ".text.startup" {
   call void @_ZN14toku_instr_keyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @lock_request_m_wait_cond_key)
-  %0 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @lock_request_m_wait_cond_key, ptr @__dso_handle) #7
+  %1 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @lock_request_m_wait_cond_key, ptr @__dso_handle) #8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN14toku_instr_keyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr void @_ZN14toku_instr_keyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN14toku_instr_keyD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr void @_ZN14toku_instr_keyD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) #7
+declare i32 @__cxa_atexit(ptr, ptr, ptr) #8
 
 ; Function Attrs: uwtable
-define internal void @__cxx_global_var_init.1() #6 section ".text.startup" {
-entry:
+define internal void @__cxx_global_var_init.1() #7 section ".text.startup" {
   call void @_ZN14toku_instr_keyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @manager_m_escalator_done_key)
-  %0 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @manager_m_escalator_done_key, ptr @__dso_handle) #7
+  %1 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @manager_m_escalator_done_key, ptr @__dso_handle) #8
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @__cxx_global_var_init.2() #6 section ".text.startup" {
-entry:
+define internal void @__cxx_global_var_init.2() #7 section ".text.startup" {
   call void @_ZN14toku_instr_keyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @locktree_request_info_mutex_key)
-  %0 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @locktree_request_info_mutex_key, ptr @__dso_handle) #7
+  %1 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @locktree_request_info_mutex_key, ptr @__dso_handle) #8
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @__cxx_global_var_init.3() #6 section ".text.startup" {
-entry:
+define internal void @__cxx_global_var_init.3() #7 section ".text.startup" {
   call void @_ZN14toku_instr_keyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @locktree_request_info_retry_mutex_key)
-  %0 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @locktree_request_info_retry_mutex_key, ptr @__dso_handle) #7
+  %1 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @locktree_request_info_retry_mutex_key, ptr @__dso_handle) #8
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @__cxx_global_var_init.4() #6 section ".text.startup" {
-entry:
+define internal void @__cxx_global_var_init.4() #7 section ".text.startup" {
   call void @_ZN14toku_instr_keyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @locktree_request_info_retry_cv_key)
-  %0 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @locktree_request_info_retry_cv_key, ptr @__dso_handle) #7
+  %1 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @locktree_request_info_retry_cv_key, ptr @__dso_handle) #8
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @__cxx_global_var_init.5() #6 section ".text.startup" {
-entry:
+define internal void @__cxx_global_var_init.5() #7 section ".text.startup" {
   call void @_ZN14toku_instr_keyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @treenode_mutex_key)
-  %0 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @treenode_mutex_key, ptr @__dso_handle) #7
+  %1 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @treenode_mutex_key, ptr @__dso_handle) #8
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @__cxx_global_var_init.6() #6 section ".text.startup" {
-entry:
+define internal void @__cxx_global_var_init.6() #7 section ".text.startup" {
   call void @_ZN14toku_instr_keyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @manager_mutex_key)
-  %0 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @manager_mutex_key, ptr @__dso_handle) #7
+  %1 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @manager_mutex_key, ptr @__dso_handle) #8
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @__cxx_global_var_init.7() #6 section ".text.startup" {
-entry:
+define internal void @__cxx_global_var_init.7() #7 section ".text.startup" {
   call void @_ZN14toku_instr_keyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @manager_escalation_mutex_key)
-  %0 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @manager_escalation_mutex_key, ptr @__dso_handle) #7
+  %1 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @manager_escalation_mutex_key, ptr @__dso_handle) #8
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @__cxx_global_var_init.8() #6 section ".text.startup" {
-entry:
+define internal void @__cxx_global_var_init.8() #7 section ".text.startup" {
   call void @_ZN14toku_instr_keyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @manager_escalator_mutex_key)
-  %0 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @manager_escalator_mutex_key, ptr @__dso_handle) #7
+  %1 = call i32 @__cxa_atexit(ptr @_ZN14toku_instr_keyD2Ev, ptr @manager_escalator_mutex_key, ptr @__dso_handle) #8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_Z21toku_memory_footprintPvm(ptr noundef %0, i64 noundef %touched) #0 {
-entry:
-  %.addr = alloca ptr, align 8
-  %touched.addr = alloca i64, align 8
-  store ptr %0, ptr %.addr, align 8
-  store i64 %touched, ptr %touched.addr, align 8
-  %1 = load i64, ptr %touched.addr, align 8
-  ret i64 %1
+define noundef i64 @_Z21toku_memory_footprintPvm(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  %5 = load i64, ptr %4, align 8, !tbaa !8
+  ret i64 %5
 }
 
 ; Function Attrs: uwtable
-define internal void @__cxx_global_var_init.9() #6 section ".text.startup" {
-entry:
-  call void @_ZN12LTM_STATUS_SC2Ev(ptr noundef nonnull align 8 dereferenceable(1217) @ltm_status) #7
+define internal void @__cxx_global_var_init.9() #7 section ".text.startup" {
+  call void @_ZN12LTM_STATUS_SC2Ev(ptr noundef nonnull align 8 dereferenceable(1217) @ltm_status) #8
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN12LTM_STATUS_SC2Ev(ptr noundef nonnull align 8 dereferenceable(1217) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 1
+  store i8 0, ptr %4, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN12LTM_STATUS_SC2Ev(ptr noundef nonnull align 8 dereferenceable(1217) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_initialized = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 1
-  store i8 0, ptr %m_initialized, align 8
+define void @_ZN12LTM_STATUS_S4initEv(ptr noundef nonnull align 8 dereferenceable(1217) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 1
+  %5 = load i8, ptr %4, align 8, !tbaa !14, !range !17, !noundef !18
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %1
+  br label %333
+
+8:                                                ; preds = %1
+  br label %9
+
+9:                                                ; preds = %8
+  %10 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %10, i64 0, i64 0
+  %12 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %11, i32 0, i32 0
+  store ptr @.str, ptr %12, align 8, !tbaa !19
+  %13 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %14 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %13, i64 0, i64 0
+  %15 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %14, i32 0, i32 1
+  store ptr @.str.10, ptr %15, align 8, !tbaa !24
+  %16 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %17 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %16, i64 0, i64 0
+  %18 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %17, i32 0, i32 3
+  store i32 1, ptr %18, align 8, !tbaa !25
+  %19 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %20 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %19, i64 0, i64 0
+  %21 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %20, i32 0, i32 2
+  store ptr @.str.11, ptr %21, align 8, !tbaa !26
+  %22 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %23 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %22, i64 0, i64 0
+  %24 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %23, i32 0, i32 4
+  store i32 3, ptr %24, align 4, !tbaa !27
+  br label %25
+
+25:                                               ; preds = %9
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %28 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %27, i64 0, i64 1
+  %29 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %28, i32 0, i32 0
+  store ptr @.str.12, ptr %29, align 8, !tbaa !19
+  %30 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %31 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %30, i64 0, i64 1
+  %32 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %31, i32 0, i32 1
+  store ptr @.str.13, ptr %32, align 8, !tbaa !24
+  %33 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %34 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %33, i64 0, i64 1
+  %35 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %34, i32 0, i32 3
+  store i32 1, ptr %35, align 8, !tbaa !25
+  %36 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %37 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %36, i64 0, i64 1
+  %38 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %37, i32 0, i32 2
+  store ptr @.str.14, ptr %38, align 8, !tbaa !26
+  %39 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %40 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %39, i64 0, i64 1
+  %41 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %40, i32 0, i32 4
+  store i32 3, ptr %41, align 4, !tbaa !27
+  br label %42
+
+42:                                               ; preds = %26
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %45 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %44, i64 0, i64 2
+  %46 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %45, i32 0, i32 0
+  store ptr @.str.15, ptr %46, align 8, !tbaa !19
+  %47 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %48 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %47, i64 0, i64 2
+  %49 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %48, i32 0, i32 1
+  store ptr @.str.16, ptr %49, align 8, !tbaa !24
+  %50 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %51 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %50, i64 0, i64 2
+  %52 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %51, i32 0, i32 3
+  store i32 1, ptr %52, align 8, !tbaa !25
+  %53 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %54 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %53, i64 0, i64 2
+  %55 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %54, i32 0, i32 2
+  store ptr @.str.17, ptr %55, align 8, !tbaa !26
+  %56 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %57 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %56, i64 0, i64 2
+  %58 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %57, i32 0, i32 4
+  store i32 3, ptr %58, align 4, !tbaa !27
+  br label %59
+
+59:                                               ; preds = %43
+  br label %60
+
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %62 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %61, i64 0, i64 3
+  %63 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %62, i32 0, i32 0
+  store ptr @.str.18, ptr %63, align 8, !tbaa !19
+  %64 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %65 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %64, i64 0, i64 3
+  %66 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %65, i32 0, i32 1
+  store ptr @.str.19, ptr %66, align 8, !tbaa !24
+  %67 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %68 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %67, i64 0, i64 3
+  %69 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %68, i32 0, i32 3
+  store i32 4, ptr %69, align 8, !tbaa !25
+  %70 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %71 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %70, i64 0, i64 3
+  %72 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %71, i32 0, i32 2
+  store ptr @.str.20, ptr %72, align 8, !tbaa !26
+  %73 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %74 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %73, i64 0, i64 3
+  %75 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %74, i32 0, i32 4
+  store i32 3, ptr %75, align 4, !tbaa !27
+  br label %76
+
+76:                                               ; preds = %60
+  br label %77
+
+77:                                               ; preds = %76
+  %78 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %79 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %78, i64 0, i64 4
+  %80 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %79, i32 0, i32 0
+  store ptr @.str.21, ptr %80, align 8, !tbaa !19
+  %81 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %82 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %81, i64 0, i64 4
+  %83 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %82, i32 0, i32 1
+  store ptr @.str.22, ptr %83, align 8, !tbaa !24
+  %84 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %85 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %84, i64 0, i64 4
+  %86 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %85, i32 0, i32 3
+  store i32 1, ptr %86, align 8, !tbaa !25
+  %87 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %88 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %87, i64 0, i64 4
+  %89 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %88, i32 0, i32 2
+  store ptr @.str.23, ptr %89, align 8, !tbaa !26
+  %90 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %91 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %90, i64 0, i64 4
+  %92 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %91, i32 0, i32 4
+  store i32 3, ptr %92, align 4, !tbaa !27
+  br label %93
+
+93:                                               ; preds = %77
+  br label %94
+
+94:                                               ; preds = %93
+  %95 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %96 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %95, i64 0, i64 5
+  %97 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %96, i32 0, i32 0
+  store ptr @.str.24, ptr %97, align 8, !tbaa !19
+  %98 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %99 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %98, i64 0, i64 5
+  %100 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %99, i32 0, i32 1
+  store ptr @.str.25, ptr %100, align 8, !tbaa !24
+  %101 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %102 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %101, i64 0, i64 5
+  %103 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %102, i32 0, i32 3
+  store i32 1, ptr %103, align 8, !tbaa !25
+  %104 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %105 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %104, i64 0, i64 5
+  %106 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %105, i32 0, i32 2
+  store ptr @.str.26, ptr %106, align 8, !tbaa !26
+  %107 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %108 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %107, i64 0, i64 5
+  %109 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %108, i32 0, i32 4
+  store i32 3, ptr %109, align 4, !tbaa !27
+  br label %110
+
+110:                                              ; preds = %94
+  br label %111
+
+111:                                              ; preds = %110
+  %112 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %113 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %112, i64 0, i64 6
+  %114 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %113, i32 0, i32 0
+  store ptr @.str.27, ptr %114, align 8, !tbaa !19
+  %115 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %116 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %115, i64 0, i64 6
+  %117 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %116, i32 0, i32 1
+  store ptr @.str.28, ptr %117, align 8, !tbaa !24
+  %118 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %119 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %118, i64 0, i64 6
+  %120 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %119, i32 0, i32 3
+  store i32 1, ptr %120, align 8, !tbaa !25
+  %121 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %122 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %121, i64 0, i64 6
+  %123 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %122, i32 0, i32 2
+  store ptr @.str.29, ptr %123, align 8, !tbaa !26
+  %124 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %125 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %124, i64 0, i64 6
+  %126 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %125, i32 0, i32 4
+  store i32 3, ptr %126, align 4, !tbaa !27
+  br label %127
+
+127:                                              ; preds = %111
+  br label %128
+
+128:                                              ; preds = %127
+  %129 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %130 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %129, i64 0, i64 7
+  %131 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %130, i32 0, i32 0
+  store ptr @.str.30, ptr %131, align 8, !tbaa !19
+  %132 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %133 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %132, i64 0, i64 7
+  %134 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %133, i32 0, i32 1
+  store ptr @.str.31, ptr %134, align 8, !tbaa !24
+  %135 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %136 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %135, i64 0, i64 7
+  %137 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %136, i32 0, i32 3
+  store i32 1, ptr %137, align 8, !tbaa !25
+  %138 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %139 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %138, i64 0, i64 7
+  %140 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %139, i32 0, i32 2
+  store ptr @.str.32, ptr %140, align 8, !tbaa !26
+  %141 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %142 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %141, i64 0, i64 7
+  %143 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %142, i32 0, i32 4
+  store i32 3, ptr %143, align 4, !tbaa !27
+  br label %144
+
+144:                                              ; preds = %128
+  br label %145
+
+145:                                              ; preds = %144
+  %146 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %147 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %146, i64 0, i64 8
+  %148 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %147, i32 0, i32 0
+  store ptr @.str.33, ptr %148, align 8, !tbaa !19
+  %149 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %150 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %149, i64 0, i64 8
+  %151 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %150, i32 0, i32 1
+  store ptr @.str.34, ptr %151, align 8, !tbaa !24
+  %152 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %153 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %152, i64 0, i64 8
+  %154 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %153, i32 0, i32 3
+  store i32 1, ptr %154, align 8, !tbaa !25
+  %155 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %156 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %155, i64 0, i64 8
+  %157 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %156, i32 0, i32 2
+  store ptr @.str.35, ptr %157, align 8, !tbaa !26
+  %158 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %159 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %158, i64 0, i64 8
+  %160 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %159, i32 0, i32 4
+  store i32 3, ptr %160, align 4, !tbaa !27
+  br label %161
+
+161:                                              ; preds = %145
+  br label %162
+
+162:                                              ; preds = %161
+  %163 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %164 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %163, i64 0, i64 9
+  %165 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %164, i32 0, i32 0
+  store ptr @.str.36, ptr %165, align 8, !tbaa !19
+  %166 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %167 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %166, i64 0, i64 9
+  %168 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %167, i32 0, i32 1
+  store ptr @.str.37, ptr %168, align 8, !tbaa !24
+  %169 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %170 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %169, i64 0, i64 9
+  %171 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %170, i32 0, i32 3
+  store i32 4, ptr %171, align 8, !tbaa !25
+  %172 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %173 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %172, i64 0, i64 9
+  %174 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %173, i32 0, i32 2
+  store ptr @.str.38, ptr %174, align 8, !tbaa !26
+  %175 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %176 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %175, i64 0, i64 9
+  %177 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %176, i32 0, i32 4
+  store i32 3, ptr %177, align 4, !tbaa !27
+  br label %178
+
+178:                                              ; preds = %162
+  br label %179
+
+179:                                              ; preds = %178
+  %180 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %181 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %180, i64 0, i64 10
+  %182 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %181, i32 0, i32 0
+  store ptr @.str.39, ptr %182, align 8, !tbaa !19
+  %183 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %184 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %183, i64 0, i64 10
+  %185 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %184, i32 0, i32 1
+  store ptr @.str.40, ptr %185, align 8, !tbaa !24
+  %186 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %187 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %186, i64 0, i64 10
+  %188 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %187, i32 0, i32 3
+  store i32 1, ptr %188, align 8, !tbaa !25
+  %189 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %190 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %189, i64 0, i64 10
+  %191 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %190, i32 0, i32 2
+  store ptr @.str.41, ptr %191, align 8, !tbaa !26
+  %192 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %193 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %192, i64 0, i64 10
+  %194 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %193, i32 0, i32 4
+  store i32 3, ptr %194, align 4, !tbaa !27
+  br label %195
+
+195:                                              ; preds = %179
+  br label %196
+
+196:                                              ; preds = %195
+  %197 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %198 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %197, i64 0, i64 11
+  %199 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %198, i32 0, i32 0
+  store ptr @.str.42, ptr %199, align 8, !tbaa !19
+  %200 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %201 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %200, i64 0, i64 11
+  %202 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %201, i32 0, i32 1
+  store ptr @.str.43, ptr %202, align 8, !tbaa !24
+  %203 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %204 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %203, i64 0, i64 11
+  %205 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %204, i32 0, i32 3
+  store i32 1, ptr %205, align 8, !tbaa !25
+  %206 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %207 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %206, i64 0, i64 11
+  %208 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %207, i32 0, i32 2
+  store ptr @.str.44, ptr %208, align 8, !tbaa !26
+  %209 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %210 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %209, i64 0, i64 11
+  %211 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %210, i32 0, i32 4
+  store i32 3, ptr %211, align 4, !tbaa !27
+  br label %212
+
+212:                                              ; preds = %196
+  br label %213
+
+213:                                              ; preds = %212
+  %214 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %215 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %214, i64 0, i64 12
+  %216 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %215, i32 0, i32 0
+  store ptr @.str.45, ptr %216, align 8, !tbaa !19
+  %217 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %218 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %217, i64 0, i64 12
+  %219 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %218, i32 0, i32 1
+  store ptr @.str.46, ptr %219, align 8, !tbaa !24
+  %220 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %221 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %220, i64 0, i64 12
+  %222 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %221, i32 0, i32 3
+  store i32 1, ptr %222, align 8, !tbaa !25
+  %223 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %224 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %223, i64 0, i64 12
+  %225 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %224, i32 0, i32 2
+  store ptr @.str.47, ptr %225, align 8, !tbaa !26
+  %226 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %227 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %226, i64 0, i64 12
+  %228 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %227, i32 0, i32 4
+  store i32 3, ptr %228, align 4, !tbaa !27
+  br label %229
+
+229:                                              ; preds = %213
+  br label %230
+
+230:                                              ; preds = %229
+  %231 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %232 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %231, i64 0, i64 13
+  %233 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %232, i32 0, i32 0
+  store ptr @.str.48, ptr %233, align 8, !tbaa !19
+  %234 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %235 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %234, i64 0, i64 13
+  %236 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %235, i32 0, i32 1
+  store ptr @.str.49, ptr %236, align 8, !tbaa !24
+  %237 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %238 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %237, i64 0, i64 13
+  %239 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %238, i32 0, i32 3
+  store i32 1, ptr %239, align 8, !tbaa !25
+  %240 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %241 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %240, i64 0, i64 13
+  %242 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %241, i32 0, i32 2
+  store ptr @.str.50, ptr %242, align 8, !tbaa !26
+  %243 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %244 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %243, i64 0, i64 13
+  %245 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %244, i32 0, i32 4
+  store i32 3, ptr %245, align 4, !tbaa !27
+  br label %246
+
+246:                                              ; preds = %230
+  br label %247
+
+247:                                              ; preds = %246
+  %248 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %249 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %248, i64 0, i64 14
+  %250 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %249, i32 0, i32 0
+  store ptr @.str.51, ptr %250, align 8, !tbaa !19
+  %251 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %252 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %251, i64 0, i64 14
+  %253 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %252, i32 0, i32 1
+  store ptr @.str.52, ptr %253, align 8, !tbaa !24
+  %254 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %255 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %254, i64 0, i64 14
+  %256 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %255, i32 0, i32 3
+  store i32 1, ptr %256, align 8, !tbaa !25
+  %257 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %258 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %257, i64 0, i64 14
+  %259 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %258, i32 0, i32 2
+  store ptr @.str.53, ptr %259, align 8, !tbaa !26
+  %260 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %261 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %260, i64 0, i64 14
+  %262 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %261, i32 0, i32 4
+  store i32 3, ptr %262, align 4, !tbaa !27
+  br label %263
+
+263:                                              ; preds = %247
+  br label %264
+
+264:                                              ; preds = %263
+  %265 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %266 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %265, i64 0, i64 15
+  %267 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %266, i32 0, i32 0
+  store ptr @.str.54, ptr %267, align 8, !tbaa !19
+  %268 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %269 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %268, i64 0, i64 15
+  %270 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %269, i32 0, i32 1
+  store ptr @.str.55, ptr %270, align 8, !tbaa !24
+  %271 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %272 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %271, i64 0, i64 15
+  %273 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %272, i32 0, i32 3
+  store i32 1, ptr %273, align 8, !tbaa !25
+  %274 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %275 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %274, i64 0, i64 15
+  %276 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %275, i32 0, i32 2
+  store ptr @.str.56, ptr %276, align 8, !tbaa !26
+  %277 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %278 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %277, i64 0, i64 15
+  %279 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %278, i32 0, i32 4
+  store i32 3, ptr %279, align 4, !tbaa !27
+  br label %280
+
+280:                                              ; preds = %264
+  br label %281
+
+281:                                              ; preds = %280
+  %282 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %283 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %282, i64 0, i64 16
+  %284 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %283, i32 0, i32 0
+  store ptr @.str.57, ptr %284, align 8, !tbaa !19
+  %285 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %286 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %285, i64 0, i64 16
+  %287 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %286, i32 0, i32 1
+  store ptr @.str.58, ptr %287, align 8, !tbaa !24
+  %288 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %289 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %288, i64 0, i64 16
+  %290 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %289, i32 0, i32 3
+  store i32 1, ptr %290, align 8, !tbaa !25
+  %291 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %292 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %291, i64 0, i64 16
+  %293 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %292, i32 0, i32 2
+  store ptr @.str.59, ptr %293, align 8, !tbaa !26
+  %294 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %295 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %294, i64 0, i64 16
+  %296 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %295, i32 0, i32 4
+  store i32 3, ptr %296, align 4, !tbaa !27
+  br label %297
+
+297:                                              ; preds = %281
+  br label %298
+
+298:                                              ; preds = %297
+  %299 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %300 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %299, i64 0, i64 17
+  %301 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %300, i32 0, i32 0
+  store ptr @.str.60, ptr %301, align 8, !tbaa !19
+  %302 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %303 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %302, i64 0, i64 17
+  %304 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %303, i32 0, i32 1
+  store ptr @.str.61, ptr %304, align 8, !tbaa !24
+  %305 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %306 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %305, i64 0, i64 17
+  %307 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %306, i32 0, i32 3
+  store i32 1, ptr %307, align 8, !tbaa !25
+  %308 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %309 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %308, i64 0, i64 17
+  %310 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %309, i32 0, i32 2
+  store ptr @.str.62, ptr %310, align 8, !tbaa !26
+  %311 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %312 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %311, i64 0, i64 17
+  %313 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %312, i32 0, i32 4
+  store i32 3, ptr %313, align 4, !tbaa !27
+  br label %314
+
+314:                                              ; preds = %298
+  br label %315
+
+315:                                              ; preds = %314
+  %316 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %317 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %316, i64 0, i64 18
+  %318 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %317, i32 0, i32 0
+  store ptr @.str.63, ptr %318, align 8, !tbaa !19
+  %319 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %320 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %319, i64 0, i64 18
+  %321 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %320, i32 0, i32 1
+  store ptr @.str.64, ptr %321, align 8, !tbaa !24
+  %322 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %323 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %322, i64 0, i64 18
+  %324 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %323, i32 0, i32 3
+  store i32 1, ptr %324, align 8, !tbaa !25
+  %325 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %326 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %325, i64 0, i64 18
+  %327 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %326, i32 0, i32 2
+  store ptr @.str.65, ptr %327, align 8, !tbaa !26
+  %328 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 0
+  %329 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %328, i64 0, i64 18
+  %330 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %329, i32 0, i32 4
+  store i32 3, ptr %330, align 4, !tbaa !27
+  br label %331
+
+331:                                              ; preds = %315
+  %332 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %3, i32 0, i32 1
+  store i8 1, ptr %332, align 8, !tbaa !14
+  br label %333
+
+333:                                              ; preds = %331, %7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12LTM_STATUS_S4initEv(ptr noundef nonnull align 8 dereferenceable(1217) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_initialized = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %m_initialized, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.end
+define void @_ZN12LTM_STATUS_S7destroyEv(ptr noundef nonnull align 8 dereferenceable(1217) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %4, i32 0, i32 1
+  %6 = load i8, ptr %5, align 8, !tbaa !14, !range !17, !noundef !18
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %9, label %8
 
-if.then:                                          ; preds = %entry
-  br label %return
+8:                                                ; preds = %1
+  br label %27
 
-if.end:                                           ; preds = %entry
-  br label %do.body
+9:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  store i32 0, ptr %3, align 4, !tbaa !28
+  br label %10
 
-do.body:                                          ; preds = %if.end
-  %status = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status, i64 0, i64 0
-  %keyname = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx, i32 0, i32 0
-  store ptr @.str, ptr %keyname, align 8
-  %status2 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status2, i64 0, i64 0
-  %columnname = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx3, i32 0, i32 1
-  store ptr @.str.10, ptr %columnname, align 8
-  %status4 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status4, i64 0, i64 0
-  %type = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx5, i32 0, i32 3
-  store i32 1, ptr %type, align 8
-  %status6 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status6, i64 0, i64 0
-  %legend = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx7, i32 0, i32 2
-  store ptr @.str.11, ptr %legend, align 8
-  %status8 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx9 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status8, i64 0, i64 0
-  %include = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx9, i32 0, i32 4
-  store i32 3, ptr %include, align 4
-  br label %do.end
+10:                                               ; preds = %24, %9
+  %11 = load i32, ptr %3, align 4, !tbaa !28
+  %12 = icmp slt i32 %11, 19
+  br i1 %12, label %14, label %13
 
-do.end:                                           ; preds = %do.body
-  br label %do.body10
+13:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  br label %27
 
-do.body10:                                        ; preds = %do.end
-  %status11 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx12 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status11, i64 0, i64 1
-  %keyname13 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx12, i32 0, i32 0
-  store ptr @.str.12, ptr %keyname13, align 8
-  %status14 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx15 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status14, i64 0, i64 1
-  %columnname16 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx15, i32 0, i32 1
-  store ptr @.str.13, ptr %columnname16, align 8
-  %status17 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx18 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status17, i64 0, i64 1
-  %type19 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx18, i32 0, i32 3
-  store i32 1, ptr %type19, align 8
-  %status20 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx21 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status20, i64 0, i64 1
-  %legend22 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx21, i32 0, i32 2
-  store ptr @.str.14, ptr %legend22, align 8
-  %status23 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx24 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status23, i64 0, i64 1
-  %include25 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx24, i32 0, i32 4
-  store i32 3, ptr %include25, align 4
-  br label %do.end26
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw %class.LTM_STATUS_S, ptr %4, i32 0, i32 0
+  %16 = load i32, ptr %3, align 4, !tbaa !28
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %15, i64 0, i64 %17
+  %19 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 8, !tbaa !25
+  %21 = icmp eq i32 %20, 5
+  br i1 %21, label %22, label %23
 
-do.end26:                                         ; preds = %do.body10
-  br label %do.body27
+22:                                               ; preds = %14
+  br label %23
 
-do.body27:                                        ; preds = %do.end26
-  %status28 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx29 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status28, i64 0, i64 2
-  %keyname30 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx29, i32 0, i32 0
-  store ptr @.str.15, ptr %keyname30, align 8
-  %status31 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx32 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status31, i64 0, i64 2
-  %columnname33 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx32, i32 0, i32 1
-  store ptr @.str.16, ptr %columnname33, align 8
-  %status34 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx35 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status34, i64 0, i64 2
-  %type36 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx35, i32 0, i32 3
-  store i32 1, ptr %type36, align 8
-  %status37 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx38 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status37, i64 0, i64 2
-  %legend39 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx38, i32 0, i32 2
-  store ptr @.str.17, ptr %legend39, align 8
-  %status40 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx41 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status40, i64 0, i64 2
-  %include42 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx41, i32 0, i32 4
-  store i32 3, ptr %include42, align 4
-  br label %do.end43
+23:                                               ; preds = %22, %14
+  br label %24
 
-do.end43:                                         ; preds = %do.body27
-  br label %do.body44
+24:                                               ; preds = %23
+  %25 = load i32, ptr %3, align 4, !tbaa !28
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %3, align 4, !tbaa !28
+  br label %10, !llvm.loop !30
 
-do.body44:                                        ; preds = %do.end43
-  %status45 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx46 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status45, i64 0, i64 3
-  %keyname47 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx46, i32 0, i32 0
-  store ptr @.str.18, ptr %keyname47, align 8
-  %status48 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx49 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status48, i64 0, i64 3
-  %columnname50 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx49, i32 0, i32 1
-  store ptr @.str.19, ptr %columnname50, align 8
-  %status51 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx52 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status51, i64 0, i64 3
-  %type53 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx52, i32 0, i32 3
-  store i32 4, ptr %type53, align 8
-  %status54 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx55 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status54, i64 0, i64 3
-  %legend56 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx55, i32 0, i32 2
-  store ptr @.str.20, ptr %legend56, align 8
-  %status57 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx58 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status57, i64 0, i64 3
-  %include59 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx58, i32 0, i32 4
-  store i32 3, ptr %include59, align 4
-  br label %do.end60
-
-do.end60:                                         ; preds = %do.body44
-  br label %do.body61
-
-do.body61:                                        ; preds = %do.end60
-  %status62 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx63 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status62, i64 0, i64 4
-  %keyname64 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx63, i32 0, i32 0
-  store ptr @.str.21, ptr %keyname64, align 8
-  %status65 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx66 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status65, i64 0, i64 4
-  %columnname67 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx66, i32 0, i32 1
-  store ptr @.str.22, ptr %columnname67, align 8
-  %status68 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx69 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status68, i64 0, i64 4
-  %type70 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx69, i32 0, i32 3
-  store i32 1, ptr %type70, align 8
-  %status71 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx72 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status71, i64 0, i64 4
-  %legend73 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx72, i32 0, i32 2
-  store ptr @.str.23, ptr %legend73, align 8
-  %status74 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx75 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status74, i64 0, i64 4
-  %include76 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx75, i32 0, i32 4
-  store i32 3, ptr %include76, align 4
-  br label %do.end77
-
-do.end77:                                         ; preds = %do.body61
-  br label %do.body78
-
-do.body78:                                        ; preds = %do.end77
-  %status79 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx80 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status79, i64 0, i64 5
-  %keyname81 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx80, i32 0, i32 0
-  store ptr @.str.24, ptr %keyname81, align 8
-  %status82 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx83 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status82, i64 0, i64 5
-  %columnname84 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx83, i32 0, i32 1
-  store ptr @.str.25, ptr %columnname84, align 8
-  %status85 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx86 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status85, i64 0, i64 5
-  %type87 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx86, i32 0, i32 3
-  store i32 1, ptr %type87, align 8
-  %status88 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx89 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status88, i64 0, i64 5
-  %legend90 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx89, i32 0, i32 2
-  store ptr @.str.26, ptr %legend90, align 8
-  %status91 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx92 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status91, i64 0, i64 5
-  %include93 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx92, i32 0, i32 4
-  store i32 3, ptr %include93, align 4
-  br label %do.end94
-
-do.end94:                                         ; preds = %do.body78
-  br label %do.body95
-
-do.body95:                                        ; preds = %do.end94
-  %status96 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx97 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status96, i64 0, i64 6
-  %keyname98 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx97, i32 0, i32 0
-  store ptr @.str.27, ptr %keyname98, align 8
-  %status99 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx100 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status99, i64 0, i64 6
-  %columnname101 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx100, i32 0, i32 1
-  store ptr @.str.28, ptr %columnname101, align 8
-  %status102 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx103 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status102, i64 0, i64 6
-  %type104 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx103, i32 0, i32 3
-  store i32 1, ptr %type104, align 8
-  %status105 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx106 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status105, i64 0, i64 6
-  %legend107 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx106, i32 0, i32 2
-  store ptr @.str.29, ptr %legend107, align 8
-  %status108 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx109 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status108, i64 0, i64 6
-  %include110 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx109, i32 0, i32 4
-  store i32 3, ptr %include110, align 4
-  br label %do.end111
-
-do.end111:                                        ; preds = %do.body95
-  br label %do.body112
-
-do.body112:                                       ; preds = %do.end111
-  %status113 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx114 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status113, i64 0, i64 7
-  %keyname115 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx114, i32 0, i32 0
-  store ptr @.str.30, ptr %keyname115, align 8
-  %status116 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx117 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status116, i64 0, i64 7
-  %columnname118 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx117, i32 0, i32 1
-  store ptr @.str.31, ptr %columnname118, align 8
-  %status119 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx120 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status119, i64 0, i64 7
-  %type121 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx120, i32 0, i32 3
-  store i32 1, ptr %type121, align 8
-  %status122 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx123 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status122, i64 0, i64 7
-  %legend124 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx123, i32 0, i32 2
-  store ptr @.str.32, ptr %legend124, align 8
-  %status125 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx126 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status125, i64 0, i64 7
-  %include127 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx126, i32 0, i32 4
-  store i32 3, ptr %include127, align 4
-  br label %do.end128
-
-do.end128:                                        ; preds = %do.body112
-  br label %do.body129
-
-do.body129:                                       ; preds = %do.end128
-  %status130 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx131 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status130, i64 0, i64 8
-  %keyname132 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx131, i32 0, i32 0
-  store ptr @.str.33, ptr %keyname132, align 8
-  %status133 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx134 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status133, i64 0, i64 8
-  %columnname135 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx134, i32 0, i32 1
-  store ptr @.str.34, ptr %columnname135, align 8
-  %status136 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx137 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status136, i64 0, i64 8
-  %type138 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx137, i32 0, i32 3
-  store i32 1, ptr %type138, align 8
-  %status139 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx140 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status139, i64 0, i64 8
-  %legend141 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx140, i32 0, i32 2
-  store ptr @.str.35, ptr %legend141, align 8
-  %status142 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx143 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status142, i64 0, i64 8
-  %include144 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx143, i32 0, i32 4
-  store i32 3, ptr %include144, align 4
-  br label %do.end145
-
-do.end145:                                        ; preds = %do.body129
-  br label %do.body146
-
-do.body146:                                       ; preds = %do.end145
-  %status147 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx148 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status147, i64 0, i64 9
-  %keyname149 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx148, i32 0, i32 0
-  store ptr @.str.36, ptr %keyname149, align 8
-  %status150 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx151 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status150, i64 0, i64 9
-  %columnname152 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx151, i32 0, i32 1
-  store ptr @.str.37, ptr %columnname152, align 8
-  %status153 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx154 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status153, i64 0, i64 9
-  %type155 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx154, i32 0, i32 3
-  store i32 4, ptr %type155, align 8
-  %status156 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx157 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status156, i64 0, i64 9
-  %legend158 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx157, i32 0, i32 2
-  store ptr @.str.38, ptr %legend158, align 8
-  %status159 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx160 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status159, i64 0, i64 9
-  %include161 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx160, i32 0, i32 4
-  store i32 3, ptr %include161, align 4
-  br label %do.end162
-
-do.end162:                                        ; preds = %do.body146
-  br label %do.body163
-
-do.body163:                                       ; preds = %do.end162
-  %status164 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx165 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status164, i64 0, i64 10
-  %keyname166 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx165, i32 0, i32 0
-  store ptr @.str.39, ptr %keyname166, align 8
-  %status167 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx168 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status167, i64 0, i64 10
-  %columnname169 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx168, i32 0, i32 1
-  store ptr @.str.40, ptr %columnname169, align 8
-  %status170 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx171 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status170, i64 0, i64 10
-  %type172 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx171, i32 0, i32 3
-  store i32 1, ptr %type172, align 8
-  %status173 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx174 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status173, i64 0, i64 10
-  %legend175 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx174, i32 0, i32 2
-  store ptr @.str.41, ptr %legend175, align 8
-  %status176 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx177 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status176, i64 0, i64 10
-  %include178 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx177, i32 0, i32 4
-  store i32 3, ptr %include178, align 4
-  br label %do.end179
-
-do.end179:                                        ; preds = %do.body163
-  br label %do.body180
-
-do.body180:                                       ; preds = %do.end179
-  %status181 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx182 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status181, i64 0, i64 11
-  %keyname183 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx182, i32 0, i32 0
-  store ptr @.str.42, ptr %keyname183, align 8
-  %status184 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx185 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status184, i64 0, i64 11
-  %columnname186 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx185, i32 0, i32 1
-  store ptr @.str.43, ptr %columnname186, align 8
-  %status187 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx188 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status187, i64 0, i64 11
-  %type189 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx188, i32 0, i32 3
-  store i32 1, ptr %type189, align 8
-  %status190 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx191 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status190, i64 0, i64 11
-  %legend192 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx191, i32 0, i32 2
-  store ptr @.str.44, ptr %legend192, align 8
-  %status193 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx194 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status193, i64 0, i64 11
-  %include195 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx194, i32 0, i32 4
-  store i32 3, ptr %include195, align 4
-  br label %do.end196
-
-do.end196:                                        ; preds = %do.body180
-  br label %do.body197
-
-do.body197:                                       ; preds = %do.end196
-  %status198 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx199 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status198, i64 0, i64 12
-  %keyname200 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx199, i32 0, i32 0
-  store ptr @.str.45, ptr %keyname200, align 8
-  %status201 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx202 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status201, i64 0, i64 12
-  %columnname203 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx202, i32 0, i32 1
-  store ptr @.str.46, ptr %columnname203, align 8
-  %status204 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx205 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status204, i64 0, i64 12
-  %type206 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx205, i32 0, i32 3
-  store i32 1, ptr %type206, align 8
-  %status207 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx208 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status207, i64 0, i64 12
-  %legend209 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx208, i32 0, i32 2
-  store ptr @.str.47, ptr %legend209, align 8
-  %status210 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx211 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status210, i64 0, i64 12
-  %include212 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx211, i32 0, i32 4
-  store i32 3, ptr %include212, align 4
-  br label %do.end213
-
-do.end213:                                        ; preds = %do.body197
-  br label %do.body214
-
-do.body214:                                       ; preds = %do.end213
-  %status215 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx216 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status215, i64 0, i64 13
-  %keyname217 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx216, i32 0, i32 0
-  store ptr @.str.48, ptr %keyname217, align 8
-  %status218 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx219 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status218, i64 0, i64 13
-  %columnname220 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx219, i32 0, i32 1
-  store ptr @.str.49, ptr %columnname220, align 8
-  %status221 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx222 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status221, i64 0, i64 13
-  %type223 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx222, i32 0, i32 3
-  store i32 1, ptr %type223, align 8
-  %status224 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx225 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status224, i64 0, i64 13
-  %legend226 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx225, i32 0, i32 2
-  store ptr @.str.50, ptr %legend226, align 8
-  %status227 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx228 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status227, i64 0, i64 13
-  %include229 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx228, i32 0, i32 4
-  store i32 3, ptr %include229, align 4
-  br label %do.end230
-
-do.end230:                                        ; preds = %do.body214
-  br label %do.body231
-
-do.body231:                                       ; preds = %do.end230
-  %status232 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx233 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status232, i64 0, i64 14
-  %keyname234 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx233, i32 0, i32 0
-  store ptr @.str.51, ptr %keyname234, align 8
-  %status235 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx236 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status235, i64 0, i64 14
-  %columnname237 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx236, i32 0, i32 1
-  store ptr @.str.52, ptr %columnname237, align 8
-  %status238 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx239 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status238, i64 0, i64 14
-  %type240 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx239, i32 0, i32 3
-  store i32 1, ptr %type240, align 8
-  %status241 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx242 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status241, i64 0, i64 14
-  %legend243 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx242, i32 0, i32 2
-  store ptr @.str.53, ptr %legend243, align 8
-  %status244 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx245 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status244, i64 0, i64 14
-  %include246 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx245, i32 0, i32 4
-  store i32 3, ptr %include246, align 4
-  br label %do.end247
-
-do.end247:                                        ; preds = %do.body231
-  br label %do.body248
-
-do.body248:                                       ; preds = %do.end247
-  %status249 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx250 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status249, i64 0, i64 15
-  %keyname251 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx250, i32 0, i32 0
-  store ptr @.str.54, ptr %keyname251, align 8
-  %status252 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx253 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status252, i64 0, i64 15
-  %columnname254 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx253, i32 0, i32 1
-  store ptr @.str.55, ptr %columnname254, align 8
-  %status255 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx256 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status255, i64 0, i64 15
-  %type257 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx256, i32 0, i32 3
-  store i32 1, ptr %type257, align 8
-  %status258 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx259 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status258, i64 0, i64 15
-  %legend260 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx259, i32 0, i32 2
-  store ptr @.str.56, ptr %legend260, align 8
-  %status261 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx262 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status261, i64 0, i64 15
-  %include263 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx262, i32 0, i32 4
-  store i32 3, ptr %include263, align 4
-  br label %do.end264
-
-do.end264:                                        ; preds = %do.body248
-  br label %do.body265
-
-do.body265:                                       ; preds = %do.end264
-  %status266 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx267 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status266, i64 0, i64 16
-  %keyname268 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx267, i32 0, i32 0
-  store ptr @.str.57, ptr %keyname268, align 8
-  %status269 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx270 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status269, i64 0, i64 16
-  %columnname271 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx270, i32 0, i32 1
-  store ptr @.str.58, ptr %columnname271, align 8
-  %status272 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx273 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status272, i64 0, i64 16
-  %type274 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx273, i32 0, i32 3
-  store i32 1, ptr %type274, align 8
-  %status275 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx276 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status275, i64 0, i64 16
-  %legend277 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx276, i32 0, i32 2
-  store ptr @.str.59, ptr %legend277, align 8
-  %status278 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx279 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status278, i64 0, i64 16
-  %include280 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx279, i32 0, i32 4
-  store i32 3, ptr %include280, align 4
-  br label %do.end281
-
-do.end281:                                        ; preds = %do.body265
-  br label %do.body282
-
-do.body282:                                       ; preds = %do.end281
-  %status283 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx284 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status283, i64 0, i64 17
-  %keyname285 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx284, i32 0, i32 0
-  store ptr @.str.60, ptr %keyname285, align 8
-  %status286 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx287 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status286, i64 0, i64 17
-  %columnname288 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx287, i32 0, i32 1
-  store ptr @.str.61, ptr %columnname288, align 8
-  %status289 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx290 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status289, i64 0, i64 17
-  %type291 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx290, i32 0, i32 3
-  store i32 1, ptr %type291, align 8
-  %status292 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx293 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status292, i64 0, i64 17
-  %legend294 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx293, i32 0, i32 2
-  store ptr @.str.62, ptr %legend294, align 8
-  %status295 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx296 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status295, i64 0, i64 17
-  %include297 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx296, i32 0, i32 4
-  store i32 3, ptr %include297, align 4
-  br label %do.end298
-
-do.end298:                                        ; preds = %do.body282
-  br label %do.body299
-
-do.body299:                                       ; preds = %do.end298
-  %status300 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx301 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status300, i64 0, i64 18
-  %keyname302 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx301, i32 0, i32 0
-  store ptr @.str.63, ptr %keyname302, align 8
-  %status303 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx304 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status303, i64 0, i64 18
-  %columnname305 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx304, i32 0, i32 1
-  store ptr @.str.64, ptr %columnname305, align 8
-  %status306 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx307 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status306, i64 0, i64 18
-  %type308 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx307, i32 0, i32 3
-  store i32 1, ptr %type308, align 8
-  %status309 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx310 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status309, i64 0, i64 18
-  %legend311 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx310, i32 0, i32 2
-  store ptr @.str.65, ptr %legend311, align 8
-  %status312 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %arrayidx313 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status312, i64 0, i64 18
-  %include314 = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx313, i32 0, i32 4
-  store i32 3, ptr %include314, align 4
-  br label %do.end315
-
-do.end315:                                        ; preds = %do.body299
-  %m_initialized316 = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 1
-  store i8 1, ptr %m_initialized316, align 8
-  br label %return
-
-return:                                           ; preds = %do.end315, %if.then
+27:                                               ; preds = %8, %13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12LTM_STATUS_S7destroyEv(ptr noundef nonnull align 8 dereferenceable(1217) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_initialized = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %m_initialized, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.end, label %if.then
+define noundef i32 @_Z15toku_keycomparePKvmS0_m(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store i64 %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !4
+  store i64 %3, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %13 = load i64, ptr %7, align 8, !tbaa !8
+  %14 = load i64, ptr %9, align 8, !tbaa !8
+  %15 = icmp ult i64 %13, %14
+  br i1 %15, label %16, label %18
 
-if.then:                                          ; preds = %entry
-  br label %for.end
+16:                                               ; preds = %4
+  %17 = load i64, ptr %7, align 8, !tbaa !8
+  br label %20
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+18:                                               ; preds = %4
+  %19 = load i64, ptr %9, align 8, !tbaa !8
+  br label %20
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %1 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %1, 19
-  br i1 %cmp, label %for.body, label %for.end
+20:                                               ; preds = %18, %16
+  %21 = phi i64 [ %17, %16 ], [ %19, %18 ]
+  store i64 %21, ptr %10, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %22 = load ptr, ptr %6, align 8, !tbaa !4
+  %23 = load ptr, ptr %8, align 8, !tbaa !4
+  %24 = load i64, ptr %10, align 8, !tbaa !8
+  %25 = call i32 @memcmp(ptr noundef %22, ptr noundef %23, i64 noundef %24) #15
+  store i32 %25, ptr %11, align 4, !tbaa !28
+  %26 = load i32, ptr %11, align 4, !tbaa !28
+  %27 = icmp ne i32 %26, 0
+  %28 = zext i1 %27 to i64
+  %29 = call i64 @llvm.expect.i64(i64 %28, i64 1)
+  %30 = icmp ne i64 %29, 0
+  br i1 %30, label %31, label %33
 
-for.body:                                         ; preds = %for.cond
-  %status = getelementptr inbounds %class.LTM_STATUS_S, ptr %this1, i32 0, i32 0
-  %2 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %status, i64 0, i64 %idxprom
-  %type = getelementptr inbounds %struct.__toku_engine_status_row, ptr %arrayidx, i32 0, i32 3
-  %3 = load i32, ptr %type, align 8
-  %cmp2 = icmp eq i32 %3, 5
-  br i1 %cmp2, label %if.then3, label %if.end4
+31:                                               ; preds = %20
+  %32 = load i32, ptr %11, align 4, !tbaa !28
+  store i32 %32, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %44
 
-if.then3:                                         ; preds = %for.body
-  br label %if.end4
+33:                                               ; preds = %20
+  %34 = load i64, ptr %7, align 8, !tbaa !8
+  %35 = load i64, ptr %9, align 8, !tbaa !8
+  %36 = icmp ult i64 %34, %35
+  br i1 %36, label %37, label %38
 
-if.end4:                                          ; preds = %if.then3, %for.body
-  br label %for.inc
+37:                                               ; preds = %33
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %44
 
-for.inc:                                          ; preds = %if.end4
-  %4 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %4, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !4
+38:                                               ; preds = %33
+  %39 = load i64, ptr %7, align 8, !tbaa !8
+  %40 = load i64, ptr %9, align 8, !tbaa !8
+  %41 = icmp ugt i64 %39, %40
+  br i1 %41, label %42, label %43
 
-for.end:                                          ; preds = %for.cond, %if.then
-  ret void
-}
+42:                                               ; preds = %38
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %44
 
-; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_Z15toku_keycomparePKvmS0_m(ptr noundef %key1, i64 noundef %key1len, ptr noundef %key2, i64 noundef %key2len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %key1.addr = alloca ptr, align 8
-  %key1len.addr = alloca i64, align 8
-  %key2.addr = alloca ptr, align 8
-  %key2len.addr = alloca i64, align 8
-  %comparelen = alloca i64, align 8
-  %c = alloca i32, align 4
-  store ptr %key1, ptr %key1.addr, align 8
-  store i64 %key1len, ptr %key1len.addr, align 8
-  store ptr %key2, ptr %key2.addr, align 8
-  store i64 %key2len, ptr %key2len.addr, align 8
-  %0 = load i64, ptr %key1len.addr, align 8
-  %1 = load i64, ptr %key2len.addr, align 8
-  %cmp = icmp ult i64 %0, %1
-  br i1 %cmp, label %cond.true, label %cond.false
+43:                                               ; preds = %38
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %44
 
-cond.true:                                        ; preds = %entry
-  %2 = load i64, ptr %key1len.addr, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %3 = load i64, ptr %key2len.addr, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %2, %cond.true ], [ %3, %cond.false ]
-  store i64 %cond, ptr %comparelen, align 8
-  %4 = load ptr, ptr %key1.addr, align 8
-  %5 = load ptr, ptr %key2.addr, align 8
-  %6 = load i64, ptr %comparelen, align 8
-  %call = call i32 @memcmp(ptr noundef %4, ptr noundef %5, i64 noundef %6) #12
-  store i32 %call, ptr %c, align 4
-  %7 = load i32, ptr %c, align 4
-  %cmp1 = icmp ne i32 %7, 0
-  br i1 %cmp1, label %if.then, label %if.else
-
-if.then:                                          ; preds = %cond.end
-  %8 = load i32, ptr %c, align 4
-  store i32 %8, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %cond.end
-  %9 = load i64, ptr %key1len.addr, align 8
-  %10 = load i64, ptr %key2len.addr, align 8
-  %cmp2 = icmp ult i64 %9, %10
-  br i1 %cmp2, label %if.then3, label %if.else4
-
-if.then3:                                         ; preds = %if.else
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.else4:                                         ; preds = %if.else
-  %11 = load i64, ptr %key1len.addr, align 8
-  %12 = load i64, ptr %key2len.addr, align 8
-  %cmp5 = icmp ugt i64 %11, %12
-  br i1 %cmp5, label %if.then6, label %if.else7
-
-if.then6:                                         ; preds = %if.else4
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.else7:                                         ; preds = %if.else4
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.else7, %if.then6, %if.then3, %if.then
-  %13 = load i32, ptr %retval, align 4
-  ret i32 %13
+44:                                               ; preds = %43, %42, %37, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %45 = load i32, ptr %5, align 4
+  ret i32 %45
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #8
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_Z24toku_builtin_compare_funPK10__toku_dbtS1_(ptr noundef %a, ptr noundef %b) #0 {
-entry:
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %data = getelementptr inbounds %struct.__toku_dbt, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %data, align 8
-  %2 = load ptr, ptr %a.addr, align 8
-  %size = getelementptr inbounds %struct.__toku_dbt, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %size, align 8
-  %4 = load ptr, ptr %b.addr, align 8
-  %data1 = getelementptr inbounds %struct.__toku_dbt, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %data1, align 8
-  %6 = load ptr, ptr %b.addr, align 8
-  %size2 = getelementptr inbounds %struct.__toku_dbt, ptr %6, i32 0, i32 1
-  %7 = load i64, ptr %size2, align 8
-  %call = call noundef i32 @_Z15toku_keycomparePKvmS0_m(ptr noundef %1, i64 noundef %3, ptr noundef %5, i64 noundef %7)
-  ret i32 %call
+define noundef i32 @_Z24toku_builtin_compare_funPK10__toku_dbtS1_(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %3, align 8, !tbaa !32
+  %6 = getelementptr inbounds nuw %struct.__toku_dbt, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  %8 = load ptr, ptr %3, align 8, !tbaa !32
+  %9 = getelementptr inbounds nuw %struct.__toku_dbt, ptr %8, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !36
+  %11 = load ptr, ptr %4, align 8, !tbaa !32
+  %12 = getelementptr inbounds nuw %struct.__toku_dbt, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  %14 = load ptr, ptr %4, align 8, !tbaa !32
+  %15 = getelementptr inbounds nuw %struct.__toku_dbt, ptr %14, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8, !tbaa !36
+  %17 = call noundef i32 @_Z15toku_keycomparePKvmS0_m(ptr noundef %7, i64 noundef %10, ptr noundef %13, i64 noundef %16)
+  ret i32 %17
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_standalone_port.cc() #6 section ".text.startup" {
-entry:
+define internal void @_GLOBAL__sub_I_standalone_port.cc() #7 section ".text.startup" {
   call void @__cxx_global_var_init()
   call void @__cxx_global_var_init.1()
   call void @__cxx_global_var_init.2()
@@ -965,19 +969,22 @@ entry:
   ret void
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #1 = { nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #3 = { nounwind allocsize(1) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind allocsize(0,1) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #6 = { uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #9 = { nounwind allocsize(0) }
-attributes #10 = { nounwind allocsize(1) }
-attributes #11 = { nounwind allocsize(0,1) }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #1 = { nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #2 = { nounwind allocsize(0) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #3 = { nounwind allocsize(1) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind allocsize(0,1) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #7 = { uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #8 = { nounwind }
+attributes #9 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #10 = { nounwind willreturn memory(read) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #12 = { nounwind allocsize(0) }
+attributes #13 = { nounwind allocsize(1) }
+attributes #14 = { nounwind allocsize(0,1) }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -985,5 +992,36 @@ attributes #12 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 1}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"long", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS14toku_instr_key", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS12LTM_STATUS_S", !5, i64 0}
+!14 = !{!15, !16, i64 1216}
+!15 = !{!"_ZTS12LTM_STATUS_S", !6, i64 0, !16, i64 1216}
+!16 = !{!"bool", !6, i64 0}
+!17 = !{i8 0, i8 2}
+!18 = !{}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"_ZTS24__toku_engine_status_row", !21, i64 0, !21, i64 8, !21, i64 16, !22, i64 24, !23, i64 28, !6, i64 32}
+!21 = !{!"p1 omnipotent char", !5, i64 0}
+!22 = !{!"_ZTS31toku_engine_status_display_type", !6, i64 0}
+!23 = !{!"_ZTS31toku_engine_status_include_type", !6, i64 0}
+!24 = !{!20, !21, i64 8}
+!25 = !{!20, !22, i64 24}
+!26 = !{!20, !21, i64 16}
+!27 = !{!20, !23, i64 28}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"int", !6, i64 0}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.mustprogress"}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS10__toku_dbt", !5, i64 0}
+!34 = !{!35, !5, i64 0}
+!35 = !{!"_ZTS10__toku_dbt", !5, i64 0, !9, i64 8, !9, i64 16, !29, i64 24}
+!36 = !{!35, !9, i64 8}

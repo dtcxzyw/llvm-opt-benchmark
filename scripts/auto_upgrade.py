@@ -127,6 +127,7 @@ supported_project = [
     "pybind11",
     "quest",
     "readerwriterqueue",
+    "rocksdb",
 ]
 
 modify_only = [

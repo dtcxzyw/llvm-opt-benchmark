@@ -1,126 +1,125 @@
 ; ModuleID = 'bench/rocksdb/original/murmurhash.ll'
 source_filename = "bench/rocksdb/original/murmurhash.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z13MurmurHash64APKvij(ptr noundef readonly %key, i32 noundef %len, i32 noundef %seed) local_unnamed_addr #0 {
-entry:
-  %conv = zext i32 %seed to i64
-  %conv1 = sext i32 %len to i64
-  %mul = mul i64 %conv1, -4132994306676758123
-  %xor = xor i64 %mul, %conv
-  %div = sdiv i32 %len, 8
-  %idx.ext = sext i32 %div to i64
-  %add.ptr = getelementptr inbounds i64, ptr %key, i64 %idx.ext
-  %len.off = add i32 %len, 7
-  %cmp.not31 = icmp ult i32 %len.off, 15
-  br i1 %cmp.not31, label %while.end, label %while.body
+define noundef i64 @_Z13MurmurHash64APKvij(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = zext i32 %2 to i64
+  %5 = sext i32 %1 to i64
+  %6 = mul i64 %5, -4132994306676758123
+  %7 = xor i64 %6, %4
+  %8 = sdiv i32 %1, 8
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds i64, ptr %0, i64 %9
+  %.off = add i32 %1, 7
+  %.not38 = icmp ult i32 %.off, 15
+  br i1 %.not38, label %._crit_edge, label %.lr.ph
 
-while.body:                                       ; preds = %entry, %while.body
-  %h.033 = phi i64 [ %mul6, %while.body ], [ %xor, %entry ]
-  %data.032 = phi ptr [ %incdec.ptr, %while.body ], [ %key, %entry ]
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %data.032, i64 8
-  %0 = load i64, ptr %data.032, align 8
-  %mul2 = mul i64 %0, -4132994306676758123
-  %shr = lshr i64 %mul2, 47
-  %xor3 = xor i64 %shr, %mul2
-  %mul4 = mul i64 %xor3, -4132994306676758123
-  %xor5 = xor i64 %mul4, %h.033
-  %mul6 = mul i64 %xor5, -4132994306676758123
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !4
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.040 = phi i64 [ %18, %.lr.ph ], [ %7, %3 ]
+  %.03739 = phi ptr [ %11, %.lr.ph ], [ %0, %3 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.03739, i64 8
+  %12 = load i64, ptr %.03739, align 8, !tbaa !4
+  %13 = mul i64 %12, -4132994306676758123
+  %14 = lshr i64 %13, 47
+  %15 = xor i64 %14, %13
+  %16 = mul i64 %15, -4132994306676758123
+  %17 = xor i64 %16, %.040
+  %18 = mul i64 %17, -4132994306676758123
+  %.not = icmp eq ptr %11, %10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-while.end:                                        ; preds = %while.body, %entry
-  %data.0.lcssa = phi ptr [ %key, %entry ], [ %add.ptr, %while.body ]
-  %h.0.lcssa = phi i64 [ %xor, %entry ], [ %mul6, %while.body ]
-  %and = and i32 %len, 7
-  switch i32 %and, label %default.unreachable35 [
-    i32 7, label %sw.bb
-    i32 6, label %sw.bb9
-    i32 5, label %sw.bb14
-    i32 4, label %sw.bb19
-    i32 3, label %sw.bb24
-    i32 2, label %sw.bb29
-    i32 1, label %sw.bb34
-    i32 0, label %sw.epilog
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  %.037.lcssa = phi ptr [ %0, %3 ], [ %10, %.lr.ph ]
+  %.0.lcssa = phi i64 [ %7, %3 ], [ %18, %.lr.ph ]
+  %19 = and i32 %1, 7
+  switch i32 %19, label %default.unreachable43 [
+    i32 7, label %20
+    i32 6, label %26
+    i32 5, label %32
+    i32 4, label %38
+    i32 3, label %44
+    i32 2, label %50
+    i32 1, label %56
+    i32 0, label %61
   ]
 
-sw.bb:                                            ; preds = %while.end
-  %arrayidx = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 6
-  %1 = load i8, ptr %arrayidx, align 1
-  %conv7 = zext i8 %1 to i64
-  %shl = shl nuw nsw i64 %conv7, 48
-  %xor8 = xor i64 %shl, %h.0.lcssa
-  br label %sw.bb9
+20:                                               ; preds = %._crit_edge
+  %21 = getelementptr inbounds nuw i8, ptr %.037.lcssa, i64 6
+  %22 = load i8, ptr %21, align 1, !tbaa !10
+  %23 = zext i8 %22 to i64
+  %24 = shl nuw nsw i64 %23, 48
+  %25 = xor i64 %24, %.0.lcssa
+  br label %26
 
-sw.bb9:                                           ; preds = %while.end, %sw.bb
-  %h.2 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor8, %sw.bb ]
-  %arrayidx10 = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 5
-  %2 = load i8, ptr %arrayidx10, align 1
-  %conv11 = zext i8 %2 to i64
-  %shl12 = shl nuw nsw i64 %conv11, 40
-  %xor13 = xor i64 %shl12, %h.2
-  br label %sw.bb14
+26:                                               ; preds = %._crit_edge, %20
+  %.2 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %25, %20 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.037.lcssa, i64 5
+  %28 = load i8, ptr %27, align 1, !tbaa !10
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, 40
+  %31 = xor i64 %30, %.2
+  br label %32
 
-sw.bb14:                                          ; preds = %while.end, %sw.bb9
-  %h.3 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor13, %sw.bb9 ]
-  %arrayidx15 = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 4
-  %3 = load i8, ptr %arrayidx15, align 1
-  %conv16 = zext i8 %3 to i64
-  %shl17 = shl nuw nsw i64 %conv16, 32
-  %xor18 = xor i64 %shl17, %h.3
-  br label %sw.bb19
+32:                                               ; preds = %._crit_edge, %26
+  %.3 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %31, %26 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.037.lcssa, i64 4
+  %34 = load i8, ptr %33, align 1, !tbaa !10
+  %35 = zext i8 %34 to i64
+  %36 = shl nuw nsw i64 %35, 32
+  %37 = xor i64 %36, %.3
+  br label %38
 
-sw.bb19:                                          ; preds = %while.end, %sw.bb14
-  %h.4 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor18, %sw.bb14 ]
-  %arrayidx20 = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 3
-  %4 = load i8, ptr %arrayidx20, align 1
-  %conv21 = zext i8 %4 to i64
-  %shl22 = shl nuw nsw i64 %conv21, 24
-  %xor23 = xor i64 %shl22, %h.4
-  br label %sw.bb24
+38:                                               ; preds = %._crit_edge, %32
+  %.4 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %37, %32 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.037.lcssa, i64 3
+  %40 = load i8, ptr %39, align 1, !tbaa !10
+  %41 = zext i8 %40 to i64
+  %42 = shl nuw nsw i64 %41, 24
+  %43 = xor i64 %42, %.4
+  br label %44
 
-sw.bb24:                                          ; preds = %while.end, %sw.bb19
-  %h.5 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor23, %sw.bb19 ]
-  %arrayidx25 = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 2
-  %5 = load i8, ptr %arrayidx25, align 1
-  %conv26 = zext i8 %5 to i64
-  %shl27 = shl nuw nsw i64 %conv26, 16
-  %xor28 = xor i64 %shl27, %h.5
-  br label %sw.bb29
+44:                                               ; preds = %._crit_edge, %38
+  %.5 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %43, %38 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.037.lcssa, i64 2
+  %46 = load i8, ptr %45, align 1, !tbaa !10
+  %47 = zext i8 %46 to i64
+  %48 = shl nuw nsw i64 %47, 16
+  %49 = xor i64 %48, %.5
+  br label %50
 
-sw.bb29:                                          ; preds = %while.end, %sw.bb24
-  %h.6 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor28, %sw.bb24 ]
-  %arrayidx30 = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 1
-  %6 = load i8, ptr %arrayidx30, align 1
-  %conv31 = zext i8 %6 to i64
-  %shl32 = shl nuw nsw i64 %conv31, 8
-  %xor33 = xor i64 %shl32, %h.6
-  br label %sw.bb34
+50:                                               ; preds = %._crit_edge, %44
+  %.6 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %49, %44 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.037.lcssa, i64 1
+  %52 = load i8, ptr %51, align 1, !tbaa !10
+  %53 = zext i8 %52 to i64
+  %54 = shl nuw nsw i64 %53, 8
+  %55 = xor i64 %54, %.6
+  br label %56
 
-sw.bb34:                                          ; preds = %while.end, %sw.bb29
-  %h.7 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor33, %sw.bb29 ]
-  %7 = load i8, ptr %data.0.lcssa, align 1
-  %conv36 = zext i8 %7 to i64
-  %xor37 = xor i64 %h.7, %conv36
-  %mul38 = mul i64 %xor37, -4132994306676758123
-  br label %sw.epilog
+56:                                               ; preds = %._crit_edge, %50
+  %.7 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %55, %50 ]
+  %57 = load i8, ptr %.037.lcssa, align 1, !tbaa !10
+  %58 = zext i8 %57 to i64
+  %59 = xor i64 %.7, %58
+  %60 = mul i64 %59, -4132994306676758123
+  br label %61
 
-default.unreachable35:                            ; preds = %while.end
+default.unreachable43:                            ; preds = %._crit_edge
   unreachable
 
-sw.epilog:                                        ; preds = %while.end, %sw.bb34
-  %h.1 = phi i64 [ %h.0.lcssa, %while.end ], [ %mul38, %sw.bb34 ]
-  %shr39 = lshr i64 %h.1, 47
-  %xor40 = xor i64 %shr39, %h.1
-  %mul41 = mul i64 %xor40, -4132994306676758123
-  %shr42 = lshr i64 %mul41, 47
-  %xor43 = xor i64 %shr42, %mul41
-  ret i64 %xor43
+61:                                               ; preds = %._crit_edge, %56
+  %.1 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %60, %56 ]
+  %62 = lshr i64 %.1, 47
+  %63 = xor i64 %62, %.1
+  %64 = mul i64 %63, -4132994306676758123
+  %65 = lshr i64 %64, 47
+  %66 = xor i64 %65, %64
+  ret i64 %66
 }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -128,5 +127,10 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 1}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"long", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!6, !6, i64 0}
