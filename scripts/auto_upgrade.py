@@ -125,6 +125,7 @@ supported_project = [
     "proj",
     "pugixml",
     "pybind11",
+    "quest",
 ]
 
 modify_only = [

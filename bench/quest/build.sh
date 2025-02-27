@@ -1,8 +1,12 @@
 #!/bin/bash
 
-mkdir -p bench_build
+rm -rf original
+mkdir original
+export DUMP_PREFIX=$(pwd)/original
+git -C QuEST apply ../patch
+rm -rf bench_build
+mkdir bench_build
 cd bench_build
-../../../scripts/configure_cmake.sh ../QuEST/QuEST -DBUILD_SHARED_LIBS=ON
+../../../scripts/configure_cmake.sh ../QuEST/QuEST -DBUILD_SHARED_LIBS=ON -DVERBOSE_CMAKE=ON
 cmake --build . -j
-cd ..
-find bench_build/CMakeFiles/QuEST.dir -name "*.o" -exec ../../scripts/extract_bc.sh {} \;
+git -C ../QuEST checkout .

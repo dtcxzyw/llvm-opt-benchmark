@@ -189,14 +189,14 @@ target triple = "x86_64-pc-linux-gnu"
 define void @createQureg(ptr dead_on_unwind noalias writable sret(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.Qureg, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !4
   tail call void @validateNumQubitsInQureg(i32 noundef %1, i32 noundef %6, ptr noundef nonnull @__func__.createQureg) #17
   tail call void @statevec_createQureg(ptr noundef %0, i32 noundef %1, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %2) #17
-  store i32 0, ptr %0, align 8
+  store i32 0, ptr %0, align 8, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %1, ptr %7, align 4
+  store i32 %1, ptr %7, align 4, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %8, align 8
+  store i32 %1, ptr %8, align 8, !tbaa !18
   tail call void @qasm_setup(ptr noundef nonnull %0) #17
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(136) %0, i64 136, i1 false)
@@ -224,14 +224,14 @@ define void @createDensityQureg(ptr dead_on_unwind noalias writable sret(%struct
   %4 = alloca %struct.Qureg, align 8
   %5 = shl nsw i32 %1, 1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !4
   tail call void @validateNumQubitsInQureg(i32 noundef %5, i32 noundef %7, ptr noundef nonnull @__func__.createDensityQureg) #17
   tail call void @statevec_createQureg(ptr noundef %0, i32 noundef %5, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %2) #17
-  store i32 1, ptr %0, align 8
+  store i32 1, ptr %0, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %1, ptr %8, align 4
+  store i32 %1, ptr %8, align 4, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %5, ptr %9, align 8
+  store i32 %5, ptr %9, align 8, !tbaa !18
   tail call void @qasm_setup(ptr noundef nonnull %0) #17
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(136) %0, i64 136, i1 false)
@@ -244,16 +244,16 @@ define void @createDensityQureg(ptr dead_on_unwind noalias writable sret(%struct
 ; Function Attrs: nounwind uwtable
 define void @createCloneQureg(ptr dead_on_unwind noalias writable sret(%struct.Qureg) align 8 %0, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %1, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8, !tbaa !18
   tail call void @statevec_createQureg(ptr noundef %0, i32 noundef %5, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %2) #17
-  %6 = load i32, ptr %1, align 8
-  store i32 %6, ptr %0, align 8
+  %6 = load i32, ptr %1, align 8, !tbaa !12
+  store i32 %6, ptr %0, align 8, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %8, ptr %9, align 4
+  store i32 %8, ptr %9, align 4, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %5, ptr %10, align 8
+  store i32 %5, ptr %10, align 8, !tbaa !18
   tail call void @qasm_setup(ptr noundef nonnull %0) #17
   tail call void @statevec_cloneQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %1) #17
   ret void
@@ -311,9 +311,15 @@ define void @writeRecordedQASMToFile(ptr noundef readonly byval(%struct.Qureg) a
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 declare i32 @qasm_writeRecordedToFile(ptr noundef byval(%struct.Qureg) align 8, ptr noundef) local_unnamed_addr #1
 
 declare void @validateFileOpened(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @statevec_initZeroState(ptr noundef byval(%struct.Qureg) align 8) local_unnamed_addr #1
 
@@ -332,7 +338,7 @@ declare void @qasm_recordComment(ptr noundef byval(%struct.Qureg) align 8, ptr n
 
 ; Function Attrs: nounwind uwtable
 define void @initPlusState(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8
+  %2 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %3
 
@@ -358,7 +364,7 @@ declare void @qasm_recordInitPlus(ptr noundef byval(%struct.Qureg) align 8) loca
 ; Function Attrs: nounwind uwtable
 define void @initClassicalState(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   tail call void @validateStateIndex(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, ptr noundef nonnull @__func__.initClassicalState) #17
-  %3 = load i32, ptr %0, align 8
+  %3 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
 
@@ -387,7 +393,7 @@ declare void @qasm_recordInitClassical(ptr noundef byval(%struct.Qureg) align 8,
 define void @initPureState(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %1) local_unnamed_addr #0 {
   tail call void @validateSecondQuregStateVec(ptr noundef nonnull byval(%struct.Qureg) align 8 %1, ptr noundef nonnull @__func__.initPureState) #17
   tail call void @validateMatchingQuregDims(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %1, ptr noundef nonnull @__func__.initPureState) #17
-  %3 = load i32, ptr %0, align 8
+  %3 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
 
@@ -413,7 +419,7 @@ declare void @densmatr_initPureState(ptr noundef byval(%struct.Qureg) align 8, p
 ; Function Attrs: nounwind uwtable
 define void @initStateFromAmps(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !19
   tail call void @statevec_setAmps(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef 0, ptr noundef %1, ptr noundef %2, i64 noundef %5) #17
   tail call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.1) #17
   ret void
@@ -452,13 +458,13 @@ declare void @densmatr_setQuregToPauliHamil(ptr noundef byval(%struct.Qureg) ali
 define void @hadamard(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.hadamard) #17
   tail call void @statevec_hadamard(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1) #17
-  %3 = load i32, ptr %0, align 8
+  %3 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = add nsw i32 %6, %1
   tail call void @statevec_hadamard(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %7) #17
   br label %8
@@ -478,13 +484,13 @@ declare void @qasm_recordGate(ptr noundef byval(%struct.Qureg) align 8, i32 noun
 define void @rotateX(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.rotateX) #17
   tail call void @statevec_rotateX(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double noundef %2) #17
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = add nsw i32 %7, %1
   %9 = fneg double %2
   tail call void @statevec_rotateX(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %8, double noundef %9) #17
@@ -503,13 +509,13 @@ declare void @qasm_recordParamGate(ptr noundef byval(%struct.Qureg) align 8, i32
 define void @rotateY(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.rotateY) #17
   tail call void @statevec_rotateY(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double noundef %2) #17
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = add nsw i32 %7, %1
   tail call void @statevec_rotateY(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %8, double noundef %2) #17
   br label %9
@@ -525,13 +531,13 @@ declare void @statevec_rotateY(ptr noundef byval(%struct.Qureg) align 8, i32 nou
 define void @rotateZ(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.rotateZ) #17
   tail call void @statevec_rotateZ(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double noundef %2) #17
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = add nsw i32 %7, %1
   %9 = fneg double %2
   tail call void @statevec_rotateZ(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %8, double noundef %9) #17
@@ -548,13 +554,13 @@ declare void @statevec_rotateZ(ptr noundef byval(%struct.Qureg) align 8, i32 nou
 define void @controlledRotateX(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
   tail call void @validateControlTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.controlledRotateX) #17
   tail call void @statevec_controlledRotateX(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double noundef %3) #17
-  %5 = load i32, ptr %0, align 8
+  %5 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   %9 = add nsw i32 %8, %1
   %10 = add nsw i32 %8, %2
   %11 = fneg double %3
@@ -576,13 +582,13 @@ declare void @qasm_recordControlledParamGate(ptr noundef byval(%struct.Qureg) al
 define void @controlledRotateY(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
   tail call void @validateControlTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.controlledRotateY) #17
   tail call void @statevec_controlledRotateY(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double noundef %3) #17
-  %5 = load i32, ptr %0, align 8
+  %5 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   %9 = add nsw i32 %8, %1
   %10 = add nsw i32 %8, %2
   tail call void @statevec_controlledRotateY(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %9, i32 noundef %10, double noundef %3) #17
@@ -599,13 +605,13 @@ declare void @statevec_controlledRotateY(ptr noundef byval(%struct.Qureg) align 
 define void @controlledRotateZ(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
   tail call void @validateControlTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.controlledRotateZ) #17
   tail call void @statevec_controlledRotateZ(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double noundef %3) #17
-  %5 = load i32, ptr %0, align 8
+  %5 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   %9 = add nsw i32 %8, %1
   %10 = add nsw i32 %8, %2
   %11 = fneg double %3
@@ -623,19 +629,19 @@ declare void @statevec_controlledRotateZ(ptr noundef byval(%struct.Qureg) align 
 define void @twoQubitUnitary(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly byval(%struct.ComplexMatrix4) align 8 captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [2 x i32], align 4
   %6 = alloca %struct.ComplexMatrix4, align 8
-  store i32 %1, ptr %5, align 4
+  store i32 %1, ptr %5, align 4, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %2, ptr %7, align 4
+  store i32 %2, ptr %7, align 4, !tbaa !20
   call void @validateMultiTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull @__func__.twoQubitUnitary) #17
   call void @validateTwoQubitUnitaryMatrix(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %3, ptr noundef nonnull @__func__.twoQubitUnitary) #17
   call void @statevec_twoQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %3) #17
-  %8 = load i32, ptr %0, align 8
+  %8 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %14, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !17
   %12 = add nsw i32 %11, %1
   %13 = add nsw i32 %11, %2
   call void @getConjugateMatrix4(ptr dead_on_unwind nonnull writable sret(%struct.ComplexMatrix4) align 8 %6, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %3) #17
@@ -660,20 +666,20 @@ define void @controlledTwoQubitUnitary(ptr noundef readonly byval(%struct.Qureg)
   %6 = alloca [1 x i32], align 4
   %7 = alloca [2 x i32], align 4
   %8 = alloca %struct.ComplexMatrix4, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
+  store i32 %1, ptr %6, align 4, !tbaa !20
+  store i32 %2, ptr %7, align 4, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %3, ptr %9, align 4
+  store i32 %3, ptr %9, align 4, !tbaa !20
   call void @validateMultiControlsMultiTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7, i32 noundef 2, ptr noundef nonnull @__func__.controlledTwoQubitUnitary) #17
   call void @validateTwoQubitUnitaryMatrix(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %4, ptr noundef nonnull @__func__.controlledTwoQubitUnitary) #17
   call void @statevec_controlledTwoQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %4) #17
-  %10 = load i32, ptr %0, align 8
+  %10 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 4, !tbaa !17
   %14 = add nsw i32 %13, %1
   %15 = add nsw i32 %13, %2
   %16 = add nsw i32 %13, %3
@@ -694,20 +700,20 @@ declare void @statevec_controlledTwoQubitUnitary(ptr noundef byval(%struct.Qureg
 define void @multiControlledTwoQubitUnitary(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly byval(%struct.ComplexMatrix4) align 8 captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca [2 x i32], align 4
   %8 = alloca %struct.ComplexMatrix4, align 8
-  store i32 %3, ptr %7, align 4
+  store i32 %3, ptr %7, align 4, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %4, ptr %9, align 4
+  store i32 %4, ptr %9, align 4, !tbaa !20
   call void @validateMultiControlsMultiTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7, i32 noundef 2, ptr noundef nonnull @__func__.multiControlledTwoQubitUnitary) #17
   call void @validateTwoQubitUnitaryMatrix(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %5, ptr noundef nonnull @__func__.multiControlledTwoQubitUnitary) #17
   %10 = call i64 @getQubitBitMask(ptr noundef %1, i32 noundef %2) #17
   call void @statevec_multiControlledTwoQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %10, i32 noundef %3, i32 noundef %4, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %5) #17
-  %11 = load i32, ptr %0, align 8
+  %11 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %19, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 4, !tbaa !17
   %15 = zext nneg i32 %14 to i64
   %16 = shl i64 %10, %15
   %17 = add nsw i32 %14, %3
@@ -730,13 +736,13 @@ define void @multiQubitUnitary(ptr noundef readonly byval(%struct.Qureg) align 8
   tail call void @validateMultiTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.multiQubitUnitary) #17
   tail call void @validateMultiQubitUnitaryMatrix(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %3, i32 noundef %2, ptr noundef nonnull @__func__.multiQubitUnitary) #17
   tail call void @statevec_multiQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %3) #17
-  %5 = load i32, ptr %0, align 8
+  %5 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   tail call void @shiftIndices(ptr noundef %1, i32 noundef %2, i32 noundef %8) #17
   tail call void @setConjugateMatrixN(ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %3) #17
   tail call void @statevec_multiQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %3) #17
@@ -761,17 +767,17 @@ declare void @setConjugateMatrixN(ptr noundef byval(%struct.ComplexMatrixN) alig
 ; Function Attrs: nounwind uwtable
 define void @controlledMultiQubitUnitary(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [1 x i32], align 4
-  store i32 %1, ptr %6, align 4
+  store i32 %1, ptr %6, align 4, !tbaa !20
   call void @validateMultiControlsMultiTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %6, i32 noundef 1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @__func__.controlledMultiQubitUnitary) #17
   call void @validateMultiQubitUnitaryMatrix(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %4, i32 noundef %3, ptr noundef nonnull @__func__.controlledMultiQubitUnitary) #17
   call void @statevec_controlledMultiQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %4) #17
-  %7 = load i32, ptr %0, align 8
+  %7 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !17
   call void @shiftIndices(ptr noundef %2, i32 noundef %3, i32 noundef %10) #17
   call void @setConjugateMatrixN(ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %4) #17
   %11 = add nsw i32 %10, %1
@@ -794,13 +800,13 @@ define void @multiControlledMultiQubitUnitary(ptr noundef readonly byval(%struct
   tail call void @validateMultiQubitUnitaryMatrix(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %5, i32 noundef %4, ptr noundef nonnull @__func__.multiControlledMultiQubitUnitary) #17
   %7 = tail call i64 @getQubitBitMask(ptr noundef %1, i32 noundef %2) #17
   tail call void @statevec_multiControlledMultiQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %7, ptr noundef %3, i32 noundef %4, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %5) #17
-  %8 = load i32, ptr %0, align 8
+  %8 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !17
   tail call void @shiftIndices(ptr noundef %3, i32 noundef %4, i32 noundef %11) #17
   tail call void @setConjugateMatrixN(ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %5) #17
   %12 = zext nneg i32 %11 to i64
@@ -824,13 +830,13 @@ define void @unitary(ptr noundef readonly byval(%struct.Qureg) align 8 captures(
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.unitary) #17
   tail call void @validateOneQubitUnitaryMatrix(ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %2, ptr noundef nonnull @__func__.unitary) #17
   tail call void @statevec_unitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %2) #17
-  %5 = load i32, ptr %0, align 8
+  %5 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   %9 = add nsw i32 %8, %1
   call void @getConjugateMatrix2(ptr dead_on_unwind nonnull writable sret(%struct.ComplexMatrix2) align 8 %4, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %2) #17
   call void @statevec_unitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %9, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %4) #17
@@ -855,13 +861,13 @@ define void @controlledUnitary(ptr noundef readonly byval(%struct.Qureg) align 8
   tail call void @validateControlTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.controlledUnitary) #17
   tail call void @validateOneQubitUnitaryMatrix(ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %3, ptr noundef nonnull @__func__.controlledUnitary) #17
   tail call void @statevec_controlledUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %3) #17
-  %6 = load i32, ptr %0, align 8
+  %6 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !17
   %10 = add nsw i32 %9, %1
   %11 = add nsw i32 %9, %2
   call void @getConjugateMatrix2(ptr dead_on_unwind nonnull writable sret(%struct.ComplexMatrix2) align 8 %5, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %3) #17
@@ -884,13 +890,13 @@ define void @multiControlledUnitary(ptr noundef readonly byval(%struct.Qureg) al
   tail call void @validateOneQubitUnitaryMatrix(ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %4, ptr noundef nonnull @__func__.multiControlledUnitary) #17
   %7 = tail call i64 @getQubitBitMask(ptr noundef %1, i32 noundef %2) #17
   tail call void @statevec_multiControlledUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %7, i64 noundef 0, i32 noundef %3, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %4) #17
-  %8 = load i32, ptr %0, align 8
+  %8 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !17
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %7, %12
   %14 = add nsw i32 %11, %3
@@ -918,13 +924,13 @@ define void @multiStateControlledUnitary(ptr noundef readonly byval(%struct.Qure
   %8 = tail call i64 @getQubitBitMask(ptr noundef %1, i32 noundef %3) #17
   %9 = tail call i64 @getControlFlipMask(ptr noundef %1, ptr noundef %2, i32 noundef %3) #17
   tail call void @statevec_multiControlledUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %8, i64 noundef %9, i32 noundef %4, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %5) #17
-  %10 = load i32, ptr %0, align 8
+  %10 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %18, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 4, !tbaa !17
   %14 = zext i32 %13 to i64
   %15 = shl i64 %8, %14
   %16 = shl i64 %9, %14
@@ -949,13 +955,13 @@ define void @compactUnitary(ptr noundef readonly byval(%struct.Qureg) align 8 ca
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.compactUnitary) #17
   tail call void @validateUnitaryComplexPair(double %2, double %3, double %4, double %5, ptr noundef nonnull @__func__.compactUnitary) #17
   tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %2, double %3, double %4, double %5) #17
-  %7 = load i32, ptr %0, align 8
+  %7 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %18, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = add nsw i32 %10, %1
   %12 = tail call { double, double } @getConjugateScalar(double %2, double %3) #17
   %13 = extractvalue { double, double } %12, 0
@@ -984,13 +990,13 @@ define void @controlledCompactUnitary(ptr noundef readonly byval(%struct.Qureg) 
   tail call void @validateControlTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.controlledCompactUnitary) #17
   tail call void @validateUnitaryComplexPair(double %3, double %4, double %5, double %6, ptr noundef nonnull @__func__.controlledCompactUnitary) #17
   tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %3, double %4, double %5, double %6) #17
-  %8 = load i32, ptr %0, align 8
+  %8 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %20, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !17
   %12 = add nsw i32 %11, %1
   %13 = add nsw i32 %11, %2
   %14 = tail call { double, double } @getConjugateScalar(double %3, double %4) #17
@@ -1015,13 +1021,13 @@ declare void @qasm_recordControlledCompactUnitary(ptr noundef byval(%struct.Qure
 define void @pauliX(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.pauliX) #17
   tail call void @statevec_pauliX(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1) #17
-  %3 = load i32, ptr %0, align 8
+  %3 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = add nsw i32 %6, %1
   tail call void @statevec_pauliX(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %7) #17
   br label %8
@@ -1037,13 +1043,13 @@ declare void @statevec_pauliX(ptr noundef byval(%struct.Qureg) align 8, i32 noun
 define void @pauliY(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.pauliY) #17
   tail call void @statevec_pauliY(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1) #17
-  %3 = load i32, ptr %0, align 8
+  %3 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = add nsw i32 %6, %1
   tail call void @statevec_pauliYConj(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %7) #17
   br label %8
@@ -1061,13 +1067,13 @@ declare void @statevec_pauliYConj(ptr noundef byval(%struct.Qureg) align 8, i32 
 define void @pauliZ(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.pauliZ) #17
   tail call void @statevec_pauliZ(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1) #17
-  %3 = load i32, ptr %0, align 8
+  %3 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = add nsw i32 %6, %1
   tail call void @statevec_pauliZ(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %7) #17
   br label %8
@@ -1083,13 +1089,13 @@ declare void @statevec_pauliZ(ptr noundef byval(%struct.Qureg) align 8, i32 noun
 define void @sGate(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.sGate) #17
   tail call void @statevec_sGate(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1) #17
-  %3 = load i32, ptr %0, align 8
+  %3 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = add nsw i32 %6, %1
   tail call void @statevec_sGateConj(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %7) #17
   br label %8
@@ -1107,13 +1113,13 @@ declare void @statevec_sGateConj(ptr noundef byval(%struct.Qureg) align 8, i32 n
 define void @tGate(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.tGate) #17
   tail call void @statevec_tGate(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1) #17
-  %3 = load i32, ptr %0, align 8
+  %3 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = add nsw i32 %6, %1
   tail call void @statevec_tGateConj(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %7) #17
   br label %8
@@ -1131,13 +1137,13 @@ declare void @statevec_tGateConj(ptr noundef byval(%struct.Qureg) align 8, i32 n
 define void @phaseShift(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.phaseShift) #17
   tail call void @statevec_phaseShift(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double noundef %2) #17
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = add nsw i32 %7, %1
   %9 = fneg double %2
   tail call void @statevec_phaseShift(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %8, double noundef %9) #17
@@ -1154,13 +1160,13 @@ declare void @statevec_phaseShift(ptr noundef byval(%struct.Qureg) align 8, i32 
 define void @controlledPhaseShift(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
   tail call void @validateControlTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.controlledPhaseShift) #17
   tail call void @statevec_controlledPhaseShift(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double noundef %3) #17
-  %5 = load i32, ptr %0, align 8
+  %5 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   %9 = add nsw i32 %8, %1
   %10 = add nsw i32 %8, %2
   %11 = fneg double %3
@@ -1178,13 +1184,13 @@ declare void @statevec_controlledPhaseShift(ptr noundef byval(%struct.Qureg) ali
 define void @multiControlledPhaseShift(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
   tail call void @validateMultiQubits(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.multiControlledPhaseShift) #17
   tail call void @statevec_multiControlledPhaseShift(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, double noundef %3) #17
-  %5 = load i32, ptr %0, align 8
+  %5 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   tail call void @shiftIndices(ptr noundef %1, i32 noundef %2, i32 noundef %8) #17
   %9 = fneg double %3
   tail call void @statevec_multiControlledPhaseShift(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, double noundef %9) #17
@@ -1196,7 +1202,7 @@ define void @multiControlledPhaseShift(ptr noundef readonly byval(%struct.Qureg)
   %12 = add nsw i32 %2, -1
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i32, ptr %1, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 4, !tbaa !20
   tail call void @qasm_recordMultiControlledParamGate(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 11, ptr noundef %1, i32 noundef %12, i32 noundef %15, double noundef %3) #17
   ret void
 }
@@ -1211,13 +1217,13 @@ declare void @qasm_recordMultiControlledParamGate(ptr noundef byval(%struct.Qure
 define void @controlledNot(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @validateControlTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.controlledNot) #17
   tail call void @statevec_controlledNot(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) #17
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = add nsw i32 %7, %1
   %9 = add nsw i32 %7, %2
   tail call void @statevec_controlledNot(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %8, i32 noundef %9) #17
@@ -1238,13 +1244,13 @@ define void @multiQubitNot(ptr noundef readonly byval(%struct.Qureg) align 8 cap
   %4 = tail call i64 @getQubitBitMask(ptr noundef %1, i32 noundef %2) #17
   %5 = trunc i64 %4 to i32
   tail call void @statevec_multiControlledMultiQubitNot(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 0, i32 noundef %5) #17
-  %6 = load i32, ptr %0, align 8
+  %6 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !17
   %10 = zext nneg i32 %9 to i64
   %11 = shl i64 %4, %10
   %12 = trunc i64 %11 to i32
@@ -1268,13 +1274,13 @@ define void @multiControlledMultiQubitNot(ptr noundef readonly byval(%struct.Qur
   %8 = trunc i64 %6 to i32
   %9 = trunc i64 %7 to i32
   tail call void @statevec_multiControlledMultiQubitNot(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %8, i32 noundef %9) #17
-  %10 = load i32, ptr %0, align 8
+  %10 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %19, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 4, !tbaa !17
   %14 = zext i32 %13 to i64
   %15 = shl i64 %6, %14
   %16 = trunc i64 %15 to i32
@@ -1292,13 +1298,13 @@ define void @multiControlledMultiQubitNot(ptr noundef readonly byval(%struct.Qur
 define void @controlledPauliY(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @validateControlTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.controlledPauliY) #17
   tail call void @statevec_controlledPauliY(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) #17
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = add nsw i32 %7, %1
   %9 = add nsw i32 %7, %2
   tail call void @statevec_controlledPauliYConj(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %8, i32 noundef %9) #17
@@ -1317,13 +1323,13 @@ declare void @statevec_controlledPauliYConj(ptr noundef byval(%struct.Qureg) ali
 define void @controlledPhaseFlip(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @validateControlTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.controlledPhaseFlip) #17
   tail call void @statevec_controlledPhaseFlip(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) #17
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = add nsw i32 %7, %1
   %9 = add nsw i32 %7, %2
   tail call void @statevec_controlledPhaseFlip(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %8, i32 noundef %9) #17
@@ -1340,13 +1346,13 @@ declare void @statevec_controlledPhaseFlip(ptr noundef byval(%struct.Qureg) alig
 define void @multiControlledPhaseFlip(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @validateMultiQubits(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.multiControlledPhaseFlip) #17
   tail call void @statevec_multiControlledPhaseFlip(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2) #17
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !17
   tail call void @shiftIndices(ptr noundef %1, i32 noundef %2, i32 noundef %7) #17
   tail call void @statevec_multiControlledPhaseFlip(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2) #17
   %8 = sub nsw i32 0, %7
@@ -1357,7 +1363,7 @@ define void @multiControlledPhaseFlip(ptr noundef readonly byval(%struct.Qureg) 
   %10 = add nsw i32 %2, -1
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i32, ptr %1, i64 %11
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 4, !tbaa !20
   tail call void @qasm_recordMultiControlledGate(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 2, ptr noundef %1, i32 noundef %10, i32 noundef %13) #17
   ret void
 }
@@ -1371,13 +1377,13 @@ define void @rotateAroundAxis(ptr noundef readonly byval(%struct.Qureg) align 8 
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.rotateAroundAxis) #17
   tail call void @validateVector(ptr noundef nonnull byval(%struct.Vector) align 8 %3, ptr noundef nonnull @__func__.rotateAroundAxis) #17
   tail call void @statevec_rotateAroundAxis(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double noundef %2, ptr noundef nonnull byval(%struct.Vector) align 8 %3) #17
-  %5 = load i32, ptr %0, align 8
+  %5 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   %9 = add nsw i32 %8, %1
   tail call void @statevec_rotateAroundAxisConj(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %9, double noundef %2, ptr noundef nonnull byval(%struct.Vector) align 8 %3) #17
   br label %10
@@ -1400,13 +1406,13 @@ define void @controlledRotateAroundAxis(ptr noundef readonly byval(%struct.Qureg
   tail call void @validateControlTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.controlledRotateAroundAxis) #17
   tail call void @validateVector(ptr noundef nonnull byval(%struct.Vector) align 8 %4, ptr noundef nonnull @__func__.controlledRotateAroundAxis) #17
   tail call void @statevec_controlledRotateAroundAxis(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef nonnull byval(%struct.Vector) align 8 %4) #17
-  %6 = load i32, ptr %0, align 8
+  %6 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !17
   %10 = add nsw i32 %9, %1
   %11 = add nsw i32 %9, %2
   tail call void @statevec_controlledRotateAroundAxisConj(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %10, i32 noundef %11, double noundef %3, ptr noundef nonnull byval(%struct.Vector) align 8 %4) #17
@@ -1427,13 +1433,13 @@ declare void @qasm_recordControlledAxisRotation(ptr noundef byval(%struct.Qureg)
 define void @swapGate(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @validateUniqueTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.swapGate) #17
   tail call void @statevec_swapQubitAmps(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) #17
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = add nsw i32 %7, %1
   %9 = add nsw i32 %7, %2
   tail call void @statevec_swapQubitAmps(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %8, i32 noundef %9) #17
@@ -1453,13 +1459,13 @@ define void @sqrtSwapGate(ptr noundef readonly byval(%struct.Qureg) align 8 capt
   tail call void @validateUniqueTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.sqrtSwapGate) #17
   tail call void @validateMultiQubitMatrixFitsInNode(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 2, ptr noundef nonnull @__func__.sqrtSwapGate) #17
   tail call void @statevec_sqrtSwapGate(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) #17
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = add nsw i32 %7, %1
   %9 = add nsw i32 %7, %2
   tail call void @statevec_sqrtSwapGateConj(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %8, i32 noundef %9) #17
@@ -1481,13 +1487,13 @@ define void @multiRotateZ(ptr noundef readonly byval(%struct.Qureg) align 8 capt
   tail call void @validateMultiTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.multiRotateZ) #17
   %5 = tail call i64 @getQubitBitMask(ptr noundef %1, i32 noundef %2) #17
   tail call void @statevec_multiRotateZ(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %5, double noundef %3) #17
-  %6 = load i32, ptr %0, align 8
+  %6 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !17
   %10 = zext nneg i32 %9 to i64
   %11 = shl i64 %5, %10
   %12 = fneg double %3
@@ -1507,13 +1513,13 @@ define void @multiControlledMultiRotateZ(ptr noundef readonly byval(%struct.Qure
   %7 = tail call i64 @getQubitBitMask(ptr noundef %1, i32 noundef %2) #17
   %8 = tail call i64 @getQubitBitMask(ptr noundef %3, i32 noundef %4) #17
   tail call void @statevec_multiControlledMultiRotateZ(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %7, i64 noundef %8, double noundef %5) #17
-  %9 = load i32, ptr %0, align 8
+  %9 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %17, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !17
   %13 = zext i32 %12 to i64
   %14 = shl i64 %7, %13
   %15 = shl i64 %8, %13
@@ -1533,13 +1539,13 @@ define void @multiRotatePauli(ptr noundef readonly byval(%struct.Qureg) align 8 
   tail call void @validateMultiTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %3, ptr noundef nonnull @__func__.multiRotatePauli) #17
   tail call void @validatePauliCodes(ptr noundef %2, i32 noundef %3, ptr noundef nonnull @__func__.multiRotatePauli) #17
   tail call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, double noundef %4, i32 noundef 0) #17
-  %6 = load i32, ptr %0, align 8
+  %6 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !17
   tail call void @shiftIndices(ptr noundef %1, i32 noundef %3, i32 noundef %9) #17
   tail call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, double noundef %4, i32 noundef 1) #17
   %10 = sub nsw i32 0, %9
@@ -1561,13 +1567,13 @@ define void @multiControlledMultiRotatePauli(ptr noundef readonly byval(%struct.
   tail call void @validatePauliCodes(ptr noundef %4, i32 noundef %5, ptr noundef nonnull @__func__.multiControlledMultiRotatePauli) #17
   %8 = tail call i64 @getQubitBitMask(ptr noundef %1, i32 noundef %2) #17
   tail call void @statevec_multiControlledMultiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %8, ptr noundef %3, ptr noundef %4, i32 noundef %5, double noundef %6, i32 noundef 0) #17
-  %9 = load i32, ptr %0, align 8
+  %9 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !17
   tail call void @shiftIndices(ptr noundef %3, i32 noundef %5, i32 noundef %12) #17
   %13 = zext nneg i32 %12 to i64
   %14 = shl i64 %8, %13
@@ -1589,13 +1595,13 @@ define void @applyPhaseFunc(ptr noundef readonly byval(%struct.Qureg) align 8 ca
   tail call void @validateBitEncoding(i32 noundef %2, i32 noundef %3, ptr noundef nonnull @__func__.applyPhaseFunc) #17
   tail call void @validatePhaseFuncTerms(i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef null, i32 noundef 0, ptr noundef nonnull @__func__.applyPhaseFunc) #17
   tail call void @statevec_applyPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #17
-  %8 = load i32, ptr %0, align 8
+  %8 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !17
   tail call void @shiftIndices(ptr noundef %1, i32 noundef %2, i32 noundef %11) #17
   tail call void @statevec_applyPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 1) #17
   %12 = sub nsw i32 0, %11
@@ -1622,13 +1628,13 @@ define void @applyPhaseFuncOverrides(ptr noundef readonly byval(%struct.Qureg) a
   tail call void @validatePhaseFuncOverrides(i32 noundef %2, i32 noundef %3, ptr noundef %7, i32 noundef %9, ptr noundef nonnull @__func__.applyPhaseFuncOverrides) #17
   tail call void @validatePhaseFuncTerms(i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %9, ptr noundef nonnull @__func__.applyPhaseFuncOverrides) #17
   tail call void @statevec_applyPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %9, i32 noundef 0) #17
-  %11 = load i32, ptr %0, align 8
+  %11 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 4, !tbaa !17
   tail call void @shiftIndices(ptr noundef %1, i32 noundef %2, i32 noundef %14) #17
   tail call void @statevec_applyPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %9, i32 noundef 1) #17
   %15 = sub nsw i32 0, %14
@@ -1648,13 +1654,13 @@ define void @applyMultiVarPhaseFunc(ptr noundef readonly byval(%struct.Qureg) al
   tail call void @validateMultiRegBitEncoding(ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull @__func__.applyMultiVarPhaseFunc) #17
   tail call void @validateMultiVarPhaseFuncTerms(ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %6, ptr noundef %7, ptr noundef nonnull @__func__.applyMultiVarPhaseFunc) #17
   tail call void @statevec_applyMultiVarPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #17
-  %9 = load i32, ptr %0, align 8
+  %9 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !17
   tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %12) #17
   tail call void @statevec_applyMultiVarPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 1) #17
   %13 = sub nsw i32 0, %12
@@ -1685,13 +1691,13 @@ define void @applyMultiVarPhaseFuncOverrides(ptr noundef readonly byval(%struct.
   tail call void @validateMultiVarPhaseFuncTerms(ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %6, ptr noundef %7, ptr noundef nonnull @__func__.applyMultiVarPhaseFuncOverrides) #17
   tail call void @validateMultiVarPhaseFuncOverrides(ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %8, i32 noundef %10, ptr noundef nonnull @__func__.applyMultiVarPhaseFuncOverrides) #17
   tail call void @statevec_applyMultiVarPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef 0) #17
-  %12 = load i32, ptr %0, align 8
+  %12 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 4, !tbaa !17
   tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %15) #17
   tail call void @statevec_applyMultiVarPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef 1) #17
   %16 = sub nsw i32 0, %15
@@ -1711,13 +1717,13 @@ define void @applyNamedPhaseFunc(ptr noundef readonly byval(%struct.Qureg) align
   tail call void @validateMultiRegBitEncoding(ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull @__func__.applyNamedPhaseFunc) #17
   tail call void @validatePhaseFuncName(i32 noundef %5, i32 noundef %3, i32 noundef 0, ptr noundef nonnull @__func__.applyNamedPhaseFunc) #17
   tail call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #17
-  %7 = load i32, ptr %0, align 8
+  %7 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !17
   tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %10) #17
   tail call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 1) #17
   %11 = sub nsw i32 0, %10
@@ -1742,13 +1748,13 @@ define void @applyNamedPhaseFuncOverrides(ptr noundef readonly byval(%struct.Qur
   tail call void @validatePhaseFuncName(i32 noundef %5, i32 noundef %3, i32 noundef 0, ptr noundef nonnull @__func__.applyNamedPhaseFuncOverrides) #17
   tail call void @validateMultiVarPhaseFuncOverrides(ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %6, i32 noundef %8, ptr noundef nonnull @__func__.applyNamedPhaseFuncOverrides) #17
   tail call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef null, i32 noundef 0, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef 0) #17
-  %10 = load i32, ptr %0, align 8
+  %10 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %15, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 4, !tbaa !17
   tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %13) #17
   tail call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef null, i32 noundef 0, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef 1) #17
   %14 = sub nsw i32 0, %13
@@ -1766,13 +1772,13 @@ define void @applyParamNamedPhaseFunc(ptr noundef readonly byval(%struct.Qureg) 
   tail call void @validateMultiRegBitEncoding(ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull @__func__.applyParamNamedPhaseFunc) #17
   tail call void @validatePhaseFuncName(i32 noundef %5, i32 noundef %3, i32 noundef %7, ptr noundef nonnull @__func__.applyParamNamedPhaseFunc) #17
   tail call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #17
-  %9 = load i32, ptr %0, align 8
+  %9 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !17
   tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %12) #17
   tail call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 1) #17
   %13 = sub nsw i32 0, %12
@@ -1791,13 +1797,13 @@ define void @applyParamNamedPhaseFuncOverrides(ptr noundef readonly byval(%struc
   tail call void @validatePhaseFuncName(i32 noundef %5, i32 noundef %3, i32 noundef %7, ptr noundef nonnull @__func__.applyParamNamedPhaseFuncOverrides) #17
   tail call void @validateMultiVarPhaseFuncOverrides(ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %8, i32 noundef %10, ptr noundef nonnull @__func__.applyParamNamedPhaseFuncOverrides) #17
   tail call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef 0) #17
-  %12 = load i32, ptr %0, align 8
+  %12 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 4, !tbaa !17
   tail call void @shiftSubregIndices(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %15) #17
   tail call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef 1) #17
   %16 = sub nsw i32 0, %15
@@ -1824,8 +1830,9 @@ declare void @agnostic_applyQFT(ptr noundef byval(%struct.Qureg) align 8, ptr no
 define void @applyFullQFT(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [100 x i32], align 16
   tail call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.12) #17
+  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %2) #17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !17
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1833,26 +1840,27 @@ define void @applyFullQFT(ptr noundef readonly byval(%struct.Qureg) align 8 capt
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph
 
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  call void @agnostic_applyQFT(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %2, i32 noundef %4) #17
+  call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.13) #17
+  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %2) #17
+  ret void
+
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds nuw [100 x i32], ptr %2, i64 0, i64 %indvars.iv
   %7 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %7, ptr %6, align 4
+  store i32 %7, ptr %6, align 4, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
-
-._crit_edge:                                      ; preds = %.lr.ph, %1
-  call void @agnostic_applyQFT(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %2, i32 noundef %4) #17
-  call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.13) #17
-  ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @applyProjector(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.applyProjector) #17
   tail call void @validateOutcome(i32 noundef %2, ptr noundef nonnull @__func__.applyProjector) #17
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
 
@@ -1880,13 +1888,13 @@ define void @diagonalUnitary(ptr noundef readonly byval(%struct.Qureg) align 8 c
   tail call void @validateSubDiagOpTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull byval(%struct.SubDiagonalOp) align 8 %3, ptr noundef nonnull @__func__.diagonalUnitary) #17
   tail call void @validateUnitarySubDiagOp(ptr noundef nonnull byval(%struct.SubDiagonalOp) align 8 %3, ptr noundef nonnull @__func__.diagonalUnitary) #17
   tail call void @statevec_applySubDiagonalOp(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef nonnull byval(%struct.SubDiagonalOp) align 8 %3, i32 noundef 0) #17
-  %5 = load i32, ptr %0, align 8
+  %5 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   tail call void @shiftIndices(ptr noundef %1, i32 noundef %2, i32 noundef %8) #17
   tail call void @statevec_applySubDiagonalOp(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef nonnull byval(%struct.SubDiagonalOp) align 8 %3, i32 noundef 1) #17
   %9 = sub nsw i32 0, %8
@@ -1905,9 +1913,9 @@ declare void @validateUnitarySubDiagOp(ptr noundef byval(%struct.SubDiagonalOp) 
 declare void @statevec_applySubDiagonalOp(ptr noundef byval(%struct.Qureg) align 8, ptr noundef, ptr noundef byval(%struct.SubDiagonalOp) align 8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @getNumQubits(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #2 {
+define i32 @getNumQubits(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4
+  %3 = load i32, ptr %2, align 4, !tbaa !17
   ret i32 %3
 }
 
@@ -1915,7 +1923,7 @@ define i32 @getNumQubits(ptr noundef readonly byval(%struct.Qureg) align 8 captu
 define i64 @getNumAmps(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #0 {
   tail call void @validateStateVecQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @__func__.getNumAmps) #17
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i64, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8, !tbaa !19
   ret i64 %3
 }
 
@@ -1970,7 +1978,7 @@ define { double, double } @getDensityAmp(ptr noundef readonly byval(%struct.Qure
   tail call void @validateAmpIndex(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, ptr noundef nonnull @__func__.getDensityAmp) #17
   tail call void @validateAmpIndex(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %2, ptr noundef nonnull @__func__.getDensityAmp) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !17
   %6 = zext nneg i32 %5 to i64
   %7 = shl i64 %2, %6
   %8 = add nsw i64 %7, %1
@@ -1985,7 +1993,7 @@ define { double, double } @getDensityAmp(ptr noundef readonly byval(%struct.Qure
 define noundef double @collapseToOutcome(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.collapseToOutcome) #17
   tail call void @validateOutcome(i32 noundef %2, ptr noundef nonnull @__func__.collapseToOutcome) #17
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
@@ -2018,7 +2026,7 @@ declare void @qasm_recordMeasurement(ptr noundef byval(%struct.Qureg) align 8, i
 ; Function Attrs: nounwind uwtable
 define i32 @measureWithStats(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.measureWithStats) #17
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
@@ -2044,7 +2052,8 @@ declare i32 @statevec_measureWithStats(ptr noundef byval(%struct.Qureg) align 8,
 define i32 @measure(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.measure) #17
-  %4 = load i32, ptr %0, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  %4 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
@@ -2059,6 +2068,7 @@ define i32 @measure(ptr noundef readonly byval(%struct.Qureg) align 8 captures(n
 9:                                                ; preds = %7, %5
   %.0 = phi i32 [ %6, %5 ], [ %8, %7 ]
   call void @qasm_recordMeasurement(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   ret i32 %.0
 }
 
@@ -2092,7 +2102,7 @@ define void @setDensityAmps(ptr noundef readonly byval(%struct.Qureg) align 8 ca
   tail call void @validateDensityMatrQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @__func__.setDensityAmps) #17
   tail call void @validateNumDensityAmps(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef %2, i64 noundef %5, ptr noundef nonnull @__func__.setDensityAmps) #17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   %9 = shl nuw i32 1, %8
   %10 = sext i32 %9 to i64
   %11 = mul nsw i64 %2, %10
@@ -2123,7 +2133,7 @@ define void @applyPauliSum(ptr noundef readonly byval(%struct.Qureg) align 8 cap
   tail call void @validateMatchingQuregDims(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %4, ptr noundef nonnull @__func__.applyPauliSum) #17
   tail call void @validateNumPauliSumTerms(i32 noundef %3, ptr noundef nonnull @__func__.applyPauliSum) #17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = mul nsw i32 %7, %3
   tail call void @validatePauliCodes(ptr noundef %1, i32 noundef %8, ptr noundef nonnull @__func__.applyPauliSum) #17
   tail call void @statevec_applyPauliSum(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull byval(%struct.Qureg) align 8 %4) #17
@@ -2141,11 +2151,11 @@ define void @applyPauliHamil(ptr noundef readonly byval(%struct.Qureg) align 8 c
   tail call void @validateMatchingQuregDims(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %2, ptr noundef nonnull @__func__.applyPauliHamil) #17
   tail call void @validatePauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1, ptr noundef nonnull @__func__.applyPauliHamil) #17
   tail call void @validateMatchingQuregPauliHamilDims(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1, ptr noundef nonnull @__func__.applyPauliHamil) #17
-  %4 = load ptr, ptr %1, align 8
+  %4 = load ptr, ptr %1, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !24
   tail call void @statevec_applyPauliSum(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %4, ptr noundef %6, i32 noundef %8, ptr noundef nonnull byval(%struct.Qureg) align 8 %2) #17
   tail call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %2, ptr noundef nonnull @.str.20) #17
   ret void
@@ -2177,9 +2187,9 @@ define void @applyMatrix2(ptr noundef readonly byval(%struct.Qureg) align 8 capt
 ; Function Attrs: nounwind uwtable
 define void @applyMatrix4(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly byval(%struct.ComplexMatrix4) align 8 captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [2 x i32], align 4
-  store i32 %1, ptr %5, align 4
+  store i32 %1, ptr %5, align 4, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %2, ptr %6, align 4
+  store i32 %2, ptr %6, align 4, !tbaa !20
   call void @validateMultiTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull @__func__.applyMatrix4) #17
   call void @validateMultiQubitMatrixFitsInNode(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 2, ptr noundef nonnull @__func__.applyMatrix4) #17
   call void @statevec_twoQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %3) #17
@@ -2204,13 +2214,13 @@ define void @applyGateMatrixN(ptr noundef readonly byval(%struct.Qureg) align 8 
   tail call void @validateMultiTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.applyGateMatrixN) #17
   tail call void @validateMultiQubitMatrix(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %3, i32 noundef %2, ptr noundef nonnull @__func__.applyGateMatrixN) #17
   tail call void @statevec_multiQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %3) #17
-  %5 = load i32, ptr %0, align 8
+  %5 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   tail call void @shiftIndices(ptr noundef %1, i32 noundef %2, i32 noundef %8) #17
   tail call void @setConjugateMatrixN(ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %3) #17
   tail call void @statevec_multiQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %3) #17
@@ -2231,13 +2241,13 @@ define void @applyMultiControlledGateMatrixN(ptr noundef readonly byval(%struct.
   tail call void @validateMultiQubitMatrix(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %5, i32 noundef %4, ptr noundef nonnull @__func__.applyMultiControlledGateMatrixN) #17
   %7 = tail call i64 @getQubitBitMask(ptr noundef %1, i32 noundef %2) #17
   tail call void @statevec_multiControlledMultiQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %7, ptr noundef %3, i32 noundef %4, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %5) #17
-  %8 = load i32, ptr %0, align 8
+  %8 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !17
   tail call void @shiftIndices(ptr noundef %3, i32 noundef %4, i32 noundef %11) #17
   tail call void @setConjugateMatrixN(ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %5) #17
   %12 = zext nneg i32 %11 to i64
@@ -2269,7 +2279,7 @@ define void @applyMultiControlledMatrixN(ptr noundef readonly byval(%struct.Qure
 ; Function Attrs: nounwind uwtable
 define void @applyDiagonalOp(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.DiagonalOp) align 8 captures(none) %1) local_unnamed_addr #0 {
   tail call void @validateDiagonalOp(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %1, ptr noundef nonnull @__func__.applyDiagonalOp) #17
-  %3 = load i32, ptr %0, align 8
+  %3 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
 
@@ -2304,13 +2314,13 @@ define void @applySubDiagonalOp(ptr noundef readonly byval(%struct.Qureg) align 
 define void @applyGateSubDiagonalOp(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly byval(%struct.SubDiagonalOp) align 8 captures(none) %3) local_unnamed_addr #0 {
   tail call void @validateSubDiagOpTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull byval(%struct.SubDiagonalOp) align 8 %3, ptr noundef nonnull @__func__.applyGateSubDiagonalOp) #17
   tail call void @statevec_applySubDiagonalOp(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef nonnull byval(%struct.SubDiagonalOp) align 8 %3, i32 noundef 0) #17
-  %5 = load i32, ptr %0, align 8
+  %5 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   tail call void @shiftIndices(ptr noundef %1, i32 noundef %2, i32 noundef %8) #17
   tail call void @statevec_applySubDiagonalOp(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef nonnull byval(%struct.SubDiagonalOp) align 8 %3, i32 noundef 1) #17
   %9 = sub nsw i32 0, %8
@@ -2324,7 +2334,7 @@ define void @applyGateSubDiagonalOp(ptr noundef readonly byval(%struct.Qureg) al
 
 ; Function Attrs: nounwind uwtable
 define double @calcTotalProb(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8
+  %2 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
@@ -2371,7 +2381,7 @@ declare double @densmatr_calcInnerProduct(ptr noundef byval(%struct.Qureg) align
 define double @calcProbOfOutcome(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @validateTarget(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull @__func__.calcProbOfOutcome) #17
   tail call void @validateOutcome(i32 noundef %2, ptr noundef nonnull @__func__.calcProbOfOutcome) #17
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
@@ -2391,7 +2401,7 @@ define double @calcProbOfOutcome(ptr noundef readonly byval(%struct.Qureg) align
 ; Function Attrs: nounwind uwtable
 define void @calcProbOfAllOutcomes(ptr noundef %0, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   tail call void @validateMultiTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @__func__.calcProbOfAllOutcomes) #17
-  %5 = load i32, ptr %1, align 8
+  %5 = load i32, ptr %1, align 8, !tbaa !12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6
 
@@ -2424,7 +2434,7 @@ declare double @densmatr_calcPurity(ptr noundef byval(%struct.Qureg) align 8) lo
 define double @calcFidelity(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %1) local_unnamed_addr #0 {
   tail call void @validateSecondQuregStateVec(ptr noundef nonnull byval(%struct.Qureg) align 8 %1, ptr noundef nonnull @__func__.calcFidelity) #17
   tail call void @validateMatchingQuregDims(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %1, ptr noundef nonnull @__func__.calcFidelity) #17
-  %3 = load i32, ptr %0, align 8
+  %3 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
 
@@ -2461,7 +2471,7 @@ declare double @statevec_calcExpecPauliProd(ptr noundef byval(%struct.Qureg) ali
 define double @calcExpecPauliSum(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %4) local_unnamed_addr #0 {
   tail call void @validateNumPauliSumTerms(i32 noundef %3, ptr noundef nonnull @__func__.calcExpecPauliSum) #17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = mul nsw i32 %7, %3
   tail call void @validatePauliCodes(ptr noundef %1, i32 noundef %8, ptr noundef nonnull @__func__.calcExpecPauliSum) #17
   tail call void @validateMatchingQuregTypes(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %4, ptr noundef nonnull @__func__.calcExpecPauliSum) #17
@@ -2478,11 +2488,11 @@ define double @calcExpecPauliHamil(ptr noundef readonly byval(%struct.Qureg) ali
   tail call void @validateMatchingQuregDims(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %2, ptr noundef nonnull @__func__.calcExpecPauliHamil) #17
   tail call void @validatePauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1, ptr noundef nonnull @__func__.calcExpecPauliHamil) #17
   tail call void @validateMatchingQuregPauliHamilDims(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1, ptr noundef nonnull @__func__.calcExpecPauliHamil) #17
-  %4 = load ptr, ptr %1, align 8
+  %4 = load ptr, ptr %1, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !24
   %9 = tail call double @statevec_calcExpecPauliSum(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %4, ptr noundef %6, i32 noundef %8, ptr noundef nonnull byval(%struct.Qureg) align 8 %2) #17
   ret double %9
 }
@@ -2490,7 +2500,7 @@ define double @calcExpecPauliHamil(ptr noundef readonly byval(%struct.Qureg) ali
 ; Function Attrs: nounwind uwtable
 define { double, double } @calcExpecDiagonalOp(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.DiagonalOp) align 8 captures(none) %1) local_unnamed_addr #0 {
   tail call void @validateDiagonalOp(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %1, ptr noundef nonnull @__func__.calcExpecDiagonalOp) #17
-  %3 = load i32, ptr %0, align 8
+  %3 = load i32, ptr %0, align 8, !tbaa !12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
 
@@ -2541,19 +2551,19 @@ declare void @densmatr_mixDephasing(ptr noundef byval(%struct.Qureg) align 8, i3
 define void @mixTwoQubitDephasing(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
+  store i32 %1, ptr %5, align 4, !tbaa !20
+  store i32 %2, ptr %6, align 4, !tbaa !20
   tail call void @validateDensityMatrQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @__func__.mixTwoQubitDephasing) #17
   tail call void @validateUniqueTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.mixTwoQubitDephasing) #17
   tail call void @validateTwoQubitDephaseProb(double noundef %3, ptr noundef nonnull @__func__.mixTwoQubitDephasing) #17
   call void @ensureIndsIncrease(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
-  %7 = load i32, ptr %5, align 4
-  %8 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %5, align 4, !tbaa !20
+  %8 = load i32, ptr %6, align 4, !tbaa !20
   %9 = fmul double %3, 4.000000e+00
   %10 = fdiv double %9, 3.000000e+00
   call void @densmatr_mixTwoQubitDephasing(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %7, i32 noundef %8, double noundef %10) #17
-  %11 = load i32, ptr %5, align 4
-  %12 = load i32, ptr %6, align 4
+  %11 = load i32, ptr %5, align 4, !tbaa !20
+  %12 = load i32, ptr %6, align 4, !tbaa !20
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.33, i32 noundef %11, i32 noundef %12, double noundef %3) #17
   ret void
 }
@@ -2597,19 +2607,19 @@ declare void @densmatr_mixDamping(ptr noundef byval(%struct.Qureg) align 8, i32 
 define void @mixTwoQubitDepolarising(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
+  store i32 %1, ptr %5, align 4, !tbaa !20
+  store i32 %2, ptr %6, align 4, !tbaa !20
   tail call void @validateDensityMatrQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @__func__.mixTwoQubitDepolarising) #17
   tail call void @validateUniqueTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.mixTwoQubitDepolarising) #17
   tail call void @validateTwoQubitDepolProb(double noundef %3, ptr noundef nonnull @__func__.mixTwoQubitDepolarising) #17
   call void @ensureIndsIncrease(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
-  %7 = load i32, ptr %5, align 4
-  %8 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %5, align 4, !tbaa !20
+  %8 = load i32, ptr %6, align 4, !tbaa !20
   %9 = fmul double %3, 1.600000e+01
   %10 = fdiv double %9, 1.500000e+01
   call void @densmatr_mixTwoQubitDepolarising(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %7, i32 noundef %8, double noundef %10) #17
-  %11 = load i32, ptr %5, align 4
-  %12 = load i32, ptr %6, align 4
+  %11 = load i32, ptr %5, align 4, !tbaa !20
+  %12 = load i32, ptr %6, align 4, !tbaa !20
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.35, i32 noundef %11, i32 noundef %12, double noundef %3) #17
   ret void
 }
@@ -2650,9 +2660,9 @@ declare void @densmatr_mixKrausMap(ptr noundef byval(%struct.Qureg) align 8, i32
 define void @mixTwoQubitKrausMap(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [2 x i32], align 4
   tail call void @validateDensityMatrQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @__func__.mixTwoQubitKrausMap) #17
-  store i32 %1, ptr %6, align 4
+  store i32 %1, ptr %6, align 4, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %2, ptr %7, align 4
+  store i32 %2, ptr %7, align 4, !tbaa !20
   call void @validateMultiTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull @__func__.mixTwoQubitKrausMap) #17
   call void @validateTwoQubitKrausMap(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %3, i32 noundef %4, ptr noundef nonnull @__func__.mixTwoQubitKrausMap) #17
   call void @densmatr_mixTwoQubitKrausMap(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #17
@@ -2694,9 +2704,9 @@ declare void @validateOneQubitKrausMapDimensions(ptr noundef byval(%struct.Qureg
 define void @mixNonTPTwoQubitKrausMap(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [2 x i32], align 4
   tail call void @validateDensityMatrQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @__func__.mixNonTPTwoQubitKrausMap) #17
-  store i32 %1, ptr %6, align 4
+  store i32 %1, ptr %6, align 4, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %2, ptr %7, align 4
+  store i32 %2, ptr %7, align 4, !tbaa !20
   call void @validateMultiTargets(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull @__func__.mixNonTPTwoQubitKrausMap) #17
   call void @validateTwoQubitKrausMapDimensions(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %3, i32 noundef %4, ptr noundef nonnull @__func__.mixNonTPTwoQubitKrausMap) #17
   call void @densmatr_mixTwoQubitKrausMap(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #17
@@ -2719,18 +2729,20 @@ define void @mixNonTPMultiQubitKrausMap(ptr noundef readonly byval(%struct.Qureg
 declare void @validateMultiQubitKrausMapDimensions(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @createComplexMatrixN(ptr dead_on_unwind noalias writable sret(%struct.ComplexMatrixN) align 8 captures(none) initializes((0, 4), (8, 24)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @createComplexMatrixN(ptr dead_on_unwind noalias writable sret(%struct.ComplexMatrixN) align 8 captures(none) initializes((0, 24)) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @validateNumQubitsInMatrix(i32 noundef %1, ptr noundef nonnull @__func__.createComplexMatrixN) #17
   %3 = shl nuw i32 1, %1
-  store i32 %1, ptr %0, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = sext i32 %3 to i64
-  %6 = shl nsw i64 %5, 3
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #18
-  store ptr %7, ptr %4, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = tail call noalias ptr @malloc(i64 noundef %6) #18
-  store ptr %9, ptr %8, align 8
+  store i32 %1, ptr %0, align 8, !tbaa !25
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %4, align 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = sext i32 %3 to i64
+  %7 = shl nsw i64 %6, 3
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #18
+  store ptr %8, ptr %5, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = tail call noalias ptr @malloc(i64 noundef %7) #18
+  store ptr %10, ptr %9, align 8, !tbaa !29
   %.not = icmp eq i32 %1, 31
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -2739,82 +2751,85 @@ define void @createComplexMatrixN(ptr dead_on_unwind noalias writable sret(%stru
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #19
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  store ptr %10, ptr %11, align 8
-  %12 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #19
-  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
-  store ptr %12, ptr %13, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
-
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   tail call void @validateMatrixInit(ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %0, ptr noundef nonnull @__func__.createComplexMatrixN) #17
   ret void
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %11 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #19
+  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  store ptr %11, ptr %12, align 8, !tbaa !30
+  %13 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #19
+  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  store ptr %13, ptr %14, align 8, !tbaa !30
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 declare void @validateNumQubitsInMatrix(i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 declare void @validateMatrixInit(ptr noundef byval(%struct.ComplexMatrixN) align 8, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @destroyComplexMatrixN(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0) local_unnamed_addr #0 {
   tail call void @validateMatrixInit(ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %0, ptr noundef nonnull @__func__.destroyComplexMatrixN) #17
-  %2 = load i32, ptr %0, align 8
+  %2 = load i32, ptr %0, align 8, !tbaa !25
   %.not = icmp eq i32 %2, 31
   br i1 %.not, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !28
   %.phi.trans.insert7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre8 = load ptr, ptr %.phi.trans.insert7, align 8
+  %.pre8 = load ptr, ptr %.phi.trans.insert7, align 8, !tbaa !29
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %3 = shl nuw nsw i32 1, %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %8
+  br label %10
 
-8:                                                ; preds = %.lr.ph, %8
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8
-  tail call void @free(ptr noundef %10) #17
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8
+._crit_edge:                                      ; preds = %10, %.._crit_edge_crit_edge
+  %8 = phi ptr [ %.pre8, %.._crit_edge_crit_edge ], [ %7, %10 ]
+  %9 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %5, %10 ]
+  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef %8) #17
+  ret void
+
+10:                                               ; preds = %.lr.ph, %10
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
+  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
   tail call void @free(ptr noundef %12) #17
+  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  tail call void @free(ptr noundef %14) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8
-
-._crit_edge:                                      ; preds = %8, %.._crit_edge_crit_edge
-  %13 = phi ptr [ %.pre8, %.._crit_edge_crit_edge ], [ %7, %8 ]
-  %14 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %5, %8 ]
-  tail call void @free(ptr noundef %14) #17
-  tail call void @free(ptr noundef %13) #17
-  ret void
+  br i1 %exitcond.not, label %._crit_edge, label %10
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define void @initComplexMatrixN(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !25
   tail call void @validateMatrixInit(ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %0, ptr noundef nonnull @__func__.initComplexMatrixN) #17
   %.not = icmp eq i32 %4, 31
   br i1 %.not, label %._crit_edge19, label %.preheader.lr.ph
@@ -2834,27 +2849,27 @@ define void @initComplexMatrixN(ptr noundef readonly byval(%struct.ComplexMatrix
   %11 = shl i64 %indvars.iv21, %6
   %12 = getelementptr inbounds double, ptr %1, i64 %11
   %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv21
-  %14 = getelementptr inbounds double, ptr %2, i64 %11
-  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv21
-  br label %16
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  %15 = getelementptr inbounds double, ptr %2, i64 %11
+  %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv21
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
+  br label %18
 
-16:                                               ; preds = %.preheader.us, %16
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
-  %18 = load double, ptr %17, align 8
-  %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
-  store double %18, ptr %20, align 8
+18:                                               ; preds = %.preheader.us, %18
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %18 ]
+  %19 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
+  %20 = load double, ptr %19, align 8, !tbaa !31
   %21 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
-  %22 = load double, ptr %21, align 8
-  %23 = load ptr, ptr %15, align 8
-  %24 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
-  store double %22, ptr %24, align 8
+  store double %20, ptr %21, align 8, !tbaa !31
+  %22 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
+  %23 = load double, ptr %22, align 8, !tbaa !31
+  %24 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
+  store double %23, ptr %24, align 8, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count24
-  br i1 %exitcond.not, label %._crit_edge.us, label %16
+  br i1 %exitcond.not, label %._crit_edge.us, label %18
 
-._crit_edge.us:                                   ; preds = %16
+._crit_edge.us:                                   ; preds = %18
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
   br i1 %exitcond25.not, label %._crit_edge19, label %.preheader.us
@@ -2867,26 +2882,26 @@ define void @initComplexMatrixN(ptr noundef readonly byval(%struct.ComplexMatrix
 define void @createPauliHamil(ptr dead_on_unwind noalias writable writeonly sret(%struct.PauliHamil) align 8 captures(none) initializes((0, 24)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @validateHamilParams(i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.createPauliHamil) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %1, ptr %4, align 4
+  store i32 %1, ptr %4, align 4, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %5, align 8
+  store i32 %2, ptr %5, align 8, !tbaa !24
   %6 = sext i32 %2 to i64
   %7 = shl nsw i64 %6, 3
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #18
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %9, align 8
+  store ptr %8, ptr %9, align 8, !tbaa !23
   %10 = mul nsw i32 %2, %1
   %11 = sext i32 %10 to i64
   %12 = shl nsw i64 %11, 2
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #18
-  store ptr %13, ptr %0, align 8
+  store ptr %13, ptr %0, align 8, !tbaa !21
   %14 = icmp sgt i32 %10, 0
   br i1 %14, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %3
   %15 = zext nneg i32 %10 to i64
   %16 = shl nuw nsw i64 %15, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %13, i8 0, i64 %16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %13, i8 0, i64 %16, i1 false), !tbaa !20
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %3
@@ -2896,11 +2911,11 @@ define void @createPauliHamil(ptr dead_on_unwind noalias writable writeonly sret
 declare void @validateHamilParams(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @destroyPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %0) local_unnamed_addr #6 {
+define void @destroyPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
   tail call void @free(ptr noundef %3) #17
-  %4 = load ptr, ptr %0, align 8
+  %4 = load ptr, ptr %0, align 8, !tbaa !21
   tail call void @free(ptr noundef %4) #17
   ret void
 }
@@ -2969,32 +2984,33 @@ define void @createPauliHamilFromFile(ptr dead_on_unwind noalias writable sret(%
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14
   %spec.select71 = phi i32 [ 0, %14 ], [ %25, %._crit_edge.loopexit ]
   tail call void @validateHamilFileParams(i32 noundef %spec.select69, i32 noundef %spec.select71, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  tail call void @validateHamilParams(i32 noundef %spec.select69, i32 noundef %spec.select71, ptr noundef nonnull @__func__.createPauliHamil) #17, !noalias !5
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  tail call void @validateHamilParams(i32 noundef %spec.select69, i32 noundef %spec.select71, ptr noundef nonnull @__func__.createPauliHamil) #17, !noalias !34
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %spec.select69, ptr %26, align 4, !alias.scope !5
+  store i32 %spec.select69, ptr %26, align 4, !tbaa !33, !alias.scope !34
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %spec.select71, ptr %27, align 8, !alias.scope !5
+  store i32 %spec.select71, ptr %27, align 8, !tbaa !24, !alias.scope !34
   %28 = zext i32 %spec.select71 to i64
   %29 = shl nuw nsw i64 %28, 3
   %30 = tail call noalias ptr @malloc(i64 noundef %29) #18
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %30, ptr %31, align 8, !alias.scope !5
+  store ptr %30, ptr %31, align 8, !tbaa !23, !alias.scope !34
   %32 = mul nsw i32 %spec.select71, %spec.select69
   %33 = sext i32 %32 to i64
   %34 = shl nsw i64 %33, 2
   %35 = tail call noalias ptr @malloc(i64 noundef %34) #18
-  store ptr %35, ptr %0, align 8, !alias.scope !5
+  store ptr %35, ptr %0, align 8, !tbaa !21, !alias.scope !34
   %36 = icmp sgt i32 %32, 0
   br i1 %36, label %.lr.ph.preheader.i, label %createPauliHamil.exit
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
   %37 = zext nneg i32 %32 to i64
   %38 = shl nuw nsw i64 %37, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %38, i1 false), !noalias !5
+  tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %38, i1 false), !tbaa !20, !noalias !34
   br label %createPauliHamil.exit
 
 createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.ph.preheader.i
+  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %3) #17
   store i32 6712357, ptr %3, align 16
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3)
   %endptr = getelementptr inbounds i8, ptr %3, i64 %strlen
@@ -3024,15 +3040,17 @@ createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.p
 
 46:                                               ; preds = %.lr.ph80.us, %46
   %indvars.iv88 = phi i64 [ 0, %.lr.ph80.us ], [ %indvars.iv.next89, %46 ]
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
   %47 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull @.str.46, ptr noundef nonnull %4) #17
   %48 = icmp eq i32 %47, 1
   %49 = zext i1 %48 to i32
-  %50 = load i32, ptr %4, align 4
+  %50 = load i32, ptr %4, align 4, !tbaa !20
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv88
-  store i32 %50, ptr %gep, align 4
+  store i32 %50, ptr %gep, align 4, !tbaa !20
   call void @validateHamilFilePauliParsed(i32 noundef %49, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
-  %51 = load i32, ptr %gep, align 4
+  %51 = load i32, ptr %gep, align 4, !tbaa !20
   call void @validateHamilFilePauliCode(i32 noundef %51, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next89, %40
   br i1 %exitcond92.not, label %._crit_edge81.us, label %46
@@ -3042,30 +3060,31 @@ createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.p
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %28
   br i1 %exitcond97.not, label %._crit_edge84, label %.lr.ph80.us
 
+._crit_edge84:                                    ; preds = %.lr.ph83.split, %._crit_edge81.us, %createPauliHamil.exit
+  %52 = call i32 @fclose(ptr noundef %5)
+  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %3) #17
+  ret void
+
 .lr.ph83.split:                                   ; preds = %.lr.ph83, %.lr.ph83.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph83.split ], [ 0, %.lr.ph83 ]
-  %52 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
-  %53 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull %3, ptr noundef %52) #17
-  %54 = icmp eq i32 %53, 1
-  %55 = zext i1 %54 to i32
-  call void @validateHamilFileCoeffParsed(i32 noundef %55, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
+  %53 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
+  %54 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull %3, ptr noundef %53) #17
+  %55 = icmp eq i32 %54, 1
+  %56 = zext i1 %55 to i32
+  call void @validateHamilFileCoeffParsed(i32 noundef %56, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %exitcond.not, label %._crit_edge84, label %.lr.ph83.split
-
-._crit_edge84:                                    ; preds = %.lr.ph83.split, %._crit_edge81.us, %createPauliHamil.exit
-  %56 = call i32 @fclose(ptr noundef %5)
-  ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #7
+declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @validateHamilFileParams(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3078,14 +3097,14 @@ declare void @validateHamilFilePauliParsed(i32 noundef, ptr noundef byval(%struc
 declare void @validateHamilFilePauliCode(i32 noundef, ptr noundef byval(%struct.PauliHamil) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define void @initPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !24
   tail call void @validateHamilParams(i32 noundef %5, i32 noundef %7, ptr noundef nonnull @__func__.initPauliHamil) #17
   %8 = mul nsw i32 %7, %5
   tail call void @validatePauliCodes(ptr noundef %2, i32 noundef %8, ptr noundef nonnull @__func__.initPauliHamil) #17
@@ -3094,7 +3113,7 @@ define void @initPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align
 
 .lr.ph18:                                         ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !23
   %12 = icmp sgt i32 %5, 0
   %13 = load ptr, ptr %0, align 8
   %wide.trip.count30 = zext nneg i32 %7 to i64
@@ -3104,9 +3123,9 @@ define void @initPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %._crit_edge.us ], [ 0, %.lr.ph18 ]
   %.01215.us = phi i32 [ %18, %._crit_edge.us ], [ 0, %.lr.ph18 ]
   %14 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv27
-  %15 = load double, ptr %14, align 8
+  %15 = load double, ptr %14, align 8, !tbaa !31
   %16 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv27
-  store double %15, ptr %16, align 8
+  store double %15, ptr %16, align 8, !tbaa !31
   %17 = sext i32 %.01215.us to i64
   %18 = add i32 %5, %.01215.us
   br label %19
@@ -3114,9 +3133,9 @@ define void @initPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align
 19:                                               ; preds = %.lr.ph.us, %19
   %indvars.iv23 = phi i64 [ %17, %.lr.ph.us ], [ %indvars.iv.next24, %19 ]
   %20 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv23
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 4, !tbaa !20
   %22 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv23
-  store i32 %21, ptr %22, align 4
+  store i32 %21, ptr %22, align 4, !tbaa !20
   %indvars.iv.next24 = add nsw i64 %indvars.iv23, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next24 to i32
   %exitcond26.not = icmp eq i32 %18, %lftr.wideiv
@@ -3127,24 +3146,24 @@ define void @initPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align
   %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
   br i1 %exitcond31.not, label %._crit_edge19, label %.lr.ph.us
 
+._crit_edge19:                                    ; preds = %.lr.ph18.split, %._crit_edge.us, %3
+  ret void
+
 .lr.ph18.split:                                   ; preds = %.lr.ph18, %.lr.ph18.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph18.split ], [ 0, %.lr.ph18 ]
   %23 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  %24 = load double, ptr %23, align 8
+  %24 = load double, ptr %23, align 8, !tbaa !31
   %25 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
-  store double %24, ptr %25, align 8
+  store double %24, ptr %25, align 8, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count30
   br i1 %exitcond.not, label %._crit_edge19, label %.lr.ph18.split
-
-._crit_edge19:                                    ; preds = %.lr.ph18.split, %._crit_edge.us, %3
-  ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @createDiagonalOp(ptr dead_on_unwind noalias writable sret(%struct.DiagonalOp) align 8 %0, i32 noundef %1, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !4
   tail call void @validateNumQubitsInDiagOp(i32 noundef %1, i32 noundef %5, ptr noundef nonnull @__func__.createDiagonalOp) #17
   tail call void @agnostic_createDiagonalOp(ptr dead_on_unwind writable sret(%struct.DiagonalOp) align 8 %0, i32 noundef %1, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %2) #17
   ret void
@@ -3177,7 +3196,7 @@ declare void @agnostic_syncDiagonalOp(ptr noundef byval(%struct.DiagonalOp) alig
 ; Function Attrs: nounwind uwtable
 define void @initDiagonalOp(ptr noundef readonly byval(%struct.DiagonalOp) align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void @validateDiagOpInit(ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %0, ptr noundef nonnull @__func__.initDiagonalOp) #17
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !37
   %5 = zext nneg i32 %4 to i64
   %6 = shl nuw i64 1, %5
   tail call void @agnostic_setDiagonalOpElems(ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %0, i64 noundef 0, ptr noundef %1, ptr noundef %2, i64 noundef %6) #17
@@ -3199,9 +3218,9 @@ declare void @validateNumElems(ptr noundef byval(%struct.DiagonalOp) align 8, i6
 ; Function Attrs: nounwind uwtable
 define void @initDiagonalOpFromPauliHamil(ptr noundef readonly byval(%struct.DiagonalOp) align 8 captures(none) %0, ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i32, ptr %5, align 8
+  %6 = load i32, ptr %5, align 8, !tbaa !24
   tail call void @validateHamilParams(i32 noundef %4, i32 noundef %6, ptr noundef nonnull @__func__.initDiagonalOpFromPauliHamil) #17
   tail call void @validateDiagOpInit(ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %0, ptr noundef nonnull @__func__.initDiagonalOpFromPauliHamil) #17
   tail call void @validateDiagPauliHamil(ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %0, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1, ptr noundef nonnull @__func__.initDiagonalOpFromPauliHamil) #17
@@ -3216,12 +3235,13 @@ declare void @agnostic_initDiagonalOpFromPauliHamil(ptr noundef byval(%struct.Di
 ; Function Attrs: nounwind uwtable
 define void @createDiagonalOpFromPauliHamilFile(ptr dead_on_unwind noalias writable sret(%struct.DiagonalOp) align 8 %0, ptr noundef %1, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PauliHamil, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
   call void @createPauliHamilFromFile(ptr dead_on_unwind nonnull writable sret(%struct.PauliHamil) align 8 %4, ptr noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !4
   tail call void @validateDiagPauliHamilFromFile(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %4, i32 noundef %6, ptr noundef nonnull @__func__.createDiagonalOpFromPauliHamilFile) #17
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !33
   tail call void @agnostic_createDiagonalOp(ptr dead_on_unwind writable sret(%struct.DiagonalOp) align 8 %0, i32 noundef %8, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %2) #17
   tail call void @agnostic_initDiagonalOpFromPauliHamil(ptr noundef byval(%struct.DiagonalOp) align 8 %0, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %4) #17
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8
@@ -3229,6 +3249,7 @@ define void @createDiagonalOpFromPauliHamilFile(ptr dead_on_unwind noalias writa
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   tail call void @free(ptr noundef %.sroa.4.0.copyload) #17
   tail call void @free(ptr noundef %.sroa.0.0.copyload) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
   ret void
 }
 
@@ -3237,29 +3258,29 @@ declare void @validateDiagPauliHamilFromFile(ptr noundef byval(%struct.PauliHami
 ; Function Attrs: nounwind uwtable
 define void @createSubDiagonalOp(ptr dead_on_unwind noalias writable writeonly sret(%struct.SubDiagonalOp) align 8 captures(none) initializes((0, 4), (8, 32)) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @validateNumQubitsInSubDiagOp(i32 noundef %1, ptr noundef nonnull @__func__.createSubDiagonalOp) #17
-  store i32 %1, ptr %0, align 8
+  store i32 %1, ptr %0, align 8, !tbaa !39
   %3 = zext nneg i32 %1 to i64
   %4 = shl nuw i64 1, %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %4, ptr %5, align 8
+  store i64 %4, ptr %5, align 8, !tbaa !41
   %6 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 8) #19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %7, align 8
+  store ptr %6, ptr %7, align 8, !tbaa !42
   %8 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 8) #19
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %8, ptr %9, align 8
+  store ptr %8, ptr %9, align 8, !tbaa !43
   ret void
 }
 
 declare void @validateNumQubitsInSubDiagOp(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @destroySubDiagonalOp(ptr noundef readonly byval(%struct.SubDiagonalOp) align 8 captures(none) %0) local_unnamed_addr #6 {
+define void @destroySubDiagonalOp(ptr noundef readonly byval(%struct.SubDiagonalOp) align 8 captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !42
   tail call void @free(ptr noundef %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
   tail call void @free(ptr noundef %5) #17
   ret void
 }
@@ -3284,13 +3305,13 @@ declare void @statevec_reportStateToScreen(ptr noundef byval(%struct.Qureg) alig
 define void @reportPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %0) local_unnamed_addr #0 {
   tail call void @validatePauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef nonnull @__func__.reportPauliHamil) #17
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8
+  %3 = load i32, ptr %2, align 8, !tbaa !24
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph13, label %._crit_edge14
 
 .lr.ph13:                                         ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %.fr15 = freeze i32 %8
@@ -3310,7 +3331,7 @@ define void @reportPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) ali
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv23 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next24, %._crit_edge.us ]
   %12 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv23
-  %13 = load double, ptr %12, align 8
+  %13 = load double, ptr %12, align 8, !tbaa !31
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, double noundef %13)
   %putchar.us = tail call i32 @putchar(i32 9)
   %15 = mul nuw nsw i64 %indvars.iv23, %11
@@ -3320,7 +3341,7 @@ define void @reportPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) ali
 17:                                               ; preds = %.lr.ph.us, %17
   %indvars.iv18 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next19, %17 ]
   %18 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv18
-  %19 = load i32, ptr %18, align 4
+  %19 = load i32, ptr %18, align 4, !tbaa !20
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i32 noundef %19)
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next19, %11
@@ -3332,34 +3353,36 @@ define void @reportPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) ali
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count26
   br i1 %exitcond27.not, label %._crit_edge14, label %.lr.ph.us
 
+._crit_edge14:                                    ; preds = %.lr.ph13.split, %._crit_edge.us, %1
+  ret void
+
 .lr.ph13.split:                                   ; preds = %.lr.ph13.split.preheader, %.lr.ph13.split
   %indvars.iv = phi i64 [ 0, %.lr.ph13.split.preheader ], [ %indvars.iv.next, %.lr.ph13.split ]
   %21 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
-  %22 = load double, ptr %21, align 8
+  %22 = load double, ptr %21, align 8, !tbaa !31
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, double noundef %22)
   %putchar = tail call i32 @putchar(i32 9)
   %putchar9 = tail call i32 @putchar(i32 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge14, label %.lr.ph13.split
-
-._crit_edge14:                                    ; preds = %.lr.ph13.split, %._crit_edge.us, %1
-  ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @getQuEST_PREC() local_unnamed_addr #8 {
+define noundef i32 @getQuEST_PREC() local_unnamed_addr #10 {
   ret i32 2
 }
 
 ; Function Attrs: nounwind uwtable
 define void @seedQuESTDefault(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [2 x i64], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17
   call void @getQuESTDefaultSeedKey(ptr noundef nonnull %2) #17
   call void @seedQuEST(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 2) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17
   ret void
 }
 
@@ -3368,13 +3391,13 @@ declare void @getQuESTDefaultSeedKey(ptr noundef) local_unnamed_addr #1
 declare void @seedQuEST(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @getQuESTSeeds(ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #9 {
+define void @getQuESTSeeds(ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #11 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8
-  store ptr %5, ptr %1, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !44
+  store ptr %5, ptr %1, align 8, !tbaa !45
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i32, ptr %6, align 8
-  store i32 %7, ptr %2, align 4
+  %7 = load i32, ptr %6, align 8, !tbaa !46
+  store i32 %7, ptr %2, align 4, !tbaa !20
   ret void
 }
 
@@ -3397,57 +3420,87 @@ define void @copySubstateFromGPU(ptr noundef readonly byval(%struct.Qureg) align
 declare void @statevec_copySubstateFromGPU(ptr noundef byval(%struct.Qureg) align 8, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr captures(none)) local_unnamed_addr #11
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nofree nounwind }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { nofree nounwind }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #17 = { nounwind }
 attributes #18 = { nounwind allocsize(0) }
 attributes #19 = { nounwind allocsize(0,1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"createPauliHamil: argument 0"}
-!7 = distinct !{!7, !"createPauliHamil"}
+!4 = !{!5, !6, i64 4}
+!5 = !{!"QuESTEnv", !6, i64 0, !6, i64 4, !9, i64 8, !6, i64 16, !11, i64 24}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"p1 long", !10, i64 0}
+!10 = !{!"any pointer", !7, i64 0}
+!11 = !{!"any p2 pointer", !10, i64 0}
+!12 = !{!13, !6, i64 0}
+!13 = !{!"Qureg", !6, i64 0, !6, i64 4, !6, i64 8, !14, i64 16, !14, i64 24, !6, i64 32, !6, i64 36, !15, i64 40, !15, i64 56, !15, i64 72, !16, i64 88, !16, i64 96, !10, i64 104, !10, i64 112, !11, i64 120, !10, i64 128}
+!14 = !{!"long long", !7, i64 0}
+!15 = !{!"ComplexArray", !16, i64 0, !16, i64 8}
+!16 = !{!"p1 double", !10, i64 0}
+!17 = !{!13, !6, i64 4}
+!18 = !{!13, !6, i64 8}
+!19 = !{!13, !14, i64 24}
+!20 = !{!6, !6, i64 0}
+!21 = !{!22, !10, i64 0}
+!22 = !{!"PauliHamil", !10, i64 0, !16, i64 8, !6, i64 16, !6, i64 20}
+!23 = !{!22, !16, i64 8}
+!24 = !{!22, !6, i64 16}
+!25 = !{!26, !6, i64 0}
+!26 = !{!"ComplexMatrixN", !6, i64 0, !27, i64 8, !27, i64 16}
+!27 = !{!"p2 double", !11, i64 0}
+!28 = !{!26, !27, i64 8}
+!29 = !{!26, !27, i64 16}
+!30 = !{!16, !16, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"double", !7, i64 0}
+!33 = !{!22, !6, i64 20}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"createPauliHamil: argument 0"}
+!36 = distinct !{!36, !"createPauliHamil"}
+!37 = !{!38, !6, i64 0}
+!38 = !{!"DiagonalOp", !6, i64 0, !14, i64 8, !6, i64 16, !6, i64 20, !16, i64 24, !16, i64 32, !15, i64 40}
+!39 = !{!40, !6, i64 0}
+!40 = !{!"SubDiagonalOp", !6, i64 0, !14, i64 8, !16, i64 16, !16, i64 24}
+!41 = !{!40, !14, i64 8}
+!42 = !{!40, !16, i64 16}
+!43 = !{!40, !16, i64 24}
+!44 = !{!5, !9, i64 8}
+!45 = !{!9, !9, i64 0}
+!46 = !{!5, !6, i64 16}

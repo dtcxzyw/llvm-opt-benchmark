@@ -131,7 +131,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @qasm_setup(ptr noundef captures(none) initializes((128, 136)) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %2, ptr %3, align 8
+  store ptr %2, ptr %3, align 8, !tbaa !4
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %6
 
@@ -141,18 +141,18 @@ define void @qasm_setup(ptr noundef captures(none) initializes((128, 136)) %0) l
 
 6:                                                ; preds = %5, %1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 0, ptr %7, align 8
+  store i32 0, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 1024, ptr %8, align 8
+  store i32 1024, ptr %8, align 8, !tbaa !17
   %9 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #15
-  store ptr %9, ptr %2, align 8
+  store ptr %9, ptr %2, align 8, !tbaa !18
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
   tail call void @raiseQASMBufferOverflow(ptr noundef nonnull @__func__.qasm_setup) #16
-  %.pre = load ptr, ptr %2, align 8
-  %.pre15 = load i32, ptr %8, align 8
+  %.pre = load ptr, ptr %2, align 8, !tbaa !18
+  %.pre15 = load i32, ptr %8, align 8, !tbaa !17
   %12 = sext i32 %.pre15 to i64
   br label %13
 
@@ -160,11 +160,11 @@ define void @qasm_setup(ptr noundef captures(none) initializes((128, 136)) %0) l
   %14 = phi i64 [ %12, %11 ], [ 1024, %6 ]
   %15 = phi ptr [ %.pre, %11 ], [ %9, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 4, !tbaa !19
   %18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef %17, ptr noundef nonnull @.str.2, i32 noundef %17) #16
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %18, ptr %19, align 4
-  %20 = load i32, ptr %8, align 8
+  store i32 %18, ptr %19, align 4, !tbaa !20
+  %20 = load i32, ptr %8, align 8, !tbaa !17
   %.not = icmp slt i32 %18, %20
   br i1 %.not, label %22, label %21
 
@@ -176,41 +176,47 @@ define void @qasm_setup(ptr noundef captures(none) initializes((128, 136)) %0) l
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @raiseQASMBufferOverflow(ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+
+declare void @raiseQASMBufferOverflow(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @qasm_startRecording(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #4 {
+define void @qasm_startRecording(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 1, ptr %4, align 8
+  store i32 1, ptr %4, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @qasm_stopRecording(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #4 {
+define void @qasm_stopRecording(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 0, ptr %4, align 8
+  store i32 0, ptr %4, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @addStringToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %5, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !4
+  %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !20
   %11 = add nsw i32 %10, %2
   %12 = icmp sgt i32 %11, %8
   br i1 %12, label %13, label %20
@@ -229,8 +235,8 @@ define void @addStringToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 c
   %19 = tail call noalias ptr @malloc(i64 noundef %18) #15
   %strcpy = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %6)
   tail call void @free(ptr noundef %6) #16
-  store i32 %14, ptr %7, align 8
-  store ptr %19, ptr %5, align 8
+  store i32 %14, ptr %7, align 8, !tbaa !17
+  store ptr %19, ptr %5, align 8, !tbaa !18
   br label %20
 
 20:                                               ; preds = %17, %3
@@ -241,19 +247,19 @@ define void @addStringToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 c
   %23 = sub nsw i32 %.020, %10
   %24 = sext i32 %23 to i64
   %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %22, i64 noundef %24, ptr noundef nonnull @.str.3, ptr noundef %1) #16
-  %26 = load ptr, ptr %4, align 8
+  %26 = load ptr, ptr %4, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  %28 = load i32, ptr %27, align 4
+  %28 = load i32, ptr %27, align 4, !tbaa !20
   %29 = add nsw i32 %28, %25
-  store i32 %29, ptr %27, align 4
+  store i32 %29, ptr %27, align 4, !tbaa !20
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @qasm_recordComment(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #0 {
@@ -261,22 +267,25 @@ define void @qasm_recordComment(ptr noundef readonly byval(%struct.Qureg) align 
   %4 = alloca [1020 x i8], align 16
   %5 = alloca [1025 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load i32, ptr %8, align 8
+  %9 = load i32, ptr %8, align 8, !tbaa !14
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %34, label %10
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
   call void @llvm.va_start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 1020, ptr nonnull %4) #16
   %11 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 1019, ptr noundef %1, ptr noundef nonnull %3) #16
   call void @llvm.va_end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %5) #16
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %4) #16
-  %13 = load ptr, ptr %7, align 8
+  %13 = load ptr, ptr %7, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %15 = load i32, ptr %14, align 8
+  %15 = load i32, ptr %14, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 4, !tbaa !20
   %18 = add nsw i32 %17, %12
   %19 = icmp sgt i32 %18, %15
   br i1 %19, label %20, label %addStringToQASM.exit
@@ -295,8 +304,8 @@ define void @qasm_recordComment(ptr noundef readonly byval(%struct.Qureg) align 
   %26 = call noalias ptr @malloc(i64 noundef %25) #15
   %strcpy.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %13)
   call void @free(ptr noundef %13) #16
-  store i32 %21, ptr %14, align 8
-  store ptr %26, ptr %7, align 8
+  store i32 %21, ptr %14, align 8, !tbaa !17
+  store ptr %26, ptr %7, align 8, !tbaa !18
   br label %addStringToQASM.exit
 
 addStringToQASM.exit:                             ; preds = %10, %24
@@ -307,9 +316,12 @@ addStringToQASM.exit:                             ; preds = %10, %24
   %29 = sub nsw i32 %.020.i, %17
   %30 = sext i32 %29 to i64
   %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %28, i64 noundef %30, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #16
-  %32 = load i32, ptr %16, align 4
+  %32 = load i32, ptr %16, align 4, !tbaa !20
   %33 = add nsw i32 %32, %31
-  store i32 %33, ptr %16, align 4
+  store i32 %33, ptr %16, align 4, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 1020, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
   br label %34
 
 34:                                               ; preds = %2, %addStringToQASM.exit
@@ -317,99 +329,100 @@ addStringToQASM.exit:                             ; preds = %10, %24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #6
+declare void @llvm.va_start.p0(ptr) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #6
+declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define void @addGateToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca [1025 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %8) #16
   %9 = icmp sgt i32 %3, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %7, %.lr.ph
-  %.04753 = phi i32 [ %16, %.lr.ph ], [ 0, %7 ]
-  %.04852 = phi i32 [ %15, %.lr.ph ], [ 0, %7 ]
-  %10 = sext i32 %.04852 to i64
+._crit_edge:                                      ; preds = %.lr.ph, %7
+  %.048.lcssa = phi i32 [ 0, %7 ], [ %25, %.lr.ph ]
+  %10 = sext i32 %.048.lcssa to i64
   %11 = getelementptr inbounds i8, ptr %8, i64 %10
-  %12 = sub nsw i32 1024, %.04852
+  %12 = sub nsw i32 1024, %.048.lcssa
   %13 = sext i32 %12 to i64
-  %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %11, i64 noundef %13, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2) #16
-  %15 = add nsw i32 %14, %.04852
-  %16 = add nuw nsw i32 %.04753, 1
-  %exitcond.not = icmp eq i32 %16, %3
+  %14 = zext i32 %1 to i64
+  %15 = getelementptr inbounds nuw [14 x ptr], ptr @qasmGateLabels, i64 0, i64 %14
+  %16 = load ptr, ptr %15, align 8, !tbaa !21
+  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %11, i64 noundef %13, ptr noundef nonnull @.str.3, ptr noundef %16) #16
+  %18 = add nsw i32 %17, %.048.lcssa
+  %19 = icmp sgt i32 %6, 0
+  br i1 %19, label %27, label %60
+
+.lr.ph:                                           ; preds = %7, %.lr.ph
+  %.04753 = phi i32 [ %26, %.lr.ph ], [ 0, %7 ]
+  %.04852 = phi i32 [ %25, %.lr.ph ], [ 0, %7 ]
+  %20 = sext i32 %.04852 to i64
+  %21 = getelementptr inbounds i8, ptr %8, i64 %20
+  %22 = sub nsw i32 1024, %.04852
+  %23 = sext i32 %22 to i64
+  %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %21, i64 noundef %23, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2) #16
+  %25 = add nsw i32 %24, %.04852
+  %26 = add nuw nsw i32 %.04753, 1
+  %exitcond.not = icmp eq i32 %26, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %7
-  %.048.lcssa = phi i32 [ 0, %7 ], [ %15, %.lr.ph ]
-  %17 = sext i32 %.048.lcssa to i64
-  %18 = getelementptr inbounds i8, ptr %8, i64 %17
-  %19 = sub nsw i32 1024, %.048.lcssa
-  %20 = sext i32 %19 to i64
-  %21 = zext i32 %1 to i64
-  %22 = getelementptr inbounds nuw [14 x ptr], ptr @qasmGateLabels, i64 0, i64 %21
-  %23 = load ptr, ptr %22, align 8
-  %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %18, i64 noundef %20, ptr noundef nonnull @.str.3, ptr noundef %23) #16
-  %25 = add nsw i32 %24, %.048.lcssa
-  %26 = icmp sgt i32 %6, 0
-  br i1 %26, label %27, label %60
-
 27:                                               ; preds = %._crit_edge
-  %28 = sext i32 %25 to i64
+  %28 = sext i32 %18 to i64
   %29 = getelementptr inbounds i8, ptr %8, i64 %28
-  %30 = sub nsw i32 1024, %25
+  %30 = sub nsw i32 1024, %18
   %31 = sext i32 %30 to i64
   %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %29, i64 noundef %31, ptr noundef nonnull @.str.6) #16
-  %33 = add nsw i32 %32, %25
+  %33 = add nsw i32 %32, %18
   %34 = add nsw i32 %6, -1
   %35 = zext nneg i32 %34 to i64
   %wide.trip.count = zext nneg i32 %6 to i64
-  br label %36
+  br label %43
 
-36:                                               ; preds = %27, %52
-  %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %52 ]
-  %.254 = phi i32 [ %33, %27 ], [ %.3, %52 ]
-  %37 = sext i32 %.254 to i64
+36:                                               ; preds = %59
+  %37 = sext i32 %.3 to i64
   %38 = getelementptr inbounds i8, ptr %8, i64 %37
-  %39 = sub nsw i32 1024, %.254
+  %39 = sub nsw i32 1024, %.3
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
-  %42 = load double, ptr %41, align 8
-  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %38, i64 noundef %40, ptr noundef nonnull @.str.7, double noundef %42) #16
-  %44 = add nsw i32 %43, %.254
-  %.not = icmp eq i64 %indvars.iv, %35
-  br i1 %.not, label %52, label %45
-
-45:                                               ; preds = %36
-  %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds i8, ptr %8, i64 %46
-  %48 = sub nsw i32 1024, %44
-  %49 = sext i32 %48 to i64
-  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %47, i64 noundef %49, ptr noundef nonnull @.str.8) #16
-  %51 = add nsw i32 %50, %44
-  br label %52
-
-52:                                               ; preds = %36, %45
-  %.3 = phi i32 [ %51, %45 ], [ %44, %36 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond64.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond64.not, label %53, label %36
-
-53:                                               ; preds = %52
-  %54 = sext i32 %.3 to i64
-  %55 = getelementptr inbounds i8, ptr %8, i64 %54
-  %56 = sub nsw i32 1024, %.3
-  %57 = sext i32 %56 to i64
-  %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %55, i64 noundef %57, ptr noundef nonnull @.str.9) #16
-  %59 = add nsw i32 %58, %.3
+  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %38, i64 noundef %40, ptr noundef nonnull @.str.9) #16
+  %42 = add nsw i32 %41, %.3
   br label %60
 
-60:                                               ; preds = %53, %._crit_edge
-  %.1 = phi i32 [ %59, %53 ], [ %25, %._crit_edge ]
+43:                                               ; preds = %27, %59
+  %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %59 ]
+  %.254 = phi i32 [ %33, %27 ], [ %.3, %59 ]
+  %44 = sext i32 %.254 to i64
+  %45 = getelementptr inbounds i8, ptr %8, i64 %44
+  %46 = sub nsw i32 1024, %.254
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %49 = load double, ptr %48, align 8, !tbaa !22
+  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %45, i64 noundef %47, ptr noundef nonnull @.str.7, double noundef %49) #16
+  %51 = add nsw i32 %50, %.254
+  %.not = icmp eq i64 %indvars.iv, %35
+  br i1 %.not, label %59, label %52
+
+52:                                               ; preds = %43
+  %53 = sext i32 %51 to i64
+  %54 = getelementptr inbounds i8, ptr %8, i64 %53
+  %55 = sub nsw i32 1024, %51
+  %56 = sext i32 %55 to i64
+  %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %54, i64 noundef %56, ptr noundef nonnull @.str.8) #16
+  %58 = add nsw i32 %57, %51
+  br label %59
+
+59:                                               ; preds = %43, %52
+  %.3 = phi i32 [ %58, %52 ], [ %51, %43 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond64.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond64.not, label %36, label %43
+
+60:                                               ; preds = %36, %._crit_edge
+  %.1 = phi i32 [ %42, %36 ], [ %18, %._crit_edge ]
   %61 = sext i32 %.1 to i64
   %62 = getelementptr inbounds i8, ptr %8, i64 %61
   %63 = sub nsw i32 1024, %.1
@@ -422,31 +435,31 @@ define void @addGateToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 cap
   %wide.trip.count68 = zext nneg i32 %3 to i64
   br label %.lr.ph59
 
+._crit_edge60:                                    ; preds = %.lr.ph59, %60
+  %.4.lcssa = phi i32 [ %66, %60 ], [ %81, %.lr.ph59 ]
+  %67 = sext i32 %.4.lcssa to i64
+  %68 = getelementptr inbounds i8, ptr %8, i64 %67
+  %69 = sub nsw i32 1024, %.4.lcssa
+  %70 = sext i32 %69 to i64
+  %71 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %68, i64 noundef %70, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef %4) #16
+  %72 = add nsw i32 %71, %.4.lcssa
+  %73 = icmp sgt i32 %72, 1023
+  br i1 %73, label %82, label %83
+
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
   %indvars.iv65 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next66, %.lr.ph59 ]
-  %.456 = phi i32 [ %66, %.lr.ph59.preheader ], [ %74, %.lr.ph59 ]
-  %67 = sext i32 %.456 to i64
-  %68 = getelementptr inbounds i8, ptr %8, i64 %67
-  %69 = sub nsw i32 1024, %.456
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv65
-  %72 = load i32, ptr %71, align 4
-  %73 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %68, i64 noundef %70, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef %72) #16
-  %74 = add nsw i32 %73, %.456
+  %.456 = phi i32 [ %66, %.lr.ph59.preheader ], [ %81, %.lr.ph59 ]
+  %74 = sext i32 %.456 to i64
+  %75 = getelementptr inbounds i8, ptr %8, i64 %74
+  %76 = sub nsw i32 1024, %.456
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv65
+  %79 = load i32, ptr %78, align 4, !tbaa !24
+  %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %75, i64 noundef %77, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef %79) #16
+  %81 = add nsw i32 %80, %.456
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
   br i1 %exitcond69.not, label %._crit_edge60, label %.lr.ph59
-
-._crit_edge60:                                    ; preds = %.lr.ph59, %60
-  %.4.lcssa = phi i32 [ %66, %60 ], [ %74, %.lr.ph59 ]
-  %75 = sext i32 %.4.lcssa to i64
-  %76 = getelementptr inbounds i8, ptr %8, i64 %75
-  %77 = sub nsw i32 1024, %.4.lcssa
-  %78 = sext i32 %77 to i64
-  %79 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %76, i64 noundef %78, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef %4) #16
-  %80 = add nsw i32 %79, %.4.lcssa
-  %81 = icmp sgt i32 %80, 1023
-  br i1 %81, label %82, label %83
 
 82:                                               ; preds = %._crit_edge60
   tail call void @raiseQASMBufferOverflow(ptr noundef nonnull @__func__.addGateToQASM) #16
@@ -455,12 +468,12 @@ define void @addGateToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 cap
 83:                                               ; preds = %82, %._crit_edge60
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %84 = load ptr, ptr %.sroa.3.0.copyload, align 8
+  %84 = load ptr, ptr %.sroa.3.0.copyload, align 8, !tbaa !18
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 8
-  %86 = load i32, ptr %85, align 8
+  %86 = load i32, ptr %85, align 8, !tbaa !17
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 12
-  %88 = load i32, ptr %87, align 4
-  %89 = add nsw i32 %88, %80
+  %88 = load i32, ptr %87, align 4, !tbaa !20
+  %89 = add nsw i32 %88, %72
   %90 = icmp sgt i32 %89, %86
   br i1 %90, label %91, label %addStringToQASM.exit
 
@@ -478,8 +491,8 @@ define void @addGateToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 cap
   %97 = tail call noalias ptr @malloc(i64 noundef %96) #15
   %strcpy.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(1) %84)
   tail call void @free(ptr noundef %84) #16
-  store i32 %92, ptr %85, align 8
-  store ptr %97, ptr %.sroa.3.0.copyload, align 8
+  store i32 %92, ptr %85, align 8, !tbaa !17
+  store ptr %97, ptr %.sroa.3.0.copyload, align 8, !tbaa !18
   br label %addStringToQASM.exit
 
 addStringToQASM.exit:                             ; preds = %83, %95
@@ -490,18 +503,19 @@ addStringToQASM.exit:                             ; preds = %83, %95
   %100 = sub nsw i32 %.020.i, %88
   %101 = sext i32 %100 to i64
   %102 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %99, i64 noundef %101, ptr noundef nonnull @.str.3, ptr noundef nonnull %8) #16
-  %103 = load i32, ptr %87, align 4
+  %103 = load i32, ptr %87, align 4, !tbaa !20
   %104 = add nsw i32 %103, %102
-  store i32 %104, ptr %87, align 4
+  store i32 %104, ptr %87, align 4, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %8) #16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @qasm_recordGate(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !14
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
 
@@ -517,15 +531,17 @@ define void @qasm_recordGate(ptr noundef readonly byval(%struct.Qureg) align 8 c
 define void @qasm_recordParamGate(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1 x double], align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load i32, ptr %8, align 8
+  %9 = load i32, ptr %8, align 8, !tbaa !14
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %4
-  store double %3, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  store double %3, ptr %5, align 8, !tbaa !22
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef null, i32 noundef 0, i32 noundef %2, ptr noundef nonnull %5, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   br label %11
 
 11:                                               ; preds = %4, %10
@@ -539,30 +555,38 @@ define void @qasm_recordCompactUnitary(ptr noundef readonly byval(%struct.Qureg)
   %9 = alloca double, align 8
   %10 = alloca [3 x double], align 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load i32, ptr %13, align 8
+  %14 = load i32, ptr %13, align 8, !tbaa !14
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %21, label %15
 
 15:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
   call void @getZYZRotAnglesFromComplexPair(double %1, double %2, double %3, double %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
-  %16 = load double, ptr %7, align 8
-  store double %16, ptr %10, align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #16
+  %16 = load double, ptr %7, align 8, !tbaa !22
+  store double %16, ptr %10, align 16, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %18 = load double, ptr %8, align 8
-  store double %18, ptr %17, align 8
+  %18 = load double, ptr %8, align 8, !tbaa !22
+  store double %18, ptr %17, align 8, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %20 = load double, ptr %9, align 8
-  store double %20, ptr %19, align 16
+  %20 = load double, ptr %9, align 8, !tbaa !22
+  store double %20, ptr %19, align 16, !tbaa !22
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 10, ptr noundef null, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %10, i32 noundef 3)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   br label %21
 
 21:                                               ; preds = %6, %15
   ret void
 }
 
-declare void @getZYZRotAnglesFromComplexPair(double, double, double, double, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @getZYZRotAnglesFromComplexPair(double, double, double, double, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @qasm_recordUnitary(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -574,14 +598,20 @@ define void @qasm_recordUnitary(ptr noundef readonly byval(%struct.Qureg) align 
   %9 = alloca double, align 8
   %10 = alloca [3 x double], align 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load i32, ptr %13, align 8
+  %14 = load i32, ptr %13, align 8, !tbaa !14
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %27, label %15
 
 15:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   call void @getComplexPairAndPhaseFromUnitary(ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %1, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
   %16 = load double, ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load double, ptr %17, align 8
@@ -589,22 +619,30 @@ define void @qasm_recordUnitary(ptr noundef readonly byval(%struct.Qureg) align 
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = load double, ptr %20, align 8
   call void @getZYZRotAnglesFromComplexPair(double %16, double %18, double %19, double %21, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
-  %22 = load double, ptr %7, align 8
-  store double %22, ptr %10, align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #16
+  %22 = load double, ptr %7, align 8, !tbaa !22
+  store double %22, ptr %10, align 16, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %24 = load double, ptr %8, align 8
-  store double %24, ptr %23, align 8
+  %24 = load double, ptr %8, align 8, !tbaa !22
+  store double %24, ptr %23, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %26 = load double, ptr %9, align 8
-  store double %26, ptr %25, align 16
+  %26 = load double, ptr %9, align 8, !tbaa !22
+  store double %26, ptr %25, align 16, !tbaa !22
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 10, ptr noundef null, i32 noundef 0, i32 noundef %2, ptr noundef nonnull %10, i32 noundef 3)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   br label %27
 
 27:                                               ; preds = %3, %15
   ret void
 }
 
-declare void @getComplexPairAndPhaseFromUnitary(ptr noundef byval(%struct.ComplexMatrix2) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @getComplexPairAndPhaseFromUnitary(ptr noundef byval(%struct.ComplexMatrix2) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @qasm_recordAxisRotation(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, double noundef %1, ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -615,14 +653,19 @@ define void @qasm_recordAxisRotation(ptr noundef readonly byval(%struct.Qureg) a
   %9 = alloca double, align 8
   %10 = alloca [3 x double], align 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load i32, ptr %13, align 8
+  %14 = load i32, ptr %13, align 8, !tbaa !14
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %27, label %15
 
 15:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   call void @getComplexPairFromRotation(double noundef %1, ptr noundef nonnull byval(%struct.Vector) align 8 %2, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
   %16 = load double, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = load double, ptr %17, align 8
@@ -630,36 +673,45 @@ define void @qasm_recordAxisRotation(ptr noundef readonly byval(%struct.Qureg) a
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load double, ptr %20, align 8
   call void @getZYZRotAnglesFromComplexPair(double %16, double %18, double %19, double %21, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
-  %22 = load double, ptr %7, align 8
-  store double %22, ptr %10, align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #16
+  %22 = load double, ptr %7, align 8, !tbaa !22
+  store double %22, ptr %10, align 16, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %24 = load double, ptr %8, align 8
-  store double %24, ptr %23, align 8
+  %24 = load double, ptr %8, align 8, !tbaa !22
+  store double %24, ptr %23, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %26 = load double, ptr %9, align 8
-  store double %26, ptr %25, align 16
+  %26 = load double, ptr %9, align 8, !tbaa !22
+  store double %26, ptr %25, align 16, !tbaa !22
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 10, ptr noundef null, i32 noundef 0, i32 noundef %3, ptr noundef nonnull %10, i32 noundef 3)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   br label %27
 
 27:                                               ; preds = %4, %15
   ret void
 }
 
-declare void @getComplexPairFromRotation(double noundef, ptr noundef byval(%struct.Vector) align 8, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @getComplexPairFromRotation(double noundef, ptr noundef byval(%struct.Vector) align 8, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @qasm_recordControlledGate(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1 x i32], align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load i32, ptr %8, align 8
+  %9 = load i32, ptr %8, align 8, !tbaa !14
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %4
-  store i32 %2, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
+  store i32 %2, ptr %5, align 4, !tbaa !24
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %3, ptr noundef null, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   br label %11
 
 11:                                               ; preds = %4, %10
@@ -672,27 +724,36 @@ define void @qasm_recordControlledParamGate(ptr noundef readonly byval(%struct.Q
   %7 = alloca [1 x double], align 8
   %8 = alloca [1 x double], align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load i32, ptr %11, align 8
+  %12 = load i32, ptr %11, align 8, !tbaa !14
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %17, label %13
+  br i1 %.not, label %18, label %13
 
 13:                                               ; preds = %5
-  store i32 %2, ptr %6, align 4
-  store double %4, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
+  store i32 %2, ptr %6, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  store double %4, ptr %7, align 8, !tbaa !22
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef nonnull %6, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %7, i32 noundef 1)
   %14 = icmp eq i32 %1, 11
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
   tail call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.25)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   %16 = fmul double %4, 5.000000e-01
-  store double %16, ptr %8, align 8
+  store double %16, ptr %8, align 8, !tbaa !22
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 8, ptr noundef null, i32 noundef 0, i32 noundef %3, ptr noundef nonnull %8, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
   br label %17
 
-17:                                               ; preds = %5, %15, %13
+17:                                               ; preds = %15, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
+  br label %18
+
+18:                                               ; preds = %5, %17
   ret void
 }
 
@@ -704,24 +765,34 @@ define void @qasm_recordControlledCompactUnitary(ptr noundef readonly byval(%str
   %11 = alloca [1 x i32], align 4
   %12 = alloca [3 x double], align 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load i32, ptr %15, align 8
+  %16 = load i32, ptr %15, align 8, !tbaa !14
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %23, label %17
 
 17:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
   call void @getZYZRotAnglesFromComplexPair(double %1, double %2, double %3, double %4, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #16
-  store i32 %5, ptr %11, align 4
-  %18 = load double, ptr %8, align 8
-  store double %18, ptr %12, align 16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #16
+  store i32 %5, ptr %11, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #16
+  %18 = load double, ptr %8, align 8, !tbaa !22
+  store double %18, ptr %12, align 16, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %20 = load double, ptr %9, align 8
-  store double %20, ptr %19, align 8
+  %20 = load double, ptr %9, align 8, !tbaa !22
+  store double %20, ptr %19, align 8, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %22 = load double, ptr %10, align 8
-  store double %22, ptr %21, align 16
+  %22 = load double, ptr %10, align 8, !tbaa !22
+  store double %22, ptr %21, align 16, !tbaa !22
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 10, ptr noundef nonnull %11, i32 noundef 1, i32 noundef %6, ptr noundef nonnull %12, i32 noundef 3)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
   br label %23
 
 23:                                               ; preds = %7, %17
@@ -740,14 +811,20 @@ define void @qasm_recordControlledUnitary(ptr noundef readonly byval(%struct.Qur
   %12 = alloca [3 x double], align 16
   %13 = alloca [1 x double], align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load i32, ptr %16, align 8
+  %17 = load i32, ptr %16, align 8, !tbaa !14
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %31, label %18
 
 18:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
   call void @getComplexPairAndPhaseFromUnitary(ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
   %19 = load double, ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = load double, ptr %20, align 8
@@ -755,20 +832,32 @@ define void @qasm_recordControlledUnitary(ptr noundef readonly byval(%struct.Qur
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load double, ptr %23, align 8
   call void @getZYZRotAnglesFromComplexPair(double %19, double %21, double %22, double %24, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #16
-  store i32 %2, ptr %11, align 4
-  %25 = load double, ptr %8, align 8
-  store double %25, ptr %12, align 16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #16
+  store i32 %2, ptr %11, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #16
+  %25 = load double, ptr %8, align 8, !tbaa !22
+  store double %25, ptr %12, align 16, !tbaa !22
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %27 = load double, ptr %9, align 8
-  store double %27, ptr %26, align 8
+  %27 = load double, ptr %9, align 8, !tbaa !22
+  store double %27, ptr %26, align 8, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %29 = load double, ptr %10, align 8
-  store double %29, ptr %28, align 16
+  %29 = load double, ptr %10, align 8, !tbaa !22
+  store double %29, ptr %28, align 16, !tbaa !22
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 10, ptr noundef nonnull %11, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %12, i32 noundef 3)
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.26)
-  %30 = load double, ptr %7, align 8
-  store double %30, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #16
+  %30 = load double, ptr %7, align 8, !tbaa !22
+  store double %30, ptr %13, align 8, !tbaa !22
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 8, ptr noundef null, i32 noundef 0, i32 noundef %3, ptr noundef nonnull %13, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   br label %31
 
 31:                                               ; preds = %4, %18
@@ -785,14 +874,19 @@ define void @qasm_recordControlledAxisRotation(ptr noundef readonly byval(%struc
   %11 = alloca [1 x i32], align 4
   %12 = alloca [3 x double], align 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load i32, ptr %15, align 8
+  %16 = load i32, ptr %15, align 8, !tbaa !14
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %29, label %17
 
 17:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
   call void @getComplexPairFromRotation(double noundef %1, ptr noundef nonnull byval(%struct.Vector) align 8 %2, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
   %18 = load double, ptr %6, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = load double, ptr %19, align 8
@@ -800,16 +894,25 @@ define void @qasm_recordControlledAxisRotation(ptr noundef readonly byval(%struc
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %23 = load double, ptr %22, align 8
   call void @getZYZRotAnglesFromComplexPair(double %18, double %20, double %21, double %23, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #16
-  store i32 %3, ptr %11, align 4
-  %24 = load double, ptr %8, align 8
-  store double %24, ptr %12, align 16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #16
+  store i32 %3, ptr %11, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #16
+  %24 = load double, ptr %8, align 8, !tbaa !22
+  store double %24, ptr %12, align 16, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %26 = load double, ptr %9, align 8
-  store double %26, ptr %25, align 8
+  %26 = load double, ptr %9, align 8, !tbaa !22
+  store double %26, ptr %25, align 8, !tbaa !22
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %28 = load double, ptr %10, align 8
-  store double %28, ptr %27, align 16
+  %28 = load double, ptr %10, align 8, !tbaa !22
+  store double %28, ptr %27, align 16, !tbaa !22
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 10, ptr noundef nonnull %11, i32 noundef 1, i32 noundef %4, ptr noundef nonnull %12, i32 noundef 3)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   br label %29
 
 29:                                               ; preds = %5, %17
@@ -819,9 +922,9 @@ define void @qasm_recordControlledAxisRotation(ptr noundef readonly byval(%struc
 ; Function Attrs: nounwind uwtable
 define void @qasm_recordMultiControlledGate(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load i32, ptr %8, align 8
+  %9 = load i32, ptr %8, align 8, !tbaa !14
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %11, label %10
 
@@ -838,26 +941,33 @@ define void @qasm_recordMultiControlledParamGate(ptr noundef readonly byval(%str
   %7 = alloca [1 x double], align 8
   %8 = alloca [1 x double], align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load i32, ptr %11, align 8
+  %12 = load i32, ptr %11, align 8, !tbaa !14
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %17, label %13
+  br i1 %.not, label %18, label %13
 
 13:                                               ; preds = %6
-  store double %5, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  store double %5, ptr %7, align 8, !tbaa !22
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %7, i32 noundef 1)
   %14 = icmp eq i32 %1, 11
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
   tail call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.27)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   %16 = fmul double %5, 5.000000e-01
-  store double %16, ptr %8, align 8
+  store double %16, ptr %8, align 8, !tbaa !22
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 8, ptr noundef null, i32 noundef 0, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
   br label %17
 
-17:                                               ; preds = %6, %15, %13
+17:                                               ; preds = %15, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  br label %18
+
+18:                                               ; preds = %6, %17
   ret void
 }
 
@@ -872,14 +982,20 @@ define void @qasm_recordMultiControlledUnitary(ptr noundef readonly byval(%struc
   %12 = alloca [3 x double], align 16
   %13 = alloca [1 x double], align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load i32, ptr %16, align 8
+  %17 = load i32, ptr %16, align 8, !tbaa !14
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %31, label %18
 
 18:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   call void @getComplexPairAndPhaseFromUnitary(ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
   %19 = load double, ptr %6, align 8
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load double, ptr %20, align 8
@@ -887,19 +1003,29 @@ define void @qasm_recordMultiControlledUnitary(ptr noundef readonly byval(%struc
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = load double, ptr %23, align 8
   call void @getZYZRotAnglesFromComplexPair(double %19, double %21, double %22, double %24, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #16
-  %25 = load double, ptr %9, align 8
-  store double %25, ptr %12, align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #16
+  %25 = load double, ptr %9, align 8, !tbaa !22
+  store double %25, ptr %12, align 16, !tbaa !22
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %27 = load double, ptr %10, align 8
-  store double %27, ptr %26, align 8
+  %27 = load double, ptr %10, align 8, !tbaa !22
+  store double %27, ptr %26, align 8, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %29 = load double, ptr %11, align 8
-  store double %29, ptr %28, align 16
+  %29 = load double, ptr %11, align 8, !tbaa !22
+  store double %29, ptr %28, align 16, !tbaa !22
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 10, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %12, i32 noundef 3)
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.28)
-  %30 = load double, ptr %8, align 8
-  store double %30, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #16
+  %30 = load double, ptr %8, align 8, !tbaa !22
+  store double %30, ptr %13, align 8, !tbaa !22
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 8, ptr noundef null, i32 noundef 0, i32 noundef %4, ptr noundef nonnull %13, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   br label %31
 
 31:                                               ; preds = %5, %18
@@ -917,9 +1043,9 @@ define void @qasm_recordMultiStateControlledUnitary(ptr noundef readonly byval(%
   %13 = alloca [3 x double], align 16
   %14 = alloca [1 x double], align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load i32, ptr %17, align 8
+  %18 = load i32, ptr %17, align 8, !tbaa !14
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %.loopexit, label %19
 
@@ -932,73 +1058,55 @@ define void @qasm_recordMultiStateControlledUnitary(ptr noundef readonly byval(%
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %27
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
-  %21 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %27
-
-24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %26 = load i32, ptr %25, align 4
-  tail call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef %26, ptr noundef null, i32 noundef 0)
-  br label %27
-
-27:                                               ; preds = %.lr.ph, %24
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
-
-._crit_edge:                                      ; preds = %27, %19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+._crit_edge:                                      ; preds = %42, %19
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 16
-  %29 = load i32, ptr %28, align 8
-  %.not.i = icmp eq i32 %29, 0
-  br i1 %.not.i, label %qasm_recordMultiControlledUnitary.exit, label %30
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 16
+  %22 = load i32, ptr %21, align 8, !tbaa !14
+  %.not.i = icmp eq i32 %22, 0
+  br i1 %.not.i, label %qasm_recordMultiControlledUnitary.exit, label %23
 
-30:                                               ; preds = %._crit_edge
+23:                                               ; preds = %._crit_edge
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
   call void @getComplexPairAndPhaseFromUnitary(ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %1, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
-  %31 = load double, ptr %7, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %33 = load double, ptr %32, align 8
-  %34 = load double, ptr %8, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %36 = load double, ptr %35, align 8
-  call void @getZYZRotAnglesFromComplexPair(double %31, double %33, double %34, double %36, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #16
-  %37 = load double, ptr %10, align 8
-  store double %37, ptr %13, align 16
-  %38 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %39 = load double, ptr %11, align 8
-  store double %39, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %41 = load double, ptr %12, align 8
-  store double %41, ptr %40, align 16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #16
+  %24 = load double, ptr %7, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %26 = load double, ptr %25, align 8
+  %27 = load double, ptr %8, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %29 = load double, ptr %28, align 8
+  call void @getZYZRotAnglesFromComplexPair(double %24, double %26, double %27, double %29, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #16
+  %30 = load double, ptr %10, align 8, !tbaa !22
+  store double %30, ptr %13, align 16, !tbaa !22
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %32 = load double, ptr %11, align 8, !tbaa !22
+  store double %32, ptr %31, align 8, !tbaa !22
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %34 = load double, ptr %12, align 8, !tbaa !22
+  store double %34, ptr %33, align 16, !tbaa !22
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 10, ptr noundef readonly %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %13, i32 noundef 3)
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.28)
-  %42 = load double, ptr %9, align 8
-  store double %42, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #16
+  %35 = load double, ptr %9, align 8, !tbaa !22
+  store double %35, ptr %14, align 8, !tbaa !22
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 8, ptr noundef null, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %14, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
   br label %qasm_recordMultiControlledUnitary.exit
 
-qasm_recordMultiControlledUnitary.exit:           ; preds = %._crit_edge, %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+qasm_recordMultiControlledUnitary.exit:           ; preds = %._crit_edge, %23
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.30)
   br i1 %20, label %.lr.ph20.preheader, label %.loopexit
 
@@ -1006,16 +1114,34 @@ qasm_recordMultiControlledUnitary.exit:           ; preds = %._crit_edge, %30
   %wide.trip.count25 = zext nneg i32 %4 to i64
   br label %.lr.ph20
 
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %42
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
+  %36 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %37 = load i32, ptr %36, align 4, !tbaa !24
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %42
+
+39:                                               ; preds = %.lr.ph
+  %40 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %41 = load i32, ptr %40, align 4, !tbaa !24
+  tail call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef %41, ptr noundef null, i32 noundef 0)
+  br label %42
+
+42:                                               ; preds = %.lr.ph, %39
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+
 .lr.ph20:                                         ; preds = %.lr.ph20.preheader, %49
   %indvars.iv22 = phi i64 [ 0, %.lr.ph20.preheader ], [ %indvars.iv.next23, %49 ]
   %43 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv22
-  %44 = load i32, ptr %43, align 4
+  %44 = load i32, ptr %43, align 4, !tbaa !24
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %.lr.ph20
   %47 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv22
-  %48 = load i32, ptr %47, align 4
+  %48 = load i32, ptr %47, align 4, !tbaa !24
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef %48, ptr noundef null, i32 noundef 0)
   br label %49
 
@@ -1031,9 +1157,9 @@ qasm_recordMultiControlledUnitary.exit:           ; preds = %._crit_edge, %30
 ; Function Attrs: nounwind uwtable
 define void @qasm_recordMultiControlledMultiQubitNot(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load i32, ptr %8, align 8
+  %9 = load i32, ptr %8, align 8, !tbaa !14
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.loopexit, label %10
 
@@ -1051,7 +1177,7 @@ define void @qasm_recordMultiControlledMultiQubitNot(ptr noundef readonly byval(
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %14 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 4, !tbaa !24
   tail call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 0, ptr noundef %1, i32 noundef %2, i32 noundef %15, ptr noundef null, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1065,13 +1191,14 @@ define void @qasm_recordMultiControlledMultiQubitNot(ptr noundef readonly byval(
 define void @qasm_recordMeasurement(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1025 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !14
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %34, label %8
 
 8:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %3) #16
   %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef %1, ptr noundef nonnull @.str.2, i32 noundef %1) #16
   %10 = icmp sgt i32 %9, 1023
   br i1 %10, label %11, label %12
@@ -1081,11 +1208,11 @@ define void @qasm_recordMeasurement(ptr noundef readonly byval(%struct.Qureg) al
   br label %12
 
 12:                                               ; preds = %11, %8
-  %13 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %5, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %15 = load i32, ptr %14, align 8
+  %15 = load i32, ptr %14, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 4, !tbaa !20
   %18 = add nsw i32 %17, %9
   %19 = icmp sgt i32 %18, %15
   br i1 %19, label %20, label %addStringToQASM.exit
@@ -1104,8 +1231,8 @@ define void @qasm_recordMeasurement(ptr noundef readonly byval(%struct.Qureg) al
   %26 = tail call noalias ptr @malloc(i64 noundef %25) #15
   %strcpy.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %13)
   tail call void @free(ptr noundef %13) #16
-  store i32 %21, ptr %14, align 8
-  store ptr %26, ptr %5, align 8
+  store i32 %21, ptr %14, align 8, !tbaa !17
+  store ptr %26, ptr %5, align 8, !tbaa !18
   br label %addStringToQASM.exit
 
 addStringToQASM.exit:                             ; preds = %12, %24
@@ -1116,9 +1243,10 @@ addStringToQASM.exit:                             ; preds = %12, %24
   %29 = sub nsw i32 %.020.i, %17
   %30 = sext i32 %29 to i64
   %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %28, i64 noundef %30, ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #16
-  %32 = load i32, ptr %16, align 4
+  %32 = load i32, ptr %16, align 4, !tbaa !20
   %33 = add nsw i32 %32, %31
-  store i32 %33, ptr %16, align 4
+  store i32 %33, ptr %16, align 4, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %3) #16
   br label %34
 
 34:                                               ; preds = %2, %addStringToQASM.exit
@@ -1129,13 +1257,14 @@ addStringToQASM.exit:                             ; preds = %12, %24
 define void @qasm_recordInitZero(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [1025 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load i32, ptr %5, align 8
+  %6 = load i32, ptr %5, align 8, !tbaa !14
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %33, label %7
 
 7:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %2) #16
   %8 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.1) #16
   %9 = icmp sgt i32 %8, 1023
   br i1 %9, label %10, label %11
@@ -1145,11 +1274,11 @@ define void @qasm_recordInitZero(ptr noundef readonly byval(%struct.Qureg) align
   br label %11
 
 11:                                               ; preds = %10, %7
-  %12 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = load i32, ptr %13, align 8
+  %14 = load i32, ptr %13, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = add nsw i32 %16, %8
   %18 = icmp sgt i32 %17, %14
   br i1 %18, label %19, label %addStringToQASM.exit
@@ -1168,8 +1297,8 @@ define void @qasm_recordInitZero(ptr noundef readonly byval(%struct.Qureg) align
   %25 = tail call noalias ptr @malloc(i64 noundef %24) #15
   %strcpy.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %12)
   tail call void @free(ptr noundef %12) #16
-  store i32 %20, ptr %13, align 8
-  store ptr %25, ptr %4, align 8
+  store i32 %20, ptr %13, align 8, !tbaa !17
+  store ptr %25, ptr %4, align 8, !tbaa !18
   br label %addStringToQASM.exit
 
 addStringToQASM.exit:                             ; preds = %11, %23
@@ -1180,9 +1309,10 @@ addStringToQASM.exit:                             ; preds = %11, %23
   %28 = sub nsw i32 %.020.i, %16
   %29 = sext i32 %28 to i64
   %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %27, i64 noundef %29, ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #16
-  %31 = load i32, ptr %15, align 4
+  %31 = load i32, ptr %15, align 4, !tbaa !20
   %32 = add nsw i32 %31, %30
-  store i32 %32, ptr %15, align 4
+  store i32 %32, ptr %15, align 4, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %2) #16
   br label %33
 
 33:                                               ; preds = %1, %addStringToQASM.exit
@@ -1193,13 +1323,14 @@ addStringToQASM.exit:                             ; preds = %11, %23
 define void @qasm_recordInitPlus(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [1025 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load i32, ptr %5, align 8
+  %6 = load i32, ptr %5, align 8, !tbaa !14
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %33, label %7
 
 7:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %2) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(23) %2, ptr noundef nonnull align 1 dereferenceable(23) @.str.38, i64 23, i1 false)
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %2)
   tail call void @qasm_recordInitZero(ptr noundef nonnull byval(%struct.Qureg) align 8 %0)
@@ -1212,11 +1343,11 @@ define void @qasm_recordInitPlus(ptr noundef readonly byval(%struct.Qureg) align
   br label %11
 
 11:                                               ; preds = %10, %7
-  %12 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = load i32, ptr %13, align 8
+  %14 = load i32, ptr %13, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = add nsw i32 %16, %8
   %18 = icmp sgt i32 %17, %14
   br i1 %18, label %19, label %addStringToQASM.exit
@@ -1235,8 +1366,8 @@ define void @qasm_recordInitPlus(ptr noundef readonly byval(%struct.Qureg) align
   %25 = tail call noalias ptr @malloc(i64 noundef %24) #15
   %strcpy.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %12)
   tail call void @free(ptr noundef %12) #16
-  store i32 %20, ptr %13, align 8
-  store ptr %25, ptr %4, align 8
+  store i32 %20, ptr %13, align 8, !tbaa !17
+  store ptr %25, ptr %4, align 8, !tbaa !18
   br label %addStringToQASM.exit
 
 addStringToQASM.exit:                             ; preds = %11, %23
@@ -1247,9 +1378,10 @@ addStringToQASM.exit:                             ; preds = %11, %23
   %28 = sub nsw i32 %.020.i, %16
   %29 = sext i32 %28 to i64
   %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %27, i64 noundef %29, ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #16
-  %31 = load i32, ptr %15, align 4
+  %31 = load i32, ptr %15, align 4, !tbaa !20
   %32 = add nsw i32 %31, %30
-  store i32 %32, ptr %15, align 4
+  store i32 %32, ptr %15, align 4, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %2) #16
   br label %33
 
 33:                                               ; preds = %1, %addStringToQASM.exit
@@ -1260,20 +1392,21 @@ addStringToQASM.exit:                             ; preds = %11, %23
 define void @qasm_recordInitClassical(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1025 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !14
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %.loopexit, label %8
+  br i1 %.not, label %21, label %8
 
 8:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %3) #16
   %9 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.39, i64 noundef %1) #16
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %3)
   tail call void @qasm_recordInitZero(ptr noundef nonnull byval(%struct.Qureg) align 8 %0)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !19
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph, label %.loopexit
+  br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8
   %wide.trip.count = zext nneg i32 %11 to i64
@@ -1281,6 +1414,10 @@ define void @qasm_recordInitClassical(ptr noundef readonly byval(%struct.Qureg) 
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 16
   br label %14
+
+._crit_edge:                                      ; preds = %qasm_recordGate.exit, %8
+  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %3) #16
+  br label %21
 
 14:                                               ; preds = %.lr.ph, %qasm_recordGate.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %qasm_recordGate.exit ]
@@ -1290,7 +1427,7 @@ define void @qasm_recordInitClassical(ptr noundef readonly byval(%struct.Qureg) 
   br i1 %.not6, label %qasm_recordGate.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = load i32, ptr %13, align 8
+  %18 = load i32, ptr %13, align 8, !tbaa !14
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %qasm_recordGate.exit, label %19
 
@@ -1302,9 +1439,9 @@ define void @qasm_recordInitClassical(ptr noundef readonly byval(%struct.Qureg) 
 qasm_recordGate.exit:                             ; preds = %19, %17, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %14
+  br i1 %exitcond.not, label %._crit_edge, label %14
 
-.loopexit:                                        ; preds = %qasm_recordGate.exit, %8, %2
+21:                                               ; preds = %2, %._crit_edge
   ret void
 }
 
@@ -1313,14 +1450,15 @@ define void @qasm_recordPhaseFunc(ptr noundef readonly byval(%struct.Qureg) alig
   %11 = alloca [1025 x i8], align 16
   %12 = alloca [1024 x i8], align 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load i32, ptr %15, align 8
+  %16 = load i32, ptr %15, align 8, !tbaa !14
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %.loopexit, label %17
+  br i1 %.not, label %131, label %17
 
 17:                                               ; preds = %10
   tail call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.40)
+  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %11) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(15) %11, ptr noundef nonnull align 1 dereferenceable(15) @.str.41, i64 15, i1 false)
   %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = icmp sgt i32 %6, 0
@@ -1330,80 +1468,80 @@ define void @qasm_recordPhaseFunc(ptr noundef readonly byval(%struct.Qureg) alig
   %19 = add nsw i32 %6, -1
   %20 = zext nneg i32 %19 to i64
   %wide.trip.count = zext nneg i32 %6 to i64
-  br label %21
+  br label %28
 
-21:                                               ; preds = %.lr.ph, %51
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
-  %.05265 = phi i32 [ 14, %.lr.ph ], [ %.1, %51 ]
-  %22 = sext i32 %.05265 to i64
-  %23 = getelementptr inbounds i8, ptr %11, i64 %22
-  %24 = sub nsw i32 1024, %.05265
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
-  %27 = load double, ptr %26, align 8
-  %28 = fcmp ogt double %27, 0.000000e+00
-  %29 = select i1 %28, ptr @.str.42, ptr @.str.43
+._crit_edge:                                      ; preds = %58, %17
+  %.052.lcssa = phi i32 [ 14, %17 ], [ %.1, %58 ]
+  %21 = sext i32 %.052.lcssa to i64
+  %22 = getelementptr inbounds i8, ptr %11, i64 %21
+  %23 = sub nsw i32 1024, %.052.lcssa
+  %24 = sext i32 %23 to i64
+  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %22, i64 noundef %24, ptr noundef nonnull @.str.46) #16
+  %26 = add nsw i32 %25, %.052.lcssa
+  %27 = icmp sgt i32 %26, 1023
+  br i1 %27, label %59, label %60
+
+28:                                               ; preds = %.lr.ph, %58
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
+  %.05265 = phi i32 [ 14, %.lr.ph ], [ %.1, %58 ]
+  %29 = sext i32 %.05265 to i64
+  %30 = getelementptr inbounds i8, ptr %11, i64 %29
+  %31 = sub nsw i32 1024, %.05265
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %34 = load double, ptr %33, align 8, !tbaa !22
+  %35 = fcmp ogt double %34, 0.000000e+00
+  %36 = select i1 %35, ptr @.str.42, ptr @.str.43
   %.not56 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not56, label %34, label %30
+  br i1 %.not56, label %41, label %37
 
-30:                                               ; preds = %21
-  %31 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
-  %32 = load double, ptr %31, align 8
-  %33 = tail call double @llvm.fabs.f64(double %32)
-  br label %36
+37:                                               ; preds = %28
+  %38 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %39 = load double, ptr %38, align 8, !tbaa !22
+  %40 = tail call double @llvm.fabs.f64(double %39)
+  br label %43
 
-34:                                               ; preds = %21
-  %35 = load double, ptr %4, align 8
-  br label %36
+41:                                               ; preds = %28
+  %42 = load double, ptr %4, align 8, !tbaa !22
+  br label %43
 
-36:                                               ; preds = %34, %30
-  %37 = phi double [ %33, %30 ], [ %35, %34 ]
-  %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %23, i64 noundef %25, ptr noundef nonnull %29, double noundef %37, double noundef %27) #16
-  %39 = add nsw i32 %38, %.05265
-  %40 = icmp samesign ult i64 %indvars.iv, %20
-  br i1 %40, label %41, label %51
+43:                                               ; preds = %41, %37
+  %44 = phi double [ %40, %37 ], [ %42, %41 ]
+  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %30, i64 noundef %32, ptr noundef nonnull %36, double noundef %44, double noundef %34) #16
+  %46 = add nsw i32 %45, %.05265
+  %47 = icmp samesign ult i64 %indvars.iv, %20
+  br i1 %47, label %48, label %58
 
-41:                                               ; preds = %36
-  %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds i8, ptr %11, i64 %42
-  %44 = sub nsw i32 1024, %39
-  %45 = sext i32 %44 to i64
+48:                                               ; preds = %43
+  %49 = sext i32 %46 to i64
+  %50 = getelementptr inbounds i8, ptr %11, i64 %49
+  %51 = sub nsw i32 1024, %46
+  %52 = sext i32 %51 to i64
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
-  %46 = load double, ptr %gep, align 8
-  %47 = fcmp ogt double %46, 0.000000e+00
-  %48 = select i1 %47, ptr @.str.44, ptr @.str.45
-  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %43, i64 noundef %45, ptr noundef nonnull %48) #16
-  %50 = add nsw i32 %49, %39
-  br label %51
+  %53 = load double, ptr %gep, align 8, !tbaa !22
+  %54 = fcmp ogt double %53, 0.000000e+00
+  %55 = select i1 %54, ptr @.str.44, ptr @.str.45
+  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %50, i64 noundef %52, ptr noundef nonnull %55) #16
+  %57 = add nsw i32 %56, %46
+  br label %58
 
-51:                                               ; preds = %36, %41
-  %.1 = phi i32 [ %50, %41 ], [ %39, %36 ]
+58:                                               ; preds = %43, %48
+  %.1 = phi i32 [ %57, %48 ], [ %46, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %21
-
-._crit_edge:                                      ; preds = %51, %17
-  %.052.lcssa = phi i32 [ 14, %17 ], [ %.1, %51 ]
-  %52 = sext i32 %.052.lcssa to i64
-  %53 = getelementptr inbounds i8, ptr %11, i64 %52
-  %54 = sub nsw i32 1024, %.052.lcssa
-  %55 = sext i32 %54 to i64
-  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %53, i64 noundef %55, ptr noundef nonnull @.str.46) #16
-  %57 = add nsw i32 %56, %.052.lcssa
-  %58 = icmp sgt i32 %57, 1023
-  br i1 %58, label %59, label %60
+  br i1 %exitcond.not, label %._crit_edge, label %28
 
 59:                                               ; preds = %._crit_edge
   tail call void @raiseQASMBufferOverflow(ptr noundef nonnull @__func__.qasm_recordPhaseFunc) #16
   br label %60
 
 60:                                               ; preds = %59, %._crit_edge
-  %61 = load ptr, ptr %14, align 8
+  %61 = load ptr, ptr %14, align 8, !tbaa !18
   %62 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %63 = load i32, ptr %62, align 8
+  %63 = load i32, ptr %62, align 8, !tbaa !17
   %64 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %65 = load i32, ptr %64, align 4
-  %66 = add nsw i32 %65, %57
+  %65 = load i32, ptr %64, align 4, !tbaa !20
+  %66 = add nsw i32 %65, %26
   %67 = icmp sgt i32 %66, %63
   br i1 %67, label %68, label %addStringToQASM.exit
 
@@ -1421,8 +1559,8 @@ define void @qasm_recordPhaseFunc(ptr noundef readonly byval(%struct.Qureg) alig
   %74 = tail call noalias ptr @malloc(i64 noundef %73) #15
   %strcpy.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(1) %61)
   tail call void @free(ptr noundef %61) #16
-  store i32 %69, ptr %62, align 8
-  store ptr %74, ptr %14, align 8
+  store i32 %69, ptr %62, align 8, !tbaa !17
+  store ptr %74, ptr %14, align 8, !tbaa !18
   br label %addStringToQASM.exit
 
 addStringToQASM.exit:                             ; preds = %60, %72
@@ -1433,9 +1571,10 @@ addStringToQASM.exit:                             ; preds = %60, %72
   %77 = sub nsw i32 %.020.i, %65
   %78 = sext i32 %77 to i64
   %79 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %76, i64 noundef %78, ptr noundef nonnull @.str.3, ptr noundef nonnull %11) #16
-  %80 = load i32, ptr %64, align 4
+  %80 = load i32, ptr %64, align 4, !tbaa !20
   %81 = add nsw i32 %80, %79
-  store i32 %81, ptr %64, align 4
+  store i32 %81, ptr %64, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12) #16
   switch i32 %3, label %84 [
     i32 0, label %82
     i32 1, label %83
@@ -1459,41 +1598,41 @@ addStringToQASM.exit:                             ; preds = %60, %72
   %86 = add nsw i32 %2, -1
   %87 = zext nneg i32 %86 to i64
   %wide.trip.count78 = zext nneg i32 %2 to i64
-  br label %88
+  br label %89
 
-88:                                               ; preds = %.lr.ph70, %88
-  %indvars.iv75 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next76, %88 ]
-  %.267 = phi i32 [ 8, %.lr.ph70 ], [ %98, %88 ]
-  %89 = sext i32 %.267 to i64
-  %90 = getelementptr inbounds i8, ptr %11, i64 %89
-  %91 = sub nsw i32 1024, %.267
-  %92 = sext i32 %91 to i64
-  %93 = icmp samesign ult i64 %indvars.iv75, %87
-  %94 = select i1 %93, ptr @.str.51, ptr @.str.52
-  %95 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv75
-  %96 = load i32, ptr %95, align 4
-  %97 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %90, i64 noundef %92, ptr noundef nonnull %94, i32 noundef %96) #16
-  %98 = add nsw i32 %97, %.267
+._crit_edge71:                                    ; preds = %89
+  %88 = icmp sgt i32 %99, 1023
+  br i1 %88, label %100, label %._crit_edge71.thread
+
+89:                                               ; preds = %.lr.ph70, %89
+  %indvars.iv75 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next76, %89 ]
+  %.267 = phi i32 [ 8, %.lr.ph70 ], [ %99, %89 ]
+  %90 = sext i32 %.267 to i64
+  %91 = getelementptr inbounds i8, ptr %11, i64 %90
+  %92 = sub nsw i32 1024, %.267
+  %93 = sext i32 %92 to i64
+  %94 = icmp samesign ult i64 %indvars.iv75, %87
+  %95 = select i1 %94, ptr @.str.51, ptr @.str.52
+  %96 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv75
+  %97 = load i32, ptr %96, align 4, !tbaa !24
+  %98 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %91, i64 noundef %93, ptr noundef nonnull %95, i32 noundef %97) #16
+  %99 = add nsw i32 %98, %.267
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %._crit_edge71, label %88
-
-._crit_edge71:                                    ; preds = %88
-  %99 = icmp sgt i32 %98, 1023
-  br i1 %99, label %100, label %._crit_edge71.thread
+  br i1 %exitcond79.not, label %._crit_edge71, label %89
 
 100:                                              ; preds = %._crit_edge71
   call void @raiseQASMBufferOverflow(ptr noundef nonnull @__func__.qasm_recordPhaseFunc) #16
   br label %._crit_edge71.thread
 
 ._crit_edge71.thread:                             ; preds = %84, %100, %._crit_edge71
-  %.2.lcssa86 = phi i32 [ %98, %100 ], [ %98, %._crit_edge71 ], [ 8, %84 ]
+  %.2.lcssa86 = phi i32 [ %99, %100 ], [ %99, %._crit_edge71 ], [ 8, %84 ]
   %.sroa.363.0.copyload = load ptr, ptr %13, align 8
-  %101 = load ptr, ptr %.sroa.363.0.copyload, align 8
+  %101 = load ptr, ptr %.sroa.363.0.copyload, align 8, !tbaa !18
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.363.0.copyload, i64 8
-  %103 = load i32, ptr %102, align 8
+  %103 = load i32, ptr %102, align 8, !tbaa !17
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.363.0.copyload, i64 12
-  %105 = load i32, ptr %104, align 4
+  %105 = load i32, ptr %104, align 4, !tbaa !20
   %106 = add nsw i32 %105, %.2.lcssa86
   %107 = icmp sgt i32 %106, %103
   br i1 %107, label %108, label %addStringToQASM.exit60
@@ -1512,8 +1651,8 @@ addStringToQASM.exit:                             ; preds = %60, %72
   %114 = call noalias ptr @malloc(i64 noundef %113) #15
   %strcpy.i59 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(1) %101)
   call void @free(ptr noundef %101) #16
-  store i32 %109, ptr %102, align 8
-  store ptr %114, ptr %.sroa.363.0.copyload, align 8
+  store i32 %109, ptr %102, align 8, !tbaa !17
+  store ptr %114, ptr %.sroa.363.0.copyload, align 8, !tbaa !18
   br label %addStringToQASM.exit60
 
 addStringToQASM.exit60:                           ; preds = %._crit_edge71.thread, %112
@@ -1524,9 +1663,9 @@ addStringToQASM.exit60:                           ; preds = %._crit_edge71.threa
   %117 = sub nsw i32 %.020.i57, %105
   %118 = sext i32 %117 to i64
   %119 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %116, i64 noundef %118, ptr noundef nonnull @.str.3, ptr noundef nonnull %11) #16
-  %120 = load i32, ptr %104, align 4
+  %120 = load i32, ptr %104, align 4, !tbaa !20
   %121 = add nsw i32 %120, %119
-  store i32 %121, ptr %104, align 4
+  store i32 %121, ptr %104, align 4, !tbaa !20
   %122 = icmp sgt i32 %9, 0
   br i1 %122, label %123, label %.loopexit
 
@@ -1538,22 +1677,27 @@ addStringToQASM.exit60:                           ; preds = %._crit_edge71.threa
 124:                                              ; preds = %123, %124
   %indvars.iv80 = phi i64 [ 0, %123 ], [ %indvars.iv.next81, %124 ]
   %125 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv80
-  %126 = load double, ptr %125, align 8
+  %126 = load double, ptr %125, align 8, !tbaa !22
   %127 = fcmp oge double %126, 0.000000e+00
   %128 = select i1 %127, ptr @.str.54, ptr @.str.55
   %129 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv80
-  %130 = load i64, ptr %129, align 8
+  %130 = load i64, ptr %129, align 8, !tbaa !25
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %128, i64 noundef %130, double noundef %126)
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
   br i1 %exitcond84.not, label %.loopexit, label %124
 
-.loopexit:                                        ; preds = %124, %10, %addStringToQASM.exit60
+.loopexit:                                        ; preds = %124, %addStringToQASM.exit60
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %11) #16
+  br label %131
+
+131:                                              ; preds = %10, %.loopexit
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #7
+declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nounwind uwtable
 define signext i8 @getPhaseFuncSymbol(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1563,7 +1707,7 @@ define signext i8 @getPhaseFuncSymbol(i32 noundef %0, i32 noundef %1) local_unna
 4:                                                ; preds = %2
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %5
-  %7 = load i8, ptr %6, align 1
+  %7 = load i8, ptr %6, align 1, !tbaa !26
   br label %15
 
 8:                                                ; preds = %2
@@ -1573,7 +1717,7 @@ define signext i8 @getPhaseFuncSymbol(i32 noundef %0, i32 noundef %1) local_unna
 10:                                               ; preds = %8
   %11 = sext i32 %1 to i64
   %12 = getelementptr inbounds [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %11
-  %13 = load i8, ptr %12, align 1
+  %13 = load i8, ptr %12, align 1, !tbaa !26
   br label %15
 
 14:                                               ; preds = %8
@@ -1589,6 +1733,7 @@ define signext i8 @getPhaseFuncSymbol(i32 noundef %0, i32 noundef %1) local_unna
 define void @addMultiVarRegsToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca [1025 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #16
   switch i32 %4, label %10 [
     i32 0, label %8
     i32 1, label %9
@@ -1604,6 +1749,7 @@ define void @addMultiVarRegsToQASM(ptr noundef readonly byval(%struct.Qureg) ali
 
 10:                                               ; preds = %8, %5, %9
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.56, ptr noundef nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %7) #16
   %11 = icmp sgt i32 %3, 0
   br i1 %11, label %.lr.ph43, label %._crit_edge44
 
@@ -1614,6 +1760,11 @@ define void @addMultiVarRegsToQASM(ptr noundef readonly byval(%struct.Qureg) ali
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %14
 
+._crit_edge44:                                    ; preds = %addStringToQASM.exit, %10
+  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #16
+  ret void
+
 14:                                               ; preds = %.lr.ph43, %addStringToQASM.exit
   %indvars.iv47 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next48, %addStringToQASM.exit ]
   %.02940 = phi i32 [ 0, %.lr.ph43 ], [ %.1.lcssa, %addStringToQASM.exit ]
@@ -1623,7 +1774,7 @@ getPhaseFuncSymbol.exit:                          ; preds = %14
   %15 = getelementptr inbounds nuw [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv47
   %16 = getelementptr inbounds nuw [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv47
   %.0.i.in = select i1 %13, ptr %15, ptr %16
-  %.0.i = load i8, ptr %.0.i.in, align 1
+  %.0.i = load i8, ptr %.0.i.in, align 1, !tbaa !26
   %17 = sext i8 %.0.i to i32
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 1024, ptr noundef nonnull @.str.57, i32 noundef %17) #16
   br label %22
@@ -1636,7 +1787,7 @@ getPhaseFuncSymbol.exit:                          ; preds = %14
 22:                                               ; preds = %19, %getPhaseFuncSymbol.exit
   %.030 = phi i32 [ %18, %getPhaseFuncSymbol.exit ], [ %21, %19 ]
   %23 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv47
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 4, !tbaa !24
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1644,37 +1795,37 @@ getPhaseFuncSymbol.exit:                          ; preds = %14
   %26 = sext i32 %.02940 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %26, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %27 = phi i32 [ %24, %.lr.ph.preheader ], [ %40, %.lr.ph ]
-  %.038 = phi i32 [ 0, %.lr.ph.preheader ], [ %39, %.lr.ph ]
-  %.13136 = phi i32 [ %.030, %.lr.ph.preheader ], [ %38, %.lr.ph ]
-  %28 = sext i32 %.13136 to i64
-  %29 = getelementptr inbounds i8, ptr %7, i64 %28
-  %30 = sub nsw i32 1024, %.13136
-  %31 = sext i32 %30 to i64
-  %32 = add nsw i32 %27, -1
-  %33 = icmp slt i32 %.038, %32
-  %34 = select i1 %33, ptr @.str.51, ptr @.str.52
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %35 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %36 = load i32, ptr %35, align 4
-  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %29, i64 noundef %31, ptr noundef nonnull %34, i32 noundef %36) #16
-  %38 = add nsw i32 %37, %.13136
-  %39 = add nuw nsw i32 %.038, 1
-  %40 = load i32, ptr %23, align 4
-  %41 = icmp slt i32 %39, %40
-  br i1 %41, label %.lr.ph, label %._crit_edge.loopexit
-
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %42 = trunc nsw i64 %indvars.iv.next to i32
+  %27 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %22
-  %.131.lcssa = phi i32 [ %.030, %22 ], [ %38, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i32 [ %.02940, %22 ], [ %42, %._crit_edge.loopexit ]
-  %43 = icmp sgt i32 %.131.lcssa, 1023
-  br i1 %43, label %44, label %45
+  %.131.lcssa = phi i32 [ %.030, %22 ], [ %40, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %.02940, %22 ], [ %27, %._crit_edge.loopexit ]
+  %28 = icmp sgt i32 %.131.lcssa, 1023
+  br i1 %28, label %44, label %45
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ %26, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %29 = phi i32 [ %24, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.038 = phi i32 [ 0, %.lr.ph.preheader ], [ %41, %.lr.ph ]
+  %.13136 = phi i32 [ %.030, %.lr.ph.preheader ], [ %40, %.lr.ph ]
+  %30 = sext i32 %.13136 to i64
+  %31 = getelementptr inbounds i8, ptr %7, i64 %30
+  %32 = sub nsw i32 1024, %.13136
+  %33 = sext i32 %32 to i64
+  %34 = add nsw i32 %29, -1
+  %35 = icmp slt i32 %.038, %34
+  %36 = select i1 %35, ptr @.str.51, ptr @.str.52
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %37 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %38 = load i32, ptr %37, align 4, !tbaa !24
+  %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %31, i64 noundef %33, ptr noundef nonnull %36, i32 noundef %38) #16
+  %40 = add nsw i32 %39, %.13136
+  %41 = add nuw nsw i32 %.038, 1
+  %42 = load i32, ptr %23, align 4, !tbaa !24
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %.lr.ph, label %._crit_edge.loopexit
 
 44:                                               ; preds = %._crit_edge
   call void @raiseQASMBufferOverflow(ptr noundef nonnull @__func__.addMultiVarRegsToQASM) #16
@@ -1682,11 +1833,11 @@ getPhaseFuncSymbol.exit:                          ; preds = %14
 
 45:                                               ; preds = %44, %._crit_edge
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %46 = load ptr, ptr %.sroa.3.0.copyload, align 8
+  %46 = load ptr, ptr %.sroa.3.0.copyload, align 8, !tbaa !18
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 8
-  %48 = load i32, ptr %47, align 8
+  %48 = load i32, ptr %47, align 8, !tbaa !17
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 12
-  %50 = load i32, ptr %49, align 4
+  %50 = load i32, ptr %49, align 4, !tbaa !20
   %51 = add nsw i32 %50, %.131.lcssa
   %52 = icmp sgt i32 %51, %48
   br i1 %52, label %53, label %addStringToQASM.exit
@@ -1705,8 +1856,8 @@ getPhaseFuncSymbol.exit:                          ; preds = %14
   %59 = call noalias ptr @malloc(i64 noundef %58) #15
   %strcpy.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) %46)
   call void @free(ptr noundef %46) #16
-  store i32 %54, ptr %47, align 8
-  store ptr %59, ptr %.sroa.3.0.copyload, align 8
+  store i32 %54, ptr %47, align 8, !tbaa !17
+  store ptr %59, ptr %.sroa.3.0.copyload, align 8, !tbaa !18
   br label %addStringToQASM.exit
 
 addStringToQASM.exit:                             ; preds = %45, %57
@@ -1717,21 +1868,19 @@ addStringToQASM.exit:                             ; preds = %45, %57
   %62 = sub nsw i32 %.020.i, %50
   %63 = sext i32 %62 to i64
   %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %61, i64 noundef %63, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #16
-  %65 = load i32, ptr %49, align 4
+  %65 = load i32, ptr %49, align 4, !tbaa !20
   %66 = add nsw i32 %65, %64
-  store i32 %66, ptr %49, align 4
+  store i32 %66, ptr %49, align 4, !tbaa !20
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge44, label %14
-
-._crit_edge44:                                    ; preds = %addStringToQASM.exit, %10
-  ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @addMultiVarOverridesToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [1025 x i8], align 16
   tail call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.53)
+  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %6) #16
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %.lr.ph52, label %._crit_edge53
 
@@ -1746,6 +1895,10 @@ define void @addMultiVarOverridesToQASM(ptr noundef readonly byval(%struct.Qureg
   %wide.trip.count = zext nneg i32 %1 to i64
   %wide.trip.count72 = zext nneg i32 %1 to i64
   br label %13
+
+._crit_edge53:                                    ; preds = %addStringToQASM.exit, %5
+  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %6) #16
+  ret void
 
 13:                                               ; preds = %.lr.ph52, %addStringToQASM.exit
   %indvars.iv74 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next75, %addStringToQASM.exit ]
@@ -1771,10 +1924,10 @@ getPhaseFuncSymbol.exit.us.us:                    ; preds = %.lr.ph.split.us, %g
   %19 = icmp slt i64 %indvars.iv65, %12
   %20 = select i1 %19, ptr @.str.60, ptr @.str.61
   %21 = getelementptr inbounds nuw [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv65
-  %.0.i.us.us = load i8, ptr %21, align 1
+  %.0.i.us.us = load i8, ptr %21, align 1, !tbaa !26
   %22 = sext i8 %.0.i.us.us to i32
   %23 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv67
-  %24 = load i64, ptr %23, align 8
+  %24 = load i64, ptr %23, align 8, !tbaa !25
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %16, i64 noundef %18, ptr noundef nonnull %20, i32 noundef %22, i64 noundef %24) #16
   %indvars.iv.next68 = add nsw i64 %indvars.iv67, 1
   %.138.us.us = add nsw i32 %25, %.03742.us.us
@@ -1793,10 +1946,10 @@ getPhaseFuncSymbol.exit.us:                       ; preds = %.lr.ph.split.us, %g
   %30 = icmp slt i64 %indvars.iv57, %12
   %31 = select i1 %30, ptr @.str.60, ptr @.str.61
   %32 = getelementptr inbounds nuw [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv57
-  %.0.i.us = load i8, ptr %32, align 1
+  %.0.i.us = load i8, ptr %32, align 1, !tbaa !26
   %33 = sext i8 %.0.i.us to i32
   %34 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv59
-  %35 = load i64, ptr %34, align 8
+  %35 = load i64, ptr %34, align 8, !tbaa !25
   %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %27, i64 noundef %29, ptr noundef nonnull %31, i32 noundef %33, i64 noundef %35) #16
   %indvars.iv.next60 = add nsw i64 %indvars.iv59, 1
   %.138.us = add nsw i32 %36, %.03742.us
@@ -1804,52 +1957,52 @@ getPhaseFuncSymbol.exit.us:                       ; preds = %.lr.ph.split.us, %g
   %exitcond64.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count
   br i1 %exitcond64.not, label %._crit_edge.loopexit54, label %getPhaseFuncSymbol.exit.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ %14, %.lr.ph ]
-  %.044 = phi i32 [ %46, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.03742 = phi i32 [ %.138, %.lr.ph.split ], [ 8, %.lr.ph ]
-  %37 = sext i32 %.03742 to i64
-  %38 = getelementptr inbounds i8, ptr %6, i64 %37
-  %39 = sub nsw i32 1024, %.03742
-  %40 = sext i32 %39 to i64
-  %41 = icmp slt i32 %.044, %10
-  %42 = select i1 %41, ptr @.str.62, ptr @.str.63
-  %43 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
-  %44 = load i64, ptr %43, align 8
-  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %38, i64 noundef %40, ptr noundef nonnull %42, i32 noundef %.044, i64 noundef %44) #16
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %.138 = add nsw i32 %45, %.03742
-  %46 = add nuw nsw i32 %.044, 1
-  %exitcond.not = icmp eq i32 %46, %1
-  br i1 %exitcond.not, label %._crit_edge.loopexit55, label %.lr.ph.split
-
 ._crit_edge.loopexit:                             ; preds = %getPhaseFuncSymbol.exit.us.us
-  %47 = trunc nsw i64 %indvars.iv.next68 to i32
+  %37 = trunc nsw i64 %indvars.iv.next68 to i32
   br label %._crit_edge
 
 ._crit_edge.loopexit54:                           ; preds = %getPhaseFuncSymbol.exit.us
-  %48 = trunc nsw i64 %indvars.iv.next60 to i32
+  %38 = trunc nsw i64 %indvars.iv.next60 to i32
   br label %._crit_edge
 
 ._crit_edge.loopexit55:                           ; preds = %.lr.ph.split
-  %49 = trunc nsw i64 %indvars.iv.next to i32
+  %39 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit55, %._crit_edge.loopexit54, %._crit_edge.loopexit, %13
   %.037.lcssa = phi i32 [ 8, %13 ], [ %.138.us.us, %._crit_edge.loopexit ], [ %.138.us, %._crit_edge.loopexit54 ], [ %.138, %._crit_edge.loopexit55 ]
-  %.1.lcssa = phi i32 [ %.03649, %13 ], [ %47, %._crit_edge.loopexit ], [ %48, %._crit_edge.loopexit54 ], [ %49, %._crit_edge.loopexit55 ]
-  %50 = sext i32 %.037.lcssa to i64
-  %51 = getelementptr inbounds i8, ptr %6, i64 %50
-  %52 = sub nsw i32 1024, %.037.lcssa
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv74
-  %55 = load double, ptr %54, align 8
-  %56 = fcmp oge double %55, 0.000000e+00
-  %57 = select i1 %56, ptr @.str.64, ptr @.str.65
-  %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %51, i64 noundef %53, ptr noundef nonnull %57, double noundef %55) #16
-  %59 = add nsw i32 %58, %.037.lcssa
-  %60 = icmp sgt i32 %59, 1023
-  br i1 %60, label %61, label %62
+  %.1.lcssa = phi i32 [ %.03649, %13 ], [ %37, %._crit_edge.loopexit ], [ %38, %._crit_edge.loopexit54 ], [ %39, %._crit_edge.loopexit55 ]
+  %40 = sext i32 %.037.lcssa to i64
+  %41 = getelementptr inbounds i8, ptr %6, i64 %40
+  %42 = sub nsw i32 1024, %.037.lcssa
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv74
+  %45 = load double, ptr %44, align 8, !tbaa !22
+  %46 = fcmp oge double %45, 0.000000e+00
+  %47 = select i1 %46, ptr @.str.64, ptr @.str.65
+  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %41, i64 noundef %43, ptr noundef nonnull %47, double noundef %45) #16
+  %49 = add nsw i32 %48, %.037.lcssa
+  %50 = icmp sgt i32 %49, 1023
+  br i1 %50, label %61, label %62
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ %14, %.lr.ph ]
+  %.044 = phi i32 [ %60, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.03742 = phi i32 [ %.138, %.lr.ph.split ], [ 8, %.lr.ph ]
+  %51 = sext i32 %.03742 to i64
+  %52 = getelementptr inbounds i8, ptr %6, i64 %51
+  %53 = sub nsw i32 1024, %.03742
+  %54 = sext i32 %53 to i64
+  %55 = icmp slt i32 %.044, %10
+  %56 = select i1 %55, ptr @.str.62, ptr @.str.63
+  %57 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %58 = load i64, ptr %57, align 8, !tbaa !25
+  %59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %52, i64 noundef %54, ptr noundef nonnull %56, i32 noundef %.044, i64 noundef %58) #16
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %.138 = add nsw i32 %59, %.03742
+  %60 = add nuw nsw i32 %.044, 1
+  %exitcond.not = icmp eq i32 %60, %1
+  br i1 %exitcond.not, label %._crit_edge.loopexit55, label %.lr.ph.split
 
 61:                                               ; preds = %._crit_edge
   call void @raiseQASMBufferOverflow(ptr noundef nonnull @__func__.addMultiVarOverridesToQASM) #16
@@ -1857,12 +2010,12 @@ getPhaseFuncSymbol.exit.us:                       ; preds = %.lr.ph.split.us, %g
 
 62:                                               ; preds = %61, %._crit_edge
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %63 = load ptr, ptr %.sroa.3.0.copyload, align 8
+  %63 = load ptr, ptr %.sroa.3.0.copyload, align 8, !tbaa !18
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 8
-  %65 = load i32, ptr %64, align 8
+  %65 = load i32, ptr %64, align 8, !tbaa !17
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 12
-  %67 = load i32, ptr %66, align 4
-  %68 = add nsw i32 %67, %59
+  %67 = load i32, ptr %66, align 4, !tbaa !20
+  %68 = add nsw i32 %67, %49
   %69 = icmp sgt i32 %68, %65
   br i1 %69, label %70, label %addStringToQASM.exit
 
@@ -1880,8 +2033,8 @@ getPhaseFuncSymbol.exit.us:                       ; preds = %.lr.ph.split.us, %g
   %76 = call noalias ptr @malloc(i64 noundef %75) #15
   %strcpy.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %76, ptr noundef nonnull dereferenceable(1) %63)
   call void @free(ptr noundef %63) #16
-  store i32 %71, ptr %64, align 8
-  store ptr %76, ptr %.sroa.3.0.copyload, align 8
+  store i32 %71, ptr %64, align 8, !tbaa !17
+  store ptr %76, ptr %.sroa.3.0.copyload, align 8, !tbaa !18
   br label %addStringToQASM.exit
 
 addStringToQASM.exit:                             ; preds = %62, %74
@@ -1892,20 +2045,18 @@ addStringToQASM.exit:                             ; preds = %62, %74
   %79 = sub nsw i32 %.020.i, %67
   %80 = sext i32 %79 to i64
   %81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %78, i64 noundef %80, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #16
-  %82 = load i32, ptr %66, align 4
+  %82 = load i32, ptr %66, align 4, !tbaa !20
   %83 = add nsw i32 %82, %81
-  store i32 %83, ptr %66, align 4
+  store i32 %83, ptr %66, align 4, !tbaa !20
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
   br i1 %exitcond78.not, label %._crit_edge53, label %13
-
-._crit_edge53:                                    ; preds = %addStringToQASM.exit, %5
-  ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @addShiftValuesToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [1025 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %5) #16
   switch i32 %1, label %.loopexit [
     i32 4, label %8
     i32 13, label %6
@@ -1930,7 +2081,7 @@ define void @addShiftValuesToQASM(ptr noundef readonly byval(%struct.Qureg) alig
 10:                                               ; preds = %.lr.ph, %addStringToQASM.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %addStringToQASM.exit ]
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
-  %11 = load double, ptr %gep, align 8
+  %11 = load double, ptr %gep, align 8, !tbaa !22
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.67, i32 noundef %12, double noundef %11) #16
   %14 = icmp sgt i32 %13, 1023
@@ -1942,11 +2093,11 @@ define void @addShiftValuesToQASM(ptr noundef readonly byval(%struct.Qureg) alig
 
 16:                                               ; preds = %15, %10
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %17 = load ptr, ptr %.sroa.3.0.copyload, align 8
+  %17 = load ptr, ptr %.sroa.3.0.copyload, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 8
-  %19 = load i32, ptr %18, align 8
+  %19 = load i32, ptr %18, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 12
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 4, !tbaa !20
   %22 = add nsw i32 %21, %13
   %23 = icmp sgt i32 %22, %19
   br i1 %23, label %24, label %addStringToQASM.exit
@@ -1965,8 +2116,8 @@ define void @addShiftValuesToQASM(ptr noundef readonly byval(%struct.Qureg) alig
   %30 = call noalias ptr @malloc(i64 noundef %29) #15
   %strcpy.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %17)
   call void @free(ptr noundef %17) #16
-  store i32 %25, ptr %18, align 8
-  store ptr %30, ptr %.sroa.3.0.copyload, align 8
+  store i32 %25, ptr %18, align 8, !tbaa !17
+  store ptr %30, ptr %.sroa.3.0.copyload, align 8, !tbaa !18
   br label %addStringToQASM.exit
 
 addStringToQASM.exit:                             ; preds = %16, %28
@@ -1977,14 +2128,15 @@ addStringToQASM.exit:                             ; preds = %16, %28
   %33 = sub nsw i32 %.020.i, %21
   %34 = sext i32 %33 to i64
   %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %32, i64 noundef %34, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #16
-  %36 = load i32, ptr %20, align 4
+  %36 = load i32, ptr %20, align 4, !tbaa !20
   %37 = add nsw i32 %36, %35
-  store i32 %37, ptr %20, align 4
+  store i32 %37, ptr %20, align 4, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %addStringToQASM.exit, %8, %4
+  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %5) #16
   ret void
 }
 
@@ -1992,15 +2144,16 @@ addStringToQASM.exit:                             ; preds = %16, %28
 define void @qasm_recordMultiVarPhaseFunc(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = alloca [1025 x i8], align 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load i32, ptr %15, align 8
+  %16 = load i32, ptr %15, align 8, !tbaa !14
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %131, label %17
+  br i1 %.not, label %132, label %17
 
 17:                                               ; preds = %11
   tail call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.68)
   tail call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.69)
+  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %12) #16
   %18 = icmp sgt i32 %3, 0
   br i1 %18, label %.lr.ph80, label %._crit_edge81
 
@@ -2012,207 +2165,211 @@ define void @qasm_recordMultiVarPhaseFunc(ptr noundef readonly byval(%struct.Qur
   %22 = add nsw i32 %3, -1
   %23 = zext nneg i32 %22 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %24
-
-24:                                               ; preds = %.lr.ph80, %addStringToQASM.exit
-  %indvars.iv88 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next89, %addStringToQASM.exit ]
-  %.06276 = phi i32 [ 0, %.lr.ph80 ], [ %.1.lcssa, %addStringToQASM.exit ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %12, ptr noundef nonnull align 1 dereferenceable(12) @.str.70, i64 12, i1 false)
-  %25 = sext i32 %.06276 to i64
-  %26 = getelementptr inbounds double, ptr %5, i64 %25
-  %27 = load double, ptr %26, align 8
-  %28 = fcmp ogt double %27, 0.000000e+00
-  %29 = select i1 %28, ptr @.str.44, ptr @.str.45
-  %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 1013, ptr noundef nonnull %29) #16
-  %31 = add nsw i32 %30, 11
-  %32 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv88
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %24
-  br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split.preheader
-
-.lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %35 = trunc nuw nsw i64 %indvars.iv88 to i32
-  br label %.lr.ph.split
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  %36 = getelementptr inbounds nuw [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv88
-  %37 = getelementptr inbounds nuw [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv88
-  %.0.i.in = select i1 %21, ptr %36, ptr %37
-  %.0.i.us = load i8, ptr %.0.i.in, align 1
-  %38 = sext i8 %.0.i.us to i32
-  br label %getPhaseFuncSymbol.exit.us
-
-getPhaseFuncSymbol.exit.us:                       ; preds = %64, %.lr.ph.split.us
-  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %64 ], [ %25, %.lr.ph.split.us ]
-  %.073.us = phi i32 [ %66, %64 ], [ 0, %.lr.ph.split.us ]
-  %.06371.us = phi i32 [ %.2.us, %64 ], [ %31, %.lr.ph.split.us ]
-  %39 = sext i32 %.06371.us to i64
-  %40 = getelementptr inbounds i8, ptr %12, i64 %39
-  %41 = sub nsw i32 1024, %.06371.us
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds double, ptr %6, i64 %indvars.iv85
-  %44 = load double, ptr %43, align 8
-  %45 = fcmp ogt double %44, 0.000000e+00
-  %46 = select i1 %45, ptr @.str.71, ptr @.str.72
-  %47 = getelementptr inbounds double, ptr %5, i64 %indvars.iv85
-  %48 = load double, ptr %47, align 8
-  %49 = call double @llvm.fabs.f64(double %48)
-  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %40, i64 noundef %42, ptr noundef nonnull %46, double noundef %49, i32 noundef %38, double noundef %44) #16
-  %.164.us = add nsw i32 %50, %.06371.us
-  %51 = load i32, ptr %32, align 4
-  %52 = add nsw i32 %51, -1
-  %53 = icmp slt i32 %.073.us, %52
-  br i1 %53, label %54, label %64
-
-54:                                               ; preds = %getPhaseFuncSymbol.exit.us
-  %55 = sext i32 %.164.us to i64
-  %56 = getelementptr inbounds i8, ptr %12, i64 %55
-  %57 = sub nsw i32 1024, %.164.us
-  %58 = sext i32 %57 to i64
-  %gep.us = getelementptr double, ptr %invariant.gep, i64 %indvars.iv85
-  %59 = load double, ptr %gep.us, align 8
-  %60 = fcmp ogt double %59, 0.000000e+00
-  %61 = select i1 %60, ptr @.str.44, ptr @.str.45
-  %62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %56, i64 noundef %58, ptr noundef nonnull %61) #16
-  %63 = add nsw i32 %62, %.164.us
-  %.pre91 = load i32, ptr %32, align 4
-  br label %64
-
-64:                                               ; preds = %54, %getPhaseFuncSymbol.exit.us
-  %65 = phi i32 [ %.pre91, %54 ], [ %51, %getPhaseFuncSymbol.exit.us ]
-  %.2.us = phi i32 [ %63, %54 ], [ %.164.us, %getPhaseFuncSymbol.exit.us ]
-  %indvars.iv.next86 = add nsw i64 %indvars.iv85, 1
-  %66 = add nuw nsw i32 %.073.us, 1
-  %67 = icmp slt i32 %66, %65
-  br i1 %67, label %getPhaseFuncSymbol.exit.us, label %._crit_edge.loopexit
-
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %93
-  %indvars.iv = phi i64 [ %25, %.lr.ph.split.preheader ], [ %indvars.iv.next, %93 ]
-  %.073 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %95, %93 ]
-  %.06371 = phi i32 [ %31, %.lr.ph.split.preheader ], [ %.2, %93 ]
-  %68 = sext i32 %.06371 to i64
-  %69 = getelementptr inbounds i8, ptr %12, i64 %68
-  %70 = sub nsw i32 1024, %.06371
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds double, ptr %6, i64 %indvars.iv
-  %73 = load double, ptr %72, align 8
-  %74 = fcmp ogt double %73, 0.000000e+00
-  %75 = select i1 %74, ptr @.str.73, ptr @.str.74
-  %76 = getelementptr inbounds double, ptr %5, i64 %indvars.iv
-  %77 = load double, ptr %76, align 8
-  %78 = call double @llvm.fabs.f64(double %77)
-  %79 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %69, i64 noundef %71, ptr noundef nonnull %75, double noundef %78, i32 noundef %35, double noundef %73) #16
-  %.164 = add nsw i32 %79, %.06371
-  %80 = load i32, ptr %32, align 4
-  %81 = add nsw i32 %80, -1
-  %82 = icmp slt i32 %.073, %81
-  br i1 %82, label %83, label %93
-
-83:                                               ; preds = %.lr.ph.split
-  %84 = sext i32 %.164 to i64
-  %85 = getelementptr inbounds i8, ptr %12, i64 %84
-  %86 = sub nsw i32 1024, %.164
-  %87 = sext i32 %86 to i64
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
-  %88 = load double, ptr %gep, align 8
-  %89 = fcmp ogt double %88, 0.000000e+00
-  %90 = select i1 %89, ptr @.str.44, ptr @.str.45
-  %91 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %85, i64 noundef %87, ptr noundef nonnull %90) #16
-  %92 = add nsw i32 %91, %.164
-  %.pre = load i32, ptr %32, align 4
-  br label %93
-
-93:                                               ; preds = %83, %.lr.ph.split
-  %94 = phi i32 [ %.pre, %83 ], [ %80, %.lr.ph.split ]
-  %.2 = phi i32 [ %92, %83 ], [ %.164, %.lr.ph.split ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %95 = add nuw nsw i32 %.073, 1
-  %96 = icmp slt i32 %95, %94
-  br i1 %96, label %.lr.ph.split, label %._crit_edge.loopexit82
-
-._crit_edge.loopexit:                             ; preds = %64
-  %97 = trunc nsw i64 %indvars.iv.next86 to i32
-  br label %._crit_edge
-
-._crit_edge.loopexit82:                           ; preds = %93
-  %98 = trunc nsw i64 %indvars.iv.next to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit82, %._crit_edge.loopexit, %24
-  %.063.lcssa = phi i32 [ %31, %24 ], [ %.2.us, %._crit_edge.loopexit ], [ %.2, %._crit_edge.loopexit82 ]
-  %.1.lcssa = phi i32 [ %.06276, %24 ], [ %97, %._crit_edge.loopexit ], [ %98, %._crit_edge.loopexit82 ]
-  %99 = icmp samesign ult i64 %indvars.iv88, %23
-  %100 = sext i32 %.063.lcssa to i64
-  %101 = getelementptr inbounds i8, ptr %12, i64 %100
-  %102 = sub nsw i32 1024, %.063.lcssa
-  %103 = sext i32 %102 to i64
-  %.str.75..str.76 = select i1 %99, ptr @.str.75, ptr @.str.76
-  %104 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %101, i64 noundef %103, ptr noundef nonnull %.str.75..str.76) #16
-  %.3 = add nsw i32 %104, %.063.lcssa
-  %105 = icmp sgt i32 %.3, 1023
-  br i1 %105, label %106, label %107
-
-106:                                              ; preds = %._crit_edge
-  call void @raiseQASMBufferOverflow(ptr noundef nonnull @__func__.qasm_recordMultiVarPhaseFunc) #16
-  br label %107
-
-107:                                              ; preds = %106, %._crit_edge
-  %.sroa.3.0.copyload = load ptr, ptr %13, align 8
-  %108 = load ptr, ptr %.sroa.3.0.copyload, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 8
-  %110 = load i32, ptr %109, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 12
-  %112 = load i32, ptr %111, align 4
-  %113 = add nsw i32 %112, %.3
-  %114 = icmp sgt i32 %113, %110
-  br i1 %114, label %115, label %addStringToQASM.exit
-
-115:                                              ; preds = %107
-  %116 = shl nsw i32 %110, 1
-  %117 = icmp sgt i32 %113, %116
-  br i1 %117, label %118, label %119
-
-118:                                              ; preds = %115
-  call void @raiseQASMBufferOverflow(ptr noundef nonnull @__func__.addStringToQASM) #16
-  br label %119
-
-119:                                              ; preds = %118, %115
-  %120 = sext i32 %116 to i64
-  %121 = call noalias ptr @malloc(i64 noundef %120) #15
-  %strcpy.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull dereferenceable(1) %108)
-  call void @free(ptr noundef %108) #16
-  store i32 %116, ptr %109, align 8
-  store ptr %121, ptr %.sroa.3.0.copyload, align 8
-  br label %addStringToQASM.exit
-
-addStringToQASM.exit:                             ; preds = %107, %119
-  %.020.i = phi i32 [ %116, %119 ], [ %110, %107 ]
-  %.0.i69 = phi ptr [ %121, %119 ], [ %108, %107 ]
-  %122 = sext i32 %112 to i64
-  %123 = getelementptr inbounds i8, ptr %.0.i69, i64 %122
-  %124 = sub nsw i32 %.020.i, %112
-  %125 = sext i32 %124 to i64
-  %126 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %123, i64 noundef %125, ptr noundef nonnull @.str.3, ptr noundef nonnull %12) #16
-  %127 = load i32, ptr %111, align 4
-  %128 = add nsw i32 %127, %126
-  store i32 %128, ptr %111, align 4
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge81, label %24
+  br label %25
 
 ._crit_edge81:                                    ; preds = %addStringToQASM.exit, %17
   call void @addMultiVarRegsToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
-  %129 = icmp sgt i32 %10, 0
-  br i1 %129, label %130, label %131
+  %24 = icmp sgt i32 %10, 0
+  br i1 %24, label %130, label %131
+
+25:                                               ; preds = %.lr.ph80, %addStringToQASM.exit
+  %indvars.iv88 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next89, %addStringToQASM.exit ]
+  %.06276 = phi i32 [ 0, %.lr.ph80 ], [ %.1.lcssa, %addStringToQASM.exit ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %12, ptr noundef nonnull align 1 dereferenceable(12) @.str.70, i64 12, i1 false)
+  %26 = sext i32 %.06276 to i64
+  %27 = getelementptr inbounds double, ptr %5, i64 %26
+  %28 = load double, ptr %27, align 8, !tbaa !22
+  %29 = fcmp ogt double %28, 0.000000e+00
+  %30 = select i1 %29, ptr @.str.44, ptr @.str.45
+  %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 1013, ptr noundef nonnull %30) #16
+  %32 = add nsw i32 %31, 11
+  %33 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv88
+  %34 = load i32, ptr %33, align 4, !tbaa !24
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %25
+  br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split.preheader
+
+.lr.ph.split.preheader:                           ; preds = %.lr.ph
+  %36 = trunc nuw nsw i64 %indvars.iv88 to i32
+  br label %.lr.ph.split
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  %37 = getelementptr inbounds nuw [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv88
+  %38 = getelementptr inbounds nuw [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv88
+  %.0.i.in = select i1 %21, ptr %37, ptr %38
+  %.0.i.us = load i8, ptr %.0.i.in, align 1, !tbaa !26
+  %39 = sext i8 %.0.i.us to i32
+  br label %getPhaseFuncSymbol.exit.us
+
+getPhaseFuncSymbol.exit.us:                       ; preds = %65, %.lr.ph.split.us
+  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %65 ], [ %26, %.lr.ph.split.us ]
+  %.073.us = phi i32 [ %67, %65 ], [ 0, %.lr.ph.split.us ]
+  %.06371.us = phi i32 [ %.2.us, %65 ], [ %32, %.lr.ph.split.us ]
+  %40 = sext i32 %.06371.us to i64
+  %41 = getelementptr inbounds i8, ptr %12, i64 %40
+  %42 = sub nsw i32 1024, %.06371.us
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds double, ptr %6, i64 %indvars.iv85
+  %45 = load double, ptr %44, align 8, !tbaa !22
+  %46 = fcmp ogt double %45, 0.000000e+00
+  %47 = select i1 %46, ptr @.str.71, ptr @.str.72
+  %48 = getelementptr inbounds double, ptr %5, i64 %indvars.iv85
+  %49 = load double, ptr %48, align 8, !tbaa !22
+  %50 = call double @llvm.fabs.f64(double %49)
+  %51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %41, i64 noundef %43, ptr noundef nonnull %47, double noundef %50, i32 noundef %39, double noundef %45) #16
+  %.164.us = add nsw i32 %51, %.06371.us
+  %52 = load i32, ptr %33, align 4, !tbaa !24
+  %53 = add nsw i32 %52, -1
+  %54 = icmp slt i32 %.073.us, %53
+  br i1 %54, label %55, label %65
+
+55:                                               ; preds = %getPhaseFuncSymbol.exit.us
+  %56 = sext i32 %.164.us to i64
+  %57 = getelementptr inbounds i8, ptr %12, i64 %56
+  %58 = sub nsw i32 1024, %.164.us
+  %59 = sext i32 %58 to i64
+  %gep.us = getelementptr double, ptr %invariant.gep, i64 %indvars.iv85
+  %60 = load double, ptr %gep.us, align 8, !tbaa !22
+  %61 = fcmp ogt double %60, 0.000000e+00
+  %62 = select i1 %61, ptr @.str.44, ptr @.str.45
+  %63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %57, i64 noundef %59, ptr noundef nonnull %62) #16
+  %64 = add nsw i32 %63, %.164.us
+  %.pre91 = load i32, ptr %33, align 4, !tbaa !24
+  br label %65
+
+65:                                               ; preds = %55, %getPhaseFuncSymbol.exit.us
+  %66 = phi i32 [ %.pre91, %55 ], [ %52, %getPhaseFuncSymbol.exit.us ]
+  %.2.us = phi i32 [ %64, %55 ], [ %.164.us, %getPhaseFuncSymbol.exit.us ]
+  %indvars.iv.next86 = add nsw i64 %indvars.iv85, 1
+  %67 = add nuw nsw i32 %.073.us, 1
+  %68 = icmp slt i32 %67, %66
+  br i1 %68, label %getPhaseFuncSymbol.exit.us, label %._crit_edge.loopexit
+
+._crit_edge.loopexit:                             ; preds = %65
+  %69 = trunc nsw i64 %indvars.iv.next86 to i32
+  br label %._crit_edge
+
+._crit_edge.loopexit82:                           ; preds = %103
+  %70 = trunc nsw i64 %indvars.iv.next to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit82, %._crit_edge.loopexit, %25
+  %.063.lcssa = phi i32 [ %32, %25 ], [ %.2.us, %._crit_edge.loopexit ], [ %.2, %._crit_edge.loopexit82 ]
+  %.1.lcssa = phi i32 [ %.06276, %25 ], [ %69, %._crit_edge.loopexit ], [ %70, %._crit_edge.loopexit82 ]
+  %71 = icmp samesign ult i64 %indvars.iv88, %23
+  %72 = sext i32 %.063.lcssa to i64
+  %73 = getelementptr inbounds i8, ptr %12, i64 %72
+  %74 = sub nsw i32 1024, %.063.lcssa
+  %75 = sext i32 %74 to i64
+  %.str.75..str.76 = select i1 %71, ptr @.str.75, ptr @.str.76
+  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %73, i64 noundef %75, ptr noundef nonnull %.str.75..str.76) #16
+  %.3 = add nsw i32 %76, %.063.lcssa
+  %77 = icmp sgt i32 %.3, 1023
+  br i1 %77, label %107, label %108
+
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %103
+  %indvars.iv = phi i64 [ %26, %.lr.ph.split.preheader ], [ %indvars.iv.next, %103 ]
+  %.073 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %105, %103 ]
+  %.06371 = phi i32 [ %32, %.lr.ph.split.preheader ], [ %.2, %103 ]
+  %78 = sext i32 %.06371 to i64
+  %79 = getelementptr inbounds i8, ptr %12, i64 %78
+  %80 = sub nsw i32 1024, %.06371
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds double, ptr %6, i64 %indvars.iv
+  %83 = load double, ptr %82, align 8, !tbaa !22
+  %84 = fcmp ogt double %83, 0.000000e+00
+  %85 = select i1 %84, ptr @.str.73, ptr @.str.74
+  %86 = getelementptr inbounds double, ptr %5, i64 %indvars.iv
+  %87 = load double, ptr %86, align 8, !tbaa !22
+  %88 = call double @llvm.fabs.f64(double %87)
+  %89 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %79, i64 noundef %81, ptr noundef nonnull %85, double noundef %88, i32 noundef %36, double noundef %83) #16
+  %.164 = add nsw i32 %89, %.06371
+  %90 = load i32, ptr %33, align 4, !tbaa !24
+  %91 = add nsw i32 %90, -1
+  %92 = icmp slt i32 %.073, %91
+  br i1 %92, label %93, label %103
+
+93:                                               ; preds = %.lr.ph.split
+  %94 = sext i32 %.164 to i64
+  %95 = getelementptr inbounds i8, ptr %12, i64 %94
+  %96 = sub nsw i32 1024, %.164
+  %97 = sext i32 %96 to i64
+  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %98 = load double, ptr %gep, align 8, !tbaa !22
+  %99 = fcmp ogt double %98, 0.000000e+00
+  %100 = select i1 %99, ptr @.str.44, ptr @.str.45
+  %101 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %95, i64 noundef %97, ptr noundef nonnull %100) #16
+  %102 = add nsw i32 %101, %.164
+  %.pre = load i32, ptr %33, align 4, !tbaa !24
+  br label %103
+
+103:                                              ; preds = %93, %.lr.ph.split
+  %104 = phi i32 [ %.pre, %93 ], [ %90, %.lr.ph.split ]
+  %.2 = phi i32 [ %102, %93 ], [ %.164, %.lr.ph.split ]
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %105 = add nuw nsw i32 %.073, 1
+  %106 = icmp slt i32 %105, %104
+  br i1 %106, label %.lr.ph.split, label %._crit_edge.loopexit82
+
+107:                                              ; preds = %._crit_edge
+  call void @raiseQASMBufferOverflow(ptr noundef nonnull @__func__.qasm_recordMultiVarPhaseFunc) #16
+  br label %108
+
+108:                                              ; preds = %107, %._crit_edge
+  %.sroa.3.0.copyload = load ptr, ptr %13, align 8
+  %109 = load ptr, ptr %.sroa.3.0.copyload, align 8, !tbaa !18
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 8
+  %111 = load i32, ptr %110, align 8, !tbaa !17
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 12
+  %113 = load i32, ptr %112, align 4, !tbaa !20
+  %114 = add nsw i32 %113, %.3
+  %115 = icmp sgt i32 %114, %111
+  br i1 %115, label %116, label %addStringToQASM.exit
+
+116:                                              ; preds = %108
+  %117 = shl nsw i32 %111, 1
+  %118 = icmp sgt i32 %114, %117
+  br i1 %118, label %119, label %120
+
+119:                                              ; preds = %116
+  call void @raiseQASMBufferOverflow(ptr noundef nonnull @__func__.addStringToQASM) #16
+  br label %120
+
+120:                                              ; preds = %119, %116
+  %121 = sext i32 %117 to i64
+  %122 = call noalias ptr @malloc(i64 noundef %121) #15
+  %strcpy.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %122, ptr noundef nonnull dereferenceable(1) %109)
+  call void @free(ptr noundef %109) #16
+  store i32 %117, ptr %110, align 8, !tbaa !17
+  store ptr %122, ptr %.sroa.3.0.copyload, align 8, !tbaa !18
+  br label %addStringToQASM.exit
+
+addStringToQASM.exit:                             ; preds = %108, %120
+  %.020.i = phi i32 [ %117, %120 ], [ %111, %108 ]
+  %.0.i69 = phi ptr [ %122, %120 ], [ %109, %108 ]
+  %123 = sext i32 %113 to i64
+  %124 = getelementptr inbounds i8, ptr %.0.i69, i64 %123
+  %125 = sub nsw i32 %.020.i, %113
+  %126 = sext i32 %125 to i64
+  %127 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %124, i64 noundef %126, ptr noundef nonnull @.str.3, ptr noundef nonnull %12) #16
+  %128 = load i32, ptr %112, align 4, !tbaa !20
+  %129 = add nsw i32 %128, %127
+  store i32 %129, ptr %112, align 4, !tbaa !20
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge81, label %25
 
 130:                                              ; preds = %._crit_edge81
   call void @addMultiVarOverridesToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %3, ptr noundef %8, ptr noundef %9, i32 noundef %10)
   br label %131
 
-131:                                              ; preds = %11, %130, %._crit_edge81
+131:                                              ; preds = %130, %._crit_edge81
+  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %12) #16
+  br label %132
+
+132:                                              ; preds = %11, %131
   ret void
 }
 
@@ -2220,14 +2377,15 @@ addStringToQASM.exit:                             ; preds = %107, %119
 define void @qasm_recordNamedPhaseFunc(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = alloca [1025 x i8], align 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load i32, ptr %15, align 8
+  %16 = load i32, ptr %15, align 8, !tbaa !14
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %293, label %17
+  br i1 %.not, label %294, label %17
 
 17:                                               ; preds = %11
   tail call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.77)
+  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %12) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) %12, ptr noundef nonnull align 1 dereferenceable(14) @.str.78, i64 14, i1 false)
   %or.cond = icmp ult i32 %5, 2
   %18 = icmp eq i32 %5, 2
@@ -2244,7 +2402,7 @@ define void @qasm_recordNamedPhaseFunc(ptr noundef readonly byval(%struct.Qureg)
 
 21:                                               ; preds = %20, %20, %20
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 13
-  %23 = load double, ptr %6, align 8
+  %23 = load double, ptr %6, align 8, !tbaa !22
   %24 = fcmp ogt double %23, 0.000000e+00
   %25 = select i1 %24, ptr @.str.79, ptr @.str.80
   %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %22, i64 noundef 1011, ptr noundef nonnull %25, double noundef %23) #16
@@ -2284,13 +2442,13 @@ define void @qasm_recordNamedPhaseFunc(ptr noundef readonly byval(%struct.Qureg)
   %41 = sub nsw i32 1024, %.2271.us
   %42 = sext i32 %41 to i64
   %gep.us276 = getelementptr inbounds nuw double, ptr %invariant.gep270, i64 %indvars.iv309
-  %43 = load double, ptr %gep.us276, align 8
+  %43 = load double, ptr %gep.us276, align 8, !tbaa !22
   %44 = fcmp olt double %43, 0.000000e+00
   %45 = select i1 %44, ptr @.str.84, ptr @.str.85
   %46 = getelementptr inbounds nuw [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv309
   %47 = getelementptr inbounds nuw [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv309
   %.0.i.us.in = select i1 %36, ptr %46, ptr %47
-  %.0.i.us = load i8, ptr %.0.i.us.in, align 1
+  %.0.i.us = load i8, ptr %.0.i.us.in, align 1, !tbaa !26
   %48 = sext i8 %.0.i.us to i32
   %49 = tail call double @llvm.fabs.f64(double %43)
   %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %40, i64 noundef %42, ptr noundef nonnull %45, i32 noundef %48, double noundef %49) #16
@@ -2317,7 +2475,7 @@ define void @qasm_recordNamedPhaseFunc(ptr noundef readonly byval(%struct.Qureg)
   %63 = getelementptr inbounds nuw [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv304
   %64 = getelementptr inbounds nuw [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv304
   %.0.i230.in = select i1 %36, ptr %63, ptr %64
-  %.0.i230 = load i8, ptr %.0.i230.in, align 1
+  %.0.i230 = load i8, ptr %.0.i230.in, align 1, !tbaa !26
   %65 = sext i8 %.0.i230 to i32
   %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %60, i64 noundef %62, ptr noundef nonnull @.str.86, i32 noundef %65) #16
   %.3 = add nsw i32 %66, %.2271
@@ -2363,7 +2521,7 @@ define void @qasm_recordNamedPhaseFunc(ptr noundef readonly byval(%struct.Qureg)
 
 89:                                               ; preds = %88, %88
   %90 = getelementptr inbounds nuw i8, ptr %12, i64 13
-  %91 = load double, ptr %6, align 8
+  %91 = load double, ptr %6, align 8, !tbaa !22
   %92 = fcmp ogt double %91, 0.000000e+00
   %93 = select i1 %92, ptr @.str.79, ptr @.str.80
   %94 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %90, i64 noundef 1011, ptr noundef nonnull %93, double noundef %91) #16
@@ -2416,7 +2574,7 @@ getPhaseFuncSymbol.exit233.us:                    ; preds = %.lr.ph267, %getPhas
   %114 = icmp samesign ult i64 %indvars.iv299, %109
   %115 = select i1 %114, ptr @.str.91, ptr @.str.92
   %116 = getelementptr inbounds nuw [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv299
-  %117 = load i8, ptr %116, align 1
+  %117 = load i8, ptr %116, align 1, !tbaa !26
   %118 = sext i8 %117 to i32
   %119 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %111, i64 noundef %113, ptr noundef nonnull %115, i32 noundef %118) #16
   %120 = add nsw i32 %119, %.7265.us
@@ -2434,7 +2592,7 @@ getPhaseFuncSymbol.exit233:                       ; preds = %.lr.ph267, %getPhas
   %125 = icmp samesign ult i64 %indvars.iv296, %109
   %126 = select i1 %125, ptr @.str.91, ptr @.str.92
   %127 = getelementptr inbounds nuw [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv296
-  %128 = load i8, ptr %127, align 1
+  %128 = load i8, ptr %127, align 1, !tbaa !26
   %129 = sext i8 %128 to i32
   %130 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %122, i64 noundef %124, ptr noundef nonnull %126, i32 noundef %129) #16
   %131 = add nsw i32 %130, %.7265
@@ -2492,7 +2650,7 @@ getPhaseFuncSymbol.exit233:                       ; preds = %.lr.ph267, %getPhas
 
 161:                                              ; preds = %157
   %162 = getelementptr inbounds nuw i8, ptr %12, i64 13
-  %163 = load double, ptr %6, align 8
+  %163 = load double, ptr %6, align 8, !tbaa !22
   %164 = fcmp ogt double %163, 0.000000e+00
   %165 = select i1 %164, ptr @.str.79, ptr @.str.80
   %166 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %162, i64 noundef 1011, ptr noundef nonnull %165, double noundef %163) #16
@@ -2544,7 +2702,7 @@ getPhaseFuncSymbol.exit233:                       ; preds = %.lr.ph267, %getPhas
   %185 = sext i32 %184 to i64
   %186 = lshr exact i64 %indvars.iv293, 1
   %gep.us = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %186
-  %187 = load double, ptr %gep.us, align 8
+  %187 = load double, ptr %gep.us, align 8, !tbaa !22
   %188 = fcmp olt double %187, 0.000000e+00
   %189 = select i1 %188, ptr @.str.94, ptr @.str.95
   %190 = or disjoint i64 %indvars.iv293, 1
@@ -2554,8 +2712,8 @@ getPhaseFuncSymbol.exit233:                       ; preds = %.lr.ph267, %getPhas
   %194 = getelementptr inbounds nuw [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %190
   %.in.in = select i1 %179, ptr %191, ptr %193
   %.0.i236.us.in = select i1 %179, ptr %192, ptr %194
-  %.0.i236.us = load i8, ptr %.0.i236.us.in, align 1
-  %.in = load i8, ptr %.in.in, align 1
+  %.0.i236.us = load i8, ptr %.0.i236.us.in, align 1, !tbaa !26
+  %.in = load i8, ptr %.in.in, align 1, !tbaa !26
   %195 = sext i8 %.in to i32
   %196 = sext i8 %.0.i236.us to i32
   %197 = tail call double @llvm.fabs.f64(double %187)
@@ -2585,11 +2743,11 @@ getPhaseFuncSymbol.exit241.us:                    ; preds = %.lr.ph.split, %getP
   %211 = sub nsw i32 1024, %.12257.us261
   %212 = sext i32 %211 to i64
   %213 = getelementptr inbounds nuw [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %indvars.iv290
-  %214 = load i8, ptr %213, align 1
+  %214 = load i8, ptr %213, align 1, !tbaa !26
   %215 = sext i8 %214 to i32
   %216 = or disjoint i64 %indvars.iv290, 1
   %217 = getelementptr inbounds nuw [7 x i8], ptr @getPhaseFuncSymbol.xyz, i64 0, i64 %216
-  %218 = load i8, ptr %217, align 1
+  %218 = load i8, ptr %217, align 1, !tbaa !26
   %219 = sext i8 %218 to i32
   %220 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %210, i64 noundef %212, ptr noundef nonnull @.str.96, i32 noundef %215, i32 noundef %219) #16
   %.13.us262 = add nsw i32 %220, %.12257.us261
@@ -2614,11 +2772,11 @@ getPhaseFuncSymbol.exit241:                       ; preds = %.lr.ph.split, %getP
   %233 = sub nsw i32 1024, %.12257
   %234 = sext i32 %233 to i64
   %235 = getelementptr inbounds nuw [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %indvars.iv
-  %236 = load i8, ptr %235, align 2
+  %236 = load i8, ptr %235, align 2, !tbaa !26
   %237 = sext i8 %236 to i32
   %238 = or disjoint i64 %indvars.iv, 1
   %239 = getelementptr inbounds nuw [24 x i8], ptr @getPhaseFuncSymbol.abc, i64 0, i64 %238
-  %240 = load i8, ptr %239, align 1
+  %240 = load i8, ptr %239, align 1, !tbaa !26
   %241 = sext i8 %240 to i32
   %242 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %232, i64 noundef %234, ptr noundef nonnull @.str.96, i32 noundef %237, i32 noundef %241) #16
   %.13 = add nsw i32 %242, %.12257
@@ -2663,11 +2821,11 @@ getPhaseFuncSymbol.exit241:                       ; preds = %.lr.ph.split, %getP
 
 .thread249:                                       ; preds = %154, %265, %.loopexit
   %.4251 = phi i32 [ %.4, %265 ], [ %.4, %.loopexit ], [ 13, %154 ]
-  %266 = load ptr, ptr %14, align 8
+  %266 = load ptr, ptr %14, align 8, !tbaa !18
   %267 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %268 = load i32, ptr %267, align 8
+  %268 = load i32, ptr %267, align 8, !tbaa !17
   %269 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %270 = load i32, ptr %269, align 4
+  %270 = load i32, ptr %269, align 4, !tbaa !20
   %271 = add nsw i32 %270, %.4251
   %272 = icmp sgt i32 %271, %268
   br i1 %272, label %273, label %addStringToQASM.exit
@@ -2686,8 +2844,8 @@ getPhaseFuncSymbol.exit241:                       ; preds = %.lr.ph.split, %getP
   %279 = tail call noalias ptr @malloc(i64 noundef %278) #15
   %strcpy.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %279, ptr noundef nonnull dereferenceable(1) %266)
   tail call void @free(ptr noundef %266) #16
-  store i32 %274, ptr %267, align 8
-  store ptr %279, ptr %14, align 8
+  store i32 %274, ptr %267, align 8, !tbaa !17
+  store ptr %279, ptr %14, align 8, !tbaa !18
   br label %addStringToQASM.exit
 
 addStringToQASM.exit:                             ; preds = %.thread249, %277
@@ -2698,9 +2856,9 @@ addStringToQASM.exit:                             ; preds = %.thread249, %277
   %282 = sub nsw i32 %.020.i, %270
   %283 = sext i32 %282 to i64
   %284 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %281, i64 noundef %283, ptr noundef nonnull @.str.3, ptr noundef nonnull %12) #16
-  %285 = load i32, ptr %269, align 4
+  %285 = load i32, ptr %269, align 4, !tbaa !20
   %286 = add nsw i32 %285, %284
-  store i32 %286, ptr %269, align 4
+  store i32 %286, ptr %269, align 4, !tbaa !20
   call void @addMultiVarRegsToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
   %287 = icmp sgt i32 %3, 24
   br i1 %287, label %288, label %290
@@ -2723,43 +2881,47 @@ addStringToQASM.exit:                             ; preds = %.thread249, %277
   call void @addMultiVarOverridesToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %3, ptr noundef %8, ptr noundef %9, i32 noundef %10)
   br label %293
 
-293:                                              ; preds = %11, %292, %290
+293:                                              ; preds = %292, %290
+  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %12) #16
+  br label %294
+
+294:                                              ; preds = %11, %293
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @qasm_clearRecorded(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #8 {
+define void @qasm_clearRecorded(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %3, align 8
-  store i8 0, ptr %4, align 1
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
+  store i8 0, ptr %4, align 1, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %5, align 4
+  store i32 0, ptr %5, align 4, !tbaa !20
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @qasm_printRecorded(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #9 {
+define void @qasm_printRecorded(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %3, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @qasm_writeRecordedToFile(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @qasm_writeRecordedToFile(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.99)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %7, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
+  %8 = load ptr, ptr %7, align 8, !tbaa !18
   %fputs = tail call i32 @fputs(ptr %8, ptr nonnull %3)
   %9 = tail call i32 @fclose(ptr noundef nonnull %3)
   br label %10
@@ -2770,58 +2932,74 @@ define range(i32 0, 2) i32 @qasm_writeRecordedToFile(ptr noundef readonly byval(
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @qasm_free(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #10 {
+define void @qasm_free(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %3, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   tail call void @free(ptr noundef %4) #16
   tail call void @free(ptr noundef %3) #16
   ret void
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias returned writeonly, ptr noalias readonly captures(none)) local_unnamed_addr #11
+declare ptr @strcpy(ptr noalias returned writeonly, ptr noalias readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #13
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nofree nounwind }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nofree nounwind }
 attributes #15 = { nounwind allocsize(0) }
 attributes #16 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !12, i64 128}
+!5 = !{!"Qureg", !6, i64 0, !6, i64 4, !6, i64 8, !9, i64 16, !9, i64 24, !6, i64 32, !6, i64 36, !10, i64 40, !10, i64 56, !10, i64 72, !11, i64 88, !11, i64 96, !12, i64 104, !12, i64 112, !13, i64 120, !12, i64 128}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"long long", !7, i64 0}
+!10 = !{!"ComplexArray", !11, i64 0, !11, i64 8}
+!11 = !{!"p1 double", !12, i64 0}
+!12 = !{!"any pointer", !7, i64 0}
+!13 = !{!"any p2 pointer", !12, i64 0}
+!14 = !{!15, !6, i64 16}
+!15 = !{!"", !16, i64 0, !6, i64 8, !6, i64 12, !6, i64 16}
+!16 = !{!"p1 omnipotent char", !12, i64 0}
+!17 = !{!15, !6, i64 8}
+!18 = !{!15, !16, i64 0}
+!19 = !{!5, !6, i64 4}
+!20 = !{!15, !6, i64 12}
+!21 = !{!16, !16, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"double", !7, i64 0}
+!24 = !{!6, !6, i64 0}
+!25 = !{!9, !9, i64 0}
+!26 = !{!7, !7, i64 0}

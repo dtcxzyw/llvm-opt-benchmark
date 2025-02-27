@@ -1,0 +1,24 @@
+diff --git a/QuEST/CMakeLists.txt b/QuEST/CMakeLists.txt
+index 0ed65f9..23b77da 100644
+--- a/QuEST/CMakeLists.txt
++++ b/QuEST/CMakeLists.txt
+@@ -253,9 +253,6 @@ else()
+ endif()
+ 
+ # Set c flags for release
+-set(CMAKE_C_FLAGS_RELEASE 
+-    "-O2"
+-)
+ 
+ # TODO standardize
+ # set C compiler flags based on compiler type
+@@ -301,9 +298,6 @@ if (NOT("${CMAKE_BUILD_TYPE}" STREQUAL "Debug"))
+ endif()
+ 
+ # Set c++ flags for release
+-set(CMAKE_CXX_FLAGS_RELEASE
+-    "-O2"
+-)
+ 
+ # Set c++ flags to use in debug mode
+ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
