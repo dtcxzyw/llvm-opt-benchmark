@@ -121,6 +121,7 @@ supported_project = [
     "oiio",
     "ozz-animation",
     "pbrt-v4",
+    "pcg-cpp",
 ]
 
 modify_only = [
