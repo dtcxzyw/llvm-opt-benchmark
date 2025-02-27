@@ -2472,7 +2472,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene22CAnimatedMeshSceneNode14getBoundingBoxEv(ptr noundef nonnull readnone align 8 dereferenceable(408) %this) unnamed_addr #11 align 2 {
+define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene22CAnimatedMeshSceneNode14getBoundingBoxEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(408) %this) unnamed_addr #11 align 2 {
 entry:
   %Box = getelementptr inbounds nuw i8, ptr %this, i64 256
   ret ptr %Box
@@ -2813,7 +2813,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene22CAnimatedMeshSceneNode11removeChildEPNS0_10ISceneNodeE(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef %child) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene22CAnimatedMeshSceneNode11removeChildEPNS0_10ISceneNodeE(ptr noundef nonnull align 8 captures(address) dereferenceable(408) %this, ptr noundef %child) unnamed_addr #0 align 2 {
 entry:
   %Parent.i = getelementptr inbounds nuw i8, ptr %child, i64 192
   %0 = load ptr, ptr %Parent.i, align 8, !tbaa !22

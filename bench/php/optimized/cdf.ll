@@ -2553,7 +2553,7 @@ define hidden i32 @cdf_print_elapsed_time(ptr noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @cdf_u16tos8(ptr noundef returned writeonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+define hidden noundef ptr @cdf_u16tos8(ptr noundef returned writeonly captures(ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %.not14 = icmp eq i64 %1, 0
   br i1 %.not14, label %.critedge, label %.lr.ph
 

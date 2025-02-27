@@ -4465,7 +4465,7 @@ define linkonce_odr dso_local noundef i64 @_ZN14cmArchiveWrite8Callback5WriteEP7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14cmArchiveWriteD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(224) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14cmArchiveWriteD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(224) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = invoke i32 @archive_read_free(ptr noundef %3)
@@ -6735,7 +6735,7 @@ declare ptr @archive_entry_symlink(ptr noundef) local_unnamed_addr #0
 declare i64 @archive_entry_size(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN14cmArchiveWrite7AddDataEPKcm(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN14cmArchiveWrite7AddDataEPKcm(ptr noundef nonnull align 8 captures(address) dereferenceable(224) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4 x %"struct.std::pair"], align 8
   %5 = alloca [2 x %"struct.std::pair"], align 8
   %6 = alloca i64, align 8

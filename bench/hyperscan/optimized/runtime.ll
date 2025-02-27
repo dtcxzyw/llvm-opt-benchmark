@@ -1207,7 +1207,7 @@ nfaRevAccelCheck.exit.thread:                     ; preds = %337, %326, %316, %3
 declare i32 @roseRunLastFlushCombProgram(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -7, 1) i32 @hs_open_stream(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 -7, 1) i32 @hs_open_stream(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %validDatabase.exit.thread, label %4, !prof !17
 
@@ -1400,7 +1400,7 @@ validDatabase.exit.thread:                        ; preds = %7, %4, %5, %initSom
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @hs_copy_stream(ptr noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @hs_copy_stream(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -1438,7 +1438,7 @@ define dso_local range(i32 -2, 1) i32 @hs_copy_stream(ptr noundef writeonly %0, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -13, 1) i32 @hs_reset_and_copy_stream(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 -13, 1) i32 @hs_reset_and_copy_stream(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %markScratchInUse.exit, label %6
 
@@ -3569,7 +3569,7 @@ markScratchInUse.exit:                            ; preds = %report_eod_matches.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -7, 1) i32 @hs_stream_size(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
+define dso_local range(i32 -7, 1) i32 @hs_stream_size(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
   %.not.i = icmp eq ptr %0, null
   %or.cond = or i1 %.not.i, %.not
@@ -3616,7 +3616,7 @@ validDatabase.exit.thread:                        ; preds = %5, %3, %15, %validD
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -13, 1) i32 @hs_scan_vector(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define dso_local range(i32 -13, 1) i32 @hs_scan_vector(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = icmp eq ptr %5, null
   %10 = icmp eq ptr %1, null
   %or.cond.not = or i1 %10, %9
@@ -4213,7 +4213,7 @@ markScratchInUse.exit:                            ; preds = %markScratchInUse.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -12, 1) i32 @hs_compress_stream(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 -12, 1) i32 @hs_compress_stream(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %.not16 = icmp eq ptr %3, null
   %5 = or i1 %.not, %.not16
@@ -4246,7 +4246,7 @@ declare i64 @size_compress_stream(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i64 @compress_stream(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -7, 1) i32 @hs_expand_stream(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -7, 1) i32 @hs_expand_stream(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %.not20 = icmp eq ptr %2, null
   %5 = or i1 %.not, %.not20

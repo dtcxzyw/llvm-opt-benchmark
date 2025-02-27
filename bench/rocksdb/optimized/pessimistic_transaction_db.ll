@@ -10447,7 +10447,7 @@ define void @_ZNK7rocksdb24PessimisticTransactionDB23GetTimestampedSnapshotsEmmR
 declare void @_ZNK7rocksdb6DBImpl23GetTimestampedSnapshotsEmmRSt6vectorISt10shared_ptrIKNS_8SnapshotEESaIS5_EE(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8, ptr noundef nonnull align 64 dereferenceable(6868), i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24SnapshotCreationCallbackclEmb(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 noundef %2, i1 zeroext %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24SnapshotCreationCallbackclEmb(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(64) %1, i64 noundef %2, i1 zeroext %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr.78", align 8
   %6 = alloca %"struct.std::pair.561", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8

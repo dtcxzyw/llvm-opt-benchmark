@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.d2i_KeyParams = private unnamed_addr constant [14 x i8] c"d2i_KeyParams\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @d2i_KeyParams(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define noundef ptr @d2i_KeyParams(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %9, label %6
 
@@ -101,7 +101,7 @@ declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @d2i_KeyParams_bio(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef ptr @d2i_KeyParams_bio(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3

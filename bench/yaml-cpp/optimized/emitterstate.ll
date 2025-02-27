@@ -912,7 +912,7 @@ _ZN4YAML14SettingChanges5clearEv.exit:            ; preds = %entry, %_ZN4YAML14S
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML12EmitterState12StartedGroupENS_9GroupType5valueE(ptr noundef nonnull align 8 dereferenceable(224) initializes((208, 212)) %this, i32 noundef %type) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML12EmitterState12StartedGroupENS_9GroupType5valueE(ptr noundef nonnull align 8 captures(address) dereferenceable(224) initializes((208, 212)) %this, i32 noundef %type) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pGroup = alloca %"class.std::unique_ptr", align 8
   %m_groups.i = getelementptr inbounds nuw i8, ptr %this, i64 176

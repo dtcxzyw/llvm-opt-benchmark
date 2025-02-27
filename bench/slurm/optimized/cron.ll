@@ -937,7 +937,7 @@ declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i64 @slurm_mktime(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pack_cron_entry(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @pack_cron_entry(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

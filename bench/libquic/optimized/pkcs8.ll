@@ -506,7 +506,7 @@ declare ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef, ptr noundef, i64 noundef) loca
 declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PKCS12_get_key_and_certs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS12_get_key_and_certs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca %struct.cbs_st, align 8
@@ -1644,7 +1644,7 @@ define hidden void @PKCS12_PBE_add() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden noundef ptr @d2i_PKCS12(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #8 {
+define hidden noundef ptr @d2i_PKCS12(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %17, label %5
@@ -1696,7 +1696,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @PKCS12_free(ptr noundef %0) local_unnamed_addr #8 {
+define hidden void @PKCS12_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -1711,7 +1711,7 @@ define hidden void @PKCS12_free(ptr noundef %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @d2i_PKCS12_bio(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @d2i_PKCS12_bio(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @BUF_MEM_new() #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %48, label %5
@@ -1829,7 +1829,7 @@ declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @d2i_PKCS12_fp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @d2i_PKCS12_fp(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @BIO_new_fp(ptr noundef %0, i32 noundef 0) #12
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -1849,7 +1849,7 @@ declare ptr @BIO_new_fp(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PKCS12_parse(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS12_parse(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.cbs_st, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
   %.not = icmp eq ptr %4, null
@@ -1993,7 +1993,7 @@ declare ptr @EVP_rc2_40_cbc() #2
 declare ptr @EVP_sha1() #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkcs12_pbe_keyivgen(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
+define internal i32 @pkcs12_pbe_keyivgen(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca [64 x i8], align 16
   %10 = alloca [16 x i8], align 16

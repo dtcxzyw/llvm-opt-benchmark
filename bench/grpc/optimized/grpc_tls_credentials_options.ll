@@ -844,7 +844,7 @@ define void @grpc_tls_credentials_options_destroy(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_set_cert_request_type(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @grpc_tls_credentials_options_set_cert_request_type(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %6, label %4, !prof !25
@@ -866,7 +866,7 @@ define void @grpc_tls_credentials_options_set_cert_request_type(ptr noundef writ
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_set_verify_server_cert(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @grpc_tls_credentials_options_set_verify_server_cert(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %8, label %4, !prof !25
@@ -890,7 +890,7 @@ define void @grpc_tls_credentials_options_set_verify_server_cert(ptr noundef wri
 }
 
 ; Function Attrs: uwtable
-define void @grpc_tls_credentials_options_set_certificate_provider(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @grpc_tls_credentials_options_set_certificate_provider(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %5 = alloca %"class.grpc_core::ExecCtx", align 8
@@ -1048,7 +1048,7 @@ _ZN9grpc_core7ExecCtxD2Ev.exit:                   ; preds = %_ZN9grpc_core4Fork1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_watch_root_certs(ptr noundef writeonly %0) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @grpc_tls_credentials_options_watch_root_certs(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %5, label %3, !prof !25
@@ -1070,7 +1070,7 @@ define void @grpc_tls_credentials_options_watch_root_certs(ptr noundef writeonly
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_set_root_cert_name(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @grpc_tls_credentials_options_set_root_cert_name(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1241,7 +1241,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_watch_identity_key_cert_pairs(ptr noundef writeonly %0) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @grpc_tls_credentials_options_watch_identity_key_cert_pairs(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %5, label %3, !prof !25
@@ -1263,7 +1263,7 @@ define void @grpc_tls_credentials_options_watch_identity_key_cert_pairs(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_set_identity_cert_name(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @grpc_tls_credentials_options_set_identity_cert_name(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1434,7 +1434,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_set_certificate_verifier(ptr noundef %0, ptr noundef %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @grpc_tls_credentials_options_set_certificate_verifier(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %.not.i = icmp eq ptr %0, null
@@ -1491,7 +1491,7 @@ _ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_verifierED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_set_crl_directory(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @grpc_tls_credentials_options_set_crl_directory(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1662,7 +1662,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_set_check_call_host(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @grpc_tls_credentials_options_set_check_call_host(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %8, label %4, !prof !25
@@ -2022,7 +2022,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @grpc_tls_credentials_options_set_send_client_ca_list(ptr noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #15 {
+define void @grpc_tls_credentials_options_set_send_client_ca_list(ptr noundef writeonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -2037,7 +2037,7 @@ define void @grpc_tls_credentials_options_set_send_client_ca_list(ptr noundef wr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z45grpc_tls_credentials_options_set_crl_providerP28grpc_tls_credentials_optionsSt10shared_ptrIN9grpc_core12experimental11CrlProviderEE(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_Z45grpc_tls_credentials_options_set_crl_providerP28grpc_tls_credentials_optionsSt10shared_ptrIN9grpc_core12experimental11CrlProviderEE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %40, label %4, !prof !25
@@ -2133,7 +2133,7 @@ _ZNSt12__shared_ptrIN9grpc_core12experimental11CrlProviderELN9__gnu_cxx12_Lock_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_set_min_tls_version(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @grpc_tls_credentials_options_set_min_tls_version(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %6, label %4, !prof !25
@@ -2155,7 +2155,7 @@ define void @grpc_tls_credentials_options_set_min_tls_version(ptr noundef writeo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_set_max_tls_version(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @grpc_tls_credentials_options_set_max_tls_version(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %6, label %4, !prof !25

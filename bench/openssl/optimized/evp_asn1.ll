@@ -60,7 +60,7 @@ declare void @ASN1_TYPE_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_TYPE_get_octetstring(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @ASN1_TYPE_get_octetstring(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8, !tbaa !3
   %.not = icmp eq i32 %4, 4
   br i1 %.not, label %5, label %9
@@ -140,7 +140,7 @@ define range(i32 0, 2) i32 @ASN1_TYPE_set_int_octetstring(ptr noundef %0, i64 no
 declare ptr @ASN1_TYPE_pack_sequence(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_TYPE_get_int_octetstring(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @ASN1_TYPE_get_int_octetstring(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %0, align 8, !tbaa !3
   %.not = icmp eq i32 %5, 16
   br i1 %.not, label %6, label %25
@@ -230,7 +230,7 @@ define range(i32 0, 2) i32 @ossl_asn1_type_set_octetstring_int(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_asn1_type_get_octetstring_int(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @ossl_asn1_type_get_octetstring_int(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %0, align 8, !tbaa !3
   %.not = icmp eq i32 %5, 16
   br i1 %.not, label %6, label %25

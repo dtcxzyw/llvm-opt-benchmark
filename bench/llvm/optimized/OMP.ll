@@ -9927,7 +9927,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit15: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm3omp20getCompoundConstructENS_8ArrayRefINS0_9DirectiveEEE(ptr readonly %0, i64 %1) local_unnamed_addr #4 {
+define dso_local noundef i32 @_ZN4llvm3omp20getCompoundConstructENS_8ArrayRefINS0_9DirectiveEEE(ptr readonly captures(address) %0, i64 %1) local_unnamed_addr #4 {
   %3 = alloca %"class.llvm::SmallVector", align 8
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %109, label %.lr.ph.preheader

@@ -1503,7 +1503,7 @@ define dso_local noundef float @_ZN35btSequentialImpulseConstraintSolver16restit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef readonly %0, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %59, label %4
 

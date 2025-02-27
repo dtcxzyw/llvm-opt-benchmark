@@ -461,7 +461,7 @@ find_positions.exit.thread.sink.split:            ; preds = %75, %44, %41
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @inflate_file(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @inflate_file(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca %struct.z_stream_s, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -722,7 +722,7 @@ define internal fastcc range(i32 -1, 2) i32 @parse_nv_pair(ptr noundef nonnull c
 declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @JLI_JarUnpackFile(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden noundef ptr @JLI_JarUnpackFile(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.zentry, align 8
   %5 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 0) #14
   %6 = icmp eq i32 %5, -1

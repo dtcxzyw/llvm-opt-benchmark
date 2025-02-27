@@ -1568,7 +1568,7 @@ define dso_local noundef zeroext i1 @cast_to_index(ptr noundef %0, ptr noundef %
 declare ptr @type_to_error_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @cast_numeric_arithmetic_promotion(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @cast_numeric_arithmetic_promotion(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %2
 

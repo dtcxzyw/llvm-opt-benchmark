@@ -637,7 +637,7 @@ define dso_local void @cgroup_free_limits(ptr noundef %0) local_unnamed_addr #0 
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @cgroup_init_limits(ptr noundef writeonly %0) local_unnamed_addr #6 {
+define dso_local void @cgroup_init_limits(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 

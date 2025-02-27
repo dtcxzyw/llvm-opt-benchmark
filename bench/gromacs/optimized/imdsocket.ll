@@ -254,7 +254,7 @@ define noundef i32 @_ZN3gmx12imdsock_readEPNS_9IMDSocketEPci(ptr noundef readonl
 declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3gmx16imdsock_shutdownEPNS_9IMDSocketE(ptr noundef readonly %0) local_unnamed_addr #8 {
+define void @_ZN3gmx16imdsock_shutdownEPNS_9IMDSocketE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 

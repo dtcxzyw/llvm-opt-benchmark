@@ -4486,7 +4486,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i: ; preds = %61, %_ZN3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc i64 @_ZN17crossbeam_channel7context7Context10wait_until17h06066d71d393eef1E(ptr %.0.val, i64 %0, i32 noundef range(i32 0, 1000000001) %1) unnamed_addr #3 {
+define internal fastcc i64 @_ZN17crossbeam_channel7context7Context10wait_until17h06066d71d393eef1E(ptr captures(address_is_null) %.0.val, i64 %0, i32 noundef range(i32 0, 1000000001) %1) unnamed_addr #3 {
   %3 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
@@ -4594,7 +4594,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit: ; preds = 
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN17crossbeam_channel7context7Context4with28_$u7b$$u7b$closure$u7d$$u7d$17h14b0c9dc25866082E"(ptr %.0.val) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN17crossbeam_channel7context7Context4with28_$u7b$$u7b$closure$u7d$$u7d$17h14b0c9dc25866082E"(ptr captures(address_is_null) %.0.val) unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = alloca { ptr, ptr, ptr }, align 8
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -4659,7 +4659,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7context7Context4with28_$u7b
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN17crossbeam_channel7context7Context4with28_$u7b$$u7b$closure$u7d$$u7d$17h4d0bc59a646b7abaE"(ptr %.0.val) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN17crossbeam_channel7context7Context4with28_$u7b$$u7b$closure$u7d$$u7d$17h4d0bc59a646b7abaE"(ptr captures(address_is_null) %.0.val) unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = alloca { ptr, ptr, ptr }, align 8
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -4724,7 +4724,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7context7Context4with28_$u7b
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN17crossbeam_channel7context7Context4with28_$u7b$$u7b$closure$u7d$$u7d$17he51902fcf339fd37E"(ptr %.0.val) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN17crossbeam_channel7context7Context4with28_$u7b$$u7b$closure$u7d$$u7d$17he51902fcf339fd37E"(ptr captures(address_is_null) %.0.val) unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = alloca { ptr, ptr, ptr }, align 8
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -4789,7 +4789,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7context7Context4with28_$u7b
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN17crossbeam_channel7context7Context4with28_$u7b$$u7b$closure$u7d$$u7d$17hee0c4fdad6f945f9E"(ptr %.0.val) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN17crossbeam_channel7context7Context4with28_$u7b$$u7b$closure$u7d$$u7d$17hee0c4fdad6f945f9E"(ptr captures(address_is_null) %.0.val) unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = alloca { ptr, ptr, ptr }, align 8
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -36299,451 +36299,451 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$chalk_ir..debug..SeparatorTraitRef$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h087ffca95a044205E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h087ffca95a044205E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h0d8783cfc454928bE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h0d8783cfc454928bE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h0e914aee7669deb2E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h0e914aee7669deb2E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h137ad5e77e5a920cE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h137ad5e77e5a920cE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h14425ea6d6146011E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h14425ea6d6146011E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h17ffae2cbec1d739E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h17ffae2cbec1d739E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h19097e039ea2f6e8E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h19097e039ea2f6e8E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h19601817663e5f17E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h19601817663e5f17E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h1ae3a78c4dd22b45E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h1ae3a78c4dd22b45E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h1d0154581ce1bd83E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h1d0154581ce1bd83E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h1e6edd0a1dac7521E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h1e6edd0a1dac7521E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h20570d987771beacE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h20570d987771beacE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h2273e7e695c772daE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h2273e7e695c772daE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h27fc37c51c810045E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h27fc37c51c810045E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h2c47df565d3c3b31E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h2c47df565d3c3b31E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h2dca32afb647443bE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h2dca32afb647443bE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h347ce15957dcc0a9E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h347ce15957dcc0a9E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h361db85ffd7b6f55E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h361db85ffd7b6f55E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h415cd7fb461f3ba8E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h415cd7fb461f3ba8E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h4226e5ae8316df42E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h4226e5ae8316df42E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h46195c9a89377b79E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h46195c9a89377b79E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h4641e18f2123f63aE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h4641e18f2123f63aE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h475b40c09a99b2efE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h475b40c09a99b2efE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h48387033734e1041E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h48387033734e1041E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h49c98991be991f51E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h49c98991be991f51E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h567d9280772cc7a2E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h567d9280772cc7a2E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h58e1cd92de3b880aE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h58e1cd92de3b880aE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h5a195b2bbc786c84E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h5a195b2bbc786c84E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h5b69f604c1d4e860E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h5b69f604c1d4e860E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h605d5f5bafc91dceE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h605d5f5bafc91dceE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h63edc703df52a9f7E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h63edc703df52a9f7E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h66b44f5db0bf6d6cE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h66b44f5db0bf6d6cE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h66fbbe8d078a7446E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h66fbbe8d078a7446E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h6840f0e121800fb1E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h6840f0e121800fb1E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h6966236ba399c201E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h6966236ba399c201E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h6a2988845c43b560E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h6a2988845c43b560E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h6e57d98634391722E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h6e57d98634391722E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h78e49055de2c319dE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h78e49055de2c319dE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h79b421754ddaa549E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h79b421754ddaa549E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h84029117bb735a89E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h84029117bb735a89E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h84133a754ac3b308E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h84133a754ac3b308E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h841e82c67f172a4cE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h841e82c67f172a4cE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h8e6ba37925ed8880E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h8e6ba37925ed8880E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h8e74130a3515f9ecE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h8e74130a3515f9ecE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h8f2825f46c892b24E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h8f2825f46c892b24E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h908ec1e8ac36696dE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h908ec1e8ac36696dE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h93315dbfd81d6d4eE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h93315dbfd81d6d4eE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h95607db61b1da459E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h95607db61b1da459E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h96cc0ec4d62bce7cE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h96cc0ec4d62bce7cE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h980c99fedf4c1618E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h980c99fedf4c1618E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h98d2462355da0ee7E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h98d2462355da0ee7E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h98fd3c9f738972e6E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h98fd3c9f738972e6E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h9af98fc07b00f599E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h9af98fc07b00f599E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h9cb322f0726a2832E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h9cb322f0726a2832E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h9f99d09cb20652c2E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17h9f99d09cb20652c2E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17haab51fbac896ef70E"(ptr noundef nonnull readnone align 16 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17haab51fbac896ef70E"(ptr noundef nonnull readnone align 16 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hb47c7184119d2736E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hb47c7184119d2736E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hba6069a112d23dc0E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hba6069a112d23dc0E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hbe1a2f38a2626ae0E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hbe1a2f38a2626ae0E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hc107149b5774e9a8E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hc107149b5774e9a8E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hc2aea97c88568450E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hc2aea97c88568450E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hc3176f44512d44d3E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hc3176f44512d44d3E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hc602bd536e518aafE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hc602bd536e518aafE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hc86a7cb2974abce0E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hc86a7cb2974abce0E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hcab8ba9d44665fc4E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hcab8ba9d44665fc4E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hd19af7a21d66d8e0E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hd19af7a21d66d8e0E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hd2e4f0f20e7d332cE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hd2e4f0f20e7d332cE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hd48ab1ff04ad334cE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hd48ab1ff04ad334cE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hdca8f890bd118eadE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hdca8f890bd118eadE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17he0f00192d0cf73ecE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17he0f00192d0cf73ecE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17he49e24ea0a0dd231E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17he49e24ea0a0dd231E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hed525b05fc584787E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hed525b05fc584787E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hed55e524a8d9bb0fE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hed55e524a8d9bb0fE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hef76a02272e5bd9fE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hef76a02272e5bd9fE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hf496cf09ed2bf5bfE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hf496cf09ed2bf5bfE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }

@@ -479,7 +479,7 @@ _ZN6google8protobuf5Arena16AddBlockInternalEPNS1_5BlockE.exit: ; preds = %40, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6google8protobuf5Arena8NewBlockEPvPNS1_5BlockEmmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN6google8protobuf5Arena8NewBlockEPvPNS1_5BlockEmmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %7
 
@@ -863,7 +863,7 @@ _ZN6google8protobuf5Arena8AddBlockEPNS1_5BlockE.exit: ; preds = %_ZN6google8prot
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6google8protobuf5Arena14AllocFromBlockEPNS1_5BlockEm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZN6google8protobuf5Arena14AllocFromBlockEPNS1_5BlockEm(ptr noundef captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !22
   %5 = add i64 %4, %1
@@ -873,7 +873,7 @@ define noundef ptr @_ZN6google8protobuf5Arena14AllocFromBlockEPNS1_5BlockEm(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6google8protobuf5Arena9FindBlockEPv(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN6google8protobuf5Arena9FindBlockEPv(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile i64, ptr %3, align 8, !tbaa !27
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !48

@@ -1226,7 +1226,7 @@ define internal void @libpqrcv_send(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @libpqrcv_create_slot(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef writeonly %6) #1 {
+define internal ptr @libpqrcv_create_slot(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) #1 {
   %8 = alloca %struct.StringInfoData, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #11
   %9 = load ptr, ptr %0, align 8
@@ -1379,7 +1379,7 @@ switch.lookup:                                    ; preds = %.thread31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @libpqrcv_alter_slot(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) #1 {
+define internal void @libpqrcv_alter_slot(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) #1 {
   %5 = alloca %struct.StringInfoData, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
   call void @initStringInfo(ptr noundef nonnull %5) #11

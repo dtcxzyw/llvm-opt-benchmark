@@ -917,7 +917,7 @@ define void @_ZN6icu_7721TimeZoneNamesDelegateD0Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZNK6icu_7721TimeZoneNamesDelegateeqERKNS_13TimeZoneNamesE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #14 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7721TimeZoneNamesDelegateeqERKNS_13TimeZoneNamesE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #14 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %12, label %4
 

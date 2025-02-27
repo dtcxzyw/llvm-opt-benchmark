@@ -150,7 +150,7 @@ define void @stb_easy_font_spacing(float noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 67108864) i32 @stb_easy_font_print(float noundef %0, float noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) local_unnamed_addr #2 {
+define range(i32 0, 67108864) i32 @stb_easy_font_print(float noundef %0, float noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) local_unnamed_addr #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %22, label %7
 

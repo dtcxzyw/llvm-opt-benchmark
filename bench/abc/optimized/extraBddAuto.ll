@@ -2019,7 +2019,7 @@ define ptr @extraBddSpaceFromMatrixNeg(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Extra_zddLitCountComb(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define i32 @Extra_zddLitCountComb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !47
   %5 = icmp eq ptr %1, %4

@@ -71,7 +71,7 @@ declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_file_to_manifest(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6) local_unnamed_addr #0 {
+define dso_local void @add_file_to_manifest(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address) %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   store i64 %3, ptr %8, align 8
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
@@ -472,7 +472,7 @@ define internal fastcc void @flush_manifest(ptr noundef %0) unnamed_addr #0 {
 declare ptr @pg_checksum_type_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @finalize_manifest(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @finalize_manifest(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1032

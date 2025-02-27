@@ -174,13 +174,13 @@ define i32 @unorm_normalize_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
 declare i32 @unorm2_normalize_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @unorm_previous_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef signext %5, ptr noundef %6, ptr noundef nonnull %7) local_unnamed_addr #0 {
+define noundef i32 @unorm_previous_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef signext %5, ptr noundef captures(address_is_null) %6, ptr noundef nonnull %7) local_unnamed_addr #0 {
   %9 = tail call fastcc noundef i32 @_ZL13unorm_iterateP13UCharIteratoraPDsi18UNormalizationModeiaPaP10UErrorCode(ptr noundef %0, i8 noundef signext 0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef signext %5, ptr noundef %6, ptr noundef %7)
   ret i32 %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL13unorm_iterateP13UCharIteratoraPDsi18UNormalizationModeiaPaP10UErrorCode(ptr noundef %0, i8 noundef signext range(i8 0, 2) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef signext %6, ptr noundef %7, ptr noundef nonnull %8) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL13unorm_iterateP13UCharIteratoraPDsi18UNormalizationModeiaPaP10UErrorCode(ptr noundef %0, i8 noundef signext range(i8 0, 2) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef signext %6, ptr noundef captures(address_is_null) %7, ptr noundef nonnull %8) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.icu_77::FilteredNormalizer2", align 8
   %11 = tail call noundef ptr @_ZN6icu_7718Normalizer2Factory11getInstanceE18UNormalizationModeR10UErrorCode(i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %12 = and i32 %5, 32
@@ -225,7 +225,7 @@ define internal fastcc noundef i32 @_ZL13unorm_iterateP13UCharIteratoraPDsi18UNo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @unorm_next_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef signext %5, ptr noundef %6, ptr noundef nonnull %7) local_unnamed_addr #0 {
+define noundef i32 @unorm_next_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef signext %5, ptr noundef captures(address_is_null) %6, ptr noundef nonnull %7) local_unnamed_addr #0 {
   %9 = tail call fastcc noundef i32 @_ZL13unorm_iterateP13UCharIteratoraPDsi18UNormalizationModeiaPaP10UErrorCode(ptr noundef %0, i8 noundef signext 1, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef signext %5, ptr noundef %6, ptr noundef %7)
   ret i32 %9
 }
@@ -439,7 +439,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL8_iterateP13UCharIteratoraPDsiPKN6icu_7711Normalizer2EaPaP10UErrorCode(ptr noundef %0, i8 noundef signext range(i8 0, 2) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i8 noundef signext %5, ptr noundef writeonly %6, ptr noundef %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL8_iterateP13UCharIteratoraPDsiPKN6icu_7711Normalizer2EaPaP10UErrorCode(ptr noundef %0, i8 noundef signext range(i8 0, 2) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i8 noundef signext %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.icu_77::UnicodeString", align 8
   %10 = alloca %"class.icu_77::UnicodeString", align 8
   %11 = alloca %"class.icu_77::Char16Ptr", align 8

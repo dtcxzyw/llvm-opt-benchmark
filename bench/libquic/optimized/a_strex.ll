@@ -315,7 +315,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 2) i32 @send_fp_chars(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) #3 {
+define internal range(i32 0, 2) i32 @send_fp_chars(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i32 noundef %2) #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %4
 
@@ -621,7 +621,7 @@ define hidden i32 @ASN1_STRING_print_ex_fp(ptr noundef %0, ptr noundef %1, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ASN1_STRING_to_UTF8(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden i32 @ASN1_STRING_to_UTF8(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.asn1_string_st, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
@@ -700,7 +700,7 @@ declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef
 declare ptr @ASN1_tag2str(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext range(i8 0, 16) %3, ptr noundef writeonly %4, ptr noundef readonly captures(none) %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext range(i8 0, 16) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef readonly captures(none) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = alloca [19 x i8], align 16
   %10 = alloca i8, align 1

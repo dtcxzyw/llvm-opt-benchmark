@@ -58,7 +58,7 @@ define noalias noundef ptr @UDataMemory_createNewInstance_77(ptr noundef capture
 declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UDataMemory_normalizeDataPointer_77(ptr noundef readonly %0) local_unnamed_addr #6 {
+define ptr @UDataMemory_normalizeDataPointer_77(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -142,7 +142,7 @@ declare void @uprv_unmapFile_77(ptr noundef) local_unnamed_addr #7
 declare void @uprv_free_77(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udata_getMemory_77(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @udata_getMemory_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -166,7 +166,7 @@ define ptr @udata_getMemory_77(ptr noundef readonly %0) local_unnamed_addr #4 {
 declare zeroext i16 @udata_getHeaderSize_77(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -65535, -2147483648) i32 @udata_getLength_77(ptr noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 -65535, -2147483648) i32 @udata_getLength_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %2
 
@@ -194,7 +194,7 @@ define range(i32 -65535, -2147483648) i32 @udata_getLength_77(ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @udata_getRawMemory_77(ptr noundef readonly %0) local_unnamed_addr #6 {
+define ptr @udata_getRawMemory_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

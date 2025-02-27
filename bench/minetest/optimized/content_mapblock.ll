@@ -2304,7 +2304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecih(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef byval(%"class.irr::core::aabbox3d") align 8 captures(none) %box, ptr noundef readonly %txc, ptr noundef %tiles, i32 noundef %tile_count, i8 noundef zeroext %mask) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecih(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef byval(%"class.irr::core::aabbox3d") align 8 captures(none) %box, ptr noundef readonly captures(address) %txc, ptr noundef %tiles, i32 noundef %tile_count, i8 noundef zeroext %mask) local_unnamed_addr #8 align 2 {
 entry:
   %color.i.i = alloca %"class.irr::video::SColor", align 4
   %vertices.i140 = alloca %"struct.std::array.131", align 4

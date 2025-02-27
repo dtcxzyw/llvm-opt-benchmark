@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stbds_hash_seed = local_unnamed_addr global i64 826366246, align 8
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define ptr @stbds_arrgrowf(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define ptr @stbds_arrgrowf(ptr noundef captures(address_is_null, ret: address, provenance) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %.thread36
 
@@ -111,7 +111,7 @@ define i64 @stbds_log2(i64 noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @stbds_make_hash_index(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #8 {
+define noundef ptr @stbds_make_hash_index(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %3 = lshr i64 %0, 3
   %4 = shl i64 %3, 7
   %5 = add i64 %4, 167
@@ -599,7 +599,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define void @stbds_hmfree_func(ptr noundef %0, i64 noundef %1) local_unnamed_addr #13 {
+define void @stbds_hmfree_func(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #13 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %26, label %4
 
@@ -946,7 +946,7 @@ stbds_is_key_equal.exit71:                        ; preds = %.lr.ph.split
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define ptr @stbds_hmget_key_ts(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, i32 noundef %5) local_unnamed_addr #8 {
+define ptr @stbds_hmget_key_ts(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, i32 noundef %5) local_unnamed_addr #8 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %15
 
@@ -998,7 +998,7 @@ define ptr @stbds_hmget_key_ts(ptr noundef readonly %0, i64 noundef %1, ptr noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define ptr @stbds_hmget_key(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #8 {
+define ptr @stbds_hmget_key(ptr noundef captures(address_is_null, ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #8 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %14
 
@@ -1050,7 +1050,7 @@ stbds_hmget_key_ts.exit:                          ; preds = %14, %20, %23, %7
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define ptr @stbds_hmput_default(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define ptr @stbds_hmput_default(ptr noundef captures(address, ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %.pre15 = sub i64 0, %1
   br i1 %3, label %._crit_edge14, label %4
@@ -1129,7 +1129,7 @@ stbds_arrgrowf.exit:                              ; preds = %.thread36.i, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbds_hmput_key(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #13 {
+define ptr @stbds_hmput_key(ptr noundef captures(address, ret: address, provenance) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #13 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %14
 
@@ -1865,7 +1865,7 @@ stbds_log2.exit.i:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbds_hmdel_key(ptr noundef returned %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #13 {
+define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_null, ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #13 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %88, label %8
 

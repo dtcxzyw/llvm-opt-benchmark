@@ -460,7 +460,7 @@ define dso_local noundef i64 @rb_str_encode_ospath(i64 noundef returned %0) loca
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_stat_new(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_stat_new(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load i64, ptr @rb_cStat, align 8, !tbaa !12
   %3 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %2, i64 noundef 152, ptr noundef nonnull @stat_data_type) #22
   %4 = inttoptr i64 %3 to ptr
@@ -1027,7 +1027,7 @@ define dso_local ptr @rb_enc_path_next(ptr noundef nonnull %0, ptr noundef nonnu
 declare i32 @rb_enc_mbclen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @rb_enc_path_skip_prefix(ptr noundef nonnull readnone returned %0, ptr noundef nonnull readnone captures(none) %1, ptr noundef nonnull readnone captures(none) %2) local_unnamed_addr #4 {
+define dso_local noundef nonnull ptr @rb_enc_path_skip_prefix(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0, ptr noundef nonnull readnone captures(none) %1, ptr noundef nonnull readnone captures(none) %2) local_unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -2579,7 +2579,7 @@ define hidden i64 @rb_check_realpath(i64 noundef %0, i64 noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @ruby_enc_find_basename(ptr noundef nonnull %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef nonnull %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @ruby_enc_find_basename(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
 
@@ -3027,7 +3027,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %59
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @ruby_enc_find_extname(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) local_unnamed_addr #0 {
+define dso_local ptr @ruby_enc_find_extname(ptr noundef nonnull %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 

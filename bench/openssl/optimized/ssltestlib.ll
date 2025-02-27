@@ -1648,7 +1648,7 @@ define dso_local void @bio_s_maybe_retry_free() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @create_ssl_ctx_pair(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @create_ssl_ctx_pair(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %20, label %10
 

@@ -6503,7 +6503,7 @@ return:                                           ; preds = %_ZNSt7variantIJN6he
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_119DependencyExtractorENS0_20ImportExpressionNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr readonly %node.48.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_119DependencyExtractorENS0_20ImportExpressionNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr readonly captures(address_is_null) %node.48.val) unnamed_addr #0 align 2 {
 entry:
   %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %node.48.val, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
@@ -7853,7 +7853,7 @@ return:                                           ; preds = %for.body.i729, %for
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_22FunctionExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_22FunctionExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
@@ -7889,7 +7889,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_27ArrowFunctionExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_27ArrowFunctionExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
@@ -7925,7 +7925,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_23FunctionDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_23FunctionDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
@@ -7961,7 +7961,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_24ComponentDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_24ComponentDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
@@ -8078,7 +8078,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19SwitchStatementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19SwitchStatementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_discriminant = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_discriminant, align 8
@@ -8144,7 +8144,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_17NewExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_17NewExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_callee = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
@@ -8183,7 +8183,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_18CallExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_18CallExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_callee = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
@@ -8210,7 +8210,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26OptionalCallExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26OptionalCallExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_callee = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
@@ -8324,7 +8324,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_14SwitchCaseNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_14SwitchCaseNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_test = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
@@ -8372,7 +8372,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19TemplateLiteralNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19TemplateLiteralNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_quasis = getelementptr inbounds nuw i8, ptr %node, i64 48
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 56
@@ -8432,7 +8432,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20ClassDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20ClassDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -8483,7 +8483,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19ClassExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_19ClassExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -8588,7 +8588,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21ImportDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21ImportDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_specifiers = getelementptr inbounds nuw i8, ptr %node, i64 48
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 56
@@ -8651,7 +8651,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26ExportNamedDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26ExportNamedDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_declaration = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_declaration, align 8
@@ -8690,7 +8690,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_17ObjectPatternNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_17ObjectPatternNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_properties = getelementptr inbounds nuw i8, ptr %node, i64 48
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 56
@@ -8714,7 +8714,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_16ArrayPatternNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_16ArrayPatternNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_elements = getelementptr inbounds nuw i8, ptr %node, i64 48
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 56
@@ -8774,7 +8774,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21JSXOpeningElementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21JSXOpeningElementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_name = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
@@ -8813,7 +8813,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_14JSXElementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_14JSXElementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_openingElement = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_openingElement, align 8
@@ -8840,7 +8840,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_15JSXFragmentNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_15JSXFragmentNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_openingFragment = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_openingFragment, align 8
@@ -8867,7 +8867,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26FunctionTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26FunctionTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 56
@@ -8912,7 +8912,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_27ComponentTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_27ComponentTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 56
@@ -9071,7 +9071,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_27InterfaceTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_27InterfaceTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_extends = getelementptr inbounds nuw i8, ptr %node, i64 48
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 56
@@ -9128,7 +9128,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_24InterfaceDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_24InterfaceDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -9191,7 +9191,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20DeclareInterfaceNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20DeclareInterfaceNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -9221,7 +9221,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_16DeclareClassNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_16DeclareClassNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -9293,7 +9293,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20DeclareComponentNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20DeclareComponentNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -9338,7 +9338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_28DeclareExportDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_28DeclareExportDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_declaration = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_declaration, align 8
@@ -9401,7 +9401,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_24ObjectTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_24ObjectTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_properties = getelementptr inbounds nuw i8, ptr %node, i64 48
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 56
@@ -9665,7 +9665,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_18TSFunctionTypeNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_18TSFunctionTypeNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 56
@@ -9692,7 +9692,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21TSConstructorTypeNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21TSConstructorTypeNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 56
@@ -9770,7 +9770,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26TSInterfaceDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26TSInterfaceDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -9812,7 +9812,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21TSEnumDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21TSEnumDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -9920,7 +9920,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21TSMethodSignatureNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_21TSMethodSignatureNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_key = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
@@ -9947,7 +9947,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20TSIndexSignatureNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_20TSIndexSignatureNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_parameters = getelementptr inbounds nuw i8, ptr %node, i64 48
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 56
@@ -9971,7 +9971,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_30TSCallSignatureDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_30TSCallSignatureDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 56
@@ -10684,7 +10684,7 @@ if.end11:                                         ; preds = %if.end11.loopexit, 
 declare noundef i32 @_ZN6hermes5regex18searchWithBytecodeEN4llvh8ArrayRefIhEEPKcjjPSt6vectorINS0_13CapturedRangeESaIS7_EENS0_9constants13MatchFlagTypeE(ptr, i64, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree21ImportDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree21ImportDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_source = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_source, align 8
@@ -10810,7 +10810,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree26ExportNamedDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree26ExportNamedDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_source = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_source, align 8
@@ -10899,7 +10899,7 @@ _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree14JSXElementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree14JSXElementNodeE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %foundJSX_.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load i8, ptr %foundJSX_.i, align 8
@@ -10938,7 +10938,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree15JSXFragmentNodeE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree15JSXFragmentNodeE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %foundJSX_.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load i8, ptr %foundJSX_.i, align 8

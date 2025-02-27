@@ -791,7 +791,7 @@ define void @_ZN4LIEF8assembly11Instruction8IteratorC2ERKS2_(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly11Instruction8IteratoraSERKS2_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly11Instruction8IteratoraSERKS2_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
@@ -804,7 +804,7 @@ define void @_ZN4LIEF8assembly11Instruction8IteratorC2EOS2_(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly11Instruction8IteratoraSEOS2_(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly11Instruction8IteratoraSEOS2_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !17
   store ptr null, ptr %1, align 8, !tbaa !17
   %4 = load ptr, ptr %0, align 8, !tbaa !17
@@ -821,7 +821,7 @@ _ZNSt10unique_ptrIN4LIEF8assembly7details13InstructionItESt14default_deleteIS3_E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly11Instruction8IteratorppEv(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly11Instruction8IteratorppEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
@@ -1081,7 +1081,7 @@ define void @_ZN4LIEF8assembly6EngineC2EOS1_(ptr noundef nonnull writeonly align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly6EngineaSEOS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly6EngineaSEOS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
@@ -1349,7 +1349,7 @@ define void @_ZN4LIEF8assembly3x867Operand8IteratorC2ERKS3_(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly3x867Operand8IteratoraSERKS3_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly3x867Operand8IteratoraSERKS3_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
@@ -1362,7 +1362,7 @@ define void @_ZN4LIEF8assembly3x867Operand8IteratorC2EOS3_(ptr noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly3x867Operand8IteratoraSEOS3_(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly3x867Operand8IteratoraSEOS3_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !59
   store ptr null, ptr %1, align 8, !tbaa !59
   %4 = load ptr, ptr %0, align 8, !tbaa !59
@@ -1379,7 +1379,7 @@ _ZNSt10unique_ptrIN4LIEF8assembly3x867details9OperandItESt14default_deleteIS4_EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly3x867Operand8IteratorppEv(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly3x867Operand8IteratorppEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
@@ -1537,7 +1537,7 @@ define void @_ZN4LIEF8assembly7aarch647Operand8IteratorC2ERKS3_(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly7aarch647Operand8IteratoraSERKS3_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly7aarch647Operand8IteratoraSERKS3_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
@@ -1550,7 +1550,7 @@ define void @_ZN4LIEF8assembly7aarch647Operand8IteratorC2EOS3_(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly7aarch647Operand8IteratoraSEOS3_(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly7aarch647Operand8IteratoraSEOS3_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !51
   store ptr null, ptr %1, align 8, !tbaa !51
   %4 = load ptr, ptr %0, align 8, !tbaa !51
@@ -1567,7 +1567,7 @@ _ZNSt10unique_ptrIN4LIEF8assembly7aarch647details9OperandItESt14default_deleteIS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly7aarch647Operand8IteratorppEv(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF8assembly7aarch647Operand8IteratorppEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 

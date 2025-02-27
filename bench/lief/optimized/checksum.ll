@@ -56,7 +56,7 @@ $_ZTSN4LIEF12BinaryStreamE = comdat any
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN4LIEF14ChecksumStream5writeEPKhm(ptr noundef nonnull returned align 8 dereferenceable(20) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN4LIEF14ChecksumStream5writeEPKhm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(20) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.LIEF::SpanStream", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -79,7 +79,7 @@ define hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN4LIEF14Checksu
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN4LIEF14ChecksumStream5writeERNS_12BinaryStreamE(ptr noundef nonnull returned align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN4LIEF14ChecksumStream5writeERNS_12BinaryStreamE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca i16, align 2
   %5 = alloca i8, align 1

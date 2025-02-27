@@ -90,7 +90,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.67 = private unnamed_addr constant [39 x i8] c"Failed to re-scan fmap as a new type.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_scan_buff(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #0 {
+define i32 @cli_scan_buff(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.cli_ac_data, align 8
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %7) #13
@@ -501,7 +501,7 @@ declare void @cli_ac_freedata(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @cli_caloff(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @cli_caloff(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca [65 x i8], align 16
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -1686,7 +1686,7 @@ declare ptr @fmap_check_empty(i32 noundef, i64 noundef, i64 noundef, ptr noundef
 declare i32 @cli_recursion_stack_push(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca [3 x i8], align 1
   %9 = alloca %struct.cli_ac_data, align 8
   %10 = alloca %struct.cli_ac_data, align 8
@@ -2492,7 +2492,7 @@ select.unfold:                                    ; preds = %305, %286, %302
 declare ptr @cli_recursion_stack_pop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_exp_eval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define i32 @cli_exp_eval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca %struct._YR_SCAN_CONTEXT, align 8
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8

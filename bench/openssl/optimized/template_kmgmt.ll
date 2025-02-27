@@ -130,7 +130,7 @@ define internal noundef i32 @template_has(ptr readnone captures(none) %0, i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @template_match(ptr noundef readnone %0, ptr noundef readnone %1, i32 noundef %2) #0 {
+define internal range(i32 0, 2) i32 @template_match(ptr noundef readnone captures(address_is_null) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
   %4 = tail call i32 @ossl_prov_is_running() #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
@@ -162,7 +162,7 @@ define internal noundef ptr @template_imexport_types(i32 noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @template_import(ptr noundef readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @template_import(ptr noundef readnone captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call i32 @ossl_prov_is_running() #3
   %5 = icmp eq i32 %4, 0
   %6 = icmp eq ptr %0, null
@@ -206,7 +206,7 @@ ossl_template_key_fromdata.exit:                  ; preds = %18, %ossl_param_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @template_export(ptr noundef readnone %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 {
+define internal i32 @template_export(ptr noundef readnone captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 {
   %5 = tail call i32 @ossl_prov_is_running() #3
   %6 = icmp eq i32 %5, 0
   %7 = icmp eq ptr %0, null
@@ -268,7 +268,7 @@ define internal noalias ptr @template_gen_init(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @template_gen_set_params(ptr noundef readnone %0, ptr readnone captures(none) %1) #1 {
+define internal range(i32 0, 2) i32 @template_gen_set_params(ptr noundef readnone captures(address_is_null) %0, ptr readnone captures(none) %1) #1 {
   %3 = icmp ne ptr %0, null
   %spec.select = zext i1 %3 to i32
   ret i32 %spec.select

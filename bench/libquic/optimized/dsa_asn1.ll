@@ -636,7 +636,7 @@ marshal_integer.exit21:                           ; preds = %27
 declare i32 @CBB_add_asn1_uint64(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_DSA_SIG(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @d2i_DSA_SIG(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.cbs_st, align 8
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %16, label %6
@@ -711,7 +711,7 @@ declare void @CBB_cleanup(ptr noundef) local_unnamed_addr #2
 declare i32 @CBB_finish_i2d(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_DSAPublicKey(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @d2i_DSAPublicKey(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.cbs_st, align 8
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %16, label %6
@@ -776,7 +776,7 @@ define hidden i32 @i2d_DSAPublicKey(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_DSAPrivateKey(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @d2i_DSAPrivateKey(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.cbs_st, align 8
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %16, label %6
@@ -841,7 +841,7 @@ define hidden i32 @i2d_DSAPrivateKey(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_DSAparams(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @d2i_DSAparams(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.cbs_st, align 8
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %16, label %6

@@ -91,7 +91,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_destroy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden i32 @exr_attr_list_destroy(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %3
 
@@ -211,7 +211,7 @@ define internal fastcc i32 @attr_destroy(ptr noundef nonnull %0, ptr noundef %1)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_compute_size(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define hidden i32 @exr_attr_list_compute_size(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread122, label %5
@@ -531,7 +531,7 @@ define hidden i32 @exr_attr_list_compute_size(ptr noundef %0, ptr noundef readon
 declare i32 @exr_attr_opaquedata_pack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_find_by_name(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
+define hidden i32 @exr_attr_list_find_by_name(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %51, label %5
 
@@ -631,7 +631,7 @@ define hidden i32 @exr_attr_list_find_by_name(ptr noundef %0, ptr noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_add_by_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #3 {
+define hidden i32 @exr_attr_list_add_by_type(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #3 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
   store ptr null, ptr %8, align 8, !tbaa !28
@@ -783,7 +783,7 @@ define hidden i32 @exr_attr_list_add_by_type(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @validate_attr_arguments(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #3 {
+define internal fastcc i32 @validate_attr_arguments(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %11
 
@@ -922,7 +922,7 @@ exr_attr_list_find_by_name.exit.thread:           ; preds = %39, %60, %._crit_ed
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @create_attr_block(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef readonly captures(none) %5, i32 noundef range(i32 0, 256) %6, ptr noundef readonly captures(none) %7, i32 noundef range(i32 0, 256) %8) unnamed_addr #3 {
+define internal fastcc i32 @create_attr_block(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef readonly captures(none) %5, i32 noundef range(i32 0, 256) %6, ptr noundef readonly captures(none) %7, i32 noundef range(i32 0, 256) %8) unnamed_addr #3 {
   %.not = icmp eq i32 %6, 0
   %narrow = add nuw nsw i32 %6, 33
   %narrow84 = select i1 %.not, i32 32, i32 %narrow
@@ -1538,7 +1538,7 @@ exr_attr_list_find_by_name.exit.thread:           ; preds = %13, %17, %38, %._cr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #3 {
+define hidden i32 @exr_attr_list_add(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %100, label %8
 
@@ -1729,7 +1729,7 @@ create_attr_block.exit.thread:                    ; preds = %create_attr_block.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #3 {
+define hidden i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %90, label %8
 
@@ -1894,7 +1894,7 @@ create_attr_block.exit.thread:                    ; preds = %create_attr_block.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_remove(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden i32 @exr_attr_list_remove(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %46, label %4
 

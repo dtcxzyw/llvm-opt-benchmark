@@ -330,7 +330,7 @@ file_globals_dtor.exit:                           ; preds = %2, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @php_flock_common(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
+define dso_local void @php_flock_common(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
   %6 = trunc i64 %1 to i32
   %7 = and i32 %6, 3
   %8 = icmp eq i32 %7, 0
@@ -5640,7 +5640,7 @@ zval_ptr_dtor_str.exit:                           ; preds = %32, %35, %40
 declare ptr @php_stream_read_to_str(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -500, 256) i32 @php_csv_handle_escape_argument(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 -500, 256) i32 @php_csv_handle_escape_argument(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -5924,7 +5924,7 @@ select.unfold:                                    ; preds = %.critedge.thread249
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @php_fputcsv(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef signext %2, i8 noundef signext %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #1 {
+define dso_local i64 @php_fputcsv(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef signext %2, i8 noundef signext %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 {
   %7 = alloca %struct.smart_str, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)

@@ -995,7 +995,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN7glslang13TParseContext22mergeSpirvRequirementsERKNS_10TSourceLocEPNS_17TSpirvRequirementES5_(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef returned %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN7glslang13TParseContext22mergeSpirvRequirementsERKNS_10TSourceLocEPNS_17TSpirvRequirementES5_(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef returned %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, glslang::pool_allocator<int>>::_Reuse_or_alloc_node", align 8
   %6 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>, glslang::pool_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>>::_Reuse_or_alloc_node", align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1209,7 +1209,7 @@ _ZN7glslang4TSetIiSt4lessIiEEaSERKS3_.exit:       ; preds = %55, %80
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang13TIntermediate22insertSpirvRequirementEPKNS_17TSpirvRequirementE(ptr noundef nonnull align 8 captures(none) dereferenceable(2024) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang13TIntermediate22insertSpirvRequirementEPKNS_17TSpirvRequirementE(ptr noundef nonnull align 8 captures(none) dereferenceable(2024) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>, glslang::pool_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>>::_Alloc_node", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1304
@@ -3907,7 +3907,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang11TPublicType12setSpirvTypeERKNS_17TSpirvInstructionEPKNS_7TVectorINS_19TSpirvTypeParameterEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(248) initializes((0, 4)) %0, ptr noundef nonnull readonly align 8 dereferenceable(44) %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang11TPublicType12setSpirvTypeERKNS_17TSpirvInstructionEPKNS_7TVectorINS_19TSpirvTypeParameterEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(248) initializes((0, 4)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(44) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4703,7 +4703,7 @@ _ZN7glslang11TArraySizes14removeLastSizeEv.exit:  ; preds = %159, %128, %213, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN7glslang13TParseContext24mergeSpirvTypeParametersEPNS_7TVectorINS_19TSpirvTypeParameterEEES4_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(30232) %0, ptr noundef returned %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN7glslang13TParseContext24mergeSpirvTypeParametersEPNS_7TVectorINS_19TSpirvTypeParameterEEES4_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(30232) %0, ptr noundef returned captures(ret: address, provenance) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -4790,7 +4790,7 @@ _ZNSt6vectorIN7glslang19TSpirvTypeParameterENS0_14pool_allocatorIS1_EEE9push_bac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN7glslang13TParseContext20makeSpirvInstructionERKNS_10TSourceLocERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEESC_(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, ptr noundef nonnull readonly align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN7glslang13TParseContext20makeSpirvInstructionERKNS_10TSourceLocERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEESC_(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE10_M_replaceEmmPKcm.exit:
   %4 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #14
   %5 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %4, i64 noundef 48) #14
@@ -4957,7 +4957,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN7glslang13TParseContext21mergeSpirvInstructionERKNS_10TSourceLocEPNS_17TSpirvInstructionES5_(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef returned %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN7glslang13TParseContext21mergeSpirvInstructionERKNS_10TSourceLocEPNS_17TSpirvInstructionES5_(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef returned captures(address, ret: address, provenance) %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0

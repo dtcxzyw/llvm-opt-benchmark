@@ -553,7 +553,7 @@ declare noundef ptr @_ZN10JNIHandles16make_weak_globalE6HandleN17AllocFailStrate
 declare noundef ptr @_ZN21java_lang_ThreadGroup6parentEP7oopDesc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrThreadGroup19JfrThreadGroupEntryC2EPKcR22JfrThreadGroupPointers(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef readonly %1, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrThreadGroup19JfrThreadGroupEntryC2EPKcR22JfrThreadGroupPointers(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.not.i = icmp eq ptr %1, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
@@ -594,7 +594,7 @@ _ZN14JfrThreadGroup19JfrThreadGroupEntry16set_thread_groupER22JfrThreadGroupPoin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrThreadGroup19JfrThreadGroupEntry21set_thread_group_nameEPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrThreadGroup19JfrThreadGroupEntry21set_thread_group_nameEPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %3
 

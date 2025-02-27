@@ -77,7 +77,7 @@ mps_reader_is_accumulating.exit.thread:           ; preds = %6, %mps_reader_is_a
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -261, 1) i32 @mbedtls_mps_reader_get(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
+define hidden range(i32 -261, 1) i32 @mbedtls_mps_reader_get(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 {
   %.val = load ptr, ptr %0, align 8, !tbaa !11
   %.not73 = icmp eq ptr %.val, null
   br i1 %.not73, label %42, label %5
@@ -197,7 +197,7 @@ define hidden range(i32 -1, 1) i32 @mbedtls_mps_reader_commit(ptr noundef captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -263, 1) i32 @mbedtls_mps_reader_reclaim(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define hidden range(i32 -263, 1) i32 @mbedtls_mps_reader_reclaim(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 

@@ -9982,7 +9982,7 @@ bcemit_nil.exit:                                  ; preds = %.thread.i, %114, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 65536) i32 @var_lookup_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 65536) i32 @var_lookup_(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %77, label %5
 

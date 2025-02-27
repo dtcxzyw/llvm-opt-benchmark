@@ -64,7 +64,7 @@ define noundef i32 @SUNMemoryHelper_Alloc_Sys(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @SUNMemoryHelper_Dealloc_Sys(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #2 {
+define noundef i32 @SUNMemoryHelper_Dealloc_Sys(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr readnone captures(none) %2) #2 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %25, label %5
 
@@ -157,7 +157,7 @@ define noundef ptr @SUNMemoryHelper_Clone_Sys(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @SUNMemoryHelper_Destroy_Sys(ptr noundef %0) #2 {
+define noundef i32 @SUNMemoryHelper_Destroy_Sys(ptr noundef captures(address_is_null) %0) #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 

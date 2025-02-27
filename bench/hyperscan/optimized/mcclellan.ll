@@ -5254,7 +5254,7 @@ mcclellanExec8_i.exit:                            ; preds = %46, %69, %86, %123,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef signext %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7) local_unnamed_addr #2 {
+define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i8 noundef signext %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7) local_unnamed_addr #2 {
   %9 = alloca <2 x i64>, align 16
   %10 = alloca <2 x i64>, align 16
   %11 = alloca <2 x i64>, align 16
@@ -8408,7 +8408,7 @@ mcclellanExec8_i.exit:                            ; preds = %4, %doNormal8.exit.
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec16_i_cb(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, i8 noundef signext range(i8 0, 2) %8) unnamed_addr #9 {
+define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec16_i_cb(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, i8 noundef signext range(i8 0, 2) %8) unnamed_addr #9 {
   %10 = alloca <2 x i64>, align 16
   %11 = alloca <2 x i64>, align 16
   %12 = alloca <2 x i64>, align 16
@@ -9550,7 +9550,7 @@ mcclellanExec16_i.exit:                           ; preds = %298, %283, %276, %3
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec16_i_sam(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #9 {
+define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec16_i_sam(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #9 {
   %7 = alloca <2 x i64>, align 16
   %8 = alloca <2 x i64>, align 16
   %9 = alloca <2 x i64>, align 16
@@ -10557,7 +10557,7 @@ mcclellanExec16_i.exit:                           ; preds = %.loopexit321, %532,
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc noundef signext i8 @mcclellanExec16_i_nm(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #9 {
+define internal fastcc noundef signext i8 @mcclellanExec16_i_nm(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4) unnamed_addr #9 {
   %6 = alloca <2 x i64>, align 16
   %7 = alloca <2 x i64>, align 16
   %8 = alloca <2 x i64>, align 16

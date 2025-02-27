@@ -183,7 +183,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZN7NMTUtil20parse_tracking_levelEPKc(ptr noundef readonly %0) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 0, 4) i32 @_ZN7NMTUtil20parse_tracking_levelEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 

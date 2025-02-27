@@ -430,7 +430,7 @@ declare i64 @rb_const_get_at(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_hash_aset(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_parser_build_script_lines_from(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden i64 @rb_parser_build_script_lines_from(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 

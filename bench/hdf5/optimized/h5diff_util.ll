@@ -143,7 +143,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.get_class = private unnamed_addr constant [12 x ptr] [ptr @.str.65, ptr @.str.66, ptr @.str.64, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73, ptr @.str.74, ptr @.str.75], align 8
 
 ; Function Attrs: nounwind uwtable
-define void @print_dimensions(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @print_dimensions(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %0, 1
   br i1 %3, label %11, label %4
 
@@ -476,7 +476,7 @@ declare i32 @H5Tget_class(i64 noundef) local_unnamed_addr #1
 declare i32 @H5Tequal(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @diff_basename(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @diff_basename(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 

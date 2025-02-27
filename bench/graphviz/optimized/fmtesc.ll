@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @fmtquote(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define ptr @fmtquote(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.agxbuf, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
@@ -670,13 +670,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @fmtesq(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @fmtesq(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @fmtquote(ptr noundef %0, ptr noundef null, ptr noundef %1)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fmtesc(ptr noundef %0) local_unnamed_addr #0 {
+define ptr @fmtesc(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @fmtquote(ptr noundef %0, ptr noundef null, ptr noundef null)
   ret ptr %2
 }

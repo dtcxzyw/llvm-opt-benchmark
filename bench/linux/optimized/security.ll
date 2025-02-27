@@ -1955,7 +1955,7 @@ define dso_local i32 @security_dentry_create_files_as(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @security_inode_init_security(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) #3 align 16 {
+define dso_local noundef i32 @security_inode_init_security(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) #3 align 16 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
   store i32 0, ptr %6, align 4
@@ -6580,7 +6580,7 @@ define internal fastcc noundef zeroext i1 @lsm_allowed(ptr noundef readonly capt
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @lsm_set_blob_sizes(ptr noundef %0) unnamed_addr #12 section ".init.text" align 16 {
+define internal fastcc void @lsm_set_blob_sizes(ptr noundef captures(address_is_null) %0) unnamed_addr #12 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %80, label %3
 

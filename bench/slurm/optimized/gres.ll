@@ -691,7 +691,7 @@ define dso_local i64 @gres_get_system_cnt(ptr noundef %0, i1 noundef zeroext %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @gres_get_step_info(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #2 {
+define dso_local i32 @gres_get_step_info(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #2 {
   %6 = alloca %struct.foreach_step_info_t, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #28
   store ptr %4, ptr %6, align 8
@@ -887,7 +887,7 @@ define dso_local void @destroy_gres_slurmd_conf(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @gres_build_id(ptr noundef readonly %0) local_unnamed_addr #3 {
+define dso_local i32 @gres_build_id(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -2327,7 +2327,7 @@ define internal noundef i32 @_merge_by_type(ptr noundef %0, ptr noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_slurm_conf_gres_str(ptr noundef readonly %0, ptr noundef %1) #2 {
+define internal noundef i32 @_slurm_conf_gres_str(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %3
 
@@ -2375,7 +2375,7 @@ define internal noundef i32 @_slurm_conf_gres_str(ptr noundef readonly %0, ptr n
 declare i32 @gpu_plugin_fini() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 8192) i32 @gres_flags_parse(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
+define dso_local range(i32 0, 8192) i32 @gres_flags_parse(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = tail call ptr @xstrcasestr(ptr noundef %0, ptr noundef nonnull @.str.28) #28
   %.not = icmp eq ptr %4, null
   %spec.select = select i1 %.not, i32 0, i32 8
@@ -7221,7 +7221,7 @@ _node_config_validate.exit:                       ; preds = %87, %158, %.loopexi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_sync_node_shared_to_sharing(ptr noundef readonly %0) unnamed_addr #2 {
+define internal fastcc void @_sync_node_shared_to_sharing(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -13556,7 +13556,7 @@ define dso_local ptr @gres_job_state_extract(ptr noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @gres_job_state_dup(ptr noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @gres_job_state_dup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -18523,7 +18523,7 @@ define internal noundef i32 @_foreach_init_device_list(ptr noundef initializes((
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef %8) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef captures(address_is_null) %8) unnamed_addr #2 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -19357,7 +19357,7 @@ define internal fastcc void @_step_state_delete(ptr noundef %0) unnamed_addr #2 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr noundef writeonly captures(none) initializes((0, 8)) %8, i32 noundef %9, i32 noundef %10, ptr noundef captures(none) %11, ptr noundef captures(none) %12, ptr noundef writeonly %13) local_unnamed_addr #2 {
+define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr noundef writeonly captures(none) initializes((0, 8)) %8, i32 noundef %9, i32 noundef %10, ptr noundef captures(none) %11, ptr noundef captures(none) %12, ptr noundef writeonly captures(address_is_null) %13) local_unnamed_addr #2 {
   %15 = alloca %struct.merge_generic_t, align 8
   %16 = alloca %struct.foreach_gres_list_cnt_t, align 8
   %17 = alloca %struct.foreach_gres_list_cnt_t, align 8
@@ -22251,7 +22251,7 @@ define internal noundef i32 @_foreach_step_count(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @cpu_set_to_bit_str(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local ptr @cpu_set_to_bit_str(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = sext i32 %1 to i64
   %4 = tail call ptr @bit_alloc(i64 noundef %3) #28
   %.not = icmp eq ptr %0, null
@@ -27674,7 +27674,7 @@ _assign_gres_to_task.exit:                        ; preds = %89, %95, %98, %101
 declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_closest_usable_gres(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #2 {
+define internal fastcc ptr @_get_closest_usable_gres(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #2 {
   %4 = alloca %struct.foreach_closest_usable_gres_t, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)

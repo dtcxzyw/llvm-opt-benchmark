@@ -63,7 +63,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @NoneUnfilter_C(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3) #2 {
+define internal void @NoneUnfilter_C(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef writeonly captures(address) %2, i32 noundef %3) #2 {
   %.not = icmp eq ptr %2, %1
   br i1 %.not, label %7, label %5
 
@@ -77,7 +77,7 @@ define internal void @NoneUnfilter_C(ptr readnone captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @HorizontalUnfilter_C(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @HorizontalUnfilter_C(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #3 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
@@ -111,7 +111,7 @@ define internal void @HorizontalUnfilter_C(ptr noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @VerticalUnfilter_C(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @VerticalUnfilter_C(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #3 {
   %5 = icmp eq ptr %0, null
   %6 = icmp sgt i32 %3, 0
   br i1 %5, label %7, label %.preheader
@@ -160,7 +160,7 @@ HorizontalUnfilter_C.exit:                        ; preds = %.lr.ph, %.lr.ph.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @GradientUnfilter_C(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #3 {
+define internal void @GradientUnfilter_C(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #3 {
   %5 = icmp eq ptr %0, null
   %6 = icmp sgt i32 %3, 0
   br i1 %5, label %7, label %12

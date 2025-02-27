@@ -3305,7 +3305,7 @@ eh.resume:                                        ; preds = %lpad41, %ehcleanup
 declare noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN1q4mbqi11choose_termEPN3euf5enodeE(ptr noalias writeonly sret(%class.obj_ref) align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %this, ptr noundef readonly %r) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN1q4mbqi11choose_termEPN3euf5enodeE(ptr noalias writeonly sret(%class.obj_ref) align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %this, ptr noundef readonly captures(address) %r) local_unnamed_addr #3 align 2 {
 for.body.lr.ph:
   %m_generation.i = getelementptr inbounds nuw i8, ptr %r, i64 40
   %0 = load i32, ptr %m_generation.i, align 8

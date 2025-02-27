@@ -8069,7 +8069,7 @@ define void @_ZN6icu_7711MeasureUnitC2Eii(ptr noundef nonnull writeonly align 8 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7711MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(19) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7711MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) initializes((0, 16)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(19) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6icu_7711MeasureUnitE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8, !tbaa !17
@@ -8087,7 +8087,7 @@ define void @_ZN6icu_7711MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7711MeasureUnitaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(19) %0, ptr noundef nonnull readonly align 8 dereferenceable(19) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7711MeasureUnitaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(19) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(19) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.icu_77::ErrorCode", align 8
   %4 = alloca %"class.icu_77::MeasureUnit", align 8
   %5 = icmp eq ptr %0, %1
@@ -8787,7 +8787,7 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit:             ; preds = %65, %_ZN6icu_7710Ch
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7711MeasureUnitaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(19) %0, ptr noundef nonnull align 8 dereferenceable(19) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7711MeasureUnitaSEOS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(19) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(19) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %42, label %4
 
@@ -9111,7 +9111,7 @@ define noundef i32 @_ZNK6icu_7711MeasureUnit9getOffsetEv(ptr noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7711MeasureUniteqERKNS_7UObjectE(ptr noundef nonnull readonly align 8 dereferenceable(19) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #16 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7711MeasureUniteqERKNS_7UObjectE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(19) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %1) unnamed_addr #16 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNKSt9type_infoneERKS_.exit.thread, label %4
 

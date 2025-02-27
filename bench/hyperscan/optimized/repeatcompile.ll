@@ -877,7 +877,7 @@ _ZN3ue215RepeatStateInfoD2Ev.exit:                ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_(ptr readonly %0, ptr readnone %1, ptr readonly captures(none) %2, ptr readnone captures(none) %3) local_unnamed_addr #6 {
+define hidden noundef zeroext i1 @_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_(ptr readonly captures(address) %0, ptr readnone captures(address) %1, ptr readonly captures(none) %2, ptr readnone captures(none) %3) local_unnamed_addr #6 {
   %5 = alloca %"class.ue2::CharReach", align 8
   %.not6 = icmp eq ptr %0, %1
   br i1 %.not6, label %._crit_edge, label %.lr.ph

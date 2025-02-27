@@ -9619,7 +9619,7 @@ declare void @_ZN9QLineEdit7setTextERK7QString(ptr noundef align 8 dereferenceab
 declare i32 @_ZN15QGuiApplication17keyboardModifiersEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN17DisplayFilterEdit14dragEnterEventEP15QDragEnterEvent(ptr noundef readnone align 8 dereferenceable_or_null(376) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define void @_ZN17DisplayFilterEdit14dragEnterEventEP15QDragEnterEvent(ptr noundef readnone align 8 captures(address) dereferenceable_or_null(376) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %22, label %3
 
@@ -9675,7 +9675,7 @@ declare noundef ptr @_ZNK10QDropEvent6sourceEv(ptr noundef align 8 dereferenceab
 declare void @_ZN10QDropEvent13setDropActionEN2Qt10DropActionE(ptr noundef align 8 dereferenceable_or_null(64), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN17DisplayFilterEdit13dragMoveEventEP14QDragMoveEvent(ptr noundef readnone align 8 dereferenceable_or_null(376) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define void @_ZN17DisplayFilterEdit13dragMoveEventEP14QDragMoveEvent(ptr noundef readnone align 8 captures(address) dereferenceable_or_null(376) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %22, label %3
 

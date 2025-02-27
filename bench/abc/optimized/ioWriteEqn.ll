@@ -439,7 +439,7 @@ declare ptr @Extra_TimeStamp(...) local_unnamed_addr #2
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @Io_NamePrepro(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @Io_NamePrepro(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #3 {
   %2 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.5, i64 noundef 4) #9
   %.not = icmp eq i32 %2, 0
   %.idx = select i1 %.not, i64 4, i64 0

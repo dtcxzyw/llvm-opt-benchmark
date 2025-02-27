@@ -203,7 +203,7 @@ define dso_local i32 @lua_gethookcount(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @lua_getstack(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @lua_getstack(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %19, label %5
 
@@ -246,7 +246,7 @@ define dso_local range(i32 0, 2) i32 @lua_getstack(ptr noundef readonly %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @luaG_findlocal(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #6 {
+define hidden ptr @luaG_findlocal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #6 {
   %5 = load ptr, ptr %1, align 8, !tbaa !24
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -360,7 +360,7 @@ findvararg.exit:                                  ; preds = %findvararg.exit.sin
 declare hidden ptr @luaF_getlocalname(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lua_getlocal(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define dso_local ptr @lua_getlocal(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %17
 
@@ -1257,7 +1257,7 @@ define internal fastcc void @typeerror(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @varinfo(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #6 {
+define internal fastcc ptr @varinfo(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !39
@@ -1746,7 +1746,7 @@ define hidden void @luaG_opinterror(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @luaG_tointerror(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #9 {
+define hidden void @luaG_tointerror(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #9 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
   %5 = call i32 @luaV_tointegerns(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 0) #13

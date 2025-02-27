@@ -1528,7 +1528,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter8ParseKeyEPNS_17ParsedInternalKeyE(ptr noundef nonnull align 8 dereferenceable(1112) %0, ptr noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter8ParseKeyEPNS_17ParsedInternalKeyE(ptr noundef nonnull align 8 captures(address) dereferenceable(1112) %0, ptr noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.rocksdb::Status", align 8
   %4 = alloca %"class.rocksdb::Slice", align 8
   %5 = alloca %"class.rocksdb::Status", align 8
@@ -3139,7 +3139,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %._crit_edge, %_ZNKS
 }
 
 ; Function Attrs: uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter17FindNextUserEntryEbPKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(1112) %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter17FindNextUserEntryEbPKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(1112) %0, i1 noundef zeroext %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rocksdb::PerfStepTimer", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #25
   %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
@@ -4106,7 +4106,7 @@ _ZN7rocksdb6StatusD2Ev.exit10:                    ; preds = %_ZNSt6vectorIN7rock
 declare void @_ZN7rocksdb23WideColumnSerialization11DeserializeERNS_5SliceERSt6vectorINS_10WideColumnESaIS4_EE(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter33SetValueAndColumnsFromMergeResultERKNS_6StatusENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(1112) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i8 noundef zeroext %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter33SetValueAndColumnsFromMergeResultERKNS_6StatusENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(1112) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1, i8 noundef zeroext %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = load i8, ptr %1, align 8, !tbaa !253
   %6 = icmp eq i8 %5, 0
@@ -4330,7 +4330,7 @@ define noundef zeroext i1 @_ZN7rocksdb6DBIter12PrepareValueEv(ptr noundef nonnul
 }
 
 ; Function Attrs: uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter25FindNextUserEntryInternalEbPKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(1112) initializes((866, 867)) %0, i1 noundef zeroext %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter25FindNextUserEntryInternalEbPKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(1112) initializes((866, 867)) %0, i1 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rocksdb::Slice", align 8
   %5 = alloca %"class.rocksdb::Slice", align 8
   %6 = alloca %"class.rocksdb::Slice", align 8
@@ -6012,7 +6012,7 @@ _ZN7rocksdb6StatusD2Ev.exit199:                   ; preds = %.loopexit, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter26TooManyInternalKeysSkippedEb(ptr noundef nonnull align 8 dereferenceable(1112) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter26TooManyInternalKeysSkippedEb(ptr noundef nonnull align 8 captures(address) dereferenceable(1112) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.rocksdb::Status", align 8
   %4 = alloca %"class.rocksdb::Slice", align 8
   %5 = alloca %"class.rocksdb::Slice", align 8
@@ -6113,7 +6113,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6Statusa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter9IsVisibleEmRKNS_5SliceEPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1112) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef writeonly %3) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter9IsVisibleEmRKNS_5SliceEPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1112) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #6 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %6 = load ptr, ptr %5, align 8, !tbaa !183
   %7 = icmp eq ptr %6, null
@@ -8900,7 +8900,7 @@ _ZN7rocksdb13PerfStepTimerD2Ev.exit:              ; preds = %171, %.noexc1.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter17ReverseToBackwardEv(ptr noundef nonnull align 8 dereferenceable(1112) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter17ReverseToBackwardEv(ptr noundef nonnull align 8 captures(address) dereferenceable(1112) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.rocksdb::IterKey", align 8
   %3 = alloca %"class.rocksdb::Slice", align 8
   %4 = alloca %"class.rocksdb::Slice", align 8
@@ -9273,7 +9273,7 @@ _ZN7rocksdb7IterKeyD2Ev.exit:                     ; preds = %164, %162
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb6DBIter12PrevInternalEPKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(1112) %0, ptr noundef readonly %1) local_unnamed_addr #9 align 2 {
+define void @_ZN7rocksdb6DBIter12PrevInternalEPKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(1112) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 align 2 {
   %3 = alloca %"class.rocksdb::Slice", align 8
   %4 = alloca %"class.rocksdb::Slice", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -9539,7 +9539,7 @@ _ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE6UpdateEv.exit: ; preds = %1, %13
 }
 
 ; Function Attrs: uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter25FindUserKeyBeforeSavedKeyEv(ptr noundef nonnull align 8 dereferenceable(1112) %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter25FindUserKeyBeforeSavedKeyEv(ptr noundef nonnull align 8 captures(address) dereferenceable(1112) %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.rocksdb::ParsedInternalKey", align 8
   %3 = alloca %"class.rocksdb::Slice", align 8
   %4 = alloca %"class.rocksdb::Slice", align 8

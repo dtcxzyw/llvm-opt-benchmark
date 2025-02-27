@@ -6361,7 +6361,7 @@ define void @"_ZN3syn4expr8printing74_$LT$impl$u20$quote..to_tokens..ToTokens$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(12) ptr @_ZN3syn3mac14MacroDelimiter4span17h5ee11489ab25e7d2E(ptr noalias noundef readonly align 4 dereferenceable(16) %0) unnamed_addr #3 {
+define noundef nonnull align 4 dereferenceable(12) ptr @_ZN3syn3mac14MacroDelimiter4span17h5ee11489ab25e7d2E(ptr noalias noundef readonly align 4 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #3 {
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 4
   ret ptr %.0
 }

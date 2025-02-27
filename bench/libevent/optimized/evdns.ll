@@ -815,7 +815,7 @@ define range(i32 -1, 1) i32 @evdns_server_request_add_aaaa_reply(ptr noundef cap
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @evdns_server_request_add_ptr_reply(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @evdns_server_request_add_ptr_reply(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #21
   %7 = icmp ne ptr %1, null
@@ -1414,7 +1414,7 @@ evdns_server_request_format_response.exit:        ; preds = %58, %54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @server_send_response(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc i32 @server_send_response(ptr noundef captures(address_is_null) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #21
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2152,7 +2152,7 @@ evdns_request_insert.exit:                        ; preds = %65, %67
 declare i32 @event_initialized(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @evdns_cancel_request(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define void @evdns_cancel_request(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %61, label %4
@@ -3240,7 +3240,7 @@ define i32 @evdns_base_get_nameserver_fd(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @request_finished(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
+define internal fastcc void @request_finished(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7416,7 +7416,7 @@ define hidden void @evdns_tree_SPLAY(ptr noundef captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define hidden noundef ptr @evdns_tree_SPLAY_REMOVE(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #10 {
+define hidden noundef ptr @evdns_tree_SPLAY_REMOVE(ptr noundef captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %20, label %5
@@ -7662,7 +7662,7 @@ evdns_base_free.exit:                             ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @evdns_base_load_hosts(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @evdns_base_load_hosts(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca [64 x i8], align 16
@@ -8951,7 +8951,7 @@ declare i64 @recvfrom(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, p
 declare ptr @strerror(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @request_parse(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef %5) unnamed_addr #2 {
+define internal fastcc void @request_parse(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #2 {
   %7 = alloca i32, align 4
   %8 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
@@ -9466,7 +9466,7 @@ select.unfold.i183:                               ; preds = %134, %115
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 1) i32 @name_parse(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef writeonly %3, i32 noundef %4) unnamed_addr #13 {
+define internal fastcc range(i32 -1, 1) i32 @name_parse(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef writeonly captures(address) %3, i32 noundef %4) unnamed_addr #13 {
   %6 = load i32, ptr %2, align 4
   %7 = sext i32 %4 to i64
   %8 = getelementptr inbounds i8, ptr %3, i64 %7
@@ -9952,7 +9952,7 @@ declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #4
 declare i64 @bufferevent_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64 @dnsname_to_labels(ptr noundef captures(none) %0, i64 noundef range(i64 12, -9223372036854775808) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #2 {
+define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64 @dnsname_to_labels(ptr noundef captures(none) %0, i64 noundef range(i64 12, -9223372036854775808) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #2 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   %8 = icmp ugt i64 %4, 255
   br i1 %8, label %.thread, label %.preheader
@@ -11402,7 +11402,7 @@ request_find_from_trans_id.exit.thread:           ; preds = %34, %request_find_f
 declare i32 @evutil_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reply_handle(ptr noundef nonnull %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc void @reply_handle(ptr noundef nonnull %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #2 {
   %5 = alloca [128 x i8], align 16
   %6 = alloca i16, align 2
   %7 = alloca [128 x i8], align 16

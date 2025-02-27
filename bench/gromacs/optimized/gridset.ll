@@ -88,7 +88,7 @@ $_ZNSt6vectorIiSaIiEE17_M_default_appendEm = comdat any
 @_ZN3gmx7GridSetC1E7PbcTypebPKNS_11BasicVectorIiEEPKNS_11DomdecZonesENS_12PairlistTypeEbbiNS_13PinningPolicyE = unnamed_addr alias void (ptr, i32, i1, ptr, ptr, i32, i1, i1, i32, i32), ptr @_ZN3gmx7GridSetC2E7PbcTypebPKNS_11BasicVectorIiEEPKNS_11DomdecZonesENS_12PairlistTypeEbbiNS_13PinningPolicyE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3gmx7GridSet11DomainSetupC2E7PbcTypebPKNS_11BasicVectorIiEEPKNS_11DomdecZonesE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 6), (16, 24)) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define void @_ZN3gmx7GridSet11DomainSetupC2E7PbcTypebPKNS_11BasicVectorIiEEPKNS_11DomdecZonesE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 6), (16, 24)) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %2 to i8
   store i32 %1, ptr %0, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4

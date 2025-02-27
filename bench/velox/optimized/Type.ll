@@ -6159,7 +6159,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind memory(inaccessiblemem: write) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8facebook5velox9ArrayType7childAtEj(ptr noundef nonnull readnone align 8 dereferenceable(64) %this, i32 noundef %idx) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8facebook5velox9ArrayType7childAtEj(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(64) %this, i32 noundef %idx) unnamed_addr #7 align 2 {
 entry:
   %cmp.not = icmp eq i32 %idx, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -6598,7 +6598,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8facebook5velox9ArrayType10equivalentERKNS0_4TypeE(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 8 dereferenceable(17) %other) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK8facebook5velox9ArrayType10equivalentERKNS0_4TypeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, ptr noundef nonnull readonly align 8 dereferenceable(17) %other) unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %other, %this
   br i1 %cmp, label %return, label %_ZNK8facebook5velox4Type13hasSameTypeIdERKS1_.exit
@@ -6824,7 +6824,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind memory(inaccessiblemem: write) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8facebook5velox7MapType7childAtEj(ptr noundef nonnull readnone align 8 dereferenceable(80) %this, i32 noundef %idx) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8facebook5velox7MapType7childAtEj(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %this, i32 noundef %idx) unnamed_addr #7 align 2 {
 entry:
   switch i32 %idx, label %if.end5 [
     i32 0, label %return
@@ -10006,7 +10006,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8facebook5velox7MapType10equivalentERKNS0_4TypeE(ptr noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull readonly align 8 dereferenceable(17) %other) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK8facebook5velox7MapType10equivalentERKNS0_4TypeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %this, ptr noundef nonnull readonly align 8 dereferenceable(17) %other) unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %other, %this
   br i1 %cmp, label %return, label %_ZNK8facebook5velox4Type13hasSameTypeIdERKS1_.exit
@@ -10262,7 +10262,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8facebook5velox12FunctionType10equivalentERKNS0_4TypeE(ptr noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(17) %other) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK8facebook5velox12FunctionType10equivalentERKNS0_4TypeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(17) %other) unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %other, %this
   br i1 %cmp, label %return, label %_ZNK8facebook5velox4Type13hasSameTypeIdERKS1_.exit
@@ -10553,7 +10553,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK8facebook5velox10OpaqueType10equivalentERKNS0_4TypeE(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(17) %other) unnamed_addr #13 align 2 {
+define noundef zeroext i1 @_ZNK8facebook5velox10OpaqueType10equivalentERKNS0_4TypeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(17) %other) unnamed_addr #13 align 2 {
 entry:
   %cmp = icmp eq ptr %other, %this
   br i1 %cmp, label %return, label %_ZNK8facebook5velox4Type13hasSameTypeIdERKS1_.exit

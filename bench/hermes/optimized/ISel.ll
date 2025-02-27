@@ -26370,7 +26370,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc7HBCISel18generateBranchInstEPNS_10BranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull %Inst, ptr noundef readnone %next) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc7HBCISel18generateBranchInstEPNS_10BranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull %Inst, ptr noundef readnone captures(address) %next) local_unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %Inst, i32 noundef 0) #19
   %0 = icmp eq ptr %call.i, null
@@ -28247,7 +28247,7 @@ _ZN6hermes3hbc28BytecodeInstructionGenerator8emitReg8El.exit37: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc7HBCISel22generateCondBranchInstEPNS_14CondBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull %Inst, ptr noundef readnone %next) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc7HBCISel22generateCondBranchInstEPNS_14CondBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull %Inst, ptr noundef readnone captures(address) %next) local_unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %Inst, i32 noundef 0) #19
   %0 = load i8, ptr %call.i, align 8
@@ -28664,7 +28664,7 @@ _ZN6hermes3hbc28BytecodeInstructionGenerator8emitReg8El.exit: ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc7HBCISel25generateCompareBranchInstEPNS_17CompareBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull %Inst, ptr noundef readnone %next) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc7HBCISel25generateCompareBranchInstEPNS_17CompareBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull %Inst, ptr noundef readnone captures(address) %next) local_unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %Inst, i32 noundef 0) #19
   %0 = load i8, ptr %call.i, align 8
@@ -33473,7 +33473,7 @@ _ZN6hermes3hbc28BytecodeInstructionGenerator8emitReg8El.exit37: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc7HBCISel21generateGetPNamesInstEPNS_13GetPNamesInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull %Inst, ptr noundef readnone %next) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc7HBCISel21generateGetPNamesInstEPNS_13GetPNamesInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull %Inst, ptr noundef readnone captures(address) %next) local_unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %Inst, i32 noundef 0) #19
   %0 = load i8, ptr %call.i, align 8
@@ -34161,7 +34161,7 @@ _ZN6hermes3hbc28BytecodeInstructionGenerator8emitReg8El.exit: ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc7HBCISel24generateGetNextPNameInstEPNS_16GetNextPNameInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull %Inst, ptr noundef readnone %next) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc7HBCISel24generateGetNextPNameInstEPNS_16GetNextPNameInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull %Inst, ptr noundef readnone captures(address) %next) local_unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %Inst, i32 noundef 2) #19
   %0 = load i8, ptr %call.i, align 8
@@ -34798,7 +34798,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc7HBCISel20generateTryStartInstEPNS_12TryStartInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull %Inst, ptr noundef readnone %next) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc7HBCISel20generateTryStartInstEPNS_12TryStartInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull %Inst, ptr noundef readnone captures(address) %next) local_unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %Inst, i32 noundef 1) #19
   %0 = icmp eq ptr %call.i, null
@@ -48697,7 +48697,7 @@ do.end:                                           ; preds = %_ZN4llvh12DenseMapB
 declare noundef ptr @_ZN6hermes10BasicBlock13getTerminatorEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc7HBCISel8generateEPNS_11InstructionEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef %ii, ptr noundef %next) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc7HBCISel8generateEPNS_11InstructionEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef %ii, ptr noundef captures(address) %next) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(656) ptr @_ZNK6hermes8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(304) %0) #19
@@ -55061,7 +55061,7 @@ _ZN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS2_3hbc7HBCISel13SwitchI
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS3_3hbc7HBCISel13SwitchImmInfoEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS7_17generateJumpTableEvE3$_0EEEvT_SG_T0_"(ptr noundef %__first, ptr noundef readnone %__last) unnamed_addr #0 {
+define internal fastcc void @"_ZSt16__insertion_sortIPN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS3_3hbc7HBCISel13SwitchImmInfoEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS7_17generateJumpTableEvE3$_0EEEvT_SG_T0_"(ptr noundef %__first, ptr noundef readnone captures(address) %__last) unnamed_addr #0 {
 entry:
   %__val.sroa.5.i = alloca [12 x i8], align 4
   %__val.sroa.2 = alloca { i32, ptr }, align 8

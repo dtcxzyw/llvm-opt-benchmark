@@ -240,7 +240,7 @@ define internal void @Type_MHC2_Free(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocTagTypePluginChunk(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocTagTypePluginChunk(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cmsTagTypePluginChunkType, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %26, label %4
@@ -319,7 +319,7 @@ DupTagTypeList.exit:                              ; preds = %8, %21
 declare ptr @_cmsSubAllocDup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocMPETypePluginChunk(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocMPETypePluginChunk(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cmsTagTypePluginChunkType, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %26, label %4
@@ -396,7 +396,7 @@ DupTagTypeList.exit:                              ; preds = %8, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsRegisterTagTypePlugin(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_cmsRegisterTagTypePlugin(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 8) #13
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.sink.split.i, label %5
@@ -425,7 +425,7 @@ RegisterTypesPlugin.exit:                         ; preds = %5, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsRegisterMultiProcessElementPlugin(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_cmsRegisterMultiProcessElementPlugin(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 11) #13
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.sink.split.i, label %5
@@ -495,7 +495,7 @@ GetHandler.exit:                                  ; preds = %.lr.ph.i, %.lr.ph20
 declare ptr @_cmsContextGetClientChunk(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocTagPluginChunk(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocTagPluginChunk(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cmsTagPluginChunkType, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %4
@@ -567,7 +567,7 @@ DupTagList.exit:                                  ; preds = %7, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsRegisterTagPlugin(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_cmsRegisterTagPlugin(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 9) #13
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.sink.split, label %5
@@ -3610,7 +3610,7 @@ define internal ptr @Type_MLU_Read(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_MLU_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_MLU_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 %3) #0 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %10
 
@@ -8084,7 +8084,7 @@ declare i32 @cmsPipelineInputChannels(ptr noundef) local_unnamed_addr #1
 declare i32 @cmsPipelineOutputChannels(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Write8bitTables(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Write8bitTables(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %.not39 = icmp eq i32 %2, 0
   br i1 %.not39, label %.loopexit31, label %.lr.ph
 

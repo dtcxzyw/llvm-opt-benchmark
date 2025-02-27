@@ -709,7 +709,7 @@ _ZN3tbb6detail2d015spin_wait_whileINS0_2d118task_group_context5stateEZNS1_18spin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3tbb6detail2r123task_group_context_impl26propagate_task_group_stateERNS0_2d118task_group_contextEMS4_St6atomicIjES5_j(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 %1, ptr noundef nonnull readnone align 8 dereferenceable(128) %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
+define void @_ZN3tbb6detail2r123task_group_context_impl26propagate_task_group_stateERNS0_2d118task_group_contextEMS4_St6atomicIjES5_j(ptr noundef nonnull align 8 captures(address) dereferenceable(128) %0, i64 %1, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(128) %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not = icmp eq i32 %6, %3

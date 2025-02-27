@@ -2055,7 +2055,7 @@ split:                                            ; preds = %41, %._crit_edge105
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cuddZddSymmSiftingBackward(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @cuddZddSymmSiftingBackward(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #4 {
   %.not52 = icmp eq ptr %1, null
   br i1 %.not52, label %._crit_edge, label %.lr.ph
 

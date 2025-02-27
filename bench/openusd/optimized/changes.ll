@@ -643,7 +643,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11PcpLifeboat6RetainERKNS_8TfR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__11PcpLifeboat14GetLayerStacksEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__11PcpLifeboat14GetLayerStacksEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
@@ -25789,7 +25789,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS3_EE12e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__10PcpChanges15DidDestroyCacheEPKNS_8PcpCacheE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__10PcpChanges15DidDestroyCacheEPKNS_8PcpCacheE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -26388,7 +26388,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpChanges7Is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpChanges20GetLayerStackChangesEv(ptr noundef nonnull readnone returned align 8 dereferenceable(240) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpChanges20GetLayerStackChangesEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(240) %0) local_unnamed_addr #5 align 2 {
   ret ptr %0
 }
 
@@ -26406,7 +26406,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpChanges9_OptimizeEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpChanges11GetLifeboatEv(ptr noundef nonnull readnone align 8 dereferenceable(240) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpChanges11GetLifeboatEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(240) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   ret ptr %2
 }
@@ -27386,7 +27386,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifie
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN32pxrInternal_v0_24__pxrReserved__10PcpChanges23_DidAddOrRemoveSublayerEPKNS6_8PcpCacheERKSt6vectorINS6_9TfWeakPtrINS6_13PcpLayerStackEEESaISE_EERKNSC_INS6_8SdfLayerEEERKS5_NS7_19_SublayerChangeTypeEPS5_PSB_IbSaIbEEE5_DataNS6_6TfHashESt8equal_toIS5_ESaISt4pairISN_SU_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN32pxrInternal_v0_24__pxrReserved__10PcpChanges23_DidAddOrRemoveSublayerEPKNS6_8PcpCacheERKSt6vectorINS6_9TfWeakPtrINS6_13PcpLayerStackEEESaISE_EERKNSC_INS6_8SdfLayerEEERKS5_NS7_19_SublayerChangeTypeEPS5_PSB_IbSaIbEEE5_DataNS6_6TfHashESt8equal_toIS5_ESaISt4pairISN_SU_EEED2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val.i.i = load ptr, ptr %2, align 8
   %.not1.i.i.i = icmp eq ptr %.val.i.i, null

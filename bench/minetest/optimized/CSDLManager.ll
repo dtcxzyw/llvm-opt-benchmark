@@ -110,7 +110,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr5video11CSDLManager10getContextEv(ptr noundef nonnull readnone align 8 dereferenceable(48) %this) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr5video11CSDLManager10getContextEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(48) %this) unnamed_addr #5 align 2 {
 entry:
   %Data = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %Data

@@ -277,7 +277,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Sfm_CreateLevel(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((4, 8)) %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define void @Sfm_CreateLevel(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((4, 8)) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = getelementptr i8, ptr %0, i64 4
   %.val12 = load i32, ptr %4, align 4, !tbaa !3
   %5 = load i32, ptr %1, align 8, !tbaa !20
@@ -426,7 +426,7 @@ Sfm_ObjLevelNew.exit:                             ; preds = %50, %Sfm_ObjAddsLev
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Sfm_CreateLevelR(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((4, 8)) %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define void @Sfm_CreateLevelR(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((4, 8)) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = getelementptr i8, ptr %0, i64 4
   %.val12 = load i32, ptr %4, align 4, !tbaa !3
   %5 = load i32, ptr %1, align 8, !tbaa !20

@@ -13,7 +13,7 @@ define internal noundef i32 @utf32be_mbc_enc_len(ptr readnone captures(none) %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @utf32be_is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1) #1 {
+define internal range(i32 0, 2) i32 @utf32be_is_mbc_newline(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %4 = icmp ult ptr %3, %1
   br i1 %4, label %5, label %19

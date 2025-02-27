@@ -10,13 +10,13 @@ target triple = "x86_64-pc-linux-gnu"
 @MD5End.hex = internal unnamed_addr constant [17 x i8] c"0123456789abcdef\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @MD5File(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @MD5File(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @MD5FileChunk(ptr noundef %0, ptr noundef %1, i64 noundef 0, i64 noundef 0)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @MD5FileChunk(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @MD5FileChunk(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca [8192 x i8], align 16
   %7 = alloca %struct.MD5Context, align 4

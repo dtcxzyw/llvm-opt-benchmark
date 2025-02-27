@@ -211,7 +211,7 @@ declare i32 @opj_event_msg(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare void @opj_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @opj_tgt_reset(ptr noundef readonly %0) local_unnamed_addr #3 {
+define hidden void @opj_tgt_reset(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 

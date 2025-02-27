@@ -28,7 +28,7 @@ define hidden range(i32 0, 2) i32 @VP8LColorCacheInit(ptr noundef writeonly capt
 declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LColorCacheClear(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @VP8LColorCacheClear(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 

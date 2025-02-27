@@ -7071,7 +7071,7 @@ define noundef ptr @_ZNK15PacketListModel11getRowFdataEi(ptr noundef readonly al
 declare void @_ZN16PacketListRecord15ensureColorizedEP13_capture_file(ptr noundef align 8 dereferenceable_or_null(37), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK15PacketListModel14visibleIndexOfEP11_frame_data(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(156) %0, ptr noundef readonly %1) local_unnamed_addr #11 align 2 {
+define noundef i32 @_ZNK15PacketListModel14visibleIndexOfEP11_frame_data(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(156) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #11 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_ZNK15PacketListModel17packetNumberToRowEi.exit, label %4
 

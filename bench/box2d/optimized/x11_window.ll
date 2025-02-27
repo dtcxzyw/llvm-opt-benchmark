@@ -1900,7 +1900,7 @@ updateCursorImage.exit:                           ; preds = %38, %43, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @releaseMonitor(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @releaseMonitor(ptr noundef readonly captures(address) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !213
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -2103,7 +2103,7 @@ declare ptr @_glfw_calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare void @_glfw_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_glfwGetWindowPosX11(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden void @_glfwGetWindowPosX11(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2216,7 +2216,7 @@ define hidden range(i32 0, 2) i32 @_glfwWindowVisibleX11(ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_glfwGetWindowSizeX11(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden void @_glfwGetWindowSizeX11(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.XWindowAttributes, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #17
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
@@ -2452,7 +2452,7 @@ define hidden void @_glfwSetWindowAspectRatioX11(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_glfwGetFramebufferSizeX11(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden void @_glfwGetFramebufferSizeX11(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.XWindowAttributes, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #17
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
@@ -2485,7 +2485,7 @@ _glfwGetWindowSizeX11.exit:                       ; preds = %13, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_glfwGetWindowFrameSizeX11(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define hidden void @_glfwGetWindowFrameSizeX11(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
@@ -2720,7 +2720,7 @@ define internal range(i32 0, 2) i32 @isFrameExtentsEvent(ptr readnone captures(n
 declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_glfwGetWindowContentScaleX11(ptr noundef readnone captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
+define hidden void @_glfwGetWindowContentScaleX11(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
@@ -3964,7 +3964,7 @@ define hidden void @_glfwSetWindowOpacityX11(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_glfwSetRawMouseMotionX11(ptr noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @_glfwSetRawMouseMotionX11(ptr noundef readnone captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.XIEventMask, align 8
   %4 = alloca [1 x i8], align 1
   %5 = alloca %struct.XIEventMask, align 8
@@ -5669,7 +5669,7 @@ writeEmptyEvent.exit:                             ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_glfwGetCursorPosX11(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden void @_glfwGetCursorPosX11(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -6561,7 +6561,7 @@ define hidden ptr @_glfwGetEGLNativeDisplayX11() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @_glfwGetEGLNativeWindowX11(ptr noundef readonly %0) local_unnamed_addr #2 {
+define hidden ptr @_glfwGetEGLNativeWindowX11(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133496), align 8, !tbaa !435
   %.not = icmp eq i32 %2, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1248

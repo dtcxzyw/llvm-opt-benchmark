@@ -145,7 +145,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_init_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
+define ptr @uhash_init_77(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4, !tbaa !3
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %8, label %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit
@@ -219,7 +219,7 @@ _ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_initSize_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
+define ptr @uhash_initSize_77(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %6, %11
@@ -2224,7 +2224,7 @@ define i32 @uhash_hashIChars_77(ptr %0) local_unnamed_addr #0 {
 declare i32 @ustr_hashICharsN_77(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_hashIStringView_77(ptr readonly %0) local_unnamed_addr #0 {
+define i32 @uhash_hashIStringView_77(ptr readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -2242,7 +2242,7 @@ define i32 @uhash_hashIStringView_77(ptr readonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @uhash_equals_77(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @uhash_equals_77(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %4
 
@@ -2411,7 +2411,7 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %53, %.thread46.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext range(i8 0, 2) i8 @uhash_compareUChars_77(ptr readonly %0, ptr readonly %1) local_unnamed_addr #5 {
+define signext range(i8 0, 2) i8 @uhash_compareUChars_77(ptr readonly captures(address) %0, ptr readonly captures(address) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %18, label %4
 
@@ -2455,7 +2455,7 @@ define signext range(i8 0, 2) i8 @uhash_compareUChars_77(ptr readonly %0, ptr re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext range(i8 0, 2) i8 @uhash_compareChars_77(ptr readonly %0, ptr readonly %1) local_unnamed_addr #5 {
+define signext range(i8 0, 2) i8 @uhash_compareChars_77(ptr readonly captures(address) %0, ptr readonly captures(address) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %18, label %4
 
@@ -2499,7 +2499,7 @@ define signext range(i8 0, 2) i8 @uhash_compareChars_77(ptr readonly %0, ptr rea
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @uhash_compareIChars_77(ptr readonly %0, ptr readonly %1) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @uhash_compareIChars_77(ptr readonly captures(address) %0, ptr readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %21, label %4
 
@@ -2551,7 +2551,7 @@ define signext range(i8 0, 2) i8 @uhash_compareIChars_77(ptr readonly %0, ptr re
 declare signext i8 @uprv_asciitolower_77(i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @uhash_compareIStringView_77(ptr readonly %0, ptr readonly %1) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @uhash_compareIStringView_77(ptr readonly captures(address) %0, ptr readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %._crit_edge, label %4
 

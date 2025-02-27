@@ -37,7 +37,7 @@ define internal void @pmix_bitmap_destruct(ptr noundef captures(none) %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -27, 1) i32 @pmix_bitmap_set_max_size(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -27, 1) i32 @pmix_bitmap_set_max_size(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -56,7 +56,7 @@ define range(i32 -27, 1) i32 @pmix_bitmap_set_max_size(ptr noundef writeonly %0,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 -29, 1) i32 @pmix_bitmap_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -29, 1) i32 @pmix_bitmap_init(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp slt i32 %1, 1
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -111,7 +111,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -27, 1) i32 @pmix_bitmap_clear_all_bits(ptr noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 -27, 1) i32 @pmix_bitmap_clear_all_bits(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -131,7 +131,7 @@ define range(i32 -27, 1) i32 @pmix_bitmap_clear_all_bits(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 -29, 1) i32 @pmix_bitmap_set_bit(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -29, 1) i32 @pmix_bitmap_set_bit(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp slt i32 %1, 0
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -203,7 +203,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -27, 1) i32 @pmix_bitmap_clear_bit(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 -27, 1) i32 @pmix_bitmap_clear_bit(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp slt i32 %1, 0
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -237,7 +237,7 @@ define range(i32 -27, 1) i32 @pmix_bitmap_clear_bit(ptr noundef readonly %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @pmix_bitmap_is_set_bit(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define zeroext i1 @pmix_bitmap_is_set_bit(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp slt i32 %1, 0
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -270,7 +270,7 @@ define zeroext i1 @pmix_bitmap_is_set_bit(ptr noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -27, 1) i32 @pmix_bitmap_set_all_bits(ptr noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 -27, 1) i32 @pmix_bitmap_set_all_bits(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -290,7 +290,7 @@ define range(i32 -27, 1) i32 @pmix_bitmap_set_all_bits(ptr noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -29, 1) i32 @pmix_bitmap_find_and_set_first_unset_bit(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
+define range(i32 -29, 1) i32 @pmix_bitmap_find_and_set_first_unset_bit(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %pmix_bitmap_set_bit.exit, label %4
 
@@ -420,7 +420,7 @@ pmix_bitmap_set_bit.exit:                         ; preds = %41, %26, %19, %.cri
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_and_inplace(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_and_inplace(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -464,7 +464,7 @@ define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_and_inplace(ptr noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_or_inplace(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_or_inplace(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -508,7 +508,7 @@ define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_or_inplace(ptr noundef readonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_xor_inplace(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_xor_inplace(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -552,7 +552,7 @@ define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_xor_inplace(ptr noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @pmix_bitmap_are_different(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #11 {
+define noundef zeroext i1 @pmix_bitmap_are_different(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #11 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -596,7 +596,7 @@ define noundef zeroext i1 @pmix_bitmap_are_different(ptr noundef readonly %0, pt
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @pmix_bitmap_get_string(ptr noundef readonly %0) local_unnamed_addr #12 {
+define noalias noundef ptr @pmix_bitmap_get_string(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 

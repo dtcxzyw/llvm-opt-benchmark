@@ -3744,7 +3744,7 @@ define dso_local void @folio_zero_new_buffers(ptr noundef %0, i64 noundef %1, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__block_write_begin_int(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 align 16 {
+define dso_local i32 @__block_write_begin_int(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 align 16 {
   %6 = alloca [2 x ptr], align 16
   %7 = load volatile i64, ptr %0, align 8
   %8 = and i64 %7, 64
@@ -4377,7 +4377,7 @@ define dso_local i32 @__block_write_begin_int(ptr noundef %0, i64 noundef %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__block_write_begin(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) #2 align 16 {
+define dso_local i32 @__block_write_begin(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) #2 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load volatile i64, ptr %5, align 8
   %7 = and i64 %6, 1
@@ -4424,7 +4424,7 @@ define dso_local i32 @__block_write_begin(ptr noundef %0, i64 noundef %1, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @block_write_begin(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) #2 align 16 {
+define dso_local i32 @block_write_begin(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(address_is_null) %4) #2 align 16 {
   %6 = ashr i64 %1, 12
   %7 = tail call ptr @grab_cache_page_write_begin(ptr noundef %0, i64 noundef %6) #13
   %8 = icmp eq ptr %7, null
@@ -5351,7 +5351,7 @@ define dso_local i32 @generic_cont_expand_simple(ptr noundef %0, i64 noundef %1)
 declare dso_local i32 @inode_newsize_ok(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cont_write_begin(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, ptr noundef captures(none) %7) #2 align 16 {
+define dso_local i32 @cont_write_begin(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr readnone captures(none) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(none) %7) #2 align 16 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = load ptr, ptr %1, align 8
@@ -5810,7 +5810,7 @@ define dso_local void @block_commit_write(ptr noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @block_page_mkwrite(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #2 align 16 {
+define dso_local i32 @block_page_mkwrite(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8

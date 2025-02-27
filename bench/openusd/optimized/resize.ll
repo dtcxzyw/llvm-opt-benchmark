@@ -2653,7 +2653,7 @@ define hidden void @av1_upscale_normative_and_extend_frame(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @av1_scale_if_required(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
+define hidden noundef ptr @av1_scale_if_required(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8
   br i1 %6, label %10, label %18

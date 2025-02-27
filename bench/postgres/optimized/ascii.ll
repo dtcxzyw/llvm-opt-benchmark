@@ -56,7 +56,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @encode_to_ascii(ptr noundef returned %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @encode_to_ascii(ptr noundef returned captures(address, ret: address, provenance) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %0, align 4
   %5 = lshr i32 %4, 2

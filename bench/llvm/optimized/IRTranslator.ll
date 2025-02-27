@@ -3729,7 +3729,7 @@ _ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit22: ; preds = %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL16containsBF16TypeRKN4llvm4UserE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @_ZL16containsBF16TypeRKN4llvm4UserE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !238
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5834,7 +5834,7 @@ _ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit.thread: ; preds = %9, %13, %_ZN4llvm9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12IRTranslator14emitSwitchCaseERNS_8SwitchCG9CaseBlockEPNS_17MachineBasicBlockERNS_16MachineIRBuilderE(ptr noundef nonnull align 8 dereferenceable(1832) %0, ptr noundef nonnull readonly align 8 dereferenceable(89) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm12IRTranslator14emitSwitchCaseERNS_8SwitchCG9CaseBlockEPNS_17MachineBasicBlockERNS_16MachineIRBuilderE(ptr noundef nonnull align 8 dereferenceable(1832) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(89) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"struct.std::pair.410", align 8
   %6 = alloca %"class.llvm::BranchProbability", align 4
   %7 = alloca %"struct.std::pair.410", align 8
@@ -7386,7 +7386,7 @@ declare void @_ZN4llvm8SwitchCG14SwitchLowering14findJumpTablesERSt6vectorINS0_1
 declare void @_ZN4llvm8SwitchCG14SwitchLowering19findBitTestClustersERSt6vectorINS0_11CaseClusterESaIS3_EEPKNS_10SwitchInstE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12IRTranslator13splitWorkItemERNS_11SmallVectorINS_8SwitchCG18SwitchWorkListItemELj4EEERKS3_PNS_5ValueEPNS_17MachineBasicBlockERNS_16MachineIRBuilderE(ptr noundef nonnull align 8 dereferenceable(1832) %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(44) %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef nonnull align 8 dereferenceable(88) %5) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm12IRTranslator13splitWorkItemERNS_11SmallVectorINS_8SwitchCG18SwitchWorkListItemELj4EEERKS3_PNS_5ValueEPNS_17MachineBasicBlockERNS_16MachineIRBuilderE(ptr noundef nonnull align 8 dereferenceable(1832) %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(44) %2, ptr noundef %3, ptr noundef readonly captures(address) %4, ptr noundef nonnull align 8 dereferenceable(88) %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %"struct.llvm::SwitchCG::SwitchLowering::SplitWorkItemInfo", align 8
   %8 = alloca %"class.llvm::APInt", align 8
   %9 = alloca %"class.llvm::APInt", align 8
@@ -8966,7 +8966,7 @@ declare noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeERKNS_5APIntE(ptr nounde
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildBrCondERKNS_5SrcOpERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(288)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator22lowerJumpTableWorkItemENS_8SwitchCG18SwitchWorkListItemEPNS_17MachineBasicBlockES4_S4_RNS_16MachineIRBuilderENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS3_Lb0ELb0EvLb0EvEELb0ELb0EEENS_17BranchProbabilityEN9__gnu_cxx17__normal_iteratorIPNS1_11CaseClusterESt6vectorISF_SaISF_EEEES4_b(ptr noundef nonnull align 8 dereferenceable(1832) %0, ptr noundef readonly byval(%"struct.llvm::SwitchCG::SwitchWorkListItem") align 8 captures(none) %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef readonly %4, ptr nonnull readnone align 8 captures(none) %5, ptr %6, i32 %7, i64 %8, ptr noundef %9, i1 noundef zeroext %10) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator22lowerJumpTableWorkItemENS_8SwitchCG18SwitchWorkListItemEPNS_17MachineBasicBlockES4_S4_RNS_16MachineIRBuilderENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS3_Lb0ELb0EvLb0EvEELb0ELb0EEENS_17BranchProbabilityEN9__gnu_cxx17__normal_iteratorIPNS1_11CaseClusterESt6vectorISF_SaISF_EEEES4_b(ptr noundef nonnull align 8 dereferenceable(1832) %0, ptr noundef readonly byval(%"struct.llvm::SwitchCG::SwitchWorkListItem") align 8 captures(none) %1, ptr noundef readonly captures(address) %2, ptr noundef %3, ptr noundef readonly captures(address) %4, ptr nonnull readnone align 8 captures(none) %5, ptr %6, i32 %7, i64 %8, ptr noundef %9, i1 noundef zeroext %10) local_unnamed_addr #1 align 2 {
   %12 = alloca %"class.llvm::BranchProbability", align 4
   %13 = alloca %"struct.std::pair.410", align 8
   %14 = alloca %"class.llvm::BranchProbability", align 4
@@ -18765,7 +18765,7 @@ _ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit: ; preds = %_ZN4llvm16
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildDbgLabelEPKNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12IRTranslator23translateDbgValueRecordEPNS_5ValueEbPKNS_15DILocalVariableEPKNS_12DIExpressionERKNS_8DebugLocERNS_16MachineIRBuilderE(ptr noundef nonnull align 8 dereferenceable(1832) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(88) %6) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm12IRTranslator23translateDbgValueRecordEPNS_5ValueEbPKNS_15DILocalVariableEPKNS_12DIExpressionERKNS_8DebugLocERNS_16MachineIRBuilderE(ptr noundef nonnull align 8 dereferenceable(1832) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(88) %6) local_unnamed_addr #1 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = icmp eq ptr %5, %8
   br i1 %9, label %_ZN4llvm16MachineIRBuilder11setDebugLocERKNS_8DebugLocE.exit, label %10
@@ -23127,7 +23127,7 @@ _ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit10: ; preds = %_ZNK4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator20translateUnreachableERKNS_4UserERNS_16MachineIRBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1832) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator20translateUnreachableERKNS_4UserERNS_16MachineIRBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1832) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %5 = load ptr, ptr %4, align 8, !tbaa !259
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8

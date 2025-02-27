@@ -1820,7 +1820,7 @@ define dso_local void @item_stats_sizes_remove(ptr noundef readonly captures(non
 declare void @assoc_delete(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @item_unlink_q(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @item_unlink_q(ptr noundef readonly captures(address) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8, !tbaa !30
   %4 = zext i8 %3 to i64
@@ -2140,7 +2140,7 @@ do_item_remove.exit:                              ; preds = %121, %do_item_unlin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @do_item_unlink_q(ptr noundef readonly %0) unnamed_addr #9 {
+define internal fastcc void @do_item_unlink_q(ptr noundef readonly captures(address) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8, !tbaa !30
   %4 = zext i8 %3 to i64
@@ -4320,7 +4320,7 @@ define dso_local void @do_item_linktail_q(ptr noundef initializes((0, 16)) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @do_item_unlinktail_q(ptr noundef readonly %0) local_unnamed_addr #9 {
+define dso_local void @do_item_unlinktail_q(ptr noundef readonly captures(address) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8, !tbaa !30
   %4 = zext i8 %3 to i64

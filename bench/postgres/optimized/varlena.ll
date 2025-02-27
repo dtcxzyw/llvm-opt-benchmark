@@ -14875,7 +14875,7 @@ declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @llvm.bswap.i32(i32) #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @text_format_parse_digits(ptr noundef nonnull captures(none) %0, ptr noundef readnone %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @text_format_parse_digits(ptr noundef nonnull captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
   %6 = add i8 %5, -48

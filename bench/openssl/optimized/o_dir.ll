@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define ptr @OPENSSL_DIR_read(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define ptr @OPENSSL_DIR_read(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -83,7 +83,7 @@ declare ptr @readdir(ptr noundef) local_unnamed_addr #4
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OPENSSL_DIR_end(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OPENSSL_DIR_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 

@@ -1287,7 +1287,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %43, %41, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZNK22ShenandoahNMethodTable8index_ofEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(236) %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZNK22ShenandoahNMethodTable8index_ofEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(236) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -1366,7 +1366,7 @@ _ZN17ShenandoahNMethodD2Ev.exit:                  ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK22ShenandoahNMethodTable7containEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(236) %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK22ShenandoahNMethodTable7containEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(236) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -1586,7 +1586,7 @@ define hidden void @_ZN21ShenandoahNMethodListD2Ev(ptr noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull ptr @_ZN21ShenandoahNMethodList7acquireEv(ptr noundef nonnull returned align 8 dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull ptr @_ZN21ShenandoahNMethodList7acquireEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, 1

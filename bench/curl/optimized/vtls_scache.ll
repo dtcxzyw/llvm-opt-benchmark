@@ -1731,7 +1731,7 @@ Curl_ssl_scache_unlock.exit:                      ; preds = %32, %34, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cf_ssl_find_peer_by_key(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #0 {
+define internal fastcc i32 @cf_ssl_find_peer_by_key(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #0 {
   %6 = alloca [32 x i8], align 16
   store ptr null, ptr %4, align 8, !tbaa !161
   %.not = icmp eq ptr %1, null
@@ -2275,7 +2275,7 @@ define hidden i32 @Curl_ssl_scache_add_obj(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #0 {
+define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
   store ptr null, ptr %6, align 8, !tbaa !161

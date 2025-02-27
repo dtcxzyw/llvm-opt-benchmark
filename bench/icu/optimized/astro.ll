@@ -167,7 +167,7 @@ define noundef double @_ZN6icu_7718CalendarAstronomer12getJulianDayEv(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7718CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) initializes((0, 16)) %1, double noundef %2, double noundef %3) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7718CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(16) initializes((0, 16)) %1, double noundef %2, double noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8, !tbaa !9
   %7 = tail call noundef signext i8 @uprv_isNaN_77(double noundef %6)
@@ -542,7 +542,7 @@ tailrecurse:                                      ; preds = %51, %6
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7718CalendarAstronomer15getMoonPositionEv(ptr noundef nonnull align 8 dereferenceable(57) %0) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7718CalendarAstronomer15getMoonPositionEv(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(57) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i8, ptr %2, align 8, !tbaa !13
   %4 = icmp eq i8 %3, 0
@@ -681,7 +681,7 @@ _ZN6icu_7718CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN6icu_7718CalendarAstronomer10getMoonAgeEv(ptr noundef nonnull align 8 dereferenceable(57) %0) local_unnamed_addr #0 align 2 {
+define noundef double @_ZN6icu_7718CalendarAstronomer10getMoonAgeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7718CalendarAstronomer15getMoonPositionEv(ptr noundef nonnull align 8 dereferenceable(57) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load double, ptr %3, align 8, !tbaa !12
@@ -751,7 +751,7 @@ define void @_ZNK6icu_7718CalendarAstronomer10Equatorial8toStringEv(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode(ptr noundef writeonly %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @ucln_i18n_registerCleanup_77(i32 noundef 11, ptr noundef nonnull @_ZL22calendar_astro_cleanupv)
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5

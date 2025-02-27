@@ -4400,7 +4400,7 @@ _ZN5caffe9BlobShape5ClearEv.exit:                 ; preds = %4, %_ZN6google8prot
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe9BlobShape8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe9BlobShape8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe9BlobShape9MergeFromERKS0_.exit, label %4
 
@@ -7058,7 +7058,7 @@ _ZN5caffe9BlobProto9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = %_ZN6
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe9BlobProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull readonly align 8 dereferenceable(144) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe9BlobProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(144) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %44, label %4
 
@@ -8305,7 +8305,7 @@ _ZN5caffe15BlobProtoVector9MergeFromERKN6google8protobuf7MessageE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe15BlobProtoVector8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe15BlobProtoVector8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -10010,7 +10010,7 @@ _ZN5caffe5Datum9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = %_ZN6goog
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe5Datum8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe5Datum8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %31, label %4
 
@@ -11546,7 +11546,7 @@ _ZN5caffe15FillerParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe15FillerParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe15FillerParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %31, label %4
 
@@ -15483,7 +15483,7 @@ _ZN5caffe12NetParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe12NetParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull readonly align 8 dereferenceable(160) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe12NetParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -23510,7 +23510,7 @@ _ZN5caffe15SolverParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe15SolverParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull readonly align 8 dereferenceable(304) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe15SolverParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(304) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -25501,7 +25501,7 @@ _ZN5caffe11SolverState9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe11SolverState8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe11SolverState8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -26700,7 +26700,7 @@ _ZN5caffe8NetState9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = %_ZN6g
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe8NetState8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe8NetState8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %37, label %4
 
@@ -28572,7 +28572,7 @@ _ZN5caffe12NetStateRule9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe12NetStateRule8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe12NetStateRule8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %49, label %4
 
@@ -29833,7 +29833,7 @@ _ZN5caffe9ParamSpec9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = %_ZN6
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe9ParamSpec8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe9ParamSpec8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %32, label %4
 
@@ -75764,7 +75764,7 @@ _ZN5caffe23TransformationParameter9MergeFromERKN6google8protobuf7MessageE.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe23TransformationParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe23TransformationParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %32, label %4
 
@@ -77933,7 +77933,7 @@ _ZN5caffe15ResizeParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe15ResizeParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 dereferenceable(88) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe15ResizeParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %28, label %4
 
@@ -79027,7 +79027,7 @@ _ZN5caffe13LossParameter5ClearEv.exit:            ; preds = %11, %_ZN6google8pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe13LossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe13LossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe13LossParameter9MergeFromERKS0_.exit, label %4
 
@@ -80196,7 +80196,7 @@ _ZN5caffe17AccuracyParameter5ClearEv.exit:        ; preds = %12, %_ZN6google8pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe17AccuracyParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe17AccuracyParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe17AccuracyParameter9MergeFromERKS0_.exit, label %4
 
@@ -81306,7 +81306,7 @@ _ZN5caffe15ArgMaxParameter5ClearEv.exit:          ; preds = %11, %_ZN6google8pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe15ArgMaxParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe15ArgMaxParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe15ArgMaxParameter9MergeFromERKS0_.exit, label %4
 
@@ -82396,7 +82396,7 @@ _ZN5caffe15ConcatParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe15ConcatParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe15ConcatParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe15ConcatParameter9MergeFromERKS0_.exit, label %4
 
@@ -83316,7 +83316,7 @@ _ZN5caffe18BatchNormParameter5ClearEv.exit:       ; preds = %12, %_ZN6google8pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe18BatchNormParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe18BatchNormParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe18BatchNormParameter9MergeFromERKS0_.exit, label %4
 
@@ -83723,7 +83723,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i: ; preds = %46, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5caffe13BiasParameterD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe13BiasParameterD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, @_ZN5caffe32_BiasParameter_default_instance_E
   br i1 %.not.i, label %_ZN5caffe13BiasParameter10SharedDtorEv.exit, label %2
 
@@ -84521,7 +84521,7 @@ _ZN5caffe13BiasParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe13BiasParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe13BiasParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -84912,7 +84912,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i25: ; preds = %89, %83
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5caffe11BNParameterD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe11BNParameterD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, @_ZN5caffe30_BNParameter_default_instance_E
   br i1 %.not.i, label %_ZN5caffe11BNParameter10SharedDtorEv.exit, label %2
 
@@ -85795,7 +85795,7 @@ _ZN5caffe11BNParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe11BNParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe11BNParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -86629,7 +86629,7 @@ _ZN5caffe24ContrastiveLossParameter9MergeFromERKN6google8protobuf7MessageE.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe24ContrastiveLossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe24ContrastiveLossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe24ContrastiveLossParameter9MergeFromERKS0_.exit, label %4
 
@@ -90204,7 +90204,7 @@ _ZN5caffe20ConvolutionParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe20ConvolutionParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull readonly align 8 dereferenceable(152) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe20ConvolutionParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(152) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -91233,7 +91233,7 @@ _ZN5caffe13CropParameter5ClearEv.exit:            ; preds = %4, %_ZN6google8prot
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe13CropParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe13CropParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe13CropParameter9MergeFromERKS0_.exit, label %4
 
@@ -93112,7 +93112,7 @@ _ZN5caffe13DataParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe13DataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe13DataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %44, label %4
 
@@ -94222,7 +94222,7 @@ _ZN5caffe30NonMaximumSuppressionParameter5ClearEv.exit: ; preds = %12, %_ZN6goog
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe30NonMaximumSuppressionParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe30NonMaximumSuppressionParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe30NonMaximumSuppressionParameter9MergeFromERKS0_.exit, label %4
 
@@ -96494,7 +96494,7 @@ _ZN5caffe19SaveOutputParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe19SaveOutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe19SaveOutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -98737,7 +98737,7 @@ _ZN5caffe24DetectionOutputParameter9MergeFromERKN6google8protobuf7MessageE.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe24DetectionOutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe24DetectionOutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -100232,7 +100232,7 @@ _ZN5caffe28YoloDetectionOutputParameter9MergeFromERKN6google8protobuf7MessageE.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe28YoloDetectionOutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe28YoloDetectionOutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %36, label %4
 
@@ -101898,7 +101898,7 @@ _ZN5caffe30Yolov3DetectionOutputParameter9MergeFromERKN6google8protobuf7MessageE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe30Yolov3DetectionOutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe30Yolov3DetectionOutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %30, label %4
 
@@ -102816,7 +102816,7 @@ _ZN5caffe16DropoutParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe16DropoutParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe16DropoutParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe16DropoutParameter9MergeFromERKS0_.exit, label %4
 
@@ -105132,7 +105132,7 @@ _ZN5caffe18DummyDataParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe18DummyDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull readonly align 8 dereferenceable(136) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe18DummyDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -106118,7 +106118,7 @@ _ZN5caffe16EltwiseParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe16EltwiseParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe16EltwiseParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %25, label %4
 
@@ -106843,7 +106843,7 @@ _ZN5caffe12ELUParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe12ELUParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe12ELUParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe12ELUParameter9MergeFromERKS0_.exit, label %4
 
@@ -107293,7 +107293,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i25: ; preds = %89, %83
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5caffe14EmbedParameterD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe14EmbedParameterD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, @_ZN5caffe33_EmbedParameter_default_instance_E
   br i1 %.not.i, label %_ZN5caffe14EmbedParameter10SharedDtorEv.exit, label %2
 
@@ -108351,7 +108351,7 @@ _ZN5caffe14EmbedParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe14EmbedParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe14EmbedParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -109137,7 +109137,7 @@ _ZN5caffe12ExpParameter5ClearEv.exit:             ; preds = %12, %_ZN6google8pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe12ExpParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe12ExpParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe12ExpParameter9MergeFromERKS0_.exit, label %4
 
@@ -110241,7 +110241,7 @@ _ZN5caffe16FlattenParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe16FlattenParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe16FlattenParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe16FlattenParameter9MergeFromERKS0_.exit, label %4
 
@@ -111263,7 +111263,7 @@ _ZN5caffe17HDF5DataParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe17HDF5DataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe17HDF5DataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %30, label %4
 
@@ -111985,7 +111985,7 @@ _ZN5caffe19HDF5OutputParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe19HDF5OutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe19HDF5OutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %26, label %4
 
@@ -112819,7 +112819,7 @@ _ZN5caffe18HingeLossParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe18HingeLossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe18HingeLossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe18HingeLossParameter9MergeFromERKS0_.exit, label %4
 
@@ -114885,7 +114885,7 @@ _ZN5caffe18ImageDataParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe18ImageDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe18ImageDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %53, label %4
 
@@ -115685,7 +115685,7 @@ _ZN5caffe21InfogainLossParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe21InfogainLossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe21InfogainLossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %26, label %4
 
@@ -116105,7 +116105,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i25: ; preds = %89, %83
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5caffe21InnerProductParameterD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe21InnerProductParameterD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, @_ZN5caffe40_InnerProductParameter_default_instance_E
   br i1 %.not.i, label %_ZN5caffe21InnerProductParameter10SharedDtorEv.exit, label %2
 
@@ -117248,7 +117248,7 @@ _ZN5caffe21InnerProductParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe21InnerProductParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe21InnerProductParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -118234,7 +118234,7 @@ _ZN5caffe14InputParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe14InputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe14InputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %41, label %4
 
@@ -119682,7 +119682,7 @@ _ZN5caffe15InterpParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe15InterpParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe15InterpParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %25, label %4
 
@@ -120506,7 +120506,7 @@ _ZN5caffe12LogParameter5ClearEv.exit:             ; preds = %12, %_ZN6google8pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe12LogParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe12LogParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe12LogParameter9MergeFromERKS0_.exit, label %4
 
@@ -121803,7 +121803,7 @@ _ZN5caffe12LRNParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe12LRNParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe12LRNParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %27, label %4
 
@@ -123019,7 +123019,7 @@ _ZN5caffe19MemoryDataParameter5ClearEv.exit:      ; preds = %10, %_ZN6google8pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe19MemoryDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe19MemoryDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe19MemoryDataParameter9MergeFromERKS0_.exit, label %4
 
@@ -123990,7 +123990,7 @@ _ZN5caffe12MVNParameter5ClearEv.exit:             ; preds = %12, %_ZN6google8pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe12MVNParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe12MVNParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe12MVNParameter9MergeFromERKS0_.exit, label %4
 
@@ -124399,7 +124399,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i: ; preds = %46, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5caffe18NormalizeParameterD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe18NormalizeParameterD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, @_ZN5caffe37_NormalizeParameter_default_instance_E
   br i1 %.not.i, label %_ZN5caffe18NormalizeParameter10SharedDtorEv.exit, label %2
 
@@ -125128,7 +125128,7 @@ _ZN5caffe18NormalizeParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe18NormalizeParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe18NormalizeParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -125939,7 +125939,7 @@ _ZN5caffe16PermuteParameter5ClearEv.exit:         ; preds = %4, %_ZN6google8prot
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe16PermuteParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe16PermuteParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe16PermuteParameter9MergeFromERKS0_.exit, label %4
 
@@ -128145,7 +128145,7 @@ _ZN5caffe16PoolingParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe16PoolingParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe16PoolingParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %28, label %4
 
@@ -128988,7 +128988,7 @@ _ZN5caffe14PowerParameter5ClearEv.exit:           ; preds = %12, %_ZN6google8pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe14PowerParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe14PowerParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe14PowerParameter9MergeFromERKS0_.exit, label %4
 
@@ -130911,7 +130911,7 @@ _ZN5caffe17PriorBoxParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe17PriorBoxParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe17PriorBoxParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(128) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %29, label %4
 
@@ -132056,7 +132056,7 @@ _ZN5caffe21PSROIPoolingParameter5ClearEv.exit:    ; preds = %10, %_ZN6google8pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe21PSROIPoolingParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe21PSROIPoolingParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe21PSROIPoolingParameter9MergeFromERKS0_.exit, label %4
 
@@ -133304,7 +133304,7 @@ _ZN5caffe15PythonParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe15PythonParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe15PythonParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %43, label %4
 
@@ -133773,7 +133773,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i25: ; preds = %89, %83
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5caffe18RecurrentParameterD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe18RecurrentParameterD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, @_ZN5caffe37_RecurrentParameter_default_instance_E
   br i1 %.not.i, label %_ZN5caffe18RecurrentParameter10SharedDtorEv.exit, label %2
 
@@ -134783,7 +134783,7 @@ _ZN5caffe18RecurrentParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe18RecurrentParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe18RecurrentParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -135794,7 +135794,7 @@ _ZN5caffe18ReductionParameter5ClearEv.exit:       ; preds = %12, %_ZN6google8pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe18ReductionParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe18ReductionParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe18ReductionParameter9MergeFromERKS0_.exit, label %4
 
@@ -136829,7 +136829,7 @@ _ZN5caffe13ReLUParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe13ReLUParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe13ReLUParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe13ReLUParameter9MergeFromERKS0_.exit, label %4
 
@@ -137836,7 +137836,7 @@ _ZN5caffe14ReorgParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe14ReorgParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe14ReorgParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe14ReorgParameter9MergeFromERKS0_.exit, label %4
 
@@ -138157,7 +138157,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5caffe16ReshapeParameterD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe16ReshapeParameterD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, @_ZN5caffe35_ReshapeParameter_default_instance_E
   br i1 %.not.i, label %_ZN5caffe16ReshapeParameter10SharedDtorEv.exit, label %2
 
@@ -139123,7 +139123,7 @@ _ZN5caffe16ReshapeParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe16ReshapeParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe16ReshapeParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %41, label %4
 
@@ -140141,7 +140141,7 @@ _ZN5caffe17ROIAlignParameter5ClearEv.exit:        ; preds = %11, %_ZN6google8pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe17ROIAlignParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe17ROIAlignParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe17ROIAlignParameter9MergeFromERKS0_.exit, label %4
 
@@ -141200,7 +141200,7 @@ _ZN5caffe19ROIPoolingParameter5ClearEv.exit:      ; preds = %11, %_ZN6google8pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe19ROIPoolingParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe19ROIPoolingParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe19ROIPoolingParameter9MergeFromERKS0_.exit, label %4
 
@@ -141702,7 +141702,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i25: ; preds = %89, %83
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5caffe14ScaleParameterD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe14ScaleParameterD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, @_ZN5caffe33_ScaleParameter_default_instance_E
   br i1 %.not.i, label %_ZN5caffe14ScaleParameter10SharedDtorEv.exit, label %2
 
@@ -142776,7 +142776,7 @@ _ZN5caffe14ScaleParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe14ScaleParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe14ScaleParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -143558,7 +143558,7 @@ _ZN5caffe23ShuffleChannelParameter9MergeFromERKN6google8protobuf7MessageE.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe23ShuffleChannelParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe23ShuffleChannelParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe23ShuffleChannelParameter9MergeFromERKS0_.exit, label %4
 
@@ -144423,7 +144423,7 @@ _ZN5caffe16SigmoidParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe16SigmoidParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe16SigmoidParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe16SigmoidParameter9MergeFromERKS0_.exit, label %4
 
@@ -145169,7 +145169,7 @@ _ZN5caffe21SmoothL1LossParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe21SmoothL1LossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe21SmoothL1LossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe21SmoothL1LossParameter9MergeFromERKS0_.exit, label %4
 
@@ -146296,7 +146296,7 @@ _ZN5caffe14SliceParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe14SliceParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe14SliceParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %25, label %4
 
@@ -147355,7 +147355,7 @@ _ZN5caffe16SoftmaxParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe16SoftmaxParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe16SoftmaxParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe16SoftmaxParameter9MergeFromERKS0_.exit, label %4
 
@@ -148258,7 +148258,7 @@ _ZN5caffe13TanHParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe13TanHParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe13TanHParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe13TanHParameter9MergeFromERKS0_.exit, label %4
 
@@ -149304,7 +149304,7 @@ _ZN5caffe13TileParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe13TileParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe13TileParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe13TileParameter9MergeFromERKS0_.exit, label %4
 
@@ -150088,7 +150088,7 @@ _ZN5caffe18ThresholdParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe18ThresholdParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe18ThresholdParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe18ThresholdParameter9MergeFromERKS0_.exit, label %4
 
@@ -152040,7 +152040,7 @@ _ZN5caffe19WindowDataParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe19WindowDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 dereferenceable(88) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe19WindowDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -153188,7 +153188,7 @@ _ZN5caffe12SPPParameter5ClearEv.exit:             ; preds = %10, %_ZN6google8pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe12SPPParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe12SPPParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN5caffe12SPPParameter9MergeFromERKS0_.exit, label %4
 
@@ -179988,7 +179988,7 @@ _ZN5caffe16V0LayerParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe16V0LayerParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull readonly align 8 dereferenceable(256) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe16V0LayerParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(256) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -180418,7 +180418,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i: ; preds = %46, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5caffe14PReLUParameterD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5caffe14PReLUParameterD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, @_ZN5caffe33_PReLUParameter_default_instance_E
   br i1 %.not.i, label %_ZN5caffe14PReLUParameter10SharedDtorEv.exit, label %2
 
@@ -181023,7 +181023,7 @@ _ZN5caffe14PReLUParameter9MergeFromERKN6google8protobuf7MessageE.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5caffe14PReLUParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5caffe14PReLUParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 

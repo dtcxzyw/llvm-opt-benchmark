@@ -2322,21 +2322,21 @@ _ZNSt12_Vector_baseIN8QuantLib6MatrixESaIS1_EED2Ev.exit: ; preds = %invoke.cont,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib29ExponentialForwardCorrelation5timesEv(ptr noundef nonnull readnone align 8 dereferenceable(112) %this) unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib29ExponentialForwardCorrelation5timesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %this) unnamed_addr #9 align 2 {
 entry:
   %times_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   ret ptr %times_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib29ExponentialForwardCorrelation9rateTimesEv(ptr noundef nonnull readnone align 8 dereferenceable(112) %this) unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib29ExponentialForwardCorrelation9rateTimesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %this) unnamed_addr #9 align 2 {
 entry:
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   ret ptr %rateTimes_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib29ExponentialForwardCorrelation12correlationsEv(ptr noundef nonnull readnone align 8 dereferenceable(112) %this) unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib29ExponentialForwardCorrelation12correlationsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %this) unnamed_addr #9 align 2 {
 entry:
   %correlations_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   ret ptr %correlations_

@@ -1836,7 +1836,7 @@ Extra_TruthPermute.exit137:                       ; preds = %.loopexit.i121, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Extra_Truth4VarNPN(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #14 {
+define void @Extra_Truth4VarNPN(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #14 {
 .lr.ph.i12.i:
   %4 = alloca [50 x i8], align 16
   %calloc = tail call dereferenceable_or_null(131072) ptr @calloc(i64 1, i64 131072)
@@ -2269,7 +2269,7 @@ Extra_TruthPolarize.exit145:                      ; preds = %140, %Extra_TruthPe
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: write) uwtable
-define void @Extra_Truth3VarN(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #15 {
+define void @Extra_Truth3VarN(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #15 {
   %calloc = tail call dereferenceable_or_null(1024) ptr @calloc(i64 1, i64 1024)
   %calloc83 = tail call dereferenceable_or_null(256) ptr @calloc(i64 1, i64 256)
   %4 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #34
@@ -2490,7 +2490,7 @@ Extra_ArrayAlloc.exit:                            ; preds = %51, %85, %Extra_Arr
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: write) uwtable
-define void @Extra_Truth4VarN(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #15 {
+define void @Extra_Truth4VarN(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #15 {
   %calloc = tail call dereferenceable_or_null(131072) ptr @calloc(i64 1, i64 131072)
   %calloc79 = tail call dereferenceable_or_null(65536) ptr @calloc(i64 1, i64 65536)
   %5 = sext i32 %3 to i64

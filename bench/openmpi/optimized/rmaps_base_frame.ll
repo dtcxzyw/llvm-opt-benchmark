@@ -1580,13 +1580,13 @@ declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 nounde
 declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -43, 1) i32 @prte_rmaps_base_set_default_ranking(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define range(i32 -43, 1) i32 @prte_rmaps_base_set_default_ranking(ptr noundef captures(address_is_null) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @prte_rmaps_base_set_ranking_policy(ptr noundef %0, ptr noundef null)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -43, 1) i32 @prte_rmaps_base_set_ranking_policy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -43, 1) i32 @prte_rmaps_base_set_ranking_policy(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %43
 

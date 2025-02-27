@@ -654,7 +654,7 @@ define internal range(i32 -1, 1) i32 @connSocketBlockingConnect(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @connSocketAccept(ptr noundef %0, ptr noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @connSocketAccept(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !14
   %.not = icmp eq i32 %4, 2

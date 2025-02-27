@@ -4623,7 +4623,7 @@ declare ptr @llvm.stacksave.p0() #11
 declare void @llvm.stackrestore.p0(ptr) #11
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_priority_each_qos(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @_priority_each_qos(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 728
@@ -4803,7 +4803,7 @@ declare i32 @list_is_empty(ptr noundef) local_unnamed_addr #1
 declare void @assoc_mgr_normalize_assoc_shares(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -5029,7 +5029,7 @@ define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_handle_assoc_tres_run_secs(ptr noundef readonly %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc void @_handle_assoc_tres_run_secs(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = load i16, ptr @accounting_enforce, align 2
   %6 = and i16 %5, 2
   %.not = icmp ne i16 %6, 0
@@ -5194,7 +5194,7 @@ declare ptr @acct_policy_get_acct_used_limits(ptr noundef, ptr noundef) local_un
 declare ptr @acct_policy_get_user_used_limits(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_create_prio_list_qos(ptr noundef readonly %0, ptr noundef captures(none) %1) #0 {
+define internal noundef i32 @_create_prio_list_qos(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8

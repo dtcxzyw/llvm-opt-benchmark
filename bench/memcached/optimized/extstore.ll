@@ -321,7 +321,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @extstore_init(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.flock, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13

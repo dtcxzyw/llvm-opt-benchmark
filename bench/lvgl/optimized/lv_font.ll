@@ -267,7 +267,7 @@ lv_text_is_marker.exit.thread:                    ; preds = %lv_text_is_marker.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_font_set_kerning(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @lv_font_set_kerning(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 

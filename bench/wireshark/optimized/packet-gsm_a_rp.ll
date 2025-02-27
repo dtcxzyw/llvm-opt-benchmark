@@ -462,7 +462,7 @@ define hidden void @proto_reg_handoff_gsm_a_rp() local_unnamed_addr #1 {
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_rp_media_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #1 {
+define internal i32 @dissect_rp_media_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 {
   %5 = load ptr, ptr @gsm_a_dtap_handle, align 8
   %6 = icmp ne ptr %5, null
   %7 = icmp ne ptr %3, null

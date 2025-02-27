@@ -1855,7 +1855,7 @@ declare void @_ZNK5vcpkg20InstalledPackageView12feature_listEv(ptr dead_on_unwin
 declare void @_ZNK5vcpkg20InstalledPackageView20feature_dependenciesB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::map") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5vcpkg17InstallPlanAction10public_abiB5cxx11Ev(ptr noundef nonnull readonly align 8 dereferenceable(528) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5vcpkg17InstallPlanAction10public_abiB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(528) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.vcpkg::LineInfo", align 8
   %3 = alloca %"struct.vcpkg::LineInfo", align 8
   %4 = alloca %"struct.vcpkg::LineInfo", align 8
@@ -2243,7 +2243,7 @@ define dso_local void @_ZN5vcpkg16RemovePlanActionC2ERKNS_11PackageSpecENS_11Req
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg10ActionPlan26print_unsupported_warningsEv(ptr noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg10ActionPlan26print_unsupported_warningsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(120) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.vcpkg::StringView", align 8
   %3 = alloca %"struct.vcpkg::msg::TagArg.92", align 8
   %4 = alloca %"struct.vcpkg::msg::TagArg", align 8
@@ -8645,7 +8645,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef n
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg15LocalizedString10append_rawEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5vcpkg11format_planERKNS_10ActionPlanERKNS_4PathEEN3$_2clERNS_15LocalizedStringENS_3msg8MessageTIJEEENS_4SpanIKPKNS_17InstallPlanActionEEE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %2, ptr readonly %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5vcpkg11format_planERKNS_10ActionPlanERKNS_4PathEEN3$_2clERNS_15LocalizedStringENS_3msg8MessageTIJEEENS_4SpanIKPKNS_17InstallPlanActionEEE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %2, ptr readonly captures(address) %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LineInfo", align 8
   %7 = alloca %"struct.vcpkg::StringLiteral", align 8
   %8 = alloca %"struct.vcpkg::StringView", align 8
@@ -15149,7 +15149,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIN5vcpkg7VersionES1_St9_Identi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5vcpkg12_GLOBAL__N_116ClusterInstalledD2Ev(ptr noundef nonnull align 8 dereferenceable(145) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg12_GLOBAL__N_116ClusterInstalledD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(145) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8

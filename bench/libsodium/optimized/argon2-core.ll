@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @fill_segment = internal unnamed_addr global ptr @_sodium_argon2_fill_segment_ref, align 8
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden void @_sodium_argon2_finalize(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @_sodium_argon2_finalize(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.block_, align 8
   %5 = alloca [1024 x i8], align 16
@@ -191,7 +191,7 @@ define hidden void @_sodium_argon2_fill_memory_blocks(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable
-define hidden range(i32 -29, 1) i32 @_sodium_argon2_validate_inputs(ptr noundef readonly %0) local_unnamed_addr #3 {
+define hidden range(i32 -29, 1) i32 @_sodium_argon2_validate_inputs(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -301,7 +301,7 @@ define hidden range(i32 -29, 1) i32 @_sodium_argon2_validate_inputs(ptr noundef 
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden range(i32 -25, 1) i32 @_sodium_argon2_initialize(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -25, 1) i32 @_sodium_argon2_initialize(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca %struct.crypto_generichash_blake2b_state, align 64
   %5 = alloca [4 x i8], align 4

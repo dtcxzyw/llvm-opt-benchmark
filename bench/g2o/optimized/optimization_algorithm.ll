@@ -79,7 +79,7 @@ define void @_ZN3g2o21OptimizationAlgorithmD0Ev(ptr nonnull readnone align 8 cap
 declare void @llvm.trap() #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3g2o21OptimizationAlgorithm15printPropertiesERSo(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3g2o21OptimizationAlgorithm15printPropertiesERSo(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i64 noundef 48)
   %5 = load ptr, ptr %1, align 8, !tbaa !3

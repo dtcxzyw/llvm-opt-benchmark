@@ -1793,7 +1793,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN11OpenImageIO6v3_1_0L20version4char_handlerERKNS0_7TagInfoERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEERNS0_9ImageSpecEbi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 4 dereferenceable(12) %1, ptr readonly %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(160) %4, i1 zeroext %5, i32 noundef %6) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11OpenImageIO6v3_1_0L20version4char_handlerERKNS0_7TagInfoERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEERNS0_9ImageSpecEbi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(160) %4, i1 zeroext %5, i32 noundef %6) #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %9 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2076,7 +2076,7 @@ _ZNSt6vectorImSaImEED2Ev.exit16:                  ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN11OpenImageIO6v3_1_0L21version4uint8_handlerERKNS0_7TagInfoERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEERNS0_9ImageSpecEbi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 4 dereferenceable(12) %1, ptr readonly %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(160) %4, i1 zeroext %5, i32 noundef %6) #4 {
+define internal void @_ZN11OpenImageIO6v3_1_0L21version4uint8_handlerERKNS0_7TagInfoERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEERNS0_9ImageSpecEbi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(160) %4, i1 zeroext %5, i32 noundef %6) #4 {
   %8 = alloca [4 x i32], align 16
   %9 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -2246,7 +2246,7 @@ _ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit: ; preds = %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11OpenImageIO6v3_1_0L13read_exif_tagERNS0_9ImageSpecEPK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEbiRSt3setImSt4lessImESaImEERKNS0_3pvt6TagMapE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef readonly %1, ptr %2, i64 %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11OpenImageIO6v3_1_0L13read_exif_tagERNS0_9ImageSpecEPK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEbiRSt3setImSt4lessImESaImEERKNS0_3pvt6TagMapE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef readonly captures(address) %1, ptr %2, i64 %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %10 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %11 = alloca %struct.TIFFDirEntry, align 4

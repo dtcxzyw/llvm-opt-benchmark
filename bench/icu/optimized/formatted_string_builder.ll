@@ -84,7 +84,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7722FormattedStringBuilderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 1), (128, 136)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #5 align 2 {
+define void @_ZN6icu_7722FormattedStringBuilderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 1), (128, 136)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(136) %1) unnamed_addr #5 align 2 {
   store i8 0, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 20, ptr %3, align 8, !tbaa !9
@@ -95,7 +95,7 @@ define void @_ZN6icu_7722FormattedStringBuilderC2ERKS0_(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6icu_7722FormattedStringBuilderaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef nonnull readonly align 8 dereferenceable(136) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6icu_7722FormattedStringBuilderaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.icu_77::FormattedStringBuilder", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %63, label %5
@@ -560,7 +560,7 @@ define noundef range(i32 0, 10559488) i32 @_ZNK6icu_7722FormattedStringBuilder15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6icu_7722FormattedStringBuilder5clearEv(ptr noundef nonnull returned align 8 dereferenceable(136) initializes((128, 136)) %0) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6icu_7722FormattedStringBuilder5clearEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(136) initializes((128, 136)) %0) local_unnamed_addr #10 align 2 {
   %2 = load i8, ptr %0, align 8, !tbaa !3, !range !11, !noundef !12
   %3 = trunc nuw i8 %2 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1190,7 +1190,7 @@ _ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit14:   ; preds = %_ZN12_GLOBAL__N_113
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7722FormattedStringBuilder6appendERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZN6icu_7722FormattedStringBuilder6appendERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(136) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %5 = load i32, ptr %4, align 4, !tbaa !10
   %6 = tail call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
@@ -1198,7 +1198,7 @@ define noundef i32 @_ZN6icu_7722FormattedStringBuilder6appendERKS0_R10UErrorCode
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 dereferenceable(136) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #5 align 2 {
   %5 = load i32, ptr %3, align 4, !tbaa !16
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %.loopexit
@@ -1839,7 +1839,7 @@ declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6icu_7722FormattedStringBuilder5charsEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZNK6icu_7722FormattedStringBuilder5charsEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(136) %0) local_unnamed_addr #8 align 2 {
   %2 = load i8, ptr %0, align 8, !tbaa !3, !range !11, !noundef !12
   %3 = trunc nuw i8 %2 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

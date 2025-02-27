@@ -384,7 +384,7 @@ define dso_local zeroext i1 @kthread_should_stop_or_park() local_unnamed_addr #4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @kthread_freezable_should_stop(ptr noundef writeonly %0) #0 align 16 {
+define dso_local zeroext i1 @kthread_freezable_should_stop(ptr noundef writeonly captures(address_is_null) %0) #0 align 16 {
   %2 = tail call i32 @__SCT__might_resched() #16
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !17
   %4 = inttoptr i64 %3 to ptr
@@ -619,7 +619,7 @@ define dso_local void @kthread_complete_and_exit(ptr noundef %0, i64 noundef %1)
 declare dso_local void @complete(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i32 -32768, 32768) i32 @tsk_fork_get_node(ptr noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 -32768, 32768) i32 @tsk_fork_get_node(ptr noundef readonly captures(address) %0) local_unnamed_addr #5 align 16 {
   %2 = load ptr, ptr @kthreadd_task, align 8
   %3 = icmp eq ptr %2, %0
   br i1 %3, label %4, label %8

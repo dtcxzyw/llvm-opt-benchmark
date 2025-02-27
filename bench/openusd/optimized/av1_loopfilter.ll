@@ -481,7 +481,7 @@ segfeature_active.exit.thread:                    ; preds = %66, %76, %segfeatur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_filter_block_plane_vert(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define hidden void @av1_filter_block_plane_vert(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.AV1_DEBLOCKING_PARAMETERS, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4
@@ -663,7 +663,7 @@ define hidden void @av1_filter_block_plane_vert(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i8 @set_lpf_parameters(ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) unnamed_addr #4 {
+define internal fastcc zeroext i8 @set_lpf_parameters(ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i8 noundef zeroext range(i8 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) unnamed_addr #4 {
   store i32 0, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load i32, ptr %10, align 8
@@ -862,7 +862,7 @@ declare void @aom_highbd_lpf_vertical_14_c(ptr noundef, i32 noundef, ptr noundef
 declare void @aom_lpf_vertical_14_c(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_filter_block_plane_horz(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define hidden void @av1_filter_block_plane_horz(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.AV1_DEBLOCKING_PARAMETERS, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4
@@ -1061,7 +1061,7 @@ declare void @aom_highbd_lpf_horizontal_14_c(ptr noundef, i32 noundef, ptr nound
 declare void @aom_lpf_horizontal_14_c(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @av1_filter_block_plane_vert_test(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #6 {
+define hidden void @av1_filter_block_plane_vert_test(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #6 {
   %7 = alloca %struct.AV1_DEBLOCKING_PARAMETERS, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4
@@ -1116,7 +1116,7 @@ define hidden void @av1_filter_block_plane_vert_test(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @av1_filter_block_plane_horz_test(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #6 {
+define hidden void @av1_filter_block_plane_horz_test(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #6 {
   %7 = alloca %struct.AV1_DEBLOCKING_PARAMETERS, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4
@@ -1341,7 +1341,7 @@ loop_filter_rows.exit:                            ; preds = %32, %.loopexit.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i8 @get_transform_size(ptr noundef readonly %0, ptr noundef nonnull readonly captures(none) %1, i8 noundef zeroext range(i8 0, 2) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) unnamed_addr #0 {
+define internal fastcc zeroext i8 @get_transform_size(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull readonly captures(none) %1, i8 noundef zeroext range(i8 0, 2) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %8
 

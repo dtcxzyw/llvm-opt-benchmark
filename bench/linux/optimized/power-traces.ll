@@ -1638,7 +1638,7 @@ define internal void @perf_trace_cpu_idle_miss(ptr noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_powernv_throttle(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_powernv_throttle(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1689,7 +1689,7 @@ define internal void @trace_event_raw_event_powernv_throttle(ptr noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_powernv_throttle(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) #1 align 16 {
+define internal void @perf_trace_powernv_throttle(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
@@ -1987,7 +1987,7 @@ define internal void @perf_trace_cpu_frequency_limits(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_device_pm_callback_start(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_device_pm_callback_start(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_data_offsets_device_pm_callback_start, align 4
   %6 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
@@ -2107,7 +2107,7 @@ define internal void @trace_event_raw_event_device_pm_callback_start(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_device_pm_callback_start(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @perf_trace_device_pm_callback_start(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_data_offsets_device_pm_callback_start, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -2573,7 +2573,7 @@ define internal void @perf_trace_suspend_resume(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_wakeup_source(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) #1 align 16 {
+define internal void @trace_event_raw_event_wakeup_source(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2623,7 +2623,7 @@ define internal void @trace_event_raw_event_wakeup_source(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_wakeup_source(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) #1 align 16 {
+define internal void @perf_trace_wakeup_source(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
@@ -2691,7 +2691,7 @@ define internal void @perf_trace_wakeup_source(ptr noundef %0, ptr noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_clock(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_clock(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2744,7 +2744,7 @@ define internal void @trace_event_raw_event_clock(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_clock(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @perf_trace_clock(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
@@ -2815,7 +2815,7 @@ define internal void @perf_trace_clock(ptr noundef %0, ptr noundef readonly %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_power_domain(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_power_domain(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2868,7 +2868,7 @@ define internal void @trace_event_raw_event_power_domain(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_power_domain(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @perf_trace_power_domain(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
@@ -3125,7 +3125,7 @@ define internal void @perf_trace_pm_qos_update(ptr noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_dev_pm_qos_request(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_dev_pm_qos_request(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3176,7 +3176,7 @@ define internal void @trace_event_raw_event_dev_pm_qos_request(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_dev_pm_qos_request(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @perf_trace_dev_pm_qos_request(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
@@ -3523,7 +3523,7 @@ define internal i32 @trace_raw_output_cpu_frequency_limits(ptr noundef %0, i32 %
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @trace_event_get_offsets_device_pm_callback_start(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #7 align 16 {
+define internal fastcc i32 @trace_event_get_offsets_device_pm_callback_start(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #7 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null

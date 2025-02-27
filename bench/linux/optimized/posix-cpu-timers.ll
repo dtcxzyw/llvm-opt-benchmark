@@ -125,7 +125,7 @@ define dso_local noundef range(i32 -3, 1) i32 @update_rlimit_cpu(ptr noundef %0,
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @set_process_cpu_timer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local void @set_process_cpu_timer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 align 16 {
   %5 = icmp ugt i32 %1, 1
   br i1 %5, label %6, label %7, !prof !7
 
@@ -1582,7 +1582,7 @@ define internal i32 @posix_cpu_nsleep(i32 noundef %0, i32 noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -3, 2) i32 @posix_cpu_timer_set(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) #1 align 16 {
+define internal noundef range(i32 -3, 2) i32 @posix_cpu_timer_set(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #1 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8

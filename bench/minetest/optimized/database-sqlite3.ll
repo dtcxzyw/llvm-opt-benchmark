@@ -3762,7 +3762,7 @@ declare i32 @sqlite3_exec(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZN16Database_SQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16Database_SQLite3D2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16Database_SQLite3, i64 16), ptr %this, align 8, !tbaa !29
   %m_stmt_begin = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -4277,7 +4277,7 @@ ehcleanup:                                        ; preds = %if.then.i.i12, %_ZN
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZN18MapDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8), (120, 128)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18MapDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(160) initializes((0, 8), (120, 128)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18MapDatabaseSQLite3, i64 16), ptr %this, align 8, !tbaa !29
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -4793,7 +4793,7 @@ terminate.lpad:                                   ; preds = %call1.i.noexc272, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn120_N18MapDatabaseSQLite3D1Ev(ptr noundef initializes((-120, -112), (0, 8)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZThn120_N18MapDatabaseSQLite3D1Ev(ptr noundef captures(address) initializes((-120, -112), (0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN18MapDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #30
@@ -6485,7 +6485,7 @@ ehcleanup:                                        ; preds = %if.then.i.i12, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZN21PlayerDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8), (120, 128)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21PlayerDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(240) initializes((0, 8), (120, 128)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21PlayerDatabaseSQLite3, i64 16), ptr %this, align 8, !tbaa !29
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -8231,7 +8231,7 @@ terminate.lpad:                                   ; preds = %call1.i.noexc1084, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn120_N21PlayerDatabaseSQLite3D1Ev(ptr noundef initializes((-120, -112), (0, 8)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZThn120_N21PlayerDatabaseSQLite3D1Ev(ptr noundef captures(address) initializes((-120, -112), (0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN21PlayerDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #30
@@ -12926,7 +12926,7 @@ ehcleanup:                                        ; preds = %if.then.i.i12, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZN19AuthDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8), (120, 128)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19AuthDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(200) initializes((0, 8), (120, 128)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19AuthDatabaseSQLite3, i64 16), ptr %this, align 8, !tbaa !29
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -14057,7 +14057,7 @@ terminate.lpad:                                   ; preds = %call1.i.noexc678, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn120_N19AuthDatabaseSQLite3D1Ev(ptr noundef initializes((-120, -112), (0, 8)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZThn120_N19AuthDatabaseSQLite3D1Ev(ptr noundef captures(address) initializes((-120, -112), (0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19AuthDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #30
@@ -16141,7 +16141,7 @@ ehcleanup:                                        ; preds = %if.then.i.i12, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZN25ModStorageDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8), (120, 128)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25ModStorageDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(184) initializes((0, 8), (120, 128)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25ModStorageDatabaseSQLite3, i64 16), ptr %this, align 8, !tbaa !29
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -17026,7 +17026,7 @@ terminate.lpad:                                   ; preds = %call1.i.noexc516, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn120_N25ModStorageDatabaseSQLite3D1Ev(ptr noundef initializes((-120, -112), (0, 8)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZThn120_N25ModStorageDatabaseSQLite3D1Ev(ptr noundef captures(address) initializes((-120, -112), (0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN25ModStorageDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #30

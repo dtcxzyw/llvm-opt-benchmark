@@ -695,7 +695,7 @@ define internal fastcc void @zend_dump_range(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly %5) local_unnamed_addr #0 {
+define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %8 = load i8, ptr %7, align 4, !tbaa !62
   %9 = tail call ptr @zend_get_opcode_name(i8 noundef zeroext %8) #12
@@ -1705,7 +1705,7 @@ declare ptr @zend_get_opcode_name(i8 noundef zeroext) local_unnamed_addr #4
 declare i32 @zend_get_opcode_flags(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef readonly %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #5 {
+define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #5 {
   %5 = load ptr, ptr @stderr, align 8, !tbaa !19
   %6 = tail call i64 @fwrite(ptr nonnull @.str.128, i64 2, i64 1, ptr %5) #10
   %7 = and i32 %0, 268435456
@@ -2561,7 +2561,7 @@ zend_dump_class_fetch_type.exit:                  ; preds = %50, %48, %2, %9, %8
 }
 
 ; Function Attrs: cold nounwind uwtable
-define dso_local void @zend_dump_op_line(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #7 {
+define dso_local void @zend_dump_op_line(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #7 {
   %6 = and i32 %3, 32
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %7
@@ -2657,7 +2657,7 @@ define hidden void @zend_dump_op_array_name(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_dump_op_array(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @zend_dump_op_array(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address) %3) local_unnamed_addr #0 {
   %5 = and i32 %1, 12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %9, label %6
@@ -3300,7 +3300,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @zend_dump_block_header(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #5 {
+define internal fastcc void @zend_dump_block_header(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #5 {
   tail call fastcc void @zend_dump_block_info(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %4)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %6

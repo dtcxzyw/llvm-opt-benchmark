@@ -3763,7 +3763,7 @@ define dso_local void @xfrm_audit_policy_delete(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -3, 1) i32 @xfrm_dev_policy_flush(ptr noundef %0, ptr noundef readnone %1, i1 noundef zeroext %2) #1 align 16 {
+define dso_local noundef range(i32 -3, 1) i32 @xfrm_dev_policy_flush(ptr noundef %0, ptr noundef readnone captures(address) %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3404
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull %4) #22
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2712
@@ -8074,7 +8074,7 @@ __xfrm_decode_session.exit.thread:                ; preds = %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xfrm_dst_ifdown(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #1 align 16 {
+define dso_local void @xfrm_dst_ifdown(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) #1 align 16 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   br i1 %3, label %.split.us, label %.split
@@ -8903,7 +8903,7 @@ define internal void @xfrm_confirm_neigh(ptr noundef %0, ptr noundef %1) #1 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xfrm_policy_unregister_afinfo(ptr noundef readonly %0) #1 align 16 {
+define dso_local void @xfrm_policy_unregister_afinfo(ptr noundef readonly captures(address) %0) #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   br label %6
 
@@ -10670,7 +10670,7 @@ declare void @llvm.write_register.i64(metadata, i64) #18
 declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @xfrm_policy_inexact_insert_node(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #1 align 16 {
+define internal fastcc ptr @xfrm_policy_inexact_insert_node(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #1 align 16 {
   %6 = load ptr, ptr %1, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread59, label %8
@@ -11164,7 +11164,7 @@ declare dso_local void @rb_insert_color(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local ptr @rb_first(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @xfrm_policy_inexact_list_reinsert(ptr noundef readonly %0, ptr noundef nonnull %1, i16 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc void @xfrm_policy_inexact_list_reinsert(ptr noundef readonly captures(address) %0, ptr noundef nonnull %1, i16 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2712
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2720
   %6 = load ptr, ptr %5, align 8
@@ -11818,7 +11818,7 @@ declare dso_local i32 @ip6_mtu(ptr noundef) #4
 declare dso_local i32 @ipv4_mtu(ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -11, 1) i32 @xdst_queue_output(ptr readnone captures(none) %0, ptr noundef readnone %1, ptr noundef %2) #1 align 16 {
+define internal noundef range(i32 -11, 1) i32 @xdst_queue_output(ptr readnone captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, -2

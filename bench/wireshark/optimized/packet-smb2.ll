@@ -3158,7 +3158,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dissect_smb2_class_infolevel.68 = private unnamed_addr constant [3 x ptr] [ptr @smb2_file_info_levels_ext, ptr @smb2_fs_info_levels_ext, ptr @smb2_sec_info_levels_ext], align 8
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef i32 @dissect_smb2_ioctl_function(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_smb2_ioctl_function(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %6
 
@@ -4298,7 +4298,7 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @seskey_list_copy_cb(ptr noundef returned writeonly initializes((0, 12), (16, 28), (32, 44), (48, 60)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @seskey_list_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 12), (16, 28), (32, 44), (48, 60)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7083,7 +7083,7 @@ declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unna
 declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca %struct._smb2_sesid_info_t, align 8
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %5) #13
@@ -7254,7 +7254,7 @@ seskey_find_sid_key.exit:                         ; preds = %31, %9, %64, %67
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @smb2_add_session_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 40, 45) %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @smb2_add_session_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 40, 45) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %proto_item_set_generated.exit46, label %6
 
@@ -7617,7 +7617,7 @@ declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef rea
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_smb2_negotiate_protocol_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+define internal i32 @dissect_smb2_negotiate_protocol_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
@@ -14939,7 +14939,7 @@ define internal fastcc void @update_preauth_hash(ptr noundef %0, ptr noundef rea
 declare ptr @proto_tree_add_bytes_with_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -7) %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -7) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -15252,7 +15252,7 @@ declare void @gcry_md_close(ptr noundef) local_unnamed_addr #2
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb2_buffer_code, align 4
   %9 = zext i16 %7 to i32
@@ -15310,7 +15310,7 @@ define internal fastcc noundef i32 @dissect_smb2_error_response(ptr noundef %0, 
 declare ptr @dissect_nttime(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_smb2_olb_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_smb2_olb_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = load i32, ptr %3, align 4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4

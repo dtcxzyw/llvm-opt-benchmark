@@ -3005,7 +3005,7 @@ nrvo.skipdtor:                                    ; preds = %for.body, %invoke.c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZNK8QuantLib33MarketModelPathwiseInverseFloater9evolutionEv(ptr noundef nonnull readnone align 8 dereferenceable(328) %this) unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZNK8QuantLib33MarketModelPathwiseInverseFloater9evolutionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(328) %this) unnamed_addr #0 align 2 {
 entry:
   %evolution_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   ret ptr %evolution_

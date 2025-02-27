@@ -274,7 +274,7 @@ _ZL5set32P9UNewTrie2iajP10UErrorCode.exit:        ; preds = %22, %21, %17, %4, %
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @utrie2_clone_77(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define noundef ptr @utrie2_clone_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4, !tbaa !3
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %.thread

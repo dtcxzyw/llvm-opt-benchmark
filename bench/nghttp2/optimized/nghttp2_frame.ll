@@ -99,7 +99,7 @@ define hidden void @nghttp2_frame_hd_init(ptr noundef writeonly captures(none) i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_frame_headers_init(ptr noundef initializes((0, 15), (16, 24), (40, 60)) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+define hidden void @nghttp2_frame_headers_init(ptr noundef initializes((0, 15), (16, 24), (40, 60)) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   store i64 0, ptr %0, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 1, ptr %8, align 4, !tbaa !9
@@ -256,7 +256,7 @@ define hidden void @nghttp2_frame_push_promise_free(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @nghttp2_frame_ping_init(ptr noundef writeonly captures(none) initializes((0, 15), (16, 24)) %0, i8 noundef zeroext %1, ptr noundef readonly %2) local_unnamed_addr #4 {
+define hidden void @nghttp2_frame_ping_init(ptr noundef writeonly captures(none) initializes((0, 15), (16, 24)) %0, i8 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
   store i64 8, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 6, ptr %4, align 4, !tbaa !9

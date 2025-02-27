@@ -300,7 +300,7 @@ define dso_local void @convert_num_unit(double noundef %0, ptr noundef writeonly
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @revert_num_unit(ptr noundef readonly %0) #0 {
+define dso_local i32 @revert_num_unit(ptr noundef readonly captures(address_is_null) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %2
 
@@ -5525,7 +5525,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_send_recv_controller_rc_msg(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @slurm_free_msg_members(ptr noundef %0) local_unnamed_addr #1 {
+define dso_local void @slurm_free_msg_members(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %2
 

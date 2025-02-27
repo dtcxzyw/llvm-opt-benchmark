@@ -590,7 +590,7 @@ define hidden noundef range(i32 65536, -16252928) i32 @_ZN13MethodHandles17ref_k
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN13MethodHandles23resolve_MemberName_typeE6HandleP5KlassP10JavaThread(ptr readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden ptr @_ZN13MethodHandles23resolve_MemberName_typeE6HandleP5KlassP10JavaThread(ptr readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %_ZNK6HandleclEv.exit, label %5
 
@@ -763,7 +763,7 @@ declare ptr @_ZN16SystemDictionary22find_field_handle_typeEP6SymbolP5KlassP10Jav
 declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13MethodHandles15init_MemberNameE6HandleS0_P10JavaThread(ptr %0, ptr readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13MethodHandles15init_MemberNameE6HandleS0_P10JavaThread(ptr captures(address_is_null) %0, ptr readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.fieldDescriptor, align 8
   %5 = alloca %class.CallInfo, align 8
   %6 = alloca %class.CallInfo, align 8
@@ -954,7 +954,7 @@ declare noundef ptr @_ZN23java_lang_reflect_Field5clazzEP7oopDesc(ptr noundef) l
 declare noundef i32 @_ZN23java_lang_reflect_Field4slotEP7oopDesc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13MethodHandles21init_field_MemberNameE6HandleR15fieldDescriptorb(ptr readonly %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13MethodHandles21init_field_MemberNameE6HandleR15fieldDescriptorb(ptr readonly captures(address_is_null) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -1148,7 +1148,7 @@ declare noundef ptr @_ZN13InstanceKlass17method_with_idnumEi(ptr noundef nonnull
 declare void @_ZN8CallInfoC1EP6MethodP5KlassP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13MethodHandles22init_method_MemberNameE6HandleR8CallInfo(ptr readonly %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13MethodHandles22init_method_MemberNameE6HandleR8CallInfo(ptr readonly captures(address_is_null) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.methodHandle, align 8
   %4 = alloca %class.LogStream, align 8
   %5 = alloca %class.AccessFlags, align 4
@@ -1534,7 +1534,7 @@ declare void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare noundef zeroext i1 @_ZNK15fieldDescriptor16is_trusted_finalEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13MethodHandles28field_signature_type_or_nullEP6Symbol(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13MethodHandles28field_signature_type_or_nullEP6Symbol(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZL18object_java_mirrorv.exit, label %3
 
@@ -2451,7 +2451,7 @@ declare noundef ptr @_ZN11StringTable6lookupEP6Symbol(ptr noundef) local_unnamed
 declare noundef ptr @_ZN15java_lang_Class16primitive_mirrorE9BasicType(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN13MethodHandles18resolve_MemberNameE6HandleP5KlassibP10JavaThread(ptr %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden ptr @_ZN13MethodHandles18resolve_MemberNameE6HandleP5KlassibP10JavaThread(ptr captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.Handle, align 8
   %7 = alloca %class.CallInfo, align 8
   %8 = alloca %class.LinkInfo, align 8
@@ -3025,7 +3025,7 @@ declare void @_ZN8CallInfo24set_resolved_method_nameEP10JavaThread(ptr noundef n
 declare void @_ZN12LinkResolver13resolve_fieldER15fieldDescriptorRK8LinkInfoN9Bytecodes4CodeEbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(51), i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13MethodHandles17expand_MemberNameE6HandleiP10JavaThread(ptr readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13MethodHandles17expand_MemberNameE6HandleiP10JavaThread(ptr readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.methodHandle, align 8
   %5 = alloca %class.fieldDescriptor, align 8
   %6 = icmp eq ptr %0, null

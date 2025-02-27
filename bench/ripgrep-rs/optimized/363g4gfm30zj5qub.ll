@@ -581,7 +581,7 @@ select.unfold:                                    ; preds = %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8grep_cli10decompress27DecompressionMatcherBuilder8defaults17hcdf95c9ea93202deE(ptr noalias noundef returned writeonly align 8 dereferenceable(32) initializes((24, 25)) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8grep_cli10decompress27DecompressionMatcherBuilder8defaults17hcdf95c9ea93202deE(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(32) initializes((24, 25)) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 8
@@ -696,12 +696,12 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN8grep_cli10decompress
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN8grep_cli10decompress26DecompressionReaderBuilder11get_matcher17h142627ed05fec4daE(ptr noalias noundef readonly returned align 8 dereferenceable(64) %0) unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN8grep_cli10decompress26DecompressionReaderBuilder11get_matcher17h142627ed05fec4daE(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN8grep_cli10decompress26DecompressionReaderBuilder12async_stderr17h43d030f6495d4055E(ptr noalias noundef returned writeonly align 8 dereferenceable(64) initializes((56, 57)) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN8grep_cli10decompress26DecompressionReaderBuilder12async_stderr17h43d030f6495d4055E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(64) initializes((56, 57)) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 8, !alias.scope !90

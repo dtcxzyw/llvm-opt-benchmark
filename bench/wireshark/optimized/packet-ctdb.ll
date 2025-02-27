@@ -1165,7 +1165,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @dissect_ctdb_key(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 56, 61) %2, i32 noundef %3, ptr noundef writeonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_ctdb_key(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 56, 61) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %7
 

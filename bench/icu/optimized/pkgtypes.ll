@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [38 x i8] c"## ERR: Path too long [%d chars]: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @pkg_writeCharListWrap(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @pkg_writeCharListWrap(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #11
   %.not34 = icmp eq ptr %1, null
@@ -306,7 +306,7 @@ declare i32 @T_FileStream_write(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @pkg_writeCharList(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @pkg_writeCharList(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #11
   %.not24 = icmp eq ptr %1, null
@@ -557,7 +557,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @pkg_countCharList(ptr noundef readonly %0) local_unnamed_addr #7 {
+define dso_local i32 @pkg_countCharList(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not4 = icmp eq ptr %0, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -595,7 +595,7 @@ define dso_local noalias noundef ptr @pkg_prependToList(ptr noundef %0, ptr noun
 declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @pkg_appendToList(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @pkg_appendToList(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.cont32, label %.else34
 
@@ -717,7 +717,7 @@ define dso_local noundef ptr @convertToNativePathSeparators(ptr noundef returned
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @pkg_appendUniqueDirToList(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @pkg_appendUniqueDirToList(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #11
   %5 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 47) #12
@@ -875,7 +875,7 @@ pkg_listContains.exit:                            ; preds = %.lr.ph.i20, %.else.
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local signext range(i8 0, 2) i8 @pkg_listContains(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
+define dso_local signext range(i8 0, 2) i8 @pkg_listContains(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %.not6 = icmp eq ptr %0, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 

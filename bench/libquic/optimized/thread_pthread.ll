@@ -286,7 +286,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_key_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @thread_local_destructor(ptr noundef %0) #0 {
+define internal void @thread_local_destructor(ptr noundef captures(address_is_null) %0) #0 {
   %2 = alloca [4 x ptr], align 16
   %3 = icmp eq ptr %0, null
   br i1 %3, label %17, label %4

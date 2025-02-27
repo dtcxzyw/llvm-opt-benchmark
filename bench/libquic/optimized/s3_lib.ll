@@ -553,7 +553,7 @@ define hidden noundef i32 @SSL_CTX_set_tlsext_servername_arg(ptr noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 49) i32 @SSL_CTX_get_tlsext_ticket_keys(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 49) i32 @SSL_CTX_get_tlsext_ticket_keys(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %13, label %5
 
@@ -582,7 +582,7 @@ define hidden range(i32 0, 49) i32 @SSL_CTX_get_tlsext_ticket_keys(ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 49) i32 @SSL_CTX_set_tlsext_ticket_keys(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 49) i32 @SSL_CTX_set_tlsext_ticket_keys(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %13, label %5
 

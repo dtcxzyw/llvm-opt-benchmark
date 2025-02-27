@@ -1510,7 +1510,7 @@ define internal noalias noundef ptr @_ZL18two_aligned_mallocm(i64 noundef %0) #1
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZL16two_aligned_freePv(ptr noundef %0) #11 {
+define internal void @_ZL16two_aligned_freePv(ptr noundef captures(address_is_null) %0) #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 

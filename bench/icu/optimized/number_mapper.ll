@@ -2300,7 +2300,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %3, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_776number4impl30PropertiesAffixPatternProvider17getStringInternalEi(ptr noundef nonnull readnone align 8 dereferenceable(267) %0, i32 noundef %1) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_776number4impl30PropertiesAffixPatternProvider17getStringInternalEi(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(267) %0, i32 noundef %1) local_unnamed_addr #12 align 2 {
   %3 = and i32 %1, 512
   %.not7 = icmp eq i32 %3, 0
   %4 = and i32 %1, 768

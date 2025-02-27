@@ -2498,7 +2498,7 @@ rcu_read_lock.exit:                               ; preds = %0, %5
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc void @glib_autoptr_cleanup_RCUReadAuto(ptr readnone %.0.val) unnamed_addr #8 {
+define internal fastcc void @glib_autoptr_cleanup_RCUReadAuto(ptr readnone captures(address_is_null) %.0.val) unnamed_addr #8 {
   %.not.i = icmp eq ptr %.0.val, null
   br i1 %.not.i, label %glib_autoptr_clear_RCUReadAuto.exit, label %1
 
@@ -2538,7 +2538,7 @@ glib_autoptr_clear_RCUReadAuto.exit:              ; preds = %0, %6, %8, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 65536) i32 @virtqueue_get_avail_bytes(ptr noundef captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 65536) i32 @virtqueue_get_avail_bytes(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.MemoryRegionCache, align 16
   %7 = alloca %struct.VRingDesc, align 8
   %8 = alloca %struct.MemoryRegionCache, align 16
@@ -8623,7 +8623,7 @@ define internal void @virtio_config_guest_notifier_read(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @virtio_queue_get_guest_notifier(ptr noundef readnone %0) local_unnamed_addr #16 {
+define dso_local nonnull ptr @virtio_queue_get_guest_notifier(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   ret ptr %2
 }
@@ -8823,13 +8823,13 @@ virtio_set_started.exit:                          ; preds = %46, %42, %8, %trace
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @virtio_queue_get_host_notifier(ptr noundef readnone %0) local_unnamed_addr #16 {
+define dso_local nonnull ptr @virtio_queue_get_host_notifier(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @virtio_config_get_guest_notifier(ptr noundef readnone %0) local_unnamed_addr #16 {
+define dso_local nonnull ptr @virtio_config_get_guest_notifier(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   ret ptr %2
 }

@@ -48,7 +48,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i32 @encode_varint(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
+define dso_local i32 @encode_varint(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #4
   %4 = trunc i64 %0 to i8

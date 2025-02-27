@@ -102,7 +102,7 @@ _ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag.exit: ; preds = %8, %15, %18
 declare void @llvm.va_start.p0(ptr) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -269,7 +269,7 @@ _Z13pj_log_activeP6pj_ctxi.exit.thread:           ; preds = %5, %66, %15
 declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, -2147483648) i32 @proj_log_level(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, -2147483648) i32 @proj_log_level(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %.thread
 
@@ -379,7 +379,7 @@ define hidden void @_Z14proj_log_traceP8PJconstsPKcz(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @proj_log_func(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define void @proj_log_func(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 

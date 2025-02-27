@@ -1155,7 +1155,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit25: ; preds = %123, 
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 2 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuathmLERKS0_(ptr noundef nonnull returned align 2 dereferenceable(16) %0, ptr noundef nonnull align 2 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 2 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuathmLERKS0_(ptr noundef nonnull returned align 2 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull align 2 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", align 8

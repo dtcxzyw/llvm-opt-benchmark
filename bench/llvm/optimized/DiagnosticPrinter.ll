@@ -13,7 +13,7 @@ $_ZN4llvm27DiagnosticPrinterRawOStreamD0Ev = comdat any
 @_ZTVN4llvm27DiagnosticPrinterRawOStreamE = unnamed_addr constant { [22 x ptr] } { [22 x ptr] [ptr null, ptr null, ptr @_ZN4llvm17DiagnosticPrinterD2Ev, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamD0Ev, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEc, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEh, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEa, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsENS_9StringRefE, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEPKc, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEm, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEl, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEy, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEx, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEPKv, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEj, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEi, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEd, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsERKNS_5TwineE, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsERKNS_5ValueE, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsERKNS_6ModuleE, ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsERKNS_12SMDiagnosticE] }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEc(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i8 noundef signext %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEc(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i8 noundef signext %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -38,7 +38,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEh(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i8 noundef zeroext %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEh(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i8 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -63,7 +63,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEa(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i8 noundef signext %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEa(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i8 noundef signext %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -88,7 +88,7 @@ _ZN4llvm11raw_ostreamlsEa.exit:                   ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsENS_9StringRefE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsENS_9StringRefE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -124,7 +124,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %14, %16, %17
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEPKc(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEPKc(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %.not.i.i = icmp eq ptr %1, null
@@ -162,7 +162,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %2, %14, %16, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = load ptr, ptr %1, align 8, !tbaa !18
@@ -173,7 +173,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27Diagn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEm(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEm(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %1) #6
@@ -183,7 +183,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27Diagn
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEl(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEl(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %1) #6
@@ -193,7 +193,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27Diagn
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEy(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEy(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEy(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %1) #6
@@ -203,7 +203,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27Diagn
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEy(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEx(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEx(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEx(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %1) #6
@@ -213,7 +213,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27Diagn
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEx(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEPKv(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEPKv(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %1) #6
@@ -223,7 +223,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27Diagn
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEj(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEj(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = zext i32 %1 to i64
@@ -232,7 +232,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27Diagn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEi(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEi(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = sext i32 %1 to i64
@@ -241,7 +241,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27Diagn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEd(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsEd(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, double noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEd(ptr noundef nonnull align 8 dereferenceable(48) %4, double noundef %1) #6
@@ -251,7 +251,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27Diagn
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEd(ptr noundef nonnull align 8 dereferenceable(48), double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsERKNS_5TwineE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(34) %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsERKNS_5TwineE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(34) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   tail call void @_ZNK4llvm5Twine5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(48) %4) #6
@@ -261,7 +261,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27Diagn
 declare void @_ZNK4llvm5Twine5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsERKNS_5ValueE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsERKNS_5ValueE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 268435456
@@ -312,7 +312,7 @@ declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dere
 declare void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbPKNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(48), i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsERKNS_6ModuleE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(841) %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsERKNS_6ModuleE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(841) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -324,7 +324,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27Diagn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsERKNS_12SMDiagnosticE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(360) %1) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27DiagnosticPrinterRawOStreamlsERKNS_12SMDiagnosticE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(360) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   tail call void @_ZNK4llvm12SMDiagnostic5printEPKcRNS_11raw_ostreamEbbb(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(48) %4, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true) #6

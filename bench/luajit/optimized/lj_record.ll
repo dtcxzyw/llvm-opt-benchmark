@@ -1387,7 +1387,7 @@ define internal fastcc i32 @sload(ptr noundef initializes((184, 190)) %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_downrec_unroll(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_downrec_unroll(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 450
   %.025.in34 = load i16, ptr %3, align 2, !tbaa !4
   %.not35 = icmp eq i16 %.025.in34, 0
@@ -6845,7 +6845,7 @@ rec_for_iter.exit:                                ; preds = %175, %170
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_loop_interp(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
+define internal fastcc void @rec_loop_interp(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3016
   %5 = load i32, ptr %4, align 8, !tbaa !62
   %6 = icmp eq i32 %5, 0
@@ -9163,7 +9163,7 @@ declare hidden void @lj_trace_flush(ptr noundef, i32 noundef) local_unnamed_addr
 declare hidden i64 @lj_prng_u64(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @find_kinit(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 0, 258) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @find_kinit(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef range(i32 0, 258) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8, !tbaa !60
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104

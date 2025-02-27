@@ -809,7 +809,7 @@ pt.exit:                                          ; preds = %.lr.ph.i, %46
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pt(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @pt(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.preheader
 

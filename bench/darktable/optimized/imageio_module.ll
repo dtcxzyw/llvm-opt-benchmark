@@ -1041,7 +1041,7 @@ dt_imageio_get_format_by_name.exit:               ; preds = %.lr.ph.i, %.lr.ph.i
 declare ptr @dt_conf_get_string_const(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @dt_imageio_get_format_by_name(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @dt_imageio_get_format_by_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -1121,7 +1121,7 @@ dt_imageio_get_storage_by_name.exit.thread17:     ; preds = %3, %7, %dt_imageio_
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @dt_imageio_get_storage_by_name(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @dt_imageio_get_storage_by_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 

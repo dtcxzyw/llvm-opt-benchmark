@@ -13,7 +13,7 @@ define noalias noundef ptr @OSQPTimer_new() local_unnamed_addr #0 {
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @OSQPTimer_free(ptr noundef %0) local_unnamed_addr #2 {
+define void @OSQPTimer_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

@@ -218,7 +218,7 @@ define dso_local ptr @platform_get_mem_or_io(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @devm_platform_get_and_ioremap_resource(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) #1 align 16 {
+define dso_local ptr @devm_platform_get_and_ioremap_resource(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
@@ -1737,7 +1737,7 @@ define internal noundef i32 @platform_probe_fail(ptr readnone captures(none) %0)
 declare dso_local i32 @bus_for_each_dev(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 2) i32 @is_bound_to_driver(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #9 align 16 {
+define internal range(i32 0, 2) i32 @is_bound_to_driver(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #9 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
@@ -2595,7 +2595,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local i32 @ida_alloc_range(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal zeroext i16 @platform_dev_attrs_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 %2) #9 align 16 {
+define internal zeroext i16 @platform_dev_attrs_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 %2) #9 align 16 {
   %4 = icmp eq ptr %1, @dev_attr_numa_node
   br i1 %4, label %5, label %9
 

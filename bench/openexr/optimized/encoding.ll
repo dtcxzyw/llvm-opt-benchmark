@@ -351,7 +351,7 @@ define internal i32 @default_yield(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @default_write_chunk(ptr noundef readonly %0) #0 {
+define internal i32 @default_write_chunk(ptr noundef readonly captures(address_is_null) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %87, label %2
 
@@ -471,7 +471,7 @@ define internal i32 @default_write_chunk(ptr noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_encoding_update(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @exr_encoding_update(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %85, label %5
 
@@ -1047,7 +1047,7 @@ declare i32 @internal_encode_alloc_buffer(ptr noundef, i32 noundef, ptr noundef,
 declare i32 @internal_encode_free_buffer(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @exr_encoding_destroy(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @exr_encoding_destroy(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %27, label %3
 

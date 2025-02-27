@@ -447,7 +447,7 @@ define dso_local range(i32 0, 2) i32 @tls13_generate_master_secret(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tls13_final_finish_mac(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local i64 @tls13_final_finish_mac(ptr noundef %0, ptr noundef readnone captures(address) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
   %7 = alloca i64, align 8

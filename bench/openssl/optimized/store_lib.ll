@@ -588,7 +588,7 @@ declare void @llvm.va_end.p0(ptr) #6
 declare void @OSSL_PARAM_construct_int(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_STORE_expect(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @OSSL_STORE_expect(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca [2 x %struct.ossl_param_st], align 16
   store i32 %1, ptr %3, align 4, !tbaa !20

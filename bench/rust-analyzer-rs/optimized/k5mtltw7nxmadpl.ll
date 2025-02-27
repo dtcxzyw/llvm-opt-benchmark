@@ -9236,7 +9236,7 @@ define hidden void @"_ZN117_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$cha
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN117_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$chalk_ir..cast..CastTo$LT$core..result..Result$LT$U$C$E$GT$$GT$$GT$7cast_to17hf5115d1d9cd90ab7E"(ptr noundef nonnull readnone returned %0) unnamed_addr #4 {
+define hidden noundef nonnull ptr @"_ZN117_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$chalk_ir..cast..CastTo$LT$core..result..Result$LT$U$C$E$GT$$GT$$GT$7cast_to17hf5115d1d9cd90ab7E"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -9255,7 +9255,7 @@ define hidden { i64, ptr } @"_ZN117_$LT$core..result..Result$LT$T$C$E$GT$$u20$as
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN117_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$chalk_ir..cast..CastTo$LT$core..result..Result$LT$U$C$E$GT$$GT$$GT$7cast_to28_$u7b$$u7b$closure$u7d$$u7d$17hc00331f2010ec24dE.llvm.3663151438746104753"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull readnone returned %1) unnamed_addr #9 {
+define hidden noundef nonnull ptr @"_ZN117_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$chalk_ir..cast..CastTo$LT$core..result..Result$LT$U$C$E$GT$$GT$$GT$7cast_to28_$u7b$$u7b$closure$u7d$$u7d$17hc00331f2010ec24dE.llvm.3663151438746104753"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull readnone returned captures(ret: address, provenance) %1) unnamed_addr #9 {
   ret ptr %1
 }
 
@@ -23529,7 +23529,7 @@ define hidden void @"_ZN4core5tuple66_$LT$impl$u20$core..default..Default$u20$fo
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h30c02dea2d149367E.llvm.3663151438746104753"(ptr noalias noundef sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h30c02dea2d149367E.llvm.3663151438746104753"(ptr noalias noundef sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 1 captures(address_is_null) %1, i64 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #7 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %8
@@ -23648,7 +23648,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$2ok17h493a8037d39ebaefE
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2d599b07bff307b9E.llvm.3663151438746104753"(ptr noundef nonnull readnone returned %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1) unnamed_addr #9 {
+define hidden noundef nonnull ptr @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2d599b07bff307b9E.llvm.3663151438746104753"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1) unnamed_addr #9 {
   ret ptr %0
 }
 
@@ -23984,7 +23984,7 @@ define hidden void @"_ZN51_$LT$$LP$$RP$$u20$as$u20$core..default..Default$GT$7de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h1e35148f9e079fa1E.llvm.3663151438746104753"(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #4 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h1e35148f9e079fa1E.llvm.3663151438746104753"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -24433,7 +24433,7 @@ define hidden void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.36631514387461
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h60286d5389ba9c7eE"(ptr readonly %.8.val, i64 %.16.val, ptr %.8.val1, i64 %.16.val3) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h60286d5389ba9c7eE"(ptr readonly captures(address_is_null) %.8.val, i64 %.16.val, ptr %.8.val1, i64 %.16.val3) unnamed_addr #7 {
   %1 = alloca { { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }, align 8
   %2 = alloca { { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }, align 8
   %3 = icmp ne ptr %.8.val, null
@@ -27751,7 +27751,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.3663151438746104753.exit: ; preds 
 }
 
 ; Function Attrs: cold inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN6anyhow9__private8must_use17he68af9ba90dc9da3E.llvm.3663151438746104753(ptr noundef nonnull readnone returned %0) unnamed_addr #29 {
+define hidden noundef nonnull ptr @_ZN6anyhow9__private8must_use17he68af9ba90dc9da3E.llvm.3663151438746104753(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #29 {
   ret ptr %0
 }
 
@@ -33050,7 +33050,7 @@ define hidden noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Seria
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN97_$LT$chalk_ir..Goal$LT$I$GT$$u20$as$u20$chalk_ir..cast..CastTo$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$7cast_to17hfbb43f2554d7b4c1E.llvm.3663151438746104753"(ptr noundef nonnull readnone returned %0) unnamed_addr #4 {
+define hidden noundef nonnull ptr @"_ZN97_$LT$chalk_ir..Goal$LT$I$GT$$u20$as$u20$chalk_ir..cast..CastTo$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$7cast_to17hfbb43f2554d7b4c1E.llvm.3663151438746104753"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -48734,13 +48734,13 @@ _ZN13rust_analyzer6config15FullConfigInput11json_schema17h8562ff7cb458d6cdE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config9root_path17h8407f1d70127ae3dE(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config9root_path17h8407f1d70127ae3dE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3416
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(1000) ptr @_ZN13rust_analyzer6config6Config4caps17hf7787e78e8d86e2aE(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(1000) ptr @_ZN13rust_analyzer6config6Config4caps17hf7787e78e8d86e2aE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3488
   ret ptr %2
 }
@@ -51559,7 +51559,7 @@ common.resume:                                    ; preds = %29, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config10extra_args17h6bdb5ade98ccb781E(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config10extra_args17h6bdb5ade98ccb781E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %3 = load i64, ptr %2, align 8, !range !159, !alias.scope !9371, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -51573,7 +51573,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6confi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyzer6config6Config9extra_env17h3e014df89a9b4cb1E(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyzer6config6Config9extra_env17h3e014df89a9b4cb1E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %3 = load ptr, ptr %2, align 8, !alias.scope !9374, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -51859,7 +51859,7 @@ define { i64, i64 } @_ZN13rust_analyzer6config6Config24lru_parse_query_capacity1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(32) ptr @_ZN13rust_analyzer6config6Config27lru_query_capacities_config17h851a15bf399335e8E(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define noundef align 8 dereferenceable_or_null(32) ptr @_ZN13rust_analyzer6config6Config27lru_query_capacities_config17h851a15bf399335e8E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1936
   %3 = load ptr, ptr %2, align 8, !alias.scope !9441, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -52006,7 +52006,7 @@ define hidden void @"_ZN13rust_analyzer6config6Config14proc_macro_srv28_$u7b$$u7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyzer6config6Config19ignored_proc_macros17h1962304e3500067fE(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyzer6config6Config19ignored_proc_macros17h1962304e3500067fE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1968
   %3 = load ptr, ptr %2, align 8, !alias.scope !9465, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -55022,7 +55022,7 @@ define noundef zeroext i1 @_ZN13rust_analyzer6config6Config22typing_autoclose_an
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(40) ptr @_ZN13rust_analyzer6config6Config26visual_studio_code_version17h6b37d103fa71965cE(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define noundef align 8 dereferenceable_or_null(40) ptr @_ZN13rust_analyzer6config6Config26visual_studio_code_version17h6b37d103fa71965cE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4520
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -70343,7 +70343,7 @@ define hidden void @_ZN13rust_analyzer3lsp15semantic_tokens21SemanticTokensBuild
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13rust_analyzer3lsp15semantic_tokens11diff_tokens17hf3c8c8ace8aaea72E(ptr noalias noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @_ZN13rust_analyzer3lsp15semantic_tokens11diff_tokens17hf3c8c8ace8aaea72E(ptr noalias noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 4 captures(address) %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 4 captures(address) %3, i64 noundef %4) unnamed_addr #5 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -89149,7 +89149,7 @@ define internal noundef zeroext i1 @"_ZN83_$LT$rust_analyzer..config..GlobalDefa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config18assist_emitMustUse17h8145ddbc77a59ffeE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config18assist_emitMustUse17h8145ddbc77a59ffeE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2002
   %3 = load i8, ptr %2, align 2, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89163,7 +89163,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config19cachePriming_enable17h9cf51f62de8e5d5fE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config19cachePriming_enable17h9cf51f62de8e5d5fE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2004
   %3 = load i8, ptr %2, align 4, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89177,7 +89177,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config23cachePriming_numThreads17hb33f9ec64f197eebE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config23cachePriming_numThreads17hb33f9ec64f197eebE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %3 = load i8, ptr %2, align 8, !range !2719, !noundef !4
   %trunc = trunc nuw i8 %3 to i1
@@ -89191,7 +89191,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config16cargo_autoreload17habb3d15e37b47aebE(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config16cargo_autoreload17habb3d15e37b47aebE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2006
   %3 = load i8, ptr %2, align 2, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89205,7 +89205,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config25cargo_buildScripts_enable17hf1aa287b994922edE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config25cargo_buildScripts_enable17hf1aa287b994922edE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2007
   %3 = load i8, ptr %2, align 1, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89219,7 +89219,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config32cargo_buildScripts_rebuildOnSave17hc113a7792203d0c3E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config32cargo_buildScripts_rebuildOnSave17hc113a7792203d0c3E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2010
   %3 = load i8, ptr %2, align 2, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89233,7 +89233,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyzer6config6Config14cargo_extraEnv17h8a821c28f95418efE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyzer6config6Config14cargo_extraEnv17h8a821c28f95418efE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -89247,7 +89247,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config11checkOnSave17hc48f3c3cfa156901E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config11checkOnSave17hc48f3c3cfa156901E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2014
   %3 = load i8, ptr %2, align 2, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89261,7 +89261,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyzer6config6Config12check_ignore17h9388f09cb044bd5aE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyzer6config6Config12check_ignore17h9388f09cb044bd5aE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1840
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -89275,7 +89275,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config15check_workspace17h17125990d2596f01E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config15check_workspace17h17125990d2596f01E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2017
   %3 = load i8, ptr %2, align 1, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89289,7 +89289,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config18diagnostics_enable17h963ea2c7e49a6059E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config18diagnostics_enable17h963ea2c7e49a6059E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2018
   %3 = load i8, ptr %2, align 2, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89303,7 +89303,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyzer6config6Config23diagnostics_remapPrefix17hdb6ceb2f015594e3E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyzer6config6Config23diagnostics_remapPrefix17hdb6ceb2f015594e3E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -89317,7 +89317,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config26diagnostics_warningsAsHint17h6a95f945d9d52da8E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config26diagnostics_warningsAsHint17h6a95f945d9d52da8E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   %3 = load i64, ptr %2, align 8, !range !159, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -89331,7 +89331,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config26diagnostics_warningsAsInfo17hdbddc9b650bb3d94E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config26diagnostics_warningsAsInfo17hdbddc9b650bb3d94E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %3 = load i64, ptr %2, align 8, !range !159, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -89345,7 +89345,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config17files_excludeDirs17h524b18f99d5b157eE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config17files_excludeDirs17h524b18f99d5b157eE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %3 = load i64, ptr %2, align 8, !range !159, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -89359,7 +89359,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config13files_watcher17h181dc2d2d6ff0465E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config13files_watcher17h181dc2d2d6ff0465E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   %3 = load i8, ptr %2, align 8, !range !2100, !noundef !4
   %4 = icmp eq i8 %3, 3
@@ -89373,7 +89373,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config14linkedProjects17hc7c553c686bd1600E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config14linkedProjects17hc7c553c686bd1600E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %3 = load i64, ptr %2, align 8, !range !159, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -89387,7 +89387,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN13rust_analyzer6config6Config12lru_capacity17hc2142297494b0305E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN13rust_analyzer6config6Config12lru_capacity17hc2142297494b0305E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %3 = load i64, ptr %2, align 8, !range !940, !noundef !4
   %4 = icmp eq i64 %3, 2
@@ -89401,7 +89401,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyzer6config6Config20lru_query_capacities17h861550e2da7f1a42E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyzer6config6Config20lru_query_capacities17h861550e2da7f1a42E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1936
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -89415,7 +89415,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config31notifications_cargoTomlNotFound17h5629b78a8c5e76baE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config31notifications_cargoTomlNotFound17h5629b78a8c5e76baE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2042
   %3 = load i8, ptr %2, align 2, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89429,7 +89429,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config30notifications_unindexedProject17hef6f9705c3b7dc6aE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config30notifications_unindexedProject17hef6f9705c3b7dc6aE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2043
   %3 = load i8, ptr %2, align 1, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89443,7 +89443,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN13rust_analyzer6config6Config10numThreads17hcb501b7b801f74dbE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN13rust_analyzer6config6Config10numThreads17hcb501b7b801f74dbE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %3 = load i64, ptr %2, align 8, !range !940, !noundef !4
   %4 = icmp eq i64 %3, 2
@@ -89457,7 +89457,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config27procMacro_attributes_enable17h3a73b5efdd9b532eE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config27procMacro_attributes_enable17h3a73b5efdd9b532eE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2044
   %3 = load i8, ptr %2, align 4, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89471,7 +89471,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config16procMacro_enable17hbcfb15e1f2400e64E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config16procMacro_enable17hbcfb15e1f2400e64E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2045
   %3 = load i8, ptr %2, align 1, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89485,7 +89485,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyzer6config6Config17procMacro_ignored17h3b657f5fc7eba6c1E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyzer6config6Config17procMacro_ignored17h3b657f5fc7eba6c1E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1968
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -89499,7 +89499,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config16procMacro_server17h36ff0612d36f5f27E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config16procMacro_server17h36ff0612d36f5f27E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   %3 = load i64, ptr %2, align 8, !range !317, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775807
@@ -89513,7 +89513,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config25references_excludeImports17h77d8199f8af234d8E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config25references_excludeImports17h77d8199f8af234d8E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2046
   %3 = load i8, ptr %2, align 2, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89527,7 +89527,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config23references_excludeTests17h590bb0cfe58182cdE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config23references_excludeTests17h590bb0cfe58182cdE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2047
   %3 = load i8, ptr %2, align 1, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89541,7 +89541,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config17runnables_command17h177556a1bff56644E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config17runnables_command17h177556a1bff56644E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   %3 = load i64, ptr %2, align 8, !range !317, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775807
@@ -89555,7 +89555,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config19runnables_extraArgs17he6db538b3e6bfacdE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config19runnables_extraArgs17he6db538b3e6bfacdE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1360
   %3 = load i64, ptr %2, align 8, !range !159, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -89569,7 +89569,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config29runnables_extraTestBinaryArgs17h8a1457c406c88489E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config29runnables_extraTestBinaryArgs17h8a1457c406c88489E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1384
   %3 = load i64, ptr %2, align 8, !range !159, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -89583,7 +89583,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config17rustfmt_extraArgs17hbce56e61de3b0f11E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config17rustfmt_extraArgs17hbce56e61de3b0f11E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   %3 = load i64, ptr %2, align 8, !range !159, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -89597,7 +89597,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config23rustfmt_overrideCommand17hbc58a7cb670308c7E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyzer6config6Config23rustfmt_overrideCommand17hbc58a7cb670308c7E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %3 = load i64, ptr %2, align 8, !range !317, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775807
@@ -89611,7 +89611,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13rust_analyze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config30rustfmt_rangeFormatting_enable17h174667a69b1e0a13E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config30rustfmt_rangeFormatting_enable17h174667a69b1e0a13E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2048
   %3 = load i8, ptr %2, align 8, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89625,7 +89625,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config20signatureInfo_detail17h4eb0d0e68abe9f4dE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config20signatureInfo_detail17h4eb0d0e68abe9f4dE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2049
   %3 = load i8, ptr %2, align 1, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89639,7 +89639,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config34signatureInfo_documentation_enable17h338c4d77ea0a712bE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config34signatureInfo_documentation_enable17h338c4d77ea0a712bE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2050
   %3 = load i8, ptr %2, align 2, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89653,7 +89653,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config38typing_autoClosingAngleBrackets_enable17had995c422656df0aE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config38typing_autoClosingAngleBrackets_enable17had995c422656df0aE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2051
   %3 = load i8, ptr %2, align 1, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89667,7 +89667,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config28workspace_symbol_search_kind17h16a42068b389e92eE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config28workspace_symbol_search_kind17h16a42068b389e92eE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2052
   %3 = load i8, ptr %2, align 4, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -89681,7 +89681,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN13rust_analyzer6config6Config29workspace_symbol_search_limit17hb42cbfce09de02a9E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN13rust_analyzer6config6Config29workspace_symbol_search_limit17hb42cbfce09de02a9E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %3 = load i64, ptr %2, align 8, !range !2141, !noundef !4
   %trunc = trunc nuw i64 %3 to i1
@@ -89695,7 +89695,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config29workspace_symbol_search_scope17h638f1ee81557bf50E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config29workspace_symbol_search_scope17h638f1ee81557bf50E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2053
   %3 = load i8, ptr %2, align 1, !range !1855, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -95512,7 +95512,7 @@ define internal noundef zeroext i1 @"_ZN82_$LT$rust_analyzer..config..LocalDefau
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config35highlightRelated_breakPoints_enable17he123ffa6438435b7E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config35highlightRelated_breakPoints_enable17he123ffa6438435b7E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2190
   %5 = load i8, ptr %4, align 2, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95526,7 +95526,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config39highlightRelated_closureCaptures_enable17ha1ef0df22a0d2a44E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config39highlightRelated_closureCaptures_enable17ha1ef0df22a0d2a44E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2191
   %5 = load i8, ptr %4, align 1, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95540,7 +95540,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config34highlightRelated_exitPoints_enable17ha78600a45898f2aeE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config34highlightRelated_exitPoints_enable17ha78600a45898f2aeE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   %5 = load i8, ptr %4, align 8, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95554,7 +95554,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config34highlightRelated_references_enable17h457c42481746197eE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config34highlightRelated_references_enable17h457c42481746197eE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2193
   %5 = load i8, ptr %4, align 1, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95568,7 +95568,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config35highlightRelated_yieldPoints_enable17he54a68875ed93531E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config35highlightRelated_yieldPoints_enable17he54a68875ed93531E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2194
   %5 = load i8, ptr %4, align 2, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95582,7 +95582,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config27imports_granularity_enforce17h8c7765846051e80bE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config27imports_granularity_enforce17h8c7765846051e80bE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2195
   %5 = load i8, ptr %4, align 1, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95596,7 +95596,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config25imports_granularity_group17h90ea9fbb0b7cec77E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config25imports_granularity_group17h90ea9fbb0b7cec77E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2234
   %5 = load i8, ptr %4, align 2, !range !5653, !noundef !4
   %6 = icmp eq i8 %5, 5
@@ -95610,7 +95610,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config20imports_group_enable17hc87da29fec4bee12E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config20imports_group_enable17hc87da29fec4bee12E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2196
   %5 = load i8, ptr %4, align 4, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95624,7 +95624,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config18imports_merge_glob17h8b3a91e67b77e48aE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config18imports_merge_glob17h8b3a91e67b77e48aE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2197
   %5 = load i8, ptr %4, align 1, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95638,7 +95638,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config19imports_preferNoStd17hcefdaa93700ca9c7E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config19imports_preferNoStd17hcefdaa93700ca9c7E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2198
   %5 = load i8, ptr %4, align 2, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95652,7 +95652,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config21imports_preferPrelude17h423e4fd893216c46E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config21imports_preferPrelude17h423e4fd893216c46E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2199
   %5 = load i8, ptr %4, align 1, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95666,7 +95666,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config14imports_prefix17h2910b95cef13afcfE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config14imports_prefix17h2910b95cef13afcfE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2226
   %5 = load i8, ptr %4, align 2, !range !2100, !noundef !4
   %6 = icmp eq i8 %5, 3
@@ -95680,7 +95680,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config25joinLines_joinAssignments17hefdf7b18a881f587E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config25joinLines_joinAssignments17hefdf7b18a881f587E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2213
   %5 = load i8, ptr %4, align 1, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95694,7 +95694,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config20joinLines_joinElseIf17h5c97c94dc1782e1fE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config20joinLines_joinElseIf17h5c97c94dc1782e1fE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2214
   %5 = load i8, ptr %4, align 2, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95708,7 +95708,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config29joinLines_removeTrailingComma17h5ef87538aa1ca4baE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config29joinLines_removeTrailingComma17h5ef87538aa1ca4baE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2215
   %5 = load i8, ptr %4, align 1, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95722,7 +95722,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config28joinLines_unwrapTrivialBlock17hb4e06cf26d79b6abE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config28joinLines_unwrapTrivialBlock17hb4e06cf26d79b6abE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %5 = load i8, ptr %4, align 8, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95736,7 +95736,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config46semanticHighlighting_doc_comment_inject_enable17hcb483febc1a2e992E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config46semanticHighlighting_doc_comment_inject_enable17hcb483febc1a2e992E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2217
   %5 = load i8, ptr %4, align 1, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95750,7 +95750,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config38semanticHighlighting_nonStandardTokens17h052e785f7b66ab88E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config38semanticHighlighting_nonStandardTokens17h052e785f7b66ab88E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2218
   %5 = load i8, ptr %4, align 2, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95764,7 +95764,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config36semanticHighlighting_operator_enable17hb602301ebcc0b0b4E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config36semanticHighlighting_operator_enable17hb602301ebcc0b0b4E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2219
   %5 = load i8, ptr %4, align 1, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95778,7 +95778,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config51semanticHighlighting_operator_specialization_enable17h3a908dedb3946e83E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config51semanticHighlighting_operator_specialization_enable17h3a908dedb3946e83E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2220
   %5 = load i8, ptr %4, align 4, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95792,7 +95792,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config39semanticHighlighting_punctuation_enable17hc48ecf3ae895ef4bE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config39semanticHighlighting_punctuation_enable17hc48ecf3ae895ef4bE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2221
   %5 = load i8, ptr %4, align 1, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95806,7 +95806,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config52semanticHighlighting_punctuation_separate_macro_bang17hcc7c643417260498E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config52semanticHighlighting_punctuation_separate_macro_bang17hcc7c643417260498E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2222
   %5 = load i8, ptr %4, align 2, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95820,7 +95820,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config54semanticHighlighting_punctuation_specialization_enable17hd746cdbed42c5f89E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config54semanticHighlighting_punctuation_specialization_enable17hd746cdbed42c5f89E.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2223
   %5 = load i8, ptr %4, align 1, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2
@@ -95834,7 +95834,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config35semanticHighlighting_strings_enable17hbc0c90668538321fE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN13rust_analyzer6config6Config35semanticHighlighting_strings_enable17hbc0c90668538321fE.llvm.3663151438746104753(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4560) %0, i32 noundef %1, i32 %2) unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %5 = load i8, ptr %4, align 8, !range !1855, !noundef !4
   %6 = icmp eq i8 %5, 2

@@ -3464,7 +3464,7 @@ _ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit: ; preds = %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc15BytecodeVisitor23visitInstructionsInBodyEPKhS3_b(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef %bytecodeStart, ptr noundef readnone %bytecodeEnd, i1 noundef zeroext %visitSwitchImmTargets) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc15BytecodeVisitor23visitInstructionsInBodyEPKhS3_b(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef %bytecodeStart, ptr noundef readnone captures(address) %bytecodeEnd, i1 noundef zeroext %visitSwitchImmTargets) local_unnamed_addr #1 align 2 {
 entry:
   %md = alloca %"struct.hermes::inst::InstMetaData", align 8
   %cmp19 = icmp ult ptr %bytecodeStart, %bytecodeEnd

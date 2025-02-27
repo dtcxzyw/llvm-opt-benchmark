@@ -3795,7 +3795,7 @@ define hidden void @_ZNK6OopMap5printEv(ptr noundef nonnull readonly align 8 cap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK18ImmutableOopMapSet8print_onEP12outputStream(ptr noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK18ImmutableOopMapSet8print_onEP12outputStream(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(8) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr %0, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.17, i32 noundef %3) #19
   %4 = icmp sgt i32 %3, 0
@@ -3842,7 +3842,7 @@ define hidden void @_ZNK18ImmutableOopMapSet8print_onEP12outputStream(ptr nounde
 declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK18ImmutableOopMapSet5printEv(ptr noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK18ImmutableOopMapSet5printEv(ptr noundef nonnull align 4 captures(address) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @tty, align 8
   tail call void @_ZNK18ImmutableOopMapSet8print_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %2)
   ret void
@@ -3978,7 +3978,7 @@ define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZNK18ImmutableOop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZNK18ImmutableOopMapSet18find_map_at_offsetEi(ptr noundef nonnull readonly align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZNK18ImmutableOopMapSet18find_map_at_offsetEi(ptr noundef nonnull readonly align 4 captures(ret: address, provenance) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %0, align 4
   %5 = icmp sgt i32 %4, 0

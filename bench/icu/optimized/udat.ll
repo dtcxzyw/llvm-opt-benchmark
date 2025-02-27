@@ -124,7 +124,7 @@ declare void @umtx_lock_77(ptr noundef) local_unnamed_addr #2
 declare void @umtx_unlock_77(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udat_unregisterOpener_77(ptr noundef readnone %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
+define ptr @udat_unregisterOpener_77(ptr noundef readnone captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %1, align 4, !tbaa !7
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %11
@@ -454,7 +454,7 @@ define noundef ptr @udat_clone_77(ptr noundef %0, ptr noundef captures(none) %1)
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udat_format_77(ptr noundef %0, double noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef i32 @udat_format_77(ptr noundef %0, double noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.icu_77::UnicodeString", align 8
   %8 = alloca %"class.icu_77::FieldPosition", align 8
   %9 = alloca %"class.icu_77::Char16Ptr", align 8
@@ -584,7 +584,7 @@ declare noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UError
 declare void @_ZN6icu_7713FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udat_formatCalendar_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef i32 @udat_formatCalendar_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.icu_77::UnicodeString", align 8
   %8 = alloca %"class.icu_77::FieldPosition", align 8
   %9 = alloca %"class.icu_77::Char16Ptr", align 8
@@ -869,7 +869,7 @@ define noundef i32 @udat_formatCalendarForFields_77(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @udat_parse_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef double @udat_parse_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(none) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.icu_77::UnicodeString", align 8
   %7 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %8 = alloca %"class.icu_77::ParsePosition", align 8
@@ -968,7 +968,7 @@ declare noundef double @_ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_1
 declare void @_ZN6icu_7713ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @udat_parseCalendar_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @udat_parseCalendar_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(none) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.icu_77::UnicodeString", align 8
   %8 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %9 = alloca %"class.icu_77::ParsePosition", align 8

@@ -2193,7 +2193,7 @@ define dso_local noundef range(i32 0, 2) i32 @ehci_resume(ptr noundef %0, i1 nou
 declare dso_local void @usb_root_hub_lost_power(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ehci_init_driver(ptr noundef writeonly captures(none) initializes((0, 376)) %0, ptr noundef readonly %1) #5 align 16 {
+define dso_local void @ehci_init_driver(ptr noundef writeonly captures(none) initializes((0, 376)) %0, ptr noundef readonly captures(address_is_null) %1) #5 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(376) @ehci_hc_driver, i64 376, i1 false)
   %3 = icmp eq ptr %1, null
   br i1 %3, label %19, label %4
@@ -4663,7 +4663,7 @@ ehci_poll_PSS.exit:                               ; preds = %556, %549, %548, %5
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 256) i32 @qh_completions(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 256) i32 @qh_completions(ptr noundef %0, ptr noundef captures(address) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -5918,7 +5918,7 @@ define internal fastcc ptr @find_tt(ptr noundef readonly captures(none) %0) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @compute_tt_budget(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #9 align 16 {
+define internal fastcc void @compute_tt_budget(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #9 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit9, label %4
 
@@ -11517,7 +11517,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr noundef readonly capt
 declare dso_local ptr @sg_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @qtd_list_free(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @qtd_list_free(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %.loopexit, label %5

@@ -154,7 +154,7 @@ declare void @_ZN3zmq8thread_t4stopEv(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @zmq_z85_encode(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #7 {
+define noundef ptr @zmq_z85_encode(ptr noundef writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = and i64 %2, 3
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.preheader23, label %5
@@ -229,7 +229,7 @@ define noundef ptr @zmq_z85_encode(ptr noundef writeonly %0, ptr noundef readonl
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @zmq_z85_decode(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define noundef ptr @zmq_z85_decode(ptr noundef writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = icmp ugt i64 %3, 4
   %5 = urem i64 %3, 5

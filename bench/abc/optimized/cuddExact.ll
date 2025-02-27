@@ -1069,7 +1069,7 @@ define internal fastcc noalias noundef ptr @initSymmInfo(ptr noundef readonly ca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @ddCountRoots(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc i32 @ddCountRoots(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 {
   %.not70 = icmp sgt i32 %1, %2
   br i1 %.not70, label %.lr.ph30.i, label %.lr.ph75
 

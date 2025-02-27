@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.pg_parse_json_incremental = private unnamed_addr constant [9 x i32] [i32 10, i32 14, i32 6, i32 7, i32 12, i32 8, i32 13, i32 14, i32 9], align 4
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc noundef nonnull ptr @unicode_to_utf8(i32 noundef range(i32 1, 0) %0, ptr noundef nonnull returned writeonly initializes((0, 1)) %1) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @unicode_to_utf8(i32 noundef range(i32 1, 0) %0, ptr noundef nonnull returned writeonly captures(ret: address, provenance) initializes((0, 1)) %1) unnamed_addr #0 {
   %3 = icmp ult i32 %0, 128
   br i1 %3, label %4, label %6
 
@@ -181,7 +181,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 16) i32 @json_lex_number(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #4 {
+define internal fastcc range(i32 0, 16) i32 @json_lex_number(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #4 {
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -438,7 +438,7 @@ define internal fastcc range(i32 0, 16) i32 @json_lex_number(ptr noundef capture
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @makeJsonLexContextCstringLen(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
+define noundef ptr @makeJsonLexContextCstringLen(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = zext i1 %4 to i8
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %12
@@ -497,7 +497,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare ptr @createPQExpBuffer() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @makeJsonLexContextIncremental(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
+define noundef ptr @makeJsonLexContextIncremental(ptr noundef captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = zext i1 %2 to i8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %10
@@ -622,7 +622,7 @@ define void @setJsonLexContextOwnsTokens(ptr noundef captures(none) %0, i1 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @freeJsonLexContext(ptr noundef %0) local_unnamed_addr #1 {
+define void @freeJsonLexContext(ptr noundef captures(address) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %3 = icmp eq ptr %0, @failed_oom
   %or.cond = or i1 %2, %3
@@ -737,7 +737,7 @@ declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define i32 @pg_parse_json(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
+define i32 @pg_parse_json(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, @failed_oom
   br i1 %3, label %lex_expect.exit, label %4
 
@@ -799,7 +799,7 @@ lex_expect.exit:                                  ; preds = %24, %22, %18, %8, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 23) i32 @json_lex(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 23) i32 @json_lex(ptr noundef captures(address) %0) local_unnamed_addr #1 {
   %2 = alloca %struct.JsonLexContext, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1342,7 +1342,7 @@ define range(i32 0, 23) i32 @json_lex(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_object(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
+define internal fastcc i32 @parse_object(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1440,7 +1440,7 @@ lex_expect.exit:                                  ; preds = %.lr.ph, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_array(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
+define internal fastcc i32 @parse_array(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1541,7 +1541,7 @@ lex_expect.exit50:                                ; preds = %.lr.ph, %23
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i32 @parse_scalar(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
+define internal fastcc i32 @parse_scalar(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 52
@@ -1639,7 +1639,7 @@ define internal fastcc i32 @parse_scalar(ptr noundef %0, ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @json_count_array_elements(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
+define i32 @json_count_array_elements(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.JsonLexContext, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #16
   %4 = icmp eq ptr %0, @failed_oom
@@ -1745,7 +1745,7 @@ parse_array_element.exit:                         ; preds = %26, %29, %31, %12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_array_element(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
+define internal fastcc i32 @parse_array_element(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1804,7 +1804,7 @@ define internal fastcc i32 @parse_array_element(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pg_parse_json_incremental(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
+define i32 @pg_parse_json_incremental(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = zext i1 %4 to i8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %7, align 8
@@ -3018,7 +3018,7 @@ pg_lfind8_le.exit:                                ; preds = %pg_lfind8.exit261
 declare void @appendBinaryPQExpBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define ptr @json_errdetail(i32 noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define ptr @json_errdetail(i32 noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #1 {
   %3 = icmp eq i32 %0, 16
   %4 = icmp eq ptr %1, @failed_oom
   %or.cond = or i1 %3, %4
@@ -3267,7 +3267,7 @@ declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #6
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_object_field(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
+define internal fastcc i32 @parse_object_field(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48

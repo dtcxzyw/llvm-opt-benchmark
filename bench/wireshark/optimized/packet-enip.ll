@@ -3182,7 +3182,7 @@ define internal i32 @dissect_cip_class1(ptr noundef %0, ptr noundef readnone cap
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_cip_io_generic(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_cip_io_generic(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = load i32, ptr @proto_cipio, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %7 = load i32, ptr @ett_cip_io_generic, align 4

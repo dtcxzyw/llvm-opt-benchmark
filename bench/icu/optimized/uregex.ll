@@ -451,7 +451,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uregex_clone_77(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef ptr @uregex_clone_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 4, !tbaa !19
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -528,7 +528,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @uregex_pattern_77(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef captures(none) %2) local_unnamed_addr #10 {
+define ptr @uregex_pattern_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(none) %2) local_unnamed_addr #10 {
   %4 = load i32, ptr %2, align 4, !tbaa !19
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -577,7 +577,7 @@ define noundef ptr @uregex_patternUText_77(ptr noundef readonly captures(none) %
 declare noundef ptr @_ZNK6icu_7712RegexPattern11patternTextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_flags_77(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
+define noundef i32 @uregex_flags_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 4, !tbaa !19
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -609,7 +609,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef i32 @_ZNK6icu_7712RegexPattern5flagsEv(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setText_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define void @uregex_setText_77(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = alloca %struct.UText, align 8
   %6 = load i32, ptr %3, align 4, !tbaa !19
   %7 = icmp slt i32 %6, 1
@@ -681,7 +681,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher5resetEP5UText(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setUText_77(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #6 {
+define void @uregex_setUText_77(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %2, align 4, !tbaa !19
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -739,7 +739,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uregex_getText_77(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #6 {
+define ptr @uregex_getText_77(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr %2, align 4, !tbaa !19
   %6 = icmp slt i32 %5, 1
@@ -836,7 +836,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef ptr @_ZNK6icu_7712RegexMatcher9inputTextEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uregex_getUText_77(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define noundef ptr @uregex_getUText_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %2, align 4, !tbaa !19
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -868,7 +868,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef ptr @_ZNK6icu_7712RegexMatcher8getInputEP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_refreshUText_77(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define void @uregex_refreshUText_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %2, align 4, !tbaa !19
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -899,7 +899,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher16refreshInputTextEP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_matches_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define noundef signext i8 @uregex_matches_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = sext i32 %1 to i64
   %5 = load i32, ptr %2, align 4, !tbaa !19
   %6 = icmp slt i32 %5, 1
@@ -951,7 +951,7 @@ uregex_matches64_77.exit:                         ; preds = %3, %.sink.split.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_matches64_77(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define noundef signext i8 @uregex_matches64_77(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %2, align 4, !tbaa !19
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -1006,7 +1006,7 @@ declare noundef signext i8 @_ZN6icu_7712RegexMatcher7matchesER10UErrorCode(ptr n
 declare noundef signext i8 @_ZN6icu_7712RegexMatcher7matchesElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_lookingAt_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define noundef signext i8 @uregex_lookingAt_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = sext i32 %1 to i64
   %5 = load i32, ptr %2, align 4, !tbaa !19
   %6 = icmp slt i32 %5, 1
@@ -1058,7 +1058,7 @@ uregex_lookingAt64_77.exit:                       ; preds = %3, %.sink.split.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_lookingAt64_77(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define noundef signext i8 @uregex_lookingAt64_77(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %2, align 4, !tbaa !19
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -1113,7 +1113,7 @@ declare noundef signext i8 @_ZN6icu_7712RegexMatcher9lookingAtER10UErrorCode(ptr
 declare noundef signext i8 @_ZN6icu_7712RegexMatcher9lookingAtElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_find_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define noundef signext i8 @uregex_find_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = sext i32 %1 to i64
   %5 = load i32, ptr %2, align 4, !tbaa !19
   %6 = icmp slt i32 %5, 1
@@ -1167,7 +1167,7 @@ uregex_find64_77.exit:                            ; preds = %3, %.sink.split.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_find64_77(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define noundef signext i8 @uregex_find64_77(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %2, align 4, !tbaa !19
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -1226,7 +1226,7 @@ declare noundef signext i8 @_ZN6icu_7712RegexMatcher4findER10UErrorCode(ptr noun
 declare noundef signext i8 @_ZN6icu_7712RegexMatcher4findElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_findNext_77(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #6 {
+define noundef signext i8 @uregex_findNext_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 4, !tbaa !19
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -1269,7 +1269,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_groupCount_77(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
+define noundef i32 @uregex_groupCount_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 4, !tbaa !19
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -1301,7 +1301,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef i32 @_ZNK6icu_7712RegexMatcher10groupCountEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_groupNumberFromName_77(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef i32 @uregex_groupNumberFromName_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_77::UnicodeString", align 8
   %6 = load i32, ptr %3, align 4, !tbaa !19
   %7 = icmp slt i32 %6, 1
@@ -1353,7 +1353,7 @@ declare void @_ZN6icu_7713UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dere
 declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_groupNumberFromCName_77(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define noundef i32 @uregex_groupNumberFromCName_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = load i32, ptr %3, align 4, !tbaa !19
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -1385,7 +1385,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef i32 @_ZNK6icu_7712RegexPattern19groupNumberFromNameEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uregex_group_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #6 {
+define i32 @uregex_group_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #6 {
   %6 = load i32, ptr %4, align 4, !tbaa !19
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %8, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -1508,7 +1508,7 @@ declare noundef i64 @_ZNK6icu_7712RegexMatcher7start64EiR10UErrorCode(ptr nounde
 declare noundef i64 @_ZNK6icu_7712RegexMatcher5end64EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uregex_groupUText_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #6 {
+define ptr @uregex_groupUText_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #6 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr %4, align 4, !tbaa !19
   %8 = icmp slt i32 %7, 1
@@ -1569,7 +1569,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %17,
 declare noundef ptr @_ZNK6icu_7712RegexMatcher5groupEiP5UTextRlR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_start_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define noundef i32 @uregex_start_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %2, align 4, !tbaa !19
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %uregex_start64_77.exit
@@ -1613,7 +1613,7 @@ uregex_start64_77.exit:                           ; preds = %3, %.sink.split.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @uregex_start64_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define noundef i64 @uregex_start64_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %2, align 4, !tbaa !19
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -1656,7 +1656,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_end_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define noundef i32 @uregex_end_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %2, align 4, !tbaa !19
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %uregex_end64_77.exit
@@ -1700,7 +1700,7 @@ uregex_end64_77.exit:                             ; preds = %3, %.sink.split.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @uregex_end64_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define noundef i64 @uregex_end64_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %2, align 4, !tbaa !19
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -1743,7 +1743,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_reset_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define void @uregex_reset_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = sext i32 %1 to i64
   %5 = load i32, ptr %2, align 4, !tbaa !19
   %6 = icmp slt i32 %5, 1
@@ -1786,7 +1786,7 @@ uregex_reset64_77.exit:                           ; preds = %3, %.sink.split.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_reset64_77(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define void @uregex_reset64_77(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %2, align 4, !tbaa !19
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -1830,7 +1830,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher5resetElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setRegion_77(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define void @uregex_setRegion_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = sext i32 %1 to i64
   %6 = sext i32 %2 to i64
   %7 = load i32, ptr %3, align 4, !tbaa !19
@@ -1874,7 +1874,7 @@ uregex_setRegion64_77.exit:                       ; preds = %4, %.sink.split.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setRegion64_77(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define void @uregex_setRegion64_77(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = load i32, ptr %3, align 4, !tbaa !19
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -1918,7 +1918,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher6regionEllR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setRegionAndStart_77(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #6 {
+define void @uregex_setRegionAndStart_77(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #6 {
   %6 = load i32, ptr %4, align 4, !tbaa !19
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %8, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -1962,7 +1962,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher6regionElllR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_regionStart_77(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
+define noundef i32 @uregex_regionStart_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 4, !tbaa !19
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %uregex_regionStart64_77.exit
@@ -2005,7 +2005,7 @@ uregex_regionStart64_77.exit:                     ; preds = %2, %.sink.split.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 -2147483648, 2147483648) i64 @uregex_regionStart64_77(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
+define range(i64 -2147483648, 2147483648) i64 @uregex_regionStart64_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 4, !tbaa !19
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2051,7 +2051,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef i32 @_ZNK6icu_7712RegexMatcher11regionStartEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_regionEnd_77(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
+define noundef i32 @uregex_regionEnd_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 4, !tbaa !19
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %uregex_regionEnd64_77.exit
@@ -2094,7 +2094,7 @@ uregex_regionEnd64_77.exit:                       ; preds = %2, %.sink.split.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 -2147483648, 2147483648) i64 @uregex_regionEnd64_77(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
+define range(i64 -2147483648, 2147483648) i64 @uregex_regionEnd64_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 4, !tbaa !19
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2140,7 +2140,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef i32 @_ZNK6icu_7712RegexMatcher9regionEndEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_hasTransparentBounds_77(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
+define noundef signext i8 @uregex_hasTransparentBounds_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 4, !tbaa !19
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2172,7 +2172,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef signext i8 @_ZNK6icu_7712RegexMatcher20hasTransparentBoundsEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_useTransparentBounds_77(ptr noundef readonly %0, i8 noundef signext %1, ptr noundef captures(none) %2) local_unnamed_addr #6 {
+define void @uregex_useTransparentBounds_77(ptr noundef readonly captures(address_is_null) %0, i8 noundef signext %1, ptr noundef captures(none) %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %2, align 4, !tbaa !19
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2203,7 +2203,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher20useTransparentBoundsEa(ptr noundef nonnull align 8 dereferenceable(336), i8 noundef signext) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_hasAnchoringBounds_77(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
+define noundef signext i8 @uregex_hasAnchoringBounds_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 4, !tbaa !19
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2235,7 +2235,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef signext i8 @_ZNK6icu_7712RegexMatcher18hasAnchoringBoundsEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_useAnchoringBounds_77(ptr noundef readonly %0, i8 noundef signext %1, ptr noundef captures(none) %2) local_unnamed_addr #6 {
+define void @uregex_useAnchoringBounds_77(ptr noundef readonly captures(address_is_null) %0, i8 noundef signext %1, ptr noundef captures(none) %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %2, align 4, !tbaa !19
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2266,7 +2266,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher18useAnchoringBoundsEa(ptr noundef nonnull align 8 dereferenceable(336), i8 noundef signext) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_hitEnd_77(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
+define noundef signext i8 @uregex_hitEnd_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 4, !tbaa !19
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2311,7 +2311,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef signext i8 @_ZNK6icu_7712RegexMatcher6hitEndEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_requireEnd_77(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
+define noundef signext i8 @uregex_requireEnd_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 4, !tbaa !19
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2356,7 +2356,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef signext i8 @_ZNK6icu_7712RegexMatcher10requireEndEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setTimeLimit_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define void @uregex_setTimeLimit_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %2, align 4, !tbaa !19
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2387,7 +2387,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare void @_ZN6icu_7712RegexMatcher12setTimeLimitEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_getTimeLimit_77(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
+define noundef i32 @uregex_getTimeLimit_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 4, !tbaa !19
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2419,7 +2419,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef i32 @_ZNK6icu_7712RegexMatcher12getTimeLimitEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setStackLimit_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define void @uregex_setStackLimit_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %2, align 4, !tbaa !19
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2450,7 +2450,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare void @_ZN6icu_7712RegexMatcher13setStackLimitEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_getStackLimit_77(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
+define noundef i32 @uregex_getStackLimit_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 4, !tbaa !19
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2482,7 +2482,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare noundef i32 @_ZNK6icu_7712RegexMatcher13getStackLimitEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setMatchCallback_77(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define void @uregex_setMatchCallback_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = load i32, ptr %3, align 4, !tbaa !19
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2513,7 +2513,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare void @_ZN6icu_7712RegexMatcher16setMatchCallbackEPFaPKviES2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_getMatchCallback_77(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define void @uregex_getMatchCallback_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = load i32, ptr %3, align 4, !tbaa !19
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2544,7 +2544,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare void @_ZN6icu_7712RegexMatcher16getMatchCallbackERPFaPKviERS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setFindProgressCallback_77(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define void @uregex_setFindProgressCallback_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = load i32, ptr %3, align 4, !tbaa !19
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2575,7 +2575,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 declare void @_ZN6icu_7712RegexMatcher23setFindProgressCallbackEPFaPKvlES2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_getFindProgressCallback_77(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define void @uregex_getFindProgressCallback_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = load i32, ptr %3, align 4, !tbaa !19
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2758,7 +2758,7 @@ define noundef i32 @uregex_appendTail_77(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uregex_replaceAllUText_77(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define noundef ptr @uregex_replaceAllUText_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = load i32, ptr %3, align 4, !tbaa !19
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
@@ -2928,7 +2928,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uregex_replaceFirstUText_77(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define noundef ptr @uregex_replaceFirstUText_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = load i32, ptr %3, align 4, !tbaa !19
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread

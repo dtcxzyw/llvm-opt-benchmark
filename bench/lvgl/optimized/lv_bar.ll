@@ -858,7 +858,7 @@ lv_bar_get_mode.exit:                             ; preds = %4, %13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 8) i32 @lv_bar_get_mode(ptr noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 8) i32 @lv_bar_get_mode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -929,7 +929,7 @@ define void @lv_bar_set_orientation(ptr noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_bar_get_value(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_bar_get_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -947,7 +947,7 @@ define i32 @lv_bar_get_value(ptr noundef readonly %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_bar_get_start_value(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_bar_get_start_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -976,7 +976,7 @@ define i32 @lv_bar_get_start_value(ptr noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_bar_get_min_value(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_bar_get_min_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -994,7 +994,7 @@ define i32 @lv_bar_get_min_value(ptr noundef readonly %0) local_unnamed_addr #3 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_bar_get_max_value(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_bar_get_max_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1012,7 +1012,7 @@ define i32 @lv_bar_get_max_value(ptr noundef readonly %0) local_unnamed_addr #3 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 8) i32 @lv_bar_get_orientation(ptr noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 8) i32 @lv_bar_get_orientation(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1029,7 +1029,7 @@ define range(i32 0, 8) i32 @lv_bar_get_orientation(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_bar_is_symmetrical(ptr noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_bar_is_symmetrical(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

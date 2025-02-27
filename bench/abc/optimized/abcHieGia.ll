@@ -167,7 +167,7 @@ declare void @Hop_ConeUnmark_rec(ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %6 = load ptr, ptr %5, align 8, !tbaa !45
   %7 = load i32, ptr %2, align 4, !tbaa !41
@@ -2300,7 +2300,7 @@ Vec_PtrGrow.exit11:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkFlattenHierarchyGia(ptr noundef %0, ptr noundef writeonly %1, i32 %2) local_unnamed_addr #0 {
+define ptr @Abc_NtkFlattenHierarchyGia(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4, !tbaa !46

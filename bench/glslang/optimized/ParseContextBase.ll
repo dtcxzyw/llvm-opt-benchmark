@@ -1953,7 +1953,7 @@ _ZNK7glslang17TSymbolTableLevel4findERKNSt7__cxx1112basic_stringIcSt11char_trait
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN7glslang17TParseContextBase19getEditableVariableEPKc(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define noundef ptr @_ZN7glslang17TParseContextBase19getEditableVariableEPKc(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

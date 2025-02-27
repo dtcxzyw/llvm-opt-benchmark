@@ -40,7 +40,7 @@ define noalias noundef ptr @Fraig_MemFixedStart(i32 noundef %0) local_unnamed_ad
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Fraig_MemFixedStop(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Fraig_MemFixedStop(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %40, label %4
 

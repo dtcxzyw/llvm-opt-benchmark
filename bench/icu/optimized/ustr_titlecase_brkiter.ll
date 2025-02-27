@@ -206,7 +206,7 @@ define noalias noundef ptr @_ZN6icu_7724WholeStringBreakIterator17createBufferCl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(36) ptr @_ZN6icu_7724WholeStringBreakIterator16refreshInputTextEP5UTextR10UErrorCode(ptr noundef nonnull readnone returned align 8 dereferenceable(36) %0, ptr readnone captures(none) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(36) ptr @_ZN6icu_7724WholeStringBreakIterator16refreshInputTextEP5UTextR10UErrorCode(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(36) %0, ptr readnone captures(none) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2) unnamed_addr #5 align 2 {
   %4 = load i32, ptr %2, align 4, !tbaa !3
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %7, label %6
@@ -220,7 +220,7 @@ define noundef nonnull align 8 dereferenceable(36) ptr @_ZN6icu_7724WholeStringB
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ustrcase_getTitleBreakIterator_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef ptr @ustrcase_getTitleBreakIterator_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(address_is_null, ret: address, provenance) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.icu_77::Locale", align 8
   %8 = alloca %"class.icu_77::Locale", align 8
   %9 = load i32, ptr %5, align 4, !tbaa !3

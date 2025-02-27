@@ -45,7 +45,7 @@ define internal noundef i32 @ft_black_set_mode(ptr readnone captures(none) %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ft_black_render(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) #0 {
+define internal i32 @ft_black_render(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca [1 x %struct.black_TWorker_], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !12
@@ -344,7 +344,7 @@ define internal i32 @ft_raster1_render(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 7) i32 @ft_raster1_transform(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 7) i32 @ft_raster1_transform(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32

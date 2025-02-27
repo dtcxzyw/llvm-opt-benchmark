@@ -2256,7 +2256,7 @@ _ZN6icu_7715MaybeStackArrayIPNS_7MeasureELi8EED2Ev.exit: ; preds = %._crit_edge,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_775units11UnitsRouter14getOutputUnitsEv(ptr noundef nonnull readnone returned align 8 dereferenceable(176) %0) local_unnamed_addr #11 align 2 {
+define noundef nonnull ptr @_ZNK6icu_775units11UnitsRouter14getOutputUnitsEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(176) %0) local_unnamed_addr #11 align 2 {
   ret ptr %0
 }
 

@@ -6039,7 +6039,7 @@ define hidden void @_ZN17assertion_failure17avoid_weak_vtableEv(ptr nonnull read
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden ptr @_Z4copyN3fmt3v1117basic_string_viewIcEENS0_14basic_appenderIcEE(ptr readonly %0, i64 %1, ptr returned %2) local_unnamed_addr #4 {
+define hidden ptr @_Z4copyN3fmt3v1117basic_string_viewIcEENS0_14basic_appenderIcEE(ptr readonly captures(address) %0, i64 %1, ptr returned %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %.not9 = icmp samesign eq i64 %1, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -139160,7 +139160,7 @@ _ZNK3fmt3v119formatterI20nonconst_formattablecvE6formatERS2_RNS0_7contextE.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN3fmt3v116detail15iterator_bufferIZN35base_test_throw_in_buffer_dtor_Test8TestBodyEvE17throwing_iteratorcNS1_13buffer_traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3fmt3v116detail15iterator_bufferIZN35base_test_throw_in_buffer_dtor_Test8TestBodyEvE17throwing_iteratorcNS1_13buffer_traitsEED2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(296) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !7
   store i64 0, ptr %2, align 8, !tbaa !7

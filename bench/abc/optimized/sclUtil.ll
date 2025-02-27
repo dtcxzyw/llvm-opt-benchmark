@@ -543,7 +543,7 @@ Vec_IntFreeP.exit:                                ; preds = %2, %12
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Abc_SclFindMaxAreaCell(ptr noundef readonly %0) local_unnamed_addr #7 {
+define ptr @Abc_SclFindMaxAreaCell(ptr noundef readonly captures(address, ret: address, provenance) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load float, ptr %2, align 8, !tbaa !51
   br label %4

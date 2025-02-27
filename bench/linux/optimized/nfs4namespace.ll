@@ -750,7 +750,7 @@ declare dso_local i32 @nfs_do_submount(ptr noundef) local_unnamed_addr #2
 declare dso_local void @rpc_shutdown_client(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %4
 

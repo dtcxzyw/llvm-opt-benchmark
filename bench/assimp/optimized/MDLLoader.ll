@@ -297,7 +297,7 @@ define hidden noundef zeroext i1 @_ZNK6Assimp11MDLImporter7CanReadERKNSt7__cxx11
 declare noundef zeroext i1 @_ZN6Assimp12BaseImporter15CheckMagicTokenEPNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvmjj(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11MDLImporter15SetupPropertiesEPKNS_8ImporterE(ptr noundef nonnull align 8 dereferenceable(159) initializes((72, 76)) %0, ptr noundef nonnull %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11MDLImporter15SetupPropertiesEPKNS_8ImporterE(ptr noundef nonnull align 8 captures(address) dereferenceable(159) initializes((72, 76)) %0, ptr noundef nonnull %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i32 noundef -1)
@@ -4236,7 +4236,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp11MDLImporter10IsPosValidEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(159) %0, ptr noundef readnone %1) local_unnamed_addr #13 align 2 {
+define hidden noundef zeroext i1 @_ZNK6Assimp11MDLImporter10IsPosValidEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(159) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #13 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %3
 
@@ -4258,7 +4258,7 @@ define hidden noundef zeroext i1 @_ZNK6Assimp11MDLImporter10IsPosValidEPKv(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(159) %0, ptr noundef readnone %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(159) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZNK6Assimp11MDLImporter10IsPosValidEPKv.exit.thread, label %_ZNK6Assimp11MDLImporter10IsPosValidEPKv.exit
 
@@ -4294,7 +4294,7 @@ _ZNK6Assimp11MDLImporter10IsPosValidEPKv.exit.thread: ; preds = %2, %_ZNK6Assimp
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11MDLImporter9SizeCheckEPKvPKcj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(159) %0, ptr noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11MDLImporter9SizeCheckEPKvPKcj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(159) %0, ptr noundef readnone captures(address) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [1024 x i8], align 16
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZNK6Assimp11MDLImporter10IsPosValidEPKv.exit.thread, label %_ZNK6Assimp11MDLImporter10IsPosValidEPKv.exit

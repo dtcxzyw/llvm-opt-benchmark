@@ -404,7 +404,7 @@ declare zeroext i1 @_mi_arena_memid_is_suitable(ptr noundef byval(%struct.mi_mem
 declare i64 @_mi_random_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @_mi_heap_by_tag(ptr noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #3 {
+define hidden ptr @_mi_heap_by_tag(ptr noundef readonly captures(ret: address, provenance) %0, i8 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 225
   %4 = load i8, ptr %3, align 1, !tbaa !44
   %5 = icmp eq i8 %4, %1
@@ -750,7 +750,7 @@ mi_heap_free.exit:                                ; preds = %65, %mi_heap_absorb
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_heap_unsafe_destroy_all(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @_mi_heap_unsafe_destroy_all(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -851,7 +851,7 @@ define hidden ptr @mi_heap_set_default(ptr noundef %0) local_unnamed_addr #0 {
 declare void @_mi_heap_set_default_direct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %0, @_mi_heap_empty
   %or.cond = and i1 %3, %4
@@ -899,7 +899,7 @@ mi_heap_of_block.exit:                            ; preds = %5, %7, %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @mi_heap_check_owned(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @mi_heap_check_owned(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %mi_heap_visit_pages.exit, label %4
 

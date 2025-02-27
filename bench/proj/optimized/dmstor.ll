@@ -7,14 +7,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [9 x i8] c"NnEeSsWw\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_Z6dmstorPKcPPc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef double @_Z6dmstorPKcPPc(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @_Z18pj_get_default_ctxv()
   %4 = tail call noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef %3, ptr noundef %0, ptr noundef %1)
   ret double %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7

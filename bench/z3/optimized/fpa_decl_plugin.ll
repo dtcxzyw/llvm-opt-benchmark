@@ -3145,7 +3145,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN15fpa_decl_plugin19mk_float_const_declEijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(1008) %this, i32 noundef %k, i32 noundef %num_parameters, ptr noundef readonly captures(none) %parameters, i32 %arity, ptr readnone captures(none) %domain, ptr noundef readonly %range) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN15fpa_decl_plugin19mk_float_const_declEijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(1008) %this, i32 noundef %k, i32 noundef %num_parameters, ptr noundef readonly captures(none) %parameters, i32 %arity, ptr readnone captures(none) %domain, ptr noundef readonly captures(address_is_null) %range) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %val = alloca %class.scoped_mpf, align 8
   switch i32 %num_parameters, label %if.else27 [

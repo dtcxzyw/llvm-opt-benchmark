@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @data_ahead.buffer = internal global [81 x i8] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @data_behind(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @data_behind(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -42,7 +42,7 @@ define dso_local zeroext i1 @data_behind(ptr noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @data_ahead(ptr noundef readonly %0) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @data_ahead(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %99, label %2
 

@@ -153315,7 +153315,7 @@ _ZN8pybind116detail13string_casterINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZL41pybind11_init_pybind11_cross_module_testsRNS_7module_EE3DogJN4pets3PetEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZL41pybind11_init_pybind11_cross_module_testsRNS_7module_EE3DogJN4pets3PetEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #31
@@ -154339,7 +154339,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %17
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @_ZZN8pybind116class_IZL41pybind11_init_pybind11_cross_module_testsRNS_7module_EE3DogJN4pets3PetEEE8add_baseIS5_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESF_(ptr noundef readnone returned %0) #27 align 2 {
+define internal noundef ptr @_ZZN8pybind116class_IZL41pybind11_init_pybind11_cross_module_testsRNS_7module_EE3DogJN4pets3PetEEE8add_baseIS5_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESF_(ptr noundef readnone returned captures(ret: address, provenance) %0) #27 align 2 {
   ret ptr %0
 }
 
@@ -154886,7 +154886,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24.i: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRN4pets3PetEEE4callINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9void_typeERZL41pybind11_init_pybind11_cross_module_testsRNS_7module_EE4$_21EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESJ_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %.16.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRN4pets3PetEEE4callINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9void_typeERZL41pybind11_init_pybind11_cross_module_testsRNS_7module_EE4$_21EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESJ_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(address_is_null) %.16.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4532)
   %.not.i.i.i = icmp eq ptr %.16.val, null

@@ -423,7 +423,7 @@ define dso_local void @acct_gather_filesystem_p_conf_values(ptr noundef readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @acct_gather_filesystem_p_get_data(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @acct_gather_filesystem_p_get_data(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @tres_pos, align 4
   %3 = icmp ne i32 %2, -1
   %4 = icmp ne ptr %0, null

@@ -1076,7 +1076,7 @@ _Z14luaM_visitpageP8lua_PagePvPFbS1_S0_P8GCObjectE.exit: ; preds = %33, %36, %.l
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc noundef nonnull ptr @_ZL12newclasspageP9lua_StatePP8lua_PageS3_hb(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i8 noundef zeroext range(i8 0, -128) %3, i1 noundef zeroext %4) unnamed_addr #8 {
+define internal fastcc noundef nonnull ptr @_ZL12newclasspageP9lua_StatePP8lua_PageS3_hb(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address_is_null) %2, i8 noundef zeroext range(i8 0, -128) %3, i1 noundef zeroext %4) unnamed_addr #8 {
   %6 = zext nneg i8 %3 to i64
   %7 = getelementptr inbounds nuw [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !54

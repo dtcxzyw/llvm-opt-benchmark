@@ -14,7 +14,7 @@ define hidden ptr @lexbor_mraw_create() local_unnamed_addr #0 {
 declare ptr @lexbor_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lexbor_mraw_init(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden i32 @lexbor_mraw_init(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %16, label %4
 
@@ -63,7 +63,7 @@ declare i32 @lexbor_bst_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lexbor_mraw_clean(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @lexbor_mraw_clean(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 

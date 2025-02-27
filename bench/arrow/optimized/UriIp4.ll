@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.UriIp4ParserStruct = type { i8, i8, i8, i8 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriParseIpFourAddressA(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @uriParseIpFourAddressA(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.UriIp4ParserStruct, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
   %5 = icmp ne ptr %0, null
@@ -81,7 +81,7 @@ define range(i32 0, 2) i32 @uriParseIpFourAddressA(ptr noundef %0, ptr noundef %
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @uriParseDecOctetA(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, ptr noundef readnone %2) unnamed_addr #2 {
+define internal fastcc ptr @uriParseDecOctetA(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(address, ret: address, provenance) %1, ptr noundef readnone captures(address, ret: address, provenance) %2) unnamed_addr #2 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %4, label %uriParseDecOctetOneA.exit
 
@@ -220,7 +220,7 @@ declare void @uriStackToOctet(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriParseIpFourAddressW(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @uriParseIpFourAddressW(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.UriIp4ParserStruct, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
   %5 = icmp ne ptr %0, null
@@ -292,7 +292,7 @@ define range(i32 0, 2) i32 @uriParseIpFourAddressW(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @uriParseDecOctetW(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, ptr noundef readnone %2) unnamed_addr #2 {
+define internal fastcc ptr @uriParseDecOctetW(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(address, ret: address, provenance) %1, ptr noundef readnone captures(address, ret: address, provenance) %2) unnamed_addr #2 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %4, label %uriParseDecOctetOneW.exit
 

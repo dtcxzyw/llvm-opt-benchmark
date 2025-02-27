@@ -195,7 +195,7 @@ define i32 @test_for_fifo(ptr noundef readonly captures(none) %0) local_unnamed_
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong uwtable
-define zeroext i1 @test_for_regular_file(ptr noundef readonly %0) local_unnamed_addr #4 {
+define zeroext i1 @test_for_regular_file(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
   %.not = icmp eq ptr %0, null
@@ -2174,7 +2174,7 @@ define noundef nonnull ptr @file_write_error_message(i32 noundef %0) local_unnam
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @file_exists(ptr noundef readonly %0) local_unnamed_addr #4 {
+define noundef zeroext i1 @file_exists(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
   %.not = icmp eq ptr %0, null
@@ -2201,7 +2201,7 @@ define noundef zeroext i1 @file_exists(ptr noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @config_file_exists_with_entries(ptr noundef readonly %0, i8 noundef signext %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @config_file_exists_with_entries(ptr noundef readonly captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %45, label %3
 

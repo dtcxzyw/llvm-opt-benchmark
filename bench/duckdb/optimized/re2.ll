@@ -1767,7 +1767,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10duckdb_re23RE2D2Ev(ptr noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10duckdb_re23RE2D2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(148) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8, !tbaa !94
   %.not = icmp eq ptr %3, getelementptr inbounds nuw (i8, ptr @_ZN10duckdb_re2L13empty_storageE, i64 80)
@@ -2406,13 +2406,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re23RE210FullMatchNERKNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re23RE210FullMatchNERKNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = tail call noundef zeroext i1 @_ZNK10duckdb_re23RE27DoMatchERKNS_11StringPieceENS0_6AnchorEPmPKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 2, ptr noundef null, ptr noundef %2, i32 noundef %3)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK10duckdb_re23RE27DoMatchERKNS_11StringPieceENS0_6AnchorEPmPKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK10duckdb_re23RE27DoMatchERKNS_11StringPieceENS0_6AnchorEPmPKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.LogMessage, align 8
   %8 = alloca [17 x %"class.duckdb_re2::StringPiece"], align 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -2605,13 +2605,13 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re23RE213PartialMatchNERKNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re23RE213PartialMatchNERKNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = tail call noundef zeroext i1 @_ZNK10duckdb_re23RE27DoMatchERKNS_11StringPieceENS0_6AnchorEPmPKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 0, ptr noundef null, ptr noundef %2, i32 noundef %3)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re23RE28ConsumeNEPNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re23RE28ConsumeNEPNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #31
   %6 = call noundef zeroext i1 @_ZNK10duckdb_re23RE27DoMatchERKNS_11StringPieceENS0_6AnchorEPmPKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 1, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %3)
@@ -2634,7 +2634,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re23RE28ConsumeNEPNS_11StringPiece
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re23RE215FindAndConsumeNEPNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re23RE215FindAndConsumeNEPNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #31
   %6 = call noundef zeroext i1 @_ZNK10duckdb_re23RE27DoMatchERKNS_11StringPieceENS0_6AnchorEPmPKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %3)
@@ -5486,7 +5486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare void @_ZN10duckdb_re212StringPrintfB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIvEEbPKcmPT_(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef readnone %2) local_unnamed_addr #14 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIvEEbPKcmPT_(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef readnone captures(address_is_null) %2) local_unnamed_addr #14 {
   %4 = icmp eq ptr %2, null
   ret i1 %4
 }
@@ -5507,7 +5507,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseINSt7__cxx1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseINS_11StringPieceEEEbPKcmPT_(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseINS_11StringPieceEEEbPKcmPT_(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %6, label %5
 
@@ -5522,7 +5522,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseINS_11Strin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIcEEbPKcmPT_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #15 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIcEEbPKcmPT_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #15 {
   %.not = icmp eq i64 %1, 1
   %4 = icmp ne ptr %2, null
   %or.cond.not = and i1 %.not, %4
@@ -5538,7 +5538,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIcEEbPKcmPT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIaEEbPKcmPT_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #15 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIaEEbPKcmPT_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #15 {
   %.not = icmp eq i64 %1, 1
   %4 = icmp ne ptr %2, null
   %or.cond.not = and i1 %.not, %4
@@ -5554,7 +5554,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIaEEbPKcmPT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIhEEbPKcmPT_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #15 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIhEEbPKcmPT_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #15 {
   %.not = icmp eq i64 %1, 1
   %4 = icmp ne ptr %2, null
   %or.cond.not = and i1 %.not, %4
@@ -5570,7 +5570,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIhEEbPKcmPT
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIfEEbPKcmPT_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #16 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIfEEbPKcmPT_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #16 {
   %4 = alloca [201 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = icmp eq i64 %1, 0
@@ -5707,7 +5707,7 @@ declare ptr @__errno_location() local_unnamed_addr #17
 declare float @strtof(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIdEEbPKcmPT_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #16 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIdEEbPKcmPT_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #16 {
   %4 = alloca [201 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = icmp eq i64 %1, 0
@@ -5841,7 +5841,7 @@ _ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit: ; preds = %.crit
 declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIlEEbPKcmPT_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #16 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIlEEbPKcmPT_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = alloca [33 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = icmp eq i64 %1, 0
@@ -5956,7 +5956,7 @@ _ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit: ; preds = %8, %.
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseImEEbPKcmPT_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #16 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseImEEbPKcmPT_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = alloca [33 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = icmp eq i64 %1, 0
@@ -6080,7 +6080,7 @@ _ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit: ; preds = %8, %.
 declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIsEEbPKcmPT_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #16 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIsEEbPKcmPT_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #31
   %6 = call noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIlEEbPKcmPT_i(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %5, i32 noundef %3)
@@ -6108,7 +6108,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIsEEbPKcmPT
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseItEEbPKcmPT_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #16 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseItEEbPKcmPT_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #31
   %6 = call noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseImEEbPKcmPT_i(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %5, i32 noundef %3)
@@ -6135,7 +6135,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseItEEbPKcmPT
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIiEEbPKcmPT_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #16 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIiEEbPKcmPT_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #31
   %6 = call noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIlEEbPKcmPT_i(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %5, i32 noundef %3)
@@ -6163,7 +6163,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIiEEbPKcmPT
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIjEEbPKcmPT_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #16 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIjEEbPKcmPT_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #31
   %6 = call noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseImEEbPKcmPT_i(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %5, i32 noundef %3)
@@ -6190,7 +6190,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIjEEbPKcmPT
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIxEEbPKcmPT_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #16 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIxEEbPKcmPT_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = alloca [33 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = icmp eq i64 %1, 0
@@ -6305,7 +6305,7 @@ _ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit: ; preds = %8, %.
 declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIyEEbPKcmPT_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #16 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIyEEbPKcmPT_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = alloca [33 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = icmp eq i64 %1, 0

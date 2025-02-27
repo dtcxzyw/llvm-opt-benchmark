@@ -621,7 +621,7 @@ ResourceOwnerSort.exit:                           ; preds = %22, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ResourceOwnerReleaseAllOfKind(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ResourceOwnerReleaseAllOfKind(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i8, ptr %3, align 8, !range !4, !noundef !5
   %5 = trunc nuw i8 %4 to i1
@@ -879,7 +879,7 @@ define dso_local void @RegisterResourceReleaseCallback(ptr noundef %0, ptr nound
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @UnregisterResourceReleaseCallback(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define dso_local void @UnregisterResourceReleaseCallback(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %.01216 = load ptr, ptr @ResourceRelease_callbacks, align 8
   %.not17 = icmp eq ptr %.01216, null
   br i1 %.not17, label %.loopexit, label %.lr.ph

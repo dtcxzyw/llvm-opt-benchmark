@@ -378,7 +378,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP4PoolSt4lessIS5_E
 declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z11AssertParseP5StatePKc21ManifestParserOptions(ptr noundef %0, ptr noundef readonly %1, i32 %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z11AssertParseP5StatePKc21ManifestParserOptions(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i64, align 8
   %6 = alloca %struct.ManifestParser, align 8
@@ -3614,7 +3614,7 @@ _ZN14ScopedFilePathC2EOS_.exit:                   ; preds = %25, %_ZNKSt7__cxx11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14ScopedFilePathD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(33) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14ScopedFilePathD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(33) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8, !tbaa !150, !range !73, !noundef !82
   %4 = trunc nuw i8 %3 to i1

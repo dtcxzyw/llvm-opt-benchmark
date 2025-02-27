@@ -70,7 +70,7 @@ define dso_local void @intel_nhlt_free(ptr noundef %0) #0 align 16 {
 declare dso_local void @acpi_put_table(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 65536) i32 @intel_nhlt_get_dmic_geo(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
+define dso_local range(i32 0, 65536) i32 @intel_nhlt_get_dmic_geo(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit3, label %4
 
@@ -190,7 +190,7 @@ define dso_local range(i32 0, 65536) i32 @intel_nhlt_get_dmic_geo(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef zeroext i1 @intel_nhlt_has_endpoint_type(ptr noundef readonly %0, i8 noundef zeroext %1) #4 align 16 {
+define dso_local noundef zeroext i1 @intel_nhlt_has_endpoint_type(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1) #4 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -227,7 +227,7 @@ define dso_local noundef zeroext i1 @intel_nhlt_has_endpoint_type(ptr noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i32 @intel_nhlt_ssp_endpoint_mask(ptr noundef readonly %0, i8 noundef zeroext %1) #4 align 16 {
+define dso_local i32 @intel_nhlt_ssp_endpoint_mask(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1) #4 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = and i8 %1, -5
   %5 = icmp eq i8 %4, 0
@@ -284,7 +284,7 @@ define dso_local i32 @intel_nhlt_ssp_endpoint_mask(ptr noundef readonly %0, i8 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local range(i32 -22, 4) i32 @intel_nhlt_ssp_mclk_mask(ptr noundef readonly %0, i32 noundef %1) #5 align 16 {
+define dso_local range(i32 -22, 4) i32 @intel_nhlt_ssp_mclk_mask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #5 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -400,7 +400,7 @@ define dso_local range(i32 -22, 4) i32 @intel_nhlt_ssp_mclk_mask(ptr noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local ptr @intel_nhlt_get_endpoint_blob(ptr readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i32 noundef %7, i8 noundef zeroext %8, i8 noundef zeroext %9) #4 align 16 {
+define dso_local ptr @intel_nhlt_get_endpoint_blob(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i32 noundef %7, i8 noundef zeroext %8, i8 noundef zeroext %9) #4 align 16 {
   %11 = icmp eq ptr %1, null
   br i1 %11, label %.loopexit, label %12
 

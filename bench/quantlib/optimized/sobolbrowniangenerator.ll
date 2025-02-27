@@ -1655,7 +1655,7 @@ unreachable:                                      ; preds = %invoke.cont46, %inv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib26SobolBrownianGeneratorBase14orderedIndicesEv(ptr noundef nonnull readnone align 8 dereferenceable(288) %this) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib26SobolBrownianGeneratorBase14orderedIndicesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(288) %this) local_unnamed_addr #6 align 2 {
 entry:
   %orderedIndices_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   ret ptr %orderedIndices_

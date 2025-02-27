@@ -239,7 +239,7 @@ define dso_local void @_ZN4llvm9sandboxir14PHIAddIncoming6revertERNS0_7TrackerE(
 declare noundef ptr @_ZN4llvm9sandboxir7PHINode19removeIncomingValueEj(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9sandboxir7TrackerD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9sandboxir7TrackerD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !30

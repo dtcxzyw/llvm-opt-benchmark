@@ -5179,7 +5179,7 @@ declare void @_ZNK4llvm9MemorySSA15verifyMemorySSAENS0_17VerificationLevelE(ptr 
 declare void @_ZN4llvm13LoopBlocksDFS7performEPKNS_8LoopInfoE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZL20getOnlyLiveSuccessorPN4llvm10BasicBlockE(ptr noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noundef ptr @_ZL20getOnlyLiveSuccessorPN4llvm10BasicBlockE(ptr noundef readonly captures(address) %0) unnamed_addr #10 {
 _ZN4llvm10BasicBlock13getTerminatorEv.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %2 = load ptr, ptr %1, align 8, !tbaa !195

@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [313 x i8] c"\0A    chol flop count for real A, sqrt counted as 1 flop: %.20g\0A    LDL' flop count for real A:                         %.20g\0A    LDL' flop count for complex A:                      %.20g\0A    LU flop count for real A (with no pivoting):        %.20g\0A    LU flop count for complex A (with no pivoting):     %.20g\0A\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @amd_l_info(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SuiteSparse_config, i64 24), align 8, !tbaa !3
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3

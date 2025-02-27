@@ -402,7 +402,7 @@ pmix_obj_run_destructors.exit37:                  ; preds = %.lr.ph.i34, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hash_assign_module(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
+define internal noundef i32 @hash_assign_module(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
   store i32 10, ptr %2, align 4, !tbaa !3
   %.not = icmp ne ptr %0, null
   %4 = icmp ne i64 %1, 0
@@ -7370,7 +7370,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @assemb_kvs_req(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
+define internal i32 @assemb_kvs_req(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %6 = load ptr, ptr %5, align 8, !tbaa !186
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 140

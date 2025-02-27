@@ -3213,7 +3213,7 @@ declare i32 @H5AC_mark_entry_dirty(ptr noundef) local_unnamed_addr #2
 declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5F__super_size(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5F__super_size(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.H5O_loc_t, align 8
   %6 = alloca %struct.H5O_hdr_info_t, align 8

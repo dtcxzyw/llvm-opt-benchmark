@@ -405,7 +405,7 @@ declare i32 @pmix_pointer_array_init(ptr noundef, i32 noundef, i32 noundef, i32 
 declare i32 @pmix_pointer_array_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_plm_base_prted_kill_local_procs(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @prte_plm_base_prted_kill_local_procs(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.pmix_data_buffer, align 8
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #10

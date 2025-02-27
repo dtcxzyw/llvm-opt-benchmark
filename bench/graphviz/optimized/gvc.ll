@@ -319,7 +319,7 @@ define i32 @gvRenderContext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @gvRenderData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define i32 @gvRenderData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call zeroext i1 @gvjobs_output_langname(ptr noundef %0, ptr noundef %2) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %8 = load ptr, ptr %7, align 8, !tbaa !40

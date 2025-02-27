@@ -15,7 +15,7 @@ define hidden ptr @lxb_html_tokenizer_create() local_unnamed_addr #0 {
 declare ptr @lexbor_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lxb_html_tokenizer_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define hidden i32 @lxb_html_tokenizer_init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %37, label %3
 
@@ -109,7 +109,7 @@ declare ptr @lexbor_malloc(i64 noundef) local_unnamed_addr #1
 declare ptr @lxb_html_tokenizer_state_data_before(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @lxb_html_tokenizer_token_done(ptr readnone captures(none) %0, ptr noundef readnone returned %1, ptr readnone captures(none) %2) #2 {
+define internal noundef ptr @lxb_html_tokenizer_token_done(ptr readnone captures(none) %0, ptr noundef readnone returned captures(ret: address, provenance) %1, ptr readnone captures(none) %2) #2 {
   ret ptr %1
 }
 
@@ -189,7 +189,7 @@ define hidden i32 @lxb_html_tokenizer_inherit(ptr noundef writeonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @lxb_html_tokenizer_ref(ptr noundef %0) local_unnamed_addr #3 {
+define hidden ptr @lxb_html_tokenizer_ref(ptr noundef captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #3 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %3, %1

@@ -495,7 +495,7 @@ lv_group_get_focused.exit:                        ; preds = %._crit_edge, %17
 declare ptr @lv_obj_get_group(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_group_get_focused(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_group_get_focused(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -716,7 +716,7 @@ get_indev.exit:                                   ; preds = %.lr.ph.i, %9, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_group_set_editing(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define void @lv_group_set_editing(ptr noundef captures(address) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1005,7 +1005,7 @@ define void @lv_group_focus_prev(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @lv_ll_get_prev(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_group_focus_freeze(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #5 {
+define void @lv_group_focus_freeze(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1023,7 +1023,7 @@ define void @lv_group_focus_freeze(ptr noundef %0, i1 noundef zeroext %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_group_send_data(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @lv_group_send_data(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4, !tbaa !60
   %.not = icmp eq ptr %0, null
@@ -1059,7 +1059,7 @@ lv_group_get_focused.exit.thread:                 ; preds = %4, %10, %lv_group_g
 declare zeroext i1 @lv_obj_has_state(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_group_set_focus_cb(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @lv_group_set_focus_cb(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -1073,7 +1073,7 @@ define void @lv_group_set_focus_cb(ptr noundef writeonly %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_group_set_edge_cb(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @lv_group_set_edge_cb(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1087,7 +1087,7 @@ define void @lv_group_set_edge_cb(ptr noundef writeonly %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_group_set_refocus_policy(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @lv_group_set_refocus_policy(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1107,7 +1107,7 @@ define void @lv_group_set_refocus_policy(ptr noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_group_set_wrap(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #5 {
+define void @lv_group_set_wrap(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1125,7 +1125,7 @@ define void @lv_group_set_wrap(ptr noundef %0, i1 noundef zeroext %1) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_group_get_focus_cb(ptr noundef readonly %0) local_unnamed_addr #8 {
+define ptr @lv_group_get_focus_cb(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1140,7 +1140,7 @@ define ptr @lv_group_get_focus_cb(ptr noundef readonly %0) local_unnamed_addr #8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_group_get_edge_cb(ptr noundef readonly %0) local_unnamed_addr #8 {
+define ptr @lv_group_get_edge_cb(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1155,7 +1155,7 @@ define ptr @lv_group_get_edge_cb(ptr noundef readonly %0) local_unnamed_addr #8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_group_get_editing(ptr noundef readonly %0) local_unnamed_addr #8 {
+define zeroext i1 @lv_group_get_editing(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -1172,7 +1172,7 @@ define zeroext i1 @lv_group_get_editing(ptr noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_group_get_wrap(ptr noundef readonly %0) local_unnamed_addr #8 {
+define zeroext i1 @lv_group_get_wrap(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 

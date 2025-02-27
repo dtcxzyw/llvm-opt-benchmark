@@ -100,7 +100,7 @@ define internal fastcc i32 @cuddZddCountStep(ptr noundef %0, ptr noundef nonnull
 declare i32 @st__foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @st__zdd_countfree(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #3 {
+define internal noundef i32 @st__zdd_countfree(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr readnone captures(none) %2) #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 
@@ -203,7 +203,7 @@ define internal fastcc double @cuddZddCountDoubleStep(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @st__zdd_count_dbl_free(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #3 {
+define internal noundef i32 @st__zdd_count_dbl_free(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr readnone captures(none) %2) #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 

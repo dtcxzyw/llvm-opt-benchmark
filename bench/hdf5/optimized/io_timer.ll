@@ -37,7 +37,7 @@ define void @io_time_destroy(ptr noundef captures(none) %0) local_unnamed_addr #
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @io_time_set(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define noundef ptr @io_time_set(ptr noundef captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = alloca %struct.timeval, align 8
   %5 = load i32, ptr %0, align 8, !tbaa !8
   switch i32 %5, label %80 [

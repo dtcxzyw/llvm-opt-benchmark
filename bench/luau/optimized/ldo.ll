@@ -580,7 +580,7 @@ declare hidden void @_Z12luau_executeP9lua_State(ptr noundef) local_unnamed_addr
 declare hidden noundef i64 @_Z9luaC_stepP9lua_Stateb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 256) i32 @_Z10lua_resumeP9lua_StateS0_i(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 256) i32 @_Z10lua_resumeP9lua_StateS0_i(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %5 = load i8, ptr %4, align 1, !tbaa !72
   switch i8 %5, label %11 [
@@ -1106,7 +1106,7 @@ _ZL15resume_continueP9lua_State.exit:             ; preds = %.lr.ph.i, %56, %67,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 256) i32 @_Z15lua_resumeerrorP9lua_StateS0_(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 256) i32 @_Z15lua_resumeerrorP9lua_StateS0_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %4 = load i8, ptr %3, align 1, !tbaa !72
   switch i8 %4, label %10 [

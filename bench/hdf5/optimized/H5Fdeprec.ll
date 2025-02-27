@@ -54,7 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [33 x i8] c"can't set library version bounds\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Fget_info1(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Fget_info1(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5VL_optional_args_t, align 8
   %4 = alloca %union.H5VL_native_file_optional_args_t, align 8
   %5 = alloca %struct.H5F_info2_t, align 8

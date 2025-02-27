@@ -35,7 +35,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFuncti
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK32pxrInternal_v0_24__pxrReserved__11GfLineSeg2d16FindClosestPointERKNS_7GfVec2dEPd(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define { double, double } @_ZNK32pxrInternal_v0_24__pxrReserved__11GfLineSeg2d16FindClosestPointERKNS_7GfVec2dEPd(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca double, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load double, ptr %5, align 8
@@ -86,7 +86,7 @@ define { double, double } @_ZNK32pxrInternal_v0_24__pxrReserved__11GfLineSeg2d16
 declare { double, double } @_ZNK32pxrInternal_v0_24__pxrReserved__8GfLine2d16FindClosestPointERKNS_7GfVec2dEPd(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__19GfFindClosestPointsERKNS_8GfLine2dERKNS_11GfLineSeg2dEPNS_7GfVec2dES7_PdS8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__19GfFindClosestPointsERKNS_8GfLine2dERKNS_11GfLineSeg2dEPNS_7GfVec2dES7_PdS8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", align 8
   %9 = alloca double, align 8
@@ -177,7 +177,7 @@ declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__19GfFindClosest
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__19GfFindClosestPointsERKNS_11GfLineSeg2dES2_PNS_7GfVec2dES4_PdS5_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__19GfFindClosestPointsERKNS_11GfLineSeg2dES2_PNS_7GfVec2dES4_PdS5_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", align 8
   %9 = alloca double, align 8

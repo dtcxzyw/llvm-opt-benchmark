@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [17 x i8] c"\00\00\00\00\00\00\00\00\1E\0F\0F\0F\00\00\00\00\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @uiter_setString_77(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @uiter_setString_77(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %4
 
@@ -57,7 +57,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @uiter_setUTF16BE_77(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @uiter_setUTF16BE_77(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %30, label %4
 
@@ -132,7 +132,7 @@ _ZL14utf16BE_strlenPKc.exit:                      ; preds = %22, %14, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @uiter_setCharacterIterator_77(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @uiter_setCharacterIterator_77(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -154,7 +154,7 @@ define void @uiter_setCharacterIterator_77(ptr noundef writeonly %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uiter_setReplaceable_77(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @uiter_setReplaceable_77(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %3
 
@@ -184,7 +184,7 @@ define void @uiter_setReplaceable_77(ptr noundef writeonly %0, ptr noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @uiter_setUTF8_77(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define void @uiter_setUTF8_77(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %4
 
@@ -612,7 +612,7 @@ define internal noundef i32 @_ZL22stringIteratorGetStatePK13UCharIterator(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL22stringIteratorSetStateP13UCharIteratorjP10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2) #3 {
+define internal void @_ZL22stringIteratorSetStateP13UCharIteratorjP10UErrorCode(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #3 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %22, label %5
 
@@ -972,7 +972,7 @@ define internal noundef i32 @_ZL25characterIteratorGetStatePK13UCharIterator(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL25characterIteratorSetStateP13UCharIteratorjP10UErrorCode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal void @_ZL25characterIteratorSetStateP13UCharIteratorjP10UErrorCode(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %28, label %5
 
@@ -2510,7 +2510,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetStatePK13UCharIterator(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL20utf8IteratorSetStateP13UCharIteratorjP10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal void @_ZL20utf8IteratorSetStateP13UCharIteratorjP10UErrorCode(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = alloca i32, align 4
   %5 = icmp eq ptr %2, null
   br i1 %5, label %46, label %6

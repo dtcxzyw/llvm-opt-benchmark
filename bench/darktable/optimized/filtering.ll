@@ -779,7 +779,7 @@ declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #4
 declare void @gtk_list_store_insert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_filename_tree_update_visibility(ptr noundef readnone %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
+define hidden void @_filename_tree_update_visibility(ptr noundef readnone captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i32, ptr %3, align 8, !tbaa !74
   %.not = icmp eq i32 %4, 0
@@ -3906,7 +3906,7 @@ _widget_update.exit._crit_edge:                   ; preds = %_widget_update.exit
 declare void @gtk_widget_set_tooltip_text(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @view_leave(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone %2) local_unnamed_addr #13 {
+define void @view_leave(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(address_is_null) %2) local_unnamed_addr #13 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %8
 
@@ -9783,7 +9783,7 @@ declare void @gtk_entry_set_placeholder_text(ptr noundef, ptr noundef) local_unn
 declare i64 @gtk_entry_get_type() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_filename_changed(ptr readnone captures(none) %0, ptr noundef %1) #1 {
+define internal void @_filename_changed(ptr readnone captures(none) %0, ptr noundef captures(address) %1) #1 {
   %3 = load ptr, ptr %1, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %5 = load i32, ptr %4, align 8, !tbaa !183
@@ -9839,7 +9839,7 @@ _rule_set_raw_text.exit:                          ; preds = %6, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_filename_focus_out(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #1 {
+define internal noundef i32 @_filename_focus_out(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 364
   %6 = load i32, ptr %5, align 4, !tbaa !192
@@ -9855,7 +9855,7 @@ define internal noundef i32 @_filename_focus_out(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_filename_press(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
+define internal range(i32 0, 2) i32 @_filename_press(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !198
   switch i32 %5, label %60 [
@@ -10000,7 +10000,7 @@ define internal void @_filename_tree_row_activated(ptr readnone captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_filename_tree_selection_change(ptr noundef %0, ptr noundef readonly %1) #1 {
+define internal void @_filename_tree_selection_change(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca ptr, align 8
@@ -10109,7 +10109,7 @@ declare void @gtk_entry_set_width_chars(ptr noundef, i32 noundef) local_unnamed_
 declare ptr @gtk_entry_get_text(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_filename_synchronise(ptr noundef readonly %0) unnamed_addr #1 {
+define internal fastcc void @_filename_synchronise(ptr noundef readonly captures(address) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !21
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 352
   %4 = load ptr, ptr %3, align 8, !tbaa !126
@@ -10313,7 +10313,7 @@ declare void @gtk_entry_set_max_width_chars(ptr noundef, i32 noundef) local_unna
 declare i32 @g_timeout_add(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_search_changed_wait(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @_search_changed_wait(ptr noundef captures(address) %0) #1 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca [2 x i8], align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -10585,7 +10585,7 @@ define internal fastcc void @_range_widget_add_to_rule(ptr noundef %0, ptr nound
 declare i64 @dtgtk_range_select_get_type() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_range_changed(ptr readnone captures(none) %0, ptr noundef readonly %1) #1 {
+define internal void @_range_changed(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1) #1 {
   %3 = load ptr, ptr %1, align 8, !tbaa !262
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %5 = load i32, ptr %4, align 8, !tbaa !183
@@ -11110,7 +11110,7 @@ define internal ptr @_exposure_bias_print_func(double noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_misc_changed(ptr readnone captures(none) %0, ptr noundef readonly %1) #1 {
+define internal void @_misc_changed(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1) #1 {
   %3 = load ptr, ptr %1, align 8, !tbaa !78
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %5 = load i32, ptr %4, align 8, !tbaa !183
@@ -11190,7 +11190,7 @@ _misc_synchronise.exit:                           ; preds = %37, %36, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_misc_focus_out(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #1 {
+define internal noundef i32 @_misc_focus_out(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !78
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 364
   %6 = load i32, ptr %5, align 4, !tbaa !192
@@ -11206,7 +11206,7 @@ define internal noundef i32 @_misc_focus_out(ptr readnone captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_misc_press(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
+define internal range(i32 0, 2) i32 @_misc_press(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !198
   switch i32 %5, label %48 [
@@ -11309,7 +11309,7 @@ define internal void @_misc_tree_row_activated(ptr readnone captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_misc_tree_selection_changed(ptr noundef %0, ptr noundef readonly %1) #1 {
+define internal void @_misc_tree_selection_changed(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca ptr, align 8
@@ -11435,7 +11435,7 @@ define internal noundef i32 @_misc_select_func(ptr noundef %0, ptr noundef %1, p
 declare ptr @dt_bauhaus_combobox_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_local_copy_changed(ptr readnone captures(none) %0, ptr noundef readonly %1) #1 {
+define internal void @_local_copy_changed(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1) #1 {
   %3 = load ptr, ptr %1, align 8, !tbaa !239
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %5 = load i32, ptr %4, align 8, !tbaa !183
@@ -11539,7 +11539,7 @@ _local_copy_synchronise.exit:                     ; preds = %44, %43, %2
 declare i32 @dt_bauhaus_combobox_set_entry_label(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_history_changed(ptr readnone captures(none) %0, ptr noundef readonly %1) #1 {
+define internal void @_history_changed(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1) #1 {
   %3 = load ptr, ptr %1, align 8, !tbaa !242
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %5 = load i32, ptr %4, align 8, !tbaa !183
@@ -11656,7 +11656,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @dt_iop_order_string(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_module_order_changed(ptr readnone captures(none) %0, ptr noundef readonly %1) #1 {
+define internal void @_module_order_changed(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1) #1 {
   %3 = load ptr, ptr %1, align 8, !tbaa !245
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %5 = load i32, ptr %4, align 8, !tbaa !183
@@ -11782,7 +11782,7 @@ declare i32 @sqlite3_column_bytes(ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @gtk_overlay_new() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_rating_legacy_changed(ptr readnone captures(none) %0, ptr noundef %1) #1 {
+define internal void @_rating_legacy_changed(ptr readnone captures(none) %0, ptr noundef captures(address) %1) #1 {
   %3 = load ptr, ptr %1, align 8, !tbaa !250
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %5 = load i32, ptr %4, align 8, !tbaa !183
@@ -11978,7 +11978,7 @@ declare i64 @gtk_overlay_get_type() local_unnamed_addr #5
 declare void @gtk_overlay_set_overlay_pass_through(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_rating_legacy_synchronise(ptr noundef readonly %0) unnamed_addr #1 {
+define internal fastcc void @_rating_legacy_synchronise(ptr noundef readonly captures(address) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !250
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 352
   %4 = load ptr, ptr %3, align 8, !tbaa !126

@@ -169,7 +169,7 @@ _ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit: ; 
 declare noundef ptr @_ZN3tbb6detail2r115task_dispatcher17get_suspend_pointEv(ptr noundef nonnull align 128 dereferenceable(128)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN3tbb6detail2r115task_dispatcher6resumeERS2_(ptr noundef nonnull readonly align 128 dereferenceable(128) %0, ptr noundef nonnull align 128 dereferenceable(128) initializes((0, 8)) %1) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3tbb6detail2r115task_dispatcher6resumeERS2_(ptr noundef nonnull readonly align 128 captures(address) dereferenceable(128) %0, ptr noundef nonnull align 128 dereferenceable(128) initializes((0, 8)) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 128, !tbaa !91
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !92

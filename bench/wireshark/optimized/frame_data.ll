@@ -755,7 +755,7 @@ define void @frame_data_init(ptr noundef captures(none) initializes((0, 8), (24,
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @frame_data_set_before_dissect(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define void @frame_data_set_before_dissect(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.nstime_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 57

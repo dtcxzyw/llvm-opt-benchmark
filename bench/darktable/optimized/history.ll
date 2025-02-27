@@ -747,7 +747,7 @@ declare void @gtk_box_pack_end(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone captures(none) %0, i32 %1, i32 %2, i32 %3, ptr noundef %4, ptr noundef readonly %5) #1 {
+define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone captures(none) %0, i32 %1, i32 %2, i32 %3, ptr noundef %4, ptr noundef readonly captures(address) %5) #1 {
   %7 = alloca [4 x [2 x [25 x i8]]], align 16
   %8 = alloca i32, align 4
   %9 = load ptr, ptr %5, align 8, !tbaa !125

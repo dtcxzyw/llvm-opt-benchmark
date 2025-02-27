@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @rcsid], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @file_copystr(ptr noundef returned writeonly %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define hidden noundef ptr @file_copystr(ptr noundef returned writeonly captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %9, label %6
 
@@ -1442,7 +1442,7 @@ define hidden ptr @file_pop_buffer(ptr noundef captures(none) %0, ptr noundef %1
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @file_printable(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4) local_unnamed_addr #12 {
+define hidden noundef ptr @file_printable(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly captures(address, ret: address, provenance) %1, i64 noundef %2, ptr noundef readonly captures(address) %3, i64 noundef %4) local_unnamed_addr #12 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %7 = getelementptr inbounds i8, ptr %6, i64 -1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 %4
@@ -1590,7 +1590,7 @@ define hidden i32 @file_clear_closexec(i32 noundef %0) local_unnamed_addr #2 {
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @file_strtrim(ptr noundef %0) local_unnamed_addr #12 {
+define hidden noundef ptr @file_strtrim(ptr noundef captures(ret: address, provenance) %0) local_unnamed_addr #12 {
   %2 = tail call ptr @__ctype_b_loc() #18
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   br label %4

@@ -609,7 +609,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_provider_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @ossl_provider_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.OSSL_PROVIDER_INFO, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #11
   %7 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %0, i32 noundef 1) #11
@@ -973,7 +973,7 @@ define range(i32 0, 2) i32 @ossl_provider_set_module_path(ptr noundef captures(n
 declare i32 @ERR_get_next_error_library() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_provider_add_to_store(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_add_to_store(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ossl_provider_st, align 8
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %4) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %4, i8 0, i64 232, i1 false)
@@ -2309,7 +2309,7 @@ get_provider_store.exit:                          ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_provider_ctx(ptr noundef readonly %0) local_unnamed_addr #7 {
+define ptr @ossl_provider_ctx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -2749,7 +2749,7 @@ define ptr @ossl_provider_module_path(ptr noundef readonly captures(none) %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_provider_get0_dispatch(ptr noundef readonly %0) local_unnamed_addr #7 {
+define ptr @ossl_provider_get0_dispatch(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -2764,7 +2764,7 @@ define ptr @ossl_provider_get0_dispatch(ptr noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_provider_libctx(ptr noundef readonly %0) local_unnamed_addr #7 {
+define ptr @ossl_provider_libctx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -2964,7 +2964,7 @@ define range(i32 0, 2) i32 @ossl_provider_set_operation_bit(ptr noundef captures
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_provider_test_operation_bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_test_operation_bit(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = lshr i64 %1, 3
   %5 = trunc i64 %1 to i8
   %6 = and i8 %5, 7
@@ -3519,7 +3519,7 @@ get_provider_store.exit:                          ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ossl_provider_deregister_child_cb(ptr noundef readonly %0) #0 {
+define internal void @ossl_provider_deregister_child_cb(ptr noundef readonly captures(address) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !66
   %4 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %3, i32 noundef 1) #11

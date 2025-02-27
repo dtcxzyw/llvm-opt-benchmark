@@ -28065,7 +28065,7 @@ _ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_113SpecialReturnEJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_113SpecialReturnEJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #30
@@ -37515,7 +37515,7 @@ declare ptr @PyNumber_Long(ptr noundef) local_unnamed_addr #8
 declare i32 @PyIndex_Check(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IN12_GLOBAL__N_113SpecialReturnEJEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IN12_GLOBAL__N_113SpecialReturnEJEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind116detail12get_functionENS_6handleE.exit.thread17, label %3
@@ -38979,7 +38979,7 @@ _ZN8pybind116detail15argument_loaderIJRKSt8functionIFN12_GLOBAL__N_113SpecialRet
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFN12_GLOBAL__N_113SpecialReturnEvEEaSIRPS2_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS3_E4typeEOS8_(ptr noundef nonnull returned align 8 dereferenceable(32) %0, ptr %.0.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFN12_GLOBAL__N_113SpecialReturnEvEEaSIRPS2_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS3_E4typeEOS8_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr %.0.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i = alloca { i64, i64 }, align 8
   %2 = alloca %"class.std::function.451", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #30

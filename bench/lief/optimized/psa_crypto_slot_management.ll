@@ -160,7 +160,7 @@ define hidden range(i32 -151, 1) i32 @psa_free_key_slot(i64 noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
+define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 360), align 8, !tbaa !7
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %psa_key_slot_state_transition.exit, label %4

@@ -797,7 +797,7 @@ finishnodeget.exit:                               ; preds = %getintfromhash.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @luaH_Hgetshortstr(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #7 {
+define hidden ptr @luaH_Hgetshortstr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -839,7 +839,7 @@ define hidden ptr @luaH_Hgetshortstr(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext range(i8 0, 64) i8 @luaH_getshortstr(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 {
+define hidden zeroext range(i8 0, 64) i8 @luaH_getshortstr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12

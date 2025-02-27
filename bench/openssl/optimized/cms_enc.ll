@@ -409,7 +409,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cms_EncryptedContent_init(ptr noundef writeonly captures(none) initializes((24, 32)) %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_EncryptedContent_init(ptr noundef writeonly captures(none) initializes((24, 32)) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8, !tbaa !15
   %.not = icmp eq ptr %2, null
@@ -443,7 +443,7 @@ define range(i32 0, 2) i32 @ossl_cms_EncryptedContent_init(ptr noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_EncryptedData_set1_key(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_EncryptedData_set1_key(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ne ptr %2, null
   %6 = icmp ne i64 %3, 0
   %or.cond = and i1 %5, %6

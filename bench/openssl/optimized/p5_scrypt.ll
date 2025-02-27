@@ -56,7 +56,7 @@ define void @SCRYPT_PARAMS_free(ptr noundef %0) local_unnamed_addr #1 {
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS5_pbe2_set_scrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #1 {
+define ptr @PKCS5_pbe2_set_scrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #1 {
   %8 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #5
   %.not = icmp eq ptr %0, null

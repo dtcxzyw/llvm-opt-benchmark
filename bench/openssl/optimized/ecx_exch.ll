@@ -34,7 +34,7 @@ ecx_newctx.exit:                                  ; preds = %1, %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @x25519_init(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
+define internal range(i32 0, 2) i32 @x25519_init(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call fastcc i32 @ecx_init(ptr noundef %0, ptr noundef %1)
   ret i32 %4
 }
@@ -60,7 +60,7 @@ define internal i32 @ecx_derive(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecx_set_peer(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @ecx_set_peer(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @ossl_prov_is_running() #4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %17, label %4
@@ -202,7 +202,7 @@ ecx_newctx.exit:                                  ; preds = %1, %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @x448_init(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
+define internal range(i32 0, 2) i32 @x448_init(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call fastcc i32 @ecx_init(ptr noundef %0, ptr noundef %1)
   ret i32 %4
 }
@@ -212,7 +212,7 @@ declare i32 @ossl_prov_is_running() local_unnamed_addr #2
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ecx_init(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ecx_init(ptr noundef captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @ossl_prov_is_running() #4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %17, label %4

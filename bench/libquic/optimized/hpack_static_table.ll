@@ -253,7 +253,7 @@ _ZNSt11_Deque_baseIN3net10HpackEntryESaIS1_EED2Ev.exit: ; preds = %_ZNSt5dequeIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3net16HpackStaticTable10InitializeEPKNS_16HpackStaticEntryEm(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3net16HpackStaticTable10InitializeEPKNS_16HpackStaticEntryEm(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__detail::_AllocNode", align 8
   %5 = alloca %"class.logging::LogMessage", align 8
   %6 = alloca %"class.net::HpackEntry", align 8

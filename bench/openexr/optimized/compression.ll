@@ -55,7 +55,7 @@ declare i64 @internal_exr_huf_decompress_spare_bytes() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @exr_compress_buffer(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @exr_compress_buffer(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   store i32 %1, ptr %8, align 4, !tbaa !3
   %.not = icmp eq ptr %0, null
@@ -125,7 +125,7 @@ declare i64 @libdeflate_zlib_compress(ptr noundef, ptr noundef, i64 noundef, ptr
 declare void @libdeflate_free_compressor(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 24) i32 @exr_uncompress_buffer(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 24) i32 @exr_uncompress_buffer(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
   %.not = icmp eq ptr %0, null

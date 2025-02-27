@@ -54998,7 +54998,7 @@ _ZN6Assimp3FBX4NodeD2Ev.exit:                     ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_Z11count_nodesPK6aiNodeS1_(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #13 {
+define hidden noundef i64 @_Z11count_nodesPK6aiNodeS1_(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1) local_unnamed_addr #13 {
   %3 = icmp eq ptr %0, %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %5 = load i32, ptr %4, align 8
@@ -60299,7 +60299,7 @@ _ZN6Assimp3FBX4Node13AddPropertiesINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL17get_node_for_meshjP6aiNode(i32 noundef range(i32 0, -1) %0, ptr noundef readonly %1) unnamed_addr #13 {
+define internal fastcc noundef ptr @_ZL17get_node_for_meshjP6aiNode(i32 noundef range(i32 0, -1) %0, ptr noundef readonly captures(ret: address, provenance) %1) unnamed_addr #13 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1120
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64

@@ -150,7 +150,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.143 = private unnamed_addr constant [17 x i8] c"X509_CSR_WRITE_C\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 -1, 1) i32 @mbedtls_version_check_feature(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @mbedtls_version_check_feature(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 

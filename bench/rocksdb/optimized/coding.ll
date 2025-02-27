@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef writeonly initializes((0, 1)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef nonnull ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 1)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ult i32 %1, 128
   br i1 %3, label %4, label %7
 
@@ -90,7 +90,7 @@ define noundef nonnull ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
+define noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %.not38 = icmp ult ptr %0, %1
   br i1 %.not38, label %.lr.ph, label %.loopexit
 
@@ -126,7 +126,7 @@ define noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
+define noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %.not38 = icmp ult ptr %0, %1
   br i1 %.not38, label %.lr.ph, label %.loopexit
 

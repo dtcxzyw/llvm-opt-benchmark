@@ -2154,7 +2154,7 @@ define dso_local void @irq_domain_free_irqs(i32 noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__irq_resolve_mapping(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) #1 align 16 {
+define dso_local ptr @__irq_resolve_mapping(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #1 align 16 {
   %4 = icmp eq ptr %0, null
   %5 = load ptr, ptr @irq_default_domain, align 8
   %6 = select i1 %4, ptr %5, ptr %0
@@ -2208,7 +2208,7 @@ define dso_local ptr @__irq_resolve_mapping(ptr noundef %0, i64 noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @irq_domain_get_irq_data(ptr noundef readnone %0, i32 noundef %1) #1 align 16 {
+define dso_local ptr @irq_domain_get_irq_data(ptr noundef readnone captures(address) %0, i32 noundef %1) #1 align 16 {
   %3 = tail call ptr @irq_get_irq_data(i32 noundef %1) #16
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -2493,7 +2493,7 @@ define dso_local ptr @irq_domain_create_hierarchy(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @irq_domain_disconnect_hierarchy(ptr noundef readnone %0, i32 noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @irq_domain_disconnect_hierarchy(ptr noundef readnone captures(address) %0, i32 noundef %1) #1 align 16 {
   %3 = tail call ptr @irq_get_irq_data(i32 noundef %1) #16
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread, label %.preheader
@@ -2522,7 +2522,7 @@ define dso_local noundef range(i32 -22, 1) i32 @irq_domain_disconnect_hierarchy(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2, 1) i32 @irq_domain_set_hwirq_and_chip(ptr noundef readnone %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @irq_domain_set_hwirq_and_chip(ptr noundef readnone captures(address) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
   %6 = tail call ptr @irq_get_irq_data(i32 noundef %1) #16
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %.preheader
@@ -2557,7 +2557,7 @@ define dso_local noundef range(i32 -2, 1) i32 @irq_domain_set_hwirq_and_chip(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @irq_domain_set_info(ptr noundef readnone %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #1 align 16 {
+define dso_local void @irq_domain_set_info(ptr noundef readnone captures(address) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #1 align 16 {
   %9 = tail call ptr @irq_get_irq_data(i32 noundef %1) #16
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread, label %.preheader
@@ -2599,7 +2599,7 @@ declare dso_local void @__irq_set_handler(i32 noundef, ptr noundef, i32 noundef,
 declare dso_local i32 @irq_set_handler_data(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @irq_domain_free_irqs_common(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local void @irq_domain_free_irqs_common(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %.loopexit12, label %.preheader11
 
@@ -2743,7 +2743,7 @@ define dso_local void @irq_domain_free_irqs_parent(ptr noundef readonly captures
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @irq_domain_free_irqs_top(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local void @irq_domain_free_irqs_top(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %irq_domain_free_irqs_common.exit, label %.preheader
 

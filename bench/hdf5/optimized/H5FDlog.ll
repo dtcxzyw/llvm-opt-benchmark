@@ -1289,7 +1289,7 @@ define internal range(i32 -1, 2) i32 @H5FD__log_cmp(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5FD__log_query(ptr noundef readonly %0, ptr noundef writeonly %1) #7 {
+define internal noundef i32 @H5FD__log_query(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) #7 {
   %3 = load i8, ptr @H5FD_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1547,7 +1547,7 @@ define internal i64 @H5FD__log_get_eof(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD__log_get_handle(ptr noundef %0, i64 %1, ptr noundef writeonly %2) #0 {
+define internal range(i32 -1, 1) i32 @H5FD__log_get_handle(ptr noundef %0, i64 %1, ptr noundef writeonly captures(address_is_null) %2) #0 {
   %4 = load i8, ptr @H5FD_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !7

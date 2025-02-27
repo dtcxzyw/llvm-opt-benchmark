@@ -297,7 +297,7 @@ gen_poly.exit:                                    ; preds = %.preheader.i
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @eras_dec_rs(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @eras_dec_rs(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [49 x i32], align 16
   %5 = alloca [49 x i32], align 16
   %6 = alloca [49 x i32], align 16

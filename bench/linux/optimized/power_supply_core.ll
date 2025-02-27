@@ -981,7 +981,7 @@ declare dso_local void @fwnode_handle_put(ptr noundef) local_unnamed_addr #2
 declare dso_local void @devm_kfree(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @power_supply_battery_info_has_prop(ptr noundef readonly %0, i32 noundef %1) #7 align 16 {
+define dso_local zeroext i1 @power_supply_battery_info_has_prop(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #7 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %64, label %4
 
@@ -1099,7 +1099,7 @@ define dso_local zeroext i1 @power_supply_battery_info_has_prop(ptr noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @power_supply_battery_info_get_prop(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #8 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @power_supply_battery_info_get_prop(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #8 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %39, label %5
 
@@ -1897,13 +1897,13 @@ define dso_local void @power_supply_unreg_notifier(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @blocking_notifier_chain_unregister(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @power_supply_register(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local ptr @power_supply_register(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 align 16 {
   %4 = tail call fastcc ptr @__power_supply_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true)
   ret ptr %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__power_supply_register(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__power_supply_register(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %148, label %6
 
@@ -2168,13 +2168,13 @@ define internal fastcc ptr @__power_supply_register(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @power_supply_register_no_ws(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local ptr @power_supply_register_no_ws(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 align 16 {
   %4 = tail call fastcc ptr @__power_supply_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false)
   ret ptr %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @devm_power_supply_register(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local ptr @devm_power_supply_register(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 align 16 {
   %4 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_power_supply_release, i64 noundef 8, i32 noundef 3264, i32 noundef -1, ptr noundef nonnull @.str.33) #17
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -2215,7 +2215,7 @@ declare dso_local void @devres_free(ptr noundef) local_unnamed_addr #2
 declare dso_local void @devres_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @devm_power_supply_register_no_ws(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local ptr @devm_power_supply_register_no_ws(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 align 16 {
   %4 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_power_supply_release, i64 noundef 8, i32 noundef 3264, i32 noundef -1, ptr noundef nonnull @.str.33) #17
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6

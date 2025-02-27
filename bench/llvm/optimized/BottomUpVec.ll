@@ -2061,7 +2061,7 @@ declare void @_ZNK4llvm9sandboxir11Instruction11getIteratorEv(ptr dead_on_unwind
 declare noundef ptr @_ZN4llvm9sandboxir17InsertElementInst6createEPNS0_5ValueES3_S3_NS0_14InsertPositionERNS0_7ContextERKNS_5TwineE(ptr noundef, ptr noundef, ptr noundef, ptr noundef byval(%"class.llvm::sandboxir::InsertPosition") align 8, ptr noundef nonnull align 8 dereferenceable(432), ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9sandboxir11BottomUpVec28collectPotentiallyDeadInstrsENS_8ArrayRefIPNS0_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr readonly %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm9sandboxir11BottomUpVec28collectPotentiallyDeadInstrsENS_8ArrayRefIPNS0_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"struct.llvm::detail::DenseSetEmpty", align 1
   %5 = alloca %"struct.std::pair.573", align 8
   %6 = alloca %"struct.llvm::detail::DenseSetEmpty", align 1

@@ -2283,7 +2283,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z14filename_checkSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPKc(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z14filename_checkSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPKc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #28
@@ -10165,7 +10165,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN7Imf_3_46Header4type
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z8separateSt6vectorIPKcSaIS1_EES1_b(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z8separateSt6vectorIPKcSaIS1_EES1_b(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Imf_3_4::DeepTiledInputPart", align 8
   %5 = alloca %"class.Imf_3_4::DeepTiledOutputPart", align 8
   %6 = alloca %"class.Imf_3_4::DeepScanLineInputPart", align 8

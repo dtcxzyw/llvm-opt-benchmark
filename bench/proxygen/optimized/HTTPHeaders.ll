@@ -232,7 +232,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HTTPHeaders3addESt16initializer_listISt4pairINS0_14HTTPHeaderNameEN5folly5RangeIPKcEEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr readonly %l.coerce0, i64 %l.coerce1) local_unnamed_addr #3 align 2 {
+define void @_ZN8proxygen11HTTPHeaders3addESt16initializer_listISt4pairINS0_14HTTPHeaderNameEN5folly5RangeIPKcEEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr readonly captures(address) %l.coerce0, i64 %l.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.folly::Range", align 8
   %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %l.coerce0, i64 %l.coerce1
@@ -1789,7 +1789,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen11HTTPHeadersaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(32) %hdrs) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen11HTTPHeadersaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %hdrs) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.not = icmp eq ptr %this, %hdrs
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1893,7 +1893,7 @@ _ZN8proxygen11HTTPHeaders7destroyEv.exit:         ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen11HTTPHeadersaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %hdrs) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen11HTTPHeadersaSEOS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(32) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %hdrs) local_unnamed_addr #12 align 2 {
 entry:
   %cmp.not = icmp eq ptr %this, %hdrs
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2218,7 +2218,7 @@ if.end55:                                         ; preds = %if.end39, %if.end23
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HTTPHeaders18stripPerHopHeadersERS0_bPKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %strippedHeaders, i1 noundef zeroext %stripPriority, ptr noundef readonly %customPerHopHeaders) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTPHeaders18stripPerHopHeadersERS0_bPKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %strippedHeaders, i1 noundef zeroext %stripPriority, ptr noundef readonly captures(address_is_null) %customPerHopHeaders) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hdr.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1

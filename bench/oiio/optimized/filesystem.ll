@@ -7099,7 +7099,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
 declare i64 @_ZNSt10filesystem6statusERKNS_7__cxx114pathERSt10error_code(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010Filesystem16create_directoryENS0_17basic_string_viewIcSt11char_traitsIcEEERNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010Filesystem16create_directoryENS0_17basic_string_viewIcSt11char_traitsIcEEERNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::error_code", align 8
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7284,7 +7284,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare noundef zeroext i1 @_ZNSt10filesystem16create_directoryERKNS_7__cxx114pathERSt10error_code(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010Filesystem4copyENS0_17basic_string_viewIcSt11char_traitsIcEEES5_RNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010Filesystem4copyENS0_17basic_string_viewIcSt11char_traitsIcEEES5_RNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::error_code", align 8
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -7530,7 +7530,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010Filesystem6renameENS0_17basic_string_viewIcSt11char_traitsIcEEES5_RNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010Filesystem6renameENS0_17basic_string_viewIcSt11char_traitsIcEEES5_RNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::error_code", align 8
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -7766,7 +7766,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare void @_ZNSt10filesystem6renameERKNS_7__cxx114pathES3_RSt10error_code(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010Filesystem6removeENS0_17basic_string_viewIcSt11char_traitsIcEEERNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010Filesystem6removeENS0_17basic_string_viewIcSt11char_traitsIcEEERNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::error_code", align 8
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7951,7 +7951,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare noundef zeroext i1 @_ZNSt10filesystem6removeERKNS_7__cxx114pathERSt10error_code(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN11OpenImageIO6v3_1_010Filesystem10remove_allENS0_17basic_string_viewIcSt11char_traitsIcEEERNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN11OpenImageIO6v3_1_010Filesystem10remove_allENS0_17basic_string_viewIcSt11char_traitsIcEEERNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::error_code", align 8
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9483,7 +9483,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNK
 declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010Filesystem14read_text_fileENS0_17basic_string_viewIcSt11char_traitsIcEEERNSt7__cxx1112basic_stringIcS4_SaIcEEEm(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010Filesystem14read_text_fileENS0_17basic_string_viewIcSt11char_traitsIcEEERNSt7__cxx1112basic_stringIcS4_SaIcEEEm(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %5 = alloca %"class.std::basic_ifstream", align 8
   %6 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
@@ -9885,7 +9885,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #5 align 2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010Filesystem22read_text_from_commandENS0_17basic_string_viewIcSt11char_traitsIcEEERNSt7__cxx1112basic_stringIcS4_SaIcEEEm(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010Filesystem22read_text_from_commandENS0_17basic_string_viewIcSt11char_traitsIcEEERNSt7__cxx1112basic_stringIcS4_SaIcEEEm(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -10769,7 +10769,7 @@ declare noundef zeroext i1 @_ZN11OpenImageIO6v3_1_07Strutil10parse_charERNS0_17b
 declare i32 @llvm.abs.i32(i32, i1 immarg) #17
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010Filesystem13parse_patternEPKciRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010Filesystem13parse_patternEPKciRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.fmt::v8::format_arg_store", align 16
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -19445,7 +19445,7 @@ define void @_ZN11OpenImageIO6v3_1_010Filesystem6IOFileC2EP8_IO_FILENS1_7IOProxy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11OpenImageIO6v3_1_010Filesystem6IOFileD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11OpenImageIO6v3_1_010Filesystem6IOFileD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN11OpenImageIO6v3_1_010Filesystem6IOFileE, i64 16), ptr %0, align 8, !tbaa !113
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i8, ptr %2, align 8, !tbaa !394, !range !396, !noundef !397

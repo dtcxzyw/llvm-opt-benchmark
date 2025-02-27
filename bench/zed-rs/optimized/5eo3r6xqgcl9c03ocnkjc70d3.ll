@@ -6851,7 +6851,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20bina
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$6filter17h6e806609cb0d6c4bE.llvm.5086258882527994251"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$6filter17h6e806609cb0d6c4bE.llvm.5086258882527994251"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -13796,7 +13796,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h268c32f079b59f24E.exit: ; preds = %"_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7channel14channel_buffer13ChannelBuffer10user_store17h9d96d26b145fb31dE(ptr noalias noundef readonly align 8 dereferenceable(216) %0) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7channel14channel_buffer13ChannelBuffer10user_store17h9d96d26b145fb31dE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(216) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   ret ptr %2
 }
@@ -14865,7 +14865,7 @@ define void @_ZN7channel14channel_buffer13ChannelBuffer6buffer17h8c456f4e8e34d95
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7channel14channel_buffer13ChannelBuffer13collaborators17hac27eae1a99af0ecE(ptr noalias noundef readonly align 8 dereferenceable(216) %0) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7channel14channel_buffer13ChannelBuffer13collaborators17hac27eae1a99af0ecE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(216) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }

@@ -1774,7 +1774,7 @@ declare i32 @mbedtls_pk_ecc_set_key(ptr noundef, ptr noundef, i64 noundef) local
 declare i32 @mbedtls_pk_ecc_set_pubkey_from_prv(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pk_parse_key_rfc8410_der(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readnone %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @pk_parse_key_rfc8410_der(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readnone captures(address) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   store ptr %1, ptr %7, align 8, !tbaa !7

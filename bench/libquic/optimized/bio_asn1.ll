@@ -583,7 +583,7 @@ define internal i64 @asn1_bio_callback_ctrl(ptr noundef readonly captures(none) 
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_bio_flush_ex(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %2, i32 noundef range(i32 2, 7) %3) unnamed_addr #1 {
+define internal fastcc i32 @asn1_bio_flush_ex(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef range(i32 2, 7) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load i32, ptr %5, align 8, !tbaa !24
   %7 = icmp slt i32 %6, 1

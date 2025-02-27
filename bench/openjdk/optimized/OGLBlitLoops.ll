@@ -312,7 +312,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 declare void @OGLRenderQueue_CheckPreviousOp(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, double noundef %10, double noundef %11, double noundef %12, double noundef %13) unnamed_addr #0 {
+define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, double noundef %10, double noundef %11, double noundef %12, double noundef %13) unnamed_addr #0 {
   %15 = icmp eq i32 %5, 2
   %16 = select i1 %15, i32 9729, i32 9728
   %.not = icmp eq ptr %2, null
@@ -1381,7 +1381,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
+define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = alloca %struct.SurfaceDataRasInfo, align 8
   %13 = alloca %struct.SurfaceDataRasInfo, align 8
   %14 = inttoptr i64 %2 to ptr
@@ -1544,7 +1544,7 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
 declare void @SurfaceData_IntersectBlitBounds(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLBlitLoops_CopyArea(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define hidden void @OGLBlitLoops_CopyArea(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.SurfaceDataBounds, align 4
   %11 = alloca %struct.SurfaceDataBounds, align 4
   %12 = icmp eq ptr %1, null

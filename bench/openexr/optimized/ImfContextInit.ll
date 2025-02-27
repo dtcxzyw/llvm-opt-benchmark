@@ -13,7 +13,7 @@ $__clang_call_terminate = comdat any
 @.str.4 = private unnamed_addr constant [50 x i8] c"Stream interface request to write block too large\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(120) ptr @_ZN7Imf_3_418ContextInitializer14setInputStreamEPNS_7IStreamE(ptr noundef nonnull returned writeonly align 8 dereferenceable(120) initializes((32, 72), (104, 108), (112, 120)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(120) ptr @_ZN7Imf_3_418ContextInitializer14setInputStreamEPNS_7IStreamE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(120) initializes((32, 72), (104, 108), (112, 120)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 40, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -370,7 +370,7 @@ define internal void @_ZN7Imf_3_4L15istream_destroyEPK19_priv_exr_context_tPvi(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(120) ptr @_ZN7Imf_3_418ContextInitializer15setOutputStreamEPNS_7OStreamE(ptr noundef nonnull returned writeonly align 8 dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(120) ptr @_ZN7Imf_3_418ContextInitializer15setOutputStreamEPNS_7OStreamE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #11
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 48, i1 false)

@@ -117,7 +117,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 noundef zeroext %1, i32 noundef range(i32 1, -2147483648) %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef writeonly %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 noundef zeroext %1, i32 noundef range(i32 1, -2147483648) %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = tail call ptr @__ctype_b_loc() #17
   %.pre = load ptr, ptr %11, align 8
@@ -2283,7 +2283,7 @@ define dso_local range(i64 0, 2) i64 @line_intersect(ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @line_interpt_line(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @line_interpt_line(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = tail call double @llvm.fabs.f64(double %5)
@@ -4748,7 +4748,7 @@ box_ov.exit.thread:                               ; preds = %.loopexit, %119, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @lseg_interpt_lseg(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @lseg_interpt_lseg(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.Point, align 8
   %5 = alloca %struct.LINE, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
@@ -5158,7 +5158,7 @@ float8_lt.exit.thread:                            ; preds = %82, %lseg_closept_l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @lseg_closept_lseg(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc double @lseg_closept_lseg(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.Point, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
   %5 = tail call fastcc zeroext i1 @lseg_interpt_lseg(ptr noundef %0, ptr noundef %1, ptr noundef %2)
@@ -5401,7 +5401,7 @@ define dso_local noundef i64 @point_in(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @pair_decode(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @pair_decode(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = tail call ptr @__ctype_b_loc() #17
   %.pre = load ptr, ptr %9, align 8
@@ -7737,7 +7737,7 @@ define dso_local i64 @dist_pl(ptr noundef readonly captures(none) %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @line_closept_point(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc double @line_closept_point(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.Point, align 8
   %5 = alloca %struct.LINE, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
@@ -8015,7 +8015,7 @@ define dso_local i64 @dist_ps(ptr noundef readonly captures(none) %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @lseg_closept_point(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc double @lseg_closept_point(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.Point, align 8
   %5 = alloca %struct.LINE, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
@@ -8423,7 +8423,7 @@ define dso_local i64 @dist_pb(ptr noundef readonly captures(none) %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @box_closept_point(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc double @box_closept_point(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.Point, align 8
   %5 = alloca %struct.LSEG, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
@@ -8634,7 +8634,7 @@ define dso_local i64 @dist_sb(ptr noundef readonly captures(none) %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @box_closept_lseg(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc double @box_closept_lseg(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.Point, align 8
   %5 = alloca %struct.LSEG, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
@@ -10423,7 +10423,7 @@ define dso_local range(i64 0, 2) i64 @inter_sl(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @lseg_interpt_line(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @lseg_interpt_line(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.Point, align 8
   %5 = alloca %struct.LINE, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
@@ -10747,7 +10747,7 @@ define dso_local range(i64 0, 2) i64 @inter_sb(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @box_interpt_lseg(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @box_interpt_lseg(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.LSEG, align 8
   %5 = alloca %struct.Point, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16

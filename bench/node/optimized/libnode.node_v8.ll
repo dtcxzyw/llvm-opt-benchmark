@@ -1776,14 +1776,14 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(p
 declare void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN4node8v8_utils10GCProfiler6writerEv(ptr noundef nonnull readnone align 8 dereferenceable(448) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull ptr @_ZN4node8v8_utils10GCProfiler6writerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(448) %this) local_unnamed_addr #7 align 2 {
 entry:
   %writer_ = getelementptr inbounds nuw i8, ptr %this, i64 424
   ret ptr %writer_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN4node8v8_utils10GCProfiler10out_streamB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(448) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull ptr @_ZN4node8v8_utils10GCProfiler10out_streamB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(448) %this) local_unnamed_addr #7 align 2 {
 entry:
   %out_stream_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %out_stream_

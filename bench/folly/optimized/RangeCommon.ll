@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.folly::SparseByteSet" = type { i16, [256 x i8], [256 x i8] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPieceLiteES1_(ptr %0, ptr %1, ptr readonly %2, ptr readnone %3) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPieceLiteES1_(ptr %0, ptr %1, ptr readonly captures(address) %2, ptr readnone captures(address) %3) local_unnamed_addr #0 {
   %5 = alloca %"class.std::bitset", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -76,7 +76,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly6detail27qfind_first_byte_of_bytesetENS0_15StringPieceLiteES1_(ptr %0, ptr %1, ptr readonly %2, ptr readnone %3) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly6detail27qfind_first_byte_of_bytesetENS0_15StringPieceLiteES1_(ptr %0, ptr %1, ptr readonly captures(address) %2, ptr readnone captures(address) %3) local_unnamed_addr #0 {
   %5 = alloca %"class.folly::SparseByteSet", align 2
   call void @llvm.lifetime.start.p0(i64 514, ptr nonnull %5) #4
   %.not18 = icmp eq ptr %2, %3

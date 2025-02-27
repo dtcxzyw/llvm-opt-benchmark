@@ -7683,13 +7683,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4Auto7ReleaseEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode14GetPathAsTokenEPKS0_S2_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode14GetPathAsTokenEPKS0_S2_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #5 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode16_CreatePathTokenEPKS0_S2_(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode16_CreatePathTokenEPKS0_S2_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode16_CreatePathTokenEPKS0_S2_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_StringBuffer", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #17
@@ -8401,7 +8401,7 @@ define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode18_WriteTextToBufferINS_12_GLOBAL__N_113_StringBufferEEEvPKS0_S5_RT_(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode18_WriteTextToBufferINS_12_GLOBAL__N_113_StringBufferEEEvPKS0_S5_RT_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode19GetRelativeRootNodeEv()
   %5 = icmp ne ptr %0, %4
   %6 = icmp ne ptr %1, null
@@ -8631,7 +8631,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_StringBuffer9WriteTextIJPK
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode12GetDebugTextEPKS0_S2_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode12GetDebugTextEPKS0_S2_(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #5 align 2 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_DebugBuffer", align 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -8669,7 +8669,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_DebugBuffer7GetTextEv.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode18_WriteTextToBufferINS_12_GLOBAL__N_112_DebugBufferEEEvPKS0_S5_RT_(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull align 8 captures(none) dereferenceable(9) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode18_WriteTextToBufferINS_12_GLOBAL__N_112_DebugBufferEEEvPKS0_S5_RT_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(9) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode19GetRelativeRootNodeEv()
   %5 = icmp ne ptr %0, %4
   %6 = icmp ne ptr %1, null
@@ -10033,7 +10033,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__20Sdf_PropPartPathNodeD2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17_RemoveINS0_10_PropTableINS_7TfTokenEEEJS3_EEEvPKNS_12Sdf_PathNodeERT_RKNS_19TfDelegatedCountPtrIS6_EEDpRKT0_(ptr noundef nonnull readnone %0, ptr noundef nonnull align 8 captures(none) dereferenceable(11264) %1, ptr %.0.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17_RemoveINS0_10_PropTableINS_7TfTokenEEEJS3_EEEvPKNS_12Sdf_PathNodeERT_RKNS_19TfDelegatedCountPtrIS6_EEDpRKT0_(ptr noundef nonnull readnone captures(address) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(11264) %1, ptr %.0.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %.val16.val = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %.0.val to i64
   %5 = ptrtoint ptr %.val16.val to i64
@@ -10651,7 +10651,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__20Sdf_PropPartPathNodeD2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17_RemoveINS0_10_PropTableINS_7SdfPathEEEJS3_EEEvPKNS_12Sdf_PathNodeERT_RKNS_19TfDelegatedCountPtrIS6_EEDpRKT0_(ptr noundef nonnull readnone %0, ptr noundef nonnull align 8 captures(none) dereferenceable(11264) %1, ptr %.0.val, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17_RemoveINS0_10_PropTableINS_7SdfPathEEEJS3_EEEvPKNS_12Sdf_PathNodeERT_RKNS_19TfDelegatedCountPtrIS6_EEDpRKT0_(ptr noundef nonnull readnone captures(address) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(11264) %1, ptr %.0.val, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %.val12.val = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.val12.val13 = load i32, ptr %4, align 4
@@ -11623,7 +11623,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9Sdf_StatsD2Ev.exit: ; preds = %_ZNSt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L6_VisitEPKNS_12Sdf_PathNodeEPNS_9Sdf_StatsE(ptr noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L6_VisitEPKNS_12Sdf_PathNodeEPNS_9Sdf_StatsE(ptr noundef captures(address) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.114", align 8
   %4 = load i32, ptr %1, align 8
   %5 = add nsw i32 %4, 1
@@ -13166,7 +13166,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_PropTableINS_7SdfPathEEEEEvPKNS_12Sdf_PathNodeERKT_PSt6vectorINS_19TfDelegatedCountPtrIS6_EESaISD_EE(ptr noundef readnone %0, ptr noundef nonnull align 8 captures(none) dereferenceable(11264) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_PropTableINS_7SdfPathEEEEEvPKNS_12Sdf_PathNodeERKT_PSt6vectorINS_19TfDelegatedCountPtrIS6_EESaISD_EE(ptr noundef readnone captures(address) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(11264) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %6
@@ -13401,7 +13401,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit27: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_PropTableINS_7TfTokenEEEEEvPKNS_12Sdf_PathNodeERKT_PSt6vectorINS_19TfDelegatedCountPtrIS6_EESaISD_EE(ptr noundef readnone %0, ptr noundef nonnull align 8 captures(none) dereferenceable(11264) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_PropTableINS_7TfTokenEEEEEvPKNS_12Sdf_PathNodeERKT_PSt6vectorINS_19TfDelegatedCountPtrIS6_EESaISD_EE(ptr noundef readnone captures(address) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(11264) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %6

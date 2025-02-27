@@ -14,7 +14,7 @@ define noundef i48 @_ZN4LIEF5MachO12ParserConfig5quickEv() local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(6) ptr @_ZN4LIEF5MachO12ParserConfig13full_dyldinfoEb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) initializes((0, 3)) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 1 dereferenceable(6) ptr @_ZN4LIEF5MachO12ParserConfig13full_dyldinfoEb(ptr noundef nonnull returned writeonly align 1 captures(ret: address, provenance) dereferenceable(6) initializes((0, 3)) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %spec.select = zext i1 %1 to i8
   store i8 %spec.select, ptr %0, align 1, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1

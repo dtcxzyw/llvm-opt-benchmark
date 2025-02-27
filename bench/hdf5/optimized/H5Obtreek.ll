@@ -217,7 +217,7 @@ define internal noundef i32 @H5O__btreek_encode(ptr readnone captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @H5O__btreek_copy(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #0 {
+define internal noundef ptr @H5O__btreek_copy(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1) #0 {
   %3 = load i8, ptr @H5O_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7

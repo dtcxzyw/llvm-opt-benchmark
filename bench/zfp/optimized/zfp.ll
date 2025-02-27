@@ -322,7 +322,7 @@ define range(i32 0, 5) i32 @zfp_field_dimensionality(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @zfp_field_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
+define i64 @zfp_field_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %zfp_field_dimensionality.exit.thread, label %3
 
@@ -545,7 +545,7 @@ zfp_field_dimensionality.exit.thread15:           ; preds = %16, %1, %zfp_field_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @zfp_field_stride(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @zfp_field_stride(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %zfp_field_dimensionality.exit.thread, label %3
 
@@ -1570,7 +1570,7 @@ zfp_stream_compression_mode.exit.thread57:        ; preds = %34, %53, %45, %41, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @zfp_stream_params(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #6 {
+define void @zfp_stream_params(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 

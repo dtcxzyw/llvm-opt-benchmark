@@ -319,7 +319,7 @@ define noundef nonnull ptr @_ZN6duckdb21utf8proc_get_propertyEi(i32 noundef %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN6duckdb32utf8proc_grapheme_break_statefulEiiPi(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define noundef zeroext i1 @_ZN6duckdb32utf8proc_grapheme_break_statefulEiiPi(i32 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
   %or.cond.i = icmp ugt i32 %0, 1114111
   br i1 %or.cond.i, label %_ZN6duckdb21utf8proc_get_propertyEi.exit, label %4
 
@@ -379,7 +379,7 @@ _ZN6duckdb21utf8proc_get_propertyEi.exit7:        ; preds = %_ZN6duckdb21utf8pro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZN6duckdbL23grapheme_break_extendedEiiiiPi(i32 noundef range(i32 0, 64) %0, i32 noundef range(i32 0, 64) %1, i32 noundef range(i32 0, 4) %2, i32 noundef range(i32 0, 4) %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN6duckdbL23grapheme_break_extendedEiiiiPi(i32 noundef range(i32 0, 64) %0, i32 noundef range(i32 0, 64) %1, i32 noundef range(i32 0, 4) %2, i32 noundef range(i32 0, 4) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #1 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %62, label %6
 
@@ -1026,7 +1026,7 @@ _ZN6duckdb17utf8proc_categoryEi.exit:             ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN6duckdb23utf8proc_decompose_charEiPilNS_17utf8proc_option_tES0_(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define noundef i64 @_ZN6duckdb23utf8proc_decompose_charEiPilNS_17utf8proc_option_tES0_(i32 noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
   %or.cond241 = icmp ugt i32 %0, 1114111
   br i1 %or.cond241, label %.thread215, label %.lr.ph.preheader
 
@@ -1313,7 +1313,7 @@ switch.early.test249:                             ; preds = %63
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i64 -2, -9223372036854775808) i64 @_ZN6duckdbL30seqindex_write_char_decomposedEtPilNS_17utf8proc_option_tES0_(i16 noundef zeroext %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #4 {
+define internal fastcc noundef range(i64 -2, -9223372036854775808) i64 @_ZN6duckdbL30seqindex_write_char_decomposedEtPilNS_17utf8proc_option_tES0_(i16 noundef zeroext %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #4 {
   %6 = zext i16 %0 to i32
   %7 = and i32 %6, 16383
   %8 = zext nneg i32 %7 to i64
@@ -1417,13 +1417,13 @@ _ZN6duckdbL21seqindex_decode_entryEPPKt.exit:     ; preds = %.split, %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb18utf8proc_decomposeEPKhlPilNS_17utf8proc_option_tE(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define noundef i64 @_ZN6duckdb18utf8proc_decomposeEPKhlPilNS_17utf8proc_option_tE(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = tail call noundef i64 @_ZN6duckdb25utf8proc_decompose_customEPKhlPilNS_17utf8proc_option_tEPFiiPvES4_(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef null, ptr noundef null)
   ret i64 %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb25utf8proc_decompose_customEPKhlPilNS_17utf8proc_option_tEPFiiPvES4_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef %6) local_unnamed_addr #5 {
+define noundef i64 @_ZN6duckdb25utf8proc_decompose_customEPKhlPilNS_17utf8proc_option_tEPFiiPvES4_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #5 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = and i32 %4, 24
@@ -1630,7 +1630,7 @@ define noundef i64 @_ZN6duckdb25utf8proc_decompose_customEPKhlPilNS_17utf8proc_o
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option_tE(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option_tE(ptr noundef captures(address) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = and i32 %2, 896
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.loopexit197, label %.preheader196
@@ -2093,7 +2093,7 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN6duckdb17utf8proc_reencodeEPilNS_17utf8proc_option_tE(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define noundef i64 @_ZN6duckdb17utf8proc_reencodeEPilNS_17utf8proc_option_tE(ptr noundef captures(address) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = tail call noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option_tE(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   %5 = icmp slt i64 %4, 0
   br i1 %5, label %122, label %6
@@ -2318,7 +2318,7 @@ define noundef i64 @_ZN6duckdb12utf8proc_mapEPKhlPPhNS_17utf8proc_option_tE(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb19utf8proc_map_customEPKhlPPhNS_17utf8proc_option_tEPFiiPvES5_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 {
+define noundef i64 @_ZN6duckdb19utf8proc_map_customEPKhlPPhNS_17utf8proc_option_tEPFiiPvES5_(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #5 {
   store ptr null, ptr %2, align 8, !tbaa !28
   %7 = tail call noundef i64 @_ZN6duckdb25utf8proc_decompose_customEPKhlPilNS_17utf8proc_option_tEPFiiPvES4_(ptr noundef %0, i64 noundef %1, ptr noundef null, i64 noundef 0, i32 noundef %3, ptr noundef %4, ptr noundef %5)
   %8 = icmp slt i64 %7, 0

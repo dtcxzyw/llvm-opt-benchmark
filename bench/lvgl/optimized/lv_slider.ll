@@ -404,7 +404,7 @@ declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_slider_is_dragged(ptr noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_slider_is_dragged(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

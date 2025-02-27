@@ -1465,7 +1465,7 @@ define void @bufferevent_setcb(ptr noundef captures(none) initializes((304, 336)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @bufferevent_getcb(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define void @bufferevent_getcb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1682,7 +1682,7 @@ bufferevent_incref_and_lock_.exit:                ; preds = %2, %5
 declare void @event_debugx_(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @bufferevent_set_timeouts(ptr noundef initializes((336, 368)) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define i32 @bufferevent_set_timeouts(ptr noundef initializes((336, 368)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -2235,7 +2235,7 @@ declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #2
 declare i32 @evbuffer_cb_clear_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @bufferevent_getwatermark(ptr noundef readonly captures(none) %0, i16 noundef signext %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @bufferevent_getwatermark(ptr noundef readonly captures(none) %0, i16 noundef signext %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   switch i16 %1, label %39 [
     i16 4, label %5
     i16 2, label %21

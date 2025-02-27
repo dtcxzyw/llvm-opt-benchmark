@@ -907,7 +907,7 @@ define hidden void @_ZN10LinearScan18change_spill_stateEP8Intervali(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN10LinearScan24must_store_at_definitionEPK8Interval(ptr noundef readonly %0) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN10LinearScan24must_store_at_definitionEPK8Interval(ptr noundef readonly captures(address) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %0
@@ -1468,7 +1468,7 @@ _ZN19LIR_InsertionBufferD2Ev.exit:                ; preds = %.loopexit.i, %.loop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10LinearScan22create_unhandled_listsEPP8IntervalS2_PFbPKS0_ES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10LinearScan22create_unhandled_listsEPP8IntervalS2_PFbPKS0_ES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr @_ZN8Interval4_endE, align 8
   store ptr %6, ptr %2, align 8
   store ptr %6, ptr %1, align 8
@@ -7406,7 +7406,7 @@ _ZN16LinearScanWalker17finish_allocationEv.exit19: ; preds = %83, %86
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10LinearScan20split_child_at_op_idEP8IntervaliN16LIR_OpVisitState7OprModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN10LinearScan20split_child_at_op_idEP8IntervaliN16LIR_OpVisitState7OprModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr noundef readonly captures(ret: address, provenance) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -7585,7 +7585,7 @@ _ZN8Interval20split_child_at_op_idEiN16LIR_OpVisitState7OprModeE.exit.thread: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN8Interval20split_child_at_op_idEiN16LIR_OpVisitState7OprModeE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZN8Interval20split_child_at_op_idEiN16LIR_OpVisitState7OprModeE(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(136) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -9819,7 +9819,7 @@ _ZN26GrowableArrayWithAllocatorIP8Interval13GrowableArrayIS1_EE6appendERKS1_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10LinearScan23resolve_exception_entryEP10BlockBeginR12MoveResolver(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(380) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10LinearScan23resolve_exception_entryEP10BlockBeginR12MoveResolver(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull align 8 dereferenceable(380) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8
@@ -14271,7 +14271,7 @@ define hidden void @_ZN12MoveResolver17unblock_registersEP8Interval(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN12MoveResolver20save_to_process_moveEP8IntervalS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(380) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN12MoveResolver20save_to_process_moveEP8IntervalS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(380) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %4
 
@@ -16610,7 +16610,7 @@ _ZNK8Interval11first_usageE15IntervalUseKind.exit25: ; preds = %32, %37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14IntervalWalker16remove_from_listEP8Interval(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN14IntervalWalker16remove_from_listEP8Interval(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
@@ -22177,7 +22177,7 @@ define hidden noundef zeroext i1 @_ZN16LinearScanWalker7is_moveEP6LIR_OpP8Interv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16LinearScanWalker25combine_spilled_intervalsEP8Interval(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1384) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN16LinearScanWalker25combine_spilled_intervalsEP8Interval(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1384) %0, ptr noundef captures(address) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %.not47 = icmp eq ptr %4, %1
@@ -22762,7 +22762,7 @@ define hidden void @_ZN17EdgeMoveOptimizerC2Ev(ptr noundef nonnull writeonly ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17EdgeMoveOptimizer27optimize_moves_at_block_endEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17EdgeMoveOptimizer27optimize_moves_at_block_endEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -23665,7 +23665,7 @@ _ZN17GrowableArrayViewIP6LIR_OpE9remove_atEi.exit: ; preds = %18, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17EdgeMoveOptimizer20operations_differentEP6LIR_OpS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN17EdgeMoveOptimizer20operations_differentEP6LIR_OpS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -24693,7 +24693,7 @@ _ZNK10BlockBegin13number_of_suxEv.exit.thread:    ; preds = %2, %20, %_ZNK10Bloc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ControlFlowOptimizer24substitute_branch_targetEP10BlockBeginS1_S1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20ControlFlowOptimizer24substitute_branch_targetEP10BlockBeginS1_S1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 4

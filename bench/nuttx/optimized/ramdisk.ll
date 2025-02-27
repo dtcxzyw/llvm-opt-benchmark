@@ -167,7 +167,7 @@ define internal range(i64 -27, 4294967296) i64 @rd_write(ptr noundef readonly ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -22, 1) i32 @rd_geometry(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #7 {
+define internal range(i32 -22, 1) i32 @rd_geometry(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %3
 

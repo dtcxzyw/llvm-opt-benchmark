@@ -450,7 +450,7 @@ declare i64 @rb_io_taint_check(i64 noundef) local_unnamed_addr #2
 declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define range(i32 0, 268) i32 @rsock_sockaddr_len(ptr noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 0, 268) i32 @rsock_sockaddr_len(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %sockaddr_len.exit, label %3
 

@@ -1106,7 +1106,7 @@ declare i32 @H5AC_evict_tagged_metadata(ptr noundef, i64 noundef, i1 noundef zer
 declare i32 @H5F_try_close(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @H5G_oloc(ptr noundef readnone %0) local_unnamed_addr #4 {
+define ptr @H5G_oloc(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = select i1 %.not, ptr null, ptr %2
@@ -1114,7 +1114,7 @@ define ptr @H5G_oloc(ptr noundef readnone %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @H5G_nameof(ptr noundef readnone %0) local_unnamed_addr #4 {
+define ptr @H5G_nameof(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = select i1 %.not, ptr null, ptr %2

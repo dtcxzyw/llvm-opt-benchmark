@@ -814,7 +814,7 @@ free_line_log_data.exit:                          ; preds = %line_log_data_clear
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_line_range(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @add_line_range(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2856
   %6 = tail call ptr @lookup_decoration(ptr noundef nonnull %5, ptr noundef %1) #16
@@ -1950,7 +1950,7 @@ define dso_local void @line_log_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @clear_decoration(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_void_line_log_data(ptr noundef %0) #0 {
+define internal void @free_void_line_log_data(ptr noundef captures(address_is_null) %0) #0 {
   %.not5.i = icmp eq ptr %0, null
   br i1 %.not5.i, label %free_line_log_data.exit, label %.lr.ph.i
 

@@ -1725,7 +1725,7 @@ pmix_obj_run_destructors.exit323:                 ; preds = %.lr.ph.i320, %581
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @distcb(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef initializes((500, 504), (792, 800)) %3, ptr noundef readonly %4, ptr noundef %5) #0 {
+define internal void @distcb(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef initializes((500, 504), (792, 800)) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 500
   store i32 %0, ptr %7, align 4, !tbaa !78
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 792

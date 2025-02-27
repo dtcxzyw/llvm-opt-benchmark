@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [27 x i8] c"../openssl/crypto/packet.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @WPACKET_allocate_bytes(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_allocate_bytes(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = icmp ne ptr %5, null
@@ -122,7 +122,7 @@ WPACKET_reserve_bytes.exit.thread:                ; preds = %9, %3, %22, %WPACKE
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @WPACKET_reserve_bytes(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_reserve_bytes(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = icmp ne ptr %5, null
@@ -228,7 +228,7 @@ WPACKET_get_curr.exit:                            ; preds = %39, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @WPACKET_sub_allocate_bytes__(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_sub_allocate_bytes__(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -442,7 +442,7 @@ define dso_local ptr @WPACKET_get_curr(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @WPACKET_sub_reserve_bytes__(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_sub_reserve_bytes__(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i8, ptr %5, align 8
   %7 = and i8 %6, 1
@@ -1486,7 +1486,7 @@ WPACKET_close.exit.thread:                        ; preds = %33, %36, %WPACKET_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @WPACKET_get_total_written(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @WPACKET_get_total_written(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3, !prof !24
 
@@ -1502,7 +1502,7 @@ define dso_local range(i32 0, 2) i32 @WPACKET_get_total_written(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @WPACKET_get_length(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @WPACKET_get_length(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = icmp ne ptr %4, null
@@ -1719,7 +1719,7 @@ WPACKET_start_quic_sub_packet_bound.exit:         ; preds = %11, %29, %1, %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @WPACKET_quic_sub_allocate_bytes(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_quic_sub_allocate_bytes(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp ult i64 %1, 64
   br i1 %5, label %select.unfold.i, label %6

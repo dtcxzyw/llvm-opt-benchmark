@@ -155,7 +155,7 @@ define void @_ZN3gmx19StopConditionSignalC2Eibi(ptr noundef nonnull writeonly al
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 2) i32 @_ZN3gmx19StopConditionSignal9getSignalEP8_IO_FILE(ptr noundef nonnull align 4 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN3gmx19StopConditionSignal9getSignalEP8_IO_FILE(ptr noundef nonnull align 4 captures(none) dereferenceable(16) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef i32 @_Z22gmx_get_stop_conditionv()
   %4 = load i32, ptr %0, align 4, !tbaa !24
   %5 = icmp sgt i32 %3, %4
@@ -253,7 +253,7 @@ define void @_ZN3gmx17StopConditionTimeC2Eifi(ptr noundef nonnull writeonly alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN3gmx17StopConditionTime9getSignalElP8_IO_FILEP23gmx_walltime_accounting(ptr noundef nonnull align 4 captures(none) dereferenceable(16) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN3gmx17StopConditionTime9getSignalElP8_IO_FILEP23gmx_walltime_accounting(ptr noundef nonnull align 4 captures(none) dereferenceable(16) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = alloca [22 x i8], align 16
   %6 = load i8, ptr %0, align 4, !tbaa !35, !range !30, !noundef !31
   %7 = trunc nuw i8 %6 to i1

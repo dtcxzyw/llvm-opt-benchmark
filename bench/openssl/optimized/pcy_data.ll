@@ -46,7 +46,7 @@ declare void @POLICYQUALINFO_free(ptr noundef) #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_policy_data_new(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @ossl_policy_data_new(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = and i1 %4, %5

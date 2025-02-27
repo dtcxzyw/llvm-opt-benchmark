@@ -831,7 +831,7 @@ define hidden noundef ptr @_PyPegen_expect_token(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_PyPegen_expect_forced_result(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden noundef ptr @_PyPegen_expect_forced_result(ptr noundef %0, ptr noundef readnone captures(address_is_null, ret: address, provenance) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i32, ptr %4, align 8, !tbaa !87
   %6 = icmp eq i32 %5, 1
@@ -2004,7 +2004,7 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #3
 declare void @_Pypegen_set_syntax_error(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_run_parser_from_file_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_run_parser_from_file_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #1 {
   %11 = tail call ptr @_PyTokenizer_FromFile(ptr noundef %0, ptr noundef %3, ptr noundef %4, ptr noundef %5) #13
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %16
@@ -2136,7 +2136,7 @@ declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #3
 declare void @_PyTokenizer_Free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_run_parser_from_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_run_parser_from_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = icmp eq i32 %1, 257
   %7 = zext i1 %6 to i32
   %.not = icmp eq ptr %3, null

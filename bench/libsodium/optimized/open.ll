@@ -124,7 +124,7 @@ define dso_local i32 @crypto_sign_ed25519_verify_detached(ptr noundef nonnull %0
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local range(i32 -1, 1) i32 @crypto_sign_ed25519_open(ptr noundef %0, ptr noundef writeonly %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @crypto_sign_ed25519_open(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull %4) local_unnamed_addr #0 {
   %6 = icmp ult i64 %3, 64
   br i1 %6, label %17, label %7
 

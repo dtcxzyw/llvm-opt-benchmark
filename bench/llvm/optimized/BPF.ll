@@ -383,7 +383,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7CodeGen7ABIInfo21allow
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_110BPFABIInfo11computeInfoERN5clang7CodeGen14CGFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(40) initializes((48, 75)) %1) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_110BPFABIInfo11computeInfoERN5clang7CodeGen14CGFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(40) initializes((48, 75)) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::CodeGen::ABIArgInfo", align 8
   %4 = alloca %"class.clang::CodeGen::ABIArgInfo", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #11

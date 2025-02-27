@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @opj_event_msg(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ...) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @opj_event_msg(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [512 x i8], align 16
   %.not = icmp eq ptr %0, null

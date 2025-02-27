@@ -576,7 +576,7 @@ define dso_local i64 @freeMemoryGetNotCountedMemory() local_unnamed_addr #0 {
 declare i64 @sdsAllocSize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @getMaxmemoryState(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @getMaxmemoryState(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call i64 @zmalloc_used_memory() #15
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %6

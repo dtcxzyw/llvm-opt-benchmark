@@ -1032,7 +1032,7 @@ define dso_local void @_ZN5clang14ASTMergeAction19EndSourceFileActionEv(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14ASTMergeActionC2ESt10unique_ptrINS_14FrontendActionESt14default_deleteIS2_EEN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef captures(none) %1, ptr readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14ASTMergeActionC2ESt10unique_ptrINS_14FrontendActionESt14default_deleteIS2_EEN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef captures(none) %1, ptr readonly captures(address) %2, i64 %3) unnamed_addr #0 align 2 {
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i:
   %4 = alloca i64, align 8
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #16

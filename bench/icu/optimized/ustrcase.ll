@@ -2621,7 +2621,7 @@ define noundef range(i32 -65535, 65536) i32 @u_strcmpFold_77(ptr noundef %0, i32
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, ptr noundef writeonly captures(none) %6, i32 %.0.val) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(none) %6, i32 %.0.val) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca [2 x %struct.CmpEquivLevel], align 16
   %10 = alloca [2 x %struct.CmpEquivLevel], align 16
@@ -3254,7 +3254,7 @@ define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -65535, 65536) i32 @u_strCaseCompare_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -65535, 65536) i32 @u_strCaseCompare_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %20, label %8
 
@@ -3309,7 +3309,7 @@ define noundef range(i32 -65535, 65536) i32 @u_strncasecmp_77(ptr noundef %0, pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @u_caseInsensitivePrefixMatch_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
+define void @u_caseInsensitivePrefixMatch_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef writeonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   %.val = load i32, ptr %7, align 4, !tbaa !3
   %9 = tail call fastcc noundef i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 %.val)
   ret void

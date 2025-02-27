@@ -1117,7 +1117,7 @@ _ZN2cv8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit: ; preds = %70, %91
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN2cv8tinyxml27XMLUtil7ReadBOMEPKcPb(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #12 align 2 {
+define hidden noundef ptr @_ZN2cv8tinyxml27XMLUtil7ReadBOMEPKcPb(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #12 align 2 {
   store i8 0, ptr %1, align 1, !tbaa !30
   %3 = load i8, ptr %0, align 1, !tbaa !12
   %4 = icmp eq i8 %3, -17
@@ -1299,7 +1299,7 @@ define hidden noundef zeroext i1 @_ZN2cv8tinyxml27XMLUtil10ToUnsignedEPKcPj(ptr 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN2cv8tinyxml27XMLUtil6ToBoolEPKcPb(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #13 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv8tinyxml27XMLUtil6ToBoolEPKcPb(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #13 align 2 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #24
   store i32 0, ptr %3, align 4, !tbaa !18
@@ -1421,7 +1421,7 @@ define hidden noundef zeroext i1 @_ZN2cv8tinyxml27XMLUtil8ToDoubleEPKcPd(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN2cv8tinyxml211XMLDocument8IdentifyEPcPPNS0_7XMLNodeE(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN2cv8tinyxml211XMLDocument8IdentifyEPcPPNS0_7XMLNodeE(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef readonly captures(address, ret: address, provenance) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 align 2 {
   %4 = load i8, ptr %1, align 1, !tbaa !12
   %.not5.i = icmp sgt i8 %4, -1
   br i1 %.not5.i, label %.lr.ph.i, label %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit.thread
@@ -2148,7 +2148,7 @@ _ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit:         ; preds = %._crit_edge.i, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv8tinyxml27XMLNode6UnlinkEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #16 align 2 {
+define hidden void @_ZN2cv8tinyxml27XMLNode6UnlinkEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef captures(address) %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !97
   %5 = icmp eq ptr %1, %4
@@ -2684,7 +2684,7 @@ _ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit:         ; preds = %73, %._crit_edge.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK2cv8tinyxml27XMLNode17FirstChildElementEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZNK2cv8tinyxml27XMLNode17FirstChildElementEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.01329 = load ptr, ptr %3, align 8, !tbaa !48
   %.not30 = icmp eq ptr %.01329, null
@@ -2772,7 +2772,7 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit: ; preds = %30, %12, %.critedg
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK2cv8tinyxml27XMLNode16LastChildElementEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZNK2cv8tinyxml27XMLNode16LastChildElementEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.01329 = load ptr, ptr %3, align 8, !tbaa !48
   %.not30 = icmp eq ptr %.01329, null
@@ -2860,7 +2860,7 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit: ; preds = %30, %12, %.critedg
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK2cv8tinyxml27XMLNode18NextSiblingElementEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZNK2cv8tinyxml27XMLNode18NextSiblingElementEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
   %.09.in21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.0922 = load ptr, ptr %.09.in21, align 8, !tbaa !98
   %.not23 = icmp eq ptr %.0922, null
@@ -2955,7 +2955,7 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit: ; preds = %.critedge.i.thread
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK2cv8tinyxml27XMLNode22PreviousSiblingElementEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZNK2cv8tinyxml27XMLNode22PreviousSiblingElementEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
   %.09.in21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.0922 = load ptr, ptr %.09.in21, align 8, !tbaa !100
   %.not23 = icmp eq ptr %.0922, null
@@ -3050,7 +3050,7 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit: ; preds = %.critedge.i.thread
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN2cv8tinyxml27XMLNode9ParseDeepEPcPNS0_7StrPairE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN2cv8tinyxml27XMLNode9ParseDeepEPcPNS0_7StrPairE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.cv::tinyxml2::StrPair", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3061,9 +3061,9 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLNode9ParseDeepEPcPNS0_7StrPairE(pt
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %11
 
-11:                                               ; preds = %174, %3
-  %.021 = phi ptr [ %1, %3 ], [ %.223, %174 ]
-  %.0 = phi ptr [ undef, %3 ], [ %.2, %174 ]
+11:                                               ; preds = %176, %3
+  %.021 = phi ptr [ %1, %3 ], [ %.223, %176 ]
+  %.0 = phi ptr [ undef, %3 ], [ %.2, %176 ]
   %.not = icmp eq ptr %.021, null
   br i1 %.not, label %.critedge, label %12
 
@@ -3095,361 +3095,362 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLNode9ParseDeepEPcPNS0_7StrPairE(pt
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 120
   %23 = load ptr, ptr %22, align 8
   %24 = invoke noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef nonnull %16, ptr noundef nonnull %5)
-          to label %25 unwind label %35
+          to label %25 unwind label %37
 
 25:                                               ; preds = %20
   %.not41 = icmp eq ptr %24, null
-  br i1 %.not41, label %26, label %45
+  %26 = load ptr, ptr %4, align 8, !tbaa !48
+  br i1 %.not41, label %27, label %47
 
-26:                                               ; preds = %25
-  %27 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %28 = load ptr, ptr %27, align 8, !tbaa !41
-  %29 = load ptr, ptr %18, align 8, !tbaa !39
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 128
-  %31 = load ptr, ptr %30, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(88) %18) #24
-  %32 = load ptr, ptr %28, align 8, !tbaa !39
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %34 = load ptr, ptr %33, align 8
-  invoke void %34(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %18)
-          to label %39 unwind label %37
+27:                                               ; preds = %25
+  %.not42 = icmp eq ptr %26, null
+  br i1 %.not42, label %41, label %28
 
-35:                                               ; preds = %61, %50, %45, %20
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  br label %175
+28:                                               ; preds = %27
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 80
+  %30 = load ptr, ptr %29, align 8, !tbaa !41
+  %31 = load ptr, ptr %26, align 8, !tbaa !39
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 128
+  %33 = load ptr, ptr %32, align 8
+  call void %33(ptr noundef nonnull align 8 dereferenceable(88) %26) #24
+  %34 = load ptr, ptr %30, align 8, !tbaa !39
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %36 = load ptr, ptr %35, align 8
+  invoke void %36(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %26)
+          to label %41 unwind label %39
 
-37:                                               ; preds = %26
+37:                                               ; preds = %63, %52, %47, %20
   %38 = landingpad { ptr, i32 }
           cleanup
-  br label %175
+  br label %177
 
-39:                                               ; preds = %26
-  %40 = load ptr, ptr %6, align 8, !tbaa !33
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 92
-  %42 = load i32, ptr %41, align 4, !tbaa !106
-  %.not77 = icmp eq i32 %42, 0
-  br i1 %.not77, label %43, label %_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit
+39:                                               ; preds = %28
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  br label %177
 
-43:                                               ; preds = %39
-  store i32 17, ptr %41, align 4, !tbaa !106
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
+41:                                               ; preds = %28, %27
+  %42 = load ptr, ptr %6, align 8, !tbaa !33
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 92
+  %44 = load i32, ptr %43, align 4, !tbaa !106
+  %.not77 = icmp eq i32 %44, 0
+  br i1 %.not77, label %45, label %_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit
+
+45:                                               ; preds = %41
+  store i32 17, ptr %43, align 4, !tbaa !106
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
   br label %_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit
 
-45:                                               ; preds = %25
-  %46 = load ptr, ptr %18, align 8, !tbaa !39
-  %47 = load ptr, ptr %46, align 8
-  %48 = invoke noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(88) %18)
-          to label %49 unwind label %35
+47:                                               ; preds = %25
+  %48 = load ptr, ptr %26, align 8, !tbaa !39
+  %49 = load ptr, ptr %48, align 8
+  %50 = invoke noundef ptr %49(ptr noundef nonnull align 8 dereferenceable(88) %26)
+          to label %51 unwind label %37
 
-49:                                               ; preds = %45
-  %.not43 = icmp eq ptr %48, null
-  br i1 %.not43, label %77, label %50
+51:                                               ; preds = %47
+  %.not43 = icmp eq ptr %50, null
+  br i1 %.not43, label %79, label %52
 
-50:                                               ; preds = %49
-  %51 = load ptr, ptr %18, align 8, !tbaa !39
-  %52 = load ptr, ptr %51, align 8
-  %53 = invoke noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(88) %18)
-          to label %54 unwind label %35
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %26, align 8, !tbaa !39
+  %54 = load ptr, ptr %53, align 8
+  %55 = invoke noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(88) %26)
+          to label %56 unwind label %37
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 88
-  %56 = load i32, ptr %55, align 8, !tbaa !44
-  %57 = icmp eq i32 %56, 2
-  br i1 %57, label %58, label %77
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 88
+  %58 = load i32, ptr %57, align 8, !tbaa !44
+  %59 = icmp eq i32 %58, 2
+  br i1 %59, label %60, label %79
 
-58:                                               ; preds = %54
-  br i1 %.not49, label %61, label %59
+60:                                               ; preds = %56
+  br i1 %.not49, label %63, label %61
 
-59:                                               ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %60, i64 24, i1 false), !tbaa.struct !114
-  br label %61
+61:                                               ; preds = %60
+  %62 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %62, i64 24, i1 false), !tbaa.struct !114
+  br label %63
 
-61:                                               ; preds = %59, %58
-  %62 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %63 = load ptr, ptr %62, align 8, !tbaa !41
-  %64 = load ptr, ptr %63, align 8, !tbaa !39
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  %66 = load ptr, ptr %65, align 8
-  invoke void %66(ptr noundef nonnull align 8 dereferenceable(8) %63)
-          to label %67 unwind label %35
+63:                                               ; preds = %61, %60
+  %64 = getelementptr inbounds nuw i8, ptr %26, i64 80
+  %65 = load ptr, ptr %64, align 8, !tbaa !41
+  %66 = load ptr, ptr %65, align 8, !tbaa !39
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
+  %68 = load ptr, ptr %67, align 8
+  invoke void %68(ptr noundef nonnull align 8 dereferenceable(8) %65)
+          to label %69 unwind label %37
 
-67:                                               ; preds = %61
-  %68 = load ptr, ptr %62, align 8, !tbaa !41
-  %69 = load ptr, ptr %18, align 8, !tbaa !39
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 128
-  %71 = load ptr, ptr %70, align 8
-  call void %71(ptr noundef nonnull align 8 dereferenceable(88) %18) #24
-  %72 = load ptr, ptr %68, align 8, !tbaa !39
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  %74 = load ptr, ptr %73, align 8
-  invoke void %74(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull %18)
-          to label %_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit unwind label %75
+69:                                               ; preds = %63
+  %70 = load ptr, ptr %64, align 8, !tbaa !41
+  %71 = load ptr, ptr %26, align 8, !tbaa !39
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 128
+  %73 = load ptr, ptr %72, align 8
+  call void %73(ptr noundef nonnull align 8 dereferenceable(88) %26) #24
+  %74 = load ptr, ptr %70, align 8, !tbaa !39
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  %76 = load ptr, ptr %75, align 8
+  invoke void %76(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull %26)
+          to label %_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit unwind label %77
 
-75:                                               ; preds = %67
-  %76 = landingpad { ptr, i32 }
+77:                                               ; preds = %69
+  %78 = landingpad { ptr, i32 }
           cleanup
-  br label %175
+  br label %177
 
-77:                                               ; preds = %54, %49
-  %78 = load ptr, ptr %18, align 8, !tbaa !39
-  %79 = load ptr, ptr %78, align 8
-  %80 = invoke noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(88) %18)
-          to label %81 unwind label %92
+79:                                               ; preds = %56, %51
+  %80 = load ptr, ptr %26, align 8, !tbaa !39
+  %81 = load ptr, ptr %80, align 8
+  %82 = invoke noundef ptr %81(ptr noundef nonnull align 8 dereferenceable(88) %26)
+          to label %83 unwind label %94
 
-81:                                               ; preds = %77
-  %.not44 = icmp eq ptr %80, null
-  br i1 %.not44, label %.thread69, label %82
+83:                                               ; preds = %79
+  %.not44 = icmp eq ptr %82, null
+  br i1 %.not44, label %.thread69.thread, label %84
 
-82:                                               ; preds = %81
-  %83 = load ptr, ptr %7, align 8, !tbaa !10
-  %84 = load ptr, ptr %8, align 8, !tbaa !11
-  %85 = icmp eq ptr %83, %84
-  %86 = getelementptr inbounds nuw i8, ptr %80, i64 88
-  %87 = load i32, ptr %86, align 8, !tbaa !44
-  %88 = icmp eq i32 %87, 0
-  br i1 %85, label %89, label %94
+84:                                               ; preds = %83
+  %85 = load ptr, ptr %7, align 8, !tbaa !10
+  %86 = load ptr, ptr %8, align 8, !tbaa !11
+  %87 = icmp eq ptr %85, %86
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 88
+  %89 = load i32, ptr %88, align 8, !tbaa !44
+  %90 = icmp eq i32 %89, 0
+  br i1 %87, label %91, label %96
 
-89:                                               ; preds = %82
-  br i1 %88, label %90, label %.thread69
+91:                                               ; preds = %84
+  br i1 %90, label %92, label %.thread69.thread
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %18, i64 24
+92:                                               ; preds = %91
+  %93 = getelementptr inbounds nuw i8, ptr %26, i64 24
   br label %.thread62
 
-92:                                               ; preds = %155, %77
-  %93 = landingpad { ptr, i32 }
+94:                                               ; preds = %157, %79
+  %95 = landingpad { ptr, i32 }
           cleanup
-  br label %175
+  br label %177
 
-94:                                               ; preds = %82
-  %95 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  br i1 %88, label %96, label %.thread62
+96:                                               ; preds = %84
+  %97 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  br i1 %90, label %98, label %.thread62
 
-96:                                               ; preds = %94
-  %97 = call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %98 = call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %95)
-  %99 = icmp eq ptr %97, %98
-  br i1 %99, label %.thread69, label %.preheader.i
+98:                                               ; preds = %96
+  %99 = call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %100 = call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %97)
+  %101 = icmp eq ptr %99, %100
+  br i1 %101, label %.thread69.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %96
-  %100 = load i8, ptr %97, align 1, !tbaa !12
-  %.not26.i = icmp eq i8 %100, 0
+.preheader.i:                                     ; preds = %98
+  %102 = load i8, ptr %99, align 1, !tbaa !12
+  %.not26.i = icmp eq i8 %102, 0
   br i1 %.not26.i, label %.critedge.i.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %105
-  %101 = phi i8 [ %109, %105 ], [ %100, %.preheader.i ]
-  %.029.i = phi i32 [ %108, %105 ], [ 0, %.preheader.i ]
-  %.01628.i = phi ptr [ %107, %105 ], [ %98, %.preheader.i ]
-  %.01727.i = phi ptr [ %106, %105 ], [ %97, %.preheader.i ]
-  %102 = load i8, ptr %.01628.i, align 1, !tbaa !12
-  %103 = icmp eq i8 %101, %102
-  %104 = icmp ne i32 %.029.i, 2147483647
-  %or.cond23.i = select i1 %103, i1 %104, i1 false
-  br i1 %or.cond23.i, label %105, label %.critedge.thread.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %107
+  %103 = phi i8 [ %111, %107 ], [ %102, %.preheader.i ]
+  %.029.i = phi i32 [ %110, %107 ], [ 0, %.preheader.i ]
+  %.01628.i = phi ptr [ %109, %107 ], [ %100, %.preheader.i ]
+  %.01727.i = phi ptr [ %108, %107 ], [ %99, %.preheader.i ]
+  %104 = load i8, ptr %.01628.i, align 1, !tbaa !12
+  %105 = icmp eq i8 %103, %104
+  %106 = icmp ne i32 %.029.i, 2147483647
+  %or.cond23.i = select i1 %105, i1 %106, i1 false
+  br i1 %or.cond23.i, label %107, label %.critedge.thread.i
 
-105:                                              ; preds = %.lr.ph.i
-  %106 = getelementptr inbounds nuw i8, ptr %.01727.i, i64 1
-  %107 = getelementptr inbounds nuw i8, ptr %.01628.i, i64 1
-  %108 = add nuw nsw i32 %.029.i, 1
-  %109 = load i8, ptr %106, align 1, !tbaa !12
-  %.not.i = icmp eq i8 %109, 0
+107:                                              ; preds = %.lr.ph.i
+  %108 = getelementptr inbounds nuw i8, ptr %.01727.i, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %.01628.i, i64 1
+  %110 = add nuw nsw i32 %.029.i, 1
+  %111 = load i8, ptr %108, align 1, !tbaa !12
+  %.not.i = icmp eq i8 %111, 0
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !32
 
-.critedge.i:                                      ; preds = %105
-  %110 = icmp eq i32 %108, 2147483647
-  br i1 %110, label %.thread69, label %.critedge.i.thread
+.critedge.i:                                      ; preds = %107
+  %112 = icmp eq i32 %110, 2147483647
+  br i1 %112, label %.thread69.thread, label %.critedge.i.thread
 
 .critedge.thread.i:                               ; preds = %.lr.ph.i
-  %111 = icmp eq i32 %.029.i, 2147483647
-  br i1 %111, label %.thread69, label %.thread62
+  %113 = icmp eq i32 %.029.i, 2147483647
+  br i1 %113, label %.thread69.thread, label %.thread62
 
 .critedge.i.thread:                               ; preds = %.preheader.i, %.critedge.i
-  %.016.lcssa.i60 = phi ptr [ %107, %.critedge.i ], [ %98, %.preheader.i ]
-  %112 = load i8, ptr %.016.lcssa.i60, align 1, !tbaa !12
-  %113 = icmp eq i8 %112, 0
-  br i1 %113, label %.thread69, label %.thread62
+  %.016.lcssa.i60 = phi ptr [ %109, %.critedge.i ], [ %100, %.preheader.i ]
+  %114 = load i8, ptr %.016.lcssa.i60, align 1, !tbaa !12
+  %115 = icmp eq i8 %114, 0
+  br i1 %115, label %.thread69.thread, label %.thread62
 
-.thread62:                                        ; preds = %.critedge.i.thread, %.critedge.thread.i, %94, %90
-  %.sink100 = phi ptr [ %91, %90 ], [ %95, %94 ], [ %95, %.critedge.thread.i ], [ %95, %.critedge.i.thread ]
-  %.sink99 = load ptr, ptr %6, align 8, !tbaa !33
-  %114 = call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink100)
-  %115 = getelementptr inbounds nuw i8, ptr %.sink99, i64 92
-  store i32 16, ptr %115, align 4, !tbaa !106
-  %116 = getelementptr inbounds nuw i8, ptr %.sink99, i64 104
-  store ptr %114, ptr %116, align 8, !tbaa !116
-  %117 = getelementptr inbounds nuw i8, ptr %.sink99, i64 112
-  store ptr null, ptr %117, align 8, !tbaa !117
-  %118 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %119 = load ptr, ptr %118, align 8, !tbaa !41
-  %120 = load ptr, ptr %18, align 8, !tbaa !39
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 128
-  %122 = load ptr, ptr %121, align 8
-  call void %122(ptr noundef nonnull align 8 dereferenceable(88) %18) #24
-  %123 = load ptr, ptr %119, align 8, !tbaa !39
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 32
-  %125 = load ptr, ptr %124, align 8
-  invoke void %125(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull %18)
-          to label %.thread70 unwind label %126
+.thread62:                                        ; preds = %.critedge.i.thread, %.critedge.thread.i, %96, %92
+  %.sink101 = phi ptr [ %93, %92 ], [ %97, %96 ], [ %97, %.critedge.thread.i ], [ %97, %.critedge.i.thread ]
+  %.sink100 = load ptr, ptr %6, align 8, !tbaa !33
+  %116 = call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink101)
+  %117 = getelementptr inbounds nuw i8, ptr %.sink100, i64 92
+  store i32 16, ptr %117, align 4, !tbaa !106
+  %118 = getelementptr inbounds nuw i8, ptr %.sink100, i64 104
+  store ptr %116, ptr %118, align 8, !tbaa !116
+  %119 = getelementptr inbounds nuw i8, ptr %.sink100, i64 112
+  store ptr null, ptr %119, align 8, !tbaa !117
+  %120 = getelementptr inbounds nuw i8, ptr %26, i64 80
+  %121 = load ptr, ptr %120, align 8, !tbaa !41
+  %122 = load ptr, ptr %26, align 8, !tbaa !39
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 128
+  %124 = load ptr, ptr %123, align 8
+  call void %124(ptr noundef nonnull align 8 dereferenceable(88) %26) #24
+  %125 = load ptr, ptr %121, align 8, !tbaa !39
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 32
+  %127 = load ptr, ptr %126, align 8
+  invoke void %127(ptr noundef nonnull align 8 dereferenceable(8) %121, ptr noundef nonnull %26)
+          to label %_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit unwind label %128
 
-126:                                              ; preds = %.thread62
-  %127 = landingpad { ptr, i32 }
+128:                                              ; preds = %.thread62
+  %129 = landingpad { ptr, i32 }
           cleanup
-  br label %175
+  br label %177
 
-.thread70:                                        ; preds = %.thread62
-  store ptr null, ptr %4, align 8, !tbaa !48
-  br label %_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit
+.thread69.thread:                                 ; preds = %.critedge.i.thread, %.critedge.i, %.critedge.thread.i, %98, %83, %91
+  %130 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %131 = load ptr, ptr %130, align 8, !tbaa !33
+  %132 = load ptr, ptr %6, align 8, !tbaa !33
+  %.not.i53 = icmp eq ptr %131, %132
+  br i1 %.not.i53, label %133, label %_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit
 
-.thread69:                                        ; preds = %96, %81, %89, %.critedge.i.thread, %.critedge.i, %.critedge.thread.i
-  %128 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %129 = load ptr, ptr %128, align 8, !tbaa !33
-  %130 = load ptr, ptr %6, align 8, !tbaa !33
-  %.not.i53 = icmp eq ptr %129, %130
-  br i1 %.not.i53, label %131, label %_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit
+133:                                              ; preds = %.thread69.thread
+  %134 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %135 = load ptr, ptr %134, align 8, !tbaa !38
+  %.not18.i = icmp eq ptr %135, null
+  br i1 %.not18.i, label %157, label %136
 
-131:                                              ; preds = %.thread69
-  %132 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %133 = load ptr, ptr %132, align 8, !tbaa !38
-  %.not18.i = icmp eq ptr %133, null
-  br i1 %.not18.i, label %155, label %134
+136:                                              ; preds = %133
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 48
+  %138 = load ptr, ptr %137, align 8, !tbaa !97
+  %139 = icmp eq ptr %26, %138
+  br i1 %139, label %140, label %143
 
-134:                                              ; preds = %131
-  %135 = getelementptr inbounds nuw i8, ptr %133, i64 48
-  %136 = load ptr, ptr %135, align 8, !tbaa !97
-  %137 = icmp eq ptr %18, %136
-  br i1 %137, label %138, label %141
+140:                                              ; preds = %136
+  %141 = getelementptr inbounds nuw i8, ptr %138, i64 72
+  %142 = load ptr, ptr %141, align 8, !tbaa !98
+  store ptr %142, ptr %137, align 8, !tbaa !97
+  br label %143
 
-138:                                              ; preds = %134
-  %139 = getelementptr inbounds nuw i8, ptr %136, i64 72
-  %140 = load ptr, ptr %139, align 8, !tbaa !98
-  store ptr %140, ptr %135, align 8, !tbaa !97
-  br label %141
+143:                                              ; preds = %140, %136
+  %144 = getelementptr inbounds nuw i8, ptr %135, i64 56
+  %145 = load ptr, ptr %144, align 8, !tbaa !99
+  %146 = icmp eq ptr %26, %145
+  br i1 %146, label %147, label %150
 
-141:                                              ; preds = %138, %134
-  %142 = getelementptr inbounds nuw i8, ptr %133, i64 56
-  %143 = load ptr, ptr %142, align 8, !tbaa !99
-  %144 = icmp eq ptr %18, %143
-  br i1 %144, label %145, label %148
+147:                                              ; preds = %143
+  %148 = getelementptr inbounds nuw i8, ptr %145, i64 64
+  %149 = load ptr, ptr %148, align 8, !tbaa !100
+  store ptr %149, ptr %144, align 8, !tbaa !99
+  br label %150
 
-145:                                              ; preds = %141
-  %146 = getelementptr inbounds nuw i8, ptr %143, i64 64
-  %147 = load ptr, ptr %146, align 8, !tbaa !100
-  store ptr %147, ptr %142, align 8, !tbaa !99
-  br label %148
-
-148:                                              ; preds = %145, %141
-  %149 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %150 = load ptr, ptr %149, align 8, !tbaa !100
-  %.not.i.i = icmp eq ptr %150, null
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %18, i64 72
+150:                                              ; preds = %147, %143
+  %151 = getelementptr inbounds nuw i8, ptr %26, i64 64
+  %152 = load ptr, ptr %151, align 8, !tbaa !100
+  %.not.i.i = icmp eq ptr %152, null
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %26, i64 72
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !98
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %151
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %153
 
-151:                                              ; preds = %148
-  %152 = getelementptr inbounds nuw i8, ptr %150, i64 72
-  store ptr %.pre.i.i, ptr %152, align 8, !tbaa !98
+153:                                              ; preds = %150
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 72
+  store ptr %.pre.i.i, ptr %154, align 8, !tbaa !98
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %151, %148
+._crit_edge.i.i:                                  ; preds = %153, %150
   %.not13.i.i = icmp eq ptr %.pre.i.i, null
-  br i1 %.not13.i.i, label %_ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit.i, label %153
+  br i1 %.not13.i.i, label %_ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit.i, label %155
 
-153:                                              ; preds = %._crit_edge.i.i
-  %154 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 64
-  store ptr %150, ptr %154, align 8, !tbaa !100
+155:                                              ; preds = %._crit_edge.i.i
+  %156 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 64
+  store ptr %152, ptr %156, align 8, !tbaa !100
   br label %_ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit.i
 
-155:                                              ; preds = %131
-  %156 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %157 = load ptr, ptr %156, align 8, !tbaa !41
-  %158 = load ptr, ptr %157, align 8, !tbaa !39
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 40
-  %160 = load ptr, ptr %159, align 8
-  invoke void %160(ptr noundef nonnull align 8 dereferenceable(8) %157)
-          to label %_ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit.i unwind label %92
+157:                                              ; preds = %133
+  %158 = getelementptr inbounds nuw i8, ptr %26, i64 80
+  %159 = load ptr, ptr %158, align 8, !tbaa !41
+  %160 = load ptr, ptr %159, align 8, !tbaa !39
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 40
+  %162 = load ptr, ptr %161, align 8
+  invoke void %162(ptr noundef nonnull align 8 dereferenceable(8) %159)
+          to label %_ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit.i unwind label %94
 
-_ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit.i:       ; preds = %155, %153, %._crit_edge.i.i
-  %161 = load ptr, ptr %9, align 8, !tbaa !99
-  %.not19.i = icmp eq ptr %161, null
-  br i1 %.not19.i, label %164, label %162
-
-162:                                              ; preds = %_ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit.i
-  %163 = getelementptr inbounds nuw i8, ptr %161, i64 72
-  store ptr %18, ptr %163, align 8, !tbaa !98
-  br label %165
+_ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit.i:       ; preds = %157, %155, %._crit_edge.i.i
+  %163 = load ptr, ptr %9, align 8, !tbaa !99
+  %.not19.i = icmp eq ptr %163, null
+  br i1 %.not19.i, label %166, label %164
 
 164:                                              ; preds = %_ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit.i
-  store ptr %18, ptr %10, align 8, !tbaa !97
-  br label %165
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 72
+  store ptr %26, ptr %165, align 8, !tbaa !98
+  br label %167
 
-165:                                              ; preds = %164, %162
-  store ptr %18, ptr %9, align 8, !tbaa !99
-  %166 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store ptr %161, ptr %166, align 8, !tbaa !100
-  %167 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  store ptr null, ptr %167, align 8, !tbaa !98
-  store ptr %0, ptr %132, align 8, !tbaa !38
+166:                                              ; preds = %_ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit.i
+  store ptr %26, ptr %10, align 8, !tbaa !97
+  br label %167
+
+167:                                              ; preds = %166, %164
+  store ptr %26, ptr %9, align 8, !tbaa !99
+  %168 = getelementptr inbounds nuw i8, ptr %26, i64 64
+  store ptr %163, ptr %168, align 8, !tbaa !100
+  %169 = getelementptr inbounds nuw i8, ptr %26, i64 72
+  store ptr null, ptr %169, align 8, !tbaa !98
+  store ptr %0, ptr %134, align 8, !tbaa !38
   br label %_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit
 
-_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit: ; preds = %165, %.thread69, %.thread70, %67, %39, %43
-  %.126 = phi i32 [ 3, %43 ], [ 3, %39 ], [ 1, %67 ], [ 0, %.thread70 ], [ 0, %.thread69 ], [ 0, %165 ]
-  %.223 = phi ptr [ null, %43 ], [ null, %39 ], [ %24, %67 ], [ null, %.thread70 ], [ %24, %.thread69 ], [ %24, %165 ]
-  %.2 = phi ptr [ %.0, %43 ], [ %.0, %39 ], [ %24, %67 ], [ %.0, %.thread70 ], [ %.0, %.thread69 ], [ %.0, %165 ]
-  %168 = load i32, ptr %5, align 8, !tbaa !3
-  %169 = and i32 %168, 512
-  %.not.i.i54 = icmp eq i32 %169, 0
-  br i1 %.not.i.i54, label %174, label %170
+_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit: ; preds = %.thread62, %167, %.thread69.thread, %69, %41, %45
+  %.126 = phi i32 [ 3, %45 ], [ 3, %41 ], [ 1, %69 ], [ 0, %.thread69.thread ], [ 0, %167 ], [ 0, %.thread62 ]
+  %.223 = phi ptr [ null, %45 ], [ null, %41 ], [ %24, %69 ], [ %24, %.thread69.thread ], [ %24, %167 ], [ null, %.thread62 ]
+  %.2 = phi ptr [ %.0, %45 ], [ %.0, %41 ], [ %24, %69 ], [ %.0, %.thread69.thread ], [ %.0, %167 ], [ %.0, %.thread62 ]
+  %170 = load i32, ptr %5, align 8, !tbaa !3
+  %171 = and i32 %170, 512
+  %.not.i.i54 = icmp eq i32 %171, 0
+  br i1 %.not.i.i54, label %176, label %172
 
-170:                                              ; preds = %_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit
-  %171 = load ptr, ptr %7, align 8, !tbaa !10
-  %172 = icmp eq ptr %171, null
-  br i1 %172, label %174, label %173
+172:                                              ; preds = %_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit
+  %173 = load ptr, ptr %7, align 8, !tbaa !10
+  %174 = icmp eq ptr %173, null
+  br i1 %174, label %176, label %175
 
-173:                                              ; preds = %170
-  call void @_ZdaPv(ptr noundef nonnull %171) #23
-  br label %174
+175:                                              ; preds = %172
+  call void @_ZdaPv(ptr noundef nonnull %173) #23
+  br label %176
 
-174:                                              ; preds = %173, %170, %_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit
+176:                                              ; preds = %175, %172, %_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  switch i32 %.126, label %182 [
+  switch i32 %.126, label %184 [
     i32 0, label %11
     i32 3, label %.critedge
-    i32 1, label %.critedge.loopexit104
+    i32 1, label %.critedge.loopexit105
   ], !llvm.loop !118
 
-175:                                              ; preds = %92, %126, %75, %37, %35
-  %.pn51 = phi { ptr, i32 } [ %76, %75 ], [ %36, %35 ], [ %38, %37 ], [ %93, %92 ], [ %127, %126 ]
-  %176 = load i32, ptr %5, align 8, !tbaa !3
-  %177 = and i32 %176, 512
-  %.not.i.i55 = icmp eq i32 %177, 0
-  br i1 %.not.i.i55, label %_ZN2cv8tinyxml27StrPairD2Ev.exit56, label %178
+177:                                              ; preds = %94, %128, %77, %39, %37
+  %.pn51 = phi { ptr, i32 } [ %78, %77 ], [ %38, %37 ], [ %40, %39 ], [ %95, %94 ], [ %129, %128 ]
+  %178 = load i32, ptr %5, align 8, !tbaa !3
+  %179 = and i32 %178, 512
+  %.not.i.i55 = icmp eq i32 %179, 0
+  br i1 %.not.i.i55, label %_ZN2cv8tinyxml27StrPairD2Ev.exit56, label %180
 
-178:                                              ; preds = %175
-  %179 = load ptr, ptr %7, align 8, !tbaa !10
-  %180 = icmp eq ptr %179, null
-  br i1 %180, label %_ZN2cv8tinyxml27StrPairD2Ev.exit56, label %181
+180:                                              ; preds = %177
+  %181 = load ptr, ptr %7, align 8, !tbaa !10
+  %182 = icmp eq ptr %181, null
+  br i1 %182, label %_ZN2cv8tinyxml27StrPairD2Ev.exit56, label %183
 
-181:                                              ; preds = %178
-  call void @_ZdaPv(ptr noundef nonnull %179) #23
+183:                                              ; preds = %180
+  call void @_ZdaPv(ptr noundef nonnull %181) #23
   br label %_ZN2cv8tinyxml27StrPairD2Ev.exit56
 
-_ZN2cv8tinyxml27StrPairD2Ev.exit56:               ; preds = %175, %178, %181
+_ZN2cv8tinyxml27StrPairD2Ev.exit56:               ; preds = %177, %180, %183
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   resume { ptr, i32 } %.pn51
 
-.critedge.loopexit104:                            ; preds = %174
+.critedge.loopexit105:                            ; preds = %176
   br label %.critedge
 
-.critedge:                                        ; preds = %12, %174, %11, %.critedge.loopexit104, %.thread73
-  %.3 = phi ptr [ null, %.thread73 ], [ %.2, %.critedge.loopexit104 ], [ null, %11 ], [ null, %174 ], [ null, %12 ]
+.critedge:                                        ; preds = %12, %176, %11, %.critedge.loopexit105, %.thread73
+  %.3 = phi ptr [ null, %.thread73 ], [ %.2, %.critedge.loopexit105 ], [ null, %11 ], [ null, %176 ], [ null, %12 ]
   ret ptr %.3
 
-182:                                              ; preds = %174
+184:                                              ; preds = %176
   unreachable
 }
 
@@ -4122,7 +4123,7 @@ define hidden noundef ptr @_ZNK2cv8tinyxml214XMLDeclaration12ShallowCloneEPNS0_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN2cv8tinyxml211XMLDocument14NewDeclarationEPKc(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN2cv8tinyxml211XMLDocument14NewDeclarationEPKc(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 align 2 {
 _ZN2cv8tinyxml27XMLNode8SetValueEPKcb.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = tail call noundef ptr @_ZN2cv8tinyxml28MemPoolTILi88EE5AllocEv(ptr noundef nonnull align 8 dereferenceable(128) %2)
@@ -5018,7 +5019,7 @@ define hidden void @_ZN2cv8tinyxml210XMLElementC2EPNS0_11XMLDocumentE(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8tinyxml210XMLElementD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8tinyxml210XMLElementD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml210XMLElementE, i64 16), ptr %0, align 8, !tbaa !39
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !47
@@ -5101,7 +5102,7 @@ _ZN2cv8tinyxml210XMLElementD2Ev.exit:             ; preds = %15, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define hidden noundef ptr @_ZN2cv8tinyxml210XMLElement13FindAttributeEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly %1) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZN2cv8tinyxml210XMLElement13FindAttributeEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.014 = load ptr, ptr %3, align 8, !tbaa !127
   %.not15 = icmp eq ptr %.014, null
@@ -5164,7 +5165,7 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread: ; preds = %_ZN2cv8tiny
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define hidden noundef ptr @_ZNK2cv8tinyxml210XMLElement13FindAttributeEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly %1) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZNK2cv8tinyxml210XMLElement13FindAttributeEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.014 = load ptr, ptr %3, align 8, !tbaa !127
   %.not15 = icmp eq ptr %.014, null
@@ -5227,7 +5228,7 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread: ; preds = %_ZN2cv8tiny
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define hidden noundef ptr @_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.014.i = load ptr, ptr %4, align 8, !tbaa !127
   %.not15.i = icmp eq ptr %.014.i, null
@@ -5803,7 +5804,7 @@ define hidden noundef range(i32 0, 20) i32 @_ZNK2cv8tinyxml210XMLElement14QueryF
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN2cv8tinyxml210XMLElement21FindOrCreateAttributeEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN2cv8tinyxml210XMLElement21FindOrCreateAttributeEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.026 = load ptr, ptr %3, align 8, !tbaa !127
   %.not27 = icmp eq ptr %.026, null
@@ -6017,7 +6018,7 @@ _ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi72EE5BlockELi10EE4PushES5_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLElement15DeleteAttributeEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLElement15DeleteAttributeEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.01525 = load ptr, ptr %3, align 8, !tbaa !127
   %.not26 = icmp eq ptr %.01525, null
@@ -6334,7 +6335,7 @@ _ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit.thread: ; preds = %_ZN2cv8tin
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN2cv8tinyxml210XMLElement9ParseDeepEPcPNS0_7StrPairE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN2cv8tinyxml210XMLElement9ParseDeepEPcPNS0_7StrPairE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #4 align 2 {
   %4 = load i8, ptr %1, align 1, !tbaa !12
   %.not5.i = icmp sgt i8 %4, -1
   br i1 %.not5.i, label %.lr.ph.i, label %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit.thread
@@ -6886,7 +6887,7 @@ _ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi104EE5BlockELi10EED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8tinyxml211XMLDocumentD2Ev(ptr noundef nonnull align 8 dereferenceable(640) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8tinyxml211XMLDocumentD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(640) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml211XMLDocumentE, i64 16), ptr %0, align 8, !tbaa !39
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !97
@@ -8151,7 +8152,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 captures(address) dereferenceable(312) %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #4 align 2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #24
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -8241,7 +8242,7 @@ declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noun
 declare void @llvm.va_end.p0(ptr) #21
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter10PrintSpaceEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter10PrintSpaceEi(ptr noundef nonnull align 8 captures(address) dereferenceable(312) %0, i32 noundef %1) unnamed_addr #4 align 2 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -8257,7 +8258,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter10PrintSpaceEi(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb(ptr noundef nonnull align 8 captures(address) dereferenceable(312) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
   %.v = select i1 %2, i64 202, i64 138
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -8567,7 +8568,7 @@ _ZN2cv8tinyxml28DynArrayIPKcLi10EE4PushES3_.exit: ; preds = %._ZN2cv8tinyxml28Dy
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter11SealElementEv(ptr noundef nonnull align 8 dereferenceable(312) initializes((8, 9)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter11SealElementEv(ptr noundef nonnull align 8 captures(address) dereferenceable(312) initializes((8, 9)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8, !tbaa !153
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.16)
@@ -8575,7 +8576,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter11SealElementEv(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcS3_(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcS3_(ptr noundef nonnull align 8 captures(address) dereferenceable(312) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.28, ptr noundef %1)
   tail call void @_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %2, i1 noundef zeroext false)
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.29)
@@ -8583,7 +8584,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcS3_(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKci(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKci(ptr noundef nonnull align 8 captures(address) dereferenceable(312) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = alloca [200 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #24
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str, i32 noundef %2) #24
@@ -8692,7 +8693,7 @@ _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcj(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcj(ptr noundef nonnull align 8 captures(address) dereferenceable(312) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = alloca [200 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #24
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.1, i32 noundef %2) #24
@@ -8801,7 +8802,7 @@ _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcb(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcb(ptr noundef nonnull align 8 captures(address) dereferenceable(312) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
   %4 = alloca [200 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #24
   %5 = zext i1 %2 to i32
@@ -8911,7 +8912,7 @@ _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcd(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %1, double noundef %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcd(ptr noundef nonnull align 8 captures(address) dereferenceable(312) %0, ptr noundef %1, double noundef %2) local_unnamed_addr #4 align 2 {
   %4 = alloca [200 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #24
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.3, double noundef %2) #24
@@ -9089,7 +9090,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter12CloseElementEb(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb(ptr noundef nonnull align 8 dereferenceable(312) initializes((132, 136)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb(ptr noundef nonnull align 8 captures(address) dereferenceable(312) initializes((132, 136)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8, !tbaa !165
   %6 = add nsw i32 %5, -1
@@ -9123,7 +9124,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEi(ptr noundef nonnull align 8 dereferenceable(312) initializes((132, 136)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEi(ptr noundef nonnull align 8 captures(address) dereferenceable(312) initializes((132, 136)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [200 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #24
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str, i32 noundef %1) #24
@@ -9246,7 +9247,7 @@ _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEj(ptr noundef nonnull align 8 dereferenceable(312) initializes((132, 136)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEj(ptr noundef nonnull align 8 captures(address) dereferenceable(312) initializes((132, 136)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [200 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #24
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.1, i32 noundef %1) #24
@@ -9369,7 +9370,7 @@ _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEb(ptr noundef nonnull align 8 dereferenceable(312) initializes((132, 136)) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEb(ptr noundef nonnull align 8 captures(address) dereferenceable(312) initializes((132, 136)) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [200 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #24
   %4 = zext i1 %1 to i32
@@ -9493,7 +9494,7 @@ _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEf(ptr noundef nonnull align 8 dereferenceable(312) initializes((132, 136)) %0, float noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEf(ptr noundef nonnull align 8 captures(address) dereferenceable(312) initializes((132, 136)) %0, float noundef %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [200 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #24
   %4 = fpext float %1 to double
@@ -9617,7 +9618,7 @@ _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEd(ptr noundef nonnull align 8 dereferenceable(312) initializes((132, 136)) %0, double noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEd(ptr noundef nonnull align 8 captures(address) dereferenceable(312) initializes((132, 136)) %0, double noundef %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [200 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #24
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.3, double noundef %1) #24
@@ -9834,7 +9835,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter11PushUnknownEPKc(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv8tinyxml210XMLPrinter10VisitEnterERKNS0_11XMLDocumentE(ptr noundef nonnull align 8 dereferenceable(312) initializes((136, 137)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %1) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv8tinyxml210XMLPrinter10VisitEnterERKNS0_11XMLDocumentE(ptr noundef nonnull align 8 captures(address) dereferenceable(312) initializes((136, 137)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 89
   %4 = load i8, ptr %3, align 1, !tbaa !121, !range !119, !noundef !120
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -9853,7 +9854,7 @@ define hidden noundef zeroext i1 @_ZN2cv8tinyxml210XMLPrinter10VisitEnterERKNS0_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv8tinyxml210XMLPrinter10VisitEnterERKNS0_10XMLElementEPKNS0_12XMLAttributeE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(104) %1, ptr noundef %2) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv8tinyxml210XMLPrinter10VisitEnterERKNS0_10XMLElementEPKNS0_12XMLAttributeE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(104) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !38
   %6 = load ptr, ptr %5, align 8, !tbaa !39
@@ -9916,7 +9917,7 @@ define hidden noundef zeroext i1 @_ZN2cv8tinyxml210XMLPrinter9VisitExitERKNS0_10
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv8tinyxml210XMLPrinter5VisitERKNS0_7XMLTextE(ptr noundef nonnull align 8 dereferenceable(312) initializes((132, 136)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(89) %1) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv8tinyxml210XMLPrinter5VisitERKNS0_7XMLTextE(ptr noundef nonnull align 8 captures(address) dereferenceable(312) initializes((132, 136)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(89) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = tail call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -10162,7 +10163,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2cv8tinyxml27XMLNode9ToUnknownEv(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml27XMLNodeE, i64 16), ptr %0, align 8, !tbaa !39
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !97

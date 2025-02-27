@@ -984,7 +984,7 @@ define ptr @ossl_quic_cfq_get_priority_head(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge, label %.preheader
 

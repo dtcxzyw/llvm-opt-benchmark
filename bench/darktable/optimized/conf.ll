@@ -1930,7 +1930,7 @@ declare void @g_hash_table_iter_init(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @g_hash_table_iter_next(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @dt_conf_init(ptr noundef writeonly captures(none) initializes((4136, 4144), (4152, 4160)) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @dt_conf_init(ptr noundef writeonly captures(none) initializes((4136, 4144), (4152, 4160)) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @g_free) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4136
   store ptr %4, ptr %5, align 8, !tbaa !51

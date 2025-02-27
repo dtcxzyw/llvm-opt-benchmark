@@ -308,7 +308,7 @@ define noundef nonnull ptr @getMagicHeaderName(i32 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 28) i32 @cli_egg_open(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
+define range(i32 0, 28) i32 @cli_egg_open(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -2233,7 +2233,7 @@ define internal fastcc void @egg_free_egg_handle(ptr noundef nonnull captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 28) i32 @cli_egg_peek_file_header(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 28) i32 @cli_egg_peek_file_header(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -2442,7 +2442,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 28) i32 @cli_egg_deflate_decompress(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
+define range(i32 0, 28) i32 @cli_egg_deflate_decompress(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.z_stream_s, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #11
   %6 = icmp eq ptr %0, null
@@ -2626,7 +2626,7 @@ declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 28) i32 @cli_egg_bzip2_decompress(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
+define range(i32 0, 28) i32 @cli_egg_bzip2_decompress(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.bz_stream, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #11
   %6 = icmp eq ptr %0, null
@@ -2805,7 +2805,7 @@ declare i32 @BZ2_bzDecompress(ptr noundef) local_unnamed_addr #3
 declare i32 @BZ2_bzDecompressEnd(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 28) i32 @cli_egg_lzma_decompress(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
+define range(i32 0, 28) i32 @cli_egg_lzma_decompress(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.CLI_LZMA, align 8
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #11
   %6 = icmp eq ptr %0, null
@@ -2975,7 +2975,7 @@ declare i32 @cli_LzmaDecode(ptr noundef) local_unnamed_addr #3
 declare void @cli_LzmaShutdown(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
+define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -3337,7 +3337,7 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef wr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 23) i32 @cli_egg_skip_file(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 23) i32 @cli_egg_skip_file(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3
 
@@ -3386,7 +3386,7 @@ define range(i32 0, 23) i32 @cli_egg_skip_file(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_egg_close(ptr noundef %0) local_unnamed_addr #2 {
+define void @cli_egg_close(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3
 

@@ -543,7 +543,7 @@ blas_lock.exit._crit_edge:                        ; preds = %blas_lock.exit
 declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @exec_blas_async_wait(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noundef i32 @exec_blas_async_wait(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp sgt i64 %0, 0
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4

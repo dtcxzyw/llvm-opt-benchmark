@@ -3040,7 +3040,7 @@ define noundef i32 @H5B_shared_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5B_get_info(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @H5B_get_info(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5B_iter_ud_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
   %8 = load i8, ptr @H5B_init_g, align 1, !tbaa !3, !range !7, !noundef !8

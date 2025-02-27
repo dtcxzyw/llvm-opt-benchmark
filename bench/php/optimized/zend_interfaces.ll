@@ -124,7 +124,7 @@ target triple = "x86_64-pc-linux-gnu"
 @arginfo_class_InternalIterator_valid = internal constant [1 x { ptr, { ptr, i32, [4 x i8] }, ptr }] [{ ptr, { ptr, i32, [4 x i8] }, ptr } { ptr null, { ptr, i32, [4 x i8] } { ptr null, i32 12, [4 x i8] zeroinitializer }, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @zend_call_method(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef returned %5, i32 noundef %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 {
+define dso_local noundef ptr @zend_call_method(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, ptr noundef returned %5, i32 noundef %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 {
   %10 = alloca [2 x %struct._zval_struct], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #9
   %.not = icmp eq i32 %6, 0
@@ -271,7 +271,7 @@ define dso_local void @zend_user_it_invalidate_current(ptr noundef %0) #0 {
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @zend_user_it_valid(ptr noundef readonly %0) #0 {
+define dso_local range(i32 -1, 1) i32 @zend_user_it_valid(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %54, label %3

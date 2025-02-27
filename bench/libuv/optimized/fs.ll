@@ -3939,7 +3939,7 @@ define dso_local i32 @uv_fs_utime(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_fs_write(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local i32 @uv_fs_write(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %1, null
   br i1 %8, label %42, label %9
 

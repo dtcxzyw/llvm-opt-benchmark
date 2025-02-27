@@ -460,7 +460,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dopen1(i64 noundef %0, ptr nou
 declare ptr @H5VL_dataset_open(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Dextend(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Dextend(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5VL_dataset_get_args_t, align 8
   %4 = alloca %struct.H5VL_dataset_specific_args_t, align 8
   %5 = alloca [32 x i64], align 16

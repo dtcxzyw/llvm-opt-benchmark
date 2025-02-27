@@ -67,7 +67,7 @@ ml_kem_init.exit:                                 ; preds = %9, %7, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ml_kem_encapsulate(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @ml_kem_encapsulate(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) #0 {
   %6 = load ptr, ptr %0, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !13
@@ -223,7 +223,7 @@ ml_kem_init.exit:                                 ; preds = %9, %7, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ml_kem_decapsulate(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #0 {
+define internal i32 @ml_kem_decapsulate(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4) #0 {
   %6 = load ptr, ptr %0, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %8 = load ptr, ptr %7, align 8, !tbaa !23

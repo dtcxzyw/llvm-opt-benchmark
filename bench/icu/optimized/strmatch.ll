@@ -667,13 +667,13 @@ define noundef ptr @_ZNK6icu_7713StringMatcher5cloneEv(ptr noundef nonnull align
 declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7713StringMatcher9toMatcherEv(ptr noundef nonnull readnone align 8 dereferenceable(108) %0) unnamed_addr #10 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7713StringMatcher9toMatcherEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(108) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7713StringMatcher10toReplacerEv(ptr noundef nonnull readnone align 8 dereferenceable(108) %0) unnamed_addr #10 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7713StringMatcher10toReplacerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(108) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }

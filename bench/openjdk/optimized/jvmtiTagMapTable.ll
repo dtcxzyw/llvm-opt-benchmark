@@ -1001,7 +1001,7 @@ _ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageI14JvmtiTagMapKe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
   %3 = load i32, ptr %0, align 8
   %.not7.i = icmp eq i32 %3, 0
   br i1 %.not7.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageI14JvmtiTagMapKeylLN6AnyObj15allocation_typeE2EL8MEMFLAGS23EES1_lLS3_2ELS4_23EXadL_ZNS1_8get_hashERKS1_EEXadL_ZNS1_6equalsES7_S7_EEE6unlinkIZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEE6IsDeadEEvPT_.exit, label %.lr.ph5.i

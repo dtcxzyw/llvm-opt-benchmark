@@ -2195,7 +2195,7 @@ Py_DECREF.exit14:                                 ; preds = %Py_DECREF.exit14.si
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @framelocalsproxy_inplace_or(ptr noundef %0, ptr noundef %1) #0 {
+define internal noundef ptr @framelocalsproxy_inplace_or(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !10
   %4 = getelementptr i8, ptr %.val, i64 168
@@ -4710,7 +4710,7 @@ _Py_NewRef.exit:                                  ; preds = %2, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @frame_settrace_opcodes(ptr noundef %0, ptr noundef readonly %1, ptr readnone captures(none) %2) #0 {
+define internal i32 @frame_settrace_opcodes(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !10
   %.not = icmp eq ptr %.val, @PyBool_Type

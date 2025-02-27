@@ -332,7 +332,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef ptr @reader_file(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #6 {
+define internal noundef ptr @reader_file(ptr readnone captures(none) %0, ptr noundef captures(ret: address, provenance) %1, ptr noundef writeonly captures(none) %2) #6 {
   %4 = load ptr, ptr %1, align 8, !tbaa !46
   %5 = tail call i32 @feof(ptr noundef %4) #12
   %.not = icmp eq i32 %5, 0

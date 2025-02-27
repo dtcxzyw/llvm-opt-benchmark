@@ -791,7 +791,7 @@ define noalias ptr @X509_OBJECT_new() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_STORE_CTX_get_by_subject(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_STORE_CTX_get_by_subject(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
   %6 = icmp sgt i32 %5, 0
   %7 = zext i1 %6 to i32
@@ -799,7 +799,7 @@ define range(i32 0, 2) i32 @X509_STORE_CTX_get_by_subject(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.x509_object_st, align 8
   %6 = alloca %struct.x509_st, align 8
   %7 = alloca %struct.X509_crl_st, align 8
@@ -1224,7 +1224,7 @@ declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #2
 declare i32 @X509_CRL_up_ref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_OBJECT_get0_X509(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @X509_OBJECT_get0_X509(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -1244,7 +1244,7 @@ define ptr @X509_OBJECT_get0_X509(ptr noundef readonly %0) local_unnamed_addr #4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_OBJECT_get0_X509_CRL(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @X509_OBJECT_get0_X509_CRL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -1270,7 +1270,7 @@ define i32 @X509_OBJECT_get_type(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_OBJECT_set1_X509(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_OBJECT_set1_X509(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %15, label %4
 
@@ -1310,7 +1310,7 @@ x509_object_free_internal.exit:                   ; preds = %6, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_OBJECT_set1_X509_CRL(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_OBJECT_set1_X509_CRL(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %15, label %4
 
@@ -1397,7 +1397,7 @@ define ptr @X509_STORE_get0_objects(ptr noundef readonly captures(none) %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_STORE_get1_objects(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @X509_STORE_get1_objects(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -1461,7 +1461,7 @@ X509_OBJECT_up_ref_count.exit:                    ; preds = %1, %12, %10, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_STORE_get1_all_certs(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @X509_STORE_get1_all_certs(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 

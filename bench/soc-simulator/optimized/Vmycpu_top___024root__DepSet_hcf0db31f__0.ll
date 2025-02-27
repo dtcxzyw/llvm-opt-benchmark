@@ -12330,7 +12330,7 @@ declare void @_Z42Vmycpu_top___024root___nba_sequent__TOP__1P20Vmycpu_top___024r
 declare void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top___024root(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @_ZL9VL_ZERO_WiPj(i32 noundef %0, ptr noundef returned writeonly %1) #7 {
+define internal noundef ptr @_ZL9VL_ZERO_WiPj(i32 noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) %1) #7 {
   %3 = add nsw i32 %0, 31
   %4 = sdiv i32 %3, 32
   %5 = sext i32 %4 to i64
@@ -12377,7 +12377,7 @@ define internal noundef range(i64 -9223372036854775808, 1) i64 @_ZL15VL_EXTENDSI
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @_ZL16VL_MEMSET_ZERO_WPji(ptr noundef returned writeonly %0, i32 noundef %1) #8 {
+define internal noundef ptr @_ZL16VL_MEMSET_ZERO_WPji(ptr noundef returned writeonly captures(ret: address, provenance) %0, i32 noundef %1) #8 {
   %3 = sext i32 %1 to i64
   %4 = shl nsw i64 %3, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %4, i1 false)

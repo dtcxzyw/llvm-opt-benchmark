@@ -374,14 +374,14 @@ _ZN6node_t11set_node_atEmS_.exit:                 ; preds = %_ZN6node_t17set_fir
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6node_teqES_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readnone %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK6node_teqES_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readnone captures(address) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = icmp eq ptr %3, %1
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6node_tneES_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readnone %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK6node_tneES_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readnone captures(address) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = icmp ne ptr %3, %1
   ret i1 %4
@@ -595,7 +595,7 @@ define void @_ZN14match_result_tC2Emmmm6node_tS0_S0_(ptr noundef nonnull writeon
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3zmq12radix_tree_t5matchEPKhmb(ptr dead_on_unwind noalias writable sret(%struct.match_result_t) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef readonly %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #7 align 2 {
+define void @_ZNK3zmq12radix_tree_t5matchEPKhmb(ptr dead_on_unwind noalias writable sret(%struct.match_result_t) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #7 align 2 {
   %6 = alloca %struct.node_t, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %12, !prof !13
@@ -765,7 +765,7 @@ _ZN6node_t13first_byte_atEm.exit:                 ; preds = %42, %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3zmq12radix_tree_t3addEPKhm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN3zmq12radix_tree_t3addEPKhm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = alloca %struct.node_t, align 8
   %5 = alloca %struct.node_t, align 8
   %6 = alloca %struct.node_t, align 8
@@ -1191,7 +1191,7 @@ _ZN6node_t11set_node_atEmS_.exit104:              ; preds = %_ZN6node_t6resizeEm
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3zmq12radix_tree_t2rmEPKhm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN3zmq12radix_tree_t2rmEPKhm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = alloca %struct.match_result_t, align 8
   %5 = alloca %struct.node_t, align 8
   %6 = alloca %struct.node_t, align 8
@@ -1430,7 +1430,7 @@ define noundef zeroext i1 @_ZN3zmq12radix_tree_t2rmEPKhm(ptr noundef nonnull ali
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3zmq12radix_tree_t5checkEPKhm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN3zmq12radix_tree_t5checkEPKhm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = alloca %struct.match_result_t, align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !3
   %.0.copyload.i = load i32, ptr %5, align 1

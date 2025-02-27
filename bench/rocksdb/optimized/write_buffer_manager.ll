@@ -479,7 +479,7 @@ _ZNSt7__cxx1110_List_baseIPN7rocksdb14StallInterfaceESaIS3_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb18WriteBufferManagerD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(160) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18WriteBufferManagerD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   %.not8.i.i = icmp eq ptr %3, %2

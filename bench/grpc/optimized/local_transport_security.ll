@@ -36,7 +36,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 3) i32 @_Z27tsi_local_handshaker_createPP14tsi_handshaker(ptr noundef writeonly %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_Z27tsi_local_handshaker_createPP14tsi_handshaker(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %7
@@ -98,7 +98,7 @@ define internal void @_ZN12_GLOBAL__N_118handshaker_destroyEP14tsi_handshaker(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_115handshaker_nextEP14tsi_handshakerPKhmPS3_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS3_mS7_ESA_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr noundef %8) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_115handshaker_nextEP14tsi_handshakerPKhmPS3_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS3_mS7_ESA_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr noundef %8) #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %11 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %12 = icmp eq ptr %0, null
@@ -205,7 +205,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_142handshaker_result_get_frame_prot
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_134handshaker_result_get_unused_bytesEPK21tsi_handshaker_resultPPKhPm(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_134handshaker_result_get_unused_bytesEPK21tsi_handshaker_resultPPKhPm(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null

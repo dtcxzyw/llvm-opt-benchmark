@@ -924,7 +924,7 @@ define internal { double, double } @_ZL12approx_e_fwd5PJ_LPP8PJconsts(double %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc noundef ptr @_ZL11setup_exactP8PJconsts(ptr noundef readonly returned %0) unnamed_addr #7 {
+define internal fastcc noundef ptr @_ZL11setup_exactP8PJconsts(ptr noundef readonly returned captures(ret: address, provenance) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !70
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24

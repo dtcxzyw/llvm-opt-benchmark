@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/ssl/quic/quic_rcidm.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_quic_rcidm_new(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @ossl_quic_rcidm_new(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 144, ptr noundef nonnull @.str, i32 noundef 285) #9
   %3 = icmp eq ptr %2, null
   br i1 %3, label %16, label %4
@@ -809,7 +809,7 @@ rcidm_tick.exit:                                  ; preds = %rcidm_handle_retire
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_rcidm_pop_retire_seq_num(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_rcidm_pop_retire_seq_num(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.val.i = load ptr, ptr %3, align 8, !tbaa !23
   %4 = icmp eq ptr %.val.i, null
@@ -905,7 +905,7 @@ rcidm_get_retire.exit:                            ; preds = %2, %rcidm_free_rcid
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_quic_rcidm_peek_retire_seq_num(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ossl_quic_rcidm_peek_retire_seq_num(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.val.i = load ptr, ptr %3, align 8, !tbaa !23
   %4 = icmp eq ptr %.val.i, null

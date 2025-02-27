@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZL17currentBufferSize = internal unnamed_addr global i32 512, align 4
 
 ; Function Attrs: mustprogress uwtable
-define i32 @parseFlagsFile(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
+define i32 @parseFlagsFile(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = tail call ptr @T_FileStream_open(ptr noundef %0, ptr noundef nonnull @.str)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.critedge.sink.split, label %9

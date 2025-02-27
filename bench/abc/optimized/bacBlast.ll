@@ -152,7 +152,7 @@ Dec_GraphFree.exit:                               ; preds = %14, %17
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Bac_ManAddBarbuf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define i32 @Bac_ManAddBarbuf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %or.cond = icmp ult i32 %1, 2
   br i1 %or.cond, label %281, label %9
 
@@ -2865,7 +2865,7 @@ Bac_ManNtkIsOk.exit.i84:                          ; preds = %Bac_ManNtkIsOk.exit
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Bac_NtkCreateAndConnectBuffer(ptr noundef readonly %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #6 {
+define void @Bac_NtkCreateAndConnectBuffer(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %5
 
@@ -3294,7 +3294,7 @@ Vec_IntPush.exit28:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Bac_NtkInsertGia(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Bac_NtkInsertGia(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !61
   %5 = icmp sgt i32 %4, 0
@@ -4240,7 +4240,7 @@ Bac_NtkCreateAndConnectBuffer.exit188:            ; preds = %Bac_ObjAlloc.exit21
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Bac_ManInsertGia(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @Bac_ManInsertGia(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @Bac_ManDupUserBoxes(ptr noundef %0)
   tail call void @Bac_ManMarkNodesGia(ptr noundef %0, ptr noundef %1)
   tail call void @Bac_ManRemapBarbufs(ptr noundef %3, ptr noundef %0)

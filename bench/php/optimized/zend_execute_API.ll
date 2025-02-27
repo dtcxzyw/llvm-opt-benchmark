@@ -1545,7 +1545,7 @@ declare void @zend_objects_store_destroy(ptr noundef) local_unnamed_addr #1
 declare void @zend_shutdown_fpu() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local nonnull ptr @get_active_class_name(ptr noundef writeonly %0) local_unnamed_addr #7 {
+define dso_local nonnull ptr @get_active_class_name(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !66
   %.not20 = icmp eq ptr %2, null
   br i1 %.not20, label %3, label %5
@@ -1940,7 +1940,7 @@ get_function_arg_name.exit:                       ; preds = %40, %32, %21, %zend
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @get_function_arg_name(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local ptr @get_function_arg_name(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq i32 %1, 0
   %or.cond = or i1 %3, %4
@@ -2396,7 +2396,7 @@ zend_get_executed_scope.exit:                     ; preds = %10, %6, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_call_user_function_impl(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_call_user_function_impl(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct._zend_fcall_info, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #24
   store i64 64, ptr %7, align 8, !tbaa !167
@@ -4303,7 +4303,7 @@ define dso_local ptr @zend_lookup_class(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @zend_get_called_scope(ptr noundef readonly %0) local_unnamed_addr #9 {
+define dso_local ptr @zend_get_called_scope(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
   %.not17 = icmp eq ptr %0, null
   br i1 %.not17, label %.loopexit, label %.lr.ph
 
@@ -4354,7 +4354,7 @@ define dso_local ptr @zend_get_called_scope(ptr noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @zend_get_this_object(ptr noundef readonly %0) local_unnamed_addr #9 {
+define dso_local ptr @zend_get_this_object(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
   %.not14 = icmp eq ptr %0, null
   br i1 %.not14, label %.loopexit, label %.lr.ph
 
@@ -4399,7 +4399,7 @@ define dso_local ptr @zend_get_this_object(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @zend_eval_stringl(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @zend_eval_stringl(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %.not = icmp eq ptr %2, null
@@ -4570,7 +4570,7 @@ declare void @_zend_bailout(ptr noundef, i32 noundef) local_unnamed_addr #11
 declare void @zend_destroy_static_vars(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @zend_eval_string(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @zend_eval_string(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
   %5 = tail call i32 @zend_eval_stringl(ptr noundef nonnull %0, i64 noundef %4, ptr noundef %1, ptr noundef %2)
   ret i32 %5
@@ -4580,7 +4580,7 @@ define dso_local range(i32 -1, 1) i32 @zend_eval_string(ptr noundef %0, ptr noun
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @zend_eval_stringl_ex(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local i32 @zend_eval_stringl_ex(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = tail call i32 @zend_eval_stringl(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8
   %8 = icmp ne ptr %7, null
@@ -4599,7 +4599,7 @@ define dso_local i32 @zend_eval_stringl_ex(ptr noundef %0, i64 noundef %1, ptr n
 declare i32 @zend_exception_error(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @zend_eval_string_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local i32 @zend_eval_string_ex(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
   %6 = tail call i32 @zend_eval_stringl(ptr noundef nonnull %0, i64 noundef %5, ptr noundef %1, ptr noundef %2)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8
@@ -4924,7 +4924,7 @@ define internal void @zend_throw_or_error(i32 noundef %0, ptr readnone captures(
 declare i32 @zend_get_class_fetch_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_fetch_class_with_scope(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local ptr @zend_fetch_class_with_scope(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #0 {
   %4 = and i32 %1, 15
   switch i32 %4, label %13 [
     i32 1, label %5

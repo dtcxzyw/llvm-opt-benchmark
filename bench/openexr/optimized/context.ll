@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [51 x i8] c"Unable to write %lu bytes to stream, wrote %ld: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_test_file_header(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define i32 @exr_test_file_header(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._exr_context_initializer_v3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
@@ -227,7 +227,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare i32 @internal_exr_alloc_context(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dispatch_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly %4, i32 noundef %5) #0 {
+define internal i32 @dispatch_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %7
 
@@ -327,7 +327,7 @@ define internal i64 @default_query_size_func(ptr readnone captures(none) %0, ptr
 declare i32 @internal_exr_check_magic(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_finish(ptr noundef %0) local_unnamed_addr #0 {
+define i32 @exr_finish(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %41, label %2
 
@@ -425,7 +425,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare void @internal_exr_destroy_context(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_start_read(ptr noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define i32 @exr_start_read(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct._exr_context_initializer_v3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
@@ -639,7 +639,7 @@ default_init_read_file.exit.thread:               ; preds = %87, %73, %default_i
 declare i32 @internal_exr_parse_header(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_start_write(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define i32 @exr_start_write(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = alloca %struct._exr_context_initializer_v3, align 8
@@ -923,7 +923,7 @@ default_init_write_file.exit.thread26:            ; preds = %130, %default_init_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dispatch_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @dispatch_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %5
 
@@ -981,7 +981,7 @@ define noundef i32 @exr_start_inplace_header_update(ptr noundef readnone capture
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_start_temporary_context(ptr noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define i32 @exr_start_temporary_context(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct._exr_context_initializer_v3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
@@ -1104,7 +1104,7 @@ fill_context_data.exit:                           ; preds = %3, %9, %47, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_get_file_name(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define i32 @exr_get_file_name(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %3
 
@@ -1204,7 +1204,7 @@ define i32 @exr_get_file_version_and_flags(ptr noundef %0, ptr noundef %1) local
 declare i32 @internal_exr_calc_header_version_flags(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_get_user_data(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define i32 @exr_get_user_data(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %28, label %3
 
@@ -1817,7 +1817,7 @@ declare void @internal_exr_update_default_handlers(ptr noundef) local_unnamed_ad
 declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal void @default_shutdown(ptr readnone captures(none) %0, ptr noundef readonly %1, i32 %2) #0 {
+define internal void @default_shutdown(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 %2) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %4
 
@@ -1835,7 +1835,7 @@ define internal void @default_shutdown(ptr readnone captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, -9223372036854775808) i64 @default_read_func(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly %5) #0 {
+define internal range(i64 -1, -9223372036854775808) i64 @default_read_func(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %10
 
@@ -1948,7 +1948,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, -9223372036854775808) i64 @default_write_func(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly %5) #0 {
+define internal range(i64 -1, -9223372036854775808) i64 @default_write_func(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %10
 

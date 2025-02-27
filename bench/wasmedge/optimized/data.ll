@@ -69,7 +69,7 @@ define void @_ZN8WasmEdge4LLVM4DataC2Ev(ptr noundef nonnull align 8 dereferencea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4LLVM4DataD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #0 align 2 {
+define void @_ZN8WasmEdge4LLVM4DataD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(168) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
@@ -175,7 +175,7 @@ define void @_ZN8WasmEdge4LLVM4DataC2EOS1_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(168) ptr @_ZN8WasmEdge4LLVM4DataaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(168) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(168) ptr @_ZN8WasmEdge4LLVM4DataaSEOS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(168) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(168) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8

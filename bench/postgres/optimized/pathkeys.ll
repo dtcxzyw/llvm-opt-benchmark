@@ -137,7 +137,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @append_pathkeys(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @append_pathkeys(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -211,7 +211,7 @@ pathkey_is_redundant.exit:                        ; preds = %21, %.lr.ph24, %.lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 4) i32 @compare_pathkeys(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define dso_local range(i32 0, 4) i32 @compare_pathkeys(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -311,7 +311,7 @@ define dso_local range(i32 0, 4) i32 @compare_pathkeys(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @pathkeys_contained_in(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define dso_local zeroext i1 @pathkeys_contained_in(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %compare_pathkeys.exit, label %.preheader.i
 
@@ -679,7 +679,7 @@ pathkeys_contained_in.exit.thread:                ; preds = %121, %.thread61, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @pathkeys_count_contained_in(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
+define dso_local zeroext i1 @pathkeys_count_contained_in(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, %1
   %.not.i = icmp eq ptr %0, null
   br i1 %4, label %5, label %9
@@ -764,7 +764,7 @@ list_length.exit:                                 ; preds = %.thread, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_cheapest_path_for_pathkeys(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local ptr @get_cheapest_path_for_pathkeys(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1000,7 +1000,7 @@ declare i32 @compare_path_costs(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare zeroext i1 @bms_is_subset(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_cheapest_fractional_path_for_pathkeys(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, double noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @get_cheapest_fractional_path_for_pathkeys(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, double noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1174,7 +1174,7 @@ pathkeys_contained_in.exit.thread26:              ; preds = %59, %.critedge.thre
 declare i32 @compare_fractional_path_costs(ptr noundef, ptr noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @get_cheapest_parallel_safe_total_inner(ptr noundef readonly %0) local_unnamed_addr #4 {
+define dso_local ptr @get_cheapest_parallel_safe_total_inner(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge29, label %.lr.ph
 
@@ -1626,7 +1626,7 @@ declare i32 @exprCollation(ptr noundef) local_unnamed_addr #3
 declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @convert_subquery_pathkeys(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @convert_subquery_pathkeys(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -2824,7 +2824,7 @@ define dso_local void @update_mergeclause_eclasses(ptr noundef readnone captures
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_mergeclauses_for_outer_pathkeys(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local ptr @find_mergeclauses_for_outer_pathkeys(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread55, label %.lr.ph
@@ -2955,7 +2955,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
 declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @select_outer_pathkeys_for_merge(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define dso_local ptr @select_outer_pathkeys_for_merge(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
@@ -3299,7 +3299,7 @@ declare ptr @list_copy_head(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @pfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @make_inner_pathkeys_for_merge(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local ptr @make_inner_pathkeys_for_merge(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %list_head.exit, label %4
 
@@ -3480,7 +3480,7 @@ pathkey_is_redundant.exit:                        ; preds = %69, %58, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @trim_mergeclauses_for_inner_pathkeys(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local ptr @trim_mergeclauses_for_inner_pathkeys(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.thread, label %list_head.exit
 

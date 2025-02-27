@@ -1045,7 +1045,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %._crit_edge, %17, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN16JfrThreadSampler11next_threadEP11ThreadsListP10JavaThreadS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(993) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZN16JfrThreadSampler11next_threadEP11ThreadsListP10JavaThreadS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(993) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #7 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 1

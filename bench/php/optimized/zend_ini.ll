@@ -1190,7 +1190,7 @@ zend_hash_str_find_ptr.exit.thread:               ; preds = %zend_hash_str_find_
 declare double @zend_strtod(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_ini_string_ex(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local ptr @zend_ini_string_ex(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %.not5 = icmp eq i32 %2, 0
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 856), align 8, !tbaa !9
   %6 = tail call ptr @zend_hash_str_find(ptr noundef %5, ptr noundef %0, i64 noundef %1) #18
@@ -1242,7 +1242,7 @@ zend_ini_str_ex.exit:                             ; preds = %14, %17, %20, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_ini_str_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local ptr @zend_ini_str_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 856), align 8, !tbaa !9
   %6 = tail call ptr @zend_hash_str_find(ptr noundef %5, ptr noundef %0, i64 noundef %1) #18
   %.not.i = icmp eq ptr %6, null

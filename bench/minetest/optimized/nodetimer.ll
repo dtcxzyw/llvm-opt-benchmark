@@ -154,7 +154,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK13NodeTimerList9serializeERSoh(ptr noundef nonnull readonly align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef zeroext %map_format_version) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK13NodeTimerList9serializeERSoh(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef zeroext %map_format_version) local_unnamed_addr #3 align 2 {
 entry:
   %buf.i3.i = alloca [4 x i8], align 4
   %buf.i.i = alloca [4 x i8], align 4

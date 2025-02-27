@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @entryExecPlaceToPage.data = internal global %struct.ginxlogInsertEntry zeroinitializer, align 2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @GinFormTuple(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i64 noundef %2, i8 noundef signext %3, ptr noundef readonly %4, i64 noundef %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
+define dso_local ptr @GinFormTuple(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i64 noundef %2, i8 noundef signext %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = alloca [2 x i64], align 16
   %10 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11

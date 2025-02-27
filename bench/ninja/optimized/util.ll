@@ -1071,7 +1071,7 @@ define dso_local noundef ptr @_Z17SpellcheckStringVRKNSt7__cxx1112basic_stringIc
 declare noundef i32 @_Z12EditDistanceRK11StringPieceS1_bi(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z16SpellcheckStringPKcz(ptr noundef readonly %0, ...) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_Z16SpellcheckStringPKcz(ptr noundef readonly captures(address_is_null) %0, ...) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.StringPiece, align 8
   %3 = alloca %struct.StringPiece, align 8
   %4 = alloca i64, align 8

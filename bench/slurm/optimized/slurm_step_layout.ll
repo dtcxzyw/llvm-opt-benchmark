@@ -71,7 +71,7 @@ target triple = "x86_64-pc-linux-gnu"
 @slurm_unpack_slurm_step_layout = dso_local alias i32 (ptr, ptr, i16), ptr @unpack_slurm_step_layout
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pack_slurm_step_layout(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) #0 {
+define dso_local void @pack_slurm_step_layout(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i16 noundef zeroext %2) #0 {
   %4 = alloca ptr, align 8
   %5 = icmp ugt i16 %2, 10239
   br i1 %5, label %6, label %60
@@ -1143,7 +1143,7 @@ define dso_local noundef i32 @slurm_step_layout_destroy(ptr noundef %0) local_un
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @fake_slurm_step_layout_create(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local ptr @fake_slurm_step_layout_create(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = icmp ne i32 %3, 0
   %8 = icmp ne ptr %0, null
   %or.cond = and i1 %8, %7
@@ -1331,7 +1331,7 @@ define dso_local ptr @fake_slurm_step_layout_create(ptr noundef %0, ptr noundef 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @slurm_step_layout_copy(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @slurm_step_layout_copy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 

@@ -369,7 +369,7 @@ declare dso_local void @rpc_sleep_on(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local void @rpc_wake_up_queued_task(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @nfs_page_group_lock_head(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @nfs_page_group_lock_head(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56

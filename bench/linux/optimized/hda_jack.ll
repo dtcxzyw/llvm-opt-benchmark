@@ -1133,7 +1133,7 @@ snd_hda_jack_tbl_new.exit7:                       ; preds = %.thread8.i2, %.thre
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef readonly %2, i16 noundef zeroext %3) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2, i16 noundef zeroext %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne i16 %1, 0
@@ -1438,7 +1438,7 @@ define dso_local void @snd_hda_jack_report_sync(ptr noundef %0) #0 align 16 {
 declare dso_local void @snd_jack_report(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctl_mst(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef readonly %6) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctl_mst(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) #0 align 16 {
   %8 = tail call fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %105, label %10

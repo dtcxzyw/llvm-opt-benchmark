@@ -2773,7 +2773,7 @@ define hidden i32 @lsarpc_dissect_struct_lsa_PrivArray(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @lsarpc_dissect_enum_lsa_SecurityImpersonationLevel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @lsarpc_dissect_enum_lsa_SecurityImpersonationLevel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   store i32 0, ptr %9, align 4
@@ -3094,7 +3094,7 @@ define hidden i32 @lsarpc_dissect_struct_lsa_AuditLogInfo(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @lsarpc_dissect_enum_lsa_PolicyAuditPolicy(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @lsarpc_dissect_enum_lsa_PolicyAuditPolicy(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   store i32 0, ptr %9, align 4
@@ -3120,7 +3120,7 @@ define hidden i32 @lsarpc_dissect_enum_lsa_PolicyAuditPolicy(ptr noundef %0, i32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @lsarpc_dissect_enum_lsa_PolicyAuditEventType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @lsarpc_dissect_enum_lsa_PolicyAuditEventType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   store i32 0, ptr %9, align 4
@@ -3389,7 +3389,7 @@ define hidden i32 @lsarpc_dissect_struct_lsa_PDAccountInfo(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @lsarpc_dissect_enum_lsa_Role(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @lsarpc_dissect_enum_lsa_Role(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   store i32 0, ptr %9, align 4
@@ -3802,7 +3802,7 @@ define hidden i32 @lsarpc_dissect_struct_lsa_DnsDomainInfo(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @lsarpc_dissect_enum_lsa_PolicyInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @lsarpc_dissect_enum_lsa_PolicyInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   store i32 0, ptr %9, align 4
@@ -4069,7 +4069,7 @@ define hidden i32 @lsarpc_dissect_struct_lsa_DomainList(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @lsarpc_dissect_enum_lsa_SidType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @lsarpc_dissect_enum_lsa_SidType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   store i32 0, ptr %9, align 4
@@ -4320,7 +4320,7 @@ define hidden i32 @lsarpc_dissect_struct_lsa_RefDomainList(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @lsarpc_dissect_enum_lsa_LookupNamesLevel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @lsarpc_dissect_enum_lsa_LookupNamesLevel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   store i32 0, ptr %9, align 4
@@ -4789,7 +4789,7 @@ define hidden i32 @lsarpc_dissect_struct_lsa_DATA_BUF2(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @lsarpc_dissect_enum_lsa_TrustDomInfoEnum(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @lsarpc_dissect_enum_lsa_TrustDomInfoEnum(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   store i32 0, ptr %9, align 4
@@ -4860,7 +4860,7 @@ define hidden i32 @lsarpc_dissect_bitmap_lsa_TrustDirection(ptr noundef %0, i32 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @lsarpc_dissect_enum_lsa_TrustType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @lsarpc_dissect_enum_lsa_TrustType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   store i32 0, ptr %9, align 4
@@ -5399,7 +5399,7 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx(ptr noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @lsarpc_dissect_enum_lsa_TrustAuthType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @lsarpc_dissect_enum_lsa_TrustAuthType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   store i32 0, ptr %9, align 4
@@ -6801,7 +6801,7 @@ define hidden i32 @lsarpc_dissect_struct_lsa_DomainInfoEfs(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @lsarpc_dissect_enum_lsa_DomainInfoEnum(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @lsarpc_dissect_enum_lsa_DomainInfoEnum(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   store i32 0, ptr %9, align 4
@@ -6997,7 +6997,7 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TransNameArray2(ptr noundef %0, i32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @lsarpc_dissect_enum_lsa_LookupOptions(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @lsarpc_dissect_enum_lsa_LookupOptions(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   store i32 0, ptr %9, align 4
@@ -7023,7 +7023,7 @@ define hidden i32 @lsarpc_dissect_enum_lsa_LookupOptions(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @lsarpc_dissect_enum_lsa_ClientRevision(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @lsarpc_dissect_enum_lsa_ClientRevision(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   store i32 0, ptr %9, align 4
@@ -7408,7 +7408,7 @@ define hidden i32 @lsarpc_dissect_bitmap_lsa_ForestTrustRecordFlags(ptr noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @lsarpc_dissect_enum_lsa_ForestTrustRecordType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @lsarpc_dissect_enum_lsa_ForestTrustRecordType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   store i32 0, ptr %9, align 4
@@ -7824,7 +7824,7 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustInformation(ptr noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @lsarpc_dissect_enum_lsa_ForestTrustCollisionRecordType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @lsarpc_dissect_enum_lsa_ForestTrustCollisionRecordType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   store i32 0, ptr %9, align 4

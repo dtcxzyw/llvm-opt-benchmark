@@ -17729,7 +17729,7 @@ _ZNSt12__shared_ptrIN2cv15ImageCollection4ImplELN9__gnu_cxx12_Lock_policyE2EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(12) ptr @_ZN2cv15ImageCollection8iteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(12) %0) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(12) ptr @_ZN2cv15ImageCollection8iteratorppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(12) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !271
   %3 = load ptr, ptr %2, align 8, !tbaa !128
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56

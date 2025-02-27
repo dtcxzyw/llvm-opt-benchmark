@@ -19209,7 +19209,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit120: ; preds = %.lr.ph.i189, %.lr.p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6casadi17Feasiblesqpmethod26anderson_acc_update_memoryEPvPdS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2440) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #18 align 2 {
+define void @_ZNK6casadi17Feasiblesqpmethod26anderson_acc_update_memoryEPvPdS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2440) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #18 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2064
   %6 = load i64, ptr %5, align 8, !tbaa !173
   %7 = icmp eq i64 %6, 1
@@ -19402,7 +19402,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit25:     ; preds = %.lr.ph.i62, %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6casadi17Feasiblesqpmethod24anderson_acc_init_memoryEPvPdS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2440) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #19 align 2 {
+define void @_ZNK6casadi17Feasiblesqpmethod24anderson_acc_init_memoryEPvPdS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2440) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #19 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %6 = load ptr, ptr %5, align 8, !tbaa !304
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2064

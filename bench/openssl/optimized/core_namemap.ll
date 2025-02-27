@@ -153,7 +153,7 @@ define void @ossl_namemap_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_namemap_empty(ptr noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_namemap_empty(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -170,7 +170,7 @@ define range(i32 0, 2) i32 @ossl_namemap_empty(ptr noundef readonly %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_namemap_doall_names(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_namemap_doall_names(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   %6 = icmp slt i32 %1, 1
   %or.cond = or i1 %5, %6
@@ -240,7 +240,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_namemap_name2num(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define i32 @ossl_namemap_name2num(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.namenum_key_st, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #6
   %4 = icmp eq ptr %0, null
@@ -395,7 +395,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare ptr @ossl_ht_get(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_namemap_name2num_n(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @ossl_namemap_name2num_n(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.namenum_key_st, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %32, label %6
@@ -469,7 +469,7 @@ declare noalias ptr @CRYPTO_strndup(ptr noundef, i64 noundef, ptr noundef, i32 n
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_namemap_num2name(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @ossl_namemap_num2name(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp slt i32 %1, 1
   %or.cond = or i1 %4, %5
@@ -507,7 +507,7 @@ define ptr @ossl_namemap_num2name(ptr noundef readonly %0, i32 noundef %1, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_namemap_add_name(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @ossl_namemap_add_name(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 
@@ -713,7 +713,7 @@ numname_insert.exit.thread:                       ; preds = %32, %27, %48, %69, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_namemap_add_names(ptr noundef %0, i32 noundef %1, ptr noundef %2, i8 noundef signext %3) local_unnamed_addr #0 {
+define i32 @ossl_namemap_add_names(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i8 noundef signext %3) local_unnamed_addr #0 {
   %5 = alloca %struct.namenum_key_st, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %7, !prof !33
@@ -899,7 +899,7 @@ declare i32 @OPENSSL_init_crypto(i64 noundef, ptr noundef) local_unnamed_addr #3
 declare void @OBJ_NAME_do_all(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @get_legacy_cipher_names(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
+define internal void @get_legacy_cipher_names(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !34
   %5 = load i32, ptr %0, align 8, !tbaa !36
@@ -917,7 +917,7 @@ define internal void @get_legacy_cipher_names(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @get_legacy_md_names(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
+define internal void @get_legacy_md_names(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !34
   %5 = load i32, ptr %0, align 8, !tbaa !36
@@ -971,7 +971,7 @@ define internal void @name_string_free(ptr noundef %0) #0 {
 declare ptr @OBJ_NAME_get(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_legacy_evp_names(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @get_legacy_evp_names(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address) %3) unnamed_addr #0 {
   %5 = alloca [50 x i8], align 16
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %ossl_namemap_add_name.exit32, label %6

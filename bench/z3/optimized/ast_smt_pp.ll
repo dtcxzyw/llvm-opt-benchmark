@@ -599,7 +599,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN12smt_renaming10is_specialEPKc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly %s) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN12smt_renaming10is_specialEPKc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #5 align 2 {
 entry:
   %tobool.not = icmp eq ptr %s, null
   br i1 %tobool.not, label %return, label %if.end
@@ -630,7 +630,7 @@ return:                                           ; preds = %while.cond, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef zeroext i1 @_ZN12smt_renaming12all_is_legalEPKc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly %s) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN12smt_renaming12all_is_legalEPKc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #6 align 2 {
 entry:
   %tobool.not = icmp eq ptr %s, null
   br i1 %tobool.not, label %return, label %while.cond.i

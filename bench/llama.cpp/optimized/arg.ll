@@ -2518,7 +2518,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10common_arg12set_ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10common_arg7set_envEPKc(ptr noundef nonnull returned align 8 dereferenceable(216) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10common_arg7set_envEPKc(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(216) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2901,14 +2901,14 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10common_arg10set_sparamEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(216) initializes((176, 177)) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10common_arg10set_sparamEv(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(216) initializes((176, 177)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i8 1, ptr %2, align 8, !tbaa !43
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN10common_arg10in_exampleE13llama_example(ptr noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN10common_arg10in_exampleE13llama_example(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !44
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2946,7 +2946,7 @@ _ZNSt3setI13llama_exampleSt4lessIS0_ESaIS0_EE4findERKS0_.exit: ; preds = %2, %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN10common_arg10is_excludeE13llama_example(ptr noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN10common_arg10is_excludeE13llama_example(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !44
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -132236,7 +132236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %20
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZ25common_params_parser_initR13common_params13llama_examplePFviPPcEEN4$_828__invokeES0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(4833) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZ25common_params_parser_initR13common_params13llama_examplePFviPPcEEN4$_828__invokeES0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 captures(address) dereferenceable(4833) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.nlohmann::json_abi_v3_11_3::basic_json", align 8
   %5 = alloca %"class.std::function", align 8

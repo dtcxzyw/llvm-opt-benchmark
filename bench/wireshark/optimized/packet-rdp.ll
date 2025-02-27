@@ -5537,7 +5537,7 @@ rdp_isServerAddressTarget.exit85:                 ; preds = %127, %132, %135, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_rdp_securityHeader(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rdp_securityHeader(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca [8 x %struct.rdp_field_info_t], align 16
   %9 = alloca [3 x %struct.rdp_field_info_t], align 16

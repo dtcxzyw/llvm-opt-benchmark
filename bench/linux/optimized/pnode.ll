@@ -683,7 +683,7 @@ define internal fastcc i32 @propagate_one(ptr noundef %0, ptr noundef %1) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef zeroext i1 @propagation_would_overmount(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef zeroext i1 @propagation_would_overmount(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4096
@@ -936,7 +936,7 @@ define dso_local range(i32 0, 2) i32 @propagate_mount_busy(ptr noundef %0, i32 n
 declare dso_local ptr @__lookup_mnt(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @propagate_mount_unlock(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @propagate_mount_unlock(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %0

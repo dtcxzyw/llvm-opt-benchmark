@@ -1140,7 +1140,7 @@ define internal i64 @H5O__link_size(ptr noundef %0, i1 zeroext %1, ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5O__link_reset(ptr noundef %0) #0 {
+define internal noundef i32 @H5O__link_reset(ptr noundef captures(address_is_null) %0) #0 {
   %2 = load i8, ptr @H5O_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !7

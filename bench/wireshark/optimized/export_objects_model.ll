@@ -110,7 +110,7 @@ define void @_ZN17ExportObjectModelC2EP11register_eoP7QObject(ptr noundef align 
 declare void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define internal void @_ZL21object_list_add_entryPvP22_export_object_entry_t(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal void @_ZL21object_list_add_entryPvP22_export_object_entry_t(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -128,7 +128,7 @@ define internal void @_ZL21object_list_add_entryPvP22_export_object_entry_t(ptr 
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @_ZL21object_list_get_entryPvi(ptr noundef readonly %0, i32 noundef %1) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZL21object_list_get_entryPvi(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   %4 = alloca %class.QVariant, align 8
   %.not = icmp eq ptr %0, null
@@ -1989,7 +1989,7 @@ define noundef ptr @_ZN17ExportObjectModel18getTapListenerNameEv(ptr noundef rea
 declare ptr @get_eo_tap_listener_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN17ExportObjectModel10getTapDataEv(ptr noundef readnone align 8 dereferenceable_or_null(80) %0) local_unnamed_addr #10 align 2 {
+define noundef nonnull ptr @_ZN17ExportObjectModel10getTapDataEv(ptr noundef readnone align 8 captures(ret: address, provenance) dereferenceable_or_null(80) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }

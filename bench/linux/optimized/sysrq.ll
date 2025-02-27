@@ -435,7 +435,7 @@ define dso_local range(i32 -1, 1) i32 @register_sysrq_key(i8 noundef zeroext %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -1, 1) i32 @unregister_sysrq_key(i8 noundef zeroext %0, ptr noundef readnone %1) #2 align 16 {
+define dso_local range(i32 -1, 1) i32 @unregister_sysrq_key(i8 noundef zeroext %0, ptr noundef readnone captures(address) %1) #2 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @sysrq_key_table_lock) #18
   %3 = tail call fastcc i32 @sysrq_key_table_key2index(i8 noundef zeroext %0), !range !6
   %4 = icmp eq i32 %3, -1

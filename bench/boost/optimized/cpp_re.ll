@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm = unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC2EPhm
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN5boost4wave8cpplexer7re2clex12is_backslashEPhS3_Ri(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN5boost4wave8cpplexer7re2clex12is_backslashEPhS3_Ri(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %0, align 1, !tbaa !3
   switch i8 %4, label %15 [
     i8 92, label %.sink.split
@@ -48,7 +48,7 @@ define void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC2EPhm(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperppEv(ptr noundef nonnull returned align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store ptr %3, ptr %0, align 8, !tbaa !8
@@ -60,7 +60,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost4wave8cpplexer7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost4wave8cpplexer7re2clex13uchar_wrappermmEv(ptr noundef nonnull returned align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost4wave8cpplexer7re2clex13uchar_wrappermmEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !8
   %3 = getelementptr inbounds i8, ptr %2, i64 -1
   store ptr %3, ptr %0, align 8, !tbaa !8

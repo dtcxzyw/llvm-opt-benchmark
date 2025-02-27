@@ -8822,7 +8822,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Rtl_LibCountInsts(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #11 {
+define i32 @Rtl_LibCountInsts(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = getelementptr i8, ptr %4, i64 4
@@ -9330,7 +9330,7 @@ Vec_PtrFree.exit:                                 ; preds = %Vec_PtrAppend.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Rtl_LibReadFile(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define noundef ptr @Rtl_LibReadFile(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = tail call noalias dereferenceable_or_null(336) ptr @calloc(i64 noundef 1, i64 noundef 336) #35
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #36
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -12654,7 +12654,7 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i,
 declare void @Rtl_NtkBlastNode(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @Rtl_ShortenName(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #25 {
+define noundef ptr @Rtl_ShortenName(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #25 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #39
   %4 = trunc i64 %3 to i32
   %.not = icmp slt i32 %1, %4
@@ -14268,7 +14268,7 @@ Rtl_CellNtk.exit.thread:                          ; preds = %11, %24, %Rtl_CellN
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Rtl_LibBlast2(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 %2) local_unnamed_addr #3 {
+define void @Rtl_LibBlast2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = getelementptr i8, ptr %5, i64 4
@@ -14869,7 +14869,7 @@ declare i32 @Cec_ManVerifyTwo(ptr noundef, ptr noundef, i32 noundef) local_unnam
 declare ptr @Gia_ManDup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Rtl_LibSolve(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define void @Rtl_LibSolve(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #38

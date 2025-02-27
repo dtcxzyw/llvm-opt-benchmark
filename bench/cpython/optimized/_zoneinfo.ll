@@ -3100,7 +3100,7 @@ zoneinfo_ZoneInfo_from_file_impl.exit:            ; preds = %51, %48, %.split.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @zoneinfo_ZoneInfo_utcoffset(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #2 {
+define internal noundef ptr @zoneinfo_ZoneInfo_utcoffset(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #2 {
   %6 = alloca [1 x ptr], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
   %7 = icmp eq ptr %4, null
@@ -3144,7 +3144,7 @@ zoneinfo_ZoneInfo_utcoffset_impl.exit:            ; preds = %22, %18, %.thread, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @zoneinfo_ZoneInfo_dst(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #2 {
+define internal noundef ptr @zoneinfo_ZoneInfo_dst(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #2 {
   %6 = alloca [1 x ptr], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
   %7 = icmp eq ptr %4, null
@@ -3189,7 +3189,7 @@ zoneinfo_ZoneInfo_dst_impl.exit:                  ; preds = %23, %18, %.thread, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @zoneinfo_ZoneInfo_tzname(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #2 {
+define internal noundef ptr @zoneinfo_ZoneInfo_tzname(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #2 {
   %6 = alloca [1 x ptr], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
   %7 = icmp eq ptr %4, null
@@ -3234,7 +3234,7 @@ zoneinfo_ZoneInfo_tzname_impl.exit:               ; preds = %23, %18, %.thread, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zoneinfo_fromutc(ptr noundef readonly %0, ptr noundef %1) #2 {
+define internal ptr @zoneinfo_fromutc(ptr noundef readonly captures(address) %0, ptr noundef %1) #2 {
   %3 = alloca i64, align 8
   %4 = load ptr, ptr @PyDateTimeAPI, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6244,7 +6244,7 @@ parse_digits.exit26.thread:                       ; preds = %61, %parse_digits.e
 declare ptr @PyObject_Repr(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_ttinfo(ptr noundef readnone %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc ptr @find_ttinfo(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef %2) unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %5, label %6, label %13

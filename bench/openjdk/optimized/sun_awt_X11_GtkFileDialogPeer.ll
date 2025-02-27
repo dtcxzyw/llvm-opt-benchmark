@@ -217,7 +217,7 @@ define void @Java_sun_awt_X11_GtkFileDialogPeer_setBounds(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_GtkFileDialogPeer_run(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readnone %6, i8 noundef zeroext %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_GtkFileDialogPeer_run(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readnone captures(address_is_null) %6, i8 noundef zeroext %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = load ptr, ptr @jvm, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %22

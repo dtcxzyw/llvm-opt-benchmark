@@ -35,7 +35,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext range(i8 0, 4) i8 @_ZN9grpc_core24ValidateHeaderKeyIsLegalESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr readonly %1) local_unnamed_addr #3 {
+define noundef zeroext range(i8 0, 4) i8 @_ZN9grpc_core24ValidateHeaderKeyIsLegalESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr readonly captures(address) %1) local_unnamed_addr #3 {
   %3 = icmp eq i64 %0, 0
   br i1 %3, label %_ZN9grpc_core12_GLOBAL__N_110ConformsToESt17basic_string_viewIcSt11char_traitsIcEERKNS_6BitSetILm256ELm64EEENS_22ValidateMetadataResultE.exit, label %4
 
@@ -90,7 +90,7 @@ switch.lookup:                                    ; preds = %1
 declare void @gpr_unreachable_code(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z33grpc_validate_header_key_is_legalRK10grpc_slice(ptr dead_on_unwind noalias writable sret(%"class.absl::lts_20240722::Status") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_Z33grpc_validate_header_key_is_legalRK10grpc_slice(ptr dead_on_unwind noalias writable sret(%"class.absl::lts_20240722::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !8
   %.not.i = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -149,7 +149,7 @@ _ZN9grpc_core12_GLOBAL__N_115UpgradeToStatusENS_22ValidateMetadataResultE.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @grpc_header_key_is_legal(ptr noundef readonly byval(%struct.grpc_slice) align 8 %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @grpc_header_key_is_legal(ptr noundef readonly byval(%struct.grpc_slice) align 8 captures(address) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::lts_20240722::Status", align 8
   %3 = load ptr, ptr %0, align 8, !tbaa !8, !noalias !20
   %.not.i.i = icmp eq ptr %3, null
@@ -221,7 +221,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %17, %.loopexit, %29
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z42grpc_validate_header_nonbin_value_is_legalRK10grpc_slice(ptr dead_on_unwind noalias writable sret(%"class.absl::lts_20240722::Status") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_Z42grpc_validate_header_nonbin_value_is_legalRK10grpc_slice(ptr dead_on_unwind noalias writable sret(%"class.absl::lts_20240722::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !8
   %.not.i = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -267,7 +267,7 @@ _ZN9grpc_core12_GLOBAL__N_115UpgradeToStatusENS_22ValidateMetadataResultE.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @grpc_header_nonbin_value_is_legal(ptr noundef readonly byval(%struct.grpc_slice) align 8 %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @grpc_header_nonbin_value_is_legal(ptr noundef readonly byval(%struct.grpc_slice) align 8 captures(address) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::lts_20240722::Status", align 8
   %3 = load ptr, ptr %0, align 8, !tbaa !8, !noalias !31
   %.not.i.i = icmp eq ptr %3, null

@@ -1456,7 +1456,7 @@ define internal void @__cxx_global_var_init.55() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7Compile13assignMutableERNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEERKNS_12AstNameTableEPKPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef readonly %2) local_unnamed_addr #2 {
+define dso_local void @_ZN4Luau7Compile13assignMutableERNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEERKNS_12AstNameTableEPKPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = alloca %"struct.Luau::AstName", align 8
   %5 = alloca %"struct.Luau::AstName", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11

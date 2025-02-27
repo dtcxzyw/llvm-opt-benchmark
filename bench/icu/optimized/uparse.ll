@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [8 x i8] c"missing\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @u_skipWhitespace(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @u_skipWhitespace(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %.critedge, %1
@@ -30,7 +30,7 @@ define noundef ptr @u_skipWhitespace(ptr noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define ptr @u_rtrim(ptr noundef %0) local_unnamed_addr #1 {
+define ptr @u_rtrim(ptr noundef captures(address, ret: address, provenance) %0) local_unnamed_addr #1 {
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %0)
   %strchr = getelementptr inbounds i8, ptr %0, i64 %strlen
   %2 = icmp sgt i64 %strlen, 0
@@ -67,7 +67,7 @@ declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @u_parseDelimitedFile(ptr noundef %0, i8 noundef signext %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 {
+define void @u_parseDelimitedFile(ptr noundef %0, i8 noundef signext %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 {
   %8 = alloca [10000 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 10000, ptr nonnull %8) #9
   %9 = load i32, ptr %6, align 4, !tbaa !9
@@ -384,7 +384,7 @@ declare ptr @T_FileStream_readLine(ptr noundef, ptr noundef, i32 noundef) local_
 declare void @T_FileStream_close(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @u_parseCodePoints(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #6 {
+define i32 @u_parseCodePoints(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #6 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   %6 = load i32, ptr %3, align 4, !tbaa !9
@@ -485,7 +485,7 @@ define i32 @u_parseCodePoints(ptr noundef %0, ptr noundef writeonly %1, i32 noun
 declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef captures(none) %4) local_unnamed_addr #6 {
+define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address) %3, ptr noundef captures(none) %4) local_unnamed_addr #6 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
   %7 = load i32, ptr %4, align 4, !tbaa !9
@@ -646,7 +646,7 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly %1, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define range(i32 0, 1114113) i32 @u_parseCodePointRangeAnyTerminator(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #6 {
+define range(i32 0, 1114113) i32 @u_parseCodePointRangeAnyTerminator(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #6 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
   %7 = load i32, ptr %4, align 4, !tbaa !9
@@ -776,7 +776,7 @@ u_skipWhitespace.exit48:                          ; preds = %31
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define range(i32 0, 1114113) i32 @u_parseCodePointRange(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #6 {
+define range(i32 0, 1114113) i32 @u_parseCodePointRange(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(none) %3) local_unnamed_addr #6 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   %6 = call i32 @u_parseCodePointRangeAnyTerminator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef %3)
@@ -815,7 +815,7 @@ define range(i32 0, 1114113) i32 @u_parseCodePointRange(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_parseUTF8(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define i32 @u_parseUTF8(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
   store i32 0, ptr %6, align 4, !tbaa !18

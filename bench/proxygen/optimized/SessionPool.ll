@@ -160,7 +160,7 @@ declare noundef ptr @_ZN5folly16EventBaseManager3getEv() local_unnamed_addr #0
 declare noundef ptr @_ZNK5folly16EventBaseManager12getEventBaseEv(ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen11SessionPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11SessionPoolD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen11SessionPoolE, i64 16), ptr %this, align 8
   %m_header.i27.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -305,7 +305,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(136) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %list) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %list) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_header.i27 = getelementptr inbounds nuw i8, ptr %list, i64 8
   %0 = load ptr, ptr %m_header.i27, align 8
@@ -345,7 +345,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK8proxygen11SessionPool5emptyEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8proxygen11SessionPool5emptyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_header.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_header.i, align 8
@@ -394,7 +394,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11SessionPool18setMaxIdleSessionsEj(ptr noundef nonnull align 8 dereferenceable(136) initializes((16, 20)) %this, i32 noundef %num) local_unnamed_addr #3 align 2 {
+define void @_ZN8proxygen11SessionPool18setMaxIdleSessionsEj(ptr noundef nonnull align 8 captures(address) dereferenceable(136) initializes((16, 20)) %this, i32 noundef %num) local_unnamed_addr #3 align 2 {
 entry:
   %maxConns_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %num, ptr %maxConns_, align 8
@@ -403,7 +403,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11SessionPool23purgeExcessIdleSessionsEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11SessionPool23purgeExcessIdleSessionsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %_result = alloca %"struct.google::CheckOpString", align 8
@@ -758,7 +758,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN8proxygen13SessionHolder4linkEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8proxygen11SessionPool14getTransactionEPNS_22HTTPTransactionHandlerE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %upstreamHandler) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8proxygen11SessionPool14getTransactionEPNS_22HTTPTransactionHandlerE(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %this, ptr noundef %upstreamHandler) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_header.i32.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_header.i32.i, align 8
@@ -840,7 +840,7 @@ if.end:                                           ; preds = %if.end.i, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8proxygen11SessionPool22attemptOpenTransactionEPNS_22HTTPTransactionHandlerERN5boost9intrusive4listINS_13SessionHolderEJNS4_11member_hookIS6_NS4_16list_member_hookIJNS4_9link_modeILNS4_14link_mode_typeE1EEEEEEXadL_ZNS6_8listHookEEEEENS4_18constant_time_sizeILb1EEEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this, ptr noundef %upstreamHandler, ptr noundef nonnull readonly align 8 dereferenceable(24) %list) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8proxygen11SessionPool22attemptOpenTransactionEPNS_22HTTPTransactionHandlerERN5boost9intrusive4listINS_13SessionHolderEJNS4_11member_hookIS6_NS4_16list_member_hookIJNS4_9link_modeILNS4_14link_mode_typeE1EEEEEEXadL_ZNS6_8listHookEEEEENS4_18constant_time_sizeILb1EEEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this, ptr noundef %upstreamHandler, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %list) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_header.i32 = getelementptr inbounds nuw i8, ptr %list, i64 8
   %0 = load ptr, ptr %m_header.i32, align 8
@@ -893,7 +893,7 @@ declare i64 @_ZNK8proxygen13SessionHolder14getLastUseTimeEv(ptr noundef nonnull 
 declare void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8proxygen11SessionPool23removeOldestIdleSessionEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8proxygen11SessionPool23removeOldestIdleSessionEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %holder = alloca ptr, align 8
   %m_header.i31 = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -990,7 +990,7 @@ eh.resume:                                        ; preds = %lpad, %cleanup.acti
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11SessionPool16drainAllSessionsEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11SessionPool16drainAllSessionsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_header.i27.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_header.i27.i, align 8
@@ -1062,7 +1062,7 @@ _ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13Session
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11SessionPool14closeWithResetEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11SessionPool14closeWithResetEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_header.i27.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_header.i27.i, align 8
@@ -1134,7 +1134,7 @@ _ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(136) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %list) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %list) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_header.i27 = getelementptr inbounds nuw i8, ptr %list, i64 8
   %0 = load ptr, ptr %m_header.i27, align 8

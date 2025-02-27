@@ -5696,7 +5696,7 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit53: ; preds = %849, %852, 
 declare void @_ZN5clang19SwiftAsyncErrorAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_14ConventionKindEj(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 8 dereferenceable(23216), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clangL25checkSwiftAsyncErrorBlockERNS_4SemaEPNS_4DeclEPKNS_19SwiftAsyncErrorAttrEPKNS_14SwiftAsyncAttrE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZN5clangL25checkSwiftAsyncErrorBlockERNS_4SemaEPNS_4DeclEPKNS_19SwiftAsyncErrorAttrEPKNS_14SwiftAsyncAttrE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %6 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %7 = alloca %"class.clang::CanonicalDeclPtr", align 8

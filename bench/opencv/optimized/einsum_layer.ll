@@ -1888,7 +1888,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit167:                 ; preds = %260, %261
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN2cv3dnn8DiagonalERKNSE_3MatEiiE3$_0ET0_T_SL_SK_T1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %1, ptr readnone %2, ptr noundef nonnull %3) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN2cv3dnn8DiagonalERKNSE_3MatEiiE3$_0ET0_T_SL_SK_T1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(address) %1, ptr readnone captures(address) %2, ptr noundef nonnull %3) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

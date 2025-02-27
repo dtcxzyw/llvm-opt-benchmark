@@ -287,7 +287,7 @@ define void @"_ZN65_$LT$std..fs..File$u20$as$u20$uu_wc..countable..WordCountable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable_or_null(4) ptr @"_ZN65_$LT$std..fs..File$u20$as$u20$uu_wc..countable..WordCountable$GT$10inner_file17h241b415a8d3fe937E"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable_or_null(4) ptr @"_ZN65_$LT$std..fs..File$u20$as$u20$uu_wc..countable..WordCountable$GT$10inner_file17h241b415a8d3fe937E"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #6 {
   ret ptr %0
 }
 

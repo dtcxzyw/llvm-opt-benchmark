@@ -15161,7 +15161,7 @@ _ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit8: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib30AndreasenHugeVolatilityInterpl12riskFreeRateEv(ptr noundef nonnull readnone align 8 dereferenceable(488) %this) local_unnamed_addr #19 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib30AndreasenHugeVolatilityInterpl12riskFreeRateEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(488) %this) local_unnamed_addr #19 align 2 {
 entry:
   %rTS_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   ret ptr %rTS_

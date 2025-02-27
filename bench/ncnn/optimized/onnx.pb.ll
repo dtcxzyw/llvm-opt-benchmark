@@ -6653,7 +6653,7 @@ _ZN4onnx14AttributeProto9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4onnx14AttributeProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull readonly align 8 dereferenceable(192) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4onnx14AttributeProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -6976,7 +6976,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit23: ; preds = %33, %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4onnx14ValueInfoProtoD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4onnx14ValueInfoProtoD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %.not.i.i = icmp eq ptr %3, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
@@ -8274,7 +8274,7 @@ _ZN4onnx14ValueInfoProto9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4onnx14ValueInfoProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4onnx14ValueInfoProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -10941,7 +10941,7 @@ _ZN4onnx9NodeProto9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = %_ZN6g
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4onnx9NodeProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4onnx9NodeProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(128) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -14397,7 +14397,7 @@ _ZN4onnx10ModelProto9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4onnx10ModelProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4onnx10ModelProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(128) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -15478,7 +15478,7 @@ _ZN4onnx22StringStringEntryProto9MergeFromERKN6google8protobuf7MessageE.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4onnx22StringStringEntryProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4onnx22StringStringEntryProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %35, label %4
 
@@ -16935,7 +16935,7 @@ _ZN4onnx16TensorAnnotation9MergeFromERKN6google8protobuf7MessageE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4onnx16TensorAnnotation8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4onnx16TensorAnnotation8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -20379,7 +20379,7 @@ _ZN4onnx10GraphProto9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4onnx10GraphProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull readonly align 8 dereferenceable(184) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4onnx10GraphProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(184) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -21491,7 +21491,7 @@ _ZN4onnx19TensorProto_Segment9MergeFromERKN6google8protobuf7MessageE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4onnx19TensorProto_Segment8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4onnx19TensorProto_Segment8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN4onnx19TensorProto_Segment9MergeFromERKS0_.exit, label %4
 
@@ -25386,7 +25386,7 @@ _ZN4onnx11TensorProto9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4onnx11TensorProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull readonly align 8 dereferenceable(248) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4onnx11TensorProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(248) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -26834,7 +26834,7 @@ _ZN4onnx26TensorShapeProto_Dimension9MergeFromERKN6google8protobuf7MessageE.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4onnx26TensorShapeProto_Dimension8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4onnx26TensorShapeProto_Dimension8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -28054,7 +28054,7 @@ _ZN4onnx16TensorShapeProto9MergeFromERKN6google8protobuf7MessageE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4onnx16TensorShapeProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4onnx16TensorShapeProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %28, label %4
 
@@ -28307,7 +28307,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4onnx16TypeProto_TensorD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4onnx16TypeProto_TensorD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, @_ZN4onnx35_TypeProto_Tensor_default_instance_E
   br i1 %.not.i, label %_ZN4onnx16TypeProto_Tensor10SharedDtorEv.exit, label %2
 
@@ -29242,7 +29242,7 @@ _ZN4onnx16TypeProto_Tensor9MergeFromERKN6google8protobuf7MessageE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4onnx16TypeProto_Tensor8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4onnx16TypeProto_Tensor8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %47, label %4
 
@@ -30522,7 +30522,7 @@ _ZN4onnx9TypeProto9MergeFromERKN6google8protobuf7MessageE.exit: ; preds = %_ZN6g
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4onnx9TypeProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4onnx9TypeProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %43, label %4
 
@@ -31584,7 +31584,7 @@ _ZN4onnx18OperatorSetIdProto9MergeFromERKN6google8protobuf7MessageE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4onnx18OperatorSetIdProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4onnx18OperatorSetIdProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %27, label %4
 

@@ -520,7 +520,7 @@ define dso_local noundef range(i32 -22, 1) i32 @arp_mc_map(i32 noundef %0, ptr n
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @arp_send(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #1 align 16 {
+define dso_local void @arp_send(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) #1 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 128
@@ -552,7 +552,7 @@ define dso_local void @arp_send(i32 noundef %0, i32 noundef %1, i32 noundef %2, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @arp_send_dst(i32 noundef range(i32 1, 3) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 align 16 {
+define internal fastcc void @arp_send_dst(i32 noundef range(i32 1, 3) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef %7) unnamed_addr #1 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 128
@@ -617,7 +617,7 @@ define internal fastcc void @arp_send_dst(i32 noundef range(i32 1, 3) %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @arp_create(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly %7) #1 align 16 {
+define dso_local ptr @arp_create(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7) #1 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 172
   %10 = load i16, ptr %9, align 4
   %11 = zext i16 %10 to i32
@@ -1441,7 +1441,7 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #5
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @arp_solicit(ptr noundef %0, ptr noundef readonly %1) #1 align 16 {
+define internal void @arp_solicit(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 align 16 {
   %3 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -2199,7 +2199,7 @@ define internal fastcc range(i32 0, 2) i32 @arp_ignore(ptr noundef nonnull %0, i
 declare dso_local i32 @ip_route_input_noref(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @arp_filter(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @arp_filter(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address) %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.flowi4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %6 = load ptr, ptr %5, align 8
@@ -2240,7 +2240,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @arp_filter(i32 noundef %0, i
 declare dso_local ptr @neigh_event_ns(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define internal fastcc range(i32 0, 2) i32 @arp_fwd_proxy(ptr noundef nonnull readonly captures(none) %0, ptr noundef readnone %1, ptr %.0.val) unnamed_addr #11 align 16 {
+define internal fastcc range(i32 0, 2) i32 @arp_fwd_proxy(ptr noundef nonnull readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr %.0.val) unnamed_addr #11 align 16 {
   %3 = icmp eq ptr %.0.val, %1
   br i1 %3, label %34, label %4
 
@@ -2351,7 +2351,7 @@ define internal fastcc range(i32 0, 2) i32 @arp_accept(ptr noundef nonnull %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @arp_is_garp(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i16 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readonly %7) unnamed_addr #1 align 16 {
+define internal fastcc zeroext i1 @arp_is_garp(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i16 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #1 align 16 {
   %9 = icmp eq i32 %5, %4
   %10 = icmp eq i16 %3, 512
   %11 = and i1 %10, %9

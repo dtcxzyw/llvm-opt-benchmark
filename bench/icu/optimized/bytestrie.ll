@@ -121,7 +121,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZN6icu_779BytesTrie11jumpByDeltaEPKh(ptr noundef readonly %0) local_unnamed_addr #4 align 2 {
+define noundef nonnull ptr @_ZN6icu_779BytesTrie11jumpByDeltaEPKh(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %0, align 1, !tbaa !10
   %4 = zext i8 %3 to i32

@@ -510,7 +510,7 @@ define dso_local i32 @stringmatchlen_fuzz_test() local_unnamed_addr #4 {
 declare i32 @rand() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i64 @memtoull(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
+define dso_local i64 @memtoull(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %3 = alloca [128 x i8], align 16
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #29
@@ -677,7 +677,7 @@ declare ptr @__errno_location() local_unnamed_addr #7
 declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local ptr @mempbrk(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #11 {
+define dso_local ptr @mempbrk(ptr noundef readonly captures(ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #11 {
   %.not2024.not = icmp eq i64 %1, 0
   %.not22.not = icmp eq i64 %3, 0
   %or.cond = or i1 %.not2024.not, %.not22.not
@@ -716,7 +716,7 @@ define dso_local ptr @mempbrk(ptr noundef readonly %0, i64 noundef %1, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @memmapchars(ptr noundef returned %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #12 {
+define dso_local noundef ptr @memmapchars(ptr noundef returned captures(ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #12 {
   %.not = icmp eq i64 %1, 0
   %.not19 = icmp eq i64 %4, 0
   %or.cond = or i1 %.not, %.not19
@@ -1157,7 +1157,7 @@ digits10.exit:                                    ; preds = %.lr.ph.i, %6, %tail
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @string2ll(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #12 {
+define dso_local range(i32 0, 2) i32 @string2ll(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #12 {
   %4 = add i64 %1, -21
   %or.cond = icmp ult i64 %4, -20
   br i1 %or.cond, label %.critedge, label %5
@@ -1571,7 +1571,7 @@ base_16_char_type.exit:                           ; preds = %4, %8, %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local range(i32 0, 2) i32 @string2ld(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #15 {
+define dso_local range(i32 0, 2) i32 @string2ld(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #15 {
   %4 = alloca [5120 x i8], align 16
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 5120, ptr nonnull %4) #29
@@ -3029,7 +3029,7 @@ define dso_local range(i32 -1, 1) i32 @reclaimFilePageCache(i32 noundef %0, i64 
 declare i32 @posix_fadvise64(i32 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef ptr @fgets_async_signal_safe(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define dso_local noundef ptr @fgets_async_signal_safe(ptr noundef captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.preheader, label %.thread
 

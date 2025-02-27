@@ -2002,7 +2002,7 @@ define hidden void @_glfwSetWindowPosWayland(ptr noundef readnone captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_glfwGetWindowSizeWayland(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
+define hidden void @_glfwGetWindowSizeWayland(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 
@@ -2274,7 +2274,7 @@ define hidden void @_glfwSetWindowAspectRatioWayland(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_glfwGetFramebufferSizeWayland(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
+define hidden void @_glfwGetFramebufferSizeWayland(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 
@@ -2299,7 +2299,7 @@ define hidden void @_glfwGetFramebufferSizeWayland(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_glfwGetWindowFrameSizeWayland(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #4 {
+define hidden void @_glfwGetWindowFrameSizeWayland(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %7 = load i32, ptr %6, align 8, !tbaa !162
   %.not = icmp eq i32 %7, 0
@@ -2342,7 +2342,7 @@ define hidden void @_glfwGetWindowFrameSizeWayland(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_glfwGetWindowContentScaleWayland(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
+define hidden void @_glfwGetWindowContentScaleWayland(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %5 = load ptr, ptr %4, align 8, !tbaa !128
   %.not = icmp eq ptr %5, null
@@ -2940,7 +2940,7 @@ _glfwSetWindowSizeWayland.exit:                   ; preds = %113, %110, %95, %94
 declare void @_glfwInputWindowMonitor(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @_glfwWindowFocusedWayland(ptr noundef readnone %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @_glfwWindowFocusedWayland(ptr noundef readnone captures(address) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137368), align 8, !tbaa !239
   %3 = icmp eq ptr %2, %0
   %4 = zext i1 %3 to i32
@@ -3746,7 +3746,7 @@ define internal fastcc range(i32 0, 2) i32 @flushDisplay() unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_glfwGetCursorPosWayland(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
+define hidden void @_glfwGetCursorPosWayland(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 
@@ -4871,7 +4871,7 @@ declare ptr @_glfw_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @dataOfferHandleOffer(ptr readnone captures(none) %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2) #10 {
+define internal void @dataOfferHandleOffer(ptr readnone captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2) #10 {
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -5784,7 +5784,7 @@ define internal void @keyboardHandleModifiers(ptr readnone captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @keyboardHandleRepeatInfo(ptr readnone captures(none) %0, ptr noundef readnone %1, i32 noundef %2, i32 noundef %3) #12 {
+define internal void @keyboardHandleRepeatInfo(ptr readnone captures(none) %0, ptr noundef readnone captures(address) %1, i32 noundef %2, i32 noundef %3) #12 {
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133944), align 8, !tbaa !357
   %.not = icmp eq ptr %1, %5
   br i1 %.not, label %6, label %7
@@ -6265,7 +6265,7 @@ define internal void @xdgDecorationHandleConfigure(ptr noundef initializes((976,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xdgActivationHandleDone(ptr noundef captures(none) %0, ptr noundef readnone %1, ptr noundef %2) #0 {
+define internal void @xdgActivationHandleDone(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %5 = load ptr, ptr %4, align 8, !tbaa !240
   %.not = icmp eq ptr %1, %5
@@ -6446,7 +6446,7 @@ define internal void @confinedPointerHandleUnconfined(ptr readnone captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dataSourceHandleTarget(ptr readnone captures(none) %0, ptr noundef readnone %1, ptr readnone captures(none) %2) #0 {
+define internal void @dataSourceHandleTarget(ptr readnone captures(none) %0, ptr noundef readnone captures(address) %1, ptr readnone captures(none) %2) #0 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134056), align 8, !tbaa !343
   %.not = icmp eq ptr %4, %1
   br i1 %.not, label %6, label %5
@@ -6460,7 +6460,7 @@ define internal void @dataSourceHandleTarget(ptr readnone captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dataSourceHandleSend(ptr readnone captures(none) %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
+define internal void @dataSourceHandleSend(ptr readnone captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134056), align 8, !tbaa !343
   %.not = icmp eq ptr %5, %1
   br i1 %.not, label %6, label %.loopexit

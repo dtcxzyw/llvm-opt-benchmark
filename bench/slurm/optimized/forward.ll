@@ -295,7 +295,7 @@ declare void @hostlist_uniq(ptr noundef) local_unnamed_addr #1
 declare i32 @topology_g_split_hostlist(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_forward_msg_internal(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @_forward_msg_internal(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca %union.pthread_attr_t, align 8
   %9 = icmp slt i32 %4, 1
@@ -878,7 +878,7 @@ define dso_local void @destroy_data_info(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_start_msg_tree_internal(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_start_msg_tree_internal(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %union.pthread_attr_t, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32

@@ -591,7 +591,7 @@ ZSTD_customFree.exit18:                           ; preds = %23, %21, %1
 declare i64 @ZSTD_freeCDict(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTDMT_sizeof_CCtx(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i64 @ZSTDMT_sizeof_CCtx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %68, label %3
 

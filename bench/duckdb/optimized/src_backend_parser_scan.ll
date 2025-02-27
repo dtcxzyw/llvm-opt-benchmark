@@ -4992,7 +4992,7 @@ define hidden void @_ZN17duckdb_libpgquery11core_yyfreeEPvS0_(ptr noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer_stateEPv(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
+define hidden void @_ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer_stateEPv(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -5586,7 +5586,7 @@ define hidden void @_ZN17duckdb_libpgquery15core_yyset_llocEPiPv(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN17duckdb_libpgquery15core_yylex_initEPPv(ptr noundef %0) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 2) i32 @_ZN17duckdb_libpgquery15core_yylex_initEPPv(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -5633,7 +5633,7 @@ declare ptr @__errno_location() local_unnamed_addr #10
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN17duckdb_libpgquery21core_yylex_init_extraEPNS_18core_yy_extra_typeEPPv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 2) i32 @_ZN17duckdb_libpgquery21core_yylex_init_extraEPNS_18core_yy_extra_typeEPPv(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 

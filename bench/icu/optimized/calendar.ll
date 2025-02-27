@@ -1948,7 +1948,7 @@ define void @_ZN6icu_778CalendarD0Ev(ptr nonnull readnone align 8 captures(none)
 declare void @llvm.trap() #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_778CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8), (128, 129), (136, 152), (176, 192)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_778CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8), (128, 129), (136, 152), (176, 192)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(192) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 448) (i8, ptr @_ZTVN6icu_778CalendarE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 2, ptr %3, align 8, !tbaa !40
@@ -1970,7 +1970,7 @@ define void @_ZN6icu_778CalendarC2ERKS0_(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(192) ptr @_ZN6icu_778CalendaraSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(192) %0, ptr noundef nonnull readonly align 8 dereferenceable(192) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(192) ptr @_ZN6icu_778CalendaraSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(192) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca %"class.icu_77::LocaleBased", align 8
   %.not = icmp eq ptr %0, %1

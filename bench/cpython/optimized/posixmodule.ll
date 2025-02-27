@@ -23851,7 +23851,7 @@ declare i32 @sched_getscheduler(i32 noundef) local_unnamed_addr #5
 declare i32 @sched_rr_get_interval(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @os_sched_setparam_impl(ptr readnone %.32.val.24.val, i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @os_sched_setparam_impl(ptr readnone captures(address) %.32.val.24.val, i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.sched_param, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #20
   %4 = getelementptr i8, ptr %1, i64 8
@@ -23907,7 +23907,7 @@ convert_sched_param.exit.thread:                  ; preds = %11, %5, %15, %17, %
 declare i32 @sched_setparam(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @os_sched_setscheduler_impl(ptr readnone %.32.val.24.val, i32 noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @os_sched_setscheduler_impl(ptr readnone captures(address) %.32.val.24.val, i32 noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.sched_param, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
   %5 = getelementptr i8, ptr %2, i64 8
@@ -28091,7 +28091,7 @@ declare ptr @PyBytes_FromString(ptr noundef) local_unnamed_addr #2
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @ScandirIterator_enter(ptr noundef returned %0, ptr readnone captures(none) %1) #16 {
+define internal noundef ptr @ScandirIterator_enter(ptr noundef returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #16 {
   %3 = load i32, ptr %0, align 8, !tbaa !106
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %_Py_NewRef.exit, label %5
@@ -28398,7 +28398,7 @@ define internal ptr @os_DirEntry_is_file(ptr noundef captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_DirEntry_is_symlink(ptr noundef captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
+define internal ptr @os_DirEntry_is_symlink(ptr noundef captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 

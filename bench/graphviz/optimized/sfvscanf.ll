@@ -1498,7 +1498,7 @@ declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_u
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @setclass(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) initializes((0, 256)) %1) unnamed_addr #5 {
+define internal fastcc nonnull ptr @setclass(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 256)) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %0, align 1, !tbaa !3
   %5 = icmp ne i8 %4, 94

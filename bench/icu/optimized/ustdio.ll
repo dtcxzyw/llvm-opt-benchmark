@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZL10DELIMITERS = internal constant [2 x i16] [i16 10, i16 0], align 2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @u_fsettransliterator_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define ptr @u_fsettransliterator_77(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4, !tbaa !3
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %32
@@ -95,7 +95,7 @@ declare void @uprv_free_77(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z23ufile_flush_translit_77P5UFILE(ptr noundef %0) local_unnamed_addr #0 {
+define void @_Z23ufile_flush_translit_77P5UFILE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -409,7 +409,7 @@ _ZL15u_file_translitP5UFILEPKDsPia.exit:          ; preds = %56, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17ufile_flush_io_77P5UFILE(ptr noundef %0) local_unnamed_addr #0 {
+define void @_Z17ufile_flush_io_77P5UFILE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -428,7 +428,7 @@ define void @_Z17ufile_flush_io_77P5UFILE(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z23ufile_close_translit_77P5UFILE(ptr noundef %0) local_unnamed_addr #0 {
+define void @_Z23ufile_close_translit_77P5UFILE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
 
@@ -687,7 +687,7 @@ declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #4
 declare void @u_charsToUChars_77(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_fgets_77(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef ptr @u_fgets_77(ptr noundef writeonly captures(ret: address, provenance) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %1, 1
   br i1 %4, label %64, label %5
 

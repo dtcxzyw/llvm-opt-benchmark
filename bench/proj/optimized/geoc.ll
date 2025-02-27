@@ -56,7 +56,7 @@ declare double @tan(double noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @pj_geoc(ptr noundef writeonly %0) local_unnamed_addr #4 {
+define hidden noundef ptr @pj_geoc(ptr noundef writeonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 

@@ -5851,7 +5851,7 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i47.i: ; preds = %.split.i.i46.i, %
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @"_ZSt9partitionIPN4pbrt12BVHPrimitiveEZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanIS1_EEPSt6atomicIiESG_RSt6vectorINS0_9PrimitiveESaISI_EEE3$_4ET_SN_SN_T0_"(ptr noundef %0, ptr noundef %1, ptr noundef readonly byval(%class.anon.36) align 8 captures(none) %2) unnamed_addr #13 {
+define internal fastcc noundef ptr @"_ZSt9partitionIPN4pbrt12BVHPrimitiveEZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanIS1_EEPSt6atomicIiESG_RSt6vectorINS0_9PrimitiveESaISI_EEE3$_4ET_SN_SN_T0_"(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef captures(address) %1, ptr noundef readonly byval(%class.anon.36) align 8 captures(none) %2) unnamed_addr #13 {
   %4 = alloca %"struct.pbrt::BVHPrimitive", align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 8
@@ -9554,7 +9554,7 @@ _ZNSt6vectorIN4pbrt9BoundEdgeESaIS1_EE17_M_default_appendEm.exit: ; preds = %41,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt15KdTreeAggregate9buildTreeEiRKNS_7Bounds3IfEERKSt6vectorIS2_SaIS2_EEN4pstd4spanIKiEEiPS5_INS_9BoundEdgeESaISE_EENSB_IiEESI_i(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %4, i64 %5, i32 noundef %6, ptr noundef %7, ptr noundef readonly byval(%"class.pstd::span.94") align 8 captures(none) %8, ptr noundef readonly byval(%"class.pstd::span.94") align 8 captures(none) %9, i32 noundef %10) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt15KdTreeAggregate9buildTreeEiRKNS_7Bounds3IfEERKSt6vectorIS2_SaIS2_EEN4pstd4spanIKiEEiPS5_INS_9BoundEdgeESaISE_EENSB_IiEESI_i(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr captures(address) %4, i64 %5, i32 noundef %6, ptr noundef %7, ptr noundef readonly byval(%"class.pstd::span.94") align 8 captures(none) %8, ptr noundef readonly byval(%"class.pstd::span.94") align 8 captures(none) %9, i32 noundef %10) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"struct.pbrt::BoundEdge", align 4
   %13 = alloca %"struct.pbrt::BoundEdge", align 4
   %14 = alloca i32, align 4
@@ -10429,7 +10429,7 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit247:        ; preds = %_ZN4pbrt6Tuple3INS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10KdTreeNode8InitLeafEN4pstd4spanIKiEEPSt6vectorIiSaIiEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr readonly %1, i64 %2, ptr noundef captures(none) %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4pbrt10KdTreeNode8InitLeafEN4pstd4spanIKiEEPSt6vectorIiSaIiEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef captures(none) %3) local_unnamed_addr #2 align 2 {
   %.tr = trunc i64 %2 to i32
   %5 = shl i32 %.tr, 2
   %6 = or disjoint i32 %5, 3

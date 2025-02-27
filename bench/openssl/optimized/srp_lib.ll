@@ -688,7 +688,7 @@ define ptr @SRP_check_known_gN_param(ptr noundef %0, ptr noundef %1) local_unnam
 declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @SRP_get_default_gN(ptr noundef readonly %0) local_unnamed_addr #4 {
+define noundef ptr @SRP_get_default_gN(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 

@@ -318,7 +318,7 @@ lv_msgbox_close.exit:                             ; preds = %1, %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_msgbox_get_header(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_msgbox_get_header(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -332,7 +332,7 @@ define ptr @lv_msgbox_get_header(ptr noundef readonly %0) local_unnamed_addr #2 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_msgbox_get_footer(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_msgbox_get_footer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -346,7 +346,7 @@ define ptr @lv_msgbox_get_footer(ptr noundef readonly %0) local_unnamed_addr #2 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_msgbox_get_content(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_msgbox_get_content(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -360,7 +360,7 @@ define ptr @lv_msgbox_get_content(ptr noundef readonly %0) local_unnamed_addr #2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_msgbox_get_title(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_msgbox_get_title(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

@@ -3597,7 +3597,7 @@ declare dso_local void @drm_mode_convert_to_umode(ptr noundef, ptr noundef) loca
 declare dso_local i32 @drm_mode_object_get_properties(ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @drm_connector_find_by_fwnode(ptr noundef readnone %0) local_unnamed_addr #2 align 16 {
+define dso_local ptr @drm_connector_find_by_fwnode(ptr noundef readnone captures(address) %0) local_unnamed_addr #2 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %22, label %3
 
@@ -3645,7 +3645,7 @@ define dso_local ptr @drm_connector_find_by_fwnode(ptr noundef readnone %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_connector_oob_hotplug_event(ptr noundef readnone %0, i32 noundef %1) #2 align 16 {
+define dso_local void @drm_connector_oob_hotplug_event(ptr noundef readnone captures(address) %0, i32 noundef %1) #2 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 

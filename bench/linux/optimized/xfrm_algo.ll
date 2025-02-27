@@ -234,7 +234,7 @@ define dso_local ptr @xfrm_calg_get_byid(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @xfrm_aalg_get_byname(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef ptr @xfrm_aalg_get_byname(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.split
 
@@ -293,7 +293,7 @@ define dso_local noundef ptr @xfrm_aalg_get_byname(ptr noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @xfrm_ealg_get_byname(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef ptr @xfrm_ealg_get_byname(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.split
 
@@ -352,7 +352,7 @@ define dso_local noundef ptr @xfrm_ealg_get_byname(ptr noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @xfrm_calg_get_byname(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef ptr @xfrm_calg_get_byname(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.split
 
@@ -411,7 +411,7 @@ define dso_local noundef ptr @xfrm_calg_get_byname(ptr noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @xfrm_aead_get_byname(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local ptr @xfrm_aead_get_byname(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %.loopexit, label %.split
 

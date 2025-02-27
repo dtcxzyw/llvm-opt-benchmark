@@ -108,7 +108,7 @@ declare void @end_progress_output() local_unnamed_addr #1
 declare void @check_ok() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @transfer_all_new_dbs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define dso_local void @transfer_all_new_dbs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8

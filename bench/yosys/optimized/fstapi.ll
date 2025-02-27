@@ -141,7 +141,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.fstReaderProcessHier.6 = private unnamed_addr constant [24 x i32] [i32 1, i32 10, i32 100, i32 1, i32 10, i32 100, i32 1, i32 10, i32 100, i32 1, i32 10, i32 100, i32 1, i32 10, i32 100, i32 1, i32 10, i32 100, i32 1, i32 10, i32 100, i32 1, i32 10, i32 100], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @fstWriterCreate(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef ptr @fstWriterCreate(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [8 x i8], align 1
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 8
@@ -583,7 +583,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
 declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @fstWriterFlushContext(ptr noundef %0) local_unnamed_addr #10 {
+define void @fstWriterFlushContext(ptr noundef captures(address_is_null) %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -2048,7 +2048,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit53:           ; preds = %.lr.ph.i46, %75
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterEmitValueChange(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define void @fstWriterEmitValueChange(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %4
 
@@ -3799,7 +3799,7 @@ declare noundef i64 @ftello(ptr noundef captures(none)) local_unnamed_addr #9
 declare ptr @__errno_location() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL19fstWriterMmapSanityPvPKciS1_(ptr noundef readnone %0, i32 noundef range(i32 950, 1952) %1, ptr noundef %2) unnamed_addr #13 {
+define internal fastcc void @_ZL19fstWriterMmapSanityPvPKciS1_(ptr noundef readnone captures(address) %0, i32 noundef range(i32 950, 1952) %1, ptr noundef %2) unnamed_addr #13 {
   %4 = icmp eq ptr %0, inttoptr (i64 -1 to ptr)
   br i1 %4, label %5, label %10
 
@@ -3885,7 +3885,7 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z11JenkinsFreePvj(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @_Z11JenkinsFreePvj(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %3
 
@@ -3925,7 +3925,7 @@ define void @_Z11JenkinsFreePvj(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetDate(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
+define void @fstWriterSetDate(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
   %3 = alloca [119 x i8], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit13, label %4
@@ -3976,7 +3976,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit13: ; preds = %25, %_ZL1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetVersion(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #13 {
+define void @fstWriterSetVersion(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
   %3 = alloca [128 x i8], align 16
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
@@ -4026,7 +4026,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit16: ; preds = %27, %_ZL1
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetFileType(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define void @fstWriterSetFileType(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = icmp ne ptr %0, null
   %4 = icmp slt i32 %1, 3
   %or.cond = and i1 %3, %4
@@ -4074,13 +4074,13 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit15: ; preds = %26, %_ZL1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterSetSourceStem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @fstWriterSetSourceStem(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   tail call fastcc void @_ZL24fstWriterSetSourceStem_2PvPKcjji(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24fstWriterSetSourceStem_2PvPKcjji(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 4, 6) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL24fstWriterSetSourceStem_2PvPKcjji(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 4, 6) %4) unnamed_addr #0 {
   %6 = alloca [11 x i8], align 1
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %1, null
@@ -4199,13 +4199,13 @@ _ZL32fstWriterSetAttrDoubleArgGenericPvimm.exit:  ; preds = %_ZL22fstCopyVarint6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterSetSourceInstantiationStem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @fstWriterSetSourceInstantiationStem(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   tail call fastcc void @_ZL24fstWriterSetSourceStem_2PvPKcjji(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 5)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterSetComment(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @fstWriterSetComment(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond.i = and i1 %3, %4
@@ -4242,7 +4242,7 @@ _ZL23fstWriterSetAttrGenericPvPKcim.exit:         ; preds = %2, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterSetValueList(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @fstWriterSetValueList(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond.i = and i1 %3, %4
@@ -4279,7 +4279,7 @@ _ZL23fstWriterSetAttrGenericPvPKcim.exit:         ; preds = %2, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterSetEnvVar(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @fstWriterSetEnvVar(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond.i = and i1 %3, %4
@@ -4316,7 +4316,7 @@ _ZL23fstWriterSetAttrGenericPvPKcim.exit:         ; preds = %2, %12
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetTimescale(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define void @fstWriterSetTimescale(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit10, label %3
 
@@ -4358,7 +4358,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit10: ; preds = %21, %_ZL1
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetTimescaleFromString(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #13 {
+define void @fstWriterSetTimescaleFromString(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -4465,7 +4465,7 @@ fstWriterSetTimescale.exit:                       ; preds = %35, %_ZL15fstWriter
 declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetTimezero(ptr noundef %0, i64 noundef %1) local_unnamed_addr #13 {
+define void @fstWriterSetTimezero(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #13 {
   %3 = alloca [8 x i8], align 1
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit11, label %4
@@ -4525,7 +4525,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit11: ; preds = %26, %_ZL1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @fstWriterSetPackType(ptr noundef %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @fstWriterSetPackType(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %3
 
@@ -4547,7 +4547,7 @@ define void @fstWriterSetPackType(ptr noundef %0, i32 noundef %1) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @fstWriterSetRepackOnClose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @fstWriterSetRepackOnClose(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -4566,7 +4566,7 @@ define void @fstWriterSetRepackOnClose(ptr noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetParallelMode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define void @fstWriterSetParallelMode(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -4600,7 +4600,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare void @exit(i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @fstWriterSetDumpSizeLimit(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #19 {
+define void @fstWriterSetDumpSizeLimit(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4614,7 +4614,7 @@ define void @fstWriterSetDumpSizeLimit(ptr noundef writeonly %0, i64 noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @fstWriterGetDumpSizeLimitReached(ptr noundef readonly %0) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @fstWriterGetDumpSizeLimitReached(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -4632,7 +4632,7 @@ define range(i32 0, 2) i32 @fstWriterGetDumpSizeLimitReached(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @fstWriterGetFseekFailed(ptr noundef readonly %0) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @fstWriterGetFseekFailed(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -4649,7 +4649,7 @@ define range(i32 0, 2) i32 @fstWriterGetFseekFailed(ptr noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @fstWriterCreateVar2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define i32 @fstWriterCreateVar2(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = shl i32 %7, 10
   %11 = and i32 %8, 1023
   %12 = or disjoint i32 %11, %10
@@ -4691,7 +4691,7 @@ _ZL23fstWriterSetAttrGenericPvPKcim.exit:         ; preds = %9, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @fstWriterCreateVar(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define i32 @fstWriterCreateVar(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [10 x i8], align 1
   %8 = alloca [10 x i8], align 1
   %9 = alloca [10 x i8], align 1
@@ -5025,7 +5025,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit114:          ; preds = %.lr.ph.i107
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetScope(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #13 {
+define void @fstWriterSetScope(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %34, label %5
 
@@ -5084,7 +5084,7 @@ define void @fstWriterSetScope(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetUpscope(ptr noundef %0) local_unnamed_addr #13 {
+define void @fstWriterSetUpscope(ptr noundef captures(address_is_null) %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -5103,7 +5103,7 @@ define void @fstWriterSetUpscope(ptr noundef %0) local_unnamed_addr #13 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetAttrBegin(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #13 {
+define void @fstWriterSetAttrBegin(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #13 {
   %6 = alloca [10 x i8], align 1
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %46, label %7
@@ -5204,7 +5204,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %28
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetAttrEnd(ptr noundef %0) local_unnamed_addr #13 {
+define void @fstWriterSetAttrEnd(ptr noundef captures(address_is_null) %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -5223,7 +5223,7 @@ define void @fstWriterSetAttrEnd(ptr noundef %0) local_unnamed_addr #13 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @fstWriterCreateEnumTable(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #0 {
+define i32 @fstWriterCreateEnumTable(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
   %8 = icmp ne ptr %0, null
   %9 = icmp ne ptr %1, null
@@ -5586,7 +5586,7 @@ define i32 @fstUtilityBinToEsc(ptr noundef %0, ptr noundef readonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterEmitEnumTableRef(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define void @fstWriterEmitEnumTableRef(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne i32 %1, 0
   %or.cond = and i1 %3, %4
@@ -5846,7 +5846,7 @@ _ZL19fstWriterMmapSanityPvPKciS1_.exit64:         ; preds = %119, %113, %106, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterEmitValueChange32(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @fstWriterEmitValueChange32(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -5872,7 +5872,7 @@ define void @fstWriterEmitValueChange32(ptr noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterEmitValueChange64(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @fstWriterEmitValueChange64(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [64 x i8], align 16
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -5904,7 +5904,7 @@ define void @fstWriterEmitValueChange64(ptr noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterEmitValueChangeVec32(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define void @fstWriterEmitValueChangeVec32(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   %6 = icmp ult i32 %2, 33
   br i1 %6, label %7, label %17
@@ -6056,7 +6056,7 @@ fstWriterEmitValueChange32.exit:                  ; preds = %.lr.ph.i, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterEmitValueChangeVec64(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define void @fstWriterEmitValueChangeVec64(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [64 x i8], align 16
   %6 = icmp ult i32 %2, 65
   br i1 %6, label %7, label %18
@@ -6216,7 +6216,7 @@ fstWriterEmitValueChange64.exit:                  ; preds = %.lr.ph.i, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterEmitVariableLengthValueChange(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @fstWriterEmitVariableLengthValueChange(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %5
 
@@ -6629,7 +6629,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit78._crit_edge: ; preds = %_ZL15fstWriterVari
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @fstWriterEmitDumpActive(ptr noundef %0, i32 noundef %1) local_unnamed_addr #23 {
+define void @fstWriterEmitDumpActive(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -6690,7 +6690,7 @@ define noundef i32 @_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli(ptr nound
 declare noundef i32 @fseeko(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @fstReaderGetCurrentFlatScope(ptr noundef readonly %0) local_unnamed_addr #20 {
+define ptr @fstReaderGetCurrentFlatScope(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -6707,7 +6707,7 @@ define ptr @fstReaderGetCurrentFlatScope(ptr noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @fstReaderGetCurrentScopeUserInfo(ptr noundef readonly %0) local_unnamed_addr #24 {
+define ptr @fstReaderGetCurrentScopeUserInfo(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -6728,7 +6728,7 @@ define ptr @fstReaderGetCurrentScopeUserInfo(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define ptr @fstReaderPopScope(ptr noundef %0) local_unnamed_addr #25 {
+define ptr @fstReaderPopScope(ptr noundef captures(address_is_null) %0) local_unnamed_addr #25 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %2
 
@@ -6774,7 +6774,7 @@ define ptr @fstReaderPopScope(ptr noundef %0) local_unnamed_addr #25 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstReaderResetScope(ptr noundef %0) local_unnamed_addr #0 {
+define void @fstReaderResetScope(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.split
 
@@ -6846,7 +6846,7 @@ define void @fstReaderResetScope(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define ptr @fstReaderPushScope(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #25 {
+define ptr @fstReaderPushScope(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #25 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %46, label %4
 
@@ -6930,7 +6930,7 @@ define ptr @fstReaderPushScope(ptr noundef %0, ptr noundef readonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @fstReaderGetCurrentScopeLen(ptr noundef readonly %0) local_unnamed_addr #24 {
+define i32 @fstReaderGetCurrentScopeLen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -6951,7 +6951,7 @@ define i32 @fstReaderGetCurrentScopeLen(ptr noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @fstReaderGetFseekFailed(ptr noundef readonly %0) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @fstReaderGetFseekFailed(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -6968,7 +6968,7 @@ define range(i32 0, 2) i32 @fstReaderGetFseekFailed(ptr noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @fstReaderGetFacProcessMask(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #24 {
+define range(i32 0, 2) i32 @fstReaderGetFacProcessMask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #24 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -6998,7 +6998,7 @@ define range(i32 0, 2) i32 @fstReaderGetFacProcessMask(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @fstReaderSetFacProcessMask(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #26 {
+define void @fstReaderSetFacProcessMask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #26 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -7028,7 +7028,7 @@ define void @fstReaderSetFacProcessMask(ptr noundef readonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @fstReaderClrFacProcessMask(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #26 {
+define void @fstReaderClrFacProcessMask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #26 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %3
 
@@ -7059,7 +7059,7 @@ define void @fstReaderClrFacProcessMask(ptr noundef readonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @fstReaderSetFacProcessMaskAll(ptr noundef readonly %0) local_unnamed_addr #27 {
+define void @fstReaderSetFacProcessMaskAll(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #27 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -7079,7 +7079,7 @@ define void @fstReaderSetFacProcessMaskAll(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @fstReaderClrFacProcessMaskAll(ptr noundef readonly %0) local_unnamed_addr #27 {
+define void @fstReaderClrFacProcessMaskAll(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #27 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -7099,7 +7099,7 @@ define void @fstReaderClrFacProcessMaskAll(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @fstReaderGetTimescale(ptr noundef readonly %0) local_unnamed_addr #20 {
+define signext i8 @fstReaderGetTimescale(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7114,7 +7114,7 @@ define signext i8 @fstReaderGetTimescale(ptr noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetStartTime(ptr noundef readonly %0) local_unnamed_addr #20 {
+define i64 @fstReaderGetStartTime(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7129,7 +7129,7 @@ define i64 @fstReaderGetStartTime(ptr noundef readonly %0) local_unnamed_addr #2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetEndTime(ptr noundef readonly %0) local_unnamed_addr #20 {
+define i64 @fstReaderGetEndTime(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7144,7 +7144,7 @@ define i64 @fstReaderGetEndTime(ptr noundef readonly %0) local_unnamed_addr #20 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetMemoryUsedByWriter(ptr noundef readonly %0) local_unnamed_addr #20 {
+define i64 @fstReaderGetMemoryUsedByWriter(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7159,7 +7159,7 @@ define i64 @fstReaderGetMemoryUsedByWriter(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetScopeCount(ptr noundef readonly %0) local_unnamed_addr #20 {
+define i64 @fstReaderGetScopeCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7174,7 +7174,7 @@ define i64 @fstReaderGetScopeCount(ptr noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetVarCount(ptr noundef readonly %0) local_unnamed_addr #20 {
+define i64 @fstReaderGetVarCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7189,7 +7189,7 @@ define i64 @fstReaderGetVarCount(ptr noundef readonly %0) local_unnamed_addr #20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @fstReaderGetMaxHandle(ptr noundef readonly %0) local_unnamed_addr #20 {
+define i32 @fstReaderGetMaxHandle(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7204,7 +7204,7 @@ define i32 @fstReaderGetMaxHandle(ptr noundef readonly %0) local_unnamed_addr #2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetAliasCount(ptr noundef readonly %0) local_unnamed_addr #20 {
+define i64 @fstReaderGetAliasCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7219,7 +7219,7 @@ define i64 @fstReaderGetAliasCount(ptr noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetValueChangeSectionCount(ptr noundef readonly %0) local_unnamed_addr #20 {
+define i64 @fstReaderGetValueChangeSectionCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7234,7 +7234,7 @@ define i64 @fstReaderGetValueChangeSectionCount(ptr noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @fstReaderGetDoubleEndianMatchState(ptr noundef readonly %0) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @fstReaderGetDoubleEndianMatchState(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -7252,7 +7252,7 @@ define range(i32 0, 2) i32 @fstReaderGetDoubleEndianMatchState(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @fstReaderGetVersionString(ptr noundef readnone %0) local_unnamed_addr #28 {
+define ptr @fstReaderGetVersionString(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #28 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 123
   %3 = select i1 %.not, ptr null, ptr %2
@@ -7260,7 +7260,7 @@ define ptr @fstReaderGetVersionString(ptr noundef readnone %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @fstReaderGetDateString(ptr noundef readnone %0) local_unnamed_addr #28 {
+define ptr @fstReaderGetDateString(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #28 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %3 = select i1 %.not, ptr null, ptr %2
@@ -7268,7 +7268,7 @@ define ptr @fstReaderGetDateString(ptr noundef readnone %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 256) i32 @fstReaderGetFileType(ptr noundef readonly %0) local_unnamed_addr #20 {
+define range(i32 0, 256) i32 @fstReaderGetFileType(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -7284,7 +7284,7 @@ define range(i32 0, 256) i32 @fstReaderGetFileType(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetTimezero(ptr noundef readonly %0) local_unnamed_addr #20 {
+define i64 @fstReaderGetTimezero(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7299,7 +7299,7 @@ define i64 @fstReaderGetTimezero(ptr noundef readonly %0) local_unnamed_addr #20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @fstReaderGetNumberDumpActivityChanges(ptr noundef readonly %0) local_unnamed_addr #20 {
+define i32 @fstReaderGetNumberDumpActivityChanges(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7314,7 +7314,7 @@ define i32 @fstReaderGetNumberDumpActivityChanges(ptr noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @fstReaderGetDumpActivityChangeTime(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #24 {
+define i64 @fstReaderGetDumpActivityChangeTime(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #24 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -7342,7 +7342,7 @@ define i64 @fstReaderGetDumpActivityChangeTime(ptr noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i8 @fstReaderGetDumpActivityChangeValue(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #24 {
+define zeroext i8 @fstReaderGetDumpActivityChangeValue(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #24 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -7370,7 +7370,7 @@ define zeroext i8 @fstReaderGetDumpActivityChangeValue(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @fstReaderSetLimitTimeRange(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #10 {
+define void @fstReaderSetLimitTimeRange(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %4
 
@@ -7390,7 +7390,7 @@ define void @fstReaderSetLimitTimeRange(ptr noundef %0, i64 noundef %1, i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @fstReaderSetUnlimitedTimeRange(ptr noundef %0) local_unnamed_addr #10 {
+define void @fstReaderSetUnlimitedTimeRange(ptr noundef captures(address_is_null) %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -7406,7 +7406,7 @@ define void @fstReaderSetUnlimitedTimeRange(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @fstReaderSetVcdExtensions(ptr noundef %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @fstReaderSetVcdExtensions(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -7425,7 +7425,7 @@ define void @fstReaderSetVcdExtensions(ptr noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @fstReaderIterBlocksSetNativeDoublesOnCallback(ptr noundef %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @fstReaderIterBlocksSetNativeDoublesOnCallback(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -8296,7 +8296,7 @@ define internal fastcc noundef i64 @_ZL17fstReaderVarint64P8_IO_FILE(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @fstReaderProcessHier(ptr noundef %0, ptr noundef %1) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @fstReaderProcessHier(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #11 {
   %3 = alloca [5 x i8], align 1
   %4 = alloca [5 x i8], align 1
   %5 = alloca [16 x i8], align 16
@@ -9893,7 +9893,7 @@ define noalias noundef ptr @fstReaderOpenForUtilitiesOnly() local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @fstReaderOpen(ptr noundef readonly %0) local_unnamed_addr #11 {
+define noundef ptr @fstReaderOpen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
   %2 = tail call noalias dereferenceable_or_null(67248) ptr @calloc(i64 noundef 1, i64 noundef 67248) #36
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
@@ -9970,7 +9970,7 @@ define noundef ptr @fstReaderOpen(ptr noundef readonly %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstReaderClose(ptr noundef %0) local_unnamed_addr #0 {
+define void @fstReaderClose(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %61, label %2
 
@@ -10110,13 +10110,13 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit38:          ; preds = %48, %52
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @fstReaderIterBlocks(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @fstReaderIterBlocks(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #11 {
   %5 = tail call i32 @fstReaderIterBlocks2(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @fstReaderIterBlocks2(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @fstReaderIterBlocks2(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #11 {
   %6 = alloca [5 x i8], align 1
   %7 = alloca [8 x i8], align 1
   %8 = alloca [16 x i8], align 16
@@ -12906,7 +12906,7 @@ declare i32 @LZ4_decompress_safe_partial(ptr noundef, ptr noundef, i32 noundef, 
 declare i32 @fastlz_decompress(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @fstReaderGetValueFromHandleAtTime(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #11 {
+define noundef ptr @fstReaderGetValueFromHandleAtTime(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null, ret: address, provenance) %3) local_unnamed_addr #11 {
   %5 = alloca [8 x i8], align 1
   %6 = alloca [16 x i8], align 16
   %7 = alloca [16 x i8], align 16
@@ -14464,7 +14464,7 @@ _ZL14fstGetVarint32PhPi.exit700._crit_edge.thread: ; preds = %.preheader722, %_Z
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReaderContextjPc(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, -1) %1, ptr noundef nonnull writeonly %2) unnamed_addr #13 {
+define internal fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReaderContextjPc(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, -1) %1, ptr noundef nonnull writeonly captures(ret: address, provenance) %2) unnamed_addr #13 {
   %4 = alloca double, align 8
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -15095,7 +15095,7 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @fstUtilityFreeEnumTable(ptr noundef %0) local_unnamed_addr #25 {
+define void @fstUtilityFreeEnumTable(ptr noundef captures(address_is_null) %0) local_unnamed_addr #25 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 

@@ -914,7 +914,7 @@ define void @_ZN6icu_7718CharStringByteSink6AppendEPKci(ptr noundef nonnull read
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7718CharStringByteSink15GetAppendBufferEiiPciPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 align 2 {
+define noundef ptr @_ZN6icu_7718CharStringByteSink15GetAppendBufferEiiPciPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, ptr noundef readnone captures(ret: address, provenance) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 align 2 {
   %7 = alloca i32, align 4
   %8 = icmp slt i32 %1, 1
   %9 = icmp slt i32 %4, %1

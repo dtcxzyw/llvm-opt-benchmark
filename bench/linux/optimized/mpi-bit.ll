@@ -336,7 +336,7 @@ define dso_local void @mpi_rshift_limbs(ptr noundef captures(none) %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) #3 align 16 {
+define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) #3 align 16 {
   %4 = lshr i32 %2, 6
   %5 = and i32 %2, 63
   %6 = icmp eq ptr %0, %1
@@ -628,7 +628,7 @@ define dso_local void @mpi_lshift_limbs(ptr noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
   %4 = lshr i32 %2, 6
   %5 = and i32 %2, 63
   %6 = icmp ne ptr %0, %1

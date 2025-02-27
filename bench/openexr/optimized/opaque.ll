@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [45 x i8] c"Opaque data given invalid negative size (%d)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_opaquedata_init(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_opaquedata_init(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %28, label %4
 
@@ -81,7 +81,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_opaquedata_create(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_opaquedata_create(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %exr_attr_opaquedata_init.exit.thread, label %5
 
@@ -155,7 +155,7 @@ exr_attr_opaquedata_init.exit.thread:             ; preds = %4, %31, %34, %exr_a
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @exr_attr_opaquedata_destroy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @exr_attr_opaquedata_destroy(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %24, label %3
 
@@ -209,7 +209,7 @@ define hidden range(i32 0, 3) i32 @exr_attr_opaquedata_destroy(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_opaquedata_copy(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_opaquedata_copy(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %exr_attr_opaquedata_create.exit, label %4
 
@@ -340,7 +340,7 @@ exr_attr_opaquedata_create.exit:                  ; preds = %55, %37, %51, %43, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_opaquedata_set_unpacked(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_opaquedata_set_unpacked(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %37, label %5
 
@@ -415,7 +415,7 @@ define hidden i32 @exr_attr_opaquedata_set_unpacked(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_opaquedata_unpack(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_opaquedata_unpack(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
@@ -518,7 +518,7 @@ define hidden i32 @exr_attr_opaquedata_unpack(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_opaquedata_pack(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_opaquedata_pack(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   store i32 0, ptr %5, align 4, !tbaa !33
@@ -684,7 +684,7 @@ define hidden i32 @exr_attr_opaquedata_pack(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_opaquedata_set_packed(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_opaquedata_set_packed(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %48, label %5
 

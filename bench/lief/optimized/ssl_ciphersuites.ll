@@ -253,7 +253,7 @@ define hidden noundef ptr @mbedtls_ssl_ciphersuite_from_id(i32 noundef %0) local
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @mbedtls_ssl_ciphersuite_from_string(ptr noundef readonly %0) local_unnamed_addr #2 {
+define hidden noundef ptr @mbedtls_ssl_ciphersuite_from_string(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -306,7 +306,7 @@ mbedtls_ssl_ciphersuite_from_id.exit.thread:      ; preds = %5, %mbedtls_ssl_cip
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_ssl_get_ciphersuite_id(ptr noundef readonly %0) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_ssl_get_ciphersuite_id(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %mbedtls_ssl_ciphersuite_from_string.exit.thread, label %.preheader.i
 

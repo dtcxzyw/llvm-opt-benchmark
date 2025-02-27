@@ -183,7 +183,7 @@ define void @_ZN6icu_7711Normalizer2D0Ev(ptr nonnull readnone align 8 captures(n
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7711Normalizer213normalizeUTF8EjNS_11StringPieceERNS_8ByteSinkEPNS_5EditsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %1, ptr %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef readnone %5, ptr noundef nonnull align 4 dereferenceable(4) %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7711Normalizer213normalizeUTF8EjNS_11StringPieceERNS_8ByteSinkEPNS_5EditsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %1, ptr %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef readnone captures(address_is_null) %5, ptr noundef nonnull align 4 dereferenceable(4) %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.icu_77::UnicodeString", align 8
   %9 = alloca %"class.icu_77::UnicodeString", align 8
   %10 = load i32, ptr %6, align 4, !tbaa !3

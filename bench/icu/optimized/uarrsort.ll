@@ -119,7 +119,7 @@ define i32 @uprv_stableBinarySearch_77(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uprv_sortArray_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef signext %5, ptr noundef %6) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @uprv_sortArray_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef signext %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.icu_77::MaybeStackArray.0", align 16
   %9 = alloca %"class.icu_77::MaybeStackArray", align 16
   %10 = icmp eq ptr %6, null

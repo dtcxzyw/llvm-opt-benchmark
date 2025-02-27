@@ -367,7 +367,7 @@ define i64 @ossl_rand_pool_bytes_remaining(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rand_pool_add(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rand_pool_add(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -521,7 +521,7 @@ define range(i32 0, 2) i32 @ossl_rand_pool_add_end(ptr noundef captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rand_pool_adin_mix_in(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rand_pool_adin_mix_in(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq i64 %2, 0
   %or.cond = or i1 %4, %5

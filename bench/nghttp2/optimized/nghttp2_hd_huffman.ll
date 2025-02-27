@@ -39,7 +39,7 @@ define hidden range(i64 0, 2305843009213693952) i64 @nghttp2_hd_huff_encode_coun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !11
@@ -193,7 +193,7 @@ define hidden void @nghttp2_hd_huff_decode_context_init(ptr noundef writeonly ca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
+define hidden i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   %7 = load i16, ptr %0, align 2, !tbaa !25
   %.not27 = icmp samesign eq i64 %3, 0

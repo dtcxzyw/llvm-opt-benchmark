@@ -195,7 +195,7 @@ define void @_ZN3zmq31shared_message_memory_allocator7inc_refEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq31shared_message_memory_allocator12call_dec_refEPvS1_(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN3zmq31shared_message_memory_allocator12call_dec_refEPvS1_(ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %8, !prof !14
 

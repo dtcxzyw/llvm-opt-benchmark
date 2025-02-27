@@ -16491,7 +16491,7 @@ return:                                           ; preds = %if.then.i51, %if.en
 declare noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 4, 6) i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr readonly %f.24.val, ptr noundef readonly captures(none) %args, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 4, 6) i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr readonly captures(address_is_null) %f.24.val, ptr noundef readonly captures(none) %args, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %args.i25 = alloca [2 x ptr], align 16
   %args.i = alloca [2 x ptr], align 16
@@ -17788,7 +17788,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115th_rewriter_cfg10unify_coreEP3appP4exprR7obj_refIS3_11ast_managerES8_S8_Rb(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef %t1, ptr noundef readonly %t2, ptr noundef nonnull align 8 dereferenceable(16) %new_t1, ptr noundef nonnull align 8 dereferenceable(16) %new_t2, ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %first) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115th_rewriter_cfg10unify_coreEP3appP4exprR7obj_refIS3_11ast_managerES8_S8_Rb(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef %t1, ptr noundef readonly captures(address) %t2, ptr noundef nonnull align 8 dereferenceable(16) %new_t1, ptr noundef nonnull align 8 dereferenceable(16) %new_t2, ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %first) unnamed_addr #3 align 2 {
 entry:
   %m_num_args.i = getelementptr inbounds nuw i8, ptr %t1, i64 24
   %0 = load i32, ptr %m_num_args.i, align 8

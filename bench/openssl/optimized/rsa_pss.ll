@@ -543,7 +543,7 @@ declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) l
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef writeonly %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %4, label %3
 
@@ -560,7 +560,7 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef writ
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_is_unrestricted(ptr noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_is_unrestricted(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -582,7 +582,7 @@ define noundef i32 @ossl_rsa_pss_params_30_copy(ptr noundef writeonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_hashalg(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_hashalg(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %5, label %4
 
@@ -596,7 +596,7 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_hashalg(ptr noundef write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_maskgenhashalg(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_maskgenhashalg(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -611,7 +611,7 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_maskgenhashalg(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_saltlen(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_saltlen(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -626,7 +626,7 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_saltlen(ptr noundef write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_trailerfield(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_trailerfield(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -641,7 +641,7 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_trailerfield(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_rsa_pss_params_30_hashalg(ptr noundef readonly %0) local_unnamed_addr #7 {
+define i32 @ossl_rsa_pss_params_30_hashalg(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -655,7 +655,7 @@ define i32 @ossl_rsa_pss_params_30_hashalg(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_rsa_pss_params_30_maskgenalg(ptr noundef readonly %0) local_unnamed_addr #7 {
+define i32 @ossl_rsa_pss_params_30_maskgenalg(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -670,7 +670,7 @@ define i32 @ossl_rsa_pss_params_30_maskgenalg(ptr noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_rsa_pss_params_30_maskgenhashalg(ptr noundef readonly %0) local_unnamed_addr #7 {
+define i32 @ossl_rsa_pss_params_30_maskgenhashalg(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -685,7 +685,7 @@ define i32 @ossl_rsa_pss_params_30_maskgenhashalg(ptr noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_rsa_pss_params_30_saltlen(ptr noundef readonly %0) local_unnamed_addr #7 {
+define i32 @ossl_rsa_pss_params_30_saltlen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -700,7 +700,7 @@ define i32 @ossl_rsa_pss_params_30_saltlen(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_rsa_pss_params_30_trailerfield(ptr noundef readonly %0) local_unnamed_addr #7 {
+define i32 @ossl_rsa_pss_params_30_trailerfield(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

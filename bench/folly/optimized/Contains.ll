@@ -25,7 +25,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5folly4simd6detail11containsU16ENS_6detail13fallback_span4spanIKtLm18446744073709551615EEEt(ptr readonly %0, i64 %1, i16 noundef zeroext %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5folly4simd6detail11containsU16ENS_6detail13fallback_span4spanIKtLm18446744073709551615EEEt(ptr readonly captures(address) %0, i64 %1, i16 noundef zeroext %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %.idx13 = shl nuw nsw i64 %1, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx13
   %.not = icmp ult i64 %1, 4
@@ -150,7 +150,7 @@ _ZN5folly4simd6detail15containsImplStdIjEEbNS_6detail13fallback_span4spanIKT_Lm1
 declare ptr @wmemchr(ptr noundef, i32 noundef signext, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5folly4simd6detail11containsU64ENS_6detail13fallback_span4spanIKmLm18446744073709551615EEEm(ptr readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5folly4simd6detail11containsU64ENS_6detail13fallback_span4spanIKmLm18446744073709551615EEEm(ptr readonly captures(address) %0, i64 %1, i64 noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %.idx13 = shl nuw nsw i64 %1, 3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx13
   %.not = icmp ult i64 %1, 4

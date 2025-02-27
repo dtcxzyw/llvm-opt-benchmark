@@ -3511,22 +3511,22 @@ common.ret:                                       ; preds = %"_ZN4core3ptr153dro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN12tracing_core5field7display17h3ce24b8c95b05bc7E(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN12tracing_core5field7display17h3ce24b8c95b05bc7E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN12tracing_core5field7display17h522d13b82e3d2565E(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN12tracing_core5field7display17h522d13b82e3d2565E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12tracing_core5field7display17h52e0abcf3fe00f14E(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12tracing_core5field7display17h52e0abcf3fe00f14E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 4 dereferenceable(32) ptr @_ZN12tracing_core5field7display17h9e65bf1b0b374c35E(ptr noalias noundef readonly returned align 4 dereferenceable(32) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 4 dereferenceable(32) ptr @_ZN12tracing_core5field7display17h9e65bf1b0b374c35E(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #2 {
   ret ptr %0
 }
 

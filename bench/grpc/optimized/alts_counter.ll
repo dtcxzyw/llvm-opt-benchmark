@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__const._Z22alts_counter_incrementP12alts_counterPbPPc.error_msg.3 = private unnamed_addr constant [24 x i8] c"is_overflow is nullptr.\00", align 16
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 4) i32 @_Z19alts_counter_createbmmPP12alts_counterPPc(i1 noundef zeroext %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define noundef range(i32 0, 4) i32 @_Z19alts_counter_createbmmPP12alts_counterPPc(i1 noundef zeroext %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = icmp eq i64 %1, 0
   br i1 %6, label %7, label %10
 
@@ -84,7 +84,7 @@ declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #2
 declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 10) i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define noundef range(i32 0, 10) i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %8
 
@@ -157,7 +157,7 @@ _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %14, %13, %6, %5, %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef readonly %0) local_unnamed_addr #3 {
+define noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -171,7 +171,7 @@ define noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef readonly %0) local_unnamed_addr #3 {
+define noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

@@ -1420,7 +1420,7 @@ define void @lv_arc_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_arc_set_change_rate(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @lv_arc_set_change_rate(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1434,7 +1434,7 @@ define void @lv_arc_set_change_rate(ptr noundef writeonly %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_arc_set_knob_offset(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @lv_arc_set_knob_offset(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1449,7 +1449,7 @@ define void @lv_arc_set_knob_offset(ptr noundef writeonly %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define float @lv_arc_get_angle_start(ptr noundef readonly %0) local_unnamed_addr #4 {
+define float @lv_arc_get_angle_start(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1463,7 +1463,7 @@ define float @lv_arc_get_angle_start(ptr noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define float @lv_arc_get_angle_end(ptr noundef readonly %0) local_unnamed_addr #4 {
+define float @lv_arc_get_angle_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1477,7 +1477,7 @@ define float @lv_arc_get_angle_end(ptr noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define float @lv_arc_get_bg_angle_start(ptr noundef readonly %0) local_unnamed_addr #4 {
+define float @lv_arc_get_bg_angle_start(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1491,7 +1491,7 @@ define float @lv_arc_get_bg_angle_start(ptr noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define float @lv_arc_get_bg_angle_end(ptr noundef readonly %0) local_unnamed_addr #4 {
+define float @lv_arc_get_bg_angle_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1505,7 +1505,7 @@ define float @lv_arc_get_bg_angle_end(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_arc_get_value(ptr noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_arc_get_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1519,7 +1519,7 @@ define i32 @lv_arc_get_value(ptr noundef readonly %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_arc_get_min_value(ptr noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_arc_get_min_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1533,7 +1533,7 @@ define i32 @lv_arc_get_min_value(ptr noundef readonly %0) local_unnamed_addr #4 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_arc_get_max_value(ptr noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_arc_get_max_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1547,7 +1547,7 @@ define i32 @lv_arc_get_max_value(ptr noundef readonly %0) local_unnamed_addr #4 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 4) i32 @lv_arc_get_mode(ptr noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 4) i32 @lv_arc_get_mode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1564,7 +1564,7 @@ define range(i32 0, 4) i32 @lv_arc_get_mode(ptr noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_arc_get_rotation(ptr noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_arc_get_rotation(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1578,7 +1578,7 @@ define i32 @lv_arc_get_rotation(ptr noundef readonly %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -32768, 32768) i32 @lv_arc_get_knob_offset(ptr noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 -32768, 32768) i32 @lv_arc_get_knob_offset(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1917,7 +1917,7 @@ declare zeroext i16 @lv_atan2(i32 noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @lv_dpx(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @lv_arc_angle_within_bg_bounds(ptr noundef %0, float noundef %1, float noundef %2) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @lv_arc_angle_within_bg_bounds(ptr noundef captures(address_is_null) %0, float noundef %1, float noundef %2) unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 

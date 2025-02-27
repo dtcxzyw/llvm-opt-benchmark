@@ -172,7 +172,7 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17hc202cfd508ee7a9fE.llvm.5455346206542766164"(ptr noalias noundef align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17hc202cfd508ee7a9fE.llvm.5455346206542766164"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !38, !noundef !5
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %7
@@ -189,7 +189,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h396ab373c71c4ac3E.llvm.5455346206542766164"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h396ab373c71c4ac3E.llvm.5455346206542766164"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !38, !noundef !5
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %10
@@ -3288,7 +3288,7 @@ define noundef zeroext i1 @_ZN12clap_builder7builder7command7Command33is_allow_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(24) ptr @_ZN12clap_builder7builder7command7Command36get_external_subcommand_value_parser17h83949bab42c7dceaE(ptr noalias noundef readonly align 8 dereferenceable(712) %0) unnamed_addr #9 {
+define noundef align 8 dereferenceable_or_null(24) ptr @_ZN12clap_builder7builder7command7Command36get_external_subcommand_value_parser17h83949bab42c7dceaE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(712) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 700
   %3 = load i32, ptr %2, align 4, !alias.scope !757, !noundef !5
   %4 = and i32 %3, 1024
@@ -3377,7 +3377,7 @@ define noundef zeroext i1 @_ZN12clap_builder7builder7command7Command16is_multica
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN12clap_builder7builder7command7Command18get_override_usage17h29a6298f39571b5bE(ptr noalias noundef readonly align 8 dereferenceable(712) %0) unnamed_addr #9 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN12clap_builder7builder7command7Command18get_override_usage17h29a6298f39571b5bE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(712) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load i64, ptr %2, align 8, !range !4, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -3386,7 +3386,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN12clap_builder
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN12clap_builder7builder7command7Command17get_override_help17hdc2a6f6e2933c1a7E(ptr noalias noundef readonly align 8 dereferenceable(712) %0) unnamed_addr #9 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN12clap_builder7builder7command7Command17get_override_help17hdc2a6f6e2933c1a7E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(712) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load i64, ptr %2, align 8, !range !4, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -3395,7 +3395,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN12clap_builder
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN12clap_builder7builder7command7Command17get_help_template17h9eba57bf3c838144E(ptr noalias noundef readonly align 8 dereferenceable(712) %0) unnamed_addr #9 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN12clap_builder7builder7command7Command17get_help_template17h9eba57bf3c838144E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(712) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %3 = load i64, ptr %2, align 8, !range !4, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -3500,7 +3500,7 @@ _ZN12clap_builder7builder3ext10Extensions3get17hee98cd72aa98a97aE.exit.thread: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12clap_builder7builder7command7Command10get_keymap17h57b71782e7a9176fE(ptr noalias noundef readonly align 8 dereferenceable(712) %0) unnamed_addr #10 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12clap_builder7builder7command7Command10get_keymap17h57b71782e7a9176fE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(712) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   ret ptr %2
 }

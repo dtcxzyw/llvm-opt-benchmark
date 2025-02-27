@@ -1925,7 +1925,7 @@ define internal range(i32 0, 2) i32 @aes_gcm_init_key(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aesni_xts_init_key(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) #2 {
+define internal range(i32 0, 2) i32 @aesni_xts_init_key(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #2 {
   %5 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #8
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %1, null
@@ -2122,7 +2122,7 @@ declare void @aesni_xts_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr nound
 declare i32 @CRYPTO_xts128_encrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aes_xts_init_key(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) #2 {
+define internal range(i32 0, 2) i32 @aes_xts_init_key(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #2 {
   %5 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #8
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %1, null
@@ -2221,7 +2221,7 @@ declare void @ossl_bsaes_xts_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr 
 declare void @ossl_bsaes_xts_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aesni_ccm_init_key(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) #2 {
+define internal range(i32 0, 2) i32 @aesni_ccm_init_key(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #2 {
   %5 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #8
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %1, null
@@ -2800,7 +2800,7 @@ declare i32 @CRYPTO_ccm128_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 no
 declare i64 @CRYPTO_ccm128_tag(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aes_ccm_init_key(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 %3) #2 {
+define internal range(i32 0, 2) i32 @aes_ccm_init_key(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 %3) #2 {
   %5 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #8
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %1, null
@@ -2870,7 +2870,7 @@ define internal range(i32 0, 2) i32 @aes_ccm_init_key(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aes_wrap_init_key(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 %3) #2 {
+define internal range(i32 0, 2) i32 @aes_wrap_init_key(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 %3) #2 {
   %5 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #8
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %1, null

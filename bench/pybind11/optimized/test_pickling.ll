@@ -7417,7 +7417,7 @@ _ZN8pybind116objectD2Ev.exit389:                  ; preds = %_ZN8pybind116object
 declare void @_ZN16test_initializerC1EPKcPFvRN8pybind117module_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZZ23test_submodule_picklingRN8pybind117module_EENK10Pickleable5valueB5cxx11Ev(ptr noundef nonnull readnone returned align 8 dereferenceable(40) %0) #10 align 2 {
+define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZZ23test_submodule_picklingRN8pybind117module_EENK10Pickleable5valueB5cxx11Ev(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(40) %0) #10 align 2 {
   ret ptr %0
 }
 
@@ -27251,12 +27251,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit816: ; preds = %_Z
   br label %.loopexit1004
 
 .loopexit1004:                                    ; preds = %.body798, %.loopexit, %.loopexit.split-lp, %1622, %1620, %1596
-  %.merged383 = phi { ptr, i32 } [ %.pn346.pn.pn, %1596 ], [ %1623, %1622 ], [ %1621, %1620 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn350.pn, %.body798 ]
+  %.merged382 = phi { ptr, i32 } [ %.pn346.pn.pn, %1596 ], [ %1623, %1622 ], [ %1621, %1620 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn350.pn, %.body798 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #34
   br label %1624
 
 1624:                                             ; preds = %1511, %.loopexit1004, %1509
-  %.merged380 = phi { ptr, i32 } [ %1510, %1509 ], [ %1512, %1511 ], [ %.merged383, %.loopexit1004 ]
+  %.merged379 = phi { ptr, i32 } [ %1510, %1509 ], [ %1512, %1511 ], [ %.merged382, %.loopexit1004 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38) #34
   br label %1632
 
@@ -27283,7 +27283,7 @@ _ZN8pybind116objectD2Ev.exit820:                  ; preds = %1625, %1628
   br label %1633
 
 1632:                                             ; preds = %1624, %1488
-  %.merged379 = phi { ptr, i32 } [ %.merged380, %1624 ], [ %1489, %1488 ]
+  %.merged378 = phi { ptr, i32 } [ %.merged379, %1624 ], [ %1489, %1488 ]
   call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #34
   br label %.loopexit1010
@@ -27382,7 +27382,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit830: ; preds = %_Z
   br label %1737
 
 .loopexit1010:                                    ; preds = %1466, %.loopexit1005, %.loopexit.split-lp1006, %1475, %1477, %1649, %1646, %1632
-  %.merged376 = phi { ptr, i32 } [ %1647, %1646 ], [ %1650, %1649 ], [ %.merged379, %1632 ], [ %1478, %1477 ], [ %1476, %1475 ], [ %lpad.loopexit1007, %.loopexit1005 ], [ %lpad.loopexit.split-lp1008, %.loopexit.split-lp1006 ], [ %.pn356.pn.pn, %1466 ]
+  %.merged376 = phi { ptr, i32 } [ %1647, %1646 ], [ %1650, %1649 ], [ %.merged378, %1632 ], [ %1478, %1477 ], [ %1476, %1475 ], [ %lpad.loopexit1007, %.loopexit1005 ], [ %lpad.loopexit.split-lp1008, %.loopexit.split-lp1006 ], [ %.pn356.pn.pn, %1466 ]
   call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #34
   br label %1664
@@ -47725,7 +47725,7 @@ _ZN8pybind116objectD2Ev.exit.i:                   ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE10PickleableJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE10PickleableJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #34
@@ -51089,7 +51089,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail19unpacking_collectorILNS_19
 declare i32 @PyDict_Contains(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE13PickleableNewJZ23test_submodule_picklingS2_E10PickleableEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE13PickleableNewJZ23test_submodule_picklingS2_E10PickleableEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #34
@@ -52113,7 +52113,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %17
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @_ZZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE13PickleableNewJZ23test_submodule_picklingS2_E10PickleableEE8add_baseIS4_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESE_(ptr noundef readnone returned %0) #29 align 2 {
+define internal noundef ptr @_ZZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE13PickleableNewJZ23test_submodule_picklingS2_E10PickleableEE8add_baseIS4_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESE_(ptr noundef readnone returned captures(ret: address, provenance) %0) #29 align 2 {
   ret ptr %0
 }
 
@@ -53172,7 +53172,7 @@ _ZZ23test_submodule_picklingRN8pybind117module_EEN10PickleableD2Ev.exit12.i.i: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE18PickleableWithDictJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE18PickleableWithDictJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #34
@@ -54101,7 +54101,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ23test_submodule_picklingRN
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE18PickleableWithDictJEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE18PickleableWithDictJEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind116detail12get_functionENS_6handleE.exit.thread17, label %3
@@ -56085,7 +56085,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN8pybind116detail
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE21PickleableWithDictNewJZ23test_submodule_picklingS2_E18PickleableWithDictEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE21PickleableWithDictNewJZ23test_submodule_picklingS2_E18PickleableWithDictEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #34
@@ -56344,7 +56344,7 @@ _ZN8pybind1111error_scopeD2Ev.exit:               ; preds = %1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @_ZZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE21PickleableWithDictNewJZ23test_submodule_picklingS2_E18PickleableWithDictEE8add_baseIS4_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESE_(ptr noundef readnone returned %0) #29 align 2 {
+define internal noundef ptr @_ZZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE21PickleableWithDictNewJZ23test_submodule_picklingS2_E18PickleableWithDictEE8add_baseIS4_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESE_(ptr noundef readnone returned captures(ret: address, provenance) %0) #29 align 2 {
   ret ptr %0
 }
 
@@ -57698,7 +57698,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt4pairIZ23test_submodule_picklingRN8pybind117module_EE21PickleableWithDictNewNS0_4dictEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt4pairIZ23test_submodule_picklingRN8pybind117module_EE21PickleableWithDictNewNS0_4dictEED2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !92
   %.not.i.i.i = icmp eq ptr %3, null

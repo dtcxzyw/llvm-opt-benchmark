@@ -32,7 +32,7 @@ define noundef nonnull ptr @grpc_authorization_policy_provider_arg_vtable() loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_115ProviderArgCopyEPv(ptr noundef returned %0) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN12_GLOBAL__N_115ProviderArgCopyEPv(ptr noundef returned captures(ret: address, provenance) %0) #4 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core13RefCountedPtrI34grpc_authorization_policy_providerED2Ev.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = atomicrmw add ptr %1, i64 4294967296 monotonic, align 8, !noalias !3
@@ -71,7 +71,7 @@ _ZN9grpc_core14DualRefCountedI34grpc_authorization_policy_providerNS_19Polymorph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZN12_GLOBAL__N_114ProviderArgCmpEPvS0_(ptr noundef readnone %0, ptr noundef readnone %1) #3 {
+define internal noundef range(i32 -1, 2) i32 @_ZN12_GLOBAL__N_114ProviderArgCmpEPvS0_(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #3 {
   %3 = icmp ult ptr %0, %1
   %4 = icmp ult ptr %1, %0
   %..i = zext i1 %4 to i32

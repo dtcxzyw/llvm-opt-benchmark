@@ -5477,7 +5477,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 declare void @SSL_CTX_set_psk_use_session_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @psk_use_session_cb(ptr noundef %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
+define internal range(i32 0, 2) i32 @psk_use_session_cb(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = load ptr, ptr @psksess, align 8, !tbaa !41
   %.not = icmp eq ptr %7, null

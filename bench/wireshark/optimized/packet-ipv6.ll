@@ -1416,7 +1416,7 @@ define hidden ptr @p_get_ipv6_pinfo(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @p_ipv6_pinfo_select_root(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define hidden ptr @p_ipv6_pinfo_select_root(ptr noundef %0, ptr noundef readnone captures(ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_ipv6, align 4
@@ -2045,7 +2045,7 @@ define internal void @nat64_prefix_uats_prefix_wildcard_len_tostr_cb(ptr noundef
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @nat64_prefix_copy_cb(ptr noundef returned writeonly initializes((0, 9), (12, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @nat64_prefix_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 9), (12, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4)
   store ptr %5, ptr %0, align 8
@@ -4222,7 +4222,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @add_ipv6_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 8, 25) %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @add_ipv6_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 8, 25) %3, ptr noundef readonly captures(address) %4) unnamed_addr #0 {
   %6 = alloca %struct.e_in6_addr, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   %7 = load ptr, ptr %4, align 8

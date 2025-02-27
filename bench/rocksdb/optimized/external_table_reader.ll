@@ -1091,7 +1091,7 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit8:               ; preds = %35, %39
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK7rocksdb12_GLOBAL__N_127ExternalTableFactoryAdapter14NewTableReaderERKNS_11ReadOptionsERKNS_18TableReaderOptionsEOSt10unique_ptrINS_22RandomAccessFileReaderESt14default_deleteIS9_EEmPS8_INS_11TableReaderESA_ISE_EEb(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, i64 %5, ptr noundef captures(none) %6, i1 zeroext %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK7rocksdb12_GLOBAL__N_127ExternalTableFactoryAdapter14NewTableReaderERKNS_11ReadOptionsERKNS_18TableReaderOptionsEOSt10unique_ptrINS_22RandomAccessFileReaderESt14default_deleteIS9_EEmPS8_INS_11TableReaderESA_ISE_EEb(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, i64 %5, ptr noundef captures(none) %6, i1 zeroext %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::unique_ptr.29", align 8
   %10 = alloca %"struct.rocksdb::ExternalTableOptions", align 8
   %11 = alloca %"class.rocksdb::Status", align 8

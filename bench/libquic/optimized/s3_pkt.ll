@@ -1075,7 +1075,7 @@ define hidden range(i32 -2147483648, 2) i32 @ssl3_dispatch_alert(ptr noundef %0)
 declare i32 @BIO_flush(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl3_write_pending(ptr noundef %0, i32 noundef %1, ptr noundef readnone %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
+define internal fastcc i32 @ssl3_write_pending(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(address) %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 144

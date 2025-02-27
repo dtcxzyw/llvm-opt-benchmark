@@ -702,7 +702,7 @@ psa_export_key_buffer_internal.exit:              ; preds = %15, %13, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_export_key(i32 noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #7 {
+define hidden i32 @psa_export_key(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #7 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
   %6 = icmp eq i64 %2, 0
@@ -931,7 +931,7 @@ declare i32 @mbedtls_psa_ecp_export_public_key(ptr noundef, ptr noundef, i64 nou
 declare i32 @mbedtls_psa_ffdh_export_public_key(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_export_public_key(i32 noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #7 {
+define hidden i32 @psa_export_public_key(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #7 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
   %6 = icmp eq i64 %2, 0
@@ -1752,7 +1752,7 @@ psa_hash_abort.exit:                              ; preds = %3, %psa_driver_wrap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_hash_finish(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #7 {
+define hidden i32 @psa_hash_finish(ptr noundef %0, ptr noundef writeonly captures(address) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #7 {
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %9, label %6
 
@@ -1920,7 +1920,7 @@ declare i32 @mbedtls_ct_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_hash_compute(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly %3, i64 noundef %4, ptr noundef initializes((0, 8)) %5) local_unnamed_addr #7 {
+define hidden i32 @psa_hash_compute(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address) %3, i64 noundef %4, ptr noundef initializes((0, 8)) %5) local_unnamed_addr #7 {
   store i64 0, ptr %5, align 8, !tbaa !25
   %7 = and i32 %0, 2130706432
   %8 = icmp eq i32 %7, 33554432
@@ -2307,7 +2307,7 @@ psa_crypto_local_input_alloc.exit:                ; preds = %psa_driver_wrapper_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_mac_sign_finish(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #7 {
+define hidden i32 @psa_mac_sign_finish(ptr noundef %0, ptr noundef writeonly captures(address) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #7 {
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %9, label %6
 
@@ -2515,7 +2515,7 @@ psa_mac_abort.exit.thread:                        ; preds = %psa_mac_abort.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_mac_compute(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #7 {
+define hidden i32 @psa_mac_compute(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(address) %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #7 {
   %8 = icmp eq i64 %3, 0
   br i1 %8, label %13, label %9
 
@@ -2854,7 +2854,7 @@ psa_sign_hash_builtin.exit:                       ; preds = %24, %21, %18, %16, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_sign_message(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #7 {
+define hidden i32 @psa_sign_message(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(address) %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #7 {
   %8 = alloca ptr, align 8
   %9 = icmp eq i64 %3, 0
   br i1 %9, label %14, label %10
@@ -3283,7 +3283,7 @@ declare i32 @mbedtls_psa_rsa_sign_hash(ptr noundef, ptr noundef, i64 noundef, i3
 declare i32 @mbedtls_psa_ecdsa_sign_hash(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_sign_hash(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #7 {
+define hidden i32 @psa_sign_hash(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(address) %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #7 {
   %8 = alloca ptr, align 8
   %9 = icmp eq i64 %3, 0
   br i1 %9, label %14, label %10
@@ -3563,7 +3563,7 @@ psa_crypto_local_input_alloc.exit:                ; preds = %15, %9, %psa_verify
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_asymmetric_encrypt(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef writeonly %6, i64 noundef %7, ptr noundef initializes((0, 8)) %8) local_unnamed_addr #7 {
+define hidden i32 @psa_asymmetric_encrypt(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(address) %6, i64 noundef %7, ptr noundef initializes((0, 8)) %8) local_unnamed_addr #7 {
   %10 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
   store i64 0, ptr %8, align 8, !tbaa !25
@@ -3684,7 +3684,7 @@ psa_crypto_local_output_free.exit.thread83:       ; preds = %psa_crypto_local_ou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_asymmetric_decrypt(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef writeonly %6, i64 noundef %7, ptr noundef initializes((0, 8)) %8) local_unnamed_addr #7 {
+define hidden i32 @psa_asymmetric_decrypt(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(address) %6, i64 noundef %7, ptr noundef initializes((0, 8)) %8) local_unnamed_addr #7 {
   %10 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
   store i64 0, ptr %8, align 8, !tbaa !25
@@ -3943,7 +3943,7 @@ psa_sign_hash_abort_internal.exit:                ; preds = %psa_crypto_local_in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -151, -133) i32 @psa_sign_hash_complete(ptr noundef captures(none) %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #10 {
+define hidden range(i32 -151, -133) i32 @psa_sign_hash_complete(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #10 {
   store i64 0, ptr %3, align 8, !tbaa !25
   %5 = load i32, ptr %0, align 4, !tbaa !62
   %6 = icmp eq i32 %5, 0
@@ -4418,7 +4418,7 @@ define hidden i32 @psa_cipher_decrypt_setup(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_cipher_generate_iv(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #7 {
+define hidden i32 @psa_cipher_generate_iv(ptr noundef %0, ptr noundef writeonly captures(address) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #7 {
   %5 = load i32, ptr %0, align 8, !tbaa !64
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %psa_cipher_abort.exit.thread, label %7
@@ -4688,7 +4688,7 @@ psa_cipher_abort.exit:                            ; preds = %psa_cipher_abort.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_cipher_update(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #7 {
+define hidden i32 @psa_cipher_update(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address) %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #7 {
   %7 = load i32, ptr %0, align 8, !tbaa !64
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %psa_crypto_local_output_free.exit, label %9
@@ -4795,7 +4795,7 @@ psa_crypto_local_output_free.exit:                ; preds = %6, %psa_cipher_abor
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_cipher_finish(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #7 {
+define hidden i32 @psa_cipher_finish(ptr noundef %0, ptr noundef writeonly captures(address) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #7 {
   %5 = load i32, ptr %0, align 8, !tbaa !64
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %psa_cipher_abort.exit.thread, label %7
@@ -4905,7 +4905,7 @@ psa_crypto_local_output_free.exit:                ; preds = %psa_cipher_abort.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_cipher_encrypt(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #7 {
+define hidden i32 @psa_cipher_encrypt(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(address) %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #7 {
   %8 = alloca ptr, align 8
   %9 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
@@ -5102,7 +5102,7 @@ psa_crypto_local_output_free.exit:                ; preds = %86, %psa_crypto_cop
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_cipher_decrypt(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #7 {
+define hidden i32 @psa_cipher_decrypt(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(address) %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #7 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
   store ptr null, ptr %8, align 8, !tbaa !29
@@ -5255,7 +5255,7 @@ psa_crypto_local_output_free.exit:                ; preds = %65, %psa_crypto_cop
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_aead_encrypt(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, i64 noundef %7, ptr noundef writeonly %8, i64 noundef %9, ptr noundef initializes((0, 8)) %10) local_unnamed_addr #7 {
+define hidden i32 @psa_aead_encrypt(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, i64 noundef %7, ptr noundef writeonly captures(address) %8, i64 noundef %9, ptr noundef initializes((0, 8)) %10) local_unnamed_addr #7 {
   %12 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
   store i64 0, ptr %10, align 8, !tbaa !25
@@ -5428,7 +5428,7 @@ psa_aead_get_base_algorithm.exit.thread:          ; preds = %2, %psa_aead_get_ba
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_aead_decrypt(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, i64 noundef %7, ptr noundef writeonly %8, i64 noundef %9, ptr noundef initializes((0, 8)) %10) local_unnamed_addr #7 {
+define hidden i32 @psa_aead_decrypt(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, i64 noundef %7, ptr noundef writeonly captures(address) %8, i64 noundef %9, ptr noundef initializes((0, 8)) %10) local_unnamed_addr #7 {
   %12 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
   store i64 0, ptr %10, align 8, !tbaa !25
@@ -5745,7 +5745,7 @@ define hidden i32 @psa_aead_decrypt_setup(ptr noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_aead_generate_nonce(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #7 {
+define hidden i32 @psa_aead_generate_nonce(ptr noundef %0, ptr noundef writeonly captures(address) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #7 {
   %5 = alloca [13 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %5) #22
   %6 = icmp eq i64 %2, 0
@@ -6270,7 +6270,7 @@ psa_aead_abort.exit:                              ; preds = %9, %psa_driver_wrap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_aead_update(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #7 {
+define hidden i32 @psa_aead_update(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address) %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #7 {
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %12, label %8
 
@@ -6405,7 +6405,7 @@ psa_crypto_local_output_free.exit:                ; preds = %psa_aead_abort.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @psa_aead_finish(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #7 {
+define hidden noundef i32 @psa_aead_finish(ptr noundef %0, ptr noundef writeonly captures(address) %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address) %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #7 {
   %8 = icmp eq i64 %2, 0
   br i1 %8, label %12, label %9
 
@@ -6574,7 +6574,7 @@ psa_crypto_local_output_free.exit49:              ; preds = %psa_crypto_local_ou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_aead_verify(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5) local_unnamed_addr #7 {
+define hidden i32 @psa_aead_verify(ptr noundef %0, ptr noundef writeonly captures(address) %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5) local_unnamed_addr #7 {
   %7 = alloca [16 x i8], align 16
   %8 = alloca i64, align 8
   %9 = icmp eq i64 %2, 0
@@ -6873,7 +6873,7 @@ define hidden range(i32 -137, 1) i32 @psa_key_derivation_set_capacity(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_key_derivation_output_bytes(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #7 {
+define hidden i32 @psa_key_derivation_output_bytes(ptr noundef %0, ptr noundef writeonly captures(address) %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = alloca %struct.psa_key_attributes_s, align 4
   %5 = alloca %struct.psa_key_attributes_s, align 4
   %6 = alloca %struct.psa_mac_operation_s, align 8
@@ -7830,7 +7830,7 @@ psa_crypto_local_output_free.exit:                ; preds = %psa_crypto_local_ou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_key_derivation_tls12_ecjpake_to_pms_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i64 noundef %2) unnamed_addr #7 {
+define internal fastcc i32 @psa_key_derivation_tls12_ecjpake_to_pms_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) unnamed_addr #7 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
   %.not = icmp eq i64 %2, 32
@@ -9393,7 +9393,7 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit.thread: ; preds = %48, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_raw_key_agreement(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #7 {
+define hidden i32 @psa_raw_key_agreement(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(address) %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #7 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
   store ptr null, ptr %8, align 8, !tbaa !29
@@ -9583,7 +9583,7 @@ psa_driver_wrapper_key_agreement.exit:            ; preds = %18, %16, %15, %9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -151, 1) i32 @psa_generate_random(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define hidden range(i32 -151, 1) i32 @psa_generate_random(ptr noundef writeonly captures(address) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %7, label %4
 
@@ -11057,7 +11057,7 @@ psa_pake_abort.exit:                              ; preds = %2, %10, %psa_driver
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_pake_output(ptr noundef %0, i8 noundef zeroext %1, ptr noundef writeonly %2, i64 noundef %3, ptr noundef initializes((0, 8)) %4) local_unnamed_addr #7 {
+define hidden i32 @psa_pake_output(ptr noundef %0, i8 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3, ptr noundef initializes((0, 8)) %4) local_unnamed_addr #7 {
   store i64 0, ptr %4, align 8, !tbaa !25
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4, !tbaa !120

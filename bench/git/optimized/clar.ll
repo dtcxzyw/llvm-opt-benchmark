@@ -776,7 +776,7 @@ define dso_local i32 @clar_test_run() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @clar_run_suite(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @clar_run_suite(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !53
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1486,7 +1486,7 @@ define dso_local void @clar__skip() local_unnamed_addr #9 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @clar__fail(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #1 {
+define dso_local void @clar__fail(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #29
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -1585,7 +1585,7 @@ define dso_local void @clar__fail(ptr noundef %0, ptr noundef %1, i64 noundef %2
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @clar__assert(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define dso_local void @clar__assert(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %8, label %9
 

@@ -140,7 +140,7 @@ define internal noundef ptr @php_avif_stream_read(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_avif_stream_skip(ptr noundef %0, i64 noundef %1) #0 {
+define internal void @php_avif_stream_skip(ptr noundef captures(address_is_null) %0, i64 noundef %1) #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -646,7 +646,7 @@ define internal fastcc range(i32 0, 16) i32 @php_get_wbmp(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 17) i32 @php_get_xbm(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 17) i32 @php_get_xbm(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
   %.not = icmp eq ptr %1, null

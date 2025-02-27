@@ -636,7 +636,7 @@ declare void @pmix_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @trim_name(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #7 {
+define internal fastcc void @trim_name(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #7 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %56, label %5
 
@@ -746,7 +746,7 @@ define internal fastcc void @trim_name(ptr noundef %0, ptr noundef readonly %1, 
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_to_env_str(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @add_to_env_str(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %43, label %4
 

@@ -363,7 +363,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @patch_call(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #5 align 16 {
+define internal fastcc void @patch_call(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #5 align 16 {
   %3 = alloca %struct.insn, align 8
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12

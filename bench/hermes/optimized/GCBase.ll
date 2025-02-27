@@ -2864,7 +2864,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6hermes2vm6GCBase14getGCExecTraceEv(ptr noundef nonnull readnone align 8 dereferenceable(741) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6hermes2vm6GCBase14getGCExecTraceEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(741) %this) local_unnamed_addr #5 align 2 {
 entry:
   %execTrace_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %execTrace_
@@ -5228,7 +5228,7 @@ entry:
 declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmENK14DiagnosticStat14printBreakdownEm(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, i64 noundef %depth) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmENK14DiagnosticStat14printBreakdownEm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, i64 noundef %depth) unnamed_addr #0 align 2 {
 entry:
   %fmtStr = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

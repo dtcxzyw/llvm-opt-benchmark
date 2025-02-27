@@ -1583,7 +1583,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7718Transliterat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7718TransliteratorSpec3getEv(ptr noundef nonnull readnone align 8 dereferenceable(280) %0) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7718TransliteratorSpec3getEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(280) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }

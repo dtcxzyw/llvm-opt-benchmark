@@ -6428,7 +6428,7 @@ _ZNSt8optionalIN7rocksdb5SliceEEaSIRKNSt7__cxx1112basic_stringIcSt11char_traitsI
 declare void @_ZN7rocksdb13CompactionJob7PrepareESt8optionalISt4pairIS1_INS_5SliceEES4_EE(ptr noundef nonnull align 8 dereferenceable(1504), ptr noundef byval(%"class.std::optional.376") align 8) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb30CompactionServiceCompactionJob3RunEv(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1552) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb30CompactionServiceCompactionJob3RunEv(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 captures(address) %0, ptr noundef nonnull align 8 dereferenceable(1552) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca %"class.std::unique_ptr", align 8

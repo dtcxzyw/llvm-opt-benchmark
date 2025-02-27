@@ -923,7 +923,7 @@ $_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic
 @_ZZNKSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE10_M_is_wordEcE3__s = linkonce_odr constant [2 x i8] c"w\00", comdat, align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN19OpenColorIO_v2_5dev17ResolveConfigPathEPKc(ptr noundef readonly %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN19OpenColorIO_v2_5dev17ResolveConfigPathEPKc(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8

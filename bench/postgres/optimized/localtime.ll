@@ -1928,7 +1928,7 @@ increment_overflow_time.exit292.thread:           ; preds = %198, %201, %204, %1
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @getoffset(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #7 {
+define internal fastcc noundef ptr @getoffset(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #7 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 45
   %5 = icmp eq i8 %3, 43
@@ -2062,7 +2062,7 @@ getsecs.exit.thread:                              ; preds = %.preheader.i.i, %.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @getrule(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #7 {
+define internal fastcc noundef ptr @getrule(ptr noundef captures(ret: address, provenance) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #7 {
   %3 = load i8, ptr %0, align 1
   switch i8 %3, label %90 [
     i8 74, label %4
@@ -3161,7 +3161,7 @@ define dso_local zeroext i1 @pg_timezone_abbrev_is_known(ptr noundef readonly ca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local ptr @pg_get_next_timezone_abbrev(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #7 {
+define dso_local ptr @pg_get_next_timezone_abbrev(ptr noundef captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 22376
   %4 = load i32, ptr %0, align 4
   %5 = icmp slt i32 %4, 0
@@ -3232,7 +3232,7 @@ define dso_local noundef zeroext i1 @pg_get_timezone_offset(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @pg_get_timezone_name(ptr noundef readnone returned %0) local_unnamed_addr #12 {
+define dso_local noundef ptr @pg_get_timezone_name(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #12 {
   ret ptr %0
 }
 
@@ -3271,7 +3271,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @timesub(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #16 {
+define internal fastcc noundef ptr @timesub(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %8, label %5
 

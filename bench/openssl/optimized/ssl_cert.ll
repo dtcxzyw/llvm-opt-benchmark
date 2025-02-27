@@ -660,7 +660,7 @@ ssl_cert_clear_certs.exit:                        ; preds = %13, %.preheader.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ssl_cert_clear_certs(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @ssl_cert_clear_certs(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -939,7 +939,7 @@ define range(i32 0, 2) i32 @ssl_cert_select_current(ptr noundef captures(none) %
 declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ssl_cert_set_current(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ssl_cert_set_current(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -2608,7 +2608,7 @@ define noundef i32 @ssl_cert_get_cert_store(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_get_security_level_bits(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @ssl_get_security_level_bits(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
@@ -2722,7 +2722,7 @@ define range(i32 0, 2) i32 @ssl_cert_lookup_by_nid(i32 noundef %0, ptr noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ssl_cert_lookup_by_pkey(ptr noundef %0, ptr noundef writeonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define ptr @ssl_cert_lookup_by_pkey(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   br label %7
 
 .preheader:                                       ; preds = %18

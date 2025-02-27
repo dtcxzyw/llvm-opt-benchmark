@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.d2i_PublicKey = private unnamed_addr constant [14 x i8] c"d2i_PublicKey\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @d2i_PublicKey(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define noundef ptr @d2i_PublicKey(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
   store ptr null, ptr %5, align 8, !tbaa !3

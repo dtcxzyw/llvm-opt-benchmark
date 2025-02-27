@@ -269,7 +269,7 @@ define internal fastcc void @_piwigo_ctx_destroy(ptr noundef captures(none) %0) 
 declare ptr @dt_conf_get_string(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_piwigo_refresh_albums(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @_piwigo_refresh_albums(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #1 {
   %3 = alloca [512 x i8], align 16
   %4 = alloca [512 x i8], align 16
   %5 = alloca [512 x i8], align 16
@@ -2881,7 +2881,7 @@ define range(i32 0, 2) i32 @export_enabled(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @free_params(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @free_params(ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %3
 
@@ -2983,7 +2983,7 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #4
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_piwigo_api_post_internal(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
+define internal fastcc i32 @_piwigo_api_post_internal(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = alloca %struct.timeval, align 8
   %6 = alloca [4096 x i8], align 16
   %7 = alloca ptr, align 8

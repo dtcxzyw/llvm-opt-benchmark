@@ -258,7 +258,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @PORT_GetPortCount(ptr noundef %0) local_unnamed_addr #0 {
+define hidden i32 @PORT_GetPortCount(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %49, label %3
 
@@ -360,7 +360,7 @@ thread-pre-split29:                               ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @PORT_Close(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @PORT_Close(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %2
 
@@ -422,7 +422,7 @@ declare i32 @snd_mixer_selem_has_capture_volume(ptr noundef) local_unnamed_addr 
 declare ptr @snd_mixer_elem_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @PORT_GetPortType(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden i32 @PORT_GetPortType(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 0
   %or.cond = or i1 %3, %4
@@ -448,7 +448,7 @@ define hidden i32 @PORT_GetPortType(ptr noundef readonly %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @PORT_GetPortName(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @PORT_GetPortName(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %5, %6
@@ -482,7 +482,7 @@ define hidden range(i32 -1, 2) i32 @PORT_GetPortName(ptr noundef readonly %0, i3
 declare ptr @snd_mixer_selem_get_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @PORT_GetControls(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @PORT_GetControls(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -830,7 +830,7 @@ declare i32 @snd_mixer_selem_has_playback_switch(ptr noundef) local_unnamed_addr
 declare i32 @snd_mixer_selem_has_capture_switch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @PORT_GetIntValue(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @PORT_GetIntValue(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %.not = icmp eq ptr %0, null
@@ -886,7 +886,7 @@ declare i32 @snd_mixer_selem_get_playback_switch(ptr noundef, i32 noundef, ptr n
 declare i32 @snd_mixer_selem_get_capture_switch(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @PORT_SetIntValue(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @PORT_SetIntValue(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %3
 
@@ -1027,7 +1027,7 @@ declare i32 @snd_mixer_selem_set_playback_volume(ptr noundef, i32 noundef, i64 n
 declare i32 @snd_mixer_selem_set_capture_volume(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden float @PORT_GetFloatValue(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden float @PORT_GetFloatValue(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %getFakeBalance.exit, label %2
 
@@ -1095,7 +1095,7 @@ getFakeBalance.exit:                              ; preds = %30, %28, %25, %2, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @PORT_SetFloatValue(ptr noundef readonly %0, float noundef %1) local_unnamed_addr #0 {
+define hidden void @PORT_SetFloatValue(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %42, label %3
 

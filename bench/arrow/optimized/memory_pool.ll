@@ -2893,7 +2893,7 @@ _ZN5arrow8internal15MemoryPoolStats18DidReallocateBytesEll.exit: ; preds = %.pre
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN5arrow18BaseMemoryPoolImplINS_12_GLOBAL__N_115SystemAllocatorEE4FreeEPhll(ptr noundef nonnull align 64 captures(none) dereferenceable(128) %0, ptr noundef %1, i64 noundef %2, i64 %3) unnamed_addr #13 align 2 {
+define internal void @_ZN5arrow18BaseMemoryPoolImplINS_12_GLOBAL__N_115SystemAllocatorEE4FreeEPhll(ptr noundef nonnull align 64 captures(none) dereferenceable(128) %0, ptr noundef captures(address) %1, i64 noundef %2, i64 %3) unnamed_addr #13 align 2 {
   %5 = icmp eq ptr %1, @_ZN5arrow11memory_pool8internal14zero_size_areaE
   br i1 %5, label %_ZN5arrow12_GLOBAL__N_115SystemAllocator17DeallocateAlignedEPhll.exit, label %6
 

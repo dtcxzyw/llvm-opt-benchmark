@@ -670,7 +670,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_SetCommand(ptr noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local range(i32 0, 2) i32 @cmsysProcess_SetWorkingDirectory(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @cmsysProcess_SetWorkingDirectory(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %3
 
@@ -718,7 +718,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_SetWorkingDirectory(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local range(i32 0, 2) i32 @cmsysProcess_SetPipeFile(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @cmsysProcess_SetPipeFile(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %cmsysProcess_SetPipeShared.exit, label %4
 
@@ -978,7 +978,7 @@ declare ptr @cmsysSystem_Parse_CommandForUnix(ptr noundef, i32 noundef) local_un
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @cmsysProcess_SetTimeout(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #9 {
+define dso_local void @cmsysProcess_SetTimeout(ptr noundef writeonly captures(address_is_null) %0, double noundef %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -999,7 +999,7 @@ define dso_local void @cmsysProcess_SetTimeout(ptr noundef writeonly %0, double 
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @cmsysProcess_SetPipeNative(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #5 {
+define dso_local void @cmsysProcess_SetPipeNative(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %cmsysProcess_SetPipeShared.exit, label %4
 
@@ -1073,7 +1073,7 @@ cmsysProcess_SetPipeShared.exit:                  ; preds = %4, %23, %21, %19, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @cmsysProcess_SetPipeShared(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local void @cmsysProcess_SetPipeShared(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %cmsysProcess_SetPipeNative.exit, label %4
 
@@ -3604,7 +3604,7 @@ kwsysProcessCleanupDescriptor.exit:               ; preds = %.critedge, %.crited
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.__sigset_t, align 8
@@ -4152,7 +4152,7 @@ kwsysProcessWaitForPipe.exit:                     ; preds = %.critedge3.i, %239
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull captures(none) initializes((0, 16)) %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull captures(none) initializes((0, 16)) %2) unnamed_addr #4 {
   %4 = alloca %struct.timespec, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %6 = load double, ptr %5, align 8, !tbaa !49
@@ -4556,7 +4556,7 @@ define dso_local void @cmsysProcess_KillPID(i64 noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cmsysProcess_ResetStartTime(ptr noundef writeonly %0) local_unnamed_addr #4 {
+define dso_local void @cmsysProcess_ResetStartTime(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = alloca %struct.timespec, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3

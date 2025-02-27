@@ -184,7 +184,7 @@ define void @_ZN3zmq7dgram_t12xattach_pipeEPNS_6pipe_tEbb(ptr noundef nonnull al
 declare void @_ZN3zmq6pipe_t9terminateEb(ptr noundef nonnull align 8 dereferenceable(328), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3zmq7dgram_t16xpipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(1848) %0, ptr noundef readnone %1) unnamed_addr #9 align 2 {
+define void @_ZN3zmq7dgram_t16xpipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(1848) %0, ptr noundef readnone captures(address) %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = icmp eq ptr %1, %4

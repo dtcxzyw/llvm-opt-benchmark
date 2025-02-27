@@ -7130,7 +7130,7 @@ define hidden void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.15947207
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h37b90f13d1a15271E.llvm.15947207822535676624"(ptr noalias noundef sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h37b90f13d1a15271E.llvm.15947207822535676624"(ptr noalias noundef sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 1 captures(address_is_null) %1, i64 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %8
@@ -16292,7 +16292,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15947207822535676624.exit: ; preds
 }
 
 ; Function Attrs: cold inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN6anyhow9__private8must_use17hc2620ea5c4cf6e25E.llvm.15947207822535676624(ptr noundef nonnull readnone returned %0) unnamed_addr #14 {
+define hidden noundef nonnull ptr @_ZN6anyhow9__private8must_use17hc2620ea5c4cf6e25E.llvm.15947207822535676624(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #14 {
   ret ptr %0
 }
 
@@ -22498,7 +22498,7 @@ define void @"_ZN105_$LT$wasmtime_wasi..write_stream..AsyncWriteStream$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @"_ZN13wasmtime_wasi8bindings4sync9generated1_67_$LT$impl$u20$wasmtime_wasi..bindings..sync..generated..Command$GT$12wasi_cli_run17hf3153b2d51624b36E"(ptr noalias noundef readonly returned align 8 dereferenceable(16) %0) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(16) ptr @"_ZN13wasmtime_wasi8bindings4sync9generated1_67_$LT$impl$u20$wasmtime_wasi..bindings..sync..generated..Command$GT$12wasi_cli_run17hf3153b2d51624b36E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #4 {
   ret ptr %0
 }
 

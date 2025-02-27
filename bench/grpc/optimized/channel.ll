@@ -1798,7 +1798,7 @@ _ZNSt14_Optional_baseIN9grpc_core15ScopedTimeCacheELb0ELb0EED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: uwtable
-define noundef ptr @grpc_channel_create_call(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly byval(%struct.grpc_slice) align 8 captures(none) %4, ptr noundef readonly %5, ptr noundef readonly byval(%struct.gpr_timespec) align 8 captures(none) %6, ptr noundef readnone %7) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef ptr @grpc_channel_create_call(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly byval(%struct.grpc_slice) align 8 captures(none) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly byval(%struct.gpr_timespec) align 8 captures(none) %6, ptr noundef readnone captures(address_is_null) %7) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %10 = alloca %"class.grpc_core::ExecCtx", align 8
   %11 = alloca %"class.grpc_core::Slice", align 8

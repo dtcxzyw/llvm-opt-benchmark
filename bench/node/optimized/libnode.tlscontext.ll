@@ -787,7 +787,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(272) ptr @_ZNK4node4quic10TLSContext7optionsEv(ptr noundef nonnull readnone align 8 dereferenceable(352) %this) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(272) ptr @_ZNK4node4quic10TLSContext7optionsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(352) %this) local_unnamed_addr #6 align 2 {
 entry:
   %options_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %options_

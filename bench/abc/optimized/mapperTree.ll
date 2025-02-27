@@ -331,7 +331,7 @@ define range(i32 0, 2) i32 @Vec_StrGets(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Map_LibraryCompareLibNames(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define i32 @Map_LibraryCompareLibNames(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %3
 

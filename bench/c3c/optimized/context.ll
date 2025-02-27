@@ -1329,7 +1329,7 @@ decl_register.exit:                               ; preds = %304, %300, %290, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @expand_(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @expand_(ptr noundef captures(address_is_null, ret: address, provenance) %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %5
 

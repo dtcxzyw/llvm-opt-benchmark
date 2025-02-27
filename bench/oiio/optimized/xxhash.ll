@@ -18,7 +18,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN11OpenImageIO6v3_1_06xxhash5XXH32EPKvmj(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define noundef i32 @_ZN11OpenImageIO6v3_1_06xxhash5XXH32EPKvmj(ptr noundef readonly captures(address) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %5 = icmp ugt i64 %1, 15
   br i1 %5, label %6, label %52
@@ -140,7 +140,7 @@ _ZN11OpenImageIO6v3_1_06xxhashL18XXH32_endian_alignEPKvmjNS1_13XXH_endianessENS1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN11OpenImageIO6v3_1_06xxhash5XXH64EPKvmy(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define noundef i64 @_ZN11OpenImageIO6v3_1_06xxhash5XXH64EPKvmy(ptr noundef readonly captures(address) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %5 = icmp ugt i64 %1, 31
   br i1 %5, label %6, label %84

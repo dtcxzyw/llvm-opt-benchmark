@@ -21377,7 +21377,7 @@ define noundef ptr @_ZNK14disassembler_t10probe_onceE6insn_tm(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14disassembler_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(6144) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14disassembler_tD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(6144) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   br label %.preheader
 
 .preheader:                                       ; preds = %1, %._crit_edge
@@ -34772,7 +34772,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit: ; pre
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZL16add_unknown_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef range(i32 -2147454849, 1040216192) %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16add_unknown_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef range(i32 -2147454849, 1040216192) %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::vector.73", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #27

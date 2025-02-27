@@ -5149,7 +5149,7 @@ declare i32 @_PyBytes_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc ptr @PyMemoTable_Get(i64 %.0.val, ptr readonly %.24.val, ptr noundef %0) unnamed_addr #7 {
+define internal fastcc ptr @PyMemoTable_Get(i64 %.0.val, ptr readonly captures(ret: address, provenance) %.24.val, ptr noundef %0) unnamed_addr #7 {
   %2 = ptrtoint ptr %0 to i64
   %3 = ashr i64 %2, 3
   %4 = and i64 %3, %.0.val
@@ -13836,7 +13836,7 @@ declare ptr @PyUnicode_Split(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare ptr @_PySys_GetAttr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_checkmodule(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_checkmodule(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %6, label %41, label %7
@@ -26377,7 +26377,7 @@ define internal noalias noundef ptr @_pickle_Unpickler_persistent_load(ptr readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_pickle_Unpickler_load(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
+define internal ptr @_pickle_Unpickler_load(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 

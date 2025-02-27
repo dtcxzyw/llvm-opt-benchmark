@@ -164,7 +164,7 @@ define hidden i64 @_mi_commit_mask_next_run(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @_mi_segment_page_start(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define hidden ptr @_mi_segment_page_start(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %1, i64 40
   %.val = load i64, ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -382,7 +382,7 @@ _mi_commit_mask_next_run.exit.thread:             ; preds = %55, %_mi_commit_mas
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1, ptr noundef captures(address) %2) local_unnamed_addr #4 {
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %4, -1
   %6 = and i64 %5, -33554432
@@ -416,7 +416,7 @@ define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_page_clear(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc ptr @mi_segment_page_clear(ptr noundef %0, ptr noundef captures(address) %1) unnamed_addr #4 {
   %3 = ptrtoint ptr %0 to i64
   %4 = add i64 %3, -1
   %5 = and i64 %4, -33554432
@@ -1031,7 +1031,7 @@ declare i64 @_mi_option_get_fast(i32 noundef) local_unnamed_addr #5
 declare zeroext i1 @_mi_arena_segment_clear_abandoned(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @mi_segment_reclaim(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 16777217) %2, ptr noundef writeonly %3, ptr noundef %4) unnamed_addr #4 {
+define internal fastcc noundef ptr @mi_segment_reclaim(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 16777217) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address) %4) unnamed_addr #4 {
   %6 = icmp ne ptr %3, null
   br i1 %6, label %7, label %8
 
@@ -1222,7 +1222,7 @@ mi_page_has_any_available.exit:                   ; preds = %78, %83
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_abandoned_reclaim_all(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden void @_mi_abandoned_reclaim_all(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #4 {
   %3 = alloca %struct.mi_arena_field_cursor_s, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 904
@@ -1252,7 +1252,7 @@ declare ptr @_mi_arena_segment_clear_abandoned_next(ptr noundef) local_unnamed_a
 declare void @_mi_arena_field_cursor_done(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_abandoned_collect(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden void @_mi_abandoned_collect(ptr noundef %0, i1 noundef zeroext %1, ptr noundef captures(address) %2) local_unnamed_addr #4 {
   %4 = alloca %struct.mi_arena_field_cursor_s, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 904
@@ -1548,7 +1548,7 @@ declare i64 @mi_usable_size(ptr noundef) local_unnamed_addr #5
 declare zeroext i1 @_mi_os_reset(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_segment_page_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden ptr @_mi_segment_page_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address) %3) local_unnamed_addr #4 {
   %5 = icmp ugt i64 %2, 16777216
   br i1 %5, label %6, label %10, !prof !94
 
@@ -1595,7 +1595,7 @@ define hidden ptr @_mi_segment_page_alloc(ptr noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_huge_page_alloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc ptr @mi_segment_huge_page_alloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address) %3) unnamed_addr #4 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   store ptr null, ptr %5, align 8, !tbaa !89
@@ -1703,7 +1703,7 @@ _mi_align_up.exit:                                ; preds = %53, %56
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segments_page_alloc(ptr noundef %0, i64 noundef range(i64 0, 16777217) %1, i64 noundef range(i64 0, 16777217) %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc ptr @mi_segments_page_alloc(ptr noundef %0, i64 noundef range(i64 0, 16777217) %1, i64 noundef range(i64 0, 16777217) %2, ptr noundef captures(address) %3) unnamed_addr #4 {
   %5 = alloca %struct.mi_arena_field_cursor_s, align 8
   %6 = alloca i8, align 1
   %7 = icmp samesign ugt i64 %1, 524288
@@ -2614,7 +2614,7 @@ declare void @_mi_stat_decrease(ptr noundef, i64 noundef) local_unnamed_addr #5
 declare zeroext i1 @mi_option_is_enabled(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_span_free_coalesce(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc ptr @mi_segment_span_free_coalesce(ptr noundef %0, ptr noundef captures(address) %1) unnamed_addr #4 {
   %3 = ptrtoint ptr %0 to i64
   %4 = add i64 %3, -1
   %5 = and i64 %4, -33554432
@@ -2851,7 +2851,7 @@ mi_segment_span_remove_from_queue.exit49:         ; preds = %110, %114
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_segment_span_free(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #4 {
+define internal fastcc void @mi_segment_span_free(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef captures(address) %4) unnamed_addr #4 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.mi_commit_mask_s, align 8
@@ -3113,7 +3113,7 @@ declare void @_mi_page_reclaim(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare void @_mi_page_force_abandon(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_alloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #4 {
+define internal fastcc ptr @mi_segment_alloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #4 {
   %6 = alloca %struct.mi_memid_s, align 8
   %7 = alloca %struct.mi_commit_mask_s, align 8
   %8 = tail call i64 @_mi_os_page_size() #11

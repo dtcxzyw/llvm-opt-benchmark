@@ -3197,7 +3197,7 @@ _ZN5faiss2nn16Tensor2DTemplateIfED2Ev.exit38:     ; preds = %164, %.body, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5faiss9QINCoStep6encodeERKNS_2nn16Tensor2DTemplateIfEES5_PS3_(ptr dead_on_unwind noalias writable sret(%"struct.faiss::nn::Tensor2DTemplate.0") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %3, ptr noundef readonly %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5faiss9QINCoStep6encodeERKNS_2nn16Tensor2DTemplateIfEES5_PS3_(ptr dead_on_unwind noalias writable sret(%"struct.faiss::nn::Tensor2DTemplate.0") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"struct.faiss::nn::Tensor2DTemplate", align 8
   %8 = alloca %"struct.faiss::nn::Tensor2DTemplate", align 8

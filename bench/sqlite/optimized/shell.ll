@@ -5682,7 +5682,7 @@ define internal void @ieee754inc(ptr noundef %0, i32 %1, ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_series_init(ptr noundef %0, ptr noundef writeonly %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_series_init(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
   %4 = tail call i32 @sqlite3_libversion_number() #43
   %5 = icmp slt i32 %4, 3008012
   %6 = icmp ne ptr %1, null
@@ -10299,7 +10299,7 @@ declare i32 @sqlite3_close(ptr noundef) local_unnamed_addr #3
 declare void @sqlite3_free(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_intck_open(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_intck_open(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   %4 = select i1 %.not, ptr @.str.45, ptr %1
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #44
@@ -10844,7 +10844,7 @@ define void @sqlite3_intck_close(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_intck_step(ptr noundef %0) local_unnamed_addr #2 {
+define i32 @sqlite3_intck_step(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4, !tbaa !264
   %4 = icmp eq i32 %3, 0
@@ -11029,7 +11029,7 @@ intckFinalize.exit:                               ; preds = %70, %76
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @intckCheckObjectSql(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #2 {
+define internal fastcc ptr @intckCheckObjectSql(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
   store ptr null, ptr %5, align 8, !tbaa !31
@@ -11330,7 +11330,7 @@ define ptr @sqlite3_intck_message(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 102, 101) i32 @sqlite3_intck_error(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #13 {
+define range(i32 102, 101) i32 @sqlite3_intck_error(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -12495,7 +12495,7 @@ sqlite3DbdataRegister.exit:                       ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @recoverInit(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define ptr @recoverInit(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %1, null
   %spec.store.select = select i1 %6, ptr @.str.45, ptr %1
   %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #44
@@ -12555,7 +12555,7 @@ recoverStrlen.exit:                               ; preds = %5, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @sqlite3_recover_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #2 {
+define ptr @sqlite3_recover_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %1, null
   %spec.store.select.i = select i1 %4, ptr @.str.45, ptr %1
   %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select.i) #44
@@ -12613,7 +12613,7 @@ recoverInit.exit:                                 ; preds = %recoverStrlen.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @sqlite3_recover_init_sql(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define ptr @sqlite3_recover_init_sql(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %1, null
   %spec.store.select.i = select i1 %5, ptr @.str.45, ptr %1
   %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select.i) #44
@@ -12650,7 +12650,7 @@ recoverInit.exit:                                 ; preds = %4, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @sqlite3_recover_errmsg(ptr noundef readonly %0) local_unnamed_addr #14 {
+define ptr @sqlite3_recover_errmsg(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -12671,7 +12671,7 @@ define ptr @sqlite3_recover_errmsg(ptr noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @sqlite3_recover_errcode(ptr noundef readonly %0) local_unnamed_addr #14 {
+define i32 @sqlite3_recover_errcode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -12686,7 +12686,7 @@ define i32 @sqlite3_recover_errcode(ptr noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 22) i32 @sqlite3_recover_config(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 22) i32 @sqlite3_recover_config(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %28, label %5
 
@@ -30711,7 +30711,7 @@ declare ptr @sqlite3_value_text(ptr noundef) local_unnamed_addr #3
 declare void @sqlite3_result_blob(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @SHA3Final(ptr noundef nonnull %0) unnamed_addr #26 {
+define internal fastcc nonnull ptr @SHA3Final(ptr noundef nonnull captures(ret: address, provenance) %0) unnamed_addr #26 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1604
   %3 = load i32, ptr %2, align 4, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1600
@@ -33465,7 +33465,7 @@ define internal fastcc ptr @decimal_new(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decimal_result_sci(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #2 {
+define internal fastcc void @decimal_result_sci(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #43
   %4 = icmp eq ptr %1, null
@@ -33635,7 +33635,7 @@ define internal fastcc void @decimal_result_sci(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decimal_result(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @decimal_result(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %7, label %4
 
@@ -34282,7 +34282,7 @@ decimal_free.exit39:                              ; preds = %decimal_free.exit39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decimalMul(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #2 {
+define internal fastcc void @decimalMul(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge, label %4
 
@@ -34474,7 +34474,7 @@ declare void @sqlite3_result_null(ptr noundef) local_unnamed_addr #3
 declare void @sqlite3_result_int(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decimal_add(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @decimal_add(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -43597,7 +43597,7 @@ define internal void @zipfileCursorErr(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zipfileReadEOCD(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 16)) %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @zipfileReadEOCD(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 16)) %4) unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !828
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -43716,7 +43716,7 @@ zipfileReadData.exit:                             ; preds = %24, %.thread89, %._
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 8) i32 @zipfileGetEntry(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 8) i32 @zipfileGetEntry(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = icmp eq ptr %1, null
   br i1 %7, label %8, label %14
@@ -45165,7 +45165,7 @@ declare ptr @sqlite3_vtab_collation(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @sqlite3_table_column_metadata(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @idxCreateFromCons(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #2 {
+define internal fastcc i32 @idxCreateFromCons(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(address) %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -45678,7 +45678,7 @@ define internal noundef i32 @countNonzeros(ptr noundef captures(none) %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @idxHashAdd(ptr noundef nonnull writeonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly %3) unnamed_addr #2 {
+define internal fastcc void @idxHashAdd(ptr noundef nonnull writeonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #2 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #44
   %6 = trunc i64 %5 to i32
   %7 = icmp sgt i32 %6, 0
@@ -47761,7 +47761,7 @@ define internal fastcc noundef ptr @vfstrace_errcode_name(i32 noundef %0) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dbdataConnect(ptr noundef %0, ptr noundef readnone %1, i32 %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr readnone captures(none) %5) #2 {
+define internal i32 @dbdataConnect(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i32 %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr readnone captures(none) %5) #2 {
   %7 = icmp ne ptr %1, null
   %8 = select i1 %7, ptr @.str.542, ptr @.str.543
   %9 = tail call i32 @sqlite3_declare_vtab(ptr noundef %0, ptr noundef nonnull %8) #43
@@ -51828,7 +51828,7 @@ define internal void @editFunc(ptr noundef %0, i32 noundef %1, ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @readFile(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #2 {
+define internal fastcc ptr @readFile(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #2 {
   %3 = tail call noalias ptr @fopen64(ptr noundef %0, ptr noundef nonnull @.str.54)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %30, label %5
@@ -54341,7 +54341,7 @@ strlen30.exit:                                    ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #2 {
+define internal noundef i32 @callback(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #2 {
   tail call fastcc void @shell_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null)
   ret i32 0
 }
@@ -55369,7 +55369,7 @@ define internal i32 @db_int(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @zAutoColumn(ptr noundef %0, ptr noundef nonnull %1, ptr noundef writeonly %2) unnamed_addr #2 {
+define internal fastcc ptr @zAutoColumn(ptr noundef %0, ptr noundef nonnull %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
   store ptr null, ptr %4, align 8, !tbaa !31
@@ -56389,7 +56389,7 @@ define internal fastcc void @createSelftestTable(ptr noundef nonnull readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @captureOutputCallback(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr readnone captures(none) %3) #2 {
+define internal noundef i32 @captureOutputCallback(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr readnone captures(none) %3) #2 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %.loopexit, label %6
 
@@ -56610,7 +56610,7 @@ appendText.exit38:                                ; preds = %.appendText.exit38_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @display_stats(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #2 {
+define internal fastcc void @display_stats(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 {
   %3 = alloca [200 x i8], align 16
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -57363,7 +57363,7 @@ declare ptr @zlibVersion() local_unnamed_addr #3
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tryToCloneSchema(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #2 {
+define internal fastcc void @tryToCloneSchema(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
@@ -57952,7 +57952,7 @@ shellPrepare.exit:                                ; preds = %12, %15, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dump_callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr readnone captures(none) %3) #2 {
+define internal noundef i32 @dump_callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr readnone captures(none) %3) #2 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.ShellText, align 8
   %7 = alloca %struct.ShellText, align 8
@@ -59205,7 +59205,7 @@ declare i32 @sqlite3_error_offset(ptr noundef) local_unnamed_addr #3
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @shell_callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4) unnamed_addr #2 {
+define internal fastcc void @shell_callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #2 {
   %6 = alloca [51 x i8], align 16
   %7 = alloca [50 x i8], align 16
   %8 = alloca [50 x i8], align 16
@@ -65077,7 +65077,7 @@ thread-pre-split.loopexit.split.split.split.us.us: ; preds = %.split.us142, %thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @runOneSqlLine(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readnone %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @runOneSqlLine(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2, i32 noundef %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

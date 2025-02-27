@@ -1211,7 +1211,7 @@ define void @_ZThn1464_N3zmq14session_base_t14read_activatedEPNS_6pipe_tE(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq14session_base_t15write_activatedEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 dereferenceable(1624) %0, ptr noundef readnone %1) unnamed_addr #0 align 2 {
+define void @_ZN3zmq14session_base_t15write_activatedEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1624) %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %4 = load ptr, ptr %3, align 8, !tbaa !101
   %.not = icmp eq ptr %4, %1
@@ -1273,7 +1273,7 @@ _ZNKSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EE5countERKS2_.exit.thread: ; preds =
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn1464_N3zmq14session_base_t15write_activatedEPNS_6pipe_tE(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #13 align 2 {
+define void @_ZThn1464_N3zmq14session_base_t15write_activatedEPNS_6pipe_tE(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !101
   %.not.i = icmp eq ptr %4, %1

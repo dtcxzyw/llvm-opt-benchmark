@@ -337,7 +337,7 @@ define dso_local i32 @_ZNK5clang12StmtSequence9getEndLocEv(ptr noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull ptr @_ZNK5clang12StmtSequence5beginEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull ptr @_ZNK5clang12StmtSequence5beginEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(24) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !13
   %.not = icmp eq i32 %3, 0
@@ -352,7 +352,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang12StmtSequence5beginEv(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull ptr @_ZNK5clang12StmtSequence3endEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull ptr @_ZNK5clang12StmtSequence3endEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(24) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !13
   %.not = icmp eq i32 %3, 0
@@ -4409,7 +4409,7 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN5clang15VariablePattern23countPatternDifferencesERKS0_PNS0_19SuspiciousClonePairE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef %2) local_unnamed_addr #8 align 2 {
+define dso_local noundef i32 @_ZN5clang15VariablePattern23countPatternDifferencesERKS0_PNS0_19SuspiciousClonePairE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %"struct.clang::VariablePattern::SuspiciousClonePair::SuspiciousCloneInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !457
@@ -12633,7 +12633,7 @@ _ZNSt12_Vector_baseIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE13_M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKN5clang12StmtSequenceES4_EE11callback_fnIZNS1_36RecursiveCloneTypeIIVerifyConstraint9constrainERSt6vectorINS_11SmallVectorIS2_Lj8EEESaISB_EEE3$_0EEblS4_S4_"(i64 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #1 align 2 {
+define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKN5clang12StmtSequenceES4_EE11callback_fnIZNS1_36RecursiveCloneTypeIIVerifyConstraint9constrainERSt6vectorINS_11SmallVectorIS2_Lj8EEESaISB_EEE3$_0EEblS4_S4_"(i64 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %2) #1 align 2 {
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %6 = alloca %"class.(anonymous namespace)::FoldingSetNodeIDWrapper", align 8
@@ -12685,7 +12685,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit.i.i:          ; preds = %17, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequenceERN12_GLOBAL__N_123FoldingSetNodeIDWrapperE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 {
+define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequenceERN12_GLOBAL__N_123FoldingSetNodeIDWrapperE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.clang::QualType", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19629,7 +19629,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKN5clang12StmtSequenceES4_EE11callback_fnIZNS1_33MatchingVariablePatternConstraint9constrainERSt6vectorINS_11SmallVectorIS2_Lj8EEESaISB_EEE3$_0EEblS4_S4_"(i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %2) #1 align 2 {
+define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKN5clang12StmtSequenceES4_EE11callback_fnIZNS1_33MatchingVariablePatternConstraint9constrainERSt6vectorINS_11SmallVectorIS2_Lj8EEESaISB_EEE3$_0EEblS4_S4_"(i64 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %2) #1 align 2 {
   %4 = alloca %"class.clang::VariablePattern", align 8
   %5 = alloca %"class.clang::VariablePattern", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #21

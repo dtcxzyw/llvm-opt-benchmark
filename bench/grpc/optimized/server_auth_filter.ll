@@ -801,7 +801,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 declare void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core16ServerAuthFilter18RunApplicationCode18OnMdProcessingDoneEPvPK13grpc_metadatamS5_m16grpc_status_codePKc(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readnone %3, i64 noundef %4, i32 noundef %5, ptr noundef %6) #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core16ServerAuthFilter18RunApplicationCode18OnMdProcessingDoneEPvPK13grpc_metadatamS5_m16grpc_status_codePKc(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readnone captures(address_is_null) %3, i64 noundef %4, i32 noundef %5, ptr noundef %6) #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.grpc_core::metadata_detail::RemoveHelper", align 8
   %9 = alloca %"class.grpc_core::ExecCtx", align 8
   %10 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8

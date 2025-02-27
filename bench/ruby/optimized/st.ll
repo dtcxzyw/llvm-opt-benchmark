@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @rb_cString = external local_unnamed_addr global i64, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef ptr @rb_st_init_existing_table_with_size(ptr noundef returned %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden noundef ptr @rb_st_init_existing_table_with_size(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ult i64 %2, 4611686018427387904
   br i1 %4, label %get_power2.exit, label %5
 
@@ -100,7 +100,7 @@ declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef nonnull ptr @rb_st_init_table_with_size(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @rb_st_init_table_with_size(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
   %4 = tail call ptr @rb_st_init_existing_table_with_size(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1)
   ret ptr %3
@@ -163,7 +163,7 @@ define dso_local noalias noundef nonnull ptr @rb_st_init_numtable() local_unname
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef nonnull ptr @rb_st_init_numtable_with_size(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @rb_st_init_numtable_with_size(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
   %3 = tail call ptr @rb_st_init_existing_table_with_size(ptr noundef nonnull %2, ptr noundef nonnull @st_hashtype_num, i64 noundef %0)
   ret ptr %2
@@ -194,7 +194,7 @@ define dso_local noalias noundef nonnull ptr @rb_st_init_strtable() local_unname
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef nonnull ptr @rb_st_init_strtable_with_size(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @rb_st_init_strtable_with_size(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
   %3 = tail call ptr @rb_st_init_existing_table_with_size(ptr noundef nonnull %2, ptr noundef nonnull @type_strhash, i64 noundef %0)
   ret ptr %2
@@ -225,7 +225,7 @@ define dso_local noalias noundef nonnull ptr @rb_st_init_strcasetable() local_un
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef nonnull ptr @rb_st_init_strcasetable_with_size(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @rb_st_init_strcasetable_with_size(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
   %3 = tail call ptr @rb_st_init_existing_table_with_size(ptr noundef nonnull %2, ptr noundef nonnull @type_strcasehash, i64 noundef %0)
   ret ptr %2
@@ -297,7 +297,7 @@ define dso_local i64 @rb_st_memsize(ptr noundef readonly captures(none) %0) loca
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @rb_st_lookup(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rb_st_lookup(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !11
   %5 = getelementptr i8, ptr %.val, i64 8
@@ -508,7 +508,7 @@ find_entry.exit.thread:                           ; preds = %18, %find_table_ent
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @rb_st_get_key(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rb_st_get_key(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !11
   %5 = getelementptr i8, ptr %.val, i64 8
@@ -1467,7 +1467,7 @@ set_bin.exit:                                     ; preds = %74, %71, %68, %65, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef ptr @rb_st_replace(ptr noundef returned initializes((0, 56)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define hidden noundef ptr @rb_st_replace(ptr noundef returned captures(ret: address, provenance) initializes((0, 56)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false), !tbaa.struct !52
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !25
@@ -1533,20 +1533,20 @@ ruby_nonempty_memcpy.exit22:                      ; preds = %30, %rbimpl_size_mu
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef nonnull ptr @rb_st_copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @rb_st_copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #24
   %3 = tail call ptr @rb_st_replace(ptr noundef nonnull %2, ptr noundef %0)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @rb_st_delete(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rb_st_delete(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @st_general_delete(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @st_general_delete(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @st_general_delete(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8, !tbaa !7
   %5 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %5, align 8, !tbaa !11
@@ -1842,13 +1842,13 @@ update_range_for_deleted.exit:                    ; preds = %.critedge.i, %118, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @rb_st_delete_safe(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rb_st_delete_safe(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @st_general_delete(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @rb_st_shift(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rb_st_shift(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2532,13 +2532,13 @@ update_range_for_deleted.exit:                    ; preds = %.critedge.i, %set_b
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @rb_st_foreach_with_replace(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rb_st_foreach_with_replace(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @st_general_foreach(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 1)
   ret i32 %5
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @st_general_foreach(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @st_general_foreach(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #6 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
@@ -3642,110 +3642,109 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %11
   %35 = load i8, ptr %34, align 2, !tbaa !23
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 %35, ptr %36, align 2, !tbaa !23
-  %37 = load ptr, ptr %23, align 8, !tbaa !26
-  store ptr %37, ptr %21, align 8, !tbaa !26
+  store ptr %24, ptr %21, align 8, !tbaa !26
   store ptr null, ptr %26, align 8, !tbaa !25
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %39 = load i32, ptr %38, align 4, !tbaa !28
-  %40 = add i32 %39, 1
-  store i32 %40, ptr %38, align 4, !tbaa !28
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %38 = load i32, ptr %37, align 4, !tbaa !28
+  %39 = add i32 %38, 1
+  store i32 %39, ptr %37, align 4, !tbaa !28
   tail call void @ruby_xfree(ptr noundef nonnull %14) #25
   br label %st_expand_table.exit
 
 st_expand_table.exit:                             ; preds = %3, %rbimpl_size_mul_or_raise.exit.i
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %42 = load i64, ptr %41, align 8, !tbaa !27
-  %.not = icmp eq i64 %42, 0
-  br i1 %.not, label %44, label %43, !prof !70
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %41 = load i64, ptr %40, align 8, !tbaa !27
+  %.not = icmp eq i64 %41, 0
+  br i1 %.not, label %43, label %42, !prof !70
+
+42:                                               ; preds = %st_expand_table.exit
+  tail call fastcc void @st_insert_generic(ptr noundef nonnull %5, i64 noundef %0, ptr noundef %1, i64 noundef %2)
+  br label %st_insert_linear.exit
 
 43:                                               ; preds = %st_expand_table.exit
-  tail call fastcc void @st_insert_generic(ptr noundef nonnull %5, i64 noundef %0, ptr noundef %1, i64 noundef %2)
+  %44 = icmp slt i64 %0, 3
+  br i1 %44, label %45, label %49
+
+45:                                               ; preds = %43
+  %46 = load i64, ptr %1, align 8, !tbaa !7
+  %47 = getelementptr i8, ptr %1, i64 8
+  %48 = load i64, ptr %47, align 8, !tbaa !7
+  tail call fastcc void @st_insert_single(ptr noundef nonnull %5, i64 noundef %2, i64 noundef %46, i64 noundef %48)
   br label %st_insert_linear.exit
 
-44:                                               ; preds = %st_expand_table.exit
-  %45 = icmp slt i64 %0, 3
-  br i1 %45, label %46, label %50
+49:                                               ; preds = %43
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %51 = load i8, ptr %50, align 1, !tbaa !21
+  %52 = icmp ult i8 %51, 5
+  br i1 %52, label %.preheader, label %87
 
-46:                                               ; preds = %44
-  %47 = load i64, ptr %1, align 8, !tbaa !7
-  %48 = getelementptr i8, ptr %1, i64 8
-  %49 = load i64, ptr %48, align 8, !tbaa !7
-  tail call fastcc void @st_insert_single(ptr noundef nonnull %5, i64 noundef %2, i64 noundef %47, i64 noundef %49)
-  br label %st_insert_linear.exit
+.preheader:                                       ; preds = %49, %rb_obj_written.exit12.i
+  %.013.i = phi i64 [ %72, %rb_obj_written.exit12.i ], [ 0, %49 ]
+  %53 = or disjoint i64 %.013.i, 1
+  %54 = getelementptr i64, ptr %1, i64 %.013.i
+  %55 = load i64, ptr %54, align 8, !tbaa !7
+  %56 = tail call i64 @rb_obj_class(i64 noundef %55) #25
+  %57 = load i64, ptr @rb_cString, align 8, !tbaa !7
+  %58 = icmp eq i64 %56, %57
+  br i1 %58, label %59, label %st_stringify.exit.i
 
-50:                                               ; preds = %44
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %52 = load i8, ptr %51, align 1, !tbaa !21
-  %53 = icmp ult i8 %52, 5
-  br i1 %53, label %.preheader, label %88
+59:                                               ; preds = %.preheader
+  %60 = icmp eq i64 %55, 0
+  %61 = and i64 %55, 7
+  %62 = icmp ne i64 %61, 0
+  %63 = or i1 %60, %62
+  br i1 %63, label %st_stringify.exit.i, label %RB_FL_ABLE.exit.i.i.i
 
-.preheader:                                       ; preds = %50, %rb_obj_written.exit12.i
-  %.013.i = phi i64 [ %73, %rb_obj_written.exit12.i ], [ 0, %50 ]
-  %54 = or disjoint i64 %.013.i, 1
-  %55 = getelementptr i64, ptr %1, i64 %.013.i
-  %56 = load i64, ptr %55, align 8, !tbaa !7
-  %57 = tail call i64 @rb_obj_class(i64 noundef %56) #25
-  %58 = load i64, ptr @rb_cString, align 8, !tbaa !7
-  %59 = icmp eq i64 %57, %58
-  br i1 %59, label %60, label %st_stringify.exit.i
+RB_FL_ABLE.exit.i.i.i:                            ; preds = %59
+  %64 = inttoptr i64 %55 to ptr
+  %65 = load i64, ptr %64, align 8, !tbaa !71
+  %66 = and i64 %65, 31
+  %.not.i.i.i = icmp eq i64 %66, 27
+  %67 = and i64 %65, 2048
+  %68 = icmp ne i64 %67, 0
+  %or.cond.i.i = or i1 %.not.i.i.i, %68
+  br i1 %or.cond.i.i, label %st_stringify.exit.i, label %69
 
-60:                                               ; preds = %.preheader
-  %61 = icmp eq i64 %56, 0
-  %62 = and i64 %56, 7
-  %63 = icmp ne i64 %62, 0
-  %64 = or i1 %61, %63
-  br i1 %64, label %st_stringify.exit.i, label %RB_FL_ABLE.exit.i.i.i
-
-RB_FL_ABLE.exit.i.i.i:                            ; preds = %60
-  %65 = inttoptr i64 %56 to ptr
-  %66 = load i64, ptr %65, align 8, !tbaa !71
-  %67 = and i64 %66, 31
-  %.not.i.i.i = icmp eq i64 %67, 27
-  %68 = and i64 %66, 2048
-  %69 = icmp ne i64 %68, 0
-  %or.cond.i.i = or i1 %.not.i.i.i, %69
-  br i1 %or.cond.i.i, label %st_stringify.exit.i, label %70
-
-70:                                               ; preds = %RB_FL_ABLE.exit.i.i.i
-  %71 = tail call i64 @rb_hash_key_str(i64 noundef %56) #25
+69:                                               ; preds = %RB_FL_ABLE.exit.i.i.i
+  %70 = tail call i64 @rb_hash_key_str(i64 noundef %55) #25
   br label %st_stringify.exit.i
 
-st_stringify.exit.i:                              ; preds = %70, %RB_FL_ABLE.exit.i.i.i, %60, %.preheader
-  %72 = phi i64 [ %71, %70 ], [ %56, %.preheader ], [ %56, %RB_FL_ABLE.exit.i.i.i ], [ %56, %60 ]
-  %73 = add i64 %.013.i, 2
-  %74 = getelementptr i64, ptr %1, i64 %54
-  %75 = load i64, ptr %74, align 8, !tbaa !7
-  %76 = tail call i32 @rb_st_insert(ptr noundef nonnull %5, i64 noundef %72, i64 noundef %75)
-  %77 = icmp eq i64 %72, 0
-  %78 = and i64 %72, 7
-  %79 = icmp ne i64 %78, 0
-  %80 = or i1 %77, %79
-  br i1 %80, label %rb_obj_written.exit.i, label %81
+st_stringify.exit.i:                              ; preds = %69, %RB_FL_ABLE.exit.i.i.i, %59, %.preheader
+  %71 = phi i64 [ %70, %69 ], [ %55, %.preheader ], [ %55, %RB_FL_ABLE.exit.i.i.i ], [ %55, %59 ]
+  %72 = add i64 %.013.i, 2
+  %73 = getelementptr i64, ptr %1, i64 %53
+  %74 = load i64, ptr %73, align 8, !tbaa !7
+  %75 = tail call i32 @rb_st_insert(ptr noundef nonnull %5, i64 noundef %71, i64 noundef %74)
+  %76 = icmp eq i64 %71, 0
+  %77 = and i64 %71, 7
+  %78 = icmp ne i64 %77, 0
+  %79 = or i1 %76, %78
+  br i1 %79, label %rb_obj_written.exit.i, label %80
 
-81:                                               ; preds = %st_stringify.exit.i
-  tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %72) #25
+80:                                               ; preds = %st_stringify.exit.i
+  tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %71) #25
   br label %rb_obj_written.exit.i
 
-rb_obj_written.exit.i:                            ; preds = %81, %st_stringify.exit.i
-  %82 = icmp eq i64 %75, 0
-  %83 = and i64 %75, 7
-  %84 = icmp ne i64 %83, 0
-  %85 = or i1 %82, %84
-  br i1 %85, label %rb_obj_written.exit12.i, label %86
+rb_obj_written.exit.i:                            ; preds = %80, %st_stringify.exit.i
+  %81 = icmp eq i64 %74, 0
+  %82 = and i64 %74, 7
+  %83 = icmp ne i64 %82, 0
+  %84 = or i1 %81, %83
+  br i1 %84, label %rb_obj_written.exit12.i, label %85
 
-86:                                               ; preds = %rb_obj_written.exit.i
-  tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %75) #25
+85:                                               ; preds = %rb_obj_written.exit.i
+  tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %74) #25
   br label %rb_obj_written.exit12.i
 
-rb_obj_written.exit12.i:                          ; preds = %86, %rb_obj_written.exit.i
-  %87 = icmp slt i64 %73, %0
-  br i1 %87, label %.preheader, label %st_insert_linear.exit, !llvm.loop !73
+rb_obj_written.exit12.i:                          ; preds = %85, %rb_obj_written.exit.i
+  %86 = icmp slt i64 %72, %0
+  br i1 %86, label %.preheader, label %st_insert_linear.exit, !llvm.loop !73
 
-88:                                               ; preds = %50
+87:                                               ; preds = %49
   tail call fastcc void @st_insert_generic(ptr noundef nonnull %5, i64 noundef %0, ptr noundef %1, i64 noundef %2)
   br label %st_insert_linear.exit
 
-st_insert_linear.exit:                            ; preds = %rb_obj_written.exit12.i, %46, %88, %43
+st_insert_linear.exit:                            ; preds = %rb_obj_written.exit12.i, %45, %87, %42
   ret void
 }
 

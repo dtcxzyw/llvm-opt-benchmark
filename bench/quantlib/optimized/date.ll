@@ -1872,7 +1872,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib4DatepLEl(ptr noundef nonnull returned align 8 dereferenceable(8) %this, i64 noundef %days) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib4DatepLEl(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, i64 noundef %days) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8, !tbaa !3
   %add = add nsw i64 %0, %days
@@ -1882,7 +1882,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib4DatepLERKNS_6PeriodE(ptr noundef nonnull returned align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib4DatepLERKNS_6PeriodE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %p, align 4, !tbaa !29
   %units_.i = getelementptr inbounds nuw i8, ptr %p, i64 4
@@ -2856,7 +2856,7 @@ unreachable:                                      ; preds = %invoke.cont141, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib4DatemIEl(ptr noundef nonnull returned align 8 dereferenceable(8) %this, i64 noundef %days) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib4DatemIEl(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, i64 noundef %days) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8, !tbaa !3
   %sub = sub nsw i64 %0, %days
@@ -2866,7 +2866,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib4DatemIERKNS_6PeriodE(ptr noundef nonnull returned align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib4DatemIERKNS_6PeriodE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %p, align 4, !tbaa !29
   %sub = sub nsw i32 0, %0
@@ -2878,7 +2878,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib4DateppEv(ptr noundef nonnull returned align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib4DateppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8, !tbaa !3
   %add = add nsw i64 %0, 1
@@ -2888,7 +2888,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib4DatemmEv(ptr noundef nonnull returned align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib4DatemmEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8, !tbaa !3
   %sub = add nsw i64 %0, -1

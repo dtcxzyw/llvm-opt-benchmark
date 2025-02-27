@@ -1002,7 +1002,7 @@ define internal fastcc void @_ZN17markup5ever_rcdom6append17hd86a3d77d6a1619bE(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { ptr, i64 } @_ZN17markup5ever_rcdom20get_parent_and_index17h411de67814f3998dE(ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, i64 } @_ZN17markup5ever_rcdom20get_parent_and_index17h411de67814f3998dE(ptr captures(address) %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = alloca ptr, align 8
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %3 = alloca ptr, align 8
@@ -1153,7 +1153,7 @@ define internal fastcc { ptr, i64 } @_ZN17markup5ever_rcdom20get_parent_and_inde
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN17markup5ever_rcdom23append_to_existing_text17h58e0abfc8a4f61ecE(ptr %.0.val, ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN17markup5ever_rcdom23append_to_existing_text17h58e0abfc8a4f61ecE(ptr captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.4.i.i = alloca i64, align 8
   %3 = alloca { { i64, ptr }, i64 }, align 8
   %4 = alloca [8 x i8], align 8
@@ -1513,7 +1513,7 @@ common.resume.sink.split.i:                       ; preds = %142, %61
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17markup5ever_rcdom18remove_from_parent17hd48dc4af4a18f8d0E(ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17markup5ever_rcdom18remove_from_parent17hd48dc4af4a18f8d0E(ptr captures(address) %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = icmp ne ptr %.0.val, null
@@ -3323,7 +3323,7 @@ _ZN17markup5ever_rcdom4Node3new17hb0c791d1ce2875dcE.exit: ; preds = %.noexc.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull ptr @"_ZN129_$LT$markup5ever_rcdom..SerializableHandle$u20$as$u20$core..convert..From$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$4from17hc1f2b41ed2b98c1dE"(ptr noundef nonnull readnone returned %0) unnamed_addr #7 {
+define noundef nonnull ptr @"_ZN129_$LT$markup5ever_rcdom..SerializableHandle$u20$as$u20$core..convert..From$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$4from17hc1f2b41ed2b98c1dE"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #7 {
   ret ptr %0
 }
 

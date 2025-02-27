@@ -330,7 +330,7 @@ declare noundef i32 @_ZNK6Method16orig_bytecode_atEi(ptr noundef nonnull align 8
 declare noundef i32 @_ZNK6Method8bci_fromEPh(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN9Bytecodes17special_length_atENS_4CodeEPhS1_(i32 noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN9Bytecodes17special_length_atENS_4CodeEPhS1_(i32 noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #3 align 2 {
   switch i32 %0, label %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit [
     i32 196, label %4
     i32 170, label %15
@@ -434,7 +434,7 @@ _ZN9Bytecodes15wide_length_forENS_4CodeE.exit:    ; preds = %9, %6, %49, %27, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN9Bytecodes21raw_special_length_atEPhS0_(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN9Bytecodes21raw_special_length_atEPhS0_(ptr noundef readonly %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 align 2 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, -54
   br i1 %4, label %8, label %5
@@ -450,7 +450,7 @@ define hidden noundef i32 @_ZN9Bytecodes21raw_special_length_atEPhS0_(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Bytecodes9def_flagsENS_4CodeEPKcS2_bS0_(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9Bytecodes9def_flagsENS_4CodeEPKcS2_bS0_(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
   %spec.select = zext i1 %3 to i16
   %.not = icmp eq i32 %4, %0
   %6 = or disjoint i16 %spec.select, 2
@@ -469,7 +469,7 @@ define hidden void @_ZN9Bytecodes9def_flagsENS_4CodeEPKcS2_bS0_(i32 noundef %0, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 

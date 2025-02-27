@@ -113,7 +113,7 @@ uv__utf8_decode1_slow.exit:                       ; preds = %54, %43, %39, %34, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @uv__idna_toascii(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden i64 @uv__idna_toascii(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address) %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   store ptr %2, ptr %5, align 8
   %6 = icmp eq ptr %0, %1
@@ -295,7 +295,7 @@ uv__utf8_decode1.exit.thread:                     ; preds = %61, %50, %46, %18, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef readnone %3) unnamed_addr #1 {
+define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef readnone captures(address) %3) unnamed_addr #1 {
   %5 = icmp ult ptr %0, %1
   br i1 %5, label %.lr.ph, label %._crit_edge.thread
 
@@ -1237,7 +1237,7 @@ uv__get_surrogate_value.exit._crit_edge:          ; preds = %35, %uv__get_surrog
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -105, 1) i32 @uv_utf16_to_wtf8(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local range(i32 -105, 1) i32 @uv_utf16_to_wtf8(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %9, label %6
 

@@ -584,7 +584,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN5boost4urls6detail10ci_compareENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN5boost4urls6detail9ci_digestENS_4core17basic_string_viewIcEERNS1_6fnv_1aE(ptr readonly %0, i64 %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #7 {
+define hidden void @_ZN5boost4urls6detail9ci_digestENS_4core17basic_string_viewIcEERNS1_6fnv_1aE(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %.not9 = icmp samesign eq i64 %1, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph.preheader

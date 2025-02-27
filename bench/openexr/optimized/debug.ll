@@ -350,7 +350,7 @@ define range(i32 0, 3) i32 @exr_print_context_info(ptr noundef %0, i32 noundef %
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @print_attr(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @print_attr(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 

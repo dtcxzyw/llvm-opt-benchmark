@@ -961,7 +961,7 @@ define noundef i32 @zmq_msg_init_data(ptr noundef nonnull %0, ptr noundef %1, i6
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, -2147483648) i32 @zmq_sendiov(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @zmq_sendiov(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.zmq_msg_t, align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZL16as_socket_base_tPv.exit.thread, label %6
@@ -1234,7 +1234,7 @@ define noundef i32 @zmq_msg_init(ptr noundef nonnull %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -2147483647, -2147483648) i32 @zmq_recviov(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 -2147483647, -2147483648) i32 @zmq_recviov(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.zmq_msg_t, align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZL16as_socket_base_tPv.exit.thread, label %6
@@ -1464,7 +1464,7 @@ define i32 @zmq_msg_get(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @zmq_msg_gets(ptr noundef nonnull %0, ptr noundef readonly %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @zmq_msg_gets(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef ptr @_ZNK3zmq5msg_t8metadataEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
@@ -2531,7 +2531,7 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 declare noundef i64 @_ZN3zmq7clock_t6now_msEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z21zmq_poll_check_items_P14zmq_pollitem_til(ptr noundef readnone %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define noundef i32 @_Z21zmq_poll_check_items_P14zmq_pollitem_til(ptr noundef readnone captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %5, label %7, !prof !10
 
@@ -2737,7 +2737,7 @@ zmq_getsockopt.exit:                              ; preds = %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_Z28zmq_poll_select_set_timeout_lbmmR7timeval(i64 noundef %0, i1 noundef zeroext %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull writeonly align 8 dereferenceable(16) %4) local_unnamed_addr #0 {
+define noundef ptr @_Z28zmq_poll_select_set_timeout_lbmmR7timeval(i64 noundef %0, i1 noundef zeroext %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) dereferenceable(16) %4) local_unnamed_addr #0 {
   br i1 %1, label %6, label %7
 
 6:                                                ; preds = %5
@@ -2764,7 +2764,7 @@ define noundef ptr @_Z28zmq_poll_select_set_timeout_lbmmR7timeval(i64 noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_Z28zmq_poll_select_set_timeout_lbmmR8timespec(i64 noundef %0, i1 noundef zeroext %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull writeonly align 8 dereferenceable(16) %4) local_unnamed_addr #0 {
+define noundef ptr @_Z28zmq_poll_select_set_timeout_lbmmR8timespec(i64 noundef %0, i1 noundef zeroext %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) dereferenceable(16) %4) local_unnamed_addr #0 {
   br i1 %1, label %6, label %7
 
 6:                                                ; preds = %5
@@ -2993,7 +2993,7 @@ define noundef zeroext i1 @_Z25zmq_poll_must_break_loop_liRbRN3zmq7clock_tERmS3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @zmq_ppoll(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define i32 @zmq_ppoll(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca %"class.zmq::clock_t", align 8
   %7 = alloca %struct.zmq_poll_select_fds_t_, align 8
@@ -3210,7 +3210,7 @@ define noundef ptr @zmq_poller_new() local_unnamed_addr #1 personality ptr @__gx
 declare void @_ZN3zmq15socket_poller_tC1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @zmq_poller_destroy(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @zmq_poller_destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 

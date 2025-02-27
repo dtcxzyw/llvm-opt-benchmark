@@ -358,14 +358,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene14CBoneSceneNode14getBoundingBoxEv(ptr noundef nonnull readnone align 8 dereferenceable(272) %this) unnamed_addr #3 align 2 {
+define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene14CBoneSceneNode14getBoundingBoxEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(272) %this) unnamed_addr #3 align 2 {
 entry:
   %Box = getelementptr inbounds nuw i8, ptr %this, i64 240
   ret ptr %Box
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene14CBoneSceneNode9OnAnimateEj(ptr noundef nonnull readonly align 8 dereferenceable(272) %this, i32 noundef %timeMs) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene14CBoneSceneNode9OnAnimateEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(272) %this, i32 noundef %timeMs) unnamed_addr #0 align 2 {
 entry:
   %IsVisible = getelementptr inbounds nuw i8, ptr %this, i64 220
   %0 = load i8, ptr %IsVisible, align 4, !tbaa !40, !range !56, !noundef !57

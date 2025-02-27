@@ -508,7 +508,7 @@ define noundef zeroext i1 @ggml_backend_buffer_copy_tensor(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ggml_backend_guid(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @ggml_backend_guid(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -1552,7 +1552,7 @@ ggml_backend_buffer_free.exit:                    ; preds = %.lr.ph, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ggml_backend_sched_new(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define noundef ptr @ggml_backend_sched_new(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.ggml_hash_set, align 8
   %7 = icmp sgt i32 %2, 0
   br i1 %7, label %9, label %8
@@ -6243,7 +6243,7 @@ define ptr @ggml_backend_sched_get_backend(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @ggml_backend_sched_get_buffer_size(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define i64 @ggml_backend_sched_get_buffer_size(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !115
@@ -6285,7 +6285,7 @@ _ZL29ggml_backend_sched_backend_idP18ggml_backend_schedP12ggml_backend.exit.thre
 declare i64 @ggml_gallocr_get_buffer_size(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @ggml_backend_sched_set_tensor_backend(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define void @ggml_backend_sched_set_tensor_backend(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !115

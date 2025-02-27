@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [25 x i8] c"SetEventNotificationMode\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cbTrackingObjectFree(ptr noundef readnone %0, i64 noundef %1) #0 {
+define hidden void @cbTrackingObjectFree(ptr noundef readnone captures(address) %0, i64 noundef %1) #0 {
   %3 = load ptr, ptr @gdata, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
@@ -62,7 +62,7 @@ declare zeroext i8 @eventHandler_synthesizeUnloadEvent(ptr noundef, ptr noundef)
 declare ptr @getEnv() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cbTrackingClassPrepare(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
+define hidden void @cbTrackingClassPrepare(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = load ptr, ptr @gdata, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %12, label %6

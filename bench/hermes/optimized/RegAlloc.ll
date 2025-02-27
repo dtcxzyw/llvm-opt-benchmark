@@ -952,7 +952,7 @@ _ZN4llvh9BitVector5resetEjj.exit:                 ; preds = %while.end, %for.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes17RegisterAllocator9lowerPhisEN4llvh8ArrayRefIPNS_10BasicBlockEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1952) %this, ptr readonly %order.coerce0, i64 %order.coerce1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes17RegisterAllocator9lowerPhisEN4llvh8ArrayRefIPNS_10BasicBlockEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1952) %this, ptr readonly captures(address) %order.coerce0, i64 %order.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %PHIs = alloca %"class.llvh::SmallVector.1", align 8
   %builder = alloca %"class.hermes::IRBuilder", align 8
@@ -1804,7 +1804,7 @@ declare void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnu
 declare void @_ZN6hermes11Instruction10moveBeforeEPS0_(ptr noundef nonnull align 8 dereferenceable(132), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes17RegisterAllocator22calculateLocalLivenessERNS0_17BlockLifetimeInfoEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %livenessInfo, ptr noundef readonly %BB) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes17RegisterAllocator22calculateLocalLivenessERNS0_17BlockLifetimeInfoEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %livenessInfo, ptr noundef readonly captures(address) %BB) local_unnamed_addr #0 align 2 {
 entry:
   %incomingValueNum = alloca %"class.llvh::SmallVector.43", align 8
   %E27 = alloca %"struct.std::pair", align 8
@@ -2542,7 +2542,7 @@ return:                                           ; preds = %_ZN4llvh12DenseMapB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes17RegisterAllocator23calculateGlobalLivenessEN4llvh8ArrayRefIPNS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr readonly %order.coerce0, i64 %order.coerce1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes17RegisterAllocator23calculateGlobalLivenessEN4llvh8ArrayRefIPNS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr readonly captures(address) %order.coerce0, i64 %order.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %BB = alloca ptr, align 8
   %succ = alloca ptr, align 8
@@ -3911,7 +3911,7 @@ return:                                           ; preds = %for.body, %if.end, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes17RegisterAllocator8coalesceERN4llvh8DenseMapIPNS_11InstructionES4_NS1_12DenseMapInfoIS4_EENS1_6detail12DenseMapPairIS4_S4_EEEENS1_8ArrayRefIPNS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr noundef nonnull align 8 dereferenceable(20) %map, ptr readonly %order.coerce0, i64 %order.coerce1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes17RegisterAllocator8coalesceERN4llvh8DenseMapIPNS_11InstructionES4_NS1_12DenseMapInfoIS4_EENS1_6detail12DenseMapPairIS4_S4_EEEENS1_8ArrayRefIPNS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr noundef nonnull align 8 dereferenceable(20) %map, ptr readonly captures(address) %order.coerce0, i64 %order.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %lastCopy = alloca %"class.llvh::DenseMap.38", align 8
   %op107 = alloca ptr, align 8
@@ -5960,7 +5960,7 @@ _ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes17RegisterAllocator16allocateFastPassEN4llvh8ArrayRefIPNS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr readonly %order.coerce0, i64 %order.coerce1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes17RegisterAllocator16allocateFastPassEN4llvh8ArrayRefIPNS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr readonly captures(address) %order.coerce0, i64 %order.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %blockLocals = alloca %"class.llvh::SmallVector.61", align 8
   %add.ptr.i24 = getelementptr inbounds ptr, ptr %order.coerce0, i64 %order.coerce1
@@ -8108,7 +8108,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapI
 declare noundef i32 @_ZNK6hermes5Value11getNumUsersEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr %order.coerce0, i64 %order.coerce1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr captures(address) %order.coerce0, i64 %order.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %I.addr.i428 = alloca ptr, align 8
   %I.addr.i386 = alloca ptr, align 8
@@ -9938,7 +9938,7 @@ return:                                           ; preds = %"_ZNSt14priority_qu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes17RegisterAllocator22calculateLiveIntervalsEN4llvh8ArrayRefIPNS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr readonly %order.coerce0, i64 %order.coerce1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes17RegisterAllocator22calculateLiveIntervalsEN4llvh8ArrayRefIPNS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr readonly captures(address) %order.coerce0, i64 %order.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"struct.hermes::Interval", align 8
   %BB = alloca ptr, align 8
@@ -10847,7 +10847,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @_ZN6hermes17RegisterAllocator7reserveEN4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr readonly %values.coerce0, i64 %values.coerce1) local_unnamed_addr #0 align 2 {
+define hidden i32 @_ZN6hermes17RegisterAllocator7reserveEN4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr readonly captures(address) %values.coerce0, i64 %values.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %v = alloca ptr, align 8
   %file = getelementptr inbounds nuw i8, ptr %this, i64 1904

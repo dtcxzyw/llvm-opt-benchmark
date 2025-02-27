@@ -1684,7 +1684,7 @@ define dso_local void @RegisterXactCallback(ptr noundef %0, ptr noundef %1) loca
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @UnregisterXactCallback(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #2 {
+define dso_local void @UnregisterXactCallback(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 {
   %.01216 = load ptr, ptr @Xact_callbacks, align 8
   %.not17 = icmp eq ptr %.01216, null
   br i1 %.not17, label %.loopexit, label %.lr.ph
@@ -1737,7 +1737,7 @@ define dso_local void @RegisterSubXactCallback(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @UnregisterSubXactCallback(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #2 {
+define dso_local void @UnregisterSubXactCallback(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 {
   %.01216 = load ptr, ptr @SubXact_callbacks, align 8
   %.not17 = icmp eq ptr %.01216, null
   br i1 %.not17, label %.loopexit, label %.lr.ph

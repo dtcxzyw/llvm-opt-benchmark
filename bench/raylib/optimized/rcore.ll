@@ -39213,7 +39213,7 @@ define void @SetWindowIcon(ptr noundef readonly byval(%struct.Image) align 8 cap
 declare void @glfwSetWindowIcon(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @SetWindowIcons(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @SetWindowIcons(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 1
   %or.cond = or i1 %3, %4
@@ -44556,7 +44556,7 @@ define { i32, ptr } @LoadShaderFromMemory(ptr noundef %0, ptr noundef %1) local_
 declare void @UnloadFileText(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i1 @IsShaderValid(i32 %0, ptr readnone %1) local_unnamed_addr #13 {
+define zeroext i1 @IsShaderValid(i32 %0, ptr readnone captures(address_is_null) %1) local_unnamed_addr #13 {
   %3 = icmp ne i32 %0, 0
   %4 = icmp ne ptr %1, null
   %5 = select i1 %3, i1 %4, i1 false
@@ -46503,7 +46503,7 @@ define void @UnloadDirectoryFiles(i64 %0, ptr captures(none) %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @MakeDirectory(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @MakeDirectory(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %30, label %3
 
@@ -46632,7 +46632,7 @@ define zeroext i1 @IsPathFile(ptr noundef readonly captures(none) %0) local_unna
 declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #38
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define zeroext i1 @IsFileNameValid(ptr noundef readonly %0) local_unnamed_addr #46 {
+define zeroext i1 @IsFileNameValid(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #46 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %2
 
@@ -47405,7 +47405,7 @@ define noundef nonnull ptr @ComputeSHA1(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define { i64, ptr } @LoadAutomationEventList(ptr noundef readonly %0) local_unnamed_addr #0 {
+define { i64, ptr } @LoadAutomationEventList(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.AutomationEventList, align 8
   %3 = alloca [256 x i8], align 16
   %4 = alloca [64 x i8], align 16

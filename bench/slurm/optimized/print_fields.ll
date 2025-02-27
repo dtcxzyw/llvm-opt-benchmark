@@ -204,7 +204,7 @@ declare void @list_iterator_reset(ptr noundef) local_unnamed_addr #2
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @print_fields_date(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @print_fields_date(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = load i32, ptr @print_fields_parsable_print, align 4
   %.not = icmp eq i32 %5, 0
@@ -366,7 +366,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @print_fields_uint16(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local void @print_fields_uint16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = load i32, ptr %0, align 8
   %5 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
   %.not = icmp eq ptr %1, null
@@ -459,7 +459,7 @@ define dso_local void @print_fields_uint16(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @print_fields_uint32(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local void @print_fields_uint32(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = load i32, ptr %0, align 8
   %5 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
   %.not = icmp eq ptr %1, null
@@ -550,7 +550,7 @@ define dso_local void @print_fields_uint32(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @print_fields_uint64(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local void @print_fields_uint64(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = load i32, ptr %0, align 8
   %5 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
   %.not = icmp eq ptr %1, null
@@ -641,7 +641,7 @@ define dso_local void @print_fields_uint64(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @print_fields_double(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @print_fields_double(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr %0, align 8
   %6 = tail call i32 @llvm.abs.i32(i32 %5, i1 true)
@@ -777,7 +777,7 @@ define dso_local void @print_fields_double(ptr noundef readonly captures(none) %
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @print_fields_time_from_mins(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @print_fields_time_from_mins(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   %5 = load i32, ptr %0, align 8
   %6 = tail call i32 @llvm.abs.i32(i32 %5, i1 true)
@@ -878,7 +878,7 @@ define dso_local void @print_fields_time_from_mins(ptr noundef readonly captures
 declare void @mins2time_str(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @print_fields_time_from_secs(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @print_fields_time_from_secs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   %5 = load i32, ptr %0, align 8
   %6 = tail call i32 @llvm.abs.i32(i32 %5, i1 true)
@@ -979,7 +979,7 @@ define dso_local void @print_fields_time_from_secs(ptr noundef readonly captures
 declare void @secs2time_str(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @print_fields_sluid(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @print_fields_sluid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr %0, align 8
   %6 = tail call i32 @llvm.abs.i32(i32 %5, i1 true)
@@ -1047,7 +1047,7 @@ define dso_local void @print_fields_sluid(ptr noundef readonly captures(none) %0
 declare ptr @sluid2str(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @print_fields_char_list(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @print_fields_char_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr %0, align 8
   %6 = tail call i32 @llvm.abs.i32(i32 %5, i1 true)
@@ -1155,7 +1155,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 declare ptr @slurm_char_list_to_xstr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @expand_stdio_fields(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @expand_stdio_fields(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

@@ -384,7 +384,7 @@ define noundef nonnull ptr @grpc_resource_quota_arg_vtable() local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @grpc_resource_quota_create(ptr noundef readonly %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @grpc_resource_quota_create(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.absl::lts_20240722::AlphaNum", align 8

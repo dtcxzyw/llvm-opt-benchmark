@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [5 x i8] c"(Z)V\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @awt_DrawingSurface_Lock(ptr noundef readonly %0) #0 {
+define i32 @awt_DrawingSurface_Lock(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %87, label %3
 
@@ -176,7 +176,7 @@ define i32 @awt_DrawingSurface_Lock(ptr noundef readonly %0) #0 {
 declare void @awt_output_flush(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @awt_GetColor(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+define i32 @awt_GetColor(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %124, label %6
 
@@ -611,7 +611,7 @@ declare i32 @XGetWindowAttributes(ptr noundef, i64 noundef, ptr noundef) local_u
 declare i64 @XVisualIDFromVisual(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @awt_DrawingSurface_FreeDrawingSurfaceInfo(ptr noundef %0) #3 {
+define void @awt_DrawingSurface_FreeDrawingSurfaceInfo(ptr noundef captures(address_is_null) %0) #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -629,7 +629,7 @@ define void @awt_DrawingSurface_FreeDrawingSurfaceInfo(ptr noundef %0) #3 {
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @awt_DrawingSurface_Unlock(ptr noundef readonly %0) #0 {
+define void @awt_DrawingSurface_Unlock(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %33, label %3
 
@@ -727,7 +727,7 @@ define noundef ptr @awt_GetDrawingSurface(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @awt_FreeDrawingSurface(ptr noundef %0) local_unnamed_addr #0 {
+define void @awt_FreeDrawingSurface(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 

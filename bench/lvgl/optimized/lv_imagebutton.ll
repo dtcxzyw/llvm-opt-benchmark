@@ -698,7 +698,7 @@ declare void @lv_obj_remove_state(ptr noundef, i16 noundef zeroext) local_unname
 declare void @lv_obj_add_state(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_imagebutton_get_src_left(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define ptr @lv_imagebutton_get_src_left(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -714,7 +714,7 @@ define ptr @lv_imagebutton_get_src_left(ptr noundef readonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_imagebutton_get_src_middle(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define ptr @lv_imagebutton_get_src_middle(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -730,7 +730,7 @@ define ptr @lv_imagebutton_get_src_middle(ptr noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_imagebutton_get_src_right(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define ptr @lv_imagebutton_get_src_right(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 

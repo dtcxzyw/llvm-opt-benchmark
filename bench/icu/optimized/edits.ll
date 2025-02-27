@@ -480,7 +480,7 @@ define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErro
 declare void @uprv_free_77(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_775Edits12releaseArrayEv(ptr noundef nonnull readonly align 8 dereferenceable(232) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_775Edits12releaseArrayEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %.not = icmp eq ptr %2, %3
@@ -502,7 +502,7 @@ define void @_ZN6icu_775Edits12releaseArrayEv(ptr noundef nonnull readonly align
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(232) ptr @_ZN6icu_775Edits9copyArrayERKS0_(ptr noundef nonnull returned align 8 dereferenceable(232) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(232) ptr @_ZN6icu_775Edits9copyArrayERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(232) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !18
   %5 = icmp slt i32 %4, 1
@@ -660,7 +660,7 @@ define void @_ZN6icu_775Edits5resetEv(ptr noundef nonnull writeonly align 8 capt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(232) ptr @_ZN6icu_775EditsaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(232) %0, ptr noundef nonnull readonly align 8 dereferenceable(232) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(232) ptr @_ZN6icu_775EditsaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(232) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZN6icu_775Edits9copyArrayERKS0_.exit, label %4
 
@@ -835,7 +835,7 @@ _ZN6icu_775Edits9moveArrayERS0_.exit:             ; preds = %16, %26, %32, %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_775EditsD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(232) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_775EditsD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %.not.i = icmp eq ptr %2, %3
@@ -857,7 +857,7 @@ _ZN6icu_775Edits12releaseArrayEv.exit:            ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 captures(address) dereferenceable(232) %0, i32 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !18
   %5 = icmp sgt i32 %4, 0
@@ -1107,7 +1107,7 @@ _ZN6icu_775Edits6appendEi.exit29:                 ; preds = %100, %90, %84, %78,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_775Edits6appendEi(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_775Edits6appendEi(ptr noundef nonnull align 8 captures(address) dereferenceable(232) %0, i32 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1205,7 +1205,7 @@ _ZN6icu_775Edits9growArrayEv.exit.thread:         ; preds = %27, %13, %20, %38
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 captures(address) dereferenceable(232) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !18
   %6 = icmp slt i32 %5, 1
@@ -1612,7 +1612,7 @@ _ZN6icu_775Edits6appendEi.exit:                   ; preds = %135, %125, %119, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_775Edits9growArrayEv(ptr noundef nonnull align 8 dereferenceable(232) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_775Edits9growArrayEv(ptr noundef nonnull align 8 captures(address) dereferenceable(232) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = icmp eq ptr %2, %3
@@ -1712,7 +1712,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_775Edits11copyErrorToER10UErr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(232) ptr @_ZN6icu_775Edits14mergeAndAppendERKS0_S2_R10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(232) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(232) ptr @_ZN6icu_775Edits14mergeAndAppendERKS0_S2_R10UErrorCode(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(232) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"struct.icu_77::Edits::Iterator", align 8
   %6 = alloca %"struct.icu_77::Edits::Iterator", align 8
   %7 = load i32, ptr %3, align 4, !tbaa !13

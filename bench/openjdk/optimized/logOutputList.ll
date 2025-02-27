@@ -218,7 +218,7 @@ _ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE.exit: ; preds = %62, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define hidden noundef ptr @_ZNK13LogOutputList4findEPK9LogOutput(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK13LogOutputList4findEPK9LogOutput(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.08 = load volatile ptr, ptr %3, align 8
   %.not9 = icmp eq ptr %.08, null

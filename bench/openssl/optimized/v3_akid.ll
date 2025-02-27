@@ -139,7 +139,7 @@ define internal ptr @i2v_AUTHORITY_KEYID(ptr readnone captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @v2i_AUTHORITY_KEYID(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef %2) #1 {
+define internal ptr @v2i_AUTHORITY_KEYID(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #4
   %6 = tail call ptr @AUTHORITY_KEYID_new() #4

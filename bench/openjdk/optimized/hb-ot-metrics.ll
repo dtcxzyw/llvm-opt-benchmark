@@ -62,7 +62,7 @@ $_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4postEEEP9hb_blob_tS4_ = comdat a
 @_hb_CrapPool = external local_unnamed_addr global [80 x i64], align 16
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z34_hb_ot_metrics_get_position_commonP9hb_font_t19hb_ot_metrics_tag_tPi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_Z34_hb_ot_metrics_get_position_commonP9hb_font_t19hb_ot_metrics_tag_tPi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   switch i32 %1, label %563 [
@@ -945,7 +945,7 @@ _ZNK2OT14VariationStore9get_deltaEjPKijPf.exit:   ; preds = %51, %4, %_ZNK2OT7Ar
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @hb_ot_metrics_get_position(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @hb_ot_metrics_get_position(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   switch i32 %1, label %1735 [
@@ -3251,7 +3251,7 @@ define hidden noundef float @hb_ot_metrics_get_variation(ptr noundef readonly ca
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_ot_metrics_get_position_with_fallback(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @hb_ot_metrics_get_position_with_fallback(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.hb_font_extents_t, align 4
   %5 = alloca i32, align 4
   %6 = alloca %struct.hb_glyph_extents_t, align 4

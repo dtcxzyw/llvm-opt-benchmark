@@ -2761,7 +2761,7 @@ _ZN7logging12_GLOBAL__N_111LoggingLockD2Ev.exit:  ; preds = %12, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7logging6RawLogEiPKc(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @_ZN7logging6RawLogEiPKc(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @_ZN7logging12_GLOBAL__N_115g_min_log_levelE, align 4, !tbaa !19
   %4 = icmp sge i32 %0, %3
   %5 = icmp ne ptr %1, null

@@ -7573,7 +7573,7 @@ define internal fastcc i32 @run_filter(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 3) i32 @__packet_rcv_has_room(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 3) i32 @__packet_rcv_has_room(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1360
   %4 = load ptr, ptr %3, align 16
   %5 = icmp eq ptr %4, @tpacket_rcv

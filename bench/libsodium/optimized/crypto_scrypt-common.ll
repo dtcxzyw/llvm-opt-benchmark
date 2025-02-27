@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [65 x i8] c"./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\00", align 1
 
 ; Function Attrs: nofree nounwind ssp memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_sodium_escrypt_parse_setting(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
+define hidden noundef ptr @_sodium_escrypt_parse_setting(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %5, 36
   br i1 %.not, label %6, label %46

@@ -144,7 +144,7 @@ _ZN4absl12_GLOBAL__N_116IDivDurationImplEbNS_8DurationES1_PS1_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationpLES0_(ptr noundef nonnull returned align 4 dereferenceable(12) %0, i64 %1, i32 %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationpLES0_(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(12) %0, i64 %1, i32 %2) local_unnamed_addr #1 align 2 {
   %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.222.0.copyload = load i32, ptr %.sroa.222.0..sroa_idx, align 4, !tbaa !4
   %4 = icmp eq i32 %.sroa.222.0.copyload, -1
@@ -220,7 +220,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull returned align 4 dereferenceable(12) %0, i64 %1, i32 %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(12) %0, i64 %1, i32 %2) local_unnamed_addr #1 align 2 {
   %.sroa.240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.240.0.copyload = load i32, ptr %.sroa.240.0..sroa_idx, align 4, !tbaa !4
   %4 = icmp eq i32 %.sroa.240.0.copyload, -1
@@ -292,7 +292,7 @@ _ZN4abslngENS_8DurationE.exit53:                  ; preds = %28, %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull returned align 4 dereferenceable(12) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(12) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %.sroa.025.0.copyload = load i64, ptr %0, align 4
   %.sroa.226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.226.0.copyload = load i32, ptr %.sroa.226.0..sroa_idx, align 4, !tbaa !4
@@ -433,7 +433,7 @@ _ZN4abslngENS_8DurationE.exit:                    ; preds = %4, %_ZN4absl12_GLOB
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEd(ptr noundef nonnull returned align 4 dereferenceable(12) %0, double noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEd(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(12) %0, double noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %.sroa.226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -522,7 +522,7 @@ _ZN4abslngENS_8DurationE.exit:                    ; preds = %7, %_ZN4absl12_GLOB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationdVEl(ptr noundef nonnull returned align 4 dereferenceable(12) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationdVEl(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(12) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %.sroa.026.0.copyload = load i64, ptr %0, align 4
   %.sroa.227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.227.0.copyload = load i32, ptr %.sroa.227.0..sroa_idx, align 4, !tbaa !4
@@ -617,7 +617,7 @@ _ZN4abslngENS_8DurationE.exit:                    ; preds = %5, %_ZN4absl12_GLOB
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationdVEd(ptr noundef nonnull returned align 4 dereferenceable(12) %0, double noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationdVEd(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(12) %0, double noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %.sroa.226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -705,7 +705,7 @@ _ZN4abslngENS_8DurationE.exit:                    ; preds = %6, %_ZN4absl12_GLOB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationrMES0_(ptr noundef nonnull returned align 4 dereferenceable(12) %0, i64 %1, i32 %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationrMES0_(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(12) %0, i64 %1, i32 %2) local_unnamed_addr #1 align 2 {
   %.sroa.05.0.copyload = load i64, ptr %0, align 4
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.26.0.copyload = load i32, ptr %.sroa.26.0..sroa_idx, align 4, !tbaa !4

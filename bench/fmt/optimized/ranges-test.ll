@@ -9297,12 +9297,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN3adl5beginERKNS_3boxE(ptr noundef nonnull readnone returned align 4 dereferenceable(4) %0) local_unnamed_addr #10 {
+define hidden noundef nonnull ptr @_ZN3adl5beginERKNS_3boxE(ptr noundef nonnull readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) local_unnamed_addr #10 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN3adl3endERKNS_3boxE(ptr noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #10 {
+define hidden noundef nonnull ptr @_ZN3adl3endERKNS_3boxE(ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(4) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   ret ptr %2
 }
@@ -20755,12 +20755,12 @@ _ZN17noncopyable_rangeIiED2Ev.exit318:            ; preds = %204, %_ZN20non_cons
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN3adl5beginERKNS_3vecE(ptr noundef nonnull readnone returned align 4 dereferenceable(8) %0) local_unnamed_addr #10 {
+define hidden noundef nonnull ptr @_ZN3adl5beginERKNS_3vecE(ptr noundef nonnull readnone returned align 4 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #10 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN3adl3endERKNS_3vecE(ptr noundef nonnull readnone align 4 dereferenceable(8) %0) local_unnamed_addr #10 {
+define hidden noundef nonnull ptr @_ZN3adl3endERKNS_3vecE(ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

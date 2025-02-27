@@ -206,7 +206,7 @@ declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 nounde
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z11gmx_ffcloseP8_IO_FILE(ptr noundef %0) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_Z11gmx_ffcloseP8_IO_FILE(ptr noundef captures(address) %0) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL12pstack_mutex) #30
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %3
@@ -339,7 +339,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #13
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z7frewindP8_IO_FILE(ptr noundef %0) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_Z7frewindP8_IO_FILE(ptr noundef captures(address) %0) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL12pstack_mutex) #30
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader, label %3

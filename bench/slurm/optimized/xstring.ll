@@ -61,7 +61,7 @@ target triple = "x86_64-pc-linux-gnu"
 @slurm_xbase64_from_base64url = dso_local alias ptr (ptr), ptr @xbase64_from_base64url
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_xstrcat(ptr noundef %0, ptr noundef readonly %1) #0 {
+define dso_local void @_xstrcat(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = icmp eq ptr %1, null
   %spec.store.select = select i1 %3, ptr @.str, ptr %1
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #21
@@ -73,7 +73,7 @@ define dso_local void @_xstrcat(ptr noundef %0, ptr noundef readonly %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_xstrncat(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) #0 {
+define dso_local void @_xstrncat(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) #0 {
   %4 = icmp eq ptr %1, null
   %spec.store.select = select i1 %4, ptr @.str, ptr %1
   %5 = trunc i64 %2 to i32
@@ -84,7 +84,7 @@ define dso_local void @_xstrncat(ptr noundef %0, ptr noundef readonly %1, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_xstrncatat(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly %2, i64 noundef %3) #0 {
+define dso_local void @_xstrncatat(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %31, label %5
 
@@ -491,7 +491,7 @@ define dso_local void @_xmemcat(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @xstrdup(ptr noundef readonly %0) #0 {
+define dso_local ptr @xstrdup(ptr noundef readonly captures(address_is_null) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -574,7 +574,7 @@ define dso_local range(i64 0, 2147483647) i64 @_xstrdup_vprintf(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @xstrndup(ptr noundef readonly %0, i64 noundef %1) #0 {
+define dso_local ptr @xstrndup(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -602,7 +602,7 @@ define dso_local ptr @xbasename(ptr noundef readonly %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @xdirname(ptr noundef readonly %0) #0 {
+define dso_local ptr @xdirname(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
   %.not.i = icmp eq ptr %0, null
@@ -637,7 +637,7 @@ xstrdup.exit4:                                    ; preds = %xstrdup.exit, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_xstrsubstitute(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) #0 {
+define dso_local void @_xstrsubstitute(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
   %6 = load ptr, ptr %0, align 8
@@ -813,7 +813,7 @@ define dso_local noundef zeroext i1 @xstring_is_whitespace(ptr noundef readonly 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @xstrtolower(ptr noundef %0) #3 {
+define dso_local zeroext i1 @xstrtolower(ptr noundef captures(address_is_null) %0) #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -880,7 +880,7 @@ define dso_local ptr @xstrrchr(ptr noundef readonly %0, i32 noundef %1) #1 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @xstrcmp(ptr noundef readonly %0, ptr noundef readonly %1) #1 {
+define dso_local i32 @xstrcmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.not13 = and i1 %3, %4
@@ -900,7 +900,7 @@ define dso_local i32 @xstrcmp(ptr noundef readonly %0, ptr noundef readonly %1) 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @xstrncmp(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) #1 {
+define dso_local i32 @xstrncmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) #1 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond.not14 = and i1 %4, %5
@@ -920,7 +920,7 @@ define dso_local i32 @xstrncmp(ptr noundef readonly %0, ptr noundef readonly %1,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i32 @xstrcasecmp(ptr noundef readonly %0, ptr noundef readonly %1) #4 {
+define dso_local i32 @xstrcasecmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #4 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.not13 = and i1 %3, %4
@@ -940,7 +940,7 @@ define dso_local i32 @xstrcasecmp(ptr noundef readonly %0, ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i32 @xstrncasecmp(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) #4 {
+define dso_local i32 @xstrncasecmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) #4 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond.not14 = and i1 %4, %5
@@ -960,7 +960,7 @@ define dso_local i32 @xstrncasecmp(ptr noundef readonly %0, ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @xstrstr(ptr noundef readonly %0, ptr noundef readonly %1) #1 {
+define dso_local ptr @xstrstr(ptr noundef readonly %0, ptr noundef readonly captures(address_is_null) %1) #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -976,7 +976,7 @@ define dso_local ptr @xstrstr(ptr noundef readonly %0, ptr noundef readonly %1) 
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @xstrcasestr(ptr noundef readonly %0, ptr noundef readonly %1) #5 {
+define dso_local ptr @xstrcasestr(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(address_is_null) %1) #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1272,7 +1272,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local i64 @xstrntol(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #15 {
+define dso_local i64 @xstrntol(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #15 {
   %5 = alloca ptr, align 8
   %6 = add i64 %2, 1
   %7 = alloca i8, i64 %6, align 16

@@ -3726,7 +3726,7 @@ define dso_local ptr @xa_store(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__xa_cmpxchg(ptr noundef %0, i64 noundef %1, ptr noundef readnone %2, ptr noundef %3, i32 noundef %4) #2 align 16 {
+define dso_local ptr @__xa_cmpxchg(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(address) %2, ptr noundef %3, i32 noundef %4) #2 align 16 {
   %6 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #8
   store ptr %0, ptr %6, align 8

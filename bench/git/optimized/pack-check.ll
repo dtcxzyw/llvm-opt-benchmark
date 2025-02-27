@@ -121,7 +121,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @hashfile_checksum_valid(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @verify_pack(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local i32 @verify_pack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %union.git_hash_ctx, align 8
   %8 = alloca [32 x i8], align 16

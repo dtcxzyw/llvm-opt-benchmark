@@ -318,7 +318,7 @@ spl_add_class_name.exit:                          ; preds = %.lr.ph.split, %48, 
 declare ptr @zend_fetch_class_by_name(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @spl_add_classes(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @spl_add_classes(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %7)

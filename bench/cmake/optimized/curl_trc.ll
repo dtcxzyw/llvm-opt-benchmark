@@ -255,7 +255,7 @@ trc_infof.exit:                                   ; preds = %21, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_trc_cf_infof(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define dso_local void @Curl_trc_cf_infof(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [2050 x i8], align 16
   %.not = icmp eq ptr %0, null

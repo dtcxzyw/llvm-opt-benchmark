@@ -34,7 +34,7 @@ define internal noundef i32 @from_utf8_mac_init(ptr noundef writeonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal i64 @fun_so_from_utf8_mac(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, i64 %4) #3 {
+define internal i64 @fun_so_from_utf8_mac(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, i64 %4) #3 {
   %6 = alloca [3 x i8], align 1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 20
   switch i64 %2, label %from_utf8_mac_finish.exit [

@@ -578,7 +578,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @split_and_resolve(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @split_and_resolve(ptr noundef captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [16 x i8], align 16
   %5 = alloca %struct.sockaddr_storage, align 8

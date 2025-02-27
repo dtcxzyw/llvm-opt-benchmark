@@ -7879,7 +7879,7 @@ declare noundef zeroext i1 @_ZNK6Method19has_native_functionEv(ptr noundef nonnu
 declare noundef ptr @_ZN12NativeLookup6lookupERK12methodHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18InterpreterRuntime27popframe_move_outgoing_argsEP10JavaThreadPvS2_(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18InterpreterRuntime27popframe_move_outgoing_argsEP10JavaThreadPvS2_(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef writeonly captures(address) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LastFrameAccessor, align 8
   %5 = alloca %class.methodHandle, align 8
   %6 = alloca %class.Bytecode_invoke, align 8

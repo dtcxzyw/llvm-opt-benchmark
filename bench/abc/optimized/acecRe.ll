@@ -277,7 +277,7 @@ Abc_TtPrintHexRev.exit:                           ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ree_ManCutMerge(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef %7) local_unnamed_addr #4 {
+define void @Ree_ManCutMerge(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #4 {
   %9 = alloca [6 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #21
   %10 = load i32, ptr %4, align 8, !tbaa !21
@@ -2458,7 +2458,7 @@ define range(i32 -1, 2) i32 @Ree_ManCompare(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Ree_ManComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noalias noundef ptr @Ree_ManComputeCuts(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #24
   br label %.loopexit.i.i
 

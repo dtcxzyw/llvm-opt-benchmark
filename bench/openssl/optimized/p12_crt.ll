@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.PKCS12_create_ex2 = private unnamed_addr constant [18 x i8] c"PKCS12_create_ex2\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS12_create_ex2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef readonly %12, ptr noundef %13) local_unnamed_addr #0 {
+define ptr @PKCS12_create_ex2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef readonly captures(address_is_null) %12, ptr noundef %13) local_unnamed_addr #0 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca ptr, align 8
@@ -421,7 +421,7 @@ declare ptr @X509_alias_get0(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @X509_keyid_get0(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pkcs12_add_cert_bag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @pkcs12_add_cert_bag(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call ptr @PKCS12_SAFEBAG_create_cert(ptr noundef %1) #3
   %8 = icmp eq ptr %7, null
   br i1 %8, label %pkcs12_add_bag.exit.thread, label %9
@@ -505,7 +505,7 @@ define internal fastcc void @pkcs12_remove_bag(ptr %.0.val, ptr noundef %0) unna
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS12_add_cert(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @PKCS12_add_cert(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
@@ -584,7 +584,7 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @PKCS12_SAFEBAG_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS12_add_key_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define ptr @PKCS12_add_key_ex(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = tail call ptr @EVP_PKEY2PKCS8(ptr noundef %1) #3
   %10 = icmp eq ptr %9, null
   br i1 %10, label %pkcs12_add_bag.exit.thread, label %11
@@ -727,13 +727,13 @@ declare ptr @PKCS12_SAFEBAG_create_pkcs8_encrypt_ex(i32 noundef, ptr noundef, i3
 declare ptr @PKCS12_SAFEBAG_create0_p8inf(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS12_add_key(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define ptr @PKCS12_add_key(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @PKCS12_add_key_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef null, ptr noundef null)
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS12_add_secret(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @PKCS12_add_secret(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @PKCS12_SAFEBAG_create_secret(i32 noundef %1, i32 noundef 4, ptr noundef %2, i32 noundef %3) #3
   %6 = icmp eq ptr %5, null
   br i1 %6, label %pkcs12_add_bag.exit.thread, label %7

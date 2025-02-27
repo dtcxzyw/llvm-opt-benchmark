@@ -808,7 +808,7 @@ _ZNK7rocksdb18SeqnoToTimeMapping15FindGreaterTimeEm.exit.thread: ; preds = %2, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK7rocksdb18SeqnoToTimeMapping29GetCurrentTieringCutoffSeqnosEmmmPmS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #5 align 2 {
+define void @_ZNK7rocksdb18SeqnoToTimeMapping29GetCurrentTieringCutoffSeqnosEmmmPmS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #5 align 2 {
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %2, i64 %3)
   %7 = icmp eq i64 %.sroa.speculated, 0
   br i1 %7, label %176, label %8
@@ -2606,7 +2606,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(97) ptr @_ZN7rocksdb18SeqnoToTimeMapping14SetMaxTimeSpanEm(ptr noundef nonnull returned align 8 dereferenceable(97) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(97) ptr @_ZN7rocksdb18SeqnoToTimeMapping14SetMaxTimeSpanEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(97) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   store i64 %1, ptr %0, align 8, !tbaa !127
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i8, ptr %3, align 8, !tbaa !233, !range !234, !noundef !235

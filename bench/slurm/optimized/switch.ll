@@ -627,7 +627,7 @@ define dso_local void @switch_g_free_stepinfo(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @switch_g_pack_stepinfo(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @switch_g_pack_stepinfo(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = zext i16 %2 to i32
   %5 = icmp ugt i16 %2, 10751
   br i1 %5, label %6, label %10
@@ -950,7 +950,7 @@ define dso_local i32 @switch_g_job_postfini(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @switch_g_job_attach(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local i32 @switch_g_job_attach(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = load i32, ptr @switch_context_cnt, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %19, label %9
@@ -981,7 +981,7 @@ define dso_local i32 @switch_g_job_attach(ptr noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @switch_g_job_step_complete(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @switch_g_job_step_complete(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @switch_context_cnt, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %14, label %4

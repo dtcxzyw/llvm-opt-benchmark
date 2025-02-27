@@ -520,7 +520,7 @@ declare ptr @h5tools_str_append(ptr noundef, ptr noundef, ...) local_unnamed_add
 declare zeroext i1 @h5tools_render_element(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc ptr @xml_escape_the_name(ptr noundef readonly %0) unnamed_addr #6 {
+define internal fastcc ptr @xml_escape_the_name(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %41, label %2
 
@@ -3295,7 +3295,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef 
 declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @xml_dump_group(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @xml_dump_group(i64 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5O_info2_t, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -4580,7 +4580,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
+define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.h5tools_str_t, align 8
   %5 = alloca %struct.h5tools_context_t, align 8
   %6 = alloca %struct.h5tool_format_t, align 8

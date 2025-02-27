@@ -5334,7 +5334,7 @@ return:                                           ; preds = %entry, %_ZN11mpq_ma
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN16bound_propagator5bound2atEj(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %timestamp) local_unnamed_addr #13 align 2 {
+define hidden noundef ptr @_ZN16bound_propagator5bound2atEj(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(64) %this, i32 noundef %timestamp) local_unnamed_addr #13 align 2 {
 entry:
   br label %land.rhs
 

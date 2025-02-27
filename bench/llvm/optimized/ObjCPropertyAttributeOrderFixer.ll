@@ -156,7 +156,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format31ObjCPropertyAttributeOrderFixer22sortPropertyAttributesERKNS_13SourceManagerERNS_7tooling12ReplacementsEPKNS0_11FormatTokenESA_(ptr noundef nonnull align 8 dereferenceable(4400) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef readonly %3, ptr noundef readonly %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6format31ObjCPropertyAttributeOrderFixer22sortPropertyAttributesERKNS_13SourceManagerERNS_7tooling12ReplacementsEPKNS0_11FormatTokenESA_(ptr noundef nonnull align 8 dereferenceable(4400) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(address) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::set", align 8
   %7 = alloca %"class.llvm::SmallVector.69", align 8
   %8 = alloca %"class.llvm::SmallVector.74", align 8

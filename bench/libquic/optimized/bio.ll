@@ -112,7 +112,7 @@ BIO_pop.exit:                                     ; preds = %7, %4
 declare i32 @CRYPTO_refcount_dec_and_test_zero(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @BIO_pop(ptr noundef %0) local_unnamed_addr #5 {
+define hidden ptr @BIO_pop(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1066,7 +1066,7 @@ define hidden i64 @BIO_number_written(ptr noundef readonly captures(none) %0) lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @BIO_push(ptr noundef returned %0, ptr noundef %1) local_unnamed_addr #11 {
+define hidden noundef ptr @BIO_push(ptr noundef returned captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %.preheader
 
@@ -1087,7 +1087,7 @@ define hidden noundef ptr @BIO_push(ptr noundef returned %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @BIO_next(ptr noundef readonly %0) local_unnamed_addr #7 {
+define hidden ptr @BIO_next(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1102,7 +1102,7 @@ define hidden ptr @BIO_next(ptr noundef readonly %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @BIO_find_type(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #12 {
+define hidden noundef ptr @BIO_find_type(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 

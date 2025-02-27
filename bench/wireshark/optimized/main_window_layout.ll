@@ -73,7 +73,7 @@ define void @_ZN10MainWindow11showCaptureEv(ptr noundef align 8 dereferenceable_
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef ptr @_ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e(ptr noundef readonly align 8 dereferenceable_or_null(360) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e(ptr noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(360) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   switch i32 %1, label %17 [
     i32 0, label %3
     i32 1, label %5

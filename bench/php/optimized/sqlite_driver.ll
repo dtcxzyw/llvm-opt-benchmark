@@ -467,7 +467,7 @@ declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 declare i32 @sqlite3_create_function(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_sqlite3_func_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal void @php_sqlite3_func_callback(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call fastcc void @do_callback(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 0)
@@ -757,7 +757,7 @@ zend_fcc_addref.exit107:                          ; preds = %106, %109
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_sqlite3_func_step_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal void @php_sqlite3_func_step_callback(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   tail call fastcc void @do_callback(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 1)
@@ -1072,7 +1072,7 @@ zend_call_known_fcc.exit:                         ; preds = %41, %33, %zend_stri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @pdo_sqlite_handle_factory(ptr noundef initializes((8, 16)) %0, ptr noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @pdo_sqlite_handle_factory(ptr noundef initializes((8, 16)) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -1231,7 +1231,7 @@ declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 nound
 declare ptr @sqlite3_user_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_callback(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @do_callback(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
   %7 = icmp ne i32 %4, 0
@@ -1750,7 +1750,7 @@ define internal void @sqlite_handle_closer(ptr noundef captures(none) %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @sqlite_handle_preparer(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 16)) %2, ptr noundef readonly %3) #0 {
+define internal noundef zeroext i1 @sqlite_handle_preparer(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 16)) %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !4

@@ -3091,7 +3091,7 @@ define void @"_ZN10actix_http5error168_$LT$impl$u20$core..convert..From$LT$actix
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17h7918abd33db02224E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4, i8 noundef %5) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17h7918abd33db02224E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 %2, ptr noalias noundef nonnull readonly align 8 captures(address) %3, i64 noundef %4, i8 noundef %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca { {} }, align 1
   %8 = alloca { i64, { i64, [1 x i64] } }, align 8
   %9 = alloca { i64, { i64, [1 x i64] } }, align 8
@@ -10403,7 +10403,7 @@ common.resume.i:                                  ; preds = %97, %.body.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN98_$LT$actix_http..h1..dispatcher.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17h7a2747323419929aE"(ptr noalias noundef readonly returned align 1 dereferenceable(1) %0) unnamed_addr #4 {
+define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN98_$LT$actix_http..h1..dispatcher.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17h7a2747323419929aE"(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(1) %0) unnamed_addr #4 {
   ret ptr %0
 }
 

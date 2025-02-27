@@ -472,7 +472,7 @@ __redisReaderSetError.exit:                       ; preds = %1, %4, %7, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisReaderGetReply(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisReaderGetReply(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [8 x i8], align 1
   %4 = alloca [128 x i8], align 16
   %5 = alloca [326 x i8], align 16

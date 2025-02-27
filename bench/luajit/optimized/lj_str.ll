@@ -123,7 +123,7 @@ define hidden ptr @lj_str_find(ptr noundef %0, ptr noundef readonly captures(non
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @lj_str_haspattern(ptr noundef readonly %0) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @lj_str_haspattern(ptr noundef readonly captures(address) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !4
   %4 = zext i32 %3 to i64
@@ -511,7 +511,7 @@ declare hidden ptr @lj_mem_realloc(ptr noundef, ptr noundef, i64 noundef, i64 no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @hash_dense(i64 noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #7 {
+define internal fastcc i32 @hash_dense(i64 noundef %0, i32 noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3) unnamed_addr #7 {
   %5 = lshr i64 %0, 32
   %6 = trunc nuw i64 %5 to i32
   %7 = xor i32 %1, %6
@@ -572,7 +572,7 @@ define internal fastcc i32 @hash_dense(i64 noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_str_new(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden ptr @lj_str_new(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !16
   %6 = inttoptr i64 %5 to ptr
@@ -752,7 +752,7 @@ hash_sparse.exit:                                 ; preds = %17, %35
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc ptr @lj_str_rehash_chain(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #8 {
+define internal fastcc ptr @lj_str_rehash_chain(ptr noundef %0, i32 noundef %1, ptr noundef captures(address) %2, i32 noundef %3) unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !16
   %7 = inttoptr i64 %6 to ptr

@@ -639,7 +639,7 @@ define dso_local range(i32 -1, 1) i32 @auth_p_verify(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @auth_p_get_ids(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #9 {
+define dso_local void @auth_p_get_ids(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %4
 
@@ -668,7 +668,7 @@ define dso_local void @auth_p_get_ids(ptr noundef readonly %0, ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @auth_p_get_host(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @auth_p_get_host(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sockaddr_storage, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #13
   %.not = icmp eq ptr %0, null
@@ -739,7 +739,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare void @slurm_get_ip_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @auth_p_get_data(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @auth_p_get_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %4
 
@@ -795,7 +795,7 @@ define dso_local range(i32 -1, 1) i32 @auth_p_get_data(ptr noundef readonly %0, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define dso_local noalias noundef ptr @auth_p_get_identity(ptr noundef readnone %0) local_unnamed_addr #11 {
+define dso_local noalias noundef ptr @auth_p_get_identity(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -809,7 +809,7 @@ define dso_local noalias noundef ptr @auth_p_get_identity(ptr noundef readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @auth_p_pack(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @auth_p_pack(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -944,7 +944,7 @@ auth_p_destroy.exit:                              ; preds = %19, %34
 declare i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 6001) i32 @auth_p_thread_config(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 6001) i32 @auth_p_thread_config(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   %4 = icmp eq ptr %0, null

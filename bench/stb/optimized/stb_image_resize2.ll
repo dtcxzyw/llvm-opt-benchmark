@@ -1995,7 +1995,7 @@ stbir__insert_coeff.exit278:                      ; preds = %.preheader, %103, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stbir__pack_coefficients(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef returned %4, i32 %5, i32 noundef %6) local_unnamed_addr #0 {
+define noundef i32 @stbir__pack_coefficients(i32 noundef %0, ptr noundef captures(address) %1, ptr noundef %2, i32 noundef %3, i32 noundef returned %4, i32 %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = add nsw i32 %6, 1
   %.not = icmp eq i32 %3, %4
   %.pre354 = mul nsw i32 %4, %0
@@ -2381,7 +2381,7 @@ define noundef i32 @stbir__pack_coefficients(i32 noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__calculate_filters(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @stbir__calculate_filters(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load float, ptr %5, align 8, !tbaa !21
@@ -3101,7 +3101,7 @@ define void @stbir__decode_uint8_linear_scaled(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_linear_scaled(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_linear_scaled(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -3314,7 +3314,7 @@ define void @stbir__decode_uint8_linear(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_linear(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_linear(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -3483,7 +3483,7 @@ define void @stbir__decode_uint8_srgb(ptr noundef %0, i32 noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_srgb(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_srgb(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -3843,7 +3843,7 @@ stbir__linear_to_srgb_uchar.exit160:              ; preds = %.lr.ph171, %217, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbir__decode_uint8_srgb4_linearalpha(ptr noundef writeonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
+define void @stbir__decode_uint8_srgb4_linearalpha(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds float, ptr %0, i64 %4
   br label %6
@@ -3886,7 +3886,7 @@ define void @stbir__decode_uint8_srgb4_linearalpha(ptr noundef writeonly %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_srgb4_linearalpha(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_srgb4_linearalpha(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -4147,7 +4147,7 @@ stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_sr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbir__decode_uint8_srgb2_linearalpha(ptr noundef writeonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
+define void @stbir__decode_uint8_srgb2_linearalpha(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -4213,7 +4213,7 @@ define void @stbir__decode_uint8_srgb2_linearalpha(ptr noundef writeonly %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_srgb2_linearalpha(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_srgb2_linearalpha(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -4489,7 +4489,7 @@ define void @stbir__decode_uint16_linear_scaled(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint16_linear_scaled(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint16_linear_scaled(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -4694,7 +4694,7 @@ define void @stbir__decode_uint16_linear(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint16_linear(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint16_linear(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -5637,7 +5637,7 @@ define void @stbir__decode_uint8_linear_scaled_BGRA(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_linear_scaled_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_linear_scaled_BGRA(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -5814,7 +5814,7 @@ define void @stbir__decode_uint8_linear_BGRA(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_linear_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_linear_BGRA(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -5892,7 +5892,7 @@ define void @stbir__encode_uint8_linear_BGRA(ptr noundef writeonly %0, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbir__decode_uint8_srgb_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
+define void @stbir__decode_uint8_srgb_BGRA(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -5943,7 +5943,7 @@ define void @stbir__decode_uint8_srgb_BGRA(ptr noundef writeonly %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_srgb_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_srgb_BGRA(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -6259,7 +6259,7 @@ stbir__linear_to_srgb_uchar.exit149:              ; preds = %stbir__linear_to_sr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbir__decode_uint8_srgb4_linearalpha_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
+define void @stbir__decode_uint8_srgb4_linearalpha_BGRA(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds float, ptr %0, i64 %4
   br label %6
@@ -6302,7 +6302,7 @@ define void @stbir__decode_uint8_srgb4_linearalpha_BGRA(ptr noundef writeonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_srgb4_linearalpha_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_srgb4_linearalpha_BGRA(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -6649,7 +6649,7 @@ define void @stbir__decode_uint16_linear_scaled_BGRA(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint16_linear_scaled_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint16_linear_scaled_BGRA(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -6816,7 +6816,7 @@ define void @stbir__decode_uint16_linear_BGRA(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint16_linear_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint16_linear_BGRA(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -7413,7 +7413,7 @@ define void @stbir__decode_float_linear_BGRA(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_float_linear_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_float_linear_BGRA(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -7579,7 +7579,7 @@ define void @stbir__decode_uint8_linear_scaled_ARGB(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_linear_scaled_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_linear_scaled_ARGB(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -7756,7 +7756,7 @@ define void @stbir__decode_uint8_linear_ARGB(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_linear_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_linear_ARGB(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -7834,7 +7834,7 @@ define void @stbir__encode_uint8_linear_ARGB(ptr noundef writeonly %0, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbir__decode_uint8_srgb_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
+define void @stbir__decode_uint8_srgb_ARGB(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -7885,7 +7885,7 @@ define void @stbir__decode_uint8_srgb_ARGB(ptr noundef writeonly %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_srgb_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_srgb_ARGB(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -8201,7 +8201,7 @@ stbir__linear_to_srgb_uchar.exit149:              ; preds = %stbir__linear_to_sr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbir__decode_uint8_srgb4_linearalpha_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
+define void @stbir__decode_uint8_srgb4_linearalpha_ARGB(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds float, ptr %0, i64 %4
   br label %6
@@ -8244,7 +8244,7 @@ define void @stbir__decode_uint8_srgb4_linearalpha_ARGB(ptr noundef writeonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_srgb4_linearalpha_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_srgb4_linearalpha_ARGB(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -8591,7 +8591,7 @@ define void @stbir__decode_uint16_linear_scaled_ARGB(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint16_linear_scaled_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint16_linear_scaled_ARGB(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -8758,7 +8758,7 @@ define void @stbir__decode_uint16_linear_ARGB(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint16_linear_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint16_linear_ARGB(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -9355,7 +9355,7 @@ define void @stbir__decode_float_linear_ARGB(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_float_linear_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_float_linear_ARGB(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -9521,7 +9521,7 @@ define void @stbir__decode_uint8_linear_scaled_ABGR(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_linear_scaled_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_linear_scaled_ABGR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -9698,7 +9698,7 @@ define void @stbir__decode_uint8_linear_ABGR(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_linear_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_linear_ABGR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -9776,7 +9776,7 @@ define void @stbir__encode_uint8_linear_ABGR(ptr noundef writeonly %0, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbir__decode_uint8_srgb_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
+define void @stbir__decode_uint8_srgb_ABGR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -9827,7 +9827,7 @@ define void @stbir__decode_uint8_srgb_ABGR(ptr noundef writeonly %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_srgb_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_srgb_ABGR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -10143,7 +10143,7 @@ stbir__linear_to_srgb_uchar.exit149:              ; preds = %stbir__linear_to_sr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbir__decode_uint8_srgb4_linearalpha_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
+define void @stbir__decode_uint8_srgb4_linearalpha_ABGR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds float, ptr %0, i64 %4
   br label %6
@@ -10186,7 +10186,7 @@ define void @stbir__decode_uint8_srgb4_linearalpha_ABGR(ptr noundef writeonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_srgb4_linearalpha_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_srgb4_linearalpha_ABGR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -10533,7 +10533,7 @@ define void @stbir__decode_uint16_linear_scaled_ABGR(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint16_linear_scaled_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint16_linear_scaled_ABGR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -10700,7 +10700,7 @@ define void @stbir__decode_uint16_linear_ABGR(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint16_linear_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint16_linear_ABGR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -11297,7 +11297,7 @@ define void @stbir__decode_float_linear_ABGR(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_float_linear_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_float_linear_ABGR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -11488,7 +11488,7 @@ define void @stbir__decode_uint8_linear_scaled_AR(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_linear_scaled_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_linear_scaled_AR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -11725,7 +11725,7 @@ define void @stbir__decode_uint8_linear_AR(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_linear_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_linear_AR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 7
@@ -11914,7 +11914,7 @@ define void @stbir__decode_uint8_srgb_AR(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_srgb_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_srgb_AR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -12305,7 +12305,7 @@ stbir__linear_to_srgb_uchar.exit164:              ; preds = %stbir__linear_to_sr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbir__decode_uint8_srgb2_linearalpha_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
+define void @stbir__decode_uint8_srgb2_linearalpha_AR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -12370,7 +12370,7 @@ define void @stbir__decode_uint8_srgb2_linearalpha_AR(ptr noundef writeonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint8_srgb2_linearalpha_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint8_srgb2_linearalpha_AR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 15
@@ -12654,7 +12654,7 @@ define void @stbir__decode_uint16_linear_scaled_AR(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint16_linear_scaled_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint16_linear_scaled_AR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -12881,7 +12881,7 @@ define void @stbir__decode_uint16_linear_AR(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_uint16_linear_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_uint16_linear_AR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -13666,7 +13666,7 @@ define void @stbir__decode_float_linear_AR(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__encode_float_linear_AR(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define void @stbir__encode_float_linear_AR(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -13927,7 +13927,7 @@ define void @stbir__fancy_alpha_unweight_4ch(ptr noundef %0, i32 noundef %1) #0 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbir__fancy_alpha_unweight_2ch(ptr noundef %0, i32 noundef %1) #6 {
+define void @stbir__fancy_alpha_unweight_2ch(ptr noundef captures(address) %0, i32 noundef %1) #6 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds float, ptr %0, i64 %3
   br label %5
@@ -14098,7 +14098,7 @@ define void @stbir__simple_alpha_unweight_4ch(ptr noundef %0, i32 noundef %1) #0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbir__simple_alpha_unweight_2ch(ptr noundef %0, i32 noundef %1) #6 {
+define void @stbir__simple_alpha_unweight_2ch(ptr noundef captures(address) %0, i32 noundef %1) #6 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds float, ptr %0, i64 %3
   br label %5
@@ -14478,7 +14478,7 @@ stbir_simd_memcpy.exit:                           ; preds = %152, %129, %.prehea
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_1_channels_with_1_coeff(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_1_channels_with_1_coeff(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -14507,7 +14507,7 @@ define void @stbir__horizontal_gather_1_channels_with_1_coeff(ptr noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_1_channels_with_2_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_1_channels_with_2_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -14543,7 +14543,7 @@ define void @stbir__horizontal_gather_1_channels_with_2_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_1_channels_with_3_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_1_channels_with_3_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -14577,7 +14577,7 @@ define void @stbir__horizontal_gather_1_channels_with_3_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_1_channels_with_4_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_1_channels_with_4_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -14611,7 +14611,7 @@ define void @stbir__horizontal_gather_1_channels_with_4_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_1_channels_with_5_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_1_channels_with_5_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -14652,7 +14652,7 @@ define void @stbir__horizontal_gather_1_channels_with_5_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_1_channels_with_6_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_1_channels_with_6_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -14696,7 +14696,7 @@ define void @stbir__horizontal_gather_1_channels_with_6_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_1_channels_with_7_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_1_channels_with_7_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -14738,7 +14738,7 @@ define void @stbir__horizontal_gather_1_channels_with_7_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_1_channels_with_8_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_1_channels_with_8_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -14779,7 +14779,7 @@ define void @stbir__horizontal_gather_1_channels_with_8_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_1_channels_with_9_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_1_channels_with_9_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -14827,7 +14827,7 @@ define void @stbir__horizontal_gather_1_channels_with_9_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_1_channels_with_10_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_1_channels_with_10_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -14878,7 +14878,7 @@ define void @stbir__horizontal_gather_1_channels_with_10_coeffs(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_1_channels_with_11_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_1_channels_with_11_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -14927,7 +14927,7 @@ define void @stbir__horizontal_gather_1_channels_with_11_coeffs(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_1_channels_with_12_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_1_channels_with_12_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -14975,7 +14975,7 @@ define void @stbir__horizontal_gather_1_channels_with_12_coeffs(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod0(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod0(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -15032,7 +15032,7 @@ define void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod0(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod1(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod1(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -15097,7 +15097,7 @@ define void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod1(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod2(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod2(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -15165,7 +15165,7 @@ define void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod2(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod3(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod3(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %7
   %9 = sext i32 %5 to i64
@@ -15231,7 +15231,7 @@ define void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod3(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_2_channels_with_1_coeff(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_2_channels_with_1_coeff(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -15270,7 +15270,7 @@ define void @stbir__horizontal_gather_2_channels_with_1_coeff(ptr noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_2_channels_with_2_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_2_channels_with_2_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -15308,7 +15308,7 @@ define void @stbir__horizontal_gather_2_channels_with_2_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_2_channels_with_3_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_2_channels_with_3_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -15351,7 +15351,7 @@ define void @stbir__horizontal_gather_2_channels_with_3_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_2_channels_with_4_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_2_channels_with_4_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -15392,7 +15392,7 @@ define void @stbir__horizontal_gather_2_channels_with_4_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_2_channels_with_5_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_2_channels_with_5_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -15443,7 +15443,7 @@ define void @stbir__horizontal_gather_2_channels_with_5_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_2_channels_with_6_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_2_channels_with_6_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -15493,7 +15493,7 @@ define void @stbir__horizontal_gather_2_channels_with_6_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_2_channels_with_7_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_2_channels_with_7_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -15548,7 +15548,7 @@ define void @stbir__horizontal_gather_2_channels_with_7_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_2_channels_with_8_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_2_channels_with_8_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -15602,7 +15602,7 @@ define void @stbir__horizontal_gather_2_channels_with_8_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_2_channels_with_9_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_2_channels_with_9_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -15666,7 +15666,7 @@ define void @stbir__horizontal_gather_2_channels_with_9_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_2_channels_with_10_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_2_channels_with_10_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -15729,7 +15729,7 @@ define void @stbir__horizontal_gather_2_channels_with_10_coeffs(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_2_channels_with_11_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_2_channels_with_11_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -15797,7 +15797,7 @@ define void @stbir__horizontal_gather_2_channels_with_11_coeffs(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_2_channels_with_12_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_2_channels_with_12_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -15864,7 +15864,7 @@ define void @stbir__horizontal_gather_2_channels_with_12_coeffs(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod0(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod0(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -15935,7 +15935,7 @@ define void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod0(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod1(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod1(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -16017,7 +16017,7 @@ define void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod1(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod2(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod2(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -16098,7 +16098,7 @@ define void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod2(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod3(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod3(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -16184,7 +16184,7 @@ define void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod3(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_3_channels_with_1_coeff(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_3_channels_with_1_coeff(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -16222,7 +16222,7 @@ define void @stbir__horizontal_gather_3_channels_with_1_coeff(ptr noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_3_channels_with_2_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_3_channels_with_2_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -16266,7 +16266,7 @@ define void @stbir__horizontal_gather_3_channels_with_2_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_3_channels_with_3_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_3_channels_with_3_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -16313,7 +16313,7 @@ define void @stbir__horizontal_gather_3_channels_with_3_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_3_channels_with_4_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_3_channels_with_4_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -16368,7 +16368,7 @@ define void @stbir__horizontal_gather_3_channels_with_4_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_3_channels_with_5_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_3_channels_with_5_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -16432,7 +16432,7 @@ define void @stbir__horizontal_gather_3_channels_with_5_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_3_channels_with_6_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_3_channels_with_6_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -16504,7 +16504,7 @@ define void @stbir__horizontal_gather_3_channels_with_6_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_3_channels_with_7_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_3_channels_with_7_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -16578,7 +16578,7 @@ define void @stbir__horizontal_gather_3_channels_with_7_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_3_channels_with_8_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_3_channels_with_8_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -16651,7 +16651,7 @@ define void @stbir__horizontal_gather_3_channels_with_8_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_3_channels_with_9_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_3_channels_with_9_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -16733,7 +16733,7 @@ define void @stbir__horizontal_gather_3_channels_with_9_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_3_channels_with_10_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_3_channels_with_10_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -16823,7 +16823,7 @@ define void @stbir__horizontal_gather_3_channels_with_10_coeffs(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_3_channels_with_11_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_3_channels_with_11_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -16915,7 +16915,7 @@ define void @stbir__horizontal_gather_3_channels_with_11_coeffs(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_3_channels_with_12_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_3_channels_with_12_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -17006,7 +17006,7 @@ define void @stbir__horizontal_gather_3_channels_with_12_coeffs(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod0(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod0(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -17097,7 +17097,7 @@ define void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod0(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod1(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod1(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -17198,7 +17198,7 @@ define void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod1(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod2(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod2(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -17307,7 +17307,7 @@ define void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod2(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod3(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod3(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 3
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -17418,7 +17418,7 @@ define void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod3(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_4_channels_with_1_coeff(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_4_channels_with_1_coeff(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -17451,7 +17451,7 @@ define void @stbir__horizontal_gather_4_channels_with_1_coeff(ptr noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_4_channels_with_2_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_4_channels_with_2_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -17490,7 +17490,7 @@ define void @stbir__horizontal_gather_4_channels_with_2_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_4_channels_with_3_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_4_channels_with_3_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -17532,7 +17532,7 @@ define void @stbir__horizontal_gather_4_channels_with_3_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_4_channels_with_4_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_4_channels_with_4_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -17579,7 +17579,7 @@ define void @stbir__horizontal_gather_4_channels_with_4_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_4_channels_with_5_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_4_channels_with_5_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -17635,7 +17635,7 @@ define void @stbir__horizontal_gather_4_channels_with_5_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_4_channels_with_6_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_4_channels_with_6_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -17697,7 +17697,7 @@ define void @stbir__horizontal_gather_4_channels_with_6_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_4_channels_with_7_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_4_channels_with_7_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -17762,7 +17762,7 @@ define void @stbir__horizontal_gather_4_channels_with_7_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_4_channels_with_8_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_4_channels_with_8_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -17832,7 +17832,7 @@ define void @stbir__horizontal_gather_4_channels_with_8_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_4_channels_with_9_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_4_channels_with_9_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -17911,7 +17911,7 @@ define void @stbir__horizontal_gather_4_channels_with_9_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_4_channels_with_10_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_4_channels_with_10_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -17996,7 +17996,7 @@ define void @stbir__horizontal_gather_4_channels_with_10_coeffs(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_4_channels_with_11_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_4_channels_with_11_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -18084,7 +18084,7 @@ define void @stbir__horizontal_gather_4_channels_with_11_coeffs(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_4_channels_with_12_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_4_channels_with_12_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -18177,7 +18177,7 @@ define void @stbir__horizontal_gather_4_channels_with_12_coeffs(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod0(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod0(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -18264,7 +18264,7 @@ define void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod0(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod1(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod1(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -18361,7 +18361,7 @@ define void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod1(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod2(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod2(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -18464,7 +18464,7 @@ define void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod2(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod3(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod3(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = shl i32 %1, 2
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -18570,7 +18570,7 @@ define void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod3(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_7_channels_with_1_coeff(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_7_channels_with_1_coeff(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -18608,7 +18608,7 @@ define void @stbir__horizontal_gather_7_channels_with_1_coeff(ptr noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_7_channels_with_2_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_7_channels_with_2_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -18656,7 +18656,7 @@ define void @stbir__horizontal_gather_7_channels_with_2_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_7_channels_with_3_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_7_channels_with_3_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -18711,7 +18711,7 @@ define void @stbir__horizontal_gather_7_channels_with_3_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_7_channels_with_4_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_7_channels_with_4_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -18775,7 +18775,7 @@ define void @stbir__horizontal_gather_7_channels_with_4_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_7_channels_with_5_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_7_channels_with_5_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -18852,7 +18852,7 @@ define void @stbir__horizontal_gather_7_channels_with_5_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_7_channels_with_6_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_7_channels_with_6_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -18939,7 +18939,7 @@ define void @stbir__horizontal_gather_7_channels_with_6_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_7_channels_with_7_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_7_channels_with_7_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -19033,7 +19033,7 @@ define void @stbir__horizontal_gather_7_channels_with_7_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_7_channels_with_8_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_7_channels_with_8_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -19136,7 +19136,7 @@ define void @stbir__horizontal_gather_7_channels_with_8_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_7_channels_with_9_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_7_channels_with_9_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -19252,7 +19252,7 @@ define void @stbir__horizontal_gather_7_channels_with_9_coeffs(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_7_channels_with_10_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_7_channels_with_10_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -19378,7 +19378,7 @@ define void @stbir__horizontal_gather_7_channels_with_10_coeffs(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_7_channels_with_11_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_7_channels_with_11_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -19511,7 +19511,7 @@ define void @stbir__horizontal_gather_7_channels_with_11_coeffs(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_7_channels_with_12_coeffs(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_7_channels_with_12_coeffs(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -19653,7 +19653,7 @@ define void @stbir__horizontal_gather_7_channels_with_12_coeffs(ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod0(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod0(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -19775,7 +19775,7 @@ define void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod0(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod1(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod1(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -19911,7 +19911,7 @@ define void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod1(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod2(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod2(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -20057,7 +20057,7 @@ define void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod2(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod3(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
+define void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod3(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = mul i32 %1, 7
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %8
@@ -29057,7 +29057,7 @@ define void @stbir__get_split_info(ptr noundef writeonly captures(none) %0, i32 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @stbir__free_internal_mem(ptr noundef %0) local_unnamed_addr #10 {
+define void @stbir__free_internal_mem(ptr noundef captures(address_is_null) %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -29102,7 +29102,7 @@ define range(i32 0, -2147483648) i32 @stbir__get_max_split(i32 noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @stbir__should_do_vertical_first(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @stbir__should_do_vertical_first(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #13 {
   %10 = icmp slt i32 %6, 5
   %11 = icmp slt i32 %3, 5
   %or.cond = or i1 %11, %10
@@ -31513,7 +31513,7 @@ stbir__perform_resize.exit:                       ; preds = %34, %33, %17, %22, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: write, inaccessiblemem: readwrite) uwtable
-define range(i32 0, 2) i32 @stbir__check_output_stuff(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readnone %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @stbir__check_output_stuff(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #20 {
   %9 = mul nsw i32 %4, %3
   %10 = zext i32 %7 to i64
   %11 = getelementptr inbounds nuw [17 x i8], ptr @stbir__pixel_channels, i64 0, i64 %10

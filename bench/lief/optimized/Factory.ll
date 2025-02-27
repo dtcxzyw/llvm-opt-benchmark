@@ -109,7 +109,7 @@ define void @_ZN4LIEF2PE7FactoryC2EOS1_(ptr noundef nonnull writeonly align 8 ca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN4LIEF2PE7FactoryaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN4LIEF2PE7FactoryaSEOS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(56) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9

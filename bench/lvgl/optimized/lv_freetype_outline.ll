@@ -276,7 +276,7 @@ declare void @lv_cache_set_name(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_freetype_set_cbs_outline_font(ptr noundef %0) local_unnamed_addr #5 {
+define void @lv_freetype_set_cbs_outline_font(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -351,7 +351,7 @@ define internal ptr @freetype_get_glyph_bitmap_cb(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @freetype_release_glyph_cb(ptr noundef readonly %0, ptr noundef captures(none) %1) #0 {
+define internal void @freetype_release_glyph_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -390,7 +390,7 @@ define void @lv_freetype_outline_add_event(ptr noundef %0, i32 noundef %1, ptr n
 declare ptr @lv_freetype_get_context() local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, -63) i32 @lv_freetype_outline_get_scale(ptr noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 0, -63) i32 @lv_freetype_outline_get_scale(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -427,7 +427,7 @@ define range(i32 0, -63) i32 @lv_freetype_outline_get_scale(ptr noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @lv_freetype_is_outline_font(ptr noundef readonly %0) local_unnamed_addr #6 {
+define zeroext i1 @lv_freetype_is_outline_font(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -459,7 +459,7 @@ declare i32 @FT_Load_Glyph(ptr noundef, i32 noundef, i32 noundef) local_unnamed_
 declare i32 @FT_Outline_Embolden(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @outline_move_to_cb(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @outline_move_to_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca %struct._lv_event_t, align 8
   %4 = alloca %struct._lv_freetype_outline_event_param_t, align 8
   %5 = tail call ptr @lv_freetype_get_context() #9
@@ -513,7 +513,7 @@ outline_push_point.exit:                          ; preds = %ft_vector_to_lv_vec
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @outline_line_to_cb(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @outline_line_to_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca %struct._lv_event_t, align 8
   %4 = alloca %struct._lv_freetype_outline_event_param_t, align 8
   %5 = tail call ptr @lv_freetype_get_context() #9
@@ -567,7 +567,7 @@ outline_push_point.exit:                          ; preds = %ft_vector_to_lv_vec
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @outline_conic_to_cb(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) #0 {
+define internal noundef i32 @outline_conic_to_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
   %4 = alloca %struct._lv_event_t, align 8
   %5 = alloca %struct._lv_freetype_outline_event_param_t, align 8
   %6 = tail call ptr @lv_freetype_get_context() #9
@@ -641,7 +641,7 @@ outline_push_point.exit:                          ; preds = %ft_vector_to_lv_vec
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @outline_cubic_to_cb(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3) #0 {
+define internal noundef i32 @outline_cubic_to_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) #0 {
   %5 = alloca %struct._lv_event_t, align 8
   %6 = alloca %struct._lv_freetype_outline_event_param_t, align 8
   %7 = tail call ptr @lv_freetype_get_context() #9
@@ -762,7 +762,7 @@ outline_send_event.exit:                          ; preds = %2, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @outline_push_point(ptr noundef %0, i32 noundef range(i32 0, 5) %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @outline_push_point(ptr noundef %0, i32 noundef range(i32 0, 5) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca %struct._lv_event_t, align 8
   %7 = alloca %struct._lv_freetype_outline_event_param_t, align 8
   %8 = tail call ptr @lv_freetype_get_context() #9

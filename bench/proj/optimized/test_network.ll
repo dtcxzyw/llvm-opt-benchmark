@@ -8222,7 +8222,7 @@ _ZN12_GLOBAL__N_120ExchangeWithCallbackD2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10
 declare i32 @proj_context_set_network_callbacks(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_18open_cbkEP6pj_ctxPKcymPvPmmPcS4_(ptr noundef readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, i64 noundef %6, ptr noundef writeonly captures(none) %7, ptr noundef %8) #4 {
+define internal noundef ptr @_ZN12_GLOBAL__N_18open_cbkEP6pj_ctxPKcymPvPmmPcS4_(ptr noundef readnone captures(address) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, i64 noundef %6, ptr noundef writeonly captures(none) %7, ptr noundef %8) #4 {
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load i8, ptr %10, align 8, !tbaa !203, !range !45, !noundef !46
   %12 = trunc nuw i8 %11 to i1
@@ -8344,7 +8344,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_18open_cbkEP6pj_ctxPKcymPvPmmPcS4_(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_19close_cbkEP6pj_ctxP19PROJ_NETWORK_HANDLEPv(ptr noundef readnone %0, ptr noundef %1, ptr noundef %2) #4 {
+define internal void @_ZN12_GLOBAL__N_19close_cbkEP6pj_ctxP19PROJ_NETWORK_HANDLEPv(ptr noundef readnone captures(address) %0, ptr noundef %1, ptr noundef %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load i8, ptr %4, align 8, !tbaa !203, !range !45, !noundef !46
   %6 = trunc nuw i8 %5 to i1
@@ -8430,7 +8430,7 @@ define internal void @_ZN12_GLOBAL__N_19close_cbkEP6pj_ctxP19PROJ_NETWORK_HANDLE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_120get_header_value_cbkEP6pj_ctxP19PROJ_NETWORK_HANDLEPKcPv(ptr noundef readnone %0, ptr noundef readnone %1, ptr noundef %2, ptr noundef %3) #4 {
+define internal noundef ptr @_ZN12_GLOBAL__N_120get_header_value_cbkEP6pj_ctxP19PROJ_NETWORK_HANDLEPKcPv(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2, ptr noundef %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load i8, ptr %5, align 8, !tbaa !203, !range !45, !noundef !46
   %7 = trunc nuw i8 %6 to i1
@@ -8527,7 +8527,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_120get_header_value_cbkEP6pj_ctxP19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN12_GLOBAL__N_114read_range_cbkEP6pj_ctxP19PROJ_NETWORK_HANDLEymPvmPcS4_(ptr noundef readnone %0, ptr noundef readnone %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, ptr noundef %7) #4 {
+define internal noundef i64 @_ZN12_GLOBAL__N_114read_range_cbkEP6pj_ctxP19PROJ_NETWORK_HANDLEymPvmPcS4_(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, ptr noundef %7) #4 {
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = load i8, ptr %9, align 8, !tbaa !203, !range !45, !noundef !46
   %11 = trunc nuw i8 %10 to i1
@@ -9592,7 +9592,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19OpenEventD2Ev(ptr noundef nonnull align 8 dereferenceable(156) initializes((0, 8)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_19OpenEventD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(156) initializes((0, 8)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_19OpenEventE, i64 16), ptr %0, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !12
@@ -10145,7 +10145,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119GetHeaderValueEventD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_119GetHeaderValueEventD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_119GetHeaderValueEventE, i64 16), ptr %0, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !12
@@ -10280,7 +10280,7 @@ _ZN12_GLOBAL__N_119GetHeaderValueEventD2Ev.exit:  ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_15EventD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_15EventD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_15EventE, i64 16), ptr %0, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !12
@@ -10567,7 +10567,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114ReadRangeEventD2Ev(ptr noundef nonnull align 8 dereferenceable(124) initializes((0, 8)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_114ReadRangeEventD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(124) initializes((0, 8)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_114ReadRangeEventE, i64 16), ptr %0, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !12

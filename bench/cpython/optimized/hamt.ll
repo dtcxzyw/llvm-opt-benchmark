@@ -949,7 +949,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_Py_NoneStruct = external global %struct._object, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyHamt_Assoc(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden ptr @_PyHamt_Assoc(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
   store i32 0, ptr %4, align 4, !tbaa !4
@@ -1653,7 +1653,7 @@ hamt_node_array_assoc.exit:                       ; preds = %149, %225, %281, %.
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyHamt_Without(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden ptr @_PyHamt_Without(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call i64 @PyObject_Hash(ptr noundef %1) #12
   %5 = icmp eq i64 %4, -1
@@ -2877,7 +2877,7 @@ hamt_node_find.exit:                              ; preds = %45, %17, %64, %57, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @_PyHamt_Eq(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @_PyHamt_Eq(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PyHamtIteratorState, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3289,7 +3289,7 @@ hamt_baseiter_new.exit:                           ; preds = %1, %_Py_NewRef.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @hamt_iter_yield_keys(ptr noundef returned %0, ptr readnone captures(none) %1) #6 {
+define internal noundef ptr @hamt_iter_yield_keys(ptr noundef returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #6 {
   %3 = load i32, ptr %0, align 8, !tbaa !15
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %_Py_NewRef.exit, label %5
@@ -3337,7 +3337,7 @@ hamt_baseiter_new.exit:                           ; preds = %1, %_Py_NewRef.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @hamt_iter_yield_values(ptr readnone captures(none) %0, ptr noundef returned %1) #6 {
+define internal noundef ptr @hamt_iter_yield_values(ptr readnone captures(none) %0, ptr noundef returned captures(ret: address, provenance) %1) #6 {
   %3 = load i32, ptr %1, align 8, !tbaa !15
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %_Py_NewRef.exit, label %5
@@ -3456,7 +3456,7 @@ Py_DECREF.exit:                                   ; preds = %9, %6, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @hamt_tp_richcompare(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) #0 {
+define internal ptr @hamt_tp_richcompare(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) #0 {
   %4 = alloca %struct.PyHamtIteratorState, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3960,7 +3960,7 @@ define internal i32 @hamt_node_collision_traverse(ptr noundef readonly captures(
 declare i64 @PyObject_Hash(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @hamt_node_bitmap_assoc(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, -1) %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
+define internal fastcc ptr @hamt_node_bitmap_assoc(ptr noundef captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef range(i32 0, -1) %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = lshr i32 %2, %1
   %9 = and i32 %8, 31
@@ -5233,7 +5233,7 @@ _Py_NewRef.exit:                                  ; preds = %9, %5, %2, %11
 declare void @PyErr_SetObject(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @hamt_py_set(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @hamt_py_set(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
@@ -5317,7 +5317,7 @@ _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @hamt_py_delete(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @hamt_py_delete(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1) #0 {
   %3 = tail call ptr @_PyHamt_Without(ptr noundef %0, ptr noundef %1)
   ret ptr %3
 }

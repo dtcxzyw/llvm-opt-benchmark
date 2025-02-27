@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [3 x i8] c"\0A}\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @ziplistSafeToAdd(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ziplistSafeToAdd(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -75,7 +75,7 @@ define dso_local range(i64 0, 4294967296) i64 @ziplistBlobLen(ptr noundef readon
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 1, 6) i32 @zipStoreEntryEncoding(ptr noundef writeonly %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 1, 6) i32 @zipStoreEntryEncoding(ptr noundef writeonly captures(address_is_null) %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [5 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4)
   %.not = icmp ugt i8 %1, -65
@@ -159,7 +159,7 @@ define dso_local range(i32 1, 6) i32 @zipStoreEntryEncoding(ptr noundef writeonl
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @zipStorePrevEntryLengthLarge(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local noundef i32 @zipStorePrevEntryLengthLarge(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -174,7 +174,7 @@ define dso_local noundef i32 @zipStorePrevEntryLengthLarge(ptr noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 1, 6) i32 @zipStorePrevEntryLength(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local range(i32 1, 6) i32 @zipStorePrevEntryLength(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ult i32 %1, 254
   br i1 %3, label %5, label %7
@@ -879,7 +879,7 @@ zipStorePrevEntryLength.exit.thread:              ; preds = %zipStorePrevEntryLe
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone %0, i64 noundef range(i64 -2147483646, 10737418248) %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone captures(address) %0, i64 noundef range(i64 -2147483646, 10737418248) %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #10 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %8 = getelementptr inbounds i8, ptr %7, i64 -1
@@ -1977,7 +1977,7 @@ zipSaveInteger.exit:                              ; preds = %173, %172, %170, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ziplistMerge(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local noundef ptr @ziplistMerge(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %53, label %4
 
@@ -2260,7 +2260,7 @@ zipAssertValidEntry.exit:                         ; preds = %65
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ziplistNext(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local noundef ptr @ziplistNext(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca %struct.zlentry, align 8
   %4 = load i32, ptr %0, align 4, !tbaa !5
   %5 = zext i32 %4 to i64
@@ -2389,7 +2389,7 @@ zipAssertValidEntry.exit:                         ; preds = %60
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ziplistPrev(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local ptr @ziplistPrev(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca %struct.zlentry, align 8
   %4 = load i8, ptr %1, align 1, !tbaa !9
   %5 = icmp eq i8 %4, -1
@@ -2459,7 +2459,7 @@ zipAssertValidEntry.exit:                         ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @ziplistGet(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @ziplistGet(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %86, label %6
 
@@ -3174,7 +3174,7 @@ zipLoadInteger.exit:                              ; preds = %71, %74, %76, %78, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ziplistFind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define dso_local noundef ptr @ziplistFind(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.zlentry, align 8
   %8 = load i32, ptr %0, align 4, !tbaa !5
@@ -3618,7 +3618,7 @@ declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef
 declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #5 {
   %6 = alloca %struct.zlentry, align 8
   %7 = icmp ult i64 %1, 11
   br i1 %7, label %60, label %8
@@ -3756,7 +3756,7 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ziplistRandomPair(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
+define dso_local void @ziplistRandomPair(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #5 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %5, label %6, !prof !24
 
@@ -3816,7 +3816,7 @@ define dso_local i32 @uintCompare(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ziplistRandomPairs(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #5 {
+define dso_local void @ziplistRandomPairs(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 {
   %5 = alloca %struct.zlentry, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4077,7 +4077,7 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.th
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ziplistRandomPairsUnique(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #5 {
+define dso_local i32 @ziplistRandomPairsUnique(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 {
   %5 = alloca %struct.zlentry, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZL9cache_key = internal unnamed_addr global ptr null, align 8
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef ptr @_Z17pj_clone_paralistPK8ARG_list(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @_Z17pj_clone_paralistPK8ARG_list(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not16 = icmp eq ptr %0, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
@@ -190,7 +190,7 @@ _Z17pj_clone_paralistPK8ARG_list.exit:            ; preds = %23, %12, %7
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z19pj_insert_initcachePKcPK8ARG_list(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @_Z19pj_insert_initcachePKcPK8ARG_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   tail call void @_Z15pj_acquire_lockv()
   %3 = load i32, ptr @_ZL11cache_count, align 4, !tbaa !11
   %4 = load i32, ptr @_ZL11cache_alloc, align 4, !tbaa !11

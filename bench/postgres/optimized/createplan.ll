@@ -4136,7 +4136,7 @@ define dso_local noundef ptr @make_foreignscan(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @make_sort_from_sortclauses(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @make_sort_from_sortclauses(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %0, null
@@ -8386,7 +8386,7 @@ define internal fastcc ptr @build_path_tlist(ptr noundef %0, ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @create_indexscan_plan(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_indexscan_plan(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -8797,7 +8797,7 @@ fix_indexorderby_references.exit:                 ; preds = %65, %70, %fix_index
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @order_qual_clauses(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @order_qual_clauses(ptr noundef %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) unnamed_addr #0 {
   %3 = alloca %struct.QualCost, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
@@ -9047,7 +9047,7 @@ declare i32 @get_opfamily_member(i32 noundef, i32 noundef, i32 noundef, i16 noun
 declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @fix_indexqual_clause(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @fix_indexqual_clause(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = tail call ptr @replace_nestloop_params_mutator(ptr noundef %3, ptr noundef %0)
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %56 [
@@ -9792,7 +9792,7 @@ declare void @bms_free(ptr noundef) local_unnamed_addr #2
 declare void @extract_actual_join_clauses(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_switched_clauses(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @get_switched_clauses(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -9880,7 +9880,7 @@ declare ptr @list_copy(ptr noundef) local_unnamed_addr #2
 declare void @CommuteOpExpr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @prepare_sort_from_pathkeys(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly captures(none) %8, ptr noundef writeonly captures(none) %9) unnamed_addr #0 {
+define internal fastcc ptr @prepare_sort_from_pathkeys(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly captures(none) %8, ptr noundef writeonly captures(none) %9) unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %1, null

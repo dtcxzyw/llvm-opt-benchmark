@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZL11stringStore = internal global [200000 x i8] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress uwtable
-define void @createCommonDataFile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i8 noundef signext %8, i8 noundef signext %9, ptr noundef %10) local_unnamed_addr #0 {
+define void @createCommonDataFile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i8 noundef signext %8, i8 noundef signext %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
   store i32 0, ptr %12, align 4, !tbaa !3

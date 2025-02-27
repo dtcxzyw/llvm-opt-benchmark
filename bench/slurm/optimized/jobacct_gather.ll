@@ -120,7 +120,7 @@ target triple = "x86_64-pc-linux-gnu"
 @slurm_jobacctinfo_destroy = dso_local alias void (ptr), ptr @jobacctinfo_destroy
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @jobacctinfo_pack(ptr noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) #0 {
+define dso_local void @jobacctinfo_pack(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %5
 
@@ -473,7 +473,7 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_unpack(ptr noundef captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @jobacctinfo_create(ptr noundef %0) #0 {
+define dso_local ptr @jobacctinfo_create(ptr noundef captures(address_is_null) %0) #0 {
   %2 = alloca %struct.assoc_mgr_lock_t, align 4
   %3 = alloca %struct.jobacct_id_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
@@ -2787,7 +2787,7 @@ declare void @slurmdb_destroy_tres_rec(ptr noundef) #5
 declare i32 @unpack64_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @jobacctinfo_aggregate(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #9 {
+define dso_local void @jobacctinfo_aggregate(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %3 = load i32, ptr @plugin_inited, align 4
   %4 = icmp ne i32 %3, 1
   %5 = icmp ne ptr %1, null
@@ -3229,7 +3229,7 @@ declare zeroext i1 @acct_gather_profile_test() local_unnamed_addr #5
 declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_init_tres_usage(ptr noundef captures(none) initializes((120, 124), (128, 136), (144, 256)) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_init_tres_usage(ptr noundef captures(none) initializes((120, 124), (128, 136), (144, 256)) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %2, ptr %4, align 8
   %5 = zext i32 %2 to i64

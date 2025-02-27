@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [19 x i8] c"Unknown tMPI error\00", align 1
 
 ; Function Attrs: cold mustprogress noreturn nounwind uwtable
-define void @_Z24tmpi_errors_are_fatal_fnPP10tmpi_comm_Pi(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) #0 {
+define void @_Z24tmpi_errors_are_fatal_fnPP10tmpi_comm_Pi(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #18
   %4 = load i32, ptr %1, align 4, !tbaa !3
@@ -77,7 +77,7 @@ _Z17tMPI_Error_stringiPcPi.exit:                  ; preds = %5, %10
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define void @_Z21tmpi_errors_return_fnPP10tmpi_comm_Pi(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) #1 {
+define void @_Z21tmpi_errors_return_fnPP10tmpi_comm_Pi(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #18
   %4 = load i32, ptr %1, align 4, !tbaa !3

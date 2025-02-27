@@ -476,7 +476,7 @@ _ZNK4llvm15AnalysisManagerINS_8FunctionEJEE15getCachedResultINS_21DominatorTreeA
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL26runPartiallyInlineLibCallsRN4llvm8FunctionEPNS_17TargetLibraryInfoEPKNS_19TargetTransformInfoEPNS_13DominatorTreeEPNS_25OptimizationRemarkEmitterE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL26runPartiallyInlineLibCallsRN4llvm8FunctionEPNS_17TargetLibraryInfoEPKNS_19TargetTransformInfoEPNS_13DominatorTreeEPNS_25OptimizationRemarkEmitterE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::DebugLoc", align 8
   %6 = alloca %"class.llvm::DebugLoc", align 8
   %7 = alloca %"class.llvm::DebugLoc", align 8

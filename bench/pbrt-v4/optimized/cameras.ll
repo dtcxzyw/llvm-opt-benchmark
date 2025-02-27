@@ -1139,7 +1139,7 @@ define dso_local void @_ZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSamp
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt6Camera2WeERKNS_3RayERNS_18SampledWavelengthsEPNS_6Point2IfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(32) %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt6Camera2WeERKNS_3RayERNS_18SampledWavelengthsEPNS_6Point2IfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(32) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 align 2 {
   %.val = load i64, ptr %0, align 8, !tbaa !52
   %5 = lshr i64 %.val, 57
   %6 = trunc nuw nsw i64 %5 to i32
@@ -8667,7 +8667,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4: ; preds = %_ZNK
 declare void @_ZN4pbrt5ErrorEPKNS_7FileLocEPKc(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt17PerspectiveCamera2WeERKNS_3RayERNS_18SampledWavelengthsEPNS_6Point2IfEE(ptr noundef nonnull align 8 dereferenceable(1448) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr nonnull readnone align 4 captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt17PerspectiveCamera2WeERKNS_3RayERNS_18SampledWavelengthsEPNS_6Point2IfEE(ptr noundef nonnull align 8 dereferenceable(1448) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr nonnull readnone align 4 captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca float, align 4
   %6 = alloca i32, align 4
   %7 = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -10599,7 +10599,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt15RealisticCamera20LensElementInterfac
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZNK4pbrt15RealisticCamera19TraceLensesFromFilmERKNS_3RayEPS1_(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr noundef writeonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef float @_ZNK4pbrt15RealisticCamera19TraceLensesFromFilmERKNS_3RayEPS1_(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.pbrt::Ray", align 16
   %5 = alloca float, align 4
   %6 = alloca %"class.pbrt::Normal3", align 8
@@ -11237,7 +11237,7 @@ _ZNK4pbrt15RealisticCamera10LensFrontZEv.exit:    ; preds = %_ZNK4pbrt15Realisti
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZNK4pbrt15RealisticCamera20TraceLensesFromSceneERKNS_3RayEPS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1128) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr noundef writeonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef float @_ZNK4pbrt15RealisticCamera20TraceLensesFromSceneERKNS_3RayEPS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1128) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.pbrt::Point3fi", align 4
   %5 = alloca %"class.pbrt::Point3fi", align 8
   %6 = alloca %"class.pbrt::Transform", align 4
@@ -13748,7 +13748,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt15RealisticCamera15RenderExitPupilEffPKc(ptr noundef nonnull align 8 dereferenceable(1128) %0, float noundef %1, float noundef %2, ptr noundef readonly %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt15RealisticCamera15RenderExitPupilEffPKc(ptr noundef nonnull align 8 dereferenceable(1128) %0, float noundef %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %4 = alloca float, align 4
   %5 = alloca float, align 4

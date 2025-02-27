@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [106 x i8] c"SSL_poll requires the poll descriptors of the network BIOs underlying a QUIC SSL object be of socket type\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_poll(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_poll(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.bio_poll_descriptor_st, align 8
   %8 = alloca %struct.bio_poll_descriptor_st, align 8
   %9 = alloca i64, align 8

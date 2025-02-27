@@ -1617,7 +1617,7 @@ _ZNK4llvm18DiagnosticLocation15getRelativePathEv.exit: ; preds = %_ZNK4llvm6DINo
 declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly %1, i64 %2, ptr noundef %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.llvm::DiagnosticLocation", align 8
@@ -1952,7 +1952,7 @@ declare void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferencea
 declare { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly %1, i64 %2, ptr noundef %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.llvm::raw_string_ostream", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2031,7 +2031,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly %1, i64 %2, ptr readonly %3, i64 %4) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr readonly captures(address_is_null) %3, i64 %4) unnamed_addr #1 align 2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2141,7 +2141,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %27, %_ZNSt7__cxx111
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEi(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly %1, i64 %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEi(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly captures(address_is_null) %1, i64 %2, i32 noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %0, align 8, !tbaa !191
@@ -2351,7 +2351,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit11:                 ; preds = %._crit_edge.i.i.i9,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEf(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly %1, i64 %2, float noundef %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEf(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly captures(address_is_null) %1, i64 %2, float noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2432,7 +2432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEl(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly %1, i64 %2, i64 noundef %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEl(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly captures(address_is_null) %1, i64 %2, i64 noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %0, align 8, !tbaa !191
@@ -2490,7 +2490,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEx(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly %1, i64 %2, i64 noundef %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEx(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly captures(address_is_null) %1, i64 %2, i64 noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %0, align 8, !tbaa !191
@@ -2548,7 +2548,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly %1, i64 %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly captures(address_is_null) %1, i64 %2, i32 noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca [21 x i8], align 16
   %7 = alloca i64, align 8
@@ -2679,7 +2679,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %._crit_edge.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly %1, i64 %2, i64 noundef %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly captures(address_is_null) %1, i64 %2, i64 noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca [21 x i8], align 16
   %7 = alloca i64, align 8
@@ -2806,7 +2806,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %._crit_edge.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEy(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly %1, i64 %2, i64 noundef %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEy(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly captures(address_is_null) %1, i64 %2, i64 noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca [21 x i8], align 16
   %7 = alloca i64, align 8
@@ -2933,7 +2933,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %._crit_edge.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefENS_12ElementCountE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly %1, i64 %2, i64 %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefENS_12ElementCountE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly captures(address_is_null) %1, i64 %2, i64 %3) unnamed_addr #1 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.llvm::raw_string_ostream", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3040,7 +3040,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE5printERNS_11raw_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefENS_15InstructionCostE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly %1, i64 %2, i64 %3, i32 %4) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefENS_15InstructionCostE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly captures(address_is_null) %1, i64 %2, i64 %3, i32 %4) unnamed_addr #1 align 2 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.llvm::InstructionCost", align 8
   %8 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -3125,7 +3125,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
 declare void @_ZNK4llvm15InstructionCost5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly %1, i64 %2, ptr noundef %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.llvm::Twine", align 8

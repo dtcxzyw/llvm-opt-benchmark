@@ -11240,7 +11240,7 @@ _ZZN4Luau12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEENKUlOT_E_clIRNS_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEEUlOT_E_NS_9TableTypeEEEvRS6_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEEUlOT_E_NS_9TableTypeEEEvRS6_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(address) %1) #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::Property", align 8
   %.val = load ptr, ptr %0, align 8, !tbaa !335
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -11430,7 +11430,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneCh
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEEUlOT_E_NS_9ClassTypeEEEvRS6_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneChildrenEPKNS_4TypeEEUlOT_E_NS_9ClassTypeEEEvRS6_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(address) %1) #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::Property", align 8
   %.val = load ptr, ptr %0, align 8, !tbaa !335
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56

@@ -145,7 +145,7 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 @_ZN18RepositoryIteratorD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN18RepositoryIteratorD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16JfrEmergencyDump13set_dump_pathEPKc(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16JfrEmergencyDump13set_dump_pathEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

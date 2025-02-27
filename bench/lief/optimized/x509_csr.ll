@@ -21,13 +21,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [10 x i8] c"*\86H\86\F7\0D\01\09\0E\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509_csr_parse_der(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_x509_csr_parse_der(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @mbedtls_x509_csr_parse_der_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef null)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mbedtls_x509_csr_parse_der_internal(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @mbedtls_x509_csr_parse_der_internal(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %struct.mbedtls_asn1_buf, align 8
@@ -311,7 +311,7 @@ x509_csr_get_version.exit.thread.thread:          ; preds = %63, %x509_csr_get_v
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509_csr_parse_der_with_ext_cb(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_x509_csr_parse_der_with_ext_cb(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @mbedtls_x509_csr_parse_der_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %6
 }
@@ -747,7 +747,7 @@ declare i32 @mbedtls_x509_get_name(ptr noundef, ptr noundef, ptr noundef) local_
 declare i32 @mbedtls_pk_parse_subpubkey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_csr_parse_attributes(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @x509_csr_parse_attributes(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.mbedtls_asn1_buf, align 8
   %8 = alloca i32, align 4

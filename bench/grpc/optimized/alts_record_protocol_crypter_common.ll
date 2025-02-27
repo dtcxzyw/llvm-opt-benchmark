@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__const._Z26alts_crypter_create_commonP17gsec_aead_crypterbmPPc.error_msg = private unnamed_addr constant [20 x i8] c"crypter is nullptr.\00", align 16
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 4) i32 @_Z18input_sanity_checkPK28alts_record_protocol_crypterPKhPmPPc(ptr noundef readnone %0, ptr noundef readnone %1, ptr noundef readnone %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define noundef range(i32 0, 4) i32 @_Z18input_sanity_checkPK28alts_record_protocol_crypterPKhPmPPc(ptr noundef readnone captures(address_is_null) %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %9
 
@@ -101,7 +101,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z47alts_record_protocol_crypter_num_overhead_bytesPK12alts_crypter(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef i64 @_Z47alts_record_protocol_crypter_num_overhead_bytesPK12alts_crypter(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
@@ -132,7 +132,7 @@ define noundef i64 @_Z47alts_record_protocol_crypter_num_overhead_bytesPK12alts_
 declare noundef i32 @_Z28gsec_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z37alts_record_protocol_crypter_destructP12alts_crypter(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @_Z37alts_record_protocol_crypter_destructP12alts_crypter(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 

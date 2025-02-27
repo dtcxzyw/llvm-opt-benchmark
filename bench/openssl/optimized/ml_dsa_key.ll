@@ -41,7 +41,7 @@ define i32 @ossl_ml_dsa_key_retain_seed(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ml_dsa_set_prekey(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_ml_dsa_set_prekey(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #1 {
   %8 = icmp eq ptr %0, null
   br i1 %8, label %46, label %9
 
@@ -372,7 +372,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_ml_dsa_key_dup(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define ptr @ossl_ml_dsa_key_dup(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %127, label %4
 
@@ -1383,7 +1383,7 @@ define i64 @ossl_ml_dsa_key_get_sig_len(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_ml_dsa_key_get0_libctx(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @ossl_ml_dsa_key_get0_libctx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 

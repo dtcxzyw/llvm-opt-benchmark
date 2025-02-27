@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_CRL_set_version(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_CRL_set_version(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %15, label %4
 
@@ -200,7 +200,7 @@ define ptr @X509_CRL_get_REVOKED(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_CRL_get0_signature(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
+define void @X509_CRL_get0_signature(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
@@ -257,7 +257,7 @@ define i32 @X509_REVOKED_set_revocationDate(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @X509_REVOKED_get0_serialNumber(ptr noundef readnone returned %0) local_unnamed_addr #5 {
+define noundef ptr @X509_REVOKED_get0_serialNumber(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #5 {
   ret ptr %0
 }
 

@@ -91,7 +91,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @relay_reset(ptr noundef readonly %0) #2 align 16 {
+define dso_local void @relay_reset(ptr noundef readonly captures(address_is_null) %0) #2 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %106, label %3
 
@@ -1256,7 +1256,7 @@ define dso_local noundef i64 @relay_switch_subbuf(ptr noundef %0, i64 noundef %1
 declare dso_local zeroext i1 @irq_work_queue(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @relay_subbufs_consumed(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) #8 align 16 {
+define dso_local void @relay_subbufs_consumed(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) #8 align 16 {
   %4 = icmp eq ptr %0, null
   %5 = icmp ugt i32 %1, 63
   %6 = or i1 %4, %5
@@ -1472,7 +1472,7 @@ define dso_local void @relay_close(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @relay_flush(ptr noundef readonly %0) #2 align 16 {
+define dso_local void @relay_flush(ptr noundef readonly captures(address_is_null) %0) #2 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %47, label %3
 

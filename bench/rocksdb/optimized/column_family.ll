@@ -5487,7 +5487,7 @@ _ZNSt12__shared_ptrIKN7rocksdb14SliceTransformELN9__gnu_cxx12_Lock_policyE2EED2E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull ptr @_ZN7rocksdb12SuperVersion3RefEv(ptr noundef nonnull returned align 8 dereferenceable(816) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull ptr @_ZN7rocksdb12SuperVersion3RefEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(816) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %3 = atomicrmw add ptr %2, i32 1 monotonic, align 4
   ret ptr %0
@@ -10054,7 +10054,7 @@ define noundef zeroext i1 @_ZNK7rocksdb16ColumnFamilyData26RangeOverlapWithCompa
 declare noundef zeroext i1 @_ZNK7rocksdb16CompactionPicker26RangeOverlapWithCompactionERKNS_5SliceES3_i(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb16ColumnFamilyData26RangesOverlapWithMemtablesERKNS_10autovectorINS_12UserKeyRangeELm8EEEPNS_12SuperVersionEbPb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2712) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4, ptr noundef captures(none) initializes((0, 1)) %5) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb16ColumnFamilyData26RangesOverlapWithMemtablesERKNS_10autovectorINS_12UserKeyRangeELm8EEEPNS_12SuperVersionEbPb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 captures(address) %0, ptr noundef nonnull align 8 dereferenceable(2712) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4, ptr noundef captures(none) initializes((0, 1)) %5) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.rocksdb::ParsedInternalKey", align 8
   %8 = alloca %"class.rocksdb::Arena", align 16
   %9 = alloca %"struct.rocksdb::ReadOptions", align 8
@@ -13987,7 +13987,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb16ColumnFamilyData14AddDirectoriesEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_11FSDirectoryEESt4lessIS7_ESaISt4pairIKS7_SA_EEE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(2712) %1, ptr noundef %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb16ColumnFamilyData14AddDirectoriesEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_11FSDirectoryEESt4lessIS7_ESaISt4pairIKS7_SA_EEE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(2712) %1, ptr noundef %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr.329", align 8
   %5 = alloca %"class.rocksdb::IOStatus", align 8
   %6 = alloca ptr, align 8
@@ -16181,7 +16181,7 @@ define noundef ptr @_ZNK7rocksdb25ColumnFamilyMemTablesImpl11GetMemTableEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN7rocksdb25ColumnFamilyMemTablesImpl21GetColumnFamilyHandleEv(ptr noundef nonnull readnone align 8 dereferenceable(64) %0) unnamed_addr #23 align 2 {
+define noundef nonnull ptr @_ZN7rocksdb25ColumnFamilyMemTablesImpl21GetColumnFamilyHandleEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #23 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }

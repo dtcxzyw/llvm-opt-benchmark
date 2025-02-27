@@ -2392,12 +2392,12 @@ define { ptr, ptr } @_ZN7base_db10ParseQuery9in_db_mut17ha6eaa40d01d83affE(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN52_$LT$base_db..ParseQuery$u20$as$u20$salsa..Query$GT$13query_storage17h44f4db8405e5d756E"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN52_$LT$base_db..ParseQuery$u20$as$u20$salsa..Query$GT$13query_storage17h44f4db8405e5d756E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #9 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN52_$LT$base_db..ParseQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17hc25045c36c3e07abE"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN52_$LT$base_db..ParseQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17hc25045c36c3e07abE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #9 {
   ret ptr %0
 }
 
@@ -2632,13 +2632,13 @@ define { ptr, ptr } @_ZN7base_db15CrateGraphQuery9in_db_mut17h9c7c6103644af342E(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN57_$LT$base_db..CrateGraphQuery$u20$as$u20$salsa..Query$GT$13query_storage17h6d96a1932ffaae72E"(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN57_$LT$base_db..CrateGraphQuery$u20$as$u20$salsa..Query$GT$13query_storage17h6d96a1932ffaae72E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN57_$LT$base_db..CrateGraphQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17h1407abfea35ade0cE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN57_$LT$base_db..CrateGraphQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17h1407abfea35ade0cE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -2680,13 +2680,13 @@ define { ptr, ptr } @_ZN7base_db15DataLayoutQuery9in_db_mut17h537bbc71d5c59f41E(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN57_$LT$base_db..DataLayoutQuery$u20$as$u20$salsa..Query$GT$13query_storage17h56f3b181841ad29dE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN57_$LT$base_db..DataLayoutQuery$u20$as$u20$salsa..Query$GT$13query_storage17h56f3b181841ad29dE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN57_$LT$base_db..DataLayoutQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17h74d855d5e9d1e55cE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN57_$LT$base_db..DataLayoutQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17h74d855d5e9d1e55cE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -2728,13 +2728,13 @@ define { ptr, ptr } @_ZN7base_db14ToolchainQuery9in_db_mut17h89c08b75893183f2E(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN56_$LT$base_db..ToolchainQuery$u20$as$u20$salsa..Query$GT$13query_storage17h66e94995ae83bc16E"(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN56_$LT$base_db..ToolchainQuery$u20$as$u20$salsa..Query$GT$13query_storage17h66e94995ae83bc16E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN56_$LT$base_db..ToolchainQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17h62cb653d0649d12fE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN56_$LT$base_db..ToolchainQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17h62cb653d0649d12fE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
@@ -3586,12 +3586,12 @@ define { ptr, ptr } @_ZN7base_db23CompressedFileTextQuery9in_db_mut17h42c6e3206e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN65_$LT$base_db..CompressedFileTextQuery$u20$as$u20$salsa..Query$GT$13query_storage17h10fb23754461aa27E"(ptr noalias noundef readonly returned align 8 dereferenceable(40) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN65_$LT$base_db..CompressedFileTextQuery$u20$as$u20$salsa..Query$GT$13query_storage17h10fb23754461aa27E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #9 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN65_$LT$base_db..CompressedFileTextQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17h0ee507064d392bd7E"(ptr noalias noundef readonly returned align 8 dereferenceable(40) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN65_$LT$base_db..CompressedFileTextQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17h0ee507064d392bd7E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #9 {
   ret ptr %0
 }
 
@@ -3632,13 +3632,13 @@ define { ptr, ptr } @_ZN7base_db13FileTextQuery9in_db_mut17h12202e6f983e9cf6E(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN55_$LT$base_db..FileTextQuery$u20$as$u20$salsa..Query$GT$13query_storage17h812a157979219876E"(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN55_$LT$base_db..FileTextQuery$u20$as$u20$salsa..Query$GT$13query_storage17h812a157979219876E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN55_$LT$base_db..FileTextQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17h831d65369d3999bdE"(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN55_$LT$base_db..FileTextQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17h831d65369d3999bdE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -4214,13 +4214,13 @@ define { ptr, ptr } @_ZN7base_db19FileSourceRootQuery9in_db_mut17h061cedcdc5a56f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN61_$LT$base_db..FileSourceRootQuery$u20$as$u20$salsa..Query$GT$13query_storage17h6ba07214a88a47c9E"(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN61_$LT$base_db..FileSourceRootQuery$u20$as$u20$salsa..Query$GT$13query_storage17h6ba07214a88a47c9E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN61_$LT$base_db..FileSourceRootQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17h8248276afa5e8792E"(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN61_$LT$base_db..FileSourceRootQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17h8248276afa5e8792E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -4262,13 +4262,13 @@ define { ptr, ptr } @_ZN7base_db15SourceRootQuery9in_db_mut17h64f1f79b7ffb6e60E(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN57_$LT$base_db..SourceRootQuery$u20$as$u20$salsa..Query$GT$13query_storage17hae14d286ff5eac8fE"(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN57_$LT$base_db..SourceRootQuery$u20$as$u20$salsa..Query$GT$13query_storage17hae14d286ff5eac8fE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN57_$LT$base_db..SourceRootQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17hd4ac3a0ce7ab7d93E"(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN57_$LT$base_db..SourceRootQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17hd4ac3a0ce7ab7d93E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
@@ -4310,13 +4310,13 @@ define { ptr, ptr } @_ZN7base_db21SourceRootCratesQuery9in_db_mut17hf566e79b73e9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN63_$LT$base_db..SourceRootCratesQuery$u20$as$u20$salsa..Query$GT$13query_storage17h5d3934025a65ceefE"(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN63_$LT$base_db..SourceRootCratesQuery$u20$as$u20$salsa..Query$GT$13query_storage17h5d3934025a65ceefE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN63_$LT$base_db..SourceRootCratesQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17h5ff19207e9f1dcc9E"(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN63_$LT$base_db..SourceRootCratesQuery$u20$as$u20$salsa..Query$GT$17query_storage_mut17h5ff19207e9f1dcc9E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }

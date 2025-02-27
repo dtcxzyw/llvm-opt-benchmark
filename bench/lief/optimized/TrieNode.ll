@@ -589,7 +589,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(118) ptr @_ZN4LIEF5MachO8TrieNode10add_symbolERKNS0_10ExportInfoERSt6vectorISt10unique_ptrIS1_St14default_deleteIS1_EESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(118) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(118) ptr @_ZN4LIEF5MachO8TrieNode10add_symbolERKNS0_10ExportInfoERSt6vectorISt10unique_ptrIS1_St14default_deleteIS1_EESaIS9_EE(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(118) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca i64, align 8
@@ -2403,7 +2403,7 @@ define hidden noundef zeroext i1 @_ZN4LIEF5MachO8TrieNode13update_offsetERj(ptr 
 declare noundef i64 @_ZN4LIEF15vector_iostream12uleb128_sizeEm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(118) ptr @_ZN4LIEF5MachO8TrieNode5writeERNS_15vector_iostreamE(ptr noundef nonnull readonly returned align 8 dereferenceable(118) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(118) ptr @_ZN4LIEF5MachO8TrieNode5writeERNS_15vector_iostreamE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(118) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca i8, align 1

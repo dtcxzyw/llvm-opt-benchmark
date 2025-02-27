@@ -989,7 +989,7 @@ define internal fastcc void @conversation_insert_into_hashtable(ptr noundef %0, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @conversation_new(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define noundef ptr @conversation_new(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %.not = icmp ult i32 %6, 65536
   br i1 %.not, label %9, label %8
 
@@ -1161,7 +1161,7 @@ copy_address_wmem.exit63:                         ; preds = %42
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @conversation_new_strat(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @conversation_new_strat(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1339,7 +1339,7 @@ define ptr @find_conversation_deinterlacer_pinfo(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @conversation_new_deinterlaced(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define noundef ptr @conversation_new_deinterlaced(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = tail call ptr @wmem_file_scope()
   %10 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %9, i64 noundef 72) #19
   %11 = load i32, ptr @new_index, align 4
@@ -1658,7 +1658,7 @@ define noundef ptr @conversation_new_by_id(i32 noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @conversation_new_deinterlacer(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define noundef ptr @conversation_new_deinterlacer(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call ptr @wmem_file_scope()
   %9 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %8, i64 noundef 72) #19
   %10 = load i32, ptr @new_index, align 4
@@ -3738,7 +3738,7 @@ conversation_lookup_no_ports.exit:                ; preds = %559, %576
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef ptr @conversation_create_from_template(ptr noundef nonnull readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @conversation_create_from_template(ptr noundef nonnull readonly captures(ret: address, provenance) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %6
@@ -5128,7 +5128,7 @@ conversation_lookup_hashtable.exit:               ; preds = %3, %9, %15, %.crite
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @conversation_add_proto_data(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @conversation_add_proto_data(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 
@@ -5165,7 +5165,7 @@ declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #1
 declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @conversation_get_proto_data(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @conversation_get_proto_data(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -5193,7 +5193,7 @@ define ptr @conversation_get_proto_data(ptr noundef readonly %0, i32 noundef %1)
 declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @conversation_delete_proto_data(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @conversation_delete_proto_data(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -5972,7 +5972,7 @@ find_conversation_by_id.exit:                     ; preds = %17, %34
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @conversation_set_conv_addr_port_endpoints(ptr noundef captures(none) initializes((304, 305), (312, 320)) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @conversation_set_conv_addr_port_endpoints(ptr noundef captures(none) initializes((304, 305), (312, 320)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias dereferenceable_or_null(64) ptr @wmem_alloc0(ptr noundef %8, i64 noundef 64) #19
@@ -6109,7 +6109,7 @@ define ptr @get_conversation_hashtables() local_unnamed_addr #11 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define nonnull ptr @conversation_key_addr1(ptr noundef readonly %0) local_unnamed_addr #12 {
+define nonnull ptr @conversation_key_addr1(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #12 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6140,7 +6140,7 @@ define i32 @conversation_key_port1(ptr noundef readonly captures(none) %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define ptr @conversation_key_addr2(ptr noundef readonly %0) local_unnamed_addr #12 {
+define ptr @conversation_key_addr2(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #12 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %4, label %13

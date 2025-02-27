@@ -46615,7 +46615,7 @@ _ZNSt6vectorIN6custom12_GLOBAL__N_14FaceESaIS2_EEaSEOS4_.exit: ; preds = %_ZN2cv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZNK2cv6detail10VectorRefTIN6custom12_GLOBAL__N_14FaceEE3ptrEv(ptr noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZNK2cv6detail10VectorRefTIN6custom12_GLOBAL__N_14FaceEE3ptrEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::logic_error", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val.i = load i64, ptr %3, align 8, !tbaa !511
@@ -56818,7 +56818,7 @@ _ZN2cv6detail13OCVCallHelperIN6custom12_GLOBAL__N_127OCVAccumulatePyramidOutputs
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN6custom12_GLOBAL__N_14FaceESaIS2_EEaSERKS4_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN6custom12_GLOBAL__N_14FaceESaIS2_EEaSERKS4_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, %0
   br i1 %.not, label %39, label %3
 

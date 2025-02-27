@@ -520,7 +520,7 @@ define i32 @BIO_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bio_write_intern(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc i32 @bio_write_intern(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   %.not = icmp eq ptr %3, null
@@ -678,7 +678,7 @@ bio_call_callback.exit.thread:                    ; preds = %26, %68, %69, %bio_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BIO_write_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_write_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @bio_write_intern(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3)
   %6 = icmp ne ptr %0, null
   %7 = icmp eq i64 %2, 0
@@ -1696,7 +1696,7 @@ define ptr @BIO_pop(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @BIO_get_retry_BIO(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #8 {
+define ptr @BIO_get_retry_BIO(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8, !tbaa !27
   %5 = and i32 %4, 8
@@ -1747,7 +1747,7 @@ define void @BIO_set_retry_reason(ptr noundef writeonly captures(none) initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @BIO_find_type(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @BIO_find_type(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1805,7 +1805,7 @@ define ptr @BIO_find_type(ptr noundef readonly %0, i32 noundef %1) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @BIO_next(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @BIO_next(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1996,7 +1996,7 @@ define ptr @BIO_get_ex_data(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @BIO_number_read(ptr noundef readonly %0) local_unnamed_addr #4 {
+define i64 @BIO_number_read(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -2011,7 +2011,7 @@ define i64 @BIO_number_read(ptr noundef readonly %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @BIO_number_written(ptr noundef readonly %0) local_unnamed_addr #4 {
+define i64 @BIO_number_written(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

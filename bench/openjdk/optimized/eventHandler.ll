@@ -107,7 +107,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.84 = private unnamed_addr constant [17 x i8] c"END cbVThreadEnd\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @eventHandlerRestricted_iterator(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @eventHandlerRestricted_iterator(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %0, -23
   %or.cond.i = icmp ult i32 %4, -22
   br i1 %or.cond.i, label %5, label %getHandlerChain.exit

@@ -45,7 +45,7 @@ define internal noalias ptr @dh_newctx(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @dh_init(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call i32 @ossl_prov_is_running() #7
   %5 = icmp eq i32 %4, 0
   %6 = icmp eq ptr %0, null
@@ -192,7 +192,7 @@ dh_X9_42_kdf_derive.exit:                         ; preds = %20, %23, %dh_plain_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_set_peer(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @dh_set_peer(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @ossl_prov_is_running() #7
   %4 = icmp eq i32 %3, 0
   %5 = icmp eq ptr %0, null
@@ -384,7 +384,7 @@ define internal ptr @dh_dupctx(ptr noundef readonly captures(none) %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_set_ctx_params(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @dh_set_ctx_params(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca [80 x i8], align 16
   %5 = alloca ptr, align 8
@@ -629,7 +629,7 @@ define internal noundef nonnull ptr @dh_settable_ctx_params(ptr readnone capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_get_ctx_params(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @dh_get_ctx_params(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge, label %4
 

@@ -478,7 +478,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.314 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @lowpan_context_insert(i8 noundef zeroext %0, i16 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @lowpan_context_insert(i8 noundef zeroext %0, i16 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.lowpan_context_key, align 2
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
@@ -4173,7 +4173,7 @@ default.unreachable310:                           ; preds = %198
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @lowpan_reassemble_ipv6(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc ptr @lowpan_reassemble_ipv6(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %.not30 = icmp eq ptr %3, null
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 

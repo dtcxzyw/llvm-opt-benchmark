@@ -1115,7 +1115,7 @@ _ZN7svectorIbjEC2ERKS0_.exit:                     ; preds = %entry, %_ZNK6vector
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK3nla18const_iterator_moneqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %other) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK3nla18const_iterator_moneqERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %other) local_unnamed_addr #7 align 2 {
 entry:
   %m_full_factorization_returned = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %m_full_factorization_returned, align 8
@@ -1186,7 +1186,7 @@ land.end:                                         ; preds = %for.body.i, %for.co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK3nla18const_iterator_monneERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %other) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK3nla18const_iterator_monneERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %other) local_unnamed_addr #7 align 2 {
 entry:
   %m_full_factorization_returned.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %m_full_factorization_returned.i, align 8

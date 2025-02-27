@@ -1543,7 +1543,7 @@ _ZN9SplitInfo6recordEmmPP12HeapWordImpl.exit:     ; preds = %.sink.split.i, %55,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define hidden noundef i64 @_ZN19ParallelCompactData19live_words_in_spaceEPK12MutableSpacePPP12HeapWordImpl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #8 align 2 {
+define hidden noundef i64 @_ZN19ParallelCompactData19live_words_in_spaceEPK12MutableSpacePPP12HeapWordImpl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
@@ -2915,7 +2915,7 @@ _ZN16ObjectStartArray16update_for_blockEPP12HeapWordImplS2_.exit: ; preds = %106
 declare void @_ZN13CollectedHeap16fill_with_objectEPP12HeapWordImplmb(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden noundef zeroext i1 @_ZN17PSParallelCompact24check_maximum_compactionEmP12MutableSpacePP12HeapWordImpl(i64 noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #13 align 2 {
+define hidden noundef zeroext i1 @_ZN17PSParallelCompact24check_maximum_compactionEmP12MutableSpacePP12HeapWordImpl(i64 noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #13 align 2 {
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %5 = load i8, ptr @UseMaximumCompactionOnSystemGC, align 1
   %6 = trunc i8 %5 to i1
@@ -7716,7 +7716,7 @@ define hidden void @_ZN17PSParallelCompact25initialize_shadow_regionsEj(i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 5) i32 @_ZN17PSParallelCompact8space_idEPP12HeapWordImpl(ptr noundef readnone %0) local_unnamed_addr #11 align 2 {
+define hidden noundef range(i32 0, 5) i32 @_ZN17PSParallelCompact8space_idEPP12HeapWordImpl(ptr noundef readnone captures(address) %0) local_unnamed_addr #11 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %11

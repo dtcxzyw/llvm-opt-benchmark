@@ -8868,7 +8868,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119TestCopyBackwardStdIN9__gnu_cxx17__normal_iteratorIP8LargePODSt6vectorIS3_SaIS3_EEEES8_EEvRN2EA4StdC9StopwatchET_SD_T0_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr %first.coerce, ptr %last.coerce, ptr writeonly %result.coerce) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119TestCopyBackwardStdIN9__gnu_cxx17__normal_iteratorIP8LargePODSt6vectorIS3_SaIS3_EEEES8_EEvRN2EA4StdC9StopwatchET_SD_T0_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr %first.coerce, ptr %last.coerce, ptr writeonly captures(address) %result.coerce) unnamed_addr #0 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds nuw i8, ptr %stopwatch, i64 16
@@ -8953,7 +8953,7 @@ _ZSt13copy_backwardIN9__gnu_cxx17__normal_iteratorIP8LargePODSt6vectorIS2_SaIS2_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118TestCopyBackwardEaIP8LargePODS2_EEvRN2EA4StdC9StopwatchET_S7_T0_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr noundef %first, ptr noundef %last, ptr noundef writeonly %result) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118TestCopyBackwardEaIP8LargePODS2_EEvRN2EA4StdC9StopwatchET_S7_T0_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr noundef %first, ptr noundef %last, ptr noundef writeonly captures(address) %result) unnamed_addr #0 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds nuw i8, ptr %stopwatch, i64 16
@@ -12934,7 +12934,7 @@ _ZNSt7__cxx1110_List_baseI10TestObjectSaIS1_EED2Ev.exit: ; preds = %_ZNSt16alloc
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113TestRotateStdISt14_List_iteratorIiEEEvRN2EA4StdC9StopwatchET_S7_S7_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr %first.coerce, ptr %middle.coerce, ptr readonly %last.coerce) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113TestRotateStdISt14_List_iteratorIiEEEvRN2EA4StdC9StopwatchET_S7_S7_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr %first.coerce, ptr captures(address) %middle.coerce, ptr readonly captures(address) %last.coerce) unnamed_addr #0 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds nuw i8, ptr %stopwatch, i64 16

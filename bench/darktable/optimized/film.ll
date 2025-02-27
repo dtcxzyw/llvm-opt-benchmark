@@ -192,7 +192,7 @@ declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #1
 declare void @dt_collection_update_query(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(write, argmem: read, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @dt_sqlite3_escape_wildcards(ptr noundef readonly %0) local_unnamed_addr #4 {
+define noalias noundef ptr @dt_sqlite3_escape_wildcards(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %.preheader38
 

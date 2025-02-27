@@ -1246,12 +1246,12 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame7GetZeroEv(ptr d
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame22GetLeftValueDerivativeEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__18Ts_GetKeyFrameDataERNS_10TsKeyFrameE(ptr noundef nonnull readnone returned align 8 dereferenceable(72) %0) local_unnamed_addr #3 {
+define noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__18Ts_GetKeyFrameDataERNS_10TsKeyFrameE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(72) %0) local_unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__18Ts_GetKeyFrameDataERKNS_10TsKeyFrameE(ptr noundef nonnull readnone returned align 8 dereferenceable(72) %0) local_unnamed_addr #3 {
+define noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__18Ts_GetKeyFrameDataERKNS_10TsKeyFrameE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(72) %0) local_unnamed_addr #3 {
   ret ptr %0
 }
 

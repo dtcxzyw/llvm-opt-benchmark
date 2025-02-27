@@ -298,7 +298,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @decode_decimal(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #3 {
+define internal fastcc noundef ptr @decode_decimal(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #3 {
   %3 = load i8, ptr %0, align 1
   %4 = add i8 %3, -58
   %or.cond39 = icmp ult i8 %4, -10

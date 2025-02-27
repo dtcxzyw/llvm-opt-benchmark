@@ -48931,7 +48931,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc697
   %.0122.i = phi ptr [ %.val248, %.lr.ph.i688 ], [ %794, %795 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16, !noalias !953
   %794 = invoke fastcc noundef ptr @_ZN8LightGBM7CommonCL4AtofEPKcPd(ptr noundef %.0122.i, ptr noundef %6)
-          to label %795 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, !noalias !953
+          to label %795 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 795:                                              ; preds = %793
   %796 = getelementptr inbounds nuw float, ptr %787, i64 %indvars.iv.i691
@@ -49416,7 +49416,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc801
   %.0122.i795 = phi ptr [ %.val249, %.lr.ph.i791 ], [ %954, %955 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16, !noalias !960
   %954 = invoke fastcc noundef ptr @_ZN8LightGBM7CommonCL4AtofEPKcPd(ptr noundef %.0122.i795, ptr noundef %5)
-          to label %955 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit.i, !noalias !960
+          to label %955 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
 
 955:                                              ; preds = %953
   %956 = getelementptr inbounds nuw double, ptr %947, i64 %indvars.iv.i794
@@ -49638,7 +49638,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i837: ; preds = %.noexc84
   %.0122.i842 = phi ptr [ %.val250, %.lr.ph.i838 ], [ %1025, %1026 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16, !noalias !964
   %1025 = invoke fastcc noundef ptr @_ZN8LightGBM7CommonCL4AtofEPKcPd(ptr noundef %.0122.i842, ptr noundef %4)
-          to label %1026 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit.i843, !noalias !964
+          to label %1026 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit.i843
 
 1026:                                             ; preds = %1024
   %1027 = getelementptr inbounds nuw double, ptr %1018, i64 %indvars.iv.i841
@@ -52057,7 +52057,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit1355:                ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM7CommonCL13StringToArrayIdEESt6vectorIT_SaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr %.0.val, i32 noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM7CommonCL13StringToArrayIdEESt6vectorIT_SaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr captures(address_is_null) %.0.val, i32 noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.41", align 8
   %4 = alloca %"struct.LightGBM::CommonC::__StringToTHelper", align 1
   %5 = icmp eq i32 %1, 0
@@ -52310,7 +52310,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.thread, %76, %75, 
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8LightGBM7CommonCL4AtofEPKcPd(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8LightGBM7CommonCL4AtofEPKcPd(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -52816,7 +52816,7 @@ _ZN8LightGBM6CommonL4AtofEPKcPd.exit:             ; preds = %146
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL13StringToArrayIdEESt6vectorIT_SaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr %.0.val, i32 noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM6CommonL13StringToArrayIdEESt6vectorIT_SaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr captures(address_is_null) %.0.val, i32 noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.std::vector.41", align 8
   %5 = icmp eq i32 %1, 0
@@ -53940,7 +53940,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef readonly %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8

@@ -618,7 +618,7 @@ define void @ulocale_close_77(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @ulocale_getLanguage_77(ptr noundef readnone %0) local_unnamed_addr #11 {
+define ptr @ulocale_getLanguage_77(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #11 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %spec.select = select i1 %2, ptr null, ptr %3
@@ -626,7 +626,7 @@ define ptr @ulocale_getLanguage_77(ptr noundef readnone %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @ulocale_getScript_77(ptr noundef readnone %0) local_unnamed_addr #11 {
+define ptr @ulocale_getScript_77(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #11 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %spec.select = select i1 %2, ptr null, ptr %3
@@ -634,7 +634,7 @@ define ptr @ulocale_getScript_77(ptr noundef readnone %0) local_unnamed_addr #11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @ulocale_getRegion_77(ptr noundef readnone %0) local_unnamed_addr #11 {
+define ptr @ulocale_getRegion_77(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #11 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %spec.select = select i1 %2, ptr null, ptr %3
@@ -642,7 +642,7 @@ define ptr @ulocale_getRegion_77(ptr noundef readnone %0) local_unnamed_addr #11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ulocale_getVariant_77(ptr noundef readonly %0) local_unnamed_addr #12 {
+define ptr @ulocale_getVariant_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -665,7 +665,7 @@ define ptr @ulocale_getVariant_77(ptr noundef readonly %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ulocale_getLocaleID_77(ptr noundef readonly %0) local_unnamed_addr #12 {
+define ptr @ulocale_getLocaleID_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -938,7 +938,7 @@ define ptr @ulocale_getUnicodeKeywords_77(ptr noundef %0, ptr noundef %1) local_
 declare noundef ptr @_ZNK6icu_776Locale21createUnicodeKeywordsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ulocale_isBogus_77(ptr noundef readonly %0) local_unnamed_addr #12 {
+define zeroext i1 @ulocale_isBogus_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

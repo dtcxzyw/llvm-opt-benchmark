@@ -487,7 +487,7 @@ define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErro
 declare void @uprv_free_77(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @ucol_prepareShortStringOpen_77(ptr noundef %0, i8 noundef signext %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @ucol_prepareShortStringOpen_77(ptr noundef %0, i8 noundef signext %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.UParseError, align 4
   %6 = alloca %struct.CollatorSpec, align 8
   %7 = alloca %"class.icu_77::CharString", align 8
@@ -1075,7 +1075,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString2
 declare void @ures_close_77(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucol_openFromShortString_77(ptr noundef %0, i8 noundef signext %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define ptr @ucol_openFromShortString_77(ptr noundef %0, i8 noundef signext %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.UParseError, align 4
   %6 = alloca %struct.CollatorSpec, align 8
   %7 = alloca %"class.icu_77::CharString", align 8
@@ -1435,7 +1435,7 @@ define noundef i32 @ucol_getShortDefinitionString_77(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucol_normalizeShortDefinitionString_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define i32 @ucol_normalizeShortDefinitionString_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct.UParseError, align 4
   %7 = alloca %struct.CollatorSpec, align 8
   %8 = load i32, ptr %4, align 4, !tbaa !13
@@ -1815,7 +1815,7 @@ declare void @_ZNK6icu_7717RuleBasedCollator36internalGetContractionsAndExpansio
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString8copyFromERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef nonnull align 8 dereferenceable(60), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef nonnull ptr @_ZL22_processCollatorOptionP12CollatorSpecjPKcP10UErrorCode(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef captures(none) %3) #11 {
+define internal noundef nonnull ptr @_ZL22_processCollatorOptionP12CollatorSpecjPKcP10UErrorCode(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(ret: address, provenance) %2, ptr noundef captures(none) %3) #11 {
   %5 = load i8, ptr %2, align 1, !tbaa !22
   br label %7
 
@@ -1867,7 +1867,7 @@ _ZL31ucol_sit_letterToAttributeValuecP10UErrorCode.exit: ; preds = %11, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL19_processVariableTopP12CollatorSpecjPKcP10UErrorCode(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef captures(none) %3) #11 {
+define internal noundef ptr @_ZL19_processVariableTopP12CollatorSpecjPKcP10UErrorCode(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(ret: address, provenance) %2, ptr noundef captures(none) %3) #11 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.preheader, label %39
 
@@ -2051,7 +2051,7 @@ _ZL15readHexCodeUnitPPKcP10UErrorCode.exit34:     ; preds = %._crit_edge.i33._ZL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZL21_processLocaleElementP12CollatorSpecjPKcP10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) #1 {
+define internal noundef nonnull ptr @_ZL21_processLocaleElementP12CollatorSpecjPKcP10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(ret: address, provenance) %2, ptr noundef %3) #1 {
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw [6 x %"class.icu_77::CharString"], ptr %0, i64 0, i64 %5
   switch i32 %1, label %.split.preheader [

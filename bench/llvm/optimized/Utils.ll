@@ -1389,7 +1389,7 @@ _ZNK4llvm9StringRef5splitES0_.exit:               ; preds = %7, %9
 declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5MachO19createRegexFromGlobENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected") align 8 %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm5MachO19createRegexFromGlobENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected") align 8 %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 {
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i:
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8

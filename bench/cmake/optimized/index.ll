@@ -375,7 +375,7 @@ define dso_local range(i32 0, 4) i32 @lzma_index_padding_size(ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: read) uwtable
-define dso_local i32 @lzma_index_stream_flags(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #8 {
+define dso_local i32 @lzma_index_stream_flags(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -405,7 +405,7 @@ declare i32 @lzma_stream_flags_compare(ptr noundef, ptr noundef) local_unnamed_a
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: read) uwtable
-define dso_local range(i32 0, 12) i32 @lzma_index_stream_padding(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #8 {
+define dso_local range(i32 0, 12) i32 @lzma_index_stream_padding(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = icmp ne ptr %0, null
   %4 = and i64 %1, -9223372036854775805
   %5 = icmp eq i64 %4, 0
@@ -473,7 +473,7 @@ lzma_index_file_size.exit:                        ; preds = %24, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 12) i32 @lzma_index_append(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 12) i32 @lzma_index_append(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   %6 = add i64 %2, -9223372036854775805
   %7 = icmp ult i64 %6, -9223372036854775800

@@ -351,7 +351,7 @@ define void @freeSGraph(ptr noundef captures(none) %0) local_unnamed_addr #3 {
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @shortPath(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @shortPath(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #5 {
   %4 = load i32, ptr %0, align 8, !tbaa !3
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge

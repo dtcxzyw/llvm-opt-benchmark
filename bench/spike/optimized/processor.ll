@@ -94569,7 +94569,7 @@ define noundef ptr @_ZN11processor_t13get_extensionEv(ptr noundef nonnull readon
 declare void @abort() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11processor_t13get_extensionEPKc(ptr noundef nonnull align 8 dereferenceable(266872) %0, ptr noundef readonly %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN11processor_t13get_extensionEPKc(ptr noundef nonnull align 8 dereferenceable(266872) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #39

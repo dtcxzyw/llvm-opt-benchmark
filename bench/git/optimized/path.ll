@@ -242,7 +242,7 @@ declare i32 @file_exists(ptr noundef) local_unnamed_addr #5
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @repo_git_pathv(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define dso_local void @repo_git_pathv(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %6, label %9
 
@@ -684,7 +684,7 @@ cleanup_path.exit:                                ; preds = %14, %skip_prefix.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @worktree_git_path(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ...) local_unnamed_addr #3 {
+define dso_local ptr @worktree_git_path(ptr noundef readonly captures(address) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ...) local_unnamed_addr #3 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = load i32, ptr @get_pathname.index, align 4, !tbaa !4
   %6 = zext nneg i32 %5 to i64
@@ -1633,7 +1633,7 @@ define internal fastcc ptr @_() unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @relative_path(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 {
+define dso_local ptr @relative_path(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread.thread, label %4
 
@@ -1888,7 +1888,7 @@ define dso_local ptr @relative_path(ptr noundef %0, ptr noundef readonly %1, ptr
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @remove_leading_path(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define dso_local ptr @remove_leading_path(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit63, label %3
 
@@ -2011,7 +2011,7 @@ strbuf_setlen.exit:                               ; preds = %29, %32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 1) i32 @normalize_path_copy_len(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #15 {
+define dso_local range(i32 -1, 1) i32 @normalize_path_copy_len(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #15 {
   %.val = load i8, ptr %1, align 1, !tbaa !14
   %4 = icmp eq i8 %.val, 47
   %5 = zext i1 %4 to i64
@@ -2282,7 +2282,7 @@ thread-pre-split:                                 ; preds = %54, %.lr.ph120, %83
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 1) i32 @normalize_path_copy(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #16 {
+define dso_local range(i32 -1, 1) i32 @normalize_path_copy(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #16 {
   %.val.i = load i8, ptr %1, align 1, !tbaa !14
   %3 = icmp eq i8 %.val.i, 47
   %4 = zext i1 %3 to i64
@@ -2852,7 +2852,7 @@ define dso_local ptr @strip_path_suffix(ptr noundef %0, ptr noundef readonly cap
 declare ptr @xstrndup(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 -1, 1) i32 @daemon_avoid_alias(ptr noundef readonly %0) local_unnamed_addr #19 {
+define dso_local range(i32 -1, 1) i32 @daemon_avoid_alias(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 
@@ -3148,7 +3148,7 @@ define dso_local range(i32 0, 2) i32 @is_ntfs_dotmailmap(ptr noundef readonly ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @looks_like_command_line_option(ptr noundef readonly %0) local_unnamed_addr #22 {
+define dso_local range(i32 0, 2) i32 @looks_like_command_line_option(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 

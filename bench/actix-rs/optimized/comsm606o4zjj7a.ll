@@ -15555,7 +15555,7 @@ define hidden { i64, i32 } @"_ZN88_$LT$tokio..future..poll_fn..PollFn$LT$F$GT$$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u20$base64..engine..Engine$GT$6config17h015318ef120fb944E.llvm.3706446735560306221"(ptr noalias noundef readonly returned align 1 dereferenceable(323) %0) unnamed_addr #5 {
+define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u20$base64..engine..Engine$GT$6config17h015318ef120fb944E.llvm.3706446735560306221"(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(323) %0) unnamed_addr #5 {
   ret ptr %0
 }
 

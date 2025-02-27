@@ -124,7 +124,7 @@ define internal ptr @ec_gen_init(ptr noundef %0, i32 noundef %1, ptr noundef %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ec_gen_set_template(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @ec_gen_set_template(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @ossl_prov_is_running() #5
   %4 = icmp eq i32 %3, 0
   %5 = icmp eq ptr %0, null
@@ -485,7 +485,7 @@ define internal noundef nonnull ptr @ec_gen_settable_params(ptr readnone capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @ec_gen_get_params(ptr noundef readnone %0, ptr readnone captures(none) %1) #1 {
+define internal range(i32 0, 2) i32 @ec_gen_get_params(ptr noundef readnone captures(address_is_null) %0, ptr readnone captures(none) %1) #1 {
   %3 = icmp ne ptr %0, null
   %. = zext i1 %3 to i32
   ret i32 %.
@@ -497,7 +497,7 @@ define internal noundef nonnull ptr @ec_gen_gettable_params(ptr readnone capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ec_gen(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
+define internal ptr @ec_gen(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @ossl_prov_is_running() #5
   %5 = icmp eq i32 %4, 0
   %6 = icmp eq ptr %0, null
@@ -1328,7 +1328,7 @@ ec_gen_init.exit.thread:                          ; preds = %8, %14, %3, %19, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm2_gen(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
+define internal ptr @sm2_gen(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %41, label %5
 

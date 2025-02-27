@@ -3688,7 +3688,7 @@ ehcleanup23:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK7datalog10table_base10complementEP9func_declPKm(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef readonly %p, ptr noundef readonly captures(none) %func_columns) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK7datalog10table_base10complementEP9func_declPKm(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef readonly captures(address_is_null) %p, ptr noundef readonly captures(none) %func_columns) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fact = alloca %class.svector, align 8
   %buffer = alloca %"class.std::__cxx11::basic_ostringstream", align 8

@@ -1599,7 +1599,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @_ZN3con20ReliablePacketBuffer16findPacketNoLockEt(ptr noundef nonnull readonly align 8 dereferenceable(72) %this, i16 noundef zeroext %seqnum) local_unnamed_addr #6 align 2 {
+define dso_local ptr @_ZN3con20ReliablePacketBuffer16findPacketNoLockEt(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(72) %this, i16 noundef zeroext %seqnum) local_unnamed_addr #6 align 2 {
 entry:
   br label %for.cond
 
@@ -3567,7 +3567,7 @@ _ZNSt12_Vector_baseI14ConstSharedPtrIN3con14BufferedPacketEESaIS3_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3con19IncomingSplitPacket6insertEjR12SharedBufferIhE(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %chunk_num, ptr noundef nonnull readonly align 8 dereferenceable(24) %chunkdata) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3con19IncomingSplitPacket6insertEjR12SharedBufferIhE(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %chunk_num, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %chunkdata) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.136", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.107", align 1
@@ -6413,7 +6413,7 @@ delete.end:                                       ; preds = %delete.notnull, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN3con10PeerHelperaSEPNS_4PeerE(ptr noundef nonnull returned align 8 dereferenceable(8) %this, ptr noundef %peer) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN3con10PeerHelperaSEPNS_4PeerE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef %peer) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !207
   %tobool.not = icmp eq ptr %0, null
@@ -12741,7 +12741,7 @@ entry:
 declare void @_ZN3con20ConnectionSendThread7TriggerEv(ptr noundef nonnull align 8 dereferenceable(284)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3con10Connection11getPeerNoExEt(ptr dead_on_unwind noalias writable sret(%"class.con::PeerHelper") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(509) %this, i16 noundef zeroext %peer_id) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3con10Connection11getPeerNoExEt(ptr dead_on_unwind noalias writable sret(%"class.con::PeerHelper") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(509) %this, i16 noundef zeroext %peer_id) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_peers_mutex = getelementptr inbounds nuw i8, ptr %this, i64 400
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_peers_mutex) #31
@@ -14907,7 +14907,7 @@ entry:
   br i1 %tobool.not.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exception = call ptr @__cxa_allocate_exception(i64 40) #31
+  %exception = tail call ptr @__cxa_allocate_exception(i64 40) #31
   invoke void @_ZN3con21PeerNotFoundExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.75)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -14923,7 +14923,7 @@ lpad:                                             ; preds = %if.end, %invoke.con
 lpad2:                                            ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception) #31
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #31
   br label %ehcleanup
 
 if.end:                                           ; preds = %entry
@@ -14934,7 +14934,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %call7, i64 24, i1 false), !tbaa.struct !45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %call7, i64 24, i1 false), !tbaa.struct !45
   call void @_ZN3con10PeerHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %peer) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %peer) #31
   ret void
@@ -15137,7 +15137,7 @@ dynamic_cast.notnull:                             ; preds = %entry
 
 dynamic_cast.notnull.split:                       ; preds = %dynamic_cast.notnull
   %m_internal_mutex.i75 = getelementptr inbounds nuw i8, ptr %spec.select, i64 544
-  %call1.i.i.i.i.i76 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i75) #31
+  %call1.i.i.i.i.i76 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i75) #31
   %tobool.not.i.i.i.i77 = icmp eq i32 %call1.i.i.i.i.i76, 0
   switch i32 %type, label %for.body.preheader [
     i32 0, label %for.body.us.preheader
@@ -15168,18 +15168,18 @@ for.body.preheader:                               ; preds = %dynamic_cast.notnul
 _ZN3con7Channel24getCurrentDownloadRateKBEv.exit.us: ; preds = %for.body.us.preheader
   %cur_kbps.i.us = getelementptr inbounds nuw i8, ptr %0, i64 624
   %3 = load float, ptr %cur_kbps.i.us, align 8, !tbaa !197
-  %call1.i.i.i.i3.i.us = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
+  %call1.i.i.i.i3.i.us = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
   %m_internal_mutex.i.us.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1056
-  %call1.i.i.i.i.i.us.1 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i.us.1) #31
+  %call1.i.i.i.i.i.us.1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i.us.1) #31
   %tobool.not.i.i.i.i.us.1 = icmp eq i32 %call1.i.i.i.i.i.us.1, 0
   br i1 %tobool.not.i.i.i.i.us.1, label %_ZN3con7Channel24getCurrentDownloadRateKBEv.exit.us.1, label %if.then.i.i.i.i78.invoke
 
 _ZN3con7Channel24getCurrentDownloadRateKBEv.exit.us.1: ; preds = %_ZN3con7Channel24getCurrentDownloadRateKBEv.exit.us
   %cur_kbps.i.us.1 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %4 = load float, ptr %cur_kbps.i.us.1, align 8, !tbaa !197
-  %call1.i.i.i.i3.i.us.1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i.us.1) #31
+  %call1.i.i.i.i3.i.us.1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i.us.1) #31
   %m_internal_mutex.i.us.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1568
-  %call1.i.i.i.i.i.us.2 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i.us.2) #31
+  %call1.i.i.i.i.i.us.2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i.us.2) #31
   %tobool.not.i.i.i.i.us.2 = icmp eq i32 %call1.i.i.i.i.i.us.2, 0
   br i1 %tobool.not.i.i.i.i.us.2, label %_ZN3con7Channel24getCurrentDownloadRateKBEv.exit.us.2, label %if.then.i.i.i.i78.invoke
 
@@ -15187,25 +15187,25 @@ _ZN3con7Channel24getCurrentDownloadRateKBEv.exit.us.2: ; preds = %_ZN3con7Channe
   %retval3.1.us.1 = fadd nsz float %3, %4
   %cur_kbps.i.us.2 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %5 = load float, ptr %cur_kbps.i.us.2, align 8, !tbaa !197
-  %call1.i.i.i.i3.i.us.2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i.us.2) #31
+  %call1.i.i.i.i3.i.us.2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i.us.2) #31
   %retval3.1.us.2 = fadd nsz float %retval3.1.us.1, %5
   br label %for.cond.cleanup
 
 _ZN3con7Channel20getAvgDownloadRateKBEv.exit.us:  ; preds = %for.body.us94.preheader
   %avg_kbps.i.us = getelementptr inbounds nuw i8, ptr %0, i64 628
   %6 = load float, ptr %avg_kbps.i.us, align 4, !tbaa !204
-  %call1.i.i.i.i3.i55.us = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
+  %call1.i.i.i.i3.i55.us = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
   %m_internal_mutex.i51.us.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1056
-  %call1.i.i.i.i.i52.us.1 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i51.us.1) #31
+  %call1.i.i.i.i.i52.us.1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i51.us.1) #31
   %tobool.not.i.i.i.i53.us.1 = icmp eq i32 %call1.i.i.i.i.i52.us.1, 0
   br i1 %tobool.not.i.i.i.i53.us.1, label %_ZN3con7Channel20getAvgDownloadRateKBEv.exit.us.1, label %if.then.i.i.i.i78.invoke
 
 _ZN3con7Channel20getAvgDownloadRateKBEv.exit.us.1: ; preds = %_ZN3con7Channel20getAvgDownloadRateKBEv.exit.us
   %avg_kbps.i.us.1 = getelementptr inbounds nuw i8, ptr %0, i64 1140
   %7 = load float, ptr %avg_kbps.i.us.1, align 4, !tbaa !204
-  %call1.i.i.i.i3.i55.us.1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i51.us.1) #31
+  %call1.i.i.i.i3.i55.us.1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i51.us.1) #31
   %m_internal_mutex.i51.us.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1568
-  %call1.i.i.i.i.i52.us.2 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i51.us.2) #31
+  %call1.i.i.i.i.i52.us.2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i51.us.2) #31
   %tobool.not.i.i.i.i53.us.2 = icmp eq i32 %call1.i.i.i.i.i52.us.2, 0
   br i1 %tobool.not.i.i.i.i53.us.2, label %_ZN3con7Channel20getAvgDownloadRateKBEv.exit.us.2, label %if.then.i.i.i.i78.invoke
 
@@ -15213,25 +15213,25 @@ _ZN3con7Channel20getAvgDownloadRateKBEv.exit.us.2: ; preds = %_ZN3con7Channel20g
   %retval3.1.us100.1 = fadd nsz float %6, %7
   %avg_kbps.i.us.2 = getelementptr inbounds nuw i8, ptr %0, i64 1652
   %8 = load float, ptr %avg_kbps.i.us.2, align 4, !tbaa !204
-  %call1.i.i.i.i3.i55.us.2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i51.us.2) #31
+  %call1.i.i.i.i3.i55.us.2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i51.us.2) #31
   %retval3.1.us100.2 = fadd nsz float %retval3.1.us100.1, %8
   br label %for.cond.cleanup
 
 _ZN3con7Channel24getCurrentIncomingRateKBEv.exit.us: ; preds = %for.body.us108.preheader
   %cur_incoming_kbps.i.us = getelementptr inbounds nuw i8, ptr %0, i64 636
   %9 = load float, ptr %cur_incoming_kbps.i.us, align 4, !tbaa !199
-  %call1.i.i.i.i3.i61.us = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
+  %call1.i.i.i.i3.i61.us = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
   %m_internal_mutex.i57.us.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1056
-  %call1.i.i.i.i.i58.us.1 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i57.us.1) #31
+  %call1.i.i.i.i.i58.us.1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i57.us.1) #31
   %tobool.not.i.i.i.i59.us.1 = icmp eq i32 %call1.i.i.i.i.i58.us.1, 0
   br i1 %tobool.not.i.i.i.i59.us.1, label %_ZN3con7Channel24getCurrentIncomingRateKBEv.exit.us.1, label %if.then.i.i.i.i78.invoke
 
 _ZN3con7Channel24getCurrentIncomingRateKBEv.exit.us.1: ; preds = %_ZN3con7Channel24getCurrentIncomingRateKBEv.exit.us
   %cur_incoming_kbps.i.us.1 = getelementptr inbounds nuw i8, ptr %0, i64 1148
   %10 = load float, ptr %cur_incoming_kbps.i.us.1, align 4, !tbaa !199
-  %call1.i.i.i.i3.i61.us.1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i57.us.1) #31
+  %call1.i.i.i.i3.i61.us.1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i57.us.1) #31
   %m_internal_mutex.i57.us.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1568
-  %call1.i.i.i.i.i58.us.2 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i57.us.2) #31
+  %call1.i.i.i.i.i58.us.2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i57.us.2) #31
   %tobool.not.i.i.i.i59.us.2 = icmp eq i32 %call1.i.i.i.i.i58.us.2, 0
   br i1 %tobool.not.i.i.i.i59.us.2, label %_ZN3con7Channel24getCurrentIncomingRateKBEv.exit.us.2, label %if.then.i.i.i.i78.invoke
 
@@ -15239,25 +15239,25 @@ _ZN3con7Channel24getCurrentIncomingRateKBEv.exit.us.2: ; preds = %_ZN3con7Channe
   %retval3.1.us114.1 = fadd nsz float %9, %10
   %cur_incoming_kbps.i.us.2 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   %11 = load float, ptr %cur_incoming_kbps.i.us.2, align 4, !tbaa !199
-  %call1.i.i.i.i3.i61.us.2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i57.us.2) #31
+  %call1.i.i.i.i3.i61.us.2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i57.us.2) #31
   %retval3.1.us114.2 = fadd nsz float %retval3.1.us114.1, %11
   br label %for.cond.cleanup
 
 _ZN3con7Channel20getAvgIncomingRateKBEv.exit.us:  ; preds = %for.body.us122.preheader
   %avg_incoming_kbps.i.us = getelementptr inbounds nuw i8, ptr %0, i64 640
   %12 = load float, ptr %avg_incoming_kbps.i.us, align 8, !tbaa !206
-  %call1.i.i.i.i3.i67.us = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
+  %call1.i.i.i.i3.i67.us = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
   %m_internal_mutex.i63.us.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1056
-  %call1.i.i.i.i.i64.us.1 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i63.us.1) #31
+  %call1.i.i.i.i.i64.us.1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i63.us.1) #31
   %tobool.not.i.i.i.i65.us.1 = icmp eq i32 %call1.i.i.i.i.i64.us.1, 0
   br i1 %tobool.not.i.i.i.i65.us.1, label %_ZN3con7Channel20getAvgIncomingRateKBEv.exit.us.1, label %if.then.i.i.i.i78.invoke
 
 _ZN3con7Channel20getAvgIncomingRateKBEv.exit.us.1: ; preds = %_ZN3con7Channel20getAvgIncomingRateKBEv.exit.us
   %avg_incoming_kbps.i.us.1 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %13 = load float, ptr %avg_incoming_kbps.i.us.1, align 8, !tbaa !206
-  %call1.i.i.i.i3.i67.us.1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i63.us.1) #31
+  %call1.i.i.i.i3.i67.us.1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i63.us.1) #31
   %m_internal_mutex.i63.us.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1568
-  %call1.i.i.i.i.i64.us.2 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i63.us.2) #31
+  %call1.i.i.i.i.i64.us.2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i63.us.2) #31
   %tobool.not.i.i.i.i65.us.2 = icmp eq i32 %call1.i.i.i.i.i64.us.2, 0
   br i1 %tobool.not.i.i.i.i65.us.2, label %_ZN3con7Channel20getAvgIncomingRateKBEv.exit.us.2, label %if.then.i.i.i.i78.invoke
 
@@ -15265,25 +15265,25 @@ _ZN3con7Channel20getAvgIncomingRateKBEv.exit.us.2: ; preds = %_ZN3con7Channel20g
   %retval3.1.us128.1 = fadd nsz float %12, %13
   %avg_incoming_kbps.i.us.2 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %14 = load float, ptr %avg_incoming_kbps.i.us.2, align 8, !tbaa !206
-  %call1.i.i.i.i3.i67.us.2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i63.us.2) #31
+  %call1.i.i.i.i3.i67.us.2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i63.us.2) #31
   %retval3.1.us128.2 = fadd nsz float %retval3.1.us128.1, %14
   br label %for.cond.cleanup
 
 _ZN3con7Channel16getAvgLossRateKBEv.exit.us:      ; preds = %for.body.us136.preheader
   %avg_kbps_lost.i.us = getelementptr inbounds nuw i8, ptr %0, i64 652
   %15 = load float, ptr %avg_kbps_lost.i.us, align 4, !tbaa !205
-  %call1.i.i.i.i3.i73.us = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
+  %call1.i.i.i.i3.i73.us = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
   %m_internal_mutex.i69.us.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1056
-  %call1.i.i.i.i.i70.us.1 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i69.us.1) #31
+  %call1.i.i.i.i.i70.us.1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i69.us.1) #31
   %tobool.not.i.i.i.i71.us.1 = icmp eq i32 %call1.i.i.i.i.i70.us.1, 0
   br i1 %tobool.not.i.i.i.i71.us.1, label %_ZN3con7Channel16getAvgLossRateKBEv.exit.us.1, label %if.then.i.i.i.i78.invoke
 
 _ZN3con7Channel16getAvgLossRateKBEv.exit.us.1:    ; preds = %_ZN3con7Channel16getAvgLossRateKBEv.exit.us
   %avg_kbps_lost.i.us.1 = getelementptr inbounds nuw i8, ptr %0, i64 1164
   %16 = load float, ptr %avg_kbps_lost.i.us.1, align 4, !tbaa !205
-  %call1.i.i.i.i3.i73.us.1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i69.us.1) #31
+  %call1.i.i.i.i3.i73.us.1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i69.us.1) #31
   %m_internal_mutex.i69.us.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1568
-  %call1.i.i.i.i.i70.us.2 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i69.us.2) #31
+  %call1.i.i.i.i.i70.us.2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i69.us.2) #31
   %tobool.not.i.i.i.i71.us.2 = icmp eq i32 %call1.i.i.i.i.i70.us.2, 0
   br i1 %tobool.not.i.i.i.i71.us.2, label %_ZN3con7Channel16getAvgLossRateKBEv.exit.us.2, label %if.then.i.i.i.i78.invoke
 
@@ -15291,7 +15291,7 @@ _ZN3con7Channel16getAvgLossRateKBEv.exit.us.2:    ; preds = %_ZN3con7Channel16ge
   %retval3.1.us142.1 = fadd nsz float %15, %16
   %avg_kbps_lost.i.us.2 = getelementptr inbounds nuw i8, ptr %0, i64 1676
   %17 = load float, ptr %avg_kbps_lost.i.us.2, align 4, !tbaa !205
-  %call1.i.i.i.i3.i73.us.2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i69.us.2) #31
+  %call1.i.i.i.i3.i73.us.2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i69.us.2) #31
   %retval3.1.us142.2 = fadd nsz float %retval3.1.us142.1, %17
   br label %for.cond.cleanup
 
@@ -15317,18 +15317,18 @@ if.then.i.i.i.i78.cont:                           ; preds = %if.then.i.i.i.i78.i
 _ZN3con7Channel20getCurrentLossRateKBEv.exit:     ; preds = %for.body.preheader
   %cur_kbps_lost.i = getelementptr inbounds nuw i8, ptr %0, i64 648
   %20 = load float, ptr %cur_kbps_lost.i, align 8, !tbaa !198
-  %call1.i.i.i.i3.i79 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
+  %call1.i.i.i.i3.i79 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
   %m_internal_mutex.i75.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1056
-  %call1.i.i.i.i.i76.1 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i75.1) #31
+  %call1.i.i.i.i.i76.1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i75.1) #31
   %tobool.not.i.i.i.i77.1 = icmp eq i32 %call1.i.i.i.i.i76.1, 0
   br i1 %tobool.not.i.i.i.i77.1, label %_ZN3con7Channel20getCurrentLossRateKBEv.exit.1, label %if.then.i.i.i.i78.invoke
 
 _ZN3con7Channel20getCurrentLossRateKBEv.exit.1:   ; preds = %_ZN3con7Channel20getCurrentLossRateKBEv.exit
   %cur_kbps_lost.i.1 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %21 = load float, ptr %cur_kbps_lost.i.1, align 8, !tbaa !198
-  %call1.i.i.i.i3.i79.1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75.1) #31
+  %call1.i.i.i.i3.i79.1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75.1) #31
   %m_internal_mutex.i75.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1568
-  %call1.i.i.i.i.i76.2 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i75.2) #31
+  %call1.i.i.i.i.i76.2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i75.2) #31
   %tobool.not.i.i.i.i77.2 = icmp eq i32 %call1.i.i.i.i.i76.2, 0
   br i1 %tobool.not.i.i.i.i77.2, label %_ZN3con7Channel20getCurrentLossRateKBEv.exit.2, label %if.then.i.i.i.i78.invoke
 
@@ -15336,7 +15336,7 @@ _ZN3con7Channel20getCurrentLossRateKBEv.exit.2:   ; preds = %_ZN3con7Channel20ge
   %retval3.1.1 = fadd nsz float %20, %21
   %cur_kbps_lost.i.2 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %22 = load float, ptr %cur_kbps_lost.i.2, align 8, !tbaa !198
-  %call1.i.i.i.i3.i79.2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75.2) #31
+  %call1.i.i.i.i3.i79.2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75.2) #31
   %retval3.1.2 = fadd nsz float %retval3.1.1, %22
   br label %for.cond.cleanup
 
@@ -16712,46 +16712,46 @@ entry:
   br i1 %tobool.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %exception = call ptr @__cxa_allocate_exception(i64 40) #31
+  %exception = tail call ptr @__cxa_allocate_exception(i64 40) #31
   invoke void @_ZN3con19ConnectionExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.86)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN3con19ConnectionExceptionE, ptr nonnull @_ZN13BaseExceptionD2Ev) #30
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN3con19ConnectionExceptionE, ptr nonnull @_ZN13BaseExceptionD2Ev) #30
   unreachable
 
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception) #31
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #31
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %call2 = call noalias noundef nonnull dereferenceable(1696) ptr @_Znwm(i64 noundef 1696) #33
+  %call2 = tail call noalias noundef nonnull dereferenceable(1696) ptr @_Znwm(i64 noundef 1696) #33
   invoke void @_ZN3con7UDPPeerC2EtRK7AddressPNS_10ConnectionE(ptr noundef nonnull align 8 dereferenceable(1696) %call2, i16 noundef zeroext 1, ptr noundef nonnull align 4 dereferenceable(22) %address, ptr noundef nonnull %this)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %if.end
   %m_exclusive_access_mutex.i = getelementptr inbounds nuw i8, ptr %call2, i64 16
-  %call1.i.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_exclusive_access_mutex.i) #31
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_exclusive_access_mutex.i) #31
   %tobool.not.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN3con4Peer12SetFullyOpenEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont4
-  call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #30
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #30
   unreachable
 
 _ZN3con4Peer12SetFullyOpenEv.exit:                ; preds = %invoke.cont4
   %m_half_open.i = getelementptr inbounds nuw i8, ptr %call2, i64 128
   store i8 0, ptr %m_half_open.i, align 8, !tbaa !236
-  %call1.i.i.i.i3.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_exclusive_access_mutex.i) #31
+  %call1.i.i.i.i3.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_exclusive_access_mutex.i) #31
   %m_peers_mutex = getelementptr inbounds nuw i8, ptr %this, i64 400
-  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_peers_mutex) #31
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_peers_mutex) #31
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN3con4Peer12SetFullyOpenEv.exit
-  call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #30
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #30
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %_ZN3con4Peer12SetFullyOpenEv.exit
@@ -16794,13 +16794,13 @@ if.then.i.i.i19:                                  ; preds = %if.else.i
 
 _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 1
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %6 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 4611686018427387903)
+  %6 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 4611686018427387903)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 4611686018427387903, i64 %6
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
-  call void @llvm.assume(i1 %cmp.not.i.i.i)
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 1
   %call5.i.i.i.i.i20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #33
           to label %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit29
@@ -16813,7 +16813,7 @@ _ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i: ; preds = %_ZNKSt6vectorItS
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i20, ptr align 2 %5, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i20, ptr align 2 %5, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i
 
 _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i
@@ -16822,7 +16822,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i18, label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i, label %if.then.i39.i.i
 
 if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i
-  call void @_ZdlPv(ptr noundef nonnull %5) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #32
   br label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i
 
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i
@@ -16833,19 +16833,19 @@ _ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i, %if.then.i
-  %call1.i.i.i.i22 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_peers_mutex) #31
+  %call1.i.i.i.i22 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_peers_mutex) #31
   ret ptr %call2
 
 lpad3:                                            ; preds = %if.end
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call2) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %call2) #32
   br label %eh.resume
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit29:          ; preds = %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i, %if.then.i.i.i19, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i.i28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_peers_mutex) #31
+  %call1.i.i.i.i28 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_peers_mutex) #31
   br label %eh.resume
 
 eh.resume:                                        ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit29, %lpad3, %lpad

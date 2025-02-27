@@ -588,7 +588,7 @@ define void @_ZN4LIEF2PE19DynamicFixupGenericC2EOS1_(ptr noundef nonnull writeon
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN4LIEF2PE19DynamicFixupGenericaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(40) initializes((8, 12)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN4LIEF2PE19DynamicFixupGenericaSEOS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(40) initializes((8, 12)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -847,7 +847,7 @@ _ZNSt10unique_ptrIN4LIEF2PE10RelocationESt14default_deleteIS2_EED2Ev.exit.i: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN4LIEF2PE19DynamicFixupGenericaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN4LIEF2PE19DynamicFixupGenericaSERKS1_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #2 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE10RelocationESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESt20back_insert_iteratorISD_EZNS4_19DynamicFixupGenericaSERKSH_E3$_0ET0_T_SM_SL_T1_.exit", label %4
 

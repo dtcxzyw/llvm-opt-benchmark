@@ -471,7 +471,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @sqlite3_set_authorizer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @php_sqlite3_authorizer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5) #0 {
+define internal range(i32 0, 3) i32 @php_sqlite3_authorizer(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca [5 x %struct._zval_struct], align 16
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8, !tbaa !65
@@ -774,7 +774,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #2
 declare void @zend_llist_clean(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_sqlite3_error(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) unnamed_addr #0 {
+define internal void @php_sqlite3_error(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
@@ -2254,7 +2254,7 @@ declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 declare i32 @sqlite3_create_function(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_sqlite3_callback_func(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal void @php_sqlite3_callback_func(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call fastcc void @sqlite3_do_callback(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 0)
@@ -2447,7 +2447,7 @@ zend_fcc_addref.exit22:                           ; preds = %75, %78
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_sqlite3_callback_step(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal void @php_sqlite3_callback_step(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #17
   %5 = tail call ptr @sqlite3_aggregate_context(ptr noundef %0, i32 noundef 24) #17
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3342,7 +3342,7 @@ define hidden void @zim_SQLite3Stmt_close(ptr noundef readonly captures(none) %0
 declare void @zend_llist_del_element(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @php_sqlite3_compare_stmt_free(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #7 {
+define internal range(i32 0, 2) i32 @php_sqlite3_compare_stmt_free(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #7 {
   %3 = load ptr, ptr %0, align 8, !tbaa !82
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i8, ptr %4, align 8, !tbaa !88, !range !55, !noundef !56
@@ -8320,7 +8320,7 @@ declare void @add_assoc_zval_ex(ptr noundef, ptr noundef, i64 noundef, ptr nound
 declare ptr @sqlite3_user_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sqlite3_do_callback(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @sqlite3_do_callback(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
   %7 = icmp ne i32 %4, 0

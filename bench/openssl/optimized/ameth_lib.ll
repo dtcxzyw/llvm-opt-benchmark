@@ -70,7 +70,7 @@ define ptr @EVP_PKEY_asn1_get0(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_PKEY_asn1_find(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @EVP_PKEY_asn1_find(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.evp_pkey_asn1_method_st, align 8
   %4 = alloca ptr, align 8
   br label %5
@@ -157,7 +157,7 @@ declare ptr @ENGINE_get_pkey_asn1_meth_engine(i32 noundef) local_unnamed_addr #2
 declare ptr @ENGINE_get_pkey_asn1_meth(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_PKEY_asn1_find_str(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @EVP_PKEY_asn1_find_str(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq i32 %2, -1
   br i1 %5, label %6, label %9
@@ -467,7 +467,7 @@ define void @EVP_PKEY_asn1_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @EVP_PKEY_asn1_get0_info(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef readonly %5) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @EVP_PKEY_asn1_get0_info(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #6 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %27, label %7
 

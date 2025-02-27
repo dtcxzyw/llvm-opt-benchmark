@@ -273,7 +273,7 @@ declare noundef ptr @_ZN6icu_779SpoofImpl15asUSpoofCheckerEv(ptr noundef nonnull
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uspoof_openFromSerialized_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @uspoof_openFromSerialized_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = load i32, ptr %3, align 4, !tbaa !3
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %51
@@ -753,7 +753,7 @@ declare noundef ptr @_ZN6icu_7710UnicodeSet6freezeEv(ptr noundef nonnull align 8
 declare void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uspoof_check_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define noundef i32 @uspoof_check_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %6
 
@@ -873,7 +873,7 @@ define noundef i32 @uspoof_check2UnicodeString_77(ptr noundef %0, ptr noundef no
 declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uspoof_checkUTF8_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @uspoof_checkUTF8_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.icu_77::CheckResult", align 8
   %7 = alloca %"class.icu_77::UnicodeString", align 8
   %.not = icmp eq ptr %3, null
@@ -2032,7 +2032,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %19, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uspoof_checkUnicodeString_77(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @uspoof_checkUnicodeString_77(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_77::CheckResult", align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %6

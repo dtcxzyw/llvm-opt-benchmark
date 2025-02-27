@@ -878,12 +878,12 @@ define noundef zeroext i1 @_ZN4LIEF4objceqERKNS0_5Class8IteratorES4_(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc5Class8IteratorppEv(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc5Class8IteratorppEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc5Class8IteratormmEv(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc5Class8IteratormmEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
@@ -1158,12 +1158,12 @@ define noundef zeroext i1 @_ZN4LIEF4objceqERKNS0_8Protocol8IteratorES4_(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc8Protocol8IteratorppEv(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc8Protocol8IteratorppEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc8Protocol8IteratormmEv(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc8Protocol8IteratormmEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
@@ -1275,12 +1275,12 @@ define noundef zeroext i1 @_ZN4LIEF4objceqERKNS0_8Property8IteratorES4_(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc8Property8IteratorppEv(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc8Property8IteratorppEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc8Property8IteratormmEv(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc8Property8IteratormmEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
@@ -1374,12 +1374,12 @@ define noundef zeroext i1 @_ZN4LIEF4objceqERKNS0_6Method8IteratorES4_(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc6Method8IteratorppEv(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc6Method8IteratorppEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc6Method8IteratormmEv(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc6Method8IteratormmEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
@@ -1483,12 +1483,12 @@ define noundef zeroext i1 @_ZN4LIEF4objceqERKNS0_4IVar8IteratorES4_(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc4IVar8IteratorppEv(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc4IVar8IteratorppEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc4IVar8IteratormmEv(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF4objc4IVar8IteratormmEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 

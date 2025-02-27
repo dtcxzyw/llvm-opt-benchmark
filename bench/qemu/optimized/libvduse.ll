@@ -1790,7 +1790,7 @@ vduse_dev_init_vqs.exit:                          ; preds = %37
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @vduse_dev_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i16 noundef zeroext %4, i32 noundef %5, ptr noundef readonly %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #2 {
+define dso_local noundef ptr @vduse_dev_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i16 noundef zeroext %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #2 {
   %10 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #20
   %.not = icmp eq ptr %0, null

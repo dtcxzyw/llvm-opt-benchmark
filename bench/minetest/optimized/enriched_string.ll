@@ -2975,14 +2975,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK14EnrichedString9getColorsEv(ptr noundef nonnull readnone align 8 dereferenceable(80) %this) local_unnamed_addr #12 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK14EnrichedString9getColorsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %this) local_unnamed_addr #12 align 2 {
 entry:
   %m_colors = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %m_colors
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK14EnrichedString9getStringB5cxx11Ev(ptr noundef nonnull readnone returned align 8 dereferenceable(80) %this) local_unnamed_addr #12 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK14EnrichedString9getStringB5cxx11Ev(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(80) %this) local_unnamed_addr #12 align 2 {
 entry:
   ret ptr %this
 }

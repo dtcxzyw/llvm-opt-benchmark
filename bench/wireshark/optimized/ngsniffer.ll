@@ -1020,7 +1020,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @process_frame_record(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef writeonly %2, ptr noundef readonly captures(none) %3, ptr noundef initializes((0, 8), (232, 240)) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @process_frame_record(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef initializes((0, 8), (232, 240)) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.frame2_rec, align 2
   %9 = alloca %struct.frame4_rec, align 4
   %10 = alloca %struct.frame6_rec, align 2

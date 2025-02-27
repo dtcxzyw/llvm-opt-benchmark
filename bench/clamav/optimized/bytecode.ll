@@ -10020,7 +10020,7 @@ define noundef i32 @cli_bytecode_context_setfile(ptr noundef initializes((56, 60
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bytecode_runlsig(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define i32 @cli_bytecode_runlsig(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.cli_bc_ctx, align 8
   %9 = alloca %struct.cli_pe_hook_data, align 8
   call void @llvm.lifetime.start.p0(i64 1344, ptr nonnull %8) #25
@@ -10521,7 +10521,7 @@ define noundef i32 @cli_bytecode_context_setpdf(ptr noundef writeonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_bytecode_describe(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @cli_bytecode_describe(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca [128 x i8], align 16
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #25

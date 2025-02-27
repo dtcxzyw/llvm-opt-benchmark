@@ -363,7 +363,7 @@ define dso_local noundef range(i32 0, 520) i32 @_ZN4llvm26invertFPClassTestIfSim
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm27salvageDebugInfoForDbgValueERKNS_19MachineRegisterInfoERNS_12MachineInstrENS_8ArrayRefIPNS_14MachineOperandEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm27salvageDebugInfoForDbgValueERKNS_19MachineRegisterInfoERNS_12MachineInstrENS_8ArrayRefIPNS_14MachineOperandEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 {
   %5 = alloca %"struct.std::array", align 8
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = alloca %"class.llvm::TypeSize", align 8

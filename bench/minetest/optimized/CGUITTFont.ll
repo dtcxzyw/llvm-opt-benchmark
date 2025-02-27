@@ -6671,7 +6671,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK14EnrichedString9ge
 declare noundef ptr @_ZNK14EnrichedString5c_strEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3irr3gui10CGUITTFont23convertWCharToU32StringB5cxx11EPKw(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.20") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(280) %this, ptr noundef readonly %charArray) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3irr3gui10CGUITTFont23convertWCharToU32StringB5cxx11EPKw(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.20") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(280) %this, ptr noundef readonly captures(address_is_null) %charArray) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !136
@@ -7067,7 +7067,7 @@ _ZNK3irr3gui10CGUITTFont22getHeightFromCharacterEw.exit: ; preds = %if.else.i.i2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZNK3irr3gui10CGUITTFont12getDimensionEPKw(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %this, ptr noundef readonly %text) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local i64 @_ZNK3irr3gui10CGUITTFont12getDimensionEPKw(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %this, ptr noundef readonly captures(address_is_null) %text) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string.20", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #30
@@ -7478,7 +7478,7 @@ entry:
 declare i32 @FT_Get_Char_Index(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK3irr3gui10CGUITTFont19getCharacterFromPosEPKwi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %this, ptr noundef readonly %text, i32 noundef %pixel_x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZNK3irr3gui10CGUITTFont19getCharacterFromPosEPKwi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %this, ptr noundef readonly captures(address_is_null) %text, i32 noundef %pixel_x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i = alloca [2 x i32], align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string.20", align 8
@@ -7780,7 +7780,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK3irr3gui10CGUITTFont15getKerningWidthEPKwS3_(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef readonly %thisLetter, ptr noundef readonly %previousLetter) unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZNK3irr3gui10CGUITTFont15getKerningWidthEPKwS3_(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef readonly captures(address_is_null) %thisLetter, ptr noundef readonly captures(address_is_null) %previousLetter) unnamed_addr #4 align 2 {
 entry:
   %tt_face = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %tt_face, align 8, !tbaa !103
@@ -7838,7 +7838,7 @@ entry:
 declare i32 @FT_Get_Kerning(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui10CGUITTFont22setInvisibleCharactersEPKw(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef readonly %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3irr3gui10CGUITTFont22setInvisibleCharactersEPKw(ptr noundef nonnull align 8 captures(address) dereferenceable(280) %this, ptr noundef readonly captures(address_is_null) %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string.20", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #30
@@ -8409,7 +8409,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZNK3irr3gui10CGUITTFont26getDimensionUntilEndOfLineEPKw(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef readonly %p) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local i64 @_ZNK3irr3gui10CGUITTFont26getDimensionUntilEndOfLineEPKw(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef readonly captures(address_is_null) %p) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.irr::core::string.60", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s) #30

@@ -4864,7 +4864,7 @@ declare noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp27UsingImplicitWeakD
 declare void @_ZN6google8protobuf8compiler3cpp19DescriptorTableNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(206)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator20GenerateRegistrationEPNS0_2io7PrinterEENK3$_0clIKNS0_10DescriptorEEEDaPT_"(ptr noundef readonly %desc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator20GenerateRegistrationEPNS0_2io7PrinterEENK3$_0clIKNS0_10DescriptorEEEDaPT_"(ptr noundef readonly captures(address) %desc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %msgs = alloca %"class.std::vector.240", align 8
   %file_.i = getelementptr inbounds nuw i8, ptr %desc, i64 16

@@ -852,7 +852,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @testchar(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 9) %2, i32 noundef range(i32 1, 3) %3, i8 noundef signext range(i8 0, 64) %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @testchar(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 9) %2, i32 noundef range(i32 1, 3) %3, i8 noundef signext range(i8 0, 64) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %2, i32 noundef 1)
   br i1 %7, label %8, label %15
 

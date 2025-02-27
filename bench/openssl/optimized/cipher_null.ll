@@ -59,7 +59,7 @@ define internal range(i32 0, 2) i32 @null_dinit(ptr readnone captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @null_cipher(ptr noundef captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #0 {
+define internal range(i32 0, 2) i32 @null_cipher(ptr noundef captures(none) %0, ptr noundef writeonly captures(address) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #0 {
   %7 = tail call i32 @ossl_prov_is_running() #4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %26, label %8

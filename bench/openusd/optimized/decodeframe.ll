@@ -273,7 +273,7 @@ define hidden void @av1_set_single_tile_decoding_mode(ptr noundef captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_dec_row_mt_dealloc(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @av1_dec_row_mt_dealloc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %30, label %2
 
@@ -1415,7 +1415,7 @@ define hidden void @av1_read_sequence_header(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @av1_init_read_bit_buffer(ptr noundef %0, ptr noundef returned writeonly initializes((0, 20), (24, 40)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define hidden noundef ptr @av1_init_read_bit_buffer(ptr noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 20), (24, 40)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32

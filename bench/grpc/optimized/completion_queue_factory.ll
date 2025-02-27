@@ -135,7 +135,7 @@ declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noun
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: uwtable
-define noundef ptr @grpc_completion_queue_create_for_next(ptr noundef readnone %0) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define noundef ptr @grpc_completion_queue_create_for_next(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.grpc_core::ExecCtx", align 8
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %4 = alloca %struct.grpc_completion_queue_attributes, align 8
@@ -357,7 +357,7 @@ _ZNSt14_Optional_baseIN9grpc_core15ScopedTimeCacheELb0ELb0EED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: uwtable
-define noundef ptr @grpc_completion_queue_create_for_pluck(ptr noundef readnone %0) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define noundef ptr @grpc_completion_queue_create_for_pluck(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.grpc_core::ExecCtx", align 8
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %4 = alloca %struct.grpc_completion_queue_attributes, align 8
@@ -504,7 +504,7 @@ common.resume:                                    ; preds = %48, %20
 }
 
 ; Function Attrs: uwtable
-define noundef ptr @grpc_completion_queue_create_for_callback(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define noundef ptr @grpc_completion_queue_create_for_callback(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.grpc_core::ExecCtx", align 8
   %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %5 = alloca %struct.grpc_completion_queue_attributes, align 8
@@ -657,7 +657,7 @@ common.resume:                                    ; preds = %52, %21
 }
 
 ; Function Attrs: uwtable
-define noundef ptr @grpc_completion_queue_create(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define noundef ptr @grpc_completion_queue_create(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.grpc_core::ExecCtx", align 8
   %5 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #17

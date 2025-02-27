@@ -219,12 +219,12 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17ha53a664707
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 2 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h36ddc213ba45ecd5E"(ptr readnone returned align 2 %0) unnamed_addr #3 {
+define align 2 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h36ddc213ba45ecd5E"(ptr readnone returned align 2 captures(ret: address, provenance) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 16 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hb6c2d02bd2beb27eE"(ptr readnone returned align 16 %0) unnamed_addr #3 {
+define align 16 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hb6c2d02bd2beb27eE"(ptr readnone returned align 16 captures(ret: address, provenance) %0) unnamed_addr #3 {
   ret ptr %0
 }
 

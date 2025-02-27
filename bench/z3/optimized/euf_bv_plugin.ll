@@ -1149,7 +1149,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf9bv_plugin16propagate_valuesEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef readonly %x) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3euf9bv_plugin16propagate_valuesEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef readonly captures(address) %x) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %args.i.i102 = alloca [2 x ptr], align 16
   %args.i103 = alloca [2 x ptr], align 16

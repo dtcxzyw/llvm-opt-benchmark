@@ -685,7 +685,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10btSoftBodyC2EP19btSoftBodyWorldInfoiPK9btVector3PKf(ptr noundef nonnull align 8 dereferenceable(2064) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10btSoftBodyC2EP19btSoftBodyWorldInfoiPK9btVector3PKf(ptr noundef nonnull align 8 dereferenceable(2064) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(address) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct.btDbvtAabbMm, align 8
   tail call void @_ZN17btCollisionObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(372) %0)
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTV10btSoftBody, i64 16), ptr %0, align 8, !tbaa !4
@@ -5667,7 +5667,7 @@ _ZNK10btSoftBody9checkLinkEPKNS_4NodeES2_.exit:   ; preds = %19, %25, %.critedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK10btSoftBody9checkLinkEPKNS_4NodeES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2064) %0, ptr noundef readnone %1, ptr noundef readnone %2) local_unnamed_addr #13 align 2 {
+define dso_local noundef zeroext i1 @_ZNK10btSoftBody9checkLinkEPKNS_4NodeES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2064) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #13 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 996
   %5 = load i32, ptr %4, align 4, !tbaa !146
   %.not21 = icmp sgt i32 %5, 0
@@ -6423,7 +6423,7 @@ define dso_local void @_ZN10btSoftBody17pointersToIndicesEv(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody17indicesToPointersEPKi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2064) %0, ptr noundef readonly %1) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN10btSoftBody17indicesToPointersEPKi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2064) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 932
   %4 = load i32, ptr %3, align 4, !tbaa !138
   %.not = icmp eq i32 %4, 0
@@ -30857,7 +30857,7 @@ _ZN20btAlignedObjectArrayIbED2Ev.exit242:         ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZL11copyToDbvntPK10btDbvtNode(ptr noundef readonly %0) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZL11copyToDbvntPK10btDbvtNode(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %common.ret13, label %3
 
@@ -39325,7 +39325,7 @@ _ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEED2Ev.exit: ; preds = %168, %169
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZL19calculateNormalConeP11btDbvntNode(ptr noundef %0) unnamed_addr #34 {
+define internal fastcc void @_ZL19calculateNormalConeP11btDbvntNode(ptr noundef captures(address_is_null) %0) unnamed_addr #34 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %61, label %2
 
@@ -39936,7 +39936,7 @@ define dso_local void @_ZN10btSoftBody15setWindVelocityERK9btVector3(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN10btSoftBody15getWindVelocityEv(ptr noundef nonnull readnone align 8 dereferenceable(2064) %0) local_unnamed_addr #30 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN10btSoftBody15getWindVelocityEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(2064) %0) local_unnamed_addr #30 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2008
   ret ptr %2
 }

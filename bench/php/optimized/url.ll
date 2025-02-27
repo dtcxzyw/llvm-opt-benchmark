@@ -1761,7 +1761,7 @@ declare ptr @_zend_new_array_0() local_unnamed_addr #1
 declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @php_url_encode(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #9 {
+define dso_local ptr @php_url_encode(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #9 {
   %3 = alloca [16 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %5 = tail call noalias ptr @_safe_emalloc(i64 noundef 3, i64 noundef %1, i64 noundef 32) #13
@@ -2259,7 +2259,7 @@ php_htoi.exit:                                    ; preds = %37, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @php_raw_url_encode(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #9 {
+define dso_local ptr @php_raw_url_encode(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #9 {
   %3 = alloca [16 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %5 = tail call noalias ptr @_safe_emalloc(i64 noundef 3, i64 noundef %1, i64 noundef 32) #13

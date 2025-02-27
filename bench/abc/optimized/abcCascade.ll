@@ -612,7 +612,7 @@ Abc_ResCheckUnique.exit.us:                       ; preds = %.lr.ph.i43.us, %.lr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca [32 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -927,7 +927,7 @@ declare ptr @Extra_bddBitsToCube(ptr noundef, i32 noundef, i32 noundef, ptr noun
 declare ptr @Cudd_Cofactor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_ResCost(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @Abc_ResCost(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %4)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %7

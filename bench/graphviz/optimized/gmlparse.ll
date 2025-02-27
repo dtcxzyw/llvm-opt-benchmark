@@ -95,7 +95,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.68 = private unnamed_addr constant [3 x i8] c"lp\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @free_node(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @free_node(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -178,7 +178,7 @@ attrs_clear.exit:                                 ; preds = %free_attr.exit, %1
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @free_edge(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @free_edge(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -193,7 +193,7 @@ define dso_local void @free_edge(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @free_graph(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @free_graph(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %66, label %2
 
@@ -2268,7 +2268,7 @@ dts_push_back.exit:                               ; preds = %._crit_edge.i.i.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @free_attr(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @free_attr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 

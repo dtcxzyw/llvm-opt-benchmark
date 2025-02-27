@@ -1471,7 +1471,7 @@ define noundef range(i32 -1, 1) i32 @LGBM_RegisterLogCallback(ptr noundef %0) lo
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @LGBM_GetSampleCount(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @LGBM_GetSampleCount(i32 noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unordered_map", align 8
   %5 = alloca %"struct.LightGBM::Config", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3505,7 +3505,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @LGBM_SampleIndices(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @LGBM_SampleIndices(i32 noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.LightGBM::Random", align 4
   %6 = alloca %"class.std::unordered_map", align 8
   %7 = alloca %"struct.LightGBM::Config", align 8
@@ -60479,7 +60479,7 @@ _ZN4yamc11shared_lockINS_9alternate18basic_shared_mutexINS_6rwlock12ReaderPrefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @LGBM_NetworkInit(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @LGBM_NetworkInit(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.LightGBM::Config", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

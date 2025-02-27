@@ -481,7 +481,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @Min_CoverCreate(ptr noundef captures(none) initializes((4, 8)) %0, ptr noundef readonly %1, i8 noundef signext %2) local_unnamed_addr #0 {
+define void @Min_CoverCreate(ptr noundef captures(none) initializes((4, 8)) %0, ptr noundef readonly captures(address_is_null) %1, i8 noundef signext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4, !tbaa !7
   %.not7 = icmp eq ptr %1, null
@@ -612,7 +612,7 @@ define void @Min_CubeWrite(ptr noundef captures(none) %0, ptr noundef readonly c
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Min_CoverWrite(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define void @Min_CoverWrite(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %.not5 = icmp eq ptr %1, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -762,7 +762,7 @@ Min_CubeWrite.exit:                               ; preds = %20, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Min_CoverWriteFile(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Min_CoverWriteFile(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1000 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %4) #14
   %.not = icmp eq i32 %2, 0
@@ -1021,7 +1021,7 @@ define void @Min_CoverExpand(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 declare void @Min_ManClean(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Min_CoverSuppVarNum(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #8 {
+define i32 @Min_CoverSuppVarNum(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %.preheader29
 

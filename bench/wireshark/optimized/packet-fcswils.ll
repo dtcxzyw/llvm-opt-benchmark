@@ -718,7 +718,7 @@ define internal range(i32 0, 2) i32 @fcswils_equal(ptr noundef readonly captures
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca %struct._fcswils_conv_key, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
   %6 = icmp eq ptr %3, null

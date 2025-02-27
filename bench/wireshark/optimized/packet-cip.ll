@@ -4499,7 +4499,7 @@ define hidden i32 @dissect_padded_epath_len_uint(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
-define hidden noundef ptr @cip_get_service_one_table(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #6 {
+define hidden noundef ptr @cip_get_service_one_table(ptr noundef readonly captures(ret: address, provenance) %0, i64 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #6 {
   %.not19.not = icmp eq i64 %1, 0
   br i1 %.not19.not, label %._crit_edge, label %.lr.ph
 
@@ -4722,7 +4722,7 @@ define hidden noundef range(i32 8, 13) i32 @dissect_electronic_key_format(ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden range(i32 0, 513) i32 @dissect_cip_segment_single(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef %7, ptr noundef writeonly %8, i32 noundef %9, ptr noundef %10, i1 noundef zeroext %11) local_unnamed_addr #3 {
+define hidden range(i32 0, 513) i32 @dissect_cip_segment_single(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, i32 noundef %9, ptr noundef %10, i1 noundef zeroext %11) local_unnamed_addr #3 {
   %13 = alloca i32, align 4
   %14 = alloca %struct.cip_connID_info, align 8
   %15 = alloca i32, align 4
@@ -6600,7 +6600,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 0, 7) i32 @dissect_cia(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef writeonly captures(none) %9, ptr noundef %10, ptr noundef %11, ptr noundef writeonly %12, i32 noundef %13, i32 noundef %14, i32 noundef %15) unnamed_addr #3 {
+define internal fastcc range(i32 0, 7) i32 @dissect_cia(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef writeonly captures(none) %9, ptr noundef %10, ptr noundef %11, ptr noundef writeonly captures(address_is_null) %12, i32 noundef %13, i32 noundef %14, i32 noundef %15) unnamed_addr #3 {
   %17 = and i8 %2, 28
   %.not144 = icmp eq i8 %17, 28
   br i1 %.not144, label %18, label %proto_item_set_generated.exit
@@ -7066,7 +7066,7 @@ define hidden void @reset_cip_request_info(ptr noundef writeonly captures(none) 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_epath(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef %11, i1 noundef zeroext %12) local_unnamed_addr #3 {
+define hidden void @dissect_epath(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(address_is_null) %9, i32 noundef %10, ptr noundef %11, i1 noundef zeroext %12) local_unnamed_addr #3 {
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %16, label %14
 
@@ -10024,7 +10024,7 @@ declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #0
 declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @display_previous_request_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #3 {
+define internal fastcc void @display_previous_request_path(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #3 {
   %7 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %67, label %8
@@ -14134,7 +14134,7 @@ declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noun
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @display_previous_route_connection_path(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #3 {
+define internal fastcc void @display_previous_route_connection_path(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #3 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct.cip_simple_request_info, align 4
   %.not = icmp eq ptr %0, null
@@ -14257,7 +14257,7 @@ dissect_epath.exit:                               ; preds = %.lr.ph, %.lr.ph.i, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_connection_triad(ptr noundef %0, i32 noundef range(i32 4, 523) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6) unnamed_addr #3 {
+define internal fastcc void @dissect_connection_triad(ptr noundef %0, i32 noundef range(i32 4, 523) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #3 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -14296,7 +14296,7 @@ define internal fastcc void @dissect_connection_triad(ptr noundef %0, i32 nounde
 declare void @enip_close_cip_connection(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_cip_cm_fwd_open_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 2, 513) %4, i1 noundef zeroext %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #3 {
+define internal fastcc void @dissect_cip_cm_fwd_open_req(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 2, 513) %4, i1 noundef zeroext %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #3 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4

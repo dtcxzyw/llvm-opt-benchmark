@@ -57,7 +57,7 @@ $_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm42949
 @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE = external unnamed_addr constant [4 x ptr], align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN19OpenColorIO_v2_5dev14GetEnvVariableEPKc(ptr noundef readonly %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN19OpenColorIO_v2_5dev14GetEnvVariableEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN19OpenColorIO_v2_5dev14GetEnvVariableEPKcE5valueB5cxx11 acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %8, !prof !3
@@ -120,7 +120,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev8Platform6GetenvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev8Platform6GetenvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %3
 
@@ -154,7 +154,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev8Platform6GetenvEPKcRN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_5dev14SetEnvVariableEPKcS1_(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_5dev14SetEnvVariableEPKcS1_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
@@ -262,7 +262,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN19OpenColorIO_v2_5dev16UnsetEnvVariableEPKc(ptr noundef readonly %0) local_unnamed_addr #4 {
+define void @_ZN19OpenColorIO_v2_5dev16UnsetEnvVariableEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZN19OpenColorIO_v2_5dev8Platform8UnsetenvEPKc.exit, label %2
 
@@ -280,7 +280,7 @@ _ZN19OpenColorIO_v2_5dev8Platform8UnsetenvEPKc.exit: ; preds = %1, %2, %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_5dev8Platform8UnsetenvEPKc(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden void @_ZN19OpenColorIO_v2_5dev8Platform8UnsetenvEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -298,13 +298,13 @@ define hidden void @_ZN19OpenColorIO_v2_5dev8Platform8UnsetenvEPKc(ptr noundef r
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev20IsEnvVariablePresentEPKc(ptr noundef %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev20IsEnvVariablePresentEPKc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev8Platform12isEnvPresentEPKc(ptr noundef %0)
   ret i1 %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev8Platform12isEnvPresentEPKc(ptr noundef readonly %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev8Platform12isEnvPresentEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %30, label %3

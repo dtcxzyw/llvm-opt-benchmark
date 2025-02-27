@@ -116,7 +116,7 @@ BIO_fd_should_retry.exit.thread:                  ; preds = %11, %BIO_fd_should_
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fd_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal noundef i32 @fd_read(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %4
 
@@ -200,7 +200,7 @@ fd_write.exit:                                    ; preds = %2, %11, %BIO_fd_sho
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fd_gets(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal i32 @fd_gets(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2) #1 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 -1
@@ -240,7 +240,7 @@ define internal i32 @fd_gets(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @fd_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) #1 {
+define internal i64 @fd_ctrl(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #1 {
   switch i32 %1, label %51 [
     i32 1, label %5
     i32 128, label %6
@@ -372,7 +372,7 @@ define internal noundef i32 @fd_new(ptr noundef writeonly captures(none) initial
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fd_free(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @fd_free(ptr noundef captures(address_is_null) %0) #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 

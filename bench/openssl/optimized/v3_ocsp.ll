@@ -151,7 +151,7 @@ define internal void @ocsp_nonce_free(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @d2i_ocsp_nonce(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) #1 {
+define internal noundef ptr @d2i_ocsp_nonce(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -208,7 +208,7 @@ define internal noundef ptr @d2i_ocsp_nonce(ptr noundef %0, ptr noundef captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @i2d_ocsp_nonce(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
+define internal i32 @i2d_ocsp_nonce(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) #2 {
   %.not = icmp eq ptr %1, null
   %.pre = load i32, ptr %0, align 8, !tbaa !14
   br i1 %.not, label %12, label %3

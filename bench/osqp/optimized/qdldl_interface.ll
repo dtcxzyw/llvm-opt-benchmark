@@ -26,7 +26,7 @@ define void @warm_start_linsys_solver_qdldl(ptr readnone captures(none) %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @free_linsys_solver_qdldl(ptr noundef %0) #1 {
+define void @free_linsys_solver_qdldl(ptr noundef captures(address_is_null) %0) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %86, label %2
 
@@ -250,7 +250,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 declare void @csc_spfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 5) i64 @init_linsys_solver_qdldl(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4, i64 noundef %5) local_unnamed_addr #1 {
+define range(i64 0, 5) i64 @init_linsys_solver_qdldl(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -1898,7 +1898,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 declare ptr @form_KKT(ptr noundef, ptr noundef, i64 noundef, double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @permute_KKT(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc void @permute_KKT(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) unnamed_addr #1 {
   %9 = tail call noalias dereferenceable_or_null(160) ptr @malloc(i64 noundef 160) #14
   %10 = load ptr, ptr %0, align 8, !tbaa !59
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8

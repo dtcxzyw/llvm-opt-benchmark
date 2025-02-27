@@ -1026,7 +1026,7 @@ define hidden void @_ZN6google8protobuf14DynamicMessageC2EPNS0_21DynamicMessageF
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZN6google8protobuf14DynamicMessage20MutableExtensionsRawEv(ptr noundef nonnull readonly align 8 dereferenceable(28) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull ptr @_ZN6google8protobuf14DynamicMessage20MutableExtensionsRawEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(28) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -1037,7 +1037,7 @@ define hidden noundef nonnull ptr @_ZN6google8protobuf14DynamicMessage20MutableE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZN6google8protobuf14DynamicMessage22MutableWeakFieldMapRawEv(ptr noundef nonnull readonly align 8 dereferenceable(28) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull ptr @_ZN6google8protobuf14DynamicMessage22MutableWeakFieldMapRawEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(28) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -1048,7 +1048,7 @@ define hidden noundef nonnull ptr @_ZN6google8protobuf14DynamicMessage22MutableW
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZN6google8protobuf14DynamicMessage19MutableOneofCaseRawEi(ptr noundef nonnull readonly align 8 dereferenceable(28) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull ptr @_ZN6google8protobuf14DynamicMessage19MutableOneofCaseRawEi(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(28) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1061,7 +1061,7 @@ define hidden noundef nonnull ptr @_ZN6google8protobuf14DynamicMessage19MutableO
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN6google8protobuf14DynamicMessage20MutableOneofFieldRawEPKNS0_15FieldDescriptorE(ptr noundef nonnull readonly align 8 dereferenceable(28) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN6google8protobuf14DynamicMessage20MutableOneofFieldRawEPKNS0_15FieldDescriptorE(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(28) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.anon, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2058,7 +2058,7 @@ _ZNSt10unique_ptrIKN6google8protobuf10ReflectionESt14default_deleteIS3_EE5resetE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6google8protobuf14DynamicMessage12is_prototypeEv(ptr noundef nonnull readonly align 8 dereferenceable(28) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK6google8protobuf14DynamicMessage12is_prototypeEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(28) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -2969,7 +2969,7 @@ define hidden void @_ZN6google8protobuf14DynamicMessageD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf14DynamicMessage19CrossLinkPrototypesEv(ptr noundef nonnull align 8 dereferenceable(28) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf14DynamicMessage19CrossLinkPrototypesEv(ptr noundef nonnull align 8 captures(address) dereferenceable(28) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.anon, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8

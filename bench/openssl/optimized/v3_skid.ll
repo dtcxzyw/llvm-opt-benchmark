@@ -27,7 +27,7 @@ define ptr @i2s_ASN1_OCTET_STRING(ptr readnone captures(none) %0, ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @s2i_skey_id(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef %2) #1 {
+define internal ptr @s2i_skey_id(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #1 {
   %4 = alloca i64, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.2) #5
   %6 = icmp eq i32 %5, 0

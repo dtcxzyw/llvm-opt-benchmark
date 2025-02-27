@@ -25,7 +25,7 @@ $_ZNSt10filesystem7__cxx114pathD2Ev = comdat any
 @.str.3 = private unnamed_addr constant [47 x i8] c"Evaluating integral: n = %d (file %s, line %d)\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %0, i32 noundef %1, float noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef captures(address_is_null) %0, i32 noundef %1, float noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = icmp sgt i32 %1, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -203,7 +203,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, float noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, float noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %8 = icmp slt i32 %0, 1
   br i1 %8, label %99, label %.preheader

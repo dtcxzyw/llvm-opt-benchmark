@@ -23,7 +23,7 @@ define range(i32 0, 2) i32 @PKCS12_mac_present(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PKCS12_get0_mac(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #1 {
+define void @PKCS12_get0_mac(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %.not = icmp eq ptr %7, null
@@ -169,7 +169,7 @@ define range(i32 0, 2) i32 @PKCS12_gen_mac(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pkcs12_gen_mac(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @pkcs12_gen_mac(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #1 {
   %9 = alloca ptr, align 8
   %10 = alloca [64 x i8], align 16
   %11 = alloca [80 x i8], align 16
@@ -622,7 +622,7 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare ptr @ASN1_STRING_get0_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS12_set_mac(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS12_set_mac(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
   %8 = alloca [64 x i8], align 16
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
@@ -690,7 +690,7 @@ define range(i32 0, 2) i32 @PKCS12_set_mac(ptr noundef captures(none) %0, ptr no
 declare ptr @EVP_sha256() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS12_setup_mac(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS12_setup_mac(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call i32 @EVP_MD_get_type(ptr noundef %4) #5
   %7 = tail call fastcc i32 @pkcs12_setup_mac(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %6)
   ret i32 %7
@@ -701,7 +701,7 @@ declare void @X509_SIG_getm(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare i32 @ASN1_OCTET_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pkcs12_setup_mac(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @pkcs12_setup_mac(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -265,7 +265,7 @@ _ZNK5clang4Decl7hasAttrINS_11PointerAttrEEEbv.exit19: ; preds = %27, %_ZN5clang1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4sema34implicitObjectParamIsLifetimeBoundEPKNS_12FunctionDeclE(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN5clang4sema34implicitObjectParamIsLifetimeBoundEPKNS_12FunctionDeclE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
 _ZN5clang4semaL35getDeclWithMergedLifetimeBoundAttrsEPKNS_12FunctionDeclE.exit:
   %1 = alloca %"class.clang::TypeLoc", align 8
   %.not.i = icmp ne ptr %0, null
@@ -10949,7 +10949,7 @@ declare void @_ZN5clang24MaterializeTemporaryExpr16setExtendingDeclEPNS_9ValueDe
 declare noundef ptr @_ZNK5clang17InitializedEntity7getDeclEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clang4semaL16pathContainsInitERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE(ptr readonly %.0.val, i32 %.8.val) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @_ZN5clang4semaL16pathContainsInitERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEE(ptr readonly captures(address) %.0.val, i32 %.8.val) unnamed_addr #11 {
   %1 = zext i32 %.8.val to i64
   %.idx1.i = mul nuw nsw i64 %1, 24
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx1.i

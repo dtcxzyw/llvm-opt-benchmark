@@ -109,7 +109,7 @@ define void @EVP_KDF_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @EVP_KDF_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_KDF_CTX_dup(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @EVP_KDF_CTX_dup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %31, label %3
 
@@ -202,7 +202,7 @@ define ptr @EVP_KDF_get0_description(ptr noundef readonly captures(none) %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_KDF_is_a(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_KDF_is_a(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -235,7 +235,7 @@ define ptr @EVP_KDF_CTX_kdf(ptr noundef readonly captures(none) %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define void @EVP_KDF_CTX_reset(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @EVP_KDF_CTX_reset(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -257,7 +257,7 @@ define void @EVP_KDF_CTX_reset(ptr noundef readonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @EVP_KDF_CTX_get_kdf_size(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i64 @EVP_KDF_CTX_get_kdf_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca [2 x %struct.ossl_param_st], align 16
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #6
@@ -317,7 +317,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_KDF_derive(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @EVP_KDF_derive(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %13, label %6
 

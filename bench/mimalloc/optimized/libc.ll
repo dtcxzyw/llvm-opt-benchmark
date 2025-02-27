@@ -84,7 +84,7 @@ define hidden range(i32 -255, 256) i32 @_mi_strnicmp(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mi_strlcpy(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @_mi_strlcpy(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -124,7 +124,7 @@ define hidden void @_mi_strlcpy(ptr noundef writeonly %0, ptr noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mi_strlcat(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @_mi_strlcat(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %6 = icmp eq i64 %2, 0
@@ -184,7 +184,7 @@ _mi_strlcpy.exit:                                 ; preds = %._crit_edge.i, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @_mi_strlen(ptr noundef readonly %0) local_unnamed_addr #1 {
+define hidden i64 @_mi_strlen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -208,7 +208,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @_mi_strnlen(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden i64 @_mi_strnlen(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -248,7 +248,7 @@ define hidden zeroext i1 @_mi_getenv(ptr noundef %0, ptr noundef %1, i64 noundef
 declare zeroext i1 @_mi_prim_getenv(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_mi_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef captures(none) %3) local_unnamed_addr #6 {
+define hidden noundef i32 @_mi_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(none) %3) local_unnamed_addr #6 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq i64 %1, 0
   %or.cond = or i1 %5, %6
@@ -1079,7 +1079,7 @@ mi_out_alignright.exit.thread325:                 ; preds = %mi_out_alignright.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define hidden noundef i32 @_mi_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...) local_unnamed_addr #7 {
+define hidden noundef i32 @_mi_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ...) local_unnamed_addr #7 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
   call void @llvm.va_start.p0(ptr nonnull %4)

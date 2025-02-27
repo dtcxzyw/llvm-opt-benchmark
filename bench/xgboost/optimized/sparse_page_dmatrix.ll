@@ -1768,13 +1768,13 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(233) ptr @_ZN7xgboost4data17SparsePageDMatrix4InfoEv(ptr noundef nonnull readnone align 8 dereferenceable(592) %0) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(233) ptr @_ZN7xgboost4data17SparsePageDMatrix4InfoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(592) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(233) ptr @_ZNK7xgboost4data17SparsePageDMatrix4InfoEv(ptr noundef nonnull readnone align 8 dereferenceable(592) %0) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(233) ptr @_ZNK7xgboost4data17SparsePageDMatrix4InfoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(592) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

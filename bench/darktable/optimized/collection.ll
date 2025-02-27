@@ -368,7 +368,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dt_collection_name_untranslated = private unnamed_addr constant [43 x ptr] [ptr @.str.45, ptr @.str.46, ptr @.str.64, ptr @.str.47, ptr @.str.57, ptr @.str.60, ptr @.str.61, ptr @.str.58, ptr @.str.59, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.65, ptr @.str.63, ptr @.str.48, ptr @.str.56, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.67, ptr @.str.55, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.72, ptr @.str.71, ptr @.str.73, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.66, ptr @.str.62, ptr null], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @dt_collection_new(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @dt_collection_new(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(200) ptr @g_malloc0(i64 noundef 200) #18
   %.not = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 44
@@ -546,7 +546,7 @@ declare ptr @g_strdupv(ptr noundef) local_unnamed_addr #4
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @dt_collection_reset(ptr noundef initializes((44, 56)) %0) local_unnamed_addr #0 {
+define void @dt_collection_reset(ptr noundef captures(address) initializes((44, 56)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 3, ptr %2, align 4, !tbaa !21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -566,25 +566,25 @@ declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #4
 declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_collection_recount_callback_tag(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+define internal void @_dt_collection_recount_callback_tag(ptr readnone captures(none) %0, ptr noundef captures(address) %1) #0 {
   tail call fastcc void @_collection_recount_callback(ptr noundef %1, i32 noundef 17)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_collection_recount_callback_filmroll(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+define internal void @_dt_collection_recount_callback_filmroll(ptr readnone captures(none) %0, ptr noundef captures(address) %1) #0 {
   tail call fastcc void @_collection_recount_callback(ptr noundef %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_collection_recount_callback_2(ptr readnone captures(none) %0, i8 zeroext %1, ptr noundef %2) #0 {
+define internal void @_dt_collection_recount_callback_2(ptr readnone captures(none) %0, i8 zeroext %1, ptr noundef captures(address) %2) #0 {
   tail call fastcc void @_collection_recount_callback(ptr noundef %2, i32 noundef 43)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_collection_filmroll_imported_callback(ptr readnone captures(none) %0, i8 zeroext %1, ptr noundef initializes((32, 36)) %2) #0 {
+define internal void @_dt_collection_filmroll_imported_callback(ptr readnone captures(none) %0, i8 zeroext %1, ptr noundef captures(address) initializes((32, 36)) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %5 = load i32, ptr %4, align 4, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -658,7 +658,7 @@ declare void @g_free(ptr noundef) #4
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @dt_collection_params(ptr noundef readnone %0) local_unnamed_addr #5 {
+define nonnull ptr @dt_collection_params(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   ret ptr %2
 }
@@ -813,7 +813,7 @@ dt_collection_get_query.exit:                     ; preds = %6, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_collection_get_query(ptr noundef %0) local_unnamed_addr #0 {
+define ptr @dt_collection_get_query(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not = icmp eq ptr %3, null
@@ -849,7 +849,7 @@ declare i32 @sqlite3_step(ptr noundef) local_unnamed_addr #4
 declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dt_collection_update(ptr noundef %0) local_unnamed_addr #0 {
+define noundef i32 @dt_collection_update(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timeval, align 8
   %4 = alloca ptr, align 8
@@ -1657,7 +1657,7 @@ define ptr @dt_collection_get_sort_query(ptr readnone captures(none) %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_dt_collection_compute_count(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc i32 @_dt_collection_compute_count(ptr noundef captures(address) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
   store ptr null, ptr %3, align 8, !tbaa !67
@@ -1767,7 +1767,7 @@ dt_collection_get_query_no_group.exit:            ; preds = %dt_collection_get_q
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_collection_hint_message(ptr noundef %0) local_unnamed_addr #0 {
+define void @dt_collection_hint_message(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = tail call i32 @dt_collection_get_selected_count()
@@ -1807,7 +1807,7 @@ define void @dt_collection_hint_message(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_collection_update_query(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @dt_collection_update_query(ptr noundef captures(address) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [200 x i8], align 16
@@ -2212,7 +2212,7 @@ dt_collection_get_query_no_group.exit.thread:     ; preds = %._crit_edge, %dt_co
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_collection_get_query_no_group(ptr noundef %0) local_unnamed_addr #0 {
+define ptr @dt_collection_get_query_no_group(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %.not = icmp eq ptr %3, null
@@ -2455,7 +2455,7 @@ define internal fastcc noalias ptr @_dt_collection_get_sort_text(i32 noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dt_collection_get_count(ptr noundef %0) local_unnamed_addr #0 {
+define i32 @dt_collection_get_count(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8, !tbaa !18
   %4 = icmp eq i32 %3, -1
@@ -2577,7 +2577,7 @@ define i32 @dt_collection_get_collected_count() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_collection_get(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @dt_collection_get(ptr noundef captures(address) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !16
@@ -2739,13 +2739,13 @@ declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @g_list_reverse(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_collection_get_all(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @dt_collection_get_all(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dt_collection_get(ptr noundef %0, i32 noundef %1, i32 noundef 0)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dt_collection_get_nth(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @dt_collection_get_nth(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %59, label %5
@@ -2857,7 +2857,7 @@ dt_collection_get_query.exit:                     ; preds = %12, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_collection_get_selected(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @dt_collection_get_selected(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dt_collection_get(ptr noundef %0, i32 noundef %1, i32 noundef 1)
   ret ptr %3
 }
@@ -6556,7 +6556,7 @@ declare i32 @g_str_has_suffix(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_collection_recount_callback(ptr noundef %0, i32 noundef range(i32 0, 44) %1) unnamed_addr #0 {
+define internal fastcc void @_collection_recount_callback(ptr noundef captures(address) %0, i32 noundef range(i32 0, 44) %1) unnamed_addr #0 {
   %3 = alloca [200 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4, !tbaa !19

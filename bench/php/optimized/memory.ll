@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [26 x i8] c"rfc2397: unable to decode\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @php_stream_memory_write(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #0 {
+define internal noundef i64 @php_stream_memory_write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -213,7 +213,7 @@ zend_string_separate.exit:                        ; preds = %zend_string_init.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal i64 @php_stream_memory_read(ptr noundef captures(none) %0, ptr noundef writeonly %1, i64 noundef %2) #1 {
+define internal i64 @php_stream_memory_read(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1163,7 +1163,7 @@ define dso_local ptr @_php_stream_temp_open(i32 noundef %0, i64 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @php_stream_url_wrap_rfc2397(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
+define internal ptr @php_stream_url_wrap_rfc2397(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
   %8 = icmp ne ptr %2, null

@@ -61,7 +61,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.26 = private unnamed_addr constant [36 x i8] c"unable to flush file's child mounts\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5F__close_mounts(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5F__close_mounts(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @H5F_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -909,7 +909,7 @@ define zeroext i1 @H5F_is_mount(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5F__mount_count_ids(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
+define noundef i32 @H5F__mount_count_ids(ptr noundef captures(address) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @H5F_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -934,7 +934,7 @@ define noundef i32 @H5F__mount_count_ids(ptr noundef %0, ptr noundef captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @H5F__mount_count_ids_recurse(ptr noundef readonly %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #0 {
+define internal fastcc void @H5F__mount_count_ids_recurse(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = load i8, ptr @H5F_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !7

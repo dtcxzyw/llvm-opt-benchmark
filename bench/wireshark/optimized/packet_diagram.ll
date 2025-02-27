@@ -2338,7 +2338,7 @@ define void @_ZN13PacketDiagram20selectedFieldChangedEP16FieldInformation(ptr no
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN13PacketDiagram16setSelectedFieldEP10field_info(ptr noundef align 8 dereferenceable_or_null(76) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13PacketDiagram16setSelectedFieldEP10field_info(ptr noundef align 8 dereferenceable_or_null(76) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.17, align 8
   %4 = alloca %class.QVariant, align 8
   %.not.i = icmp eq ptr %0, null

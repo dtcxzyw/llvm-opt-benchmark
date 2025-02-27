@@ -7961,7 +7961,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare void @ic_complete_word(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL16icGetCompletionsP19ic_completion_env_sPKc(ptr noundef %0, ptr noundef readonly %1) #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL16icGetCompletionsP19ic_completion_env_sPKc(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::function", align 8

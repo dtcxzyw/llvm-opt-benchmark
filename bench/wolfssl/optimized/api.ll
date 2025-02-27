@@ -2287,7 +2287,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.8 = private unnamed_addr constant [60 x i8] c"Overriding cert date error as example for bad clock testing\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1001, 4) i32 @test_wolfSSL_client_server_nofail_memio(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1001, 4) i32 @test_wolfSSL_client_server_nofail_memio(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [80 x i8], align 16
   %6 = alloca [80 x i8], align 16
@@ -3251,7 +3251,7 @@ declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @test_wolfSSL_client_server_nofail_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @test_wolfSSL_client_server_nofail_ex(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.func_args, align 8
   %5 = alloca %struct.func_args, align 8
   %6 = alloca %struct.tcp_ready, align 8
@@ -3333,7 +3333,7 @@ define internal fastcc void @InitTcpReady(ptr noundef nonnull initializes((0, 4)
 declare void @start_thread(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_server_nofail(ptr noundef initializes((16, 20)) %0) #0 {
+define internal noundef ptr @test_server_nofail(ptr noundef captures(address_is_null) initializes((16, 20)) %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca [23 x i8], align 16
@@ -3645,7 +3645,7 @@ define internal noundef ptr @test_server_nofail(ptr noundef initializes((16, 20)
 declare void @wait_tcp_ready(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_client_nofail(ptr noundef nonnull captures(none) initializes((16, 20)) %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @test_client_nofail(ptr noundef nonnull captures(none) initializes((16, 20)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = alloca %struct.sockaddr_in, align 4
   %4 = alloca i32, align 4
   %5 = alloca [64 x i8], align 16
@@ -33566,7 +33566,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #13
 declare void @signal_ready(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @tcp_accept(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #5 {
+define internal fastcc void @tcp_accept(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #5 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.sockaddr_in, align 4
   %7 = alloca i32, align 4
@@ -35712,7 +35712,7 @@ declare zeroext i8 @wolfSSL_SNI_Status(ptr noundef, i8 noundef zeroext) local_un
 declare zeroext i16 @wolfSSL_SNI_GetRequest(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @run_wolfssl_server(ptr noundef initializes((16, 20)) %0) #0 {
+define internal noundef ptr @run_wolfssl_server(ptr noundef captures(address_is_null) initializes((16, 20)) %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca [23 x i8], align 16

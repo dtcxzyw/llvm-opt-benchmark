@@ -228,7 +228,7 @@ dom_local_name_compare_ex.exit73.thread:          ; preds = %dom_local_name_comp
 declare ptr @php_dom_retrieve_templated_content(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @dom_html5_serialize_node(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dom_html5_serialize_node(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 {
   %.not107 = icmp eq ptr %1, null
   br i1 %.not107, label %dom_html5_serialize_doctype.exit.thread, label %.lr.ph
 

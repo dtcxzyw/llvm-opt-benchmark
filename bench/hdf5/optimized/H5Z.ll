@@ -377,7 +377,7 @@ define range(i32 0, 2) i32 @H5Z_term_package() local_unnamed_addr #0 {
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Zregister(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Zregister(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.H5Z_class2_t, align 8
   %3 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #9
@@ -2431,7 +2431,7 @@ H5Z__find_idx.exit.thread:                        ; preds = %25, %.preheader.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Z_pipeline(ptr noundef readonly %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, ptr readonly %4, ptr %5, ptr noundef captures(none) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Z_pipeline(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, ptr readonly captures(address_is_null) %4, ptr %5, ptr noundef captures(none) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca %union.H5PL_key_t, align 8
   %11 = alloca %struct.H5_user_cb_state_t, align 8
   %12 = alloca %struct.H5_user_cb_state_t, align 8
@@ -3350,7 +3350,7 @@ declare i32 @H5O_msg_reset(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Zget_filter_info(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Zget_filter_info(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %3, i8 0, i64 480, i1 false)
@@ -3436,7 +3436,7 @@ define range(i32 -1, 1) i32 @H5Zget_filter_info(i32 noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Z_get_filter_info(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Z_get_filter_info(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store ptr null, ptr %3, align 8, !tbaa !12

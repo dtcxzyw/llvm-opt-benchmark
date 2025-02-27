@@ -469,7 +469,7 @@ declare void @lv_svg_render_delete(ptr noundef) local_unnamed_addr #2
 declare void @lv_svg_node_delete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @svg_draw(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4) #0 {
+define internal void @svg_draw(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct._lv_matrix_t, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !59

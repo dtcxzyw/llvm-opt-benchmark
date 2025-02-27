@@ -162,7 +162,7 @@ define internal range(i32 0, 2) i32 @rsa_sign_init(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_sign(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #0 {
+define internal range(i32 0, 2) i32 @rsa_sign(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #0 {
   %7 = tail call i32 @ossl_prov_is_running() #11
   %8 = icmp eq i32 %7, 0
   %9 = icmp eq ptr %0, null
@@ -504,7 +504,7 @@ define internal range(i32 0, 2) i32 @rsa_digest_sign_init(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_digest_sign_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i32 @rsa_digest_sign_update(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %rsa_signverify_message_update.exit, label %5
 
@@ -544,7 +544,7 @@ rsa_signverify_message_update.exit:               ; preds = %16, %15, %9, %5, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_digest_sign_final(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #0 {
+define internal range(i32 0, 2) i32 @rsa_digest_sign_final(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %14, label %6
 
@@ -583,7 +583,7 @@ define internal range(i32 0, 2) i32 @rsa_digest_verify_init(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_digest_verify_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i32 @rsa_digest_verify_update(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %rsa_signverify_message_update.exit, label %5
 
@@ -1618,7 +1618,7 @@ thread-pre-split115:                              ; preds = %70
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull ptr @rsa_settable_ctx_params(ptr noundef readonly %0, ptr readnone captures(none) %1) #2 {
+define internal noundef nonnull ptr @rsa_settable_ctx_params(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1) #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -1714,7 +1714,7 @@ define internal range(i32 0, 2) i32 @rsa_ripemd160_sign_message_init(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_signverify_message_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i32 @rsa_signverify_message_update(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %17, label %5
 
@@ -1749,7 +1749,7 @@ define internal i32 @rsa_signverify_message_update(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_sign_message_final(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #0 {
+define internal range(i32 0, 2) i32 @rsa_sign_message_final(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca [64 x i8], align 16
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #11
@@ -1841,7 +1841,7 @@ define internal range(i32 0, 2) i32 @rsa_ripemd160_verify_message_init(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_verify_message_final(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @rsa_verify_message_final(ptr noundef captures(address_is_null) %0) #0 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #11
@@ -1952,7 +1952,7 @@ ossl_param_is_empty.exit.thread:                  ; preds = %4, %13, %ossl_param
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef ptr @rsa_sigalg_settable_ctx_params(ptr noundef readonly %0, ptr readnone captures(none) %1) #2 {
+define internal noundef ptr @rsa_sigalg_settable_ctx_params(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1) #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 

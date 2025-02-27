@@ -1430,7 +1430,7 @@ Py_DECREF.exit:                                   ; preds = %9, %6, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @inst_seq_new(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal ptr @inst_seq_new(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = icmp eq ptr %0, @_PyInstructionSequence_Type
   br i1 %4, label %11, label %5
 

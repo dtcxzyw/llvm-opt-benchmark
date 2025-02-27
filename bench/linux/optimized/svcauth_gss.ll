@@ -2761,7 +2761,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @svcauth_gss_unwrap_integ(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @svcxdr_set_auth_slack(ptr noundef initializes((11332, 11336)) %0, i32 noundef range(i32 400, 801) %1) unnamed_addr #9 align 16 {
+define internal fastcc void @svcxdr_set_auth_slack(ptr noundef captures(address) initializes((11332, 11336)) %0, i32 noundef range(i32 400, 801) %1) unnamed_addr #9 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 11332

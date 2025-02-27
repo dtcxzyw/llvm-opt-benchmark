@@ -443,7 +443,7 @@ declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none))
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NamStrFindOrAdd(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @Abc_NamStrFindOrAdd(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %1, align 1, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !18
@@ -770,7 +770,7 @@ Vec_IntPush.exit58:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @Abc_NamRef(ptr noundef returned %0) local_unnamed_addr #10 {
+define noundef ptr @Abc_NamRef(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4, !tbaa !24
   %4 = add nsw i32 %3, 1
@@ -779,7 +779,7 @@ define noundef ptr @Abc_NamRef(ptr noundef returned %0) local_unnamed_addr #10 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Abc_NamDeref(ptr noundef %0) local_unnamed_addr #5 {
+define void @Abc_NamDeref(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -807,7 +807,7 @@ define i32 @Abc_NamObjNumMax(ptr noundef readonly captures(none) %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Abc_NamMemUsed(ptr noundef readonly %0) local_unnamed_addr #11 {
+define i32 @Abc_NamMemUsed(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %17, label %3
 
@@ -833,7 +833,7 @@ define i32 @Abc_NamMemUsed(ptr noundef readonly %0) local_unnamed_addr #11 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Abc_NamMemAlloc(ptr noundef readonly %0) local_unnamed_addr #11 {
+define i32 @Abc_NamMemAlloc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 
@@ -858,7 +858,7 @@ define i32 @Abc_NamMemAlloc(ptr noundef readonly %0) local_unnamed_addr #11 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, -1) i32 @Abc_NamStrHash(ptr noundef readonly %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #12 {
+define range(i32 0, -1) i32 @Abc_NamStrHash(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #12 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %.preheader35
 
@@ -1369,7 +1369,7 @@ Vec_IntErase.exit:                                ; preds = %.critedge, %140
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @Abc_NamStrHashFind(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readnone %2) unnamed_addr #13 {
+define internal fastcc noundef ptr @Abc_NamStrHashFind(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #13 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1687,7 +1687,7 @@ Abc_NamStrHashFind.exit:                          ; preds = %Abc_NamStrcmp.exit.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_NamStrFindLim(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #14 {
+define i32 @Abc_NamStrFindLim(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #14 {
   %4 = tail call fastcc ptr @Abc_NamStrHashFind(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = load i32, ptr %4, align 4, !tbaa !22
   ret i32 %5
@@ -1700,7 +1700,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NamStrFindOrAddLim(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define i32 @Abc_NamStrFindOrAddLim(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc ptr @Abc_NamStrHashFind(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %6 = load i32, ptr %5, align 4, !tbaa !22
   %.not = icmp eq i32 %6, 0
@@ -2064,7 +2064,7 @@ define ptr @Abc_NamStr(ptr noundef readonly captures(none) %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define nonnull ptr @Abc_NamBuffer(ptr noundef writeonly initializes((68, 72)) %0) local_unnamed_addr #19 {
+define nonnull ptr @Abc_NamBuffer(ptr noundef writeonly captures(ret: address, provenance) initializes((68, 72)) %0) local_unnamed_addr #19 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %3, align 4, !tbaa !26
@@ -2072,7 +2072,7 @@ define nonnull ptr @Abc_NamBuffer(ptr noundef writeonly initializes((68, 72)) %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Abc_NamComputeIdMap(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #7 {
+define noalias noundef ptr @Abc_NamComputeIdMap(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, %1
   %4 = getelementptr i8, ptr %0, i64 20
   %.val.i = load i32, ptr %4, align 4, !tbaa !21

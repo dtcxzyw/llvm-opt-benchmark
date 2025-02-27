@@ -1467,7 +1467,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(13) ptr @_ZN8PathCostaSERKS_(ptr noundef nonnull returned writeonly align 4 dereferenceable(13) initializes((0, 1), (4, 13)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(13) %b) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(13) ptr @_ZN8PathCostaSERKS_(ptr noundef nonnull returned writeonly align 4 captures(ret: address, provenance) dereferenceable(13) initializes((0, 1), (4, 13)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(13) %b) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i8, ptr %b, align 4, !tbaa !127, !range !86, !noundef !87
   store i8 %0, ptr %this, align 4, !tbaa !127
@@ -1579,7 +1579,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(92) ptr @_ZN12PathGridnodeaSERKS_(ptr noundef nonnull returned writeonly align 4 dereferenceable(92) initializes((0, 3), (4, 8), (12, 25), (28, 37), (40, 41), (44, 53), (56, 57), (60, 69), (72, 73), (76, 85), (90, 92)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(92) %b) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(92) ptr @_ZN12PathGridnodeaSERKS_(ptr noundef nonnull returned writeonly align 4 captures(ret: address, provenance) dereferenceable(92) initializes((0, 3), (4, 8), (12, 25), (28, 37), (40, 41), (44, 53), (56, 57), (60, 69), (72, 73), (76, 85), (90, 92)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(92) %b) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i8, ptr %b, align 4, !tbaa !110, !range !86, !noundef !87
   store i8 %0, ptr %this, align 4, !tbaa !110

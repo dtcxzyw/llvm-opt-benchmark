@@ -3419,13 +3419,13 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5dev27MixingColorSpaceManagerImpl9getSliderEv(ptr noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #15 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5dev27MixingColorSpaceManagerImpl9getSliderEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(128) %0) unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5dev27MixingColorSpaceManagerImpl9getSliderEff(ptr noundef nonnull writeonly align 8 dereferenceable(128) initializes((40, 48)) %0, float noundef %1, float noundef %2) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5dev27MixingColorSpaceManagerImpl9getSliderEff(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) dereferenceable(128) initializes((40, 48)) %0, float noundef %1, float noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float %1, ptr %5, align 8, !tbaa !10

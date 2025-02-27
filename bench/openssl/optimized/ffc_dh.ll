@@ -162,7 +162,7 @@ define ptr @ossl_ffc_numbers_to_dh_named_group(ptr noundef %0, ptr noundef %1, p
 declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_ffc_named_group_get_uid(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @ossl_ffc_named_group_get_uid(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -177,7 +177,7 @@ define i32 @ossl_ffc_named_group_get_uid(ptr noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_ffc_named_group_get_name(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @ossl_ffc_named_group_get_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -191,7 +191,7 @@ define ptr @ossl_ffc_named_group_get_name(ptr noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_ffc_named_group_get_keylength(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @ossl_ffc_named_group_get_keylength(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -206,7 +206,7 @@ define i32 @ossl_ffc_named_group_get_keylength(ptr noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_ffc_named_group_get_q(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @ossl_ffc_named_group_get_q(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -221,7 +221,7 @@ define ptr @ossl_ffc_named_group_get_q(ptr noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ffc_named_group_set(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ffc_named_group_set(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

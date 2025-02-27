@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [35 x i8] c"ERROR: Arguments limit %d reached\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @ExUtilGetUInt(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden i32 @ExUtilGetUInt(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   store ptr null, ptr %4, align 8, !tbaa !4
@@ -62,7 +62,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @ExUtilGetInt(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden i32 @ExUtilGetInt(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   store ptr null, ptr %4, align 8, !tbaa !4
@@ -155,7 +155,7 @@ define hidden i32 @ExUtilGetInts(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden float @ExUtilGetFloat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden float @ExUtilGetFloat(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store ptr null, ptr %3, align 8, !tbaa !4
@@ -197,7 +197,7 @@ define hidden float @ExUtilGetFloat(ptr noundef %0, ptr noundef %1) local_unname
 declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ExUtilDeleteCommandLineArguments(ptr noundef %0) local_unnamed_addr #5 {
+define hidden void @ExUtilDeleteCommandLineArguments(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -229,7 +229,7 @@ define hidden void @ExUtilDeleteCommandLineArguments(ptr noundef %0) local_unnam
 declare void @WebPFree(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ExUtilInitCommandLineArguments(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @ExUtilInitCommandLineArguments(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #5 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = icmp eq ptr %2, null
@@ -337,7 +337,7 @@ ExUtilDeleteCommandLineArguments.exit:            ; preds = %24, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ExUtilReadFileToWebPData(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @ExUtilReadFileToWebPData(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8

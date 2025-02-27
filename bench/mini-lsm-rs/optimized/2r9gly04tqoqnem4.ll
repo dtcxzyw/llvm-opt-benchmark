@@ -1421,13 +1421,13 @@ define noundef i64 @_ZN16mini_lsm_starter5table7SsTable13num_of_blocks17h2312633
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 ptr @_ZN16mini_lsm_starter5table7SsTable9first_key17h7540d234e65b6979E(ptr noundef nonnull readnone align 8 %0) unnamed_addr #4 {
+define noundef nonnull align 8 ptr @_ZN16mini_lsm_starter5table7SsTable9first_key17h7540d234e65b6979E(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 ptr @_ZN16mini_lsm_starter5table7SsTable8last_key17h8b1e4e3fd421b56cE(ptr noundef nonnull readnone align 8 %0) unnamed_addr #4 {
+define noundef nonnull align 8 ptr @_ZN16mini_lsm_starter5table7SsTable8last_key17h8b1e4e3fd421b56cE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }

@@ -8134,7 +8134,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08PSDInput17validate_res
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08PSDInput16handle_resourcesERSt3mapItNS0_7psd_pvt18ImageResourceBlockESt4lessItESaISt4pairIKtS4_EEE(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08PSDInput16handle_resourcesERSt3mapItNS0_7psd_pvt18ImageResourceBlockESt4lessItESaISt4pairIKtS4_EEE(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #6 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8

@@ -378,7 +378,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef i32 @_ZN2cv2fs10strcasecmpEPKcS2_(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define hidden noundef i32 @_ZN2cv2fs10strcasecmpEPKcS2_(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   %spec.select = select i1 %.not, ptr @.str, ptr %0
   %.not23 = icmp eq ptr %1, null
@@ -430,7 +430,7 @@ declare i32 @tolower(i32 noundef) local_unnamed_addr #6
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden noundef nonnull ptr @_ZN2cv2fs4itoaEiPci(i32 noundef %0, ptr noundef writeonly initializes((23, 24)) %1, i32 noundef %2) local_unnamed_addr #7 {
+define hidden noundef nonnull ptr @_ZN2cv2fs4itoaEiPci(i32 noundef %0, ptr noundef writeonly captures(ret: address, provenance) initializes((23, 24)) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 23
   %5 = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
   store i8 0, ptr %4, align 1, !tbaa !5
@@ -467,7 +467,7 @@ define hidden noundef nonnull ptr @_ZN2cv2fs4itoaEiPci(i32 noundef %0, ptr nound
 declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden noundef nonnull ptr @_ZN2cv2fs4itoaElPcib(i64 noundef %0, ptr noundef writeonly initializes((23, 24)) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #7 {
+define hidden noundef nonnull ptr @_ZN2cv2fs4itoaElPcib(i64 noundef %0, ptr noundef writeonly captures(ret: address, provenance) initializes((23, 24)) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 23
   %6 = icmp slt i64 %0, 0
   %7 = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
@@ -669,7 +669,7 @@ define hidden noundef ptr @_ZN2cv2fs13floatToStringEPcmfbb(ptr noundef returned 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef ptr @_ZN2cv2fs12encodeFormatEiPcm(i32 noundef %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #12 {
+define hidden noundef ptr @_ZN2cv2fs12encodeFormatEiPcm(i32 noundef %0, ptr noundef writeonly captures(ret: address, provenance) %1, i64 noundef %2) local_unnamed_addr #12 {
   %4 = icmp eq i32 %0, 56
   br i1 %4, label %14, label %5
 
@@ -695,7 +695,7 @@ define hidden noundef ptr @_ZN2cv2fs12encodeFormatEiPcm(i32 noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef ptr @_ZN2cv2fs12encodeFormatEiPc(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #12 {
+define hidden noundef ptr @_ZN2cv2fs12encodeFormatEiPc(i32 noundef %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #12 {
   %3 = icmp eq i32 %0, 56
   br i1 %3, label %_ZN2cv2fs12encodeFormatEiPcm.exit, label %4
 
@@ -721,7 +721,7 @@ _ZN2cv2fs12encodeFormatEiPcm.exit:                ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 -1073741824, 1073741824) i32 @_ZN2cv2fs12decodeFormatEPKcPii(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 -1073741824, 1073741824) i32 @_ZN2cv2fs12decodeFormatEPKcPii(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2716,7 +2716,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11FileStorage4Impl7releaseEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(700) %0, ptr noundef %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11FileStorage4Impl7releaseEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(700) %0, ptr noundef captures(address) %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -8445,7 +8445,7 @@ define void @_ZNK2cv16FileNodeIteratordeEv(ptr dead_on_unwind noalias writable s
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(48) %0) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) %0) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.cv::FileNode", align 8
@@ -9976,7 +9976,7 @@ define noundef zeroext i1 @_ZN2cv8FileNode5isSeqEi(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11FileStorage4Impl25make_write_struct_delayedEPKciS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(700) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11FileStorage4Impl25make_write_struct_delayedEPKciS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(700) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 85
@@ -13763,7 +13763,7 @@ define noundef i32 @_ZNK2cv11FileStorage4Impl12getStringOfsERKNSt7__cxx1112basic
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11FileStorage4Impl7addNodeERNS_8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPKvi(ptr dead_on_unwind noalias writable sret(%"class.cv::FileNode") align 8 %0, ptr noundef nonnull align 8 dereferenceable(700) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11FileStorage4Impl7addNodeERNS_8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPKvi(ptr dead_on_unwind noalias writable sret(%"class.cv::FileNode") align 8 %0, ptr noundef nonnull align 8 dereferenceable(700) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca i64, align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
@@ -16289,7 +16289,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %_ZN
 declare i32 @isspace(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv11FileStorage4Impl10parseErrorEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(700) %0, ptr noundef readonly %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11FileStorage4Impl10parseErrorEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(700) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17015,7 +17015,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11FileStorage16startWriteStructERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS8_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11FileStorage16startWriteStructERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS8_(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !352
@@ -17088,7 +17088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11FileStorage14endWriteStructEv(ptr noundef nonnull align 8 dereferenceable(64) initializes((8, 12)) %0) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11FileStorage14endWriteStructEv(ptr noundef nonnull align 8 captures(address) dereferenceable(64) initializes((8, 12)) %0) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !352
@@ -17181,7 +17181,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv11FileStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11FileStorageD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %0, align 8, !tbaa !114
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !110
@@ -17795,7 +17795,7 @@ define noundef i32 @_ZNK2cv11FileStorage9getFormatEv(ptr noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv11FileStorageixEPKc(ptr dead_on_unwind noalias writable sret(%"class.cv::FileNode") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef readonly %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv11FileStorageixEPKc(ptr dead_on_unwind noalias writable sret(%"class.cv::FileNode") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::FileNode", align 8
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18246,7 +18246,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8FileNodeaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #30 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8FileNodeaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #30 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !250
   store ptr %3, ptr %0, align 8, !tbaa !250
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -19465,7 +19465,7 @@ define void @_ZN2cv8FileNodeC2ERKS0_(ptr noundef nonnull writeonly align 8 captu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind noalias writable sret(%"class.cv::FileNode") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef readonly %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind noalias writable sret(%"class.cv::FileNode") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #41
@@ -19755,7 +19755,7 @@ _ZN2cv16FileNodeIteratorpLEi.exit:                ; preds = %.lr.ph.i, %.prehead
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorpLEi(ptr noundef nonnull returned align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorpLEi(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = icmp sgt i32 %1, -1
@@ -20766,7 +20766,7 @@ define void @_ZNK2cv8FileNode7readRawERKNSt7__cxx1112basic_stringIcSt11char_trai
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIterator7readRawERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvm(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIterator7readRawERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22128,7 +22128,7 @@ define void @_ZN2cv16FileNodeIteratorC2ERKS0_(ptr noundef nonnull writeonly alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratoraSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #30 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratoraSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(48) initializes((0, 48)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #30 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !281
   store ptr %3, ptr %0, align 8, !tbaa !281
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4absl13base_internal12ScopedSetEnvD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4absl13base_internal12ScopedSetEnvD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl13base_internal12ScopedSetEnvC2EPKcS3_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl13base_internal12ScopedSetEnvC2EPKcS3_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %0, align 8, !tbaa !4
@@ -152,7 +152,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4absl13base_internal12ScopedSetEnvD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(65) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl13base_internal12ScopedSetEnvD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(65) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i8, ptr %3, align 8, !tbaa !16, !range !19, !noundef !20

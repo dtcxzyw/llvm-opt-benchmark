@@ -527,7 +527,7 @@ define internal noundef nonnull ptr @shake_settable_ctx_params(ptr readnone capt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @shake_get_ctx_params(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @shake_get_ctx_params(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ossl_param_is_empty.exit.thread, label %4
 

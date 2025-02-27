@@ -441,7 +441,7 @@ declare void @SendPostmasterSignal(i32 noundef) local_unnamed_addr #2
 declare void @SetLatch(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @GetWalRcvFlushRecPtr(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i64 @GetWalRcvFlushRecPtr(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @WalRcv, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2226
   %5 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %4, i8 1, ptr nonnull elementtype(i8) %4) #8, !srcloc !7

@@ -77,7 +77,7 @@ define internal { i64, i64 } @_ZN4core5error5Error7type_id17hb41c43f0d0f7f2ffE(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h99417bc048652387E.llvm.5002582651642791948"(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h99417bc048652387E.llvm.5002582651642791948"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #0 {
   ret ptr %0
 }
 

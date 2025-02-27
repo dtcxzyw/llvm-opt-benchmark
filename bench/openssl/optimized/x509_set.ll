@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.x509_sig_info_init = private unnamed_addr constant [19 x i8] c"x509_sig_info_init\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_set_version(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_set_version(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %21, label %4
 
@@ -143,7 +143,7 @@ define range(i32 0, 2) i32 @X509_set_subject_name(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_x509_set1_time(ptr noundef writeonly %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_x509_set1_time(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8, !tbaa !36
   %5 = icmp eq ptr %4, %2
   br i1 %5, label %13, label %6
@@ -176,7 +176,7 @@ declare ptr @ASN1_STRING_dup(ptr noundef) local_unnamed_addr #1
 declare void @ASN1_TIME_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_set1_notBefore(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_set1_notBefore(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -207,7 +207,7 @@ ossl_x509_set1_time.exit:                         ; preds = %13, %10, %5, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_set1_notAfter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_set1_notAfter(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -327,7 +327,7 @@ define ptr @X509_get0_extensions(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @X509_get0_uids(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define void @X509_get0_uids(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 
@@ -352,13 +352,13 @@ define void @X509_get0_uids(ptr noundef readonly captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @X509_get0_tbs_sigalg(ptr noundef readnone %0) local_unnamed_addr #6 {
+define nonnull ptr @X509_get0_tbs_sigalg(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @X509_SIG_INFO_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @X509_SIG_INFO_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
@@ -415,7 +415,7 @@ define void @X509_SIG_INFO_set(ptr noundef writeonly captures(none) initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_get_signature_info(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_get_signature_info(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call i32 @X509_check_purpose(ptr noundef %0, i32 noundef -1, i32 noundef -1) #8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %10, label %7

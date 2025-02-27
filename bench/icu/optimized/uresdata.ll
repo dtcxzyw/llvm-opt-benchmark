@@ -485,7 +485,7 @@ define range(i32 -128, 128) i32 @res_getPublicType_77(i32 noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @res_getStringNoTrace_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define ptr @res_getStringNoTrace_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.mask = and i32 %1, -268435456
   %4 = icmp eq i32 %.mask, 1610612736
   br i1 %4, label %5, label %44
@@ -585,7 +585,7 @@ define ptr @res_getStringNoTrace_77(ptr noundef readonly captures(none) %0, i32 
 declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @res_getAlias_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
+define ptr @res_getAlias_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 {
   %4 = and i32 %1, 268435455
   %.mask = and i32 %1, -268435456
   %5 = icmp eq i32 %.mask, 805306368
@@ -623,7 +623,7 @@ define ptr @res_getAlias_77(ptr noundef readonly captures(none) %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @res_getBinaryNoTrace_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
+define ptr @res_getBinaryNoTrace_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 {
   %4 = and i32 %1, 268435455
   %.mask = and i32 %1, -268435456
   %5 = icmp eq i32 %.mask, 268435456
@@ -661,7 +661,7 @@ define ptr @res_getBinaryNoTrace_77(ptr noundef readonly captures(none) %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @res_getIntVectorNoTrace_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
+define ptr @res_getIntVectorNoTrace_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 {
   %4 = and i32 %1, 268435455
   %.mask = and i32 %1, -268435456
   %5 = icmp eq i32 %.mask, -536870912
@@ -2074,7 +2074,7 @@ _ZL18makeResourceFrom16PK12ResourceDatai.exit:    ; preds = %5, %13
 declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3) local_unnamed_addr #11 {
+define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #11 {
   %5 = and i32 %1, 268435455
   %6 = icmp eq ptr %3, null
   br i1 %6, label %146, label %7
@@ -2337,7 +2337,7 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #6 {
+define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #6 {
   %5 = and i32 %1, 268435455
   %6 = icmp slt i32 %2, 0
   br i1 %6, label %118, label %7
@@ -2954,7 +2954,7 @@ _ZNK6icu_7713ResourceArray19internalGetResourceEPK12ResourceDatai.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @res_findResource_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3) local_unnamed_addr #12 {
+define i32 @res_findResource_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #12 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %2, align 8, !tbaa !63

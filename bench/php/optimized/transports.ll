@@ -114,7 +114,7 @@ define dso_local i32 @php_stream_xport_unregister(ptr noundef %0) local_unnamed_
 declare i32 @zend_hash_str_del(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_php_stream_xport_create(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef writeonly %7, ptr noundef writeonly %8) local_unnamed_addr #1 {
+define dso_local ptr @_php_stream_xport_create(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #1 {
   %10 = alloca %struct._php_stream_xport_param, align 8
   %11 = alloca %struct._php_stream_xport_param, align 8
   %12 = alloca ptr, align 8
@@ -598,7 +598,7 @@ declare noalias ptr @__zend_strdup(ptr noundef) local_unnamed_addr #4
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @php_stream_xport_connect(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #1 {
+define dso_local i32 @php_stream_xport_connect(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #1 {
   %8 = alloca %struct._php_stream_xport_param, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, i8 0, i64 120, i1 false)
@@ -650,7 +650,7 @@ define dso_local i32 @php_stream_xport_connect(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @php_stream_xport_bind(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
+define dso_local i32 @php_stream_xport_bind(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = alloca %struct._php_stream_xport_param, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #14
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -689,7 +689,7 @@ define dso_local i32 @php_stream_xport_bind(ptr noundef %0, ptr noundef %1, i64 
 declare ptr @php_stream_context_get_option(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @php_stream_xport_listen(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define dso_local i32 @php_stream_xport_listen(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca %struct._php_stream_xport_param, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 120, i1 false)
@@ -728,7 +728,7 @@ define dso_local i32 @php_stream_xport_listen(ptr noundef %0, i32 noundef %1, pt
 declare void @_zend_bailout(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @php_stream_xport_accept(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #1 {
+define dso_local i32 @php_stream_xport_accept(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #1 {
   %8 = alloca %struct._php_stream_xport_param, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, i8 0, i64 120, i1 false)
@@ -794,7 +794,7 @@ define dso_local i32 @php_stream_xport_accept(ptr noundef %0, ptr noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @php_stream_xport_get_name(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
+define dso_local i32 @php_stream_xport_get_name(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
   %6 = alloca %struct._php_stream_xport_param, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, i8 0, i64 120, i1 false)
@@ -901,7 +901,7 @@ define dso_local i32 @php_stream_xport_crypto_enable(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @php_stream_xport_recvfrom(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly %6) local_unnamed_addr #1 {
+define dso_local i32 @php_stream_xport_recvfrom(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #1 {
   %8 = alloca %struct._php_stream_xport_param, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, i8 0, i64 120, i1 false)

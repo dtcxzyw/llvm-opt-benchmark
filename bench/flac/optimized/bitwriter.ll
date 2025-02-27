@@ -515,7 +515,7 @@ bitwriter_grow_.exit.thread:                      ; preds = %24, %17, %63, %64, 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind sspstrong willreturn uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
   %4 = icmp ult i32 %2, 32
   %5 = lshr i32 %1, %2
   %.not = icmp ne i32 %5, 0
@@ -642,7 +642,7 @@ FLAC__bitwriter_write_raw_uint32_nocheck.exit:    ; preds = %72, %57, %48, %33, 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind sspstrong willreturn uwtable
-define internal fastcc range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #13 {
+define internal fastcc range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #13 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %bitwriter_grow_.exit.thread, label %5
 
@@ -764,7 +764,7 @@ bitwriter_grow_.exit.thread:                      ; preds = %31, %24, %46, %70, 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind sspstrong willreturn uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_int32(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
   %4 = icmp ult i32 %2, 32
   %5 = shl nsw i32 -1, %2
   %6 = xor i32 %5, -1
@@ -891,7 +891,7 @@ FLAC__bitwriter_write_raw_uint32_nocheck.exit:    ; preds = %3, %9, %13, %28, %3
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind sspstrong willreturn uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
   %4 = icmp ugt i32 %2, 32
   br i1 %4, label %5, label %80
 
@@ -1023,7 +1023,7 @@ FLAC__bitwriter_write_raw_uint32_nocheck.exit:    ; preds = %73, %58, %50, %35, 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind sspstrong willreturn uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_int64(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
   %4 = icmp ult i32 %2, 64
   %5 = zext nneg i32 %2 to i64
   %6 = shl nsw i64 -1, %5
@@ -1035,7 +1035,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind sspstrong willreturn uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = and i32 %1, 255
   %4 = icmp eq ptr %0, null
   br i1 %4, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit31, label %5
@@ -1619,7 +1619,7 @@ bitwriter_grow_.exit.thread:                      ; preds = %FLAC__bitwriter_wri
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp ult i32 %1, 32
   br i1 %3, label %4, label %72
 

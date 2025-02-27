@@ -1112,7 +1112,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %3, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZN9grpc_core12_GLOBAL__N_112ErrorCompareEPvS1_(ptr noundef readnone %0, ptr noundef readnone %1) #8 {
+define internal noundef range(i32 -1, 2) i32 @_ZN9grpc_core12_GLOBAL__N_112ErrorCompareEPvS1_(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #8 {
   %3 = icmp ult ptr %0, %1
   %4 = icmp ult ptr %1, %0
   %..i = zext i1 %4 to i32

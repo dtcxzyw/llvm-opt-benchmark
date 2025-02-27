@@ -87,7 +87,7 @@ define internal void @str_free(ptr noundef %0) #0 {
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_VERIFY_PARAM_inherit(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_VERIFY_PARAM_inherit(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %X509_VERIFY_PARAM_set1_email.exit.thread, label %4
 
@@ -475,7 +475,7 @@ X509_VERIFY_PARAM_set1_email.exit.thread:         ; preds = %154, %.thread112, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -551,7 +551,7 @@ define internal noalias ptr @str_copy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_email(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_email(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.not.i = icmp eq ptr %1, null
@@ -593,7 +593,7 @@ int_x509_param_set1.exit:                         ; preds = %10, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_ip(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_ip(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   switch i64 %2, label %4 [
     i64 16, label %5
     i64 4, label %5
@@ -648,7 +648,7 @@ int_x509_param_set1.exit:                         ; preds = %18, %12, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -964,7 +964,7 @@ define ptr @X509_VERIFY_PARAM_get0_peername(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @X509_VERIFY_PARAM_move_peername(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @X509_VERIFY_PARAM_move_peername(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -1005,7 +1005,7 @@ define ptr @X509_VERIFY_PARAM_get0_email(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_VERIFY_PARAM_get1_ip_asc(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @X509_VERIFY_PARAM_get1_ip_asc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %int_X509_VERIFY_PARAM_get0_ip.exit.thread, label %3
 

@@ -6993,13 +6993,13 @@ define hidden void @_ZN13wasmtime_wasi8preview19WasiP1Ctx3new17h101b36edd19bc82c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @"_ZN83_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..ctx..WasiView$GT$5table17he0e810a430c8b436E"(ptr noalias noundef readnone align 16 dereferenceable(320) %0) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(40) ptr @"_ZN83_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..ctx..WasiView$GT$5table17he0e810a430c8b436E"(ptr noalias noundef readnone align 16 captures(ret: address, provenance) dereferenceable(320) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 16 dereferenceable(224) ptr @"_ZN83_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..ctx..WasiView$GT$3ctx17hac2fc4a9c910f987E"(ptr noalias noundef readnone returned align 16 dereferenceable(320) %0) unnamed_addr #4 {
+define noundef nonnull align 16 dereferenceable(224) ptr @"_ZN83_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..ctx..WasiView$GT$3ctx17hac2fc4a9c910f987E"(ptr noalias noundef readnone returned align 16 captures(ret: address, provenance) dereferenceable(320) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -8078,13 +8078,13 @@ common.ret:                                       ; preds = %"_ZN4core3ptr47drop
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN80_$LT$wasmtime_wasi..preview1..Descriptors$u20$as$u20$core..ops..deref..Deref$GT$5deref17h19fa6cc7647507b6E"(ptr noalias noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN80_$LT$wasmtime_wasi..preview1..Descriptors$u20$as$u20$core..ops..deref..Deref$GT$5deref17h19fa6cc7647507b6E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN83_$LT$wasmtime_wasi..preview1..Descriptors$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h3e9d38337786888cE"(ptr noalias noundef readnone align 8 dereferenceable(48) %0) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN83_$LT$wasmtime_wasi..preview1..Descriptors$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h3e9d38337786888cE"(ptr noalias noundef readnone align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }

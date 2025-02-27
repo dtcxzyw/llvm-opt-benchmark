@@ -8501,7 +8501,7 @@ define internal noundef ptr @pdcp_lte_copy_cb(ptr noundef returned initializes((
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @pdcp_lte_update_cb(ptr noundef %0, ptr noundef writeonly %1) #1 {
+define internal noundef zeroext i1 @pdcp_lte_update_cb(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #1 {
 sub_0:
   %2 = alloca i32, align 4
   %3 = alloca %struct.e_in6_addr, align 1
@@ -9486,7 +9486,7 @@ define internal noundef ptr @pdcp_nr_copy_cb(ptr noundef returned initializes((0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @pdcp_nr_update_cb(ptr noundef %0, ptr noundef writeonly %1) #1 {
+define internal noundef zeroext i1 @pdcp_nr_update_cb(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #1 {
 sub_0:
   %2 = alloca i32, align 4
   %3 = alloca %struct.e_in6_addr, align 1
@@ -16881,7 +16881,7 @@ define internal i32 @decode_gtp_data_req(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_data_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_data_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) #1 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
   store i32 0, ptr %6, align 4

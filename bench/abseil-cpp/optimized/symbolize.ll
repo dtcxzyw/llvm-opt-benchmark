@@ -75,7 +75,7 @@ $__clang_call_terminate = comdat any
 @.str.35 = private unnamed_addr constant [14 x i8] c"Corrupt cache\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl20InitializeSymbolizerEPKc(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @_ZN4absl20InitializeSymbolizerEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_ZN4absl18debugging_internal11VDSOSupport4InitEv()
   %3 = load ptr, ptr @_ZN4abslL11argv0_valueE, align 8, !tbaa !4
   %.not = icmp eq ptr %3, null
@@ -968,7 +968,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %2, %22, %18, %_ZN4a
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal23RegisterFileMappingHintEPKvS2_mPKc(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal23RegisterFileMappingHintEPKvS2_mPKc(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %.not = icmp ugt ptr %0, %1
   br i1 %.not, label %5, label %6
 
@@ -2341,7 +2341,7 @@ declare noundef zeroext i1 @_ZN4absl13base_internal13LowLevelAlloc11DeleteArenaE
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer11FindObjFileEPKvm(ptr noundef nonnull align 16 dereferenceable(22560) %0, ptr noundef readnone %1) unnamed_addr #15 align 2 {
+define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer11FindObjFileEPKvm(ptr noundef nonnull align 16 dereferenceable(22560) %0, ptr noundef readnone captures(address) %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 11296
@@ -3522,7 +3522,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc noundef range(i32 1, 4) i32 @_ZN4absl18debugging_internalL10FindSymbolEPKvPNS0_12_GLOBAL__N_111CachingFileEPcmlPK10Elf64_ShdrS9_S9_S6_m(ptr noundef readnone %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull %2, i64 noundef %3, i64 %.24.val, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #15 {
+define internal fastcc noundef range(i32 1, 4) i32 @_ZN4absl18debugging_internalL10FindSymbolEPKvPNS0_12_GLOBAL__N_111CachingFileEPcmlPK10Elf64_ShdrS9_S9_S6_m(ptr noundef readnone captures(address) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull %2, i64 noundef %3, i64 %.24.val, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #15 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load i64, ptr %7, align 8, !tbaa !118
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 56

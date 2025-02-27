@@ -2379,7 +2379,7 @@ define internal range(i32 0, 2) i32 @mp2t_fragment_equal(ptr noundef readonly ca
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noalias noundef ptr @mp2t_fragment_persistent_key(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly %2) #1 {
+define internal noalias noundef ptr @mp2t_fragment_persistent_key(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #1 {
   %4 = tail call noalias dereferenceable_or_null(12) ptr @g_slice_alloc(i64 noundef 12) #16
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %6

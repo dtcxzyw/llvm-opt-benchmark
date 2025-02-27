@@ -1195,7 +1195,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8facebook5velox6memory10MemoryPool4nameB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8facebook5velox6memory10MemoryPool4nameB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(168) %this) unnamed_addr #7 align 2 {
 entry:
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %name_
@@ -1218,7 +1218,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZNK8facebook5velox6memory10MemoryPool4rootEv(ptr noundef nonnull readonly align 8 dereferenceable(168) %this) unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZNK8facebook5velox6memory10MemoryPool4rootEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(168) %this) unnamed_addr #8 align 2 {
 entry:
   br label %while.cond
 

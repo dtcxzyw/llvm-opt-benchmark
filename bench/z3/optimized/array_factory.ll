@@ -420,7 +420,7 @@ declare noundef ptr @_ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort(ptr 
 declare void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13array_factory17get_some_args_forEP4sortR10ptr_bufferI4exprLj16EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef readonly captures(none) %s, ptr noundef nonnull align 8 dereferenceable(144) %args) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13array_factory17get_some_args_forEP4sortR10ptr_bufferI4exprLj16EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef readonly captures(none) %s, ptr noundef nonnull align 8 captures(address) dereferenceable(144) %args) local_unnamed_addr #3 align 2 {
 entry:
   %m_info.i.i = getelementptr inbounds nuw i8, ptr %s, i64 24
   %0 = load ptr, ptr %m_info.i.i, align 8
@@ -543,7 +543,7 @@ for.end:                                          ; preds = %_ZN6bufferIP4exprLb
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN13array_factory14get_some_valueEP4sort(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef readonly %s) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN13array_factory14get_some_valueEP4sort(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef readonly captures(address) %s) unnamed_addr #3 align 2 {
 entry:
   %fi = alloca ptr, align 8
   %m_sort2value_set = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -955,7 +955,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN13array_factory15get_some_valuesEP4sortR7obj_refI4expr11ast_managerES6_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef readonly %s, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %v1, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %v2) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN13array_factory15get_some_valuesEP4sortR7obj_refI4expr11ast_managerES6_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef readonly captures(address) %s, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %v1, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %v2) unnamed_addr #3 align 2 {
 entry:
   %m_sort2value_set = getelementptr inbounds nuw i8, ptr %this, i64 32
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 12

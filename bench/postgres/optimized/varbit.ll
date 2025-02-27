@@ -1604,7 +1604,7 @@ define dso_local noundef i64 @bitcat(ptr noundef readonly captures(none) %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @bit_catenate(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @bit_catenate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1736,7 +1736,7 @@ define dso_local noundef i64 @bitsubstr(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @bitsubstring(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @bitsubstring(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
@@ -1928,7 +1928,7 @@ define dso_local noundef i64 @bitoverlay(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @bit_overlay(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @bit_overlay(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp slt i32 %2, 1
   br i1 %5, label %6, label %10
 

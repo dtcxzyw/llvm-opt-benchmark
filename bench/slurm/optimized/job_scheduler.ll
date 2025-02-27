@@ -1243,7 +1243,7 @@ declare void @srun_allocate_abort(ptr noundef) local_unnamed_addr #2
 declare void @job_completion_logger(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fill_array_reasons(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @fill_array_reasons(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %25, label %3
 
@@ -2794,7 +2794,7 @@ _depend_list2str.exit:                            ; preds = %15, %23, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @test_job_dependency(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @test_job_dependency(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.depend_str_t, align 8
   %4 = alloca %struct.depend_str_t, align 8
   %5 = alloca %struct.test_job_dep_t, align 8
@@ -5250,7 +5250,7 @@ define dso_local i32 @job_start_data(ptr noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_foreach_job_start_data_part(ptr noundef readonly %0, ptr noundef captures(none) initializes((16, 20)) %1) #0 {
+define internal range(i32 -1, 1) i32 @_foreach_job_start_data_part(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) initializes((16, 20)) %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca double, align 8
   %5 = alloca %struct.delay_start_t, align 8

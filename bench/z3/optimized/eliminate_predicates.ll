@@ -1292,7 +1292,7 @@ declare noundef zeroext i1 @_ZNK8ast_mark9is_markedEP3ast(ptr noundef nonnull al
 declare void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef readonly %_head, i32 noundef %num_bound) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef readonly captures(address) %_head, i32 noundef %num_bound) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %indices = alloca %class.uint_set, align 8
   %m_kind.i.i = getelementptr inbounds nuw i8, ptr %_head, i64 4
@@ -1506,7 +1506,7 @@ _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN20eliminate_predicates23can_be_quasi_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef readonly %_head, i32 noundef %num_bound) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN20eliminate_predicates23can_be_quasi_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef readonly captures(address) %_head, i32 noundef %num_bound) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %indices = alloca %class.uint_set, align 8
   %m_kind.i.i = getelementptr inbounds nuw i8, ptr %_head, i64 4
@@ -1964,7 +1964,7 @@ eh.resume:                                        ; preds = %ehcleanup23, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN20eliminate_predicates18insert_quasi_macroEP3appP4exprRNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef readonly %head, ptr noundef %body, ptr noundef nonnull align 8 captures(none) dereferenceable(53) %cl) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN20eliminate_predicates18insert_quasi_macroEP3appP4exprRNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef readonly captures(address) %head, ptr noundef %body, ptr noundef nonnull align 8 captures(none) dereferenceable(53) %cl) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1
@@ -3688,7 +3688,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN20eliminate_predicates26bind_free_variables_in_defERNS_6clauseEP3appP4expr(ptr noalias sret(%class.obj_ref.1) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(53) %cl, ptr noundef readonly %head, ptr noundef %def) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN20eliminate_predicates26bind_free_variables_in_defERNS_6clauseEP3appP4expr(ptr noalias sret(%class.obj_ref.1) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(53) %cl, ptr noundef readonly captures(address) %head, ptr noundef %def) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pr.i = alloca %class.obj_ref.49, align 8
   %names = alloca %class.svector.8, align 8
@@ -6916,7 +6916,7 @@ if.end152:                                        ; preds = %if.end73, %_ZNK6vec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_1clEP4exprS4_S4_"(ptr readonly captures(none) %this.0.val, ptr %this.8.val, ptr noundef %f, ptr noundef %t, ptr noundef %cond) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_1clEP4exprS4_S4_"(ptr readonly captures(none) %this.0.val, ptr %this.8.val, ptr noundef captures(address) %f, ptr noundef %t, ptr noundef %cond) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this.0.val, align 8
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %f, i64 4
@@ -7255,7 +7255,7 @@ declare void @_ZN7bv_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferen
 declare void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(976)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_3clEP4exprS4_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly %x, ptr noundef %y) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_3clEP4exprS4_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly captures(address) %x, ptr noundef %y) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %is_int.i.i = alloca i8, align 1
   %n.i20 = alloca %class.rational, align 8
@@ -8001,7 +8001,7 @@ return:                                           ; preds = %for.inc49, %if.end4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_"(ptr %this.0.val, ptr readonly captures(none) %this.8.val, ptr noundef %_x, ptr noundef %y) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_"(ptr %this.0.val, ptr readonly captures(none) %this.8.val, ptr noundef captures(address) %_x, ptr noundef %y) unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i = getelementptr inbounds nuw i8, ptr %_x, i64 4
   %bf.load.i.i = load i32, ptr %m_kind.i.i, align 4
@@ -9884,7 +9884,7 @@ return:                                           ; preds = %if.end37, %if.end32
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN20eliminate_predicates7resolveEP9func_declRNS_6clauseES3_(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef readonly %p, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(53) %pos, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(53) %neg) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN20eliminate_predicates7resolveEP9func_declRNS_6clauseES3_(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef readonly captures(address) %p, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(53) %pos, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(53) %neg) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pr.i = alloca %class.obj_ref.49, align 8
   %sh = alloca %class.var_shifter, align 8
@@ -12508,7 +12508,7 @@ ehcleanup:                                        ; preds = %lpad6.loopexit.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN20eliminate_predicates22create_residue_formulaEP9func_declRNS_6clauseE(ptr noalias sret(%class.obj_ref.1) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this, ptr noundef readonly %p, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(53) %cl) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN20eliminate_predicates22create_residue_formulaEP9func_declRNS_6clauseE(ptr noalias sret(%class.obj_ref.1) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this, ptr noundef readonly captures(address) %p, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(53) %cl) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ors = alloca %class.ref_vector.45, align 8
   %ands = alloca %class.ref_vector.45, align 8

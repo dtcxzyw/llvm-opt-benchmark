@@ -131,7 +131,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.79 = private unnamed_addr constant [5 x i8] c"%s, \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_tag_new(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_tag_new(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   %.not = icmp eq ptr %0, null
@@ -404,7 +404,7 @@ declare ptr @g_strstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_a
 declare i32 @sqlite3_bind_int(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_tag_new_from_gui(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_tag_new_from_gui(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @dt_tag_new(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %16, label %4
@@ -712,7 +712,7 @@ declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #2
 declare void @g_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @dt_tag_remove_list(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i32 @dt_tag_remove_list(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %30, label %3
@@ -942,7 +942,7 @@ define void @dt_tag_rename(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_tag_exists(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_tag_exists(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
@@ -1017,7 +1017,7 @@ define range(i32 0, 2) i32 @dt_tag_exists(ptr noundef %0, ptr noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_tag_attach_images(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_tag_attach_images(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %5
@@ -1210,7 +1210,7 @@ declare void @g_list_free(ptr noundef) local_unnamed_addr #2
 declare void @dt_undo_record(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @_pop_undo(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef captures(none) %4) #0 {
+define internal void @_pop_undo(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(none) %4) #0 {
   %6 = icmp eq i32 %1, 32
   br i1 %6, label %.preheader, label %45
 
@@ -1403,7 +1403,7 @@ define range(i32 0, 2) i32 @dt_is_tag_attached(i32 noundef %0, i32 noundef %1) l
 declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_tag_set_tags(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_tag_set_tags(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %20, label %7
@@ -1448,7 +1448,7 @@ define range(i32 0, 2) i32 @dt_tag_set_tags(ptr noundef %0, ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_tag_attach_string_list(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_tag_attach_string_list(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = tail call ptr @g_strsplit(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef 0) #11
@@ -1539,7 +1539,7 @@ declare ptr @g_strchug(ptr noundef) local_unnamed_addr #2
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_tag_detach_images(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_tag_detach_images(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %5
@@ -2337,7 +2337,7 @@ dt_tag_free_result.exit:                          ; preds = %33, %18, %thread-pr
 declare i32 @dt_conf_get_bool(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @dt_tag_free_result(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @dt_tag_free_result(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -3027,7 +3027,7 @@ define ptr @dt_tag_get_images(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_tag_get_images_from_list(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @dt_tag_get_images_from_list(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11

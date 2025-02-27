@@ -1009,7 +1009,7 @@ define dso_local void @text_poke_early(ptr noundef %0, ptr noundef readonly capt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @apply_retpolines(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #4 align 16 {
+define dso_local void @apply_retpolines(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1492,7 +1492,7 @@ optimize_nops.exit:                               ; preds = %184, %192
 declare dso_local i32 @insn_decode(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @apply_returns(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #4 align 16 {
+define dso_local void @apply_returns(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.insn, align 8
   %5 = alloca [16 x i8], align 16
@@ -1760,7 +1760,7 @@ declare dso_local void @__x86_return_thunk() #2
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @apply_seal_endbr(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #4 align 16 {
+define dso_local void @apply_seal_endbr(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -2027,7 +2027,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @alternatives_smp_module_del(ptr noundef readnone %0) local_unnamed_addr #4 align 16 {
+define dso_local void @alternatives_smp_module_del(ptr noundef readnone captures(address) %0) local_unnamed_addr #4 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @text_mutex) #20
   br label %2
 
@@ -2164,7 +2164,7 @@ define dso_local void @alternatives_enable_smp() local_unnamed_addr #4 align 16 
 declare dso_local void @clear_cpu_cap(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef range(i32 0, 2) i32 @alternatives_text_reserved(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #10 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @alternatives_text_reserved(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #10 align 16 {
   %3 = load ptr, ptr @smp_alt_modules, align 8
   %4 = icmp eq ptr %3, @smp_alt_modules
   br i1 %4, label %.loopexit, label %.preheader7
@@ -2216,7 +2216,7 @@ define dso_local noundef range(i32 0, 2) i32 @alternatives_text_reserved(ptr nou
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @__alt_reloc_selftest(ptr noundef readnone %0) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local void @__alt_reloc_selftest(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, @__alt_reloc_selftest_addr
   br i1 %2, label %4, label %3, !prof !28
 
@@ -2334,7 +2334,7 @@ define dso_local noundef ptr @text_poke(ptr noundef returned %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @__text_poke(ptr noundef readonly %0, ptr noundef returned %1, ptr noundef %2, i64 noundef %3) unnamed_addr #4 align 16 {
+define internal fastcc noundef ptr @__text_poke(ptr noundef readonly captures(address) %0, ptr noundef returned %1, ptr noundef %2, i64 noundef %3) unnamed_addr #4 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8

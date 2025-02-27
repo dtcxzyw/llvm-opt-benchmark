@@ -4211,7 +4211,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9sandboxir15UnreachableInst7classof
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9sandboxir10ReturnInst12createCommonEPNS0_5ValueERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS0_7ContextE(ptr noundef readonly %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(432) %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm9sandboxir10ReturnInst12createCommonEPNS0_5ValueERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS0_7ContextE(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(432) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %.not = icmp eq ptr %0, null
@@ -4310,7 +4310,7 @@ _ZN4llvm13IRBuilderBase13CreateRetVoidEv.exit:    ; preds = %.lr.ph.i.i.i11, %29
 declare noundef ptr @_ZN4llvm9sandboxir7Context16createReturnInstEPNS_10ReturnInstE(ptr noundef nonnull align 8 dereferenceable(432), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9sandboxir10ReturnInst6createEPNS0_5ValueENS0_14InsertPositionERNS0_7ContextE(ptr noundef %0, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(432) %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm9sandboxir10ReturnInst6createEPNS0_5ValueENS0_14InsertPositionERNS0_7ContextE(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(432) %2) local_unnamed_addr #1 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm9sandboxir11Instruction12setInsertPosENS0_14InsertPositionE(ptr noundef nonnull byval(%"class.llvm::sandboxir::InsertPosition") align 8 %1)
   %5 = tail call noundef ptr @_ZN4llvm9sandboxir10ReturnInst12createCommonEPNS0_5ValueERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS0_7ContextE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(432) %2)
   ret ptr %5
@@ -4561,7 +4561,7 @@ _ZN4llvm8CallBase17setCalledFunctionEPNS_12FunctionTypeEPNS_5ValueE.exit: ; pred
 declare noundef ptr @_ZNK4llvm9sandboxir8Function15getFunctionTypeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9sandboxir8CallInst6createEPNS0_12FunctionTypeEPNS0_5ValueENS_8ArrayRefIS5_EENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readonly %2, i64 %3, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %4, ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull align 8 dereferenceable(34) %6) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm9sandboxir8CallInst6createEPNS0_12FunctionTypeEPNS0_5ValueENS_8ArrayRefIS5_EENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readonly captures(address) %2, i64 %3, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %4, ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull align 8 dereferenceable(34) %6) local_unnamed_addr #1 align 2 {
   %8 = alloca %"class.llvm::SmallVector.87", align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm9sandboxir11Instruction12setInsertPosENS0_14InsertPositionE(ptr noundef nonnull byval(%"class.llvm::sandboxir::InsertPosition") align 8 %4)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #18
@@ -4771,7 +4771,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8CallInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
 declare noundef ptr @_ZN4llvm9sandboxir7Context14createCallInstEPNS_8CallInstE(ptr noundef nonnull align 8 dereferenceable(432), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9sandboxir10InvokeInst6createEPNS0_12FunctionTypeEPNS0_5ValueEPNS0_10BasicBlockES7_NS_8ArrayRefIS5_EENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readonly %4, i64 %5, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %6, ptr noundef nonnull align 8 dereferenceable(432) %7, ptr noundef nonnull align 8 dereferenceable(34) %8) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm9sandboxir10InvokeInst6createEPNS0_12FunctionTypeEPNS0_5ValueEPNS0_10BasicBlockES7_NS_8ArrayRefIS5_EENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readonly captures(address) %4, i64 %5, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %6, ptr noundef nonnull align 8 dereferenceable(432) %7, ptr noundef nonnull align 8 dereferenceable(34) %8) local_unnamed_addr #1 align 2 {
   %10 = alloca %"class.llvm::SmallVector.87", align 8
   %11 = alloca %"class.llvm::ArrayRef.92", align 8
   %12 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm9sandboxir11Instruction12setInsertPosENS0_14InsertPositionE(ptr noundef nonnull byval(%"class.llvm::sandboxir::InsertPosition") align 8 %6)
@@ -5037,7 +5037,7 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir10InvokeInst12getSuccessorEj(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9sandboxir10CallBrInst6createEPNS0_12FunctionTypeEPNS0_5ValueEPNS0_10BasicBlockENS_8ArrayRefIS7_EENS8_IS5_EENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readonly %3, i64 %4, ptr noundef readonly byval(%"class.llvm::ArrayRef.86") align 8 captures(none) %5, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %6, ptr noundef nonnull align 8 dereferenceable(432) %7, ptr noundef nonnull align 8 dereferenceable(34) %8) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm9sandboxir10CallBrInst6createEPNS0_12FunctionTypeEPNS0_5ValueEPNS0_10BasicBlockENS_8ArrayRefIS7_EENS8_IS5_EENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readonly captures(address) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::ArrayRef.86") align 8 captures(none) %5, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %6, ptr noundef nonnull align 8 dereferenceable(432) %7, ptr noundef nonnull align 8 dereferenceable(34) %8) local_unnamed_addr #1 align 2 {
   %10 = alloca %"class.llvm::SmallVector.94", align 8
   %11 = alloca %"class.llvm::SmallVector.87", align 8
   %12 = alloca %"class.llvm::ArrayRef.92", align 8
@@ -6517,7 +6517,7 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir12CatchPadInst14getCatchSwitchE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9sandboxir12CatchPadInst6createEPNS0_5ValueENS_8ArrayRefIS3_EENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE(ptr noundef readonly captures(none) %0, ptr readonly %1, i64 %2, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %3, ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef nonnull align 8 dereferenceable(34) %5) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm9sandboxir12CatchPadInst6createEPNS0_5ValueENS_8ArrayRefIS3_EENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE(ptr noundef readonly captures(none) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %3, ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef nonnull align 8 dereferenceable(34) %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::InsertPosition", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::SmallVector.87", align 8
@@ -6640,7 +6640,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
 declare noundef ptr @_ZN4llvm9sandboxir7Context18createCatchPadInstEPNS_12CatchPadInstE(ptr noundef nonnull align 8 dereferenceable(432), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9sandboxir14CleanupPadInst6createEPNS0_5ValueENS_8ArrayRefIS3_EENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE(ptr noundef readonly captures(none) %0, ptr readonly %1, i64 %2, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %3, ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef nonnull align 8 dereferenceable(34) %5) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm9sandboxir14CleanupPadInst6createEPNS0_5ValueENS_8ArrayRefIS3_EENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE(ptr noundef readonly captures(none) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %3, ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef nonnull align 8 dereferenceable(34) %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::InsertPosition", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::SmallVector.87", align 8
@@ -7137,7 +7137,7 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir15CatchReturnInst23getCatchSwit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9sandboxir17CleanupReturnInst6createEPNS0_14CleanupPadInstEPNS0_10BasicBlockENS0_14InsertPositionERNS0_7ContextE(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %2, ptr noundef nonnull align 8 dereferenceable(432) %3) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm9sandboxir17CleanupReturnInst6createEPNS0_14CleanupPadInstEPNS0_10BasicBlockENS0_14InsertPositionERNS0_7ContextE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %2, ptr noundef nonnull align 8 dereferenceable(432) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm9sandboxir11Instruction12setInsertPosENS0_14InsertPositionE(ptr noundef nonnull byval(%"class.llvm::sandboxir::InsertPosition") align 8 %2)
   %.not = icmp eq ptr %1, null
@@ -7559,7 +7559,7 @@ _ZNSt10unique_ptrIN4llvm9sandboxir13GenericSetterIXadL_ZNKS1_17CleanupReturnInst
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9sandboxir17GetElementPtrInst6createEPNS0_4TypeEPNS0_5ValueENS_8ArrayRefIS5_EENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readonly %2, i64 %3, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %4, ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull align 8 dereferenceable(34) %6) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm9sandboxir17GetElementPtrInst6createEPNS0_4TypeEPNS0_5ValueENS_8ArrayRefIS5_EENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readonly captures(address) %2, i64 %3, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %4, ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull align 8 dereferenceable(34) %6) local_unnamed_addr #1 align 2 {
   %8 = alloca %"class.llvm::SmallVector.87", align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm9sandboxir11Instruction12setInsertPosENS0_14InsertPositionE(ptr noundef nonnull byval(%"class.llvm::sandboxir::InsertPosition") align 8 %4)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #18
@@ -8876,7 +8876,7 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir7PHINode16hasConstantValueEv(pt
 declare noundef ptr @_ZNK4llvm7PHINode16hasConstantValueEv(ptr noundef nonnull align 8 dereferenceable(76)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9sandboxir7PHINode24replaceIncomingBlockWithEPKNS0_10BasicBlockEPS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm9sandboxir7PHINode24replaceIncomingBlockWithEPKNS0_10BasicBlockEPS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4

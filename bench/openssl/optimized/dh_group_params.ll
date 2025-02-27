@@ -55,7 +55,7 @@ define ptr @DH_new_by_nid(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_dh_cache_named_group(ptr noundef %0) local_unnamed_addr #0 {
+define void @ossl_dh_cache_named_group(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %28, label %3
 
@@ -115,7 +115,7 @@ declare i32 @ossl_ffc_named_group_get_uid(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_ffc_named_group_get_keylength(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_dh_is_named_safe_prime_group(ptr noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_dh_is_named_safe_prime_group(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %DH_get_nid.exit, label %3
 
@@ -132,7 +132,7 @@ DH_get_nid.exit:                                  ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @DH_get_nid(ptr noundef readonly %0) local_unnamed_addr #2 {
+define i32 @DH_get_nid(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

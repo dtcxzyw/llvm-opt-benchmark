@@ -748,7 +748,7 @@ declare zeroext i8 @mbedtls_md_get_size(ptr noundef) local_unnamed_addr #4
 declare i32 @mbedtls_md_starts(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream5writeEPKhm(ptr noundef nonnull readonly returned align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream5writeEPKhm(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -783,7 +783,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstr
 declare i32 @mbedtls_md_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream5flushEv(ptr noundef nonnull readonly returned align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream5flushEv(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"struct.spdlog::source_loc", align 8
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #22

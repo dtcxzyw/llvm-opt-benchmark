@@ -85,7 +85,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.73 = private unnamed_addr constant [43 x i8] c"invalid location in png_set_unknown_chunks\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_bKGD(ptr noalias noundef readnone %0, ptr noalias noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @png_set_bKGD(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -110,7 +110,7 @@ define void @png_set_bKGD(ptr noalias noundef readnone %0, ptr noalias noundef %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_cHRM_fixed(ptr noalias noundef readnone %0, ptr noalias noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define void @png_set_cHRM_fixed(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = icmp eq ptr %0, null
   %12 = icmp eq ptr %1, null
   %or.cond = or i1 %11, %12
@@ -144,7 +144,7 @@ define void @png_set_cHRM_fixed(ptr noalias noundef readnone %0, ptr noalias nou
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_cHRM_XYZ_fixed(ptr noalias noundef %0, ptr noalias noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #2 {
+define void @png_set_cHRM_XYZ_fixed(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #2 {
   %12 = alloca %struct.png_XYZ, align 4
   %13 = alloca %struct.png_xy, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %12) #12
@@ -206,7 +206,7 @@ declare void @png_app_error(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_cHRM(ptr noalias noundef %0, ptr noalias noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9) local_unnamed_addr #2 {
+define void @png_set_cHRM(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9) local_unnamed_addr #2 {
   %11 = tail call i32 @png_fixed(ptr noundef %0, double noundef %2, ptr noundef nonnull @.str.1) #12
   %12 = tail call i32 @png_fixed(ptr noundef %0, double noundef %3, ptr noundef nonnull @.str.2) #12
   %13 = tail call i32 @png_fixed(ptr noundef %0, double noundef %4, ptr noundef nonnull @.str.3) #12
@@ -250,7 +250,7 @@ png_set_cHRM_fixed.exit:                          ; preds = %10, %21
 declare i32 @png_fixed(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_cHRM_XYZ(ptr noalias noundef %0, ptr noalias noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10) local_unnamed_addr #2 {
+define void @png_set_cHRM_XYZ(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10) local_unnamed_addr #2 {
   %12 = alloca %struct.png_XYZ, align 4
   %13 = alloca %struct.png_xy, align 4
   %14 = tail call i32 @png_fixed(ptr noundef %0, double noundef %2, ptr noundef nonnull @.str.3) #12
@@ -312,7 +312,7 @@ png_set_cHRM_XYZ_fixed.exit:                      ; preds = %11, %36, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_cICP(ptr noalias noundef %0, ptr noalias noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #2 {
+define void @png_set_cICP(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #2 {
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %8
@@ -348,7 +348,7 @@ define void @png_set_cICP(ptr noalias noundef %0, ptr noalias noundef %1, i8 nou
 declare void @png_warning(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_cLLI_fixed(ptr noalias noundef %0, ptr noalias noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @png_set_cLLI_fixed(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -381,7 +381,7 @@ define void @png_set_cLLI_fixed(ptr noalias noundef %0, ptr noalias noundef %1, 
 declare void @png_chunk_report(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_cLLI(ptr noalias noundef %0, ptr noalias noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #2 {
+define void @png_set_cLLI(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, double noundef %2, double noundef %3) local_unnamed_addr #2 {
   %5 = tail call i32 @png_fixed_ITU(ptr noundef %0, double noundef %2, ptr noundef nonnull @.str.14) #12
   %6 = tail call i32 @png_fixed_ITU(ptr noundef %0, double noundef %3, ptr noundef nonnull @.str.15) #12
   %7 = icmp eq ptr %0, null
@@ -416,7 +416,7 @@ png_set_cLLI_fixed.exit:                          ; preds = %4, %11, %12
 declare i32 @png_fixed_ITU(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_mDCV_fixed(ptr noalias noundef %0, ptr noalias noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #2 {
+define void @png_set_mDCV_fixed(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #2 {
   %13 = icmp eq ptr %0, null
   %14 = icmp eq ptr %1, null
   %or.cond = or i1 %13, %14
@@ -513,7 +513,7 @@ png_ITU_fixed_16.exit60.thread69:                 ; preds = %png_ITU_fixed_16.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_mDCV(ptr noalias noundef %0, ptr noalias noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, double noundef %11) local_unnamed_addr #2 {
+define void @png_set_mDCV(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, double noundef %11) local_unnamed_addr #2 {
   %13 = fmul double %2, 5.000000e-01
   %14 = tail call i32 @png_fixed(ptr noundef %0, double noundef %13, ptr noundef nonnull @.str.18) #12
   %15 = fmul double %3, 5.000000e-01
@@ -592,7 +592,7 @@ declare noalias ptr @png_malloc_warn(ptr noundef, i64 noundef) local_unnamed_add
 declare void @png_free_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_gAMA_fixed(ptr noalias noundef readnone %0, ptr noalias noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @png_set_gAMA_fixed(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -612,7 +612,7 @@ define void @png_set_gAMA_fixed(ptr noalias noundef readnone %0, ptr noalias nou
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_gAMA(ptr noalias noundef %0, ptr noalias noundef %1, double noundef %2) local_unnamed_addr #2 {
+define void @png_set_gAMA(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, double noundef %2) local_unnamed_addr #2 {
   %4 = tail call i32 @png_fixed(ptr noundef %0, double noundef %2, ptr noundef nonnull @.str.30) #12
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
@@ -689,7 +689,7 @@ define void @png_set_hIST(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_IHDR(ptr noalias noundef %0, ptr noalias noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 {
+define void @png_set_IHDR(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 {
   %10 = icmp eq ptr %0, null
   %11 = icmp eq ptr %1, null
   %or.cond = or i1 %10, %11
@@ -779,7 +779,7 @@ define void @png_set_IHDR(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
 declare void @png_check_IHDR(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_oFFs(ptr noalias noundef readnone %0, ptr noalias noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @png_set_oFFs(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
@@ -804,7 +804,7 @@ define void @png_set_oFFs(ptr noalias noundef readnone %0, ptr noalias noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7, ptr noundef readonly %8) local_unnamed_addr #2 {
+define void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef readonly captures(address_is_null) %8) local_unnamed_addr #2 {
   %10 = icmp eq ptr %0, null
   %11 = icmp eq ptr %1, null
   %or.cond = or i1 %10, %11
@@ -975,7 +975,7 @@ declare i32 @png_check_fp_string(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_sCAL_s(ptr noalias noundef %0, ptr noalias noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define void @png_set_sCAL_s(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
@@ -1089,7 +1089,7 @@ declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare void @png_free(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_sCAL(ptr noalias noundef %0, ptr noalias noundef %1, i32 noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #2 {
+define void @png_set_sCAL(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #2 {
   %6 = alloca [18 x i8], align 16
   %7 = alloca [18 x i8], align 16
   %8 = fcmp ugt double %3, 0.000000e+00
@@ -1124,7 +1124,7 @@ define void @png_set_sCAL(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
 declare void @png_ascii_from_fp(ptr noundef, ptr noundef, i64 noundef, double noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_sCAL_fixed(ptr noalias noundef %0, ptr noalias noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define void @png_set_sCAL_fixed(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca [18 x i8], align 16
   %7 = alloca [18 x i8], align 16
   %8 = icmp slt i32 %3, 1
@@ -1159,7 +1159,7 @@ define void @png_set_sCAL_fixed(ptr noalias noundef %0, ptr noalias noundef %1, 
 declare void @png_ascii_from_fixed(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_pHYs(ptr noalias noundef readnone %0, ptr noalias noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @png_set_pHYs(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
@@ -1184,7 +1184,7 @@ define void @png_set_pHYs(ptr noalias noundef readnone %0, ptr noalias noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_PLTE(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @png_set_PLTE(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -1277,7 +1277,7 @@ define void @png_set_PLTE(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 declare noalias ptr @png_calloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_sBIT(ptr noalias noundef readnone %0, ptr noalias noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @png_set_sBIT(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -1299,7 +1299,7 @@ define void @png_set_sBIT(ptr noalias noundef readnone %0, ptr noalias noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_sRGB(ptr noalias noundef readnone %0, ptr noalias noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @png_set_sRGB(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -1319,7 +1319,7 @@ define void @png_set_sRGB(ptr noalias noundef readnone %0, ptr noalias noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_sRGB_gAMA_and_cHRM(ptr noalias noundef readnone %0, ptr noalias noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @png_set_sRGB_gAMA_and_cHRM(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -1357,7 +1357,7 @@ png_set_cHRM_fixed.exit:                          ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_iCCP(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #2 {
+define void @png_set_iCCP(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %8
@@ -1424,7 +1424,7 @@ define void @png_set_iCCP(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 declare void @png_benign_error(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_text(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @png_set_text(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call i32 @png_set_text_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6
@@ -1438,7 +1438,7 @@ define void @png_set_text(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -1670,7 +1670,7 @@ declare noalias ptr @png_realloc_array(ptr noundef, ptr noundef, i32 noundef, i3
 declare noalias ptr @png_malloc_base(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_tIME(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef readonly %2) local_unnamed_addr #2 {
+define void @png_set_tIME(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -1736,7 +1736,7 @@ define void @png_set_tIME(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_tRNS(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #2 {
+define void @png_set_tRNS(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
@@ -1866,7 +1866,7 @@ define void @png_set_tRNS(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 declare noalias ptr @png_malloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -1987,7 +1987,7 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 declare noalias ptr @png_malloc_array(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_unknown_chunks(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @png_set_unknown_chunks(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -2120,7 +2120,7 @@ check_location.exit:                              ; preds = %.preheader.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_unknown_chunk_location(ptr noalias noundef %0, ptr noalias noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @png_set_unknown_chunk_location(ptr noalias noundef %0, ptr noalias noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -2196,7 +2196,7 @@ check_location.exit:                              ; preds = %.preheader.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 6) i32 @png_permit_mng_features(ptr noalias noundef writeonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 6) i32 @png_permit_mng_features(ptr noalias noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -2212,7 +2212,7 @@ define range(i32 0, 6) i32 @png_permit_mng_features(ptr noalias noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_keep_unknown_chunks(ptr noalias noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @png_set_keep_unknown_chunks(ptr noalias noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %72, label %6
 
@@ -2443,7 +2443,7 @@ thread-pre-split:                                 ; preds = %33, %66, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_read_user_chunk_fn(ptr noalias noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define void @png_set_read_user_chunk_fn(ptr noalias noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -2559,7 +2559,7 @@ define void @png_set_compression_buffer_size(ptr noalias noundef %0, i64 noundef
 declare void @png_free_buffer_list(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_invalid(ptr noalias noundef readnone %0, ptr noalias noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @png_set_invalid(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -2578,7 +2578,7 @@ define void @png_set_invalid(ptr noalias noundef readnone %0, ptr noalias nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_user_limits(ptr noalias noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define void @png_set_user_limits(ptr noalias noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -2594,7 +2594,7 @@ define void @png_set_user_limits(ptr noalias noundef writeonly %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_chunk_cache_max(ptr noalias noundef writeonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @png_set_chunk_cache_max(ptr noalias noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -2608,7 +2608,7 @@ define void @png_set_chunk_cache_max(ptr noalias noundef writeonly %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_chunk_malloc_max(ptr noalias noundef writeonly %0, i64 noundef %1) local_unnamed_addr #8 {
+define void @png_set_chunk_malloc_max(ptr noalias noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %.sink.split
 

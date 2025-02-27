@@ -190,7 +190,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.jvmti2EventIndex = private unnamed_addr constant [39 x i32] [i32 19, i32 20, i32 5, i32 6, i32 poison, i32 9, i32 7, i32 poison, i32 4, i32 12, i32 1, i32 3, i32 2, i32 10, i32 11, i32 13, i32 14, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 17, i32 18, i32 15, i32 16, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 21, i32 22], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @saveGlobalRef(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @saveGlobalRef(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %8
 
@@ -279,7 +279,7 @@ declare void @log_message_begin(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare void @log_message_end(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tossGlobalRef(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @tossGlobalRef(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %7
 
@@ -3096,7 +3096,7 @@ define hidden i32 @methodLocation(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @methodSignature(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define hidden i32 @methodSignature(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3292,7 +3292,7 @@ define hidden i32 @classLoader(ptr noundef %0, ptr noundef initializes((0, 8)) %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @fieldSignature(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define hidden i32 @fieldSignature(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -4208,7 +4208,7 @@ define hidden void @threadGroupInfo(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @classSignature(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden i32 @classSignature(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = load ptr, ptr @gdata, align 8
@@ -6230,7 +6230,7 @@ define hidden i32 @classInstances(ptr noundef %0, ptr noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 256, 32769) i32 @cbObjectTagInstance(i32 %0, ptr readnone captures(none) %1, i64 %2, i64 %3, i64 %4, ptr noundef captures(none) %5, ptr readnone captures(none) %6, i32 %7, ptr noundef %8) #8 {
+define internal range(i32 256, 32769) i32 @cbObjectTagInstance(i32 %0, ptr readnone captures(none) %1, i64 %2, i64 %3, i64 %4, ptr noundef captures(none) %5, ptr readnone captures(none) %6, i32 %7, ptr noundef captures(address_is_null) %8) #8 {
   %10 = icmp eq ptr %8, null
   br i1 %10, label %23, label %11
 
@@ -6265,7 +6265,7 @@ define internal range(i32 256, 32769) i32 @cbObjectTagInstance(i32 %0, ptr readn
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @classInstanceCounts(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden i32 @classInstanceCounts(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.jvmtiHeapCallbacks, align 8
   %5 = alloca %struct.ClassCountData, align 8
   %6 = icmp eq ptr %1, null
@@ -6437,7 +6437,7 @@ define hidden i32 @classInstanceCounts(i32 noundef %0, ptr noundef readonly %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 256, 32769) i32 @cbObjectCounterFromRef(i32 %0, ptr readnone captures(none) %1, i64 noundef %2, i64 %3, i64 %4, ptr noundef captures(none) %5, ptr readnone captures(none) %6, i32 %7, ptr noundef %8) #9 {
+define internal range(i32 256, 32769) i32 @cbObjectCounterFromRef(i32 %0, ptr readnone captures(none) %1, i64 noundef %2, i64 %3, i64 %4, ptr noundef captures(none) %5, ptr readnone captures(none) %6, i32 %7, ptr noundef captures(address_is_null) %8) #9 {
   %10 = icmp eq ptr %8, null
   br i1 %10, label %40, label %11
 
@@ -6498,7 +6498,7 @@ define internal range(i32 256, 32769) i32 @cbObjectCounterFromRef(i32 %0, ptr re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 256, 32769) i32 @cbObjectCounter(i64 noundef %0, i64 %1, ptr readnone captures(none) %2, i32 %3, ptr noundef %4) #9 {
+define internal range(i32 256, 32769) i32 @cbObjectCounter(i64 noundef %0, i64 %1, ptr readnone captures(none) %2, i32 %3, ptr noundef captures(address_is_null) %4) #9 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %26, label %7
 
@@ -6702,7 +6702,7 @@ define hidden i32 @objectReferrers(ptr noundef %0, ptr noundef %1, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 256, 32769) i32 @cbObjectTagReferrer(i32 %0, ptr readnone captures(none) %1, i64 %2, i64 %3, i64 %4, ptr noundef readonly %5, ptr noundef %6, i32 %7, ptr noundef %8) #8 {
+define internal range(i32 256, 32769) i32 @cbObjectTagReferrer(i32 %0, ptr readnone captures(none) %1, i64 %2, i64 %3, i64 %4, ptr noundef readonly captures(address) %5, ptr noundef captures(address) %6, i32 %7, ptr noundef captures(address_is_null) %8) #8 {
   %10 = icmp eq ptr %8, null
   br i1 %10, label %36, label %11
 

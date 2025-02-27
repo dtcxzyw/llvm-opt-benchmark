@@ -17996,19 +17996,19 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal6theory7strings12TermRegistry14getSkolemCacheEv(ptr noundef nonnull readnone align 8 dereferenceable(1000) %0) local_unnamed_addr #15 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal6theory7strings12TermRegistry14getSkolemCacheEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1000) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(74) ptr @_ZNK4cvc58internal6theory7strings12TermRegistry16getFunctionTermsEv(ptr noundef nonnull readnone align 8 dereferenceable(1000) %0) local_unnamed_addr #15 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(74) ptr @_ZNK4cvc58internal6theory7strings12TermRegistry16getFunctionTermsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1000) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal6theory7strings12TermRegistry12getInputVarsEv(ptr noundef nonnull readnone align 8 dereferenceable(1000) %0) local_unnamed_addr #15 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal6theory7strings12TermRegistry12getInputVarsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1000) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   ret ptr %2
 }
@@ -21536,7 +21536,7 @@ define hidden void @_ZN4cvc58internal6theory7strings12TermRegistry24notifyEndFul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4cvc58internal6theory7strings12TermRegistry18getRelevantTermSetEv(ptr noundef nonnull readnone align 8 dereferenceable(1000) %0) local_unnamed_addr #15 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4cvc58internal6theory7strings12TermRegistry18getRelevantTermSetEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1000) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 952
   ret ptr %2
 }

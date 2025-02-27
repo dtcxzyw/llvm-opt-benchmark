@@ -102,13 +102,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.0a3de5dc611eb9e73e124dc0c16747ee.102 = private unnamed_addr constant <{ [13 x i8] }> <{ [13 x i8] c"with_capacity" }>, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define nonnull align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h1b8ebf56da5be682E"(ptr readnone align 1 captures(none) %0, ptr readnone align 8 %1) unnamed_addr #0 {
+define nonnull align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h1b8ebf56da5be682E"(ptr readnone align 1 captures(none) %0, ptr readnone align 8 captures(ret: address, provenance) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9cf9fa3e6fe6341aE"(ptr readnone align 1 captures(none) %0, ptr readnone returned align 8 %1) unnamed_addr #0 {
+define align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9cf9fa3e6fe6341aE"(ptr readnone align 1 captures(none) %0, ptr readnone returned align 8 captures(ret: address, provenance) %1) unnamed_addr #0 {
   ret ptr %1
 }
 
@@ -125,7 +125,7 @@ define { ptr, i32 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..func
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17ha8debc56c4f21e17E"(ptr readnone align 1 captures(none) %0, ptr readnone returned align 8 %1) unnamed_addr #0 {
+define align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17ha8debc56c4f21e17E"(ptr readnone align 1 captures(none) %0, ptr readnone returned align 8 captures(ret: address, provenance) %1) unnamed_addr #0 {
   ret ptr %1
 }
 
@@ -378,7 +378,7 @@ _ZN19pyo3_macros_backend7pyclass11EnumVariant15get_python_name17ha831ef64091c089
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define nonnull align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17he2808ebb747ad751E"(ptr readnone align 1 captures(none) %0, ptr readnone align 8 %1) unnamed_addr #0 {
+define nonnull align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17he2808ebb747ad751E"(ptr readnone align 1 captures(none) %0, ptr readnone align 8 captures(ret: address, provenance) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   ret ptr %3
 }

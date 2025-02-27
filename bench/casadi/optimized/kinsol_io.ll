@@ -73,7 +73,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.67 = private unnamed_addr constant [5 x i8] c"NONE\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINSetErrHandlerFn(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINSetErrHandlerFn(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -96,7 +96,7 @@ define range(i32 -1, 1) i32 @KINSetErrHandlerFn(ptr noundef writeonly %0, ptr no
 declare void @KINProcessError(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINSetErrFile(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINSetErrFile(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -115,7 +115,7 @@ define range(i32 -1, 1) i32 @KINSetErrFile(ptr noundef writeonly %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetPrintLevel(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetPrintLevel(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -142,7 +142,7 @@ define range(i32 -2, 1) i32 @KINSetPrintLevel(ptr noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINSetInfoHandlerFn(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINSetInfoHandlerFn(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -163,7 +163,7 @@ define range(i32 -1, 1) i32 @KINSetInfoHandlerFn(ptr noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINSetInfoFile(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINSetInfoFile(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -182,7 +182,7 @@ define range(i32 -1, 1) i32 @KINSetInfoFile(ptr noundef writeonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINSetUserData(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINSetUserData(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -201,7 +201,7 @@ define range(i32 -1, 1) i32 @KINSetUserData(ptr noundef writeonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetMAA(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetMAA(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -235,7 +235,7 @@ define range(i32 -2, 1) i32 @KINSetMAA(ptr noundef %0, i64 noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetNumMaxIters(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetNumMaxIters(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -270,7 +270,7 @@ define range(i32 -2, 1) i32 @KINSetNumMaxIters(ptr noundef writeonly %0, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINSetNoInitSetup(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINSetNoInitSetup(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -289,7 +289,7 @@ define range(i32 -1, 1) i32 @KINSetNoInitSetup(ptr noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINSetNoResMon(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINSetNoResMon(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -308,7 +308,7 @@ define range(i32 -1, 1) i32 @KINSetNoResMon(ptr noundef writeonly %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetMaxSetupCalls(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetMaxSetupCalls(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -343,7 +343,7 @@ define range(i32 -2, 1) i32 @KINSetMaxSetupCalls(ptr noundef writeonly %0, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetMaxSubSetupCalls(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetMaxSubSetupCalls(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -378,7 +378,7 @@ define range(i32 -2, 1) i32 @KINSetMaxSubSetupCalls(ptr noundef writeonly %0, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetEtaForm(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetEtaForm(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -406,7 +406,7 @@ define range(i32 -2, 1) i32 @KINSetEtaForm(ptr noundef writeonly %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetEtaConstValue(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetEtaConstValue(ptr noundef writeonly captures(address_is_null) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -443,7 +443,7 @@ define range(i32 -2, 1) i32 @KINSetEtaConstValue(ptr noundef writeonly %0, doubl
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetEtaParams(ptr noundef writeonly %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetEtaParams(ptr noundef writeonly captures(address_is_null) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -498,7 +498,7 @@ define range(i32 -2, 1) i32 @KINSetEtaParams(ptr noundef writeonly %0, double no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetResMonParams(ptr noundef writeonly %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetResMonParams(ptr noundef writeonly captures(address_is_null) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -562,7 +562,7 @@ define range(i32 -2, 1) i32 @KINSetResMonParams(ptr noundef writeonly %0, double
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetResMonConstValue(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetResMonConstValue(ptr noundef writeonly captures(address_is_null) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -589,7 +589,7 @@ define range(i32 -2, 1) i32 @KINSetResMonConstValue(ptr noundef writeonly %0, do
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINSetNoMinEps(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINSetNoMinEps(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -608,7 +608,7 @@ define range(i32 -1, 1) i32 @KINSetNoMinEps(ptr noundef writeonly %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetMaxNewtonStep(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetMaxNewtonStep(ptr noundef writeonly captures(address_is_null) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -635,7 +635,7 @@ define range(i32 -2, 1) i32 @KINSetMaxNewtonStep(ptr noundef writeonly %0, doubl
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetMaxBetaFails(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetMaxBetaFails(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -670,7 +670,7 @@ define range(i32 -2, 1) i32 @KINSetMaxBetaFails(ptr noundef writeonly %0, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetRelErrFunc(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetRelErrFunc(ptr noundef captures(address_is_null) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -711,7 +711,7 @@ define range(i32 -2, 1) i32 @KINSetRelErrFunc(ptr noundef %0, double noundef %1)
 declare double @SUNRsqrt(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetFuncNormTol(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetFuncNormTol(ptr noundef captures(address_is_null) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -751,7 +751,7 @@ define range(i32 -2, 1) i32 @KINSetFuncNormTol(ptr noundef %0, double noundef %1
 declare double @SUNRpowerR(double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetScaledStepTol(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetScaledStepTol(ptr noundef captures(address_is_null) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -789,7 +789,7 @@ define range(i32 -2, 1) i32 @KINSetScaledStepTol(ptr noundef %0, double noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetConstraints(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetConstraints(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -887,7 +887,7 @@ declare ptr @N_VClone(ptr noundef) local_unnamed_addr #1
 declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINSetSysFunc(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINSetSysFunc(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -914,7 +914,7 @@ define range(i32 -2, 1) i32 @KINSetSysFunc(ptr noundef writeonly %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINGetWorkSpace(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINGetWorkSpace(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -937,7 +937,7 @@ define range(i32 -1, 1) i32 @KINGetWorkSpace(ptr noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINGetNumNonlinSolvIters(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINGetNumNonlinSolvIters(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -957,7 +957,7 @@ define range(i32 -1, 1) i32 @KINGetNumNonlinSolvIters(ptr noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINGetNumFuncEvals(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINGetNumFuncEvals(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -977,7 +977,7 @@ define range(i32 -1, 1) i32 @KINGetNumFuncEvals(ptr noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINGetNumBetaCondFails(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINGetNumBetaCondFails(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -997,7 +997,7 @@ define range(i32 -1, 1) i32 @KINGetNumBetaCondFails(ptr noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINGetNumBacktrackOps(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINGetNumBacktrackOps(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1017,7 +1017,7 @@ define range(i32 -1, 1) i32 @KINGetNumBacktrackOps(ptr noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINGetFuncNorm(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINGetFuncNorm(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1037,7 +1037,7 @@ define range(i32 -1, 1) i32 @KINGetFuncNorm(ptr noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINGetStepLength(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINGetStepLength(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 

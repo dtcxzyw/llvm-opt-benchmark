@@ -4940,7 +4940,7 @@ define dso_local noundef ptr @ExecInitCheck(ptr noundef %0, ptr noundef %1) loca
 declare ptr @make_ands_explicit(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecInitExprList(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @ExecInitExprList(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -4973,7 +4973,7 @@ define dso_local ptr @ExecInitExprList(ptr noundef readonly %0, ptr noundef %1) 
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecBuildProjectionInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define dso_local noundef ptr @ExecBuildProjectionInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.ExprSetupInfo, align 8
   %7 = tail call noundef ptr @palloc0(i64 noundef 136) #10
   store i32 383, ptr %7, align 4
@@ -5266,7 +5266,7 @@ declare signext i16 @get_typlen(i32 noundef) local_unnamed_addr #3
 declare i32 @exprType(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecBuildUpdateProjection(ptr noundef %0, i1 noundef zeroext %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local noundef ptr @ExecBuildUpdateProjection(ptr noundef %0, i1 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.ExprSetupInfo, align 8
   %.sroa.25 = alloca [31 x i8], align 1
   %9 = tail call noundef ptr @palloc0(i64 noundef 136) #10
@@ -6420,7 +6420,7 @@ ExecInitCheck.exit:                               ; preds = %2, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecPrepareExprList(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local ptr @ExecPrepareExprList(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -7949,7 +7949,7 @@ ExprEvalPushStep.exit87:                          ; preds = %168, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ExecComputeSlotInfo(ptr readonly %.64.val, ptr noundef nonnull captures(none) initializes((28, 29)) %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ExecComputeSlotInfo(ptr readonly captures(address_is_null) %.64.val, ptr noundef nonnull captures(none) initializes((28, 29)) %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
   store i8 0, ptr %2, align 1
@@ -8105,7 +8105,7 @@ define internal fastcc noundef zeroext i1 @ExecComputeSlotInfo(ptr readonly %.64
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecBuildHash32Expr(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
+define dso_local noundef ptr @ExecBuildHash32Expr(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
   %10 = alloca %struct.ExprSetupInfo, align 8
   %11 = tail call noundef ptr @palloc0(i64 noundef 120) #10
   store i32 379, ptr %11, align 4
@@ -8961,7 +8961,7 @@ declare ptr @get_func_name(i32 noundef) local_unnamed_addr #3
 declare void @RunFunctionExecuteHook(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecBuildParamSetEqual(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local noundef ptr @ExecBuildParamSetEqual(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.ExprEvalStep, align 8
   %9 = tail call noundef ptr @palloc0(i64 noundef 120) #10
   store i32 379, ptr %9, align 4
@@ -9544,7 +9544,7 @@ define internal fastcc void @ExecInitWholeRowVar(ptr noundef nonnull writeonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecInitFunc(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @ExecInitFunc(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %list_length.exit, label %7
 
@@ -10959,7 +10959,7 @@ declare i32 @executor_errposition(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @exprLocation(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @isAssignmentIndirectionExpr(ptr noundef readonly %0) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @isAssignmentIndirectionExpr(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.lr.ph
 

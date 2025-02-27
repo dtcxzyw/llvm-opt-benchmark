@@ -31,7 +31,7 @@ define i32 @nghttp2_submit_trailer(ptr noundef %0, i32 noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1, i32 noundef range(i32 -1, -2147483648) %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1, i32 noundef range(i32 -1, -2147483648) %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2344

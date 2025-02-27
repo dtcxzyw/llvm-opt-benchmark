@@ -1897,7 +1897,7 @@ set_rawmode.exit:                                 ; preds = %3, %24, %27
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rawmode_opt(i32 %.0.val, ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rawmode_opt(i32 %.0.val, ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull writeonly captures(ret: address, provenance) %2) unnamed_addr #0 {
   %4 = alloca [3 x i64], align 16
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
@@ -2228,7 +2228,7 @@ setattr.exit47:                                   ; preds = %60, %54, %setattr.e
 declare i64 @rb_yield(i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_rawmode(ptr noundef %0, ptr noundef readonly %1) #0 {
+define internal void @set_rawmode(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   tail call void @cfmakeraw(ptr noundef %0) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !15

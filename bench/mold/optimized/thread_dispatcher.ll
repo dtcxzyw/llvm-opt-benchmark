@@ -182,7 +182,7 @@ define void @_ZN3tbb6detail2r117thread_dispatcherD0Ev(ptr noundef nonnull align 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE(ptr noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noundef readonly %1) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(152) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #7 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.lr.ph.preheader, label %3
 
@@ -719,7 +719,7 @@ _ZN3tbb6detail2d18rw_mutex6unlockEv.exit22:       ; preds = %84, %83, %80
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3tbb6detail2r117thread_dispatcher13remove_clientERNS1_24thread_dispatcher_clientE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #9 align 2 {
+define void @_ZN3tbb6detail2r117thread_dispatcher13remove_clientERNS1_24thread_dispatcher_clientE(ptr noundef nonnull align 8 captures(address) dereferenceable(152) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !39
@@ -787,7 +787,7 @@ define void @_ZN3tbb6detail2r117thread_dispatcher14destroy_clientEPNS1_24thread_
 declare void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN3tbb6detail2r117thread_dispatcher15is_client_aliveEPNS1_24thread_dispatcher_clientE(ptr noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noundef readnone %1) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN3tbb6detail2r117thread_dispatcher15is_client_aliveEPNS1_24thread_dispatcher_clientE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(152) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #7 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %.preheader
 
@@ -818,7 +818,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r117thread_dispatcher15is_client_alive
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef ptr @_ZN3tbb6detail2r117thread_dispatcher14client_in_needEPNS1_14intrusive_listINS1_24thread_dispatcher_clientEEEPS4_(ptr noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN3tbb6detail2r117thread_dispatcher14client_in_needEPNS1_14intrusive_listINS1_24thread_dispatcher_clientEEEPS4_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(152) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address, ret: address, provenance) %2) local_unnamed_addr #0 align 2 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %.lr.ph.preheader.i, label %4
 
@@ -905,7 +905,7 @@ _ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatche
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef ptr @_ZN3tbb6detail2r117thread_dispatcher14client_in_needEPNS1_24thread_dispatcher_clientE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN3tbb6detail2r117thread_dispatcher14client_in_needEPNS1_24thread_dispatcher_clientE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::rw_scoped_lock", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -39,7 +39,7 @@ $__clang_call_terminate = comdat any
 @_ZTVN3ue210ParseErrorE = external unnamed_addr constant { [4 x ptr] }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeE(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(6) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeE(ptr noundef %0, ptr noundef readnone captures(address) %1, i64 noundef %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(6) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1

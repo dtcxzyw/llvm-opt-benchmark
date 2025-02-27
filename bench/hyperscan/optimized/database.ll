@@ -37,7 +37,7 @@ define dso_local range(i32 -1, 1) i32 @hs_free_database(ptr noundef %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -9, 1) i32 @hs_serialize_database(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 -9, 1) i32 @hs_serialize_database(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -133,7 +133,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 1) i32 @hs_deserialize_database_at(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -8, 1) i32 @hs_deserialize_database_at(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -228,7 +228,7 @@ db_decode_header.exit.thread:                     ; preds = %26, %22, %10, %12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -9, 1) i32 @hs_deserialize_database(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 -9, 1) i32 @hs_deserialize_database(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -343,7 +343,7 @@ db_decode_header.exit.thread:                     ; preds = %18, %55, %53, %35, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -5, 1) i32 @hs_database_size(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
+define dso_local range(i32 -5, 1) i32 @hs_database_size(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   %.not.i = icmp eq ptr %0, null
   %or.cond = or i1 %.not.i, %.not
@@ -374,7 +374,7 @@ validDatabase.exit.thread:                        ; preds = %5, %3, %validDataba
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -5, 1) i32 @hs_serialized_database_size(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define dso_local range(i32 -5, 1) i32 @hs_serialized_database_size(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %.not.i = icmp eq ptr %0, null
   %4 = icmp ult i64 %1, 104
   %or.cond.i = or i1 %.not.i, %4
@@ -456,7 +456,7 @@ define hidden range(i32 -6, 1) i32 @dbIsValid(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -9, 1) i32 @hs_serialized_database_info(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 -9, 1) i32 @hs_serialized_database_info(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %db_decode_header.exit.thread, label %4
 
@@ -588,7 +588,7 @@ define internal fastcc range(i32 -9, 1) i32 @print_database_string(ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -9, 1) i32 @hs_database_info(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -9, 1) i32 @hs_database_info(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %20, label %3
 

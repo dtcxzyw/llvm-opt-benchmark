@@ -36,7 +36,7 @@ define void @OSSL_INDICATOR_set_callback(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define void @OSSL_INDICATOR_get_callback(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define void @OSSL_INDICATOR_get_callback(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %0, i32 noundef 22) #2
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %4

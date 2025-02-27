@@ -6860,7 +6860,7 @@ declare ptr @g_slist_nth_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_target_address(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc void @dissect_target_address(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
   %.promoted.i = load i32, ptr %2, align 4
   %8 = and i32 %.promoted.i, 1
   %.not9.i = icmp eq i32 %8, 0

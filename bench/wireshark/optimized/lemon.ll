@@ -2278,7 +2278,7 @@ define hidden ptr @Configlist_basis() local_unnamed_addr #14 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @State_find(ptr noundef readonly %0) local_unnamed_addr #8 {
+define hidden ptr @State_find(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr @x3a, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.critedge, label %4
@@ -3843,7 +3843,7 @@ Action_add.exit54:                                ; preds = %133, %144
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @same_symbol(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @same_symbol(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %4
 
@@ -5312,7 +5312,7 @@ define hidden void @Configtable_init() local_unnamed_addr #12 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @Configtable_clear(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @Configtable_clear(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @x4a, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %32, label %4
@@ -7453,7 +7453,7 @@ argindex.exit.thread:                             ; preds = %.tail.i, %.preheade
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @Symbol_new(ptr noundef %0) local_unnamed_addr #0 {
+define hidden ptr @Symbol_new(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @x2a, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %Symbol_find.exit.thread, label %4
@@ -15942,7 +15942,7 @@ define hidden void @tplt_linedir(ptr noundef %0, i32 noundef %1, ptr noundef rea
 declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #30
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @tplt_print(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define hidden void @tplt_print(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %43, label %.preheader
 
@@ -16243,7 +16243,7 @@ define hidden range(i32 0, 2) i32 @has_destructor(ptr noundef readonly captures(
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @append_str(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden ptr @append_str(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [40 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #42
   %6 = icmp eq ptr %0, null
@@ -17066,7 +17066,7 @@ append_str.exit235:                               ; preds = %320
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef ptr @Strsafe(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @Strsafe(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -18337,7 +18337,7 @@ define hidden ptr @Symbol_Nth(i32 noundef %0) local_unnamed_addr #19 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @statecmp(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #8 {
+define hidden i32 @statecmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond322 = and i1 %3, %4
@@ -18395,7 +18395,7 @@ define hidden i32 @statecmp(ptr noundef readonly %0, ptr noundef readonly %1) lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @statehash(ptr noundef readonly %0) local_unnamed_addr #8 {
+define hidden i32 @statehash(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not6 = icmp eq ptr %0, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 

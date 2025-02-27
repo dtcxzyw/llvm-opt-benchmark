@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZL19defaultTableOptions = internal constant %struct.UConverterAliasOptions zeroinitializer, align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @ucnv_io_stripASCIIForCompare_77(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1) #0 {
+define noundef ptr @ucnv_io_stripASCIIForCompare_77(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load i8, ptr %1, align 1, !tbaa !3
   %.not2831 = icmp eq i8 %3, 0
   br i1 %.not2831, label %.outer._crit_edge, label %.lr.ph
@@ -108,7 +108,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @ucnv_io_stripEBCDICForCompare_77(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1) #0 {
+define noundef ptr @ucnv_io_stripEBCDICForCompare_77(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load i8, ptr %1, align 1, !tbaa !3
   %.not2932 = icmp eq i8 %3, 0
   br i1 %.not2932, label %.outer._crit_edge, label %.lr.ph
@@ -328,7 +328,7 @@ define range(i32 -255, 256) i32 @ucnv_compareNames_77(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucnv_io_getConverterName_77(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define ptr @ucnv_io_getConverterName_77(ptr noundef readonly captures(address) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 {
   br label %5
 
 4:                                                ; preds = %20
@@ -550,7 +550,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -1, 4096) i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2) unnamed_addr #4 {
+define internal fastcc noundef range(i32 -1, 4096) i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #4 {
   %4 = alloca [60 x i8], align 16
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 48), align 8, !tbaa !42
   %6 = load i16, ptr %5, align 2, !tbaa !40
@@ -751,7 +751,7 @@ define internal fastcc noundef range(i32 -1, 4096) i32 @_ZL13findConverterPKcPaP
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucnv_openStandardNames_77(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define noundef ptr @ucnv_openStandardNames_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %2)
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -1012,7 +1012,7 @@ define ptr @ucnv_getStandard_77(i16 noundef zeroext %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucnv_getStandardName_77(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define ptr @ucnv_getStandardName_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %2)
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %21, label %5
@@ -1059,7 +1059,7 @@ _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define zeroext i16 @ucnv_countAliases_77(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define zeroext i16 @ucnv_countAliases_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %1)
   %.not.i = icmp eq i8 %3, 0
   br i1 %.not.i, label %_ZL20ucnv_io_countAliasesPKcP10UErrorCode.exit, label %4
@@ -1108,7 +1108,7 @@ _ZL20ucnv_io_countAliasesPKcP10UErrorCode.exit:   ; preds = %2, %_ZL7isAliasPKcP
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucnv_getAlias_77(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #3 {
+define ptr @ucnv_getAlias_77(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %2)
   %.not.i = icmp eq i8 %4, 0
   br i1 %.not.i, label %_ZL16ucnv_io_getAliasPKctP10UErrorCode.exit, label %5
@@ -1172,7 +1172,7 @@ _ZL16ucnv_io_getAliasPKctP10UErrorCode.exit:      ; preds = %3, %_ZL7isAliasPKcP
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucnv_getAliases_77(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @ucnv_getAliases_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %2)
   %.not.i = icmp eq i8 %4, 0
   br i1 %.not.i, label %_ZL18ucnv_io_getAliasesPKctPS0_P10UErrorCode.exit, label %5
@@ -1254,7 +1254,7 @@ define zeroext i16 @ucnv_countStandards_77() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucnv_getCanonicalName_77(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define ptr @ucnv_getCanonicalName_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca i32, align 4
   %5 = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %2)
   %.not = icmp eq i8 %5, 0
@@ -2094,7 +2094,7 @@ define internal noundef range(i32 0, 65536) i32 @_ZL28ucnv_io_countStandardAlias
 declare ptr @uenum_unextDefault_77(ptr noundef, ptr noundef, ptr noundef) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZL27ucnv_io_nextStandardAliasesP12UEnumerationPiP10UErrorCode(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr readnone captures(none) %2) #11 {
+define internal noundef ptr @_ZL27ucnv_io_nextStandardAliasesP12UEnumerationPiP10UErrorCode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr readnone captures(none) %2) #11 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !53
   %6 = load i32, ptr %5, align 4, !tbaa !50
@@ -2161,7 +2161,7 @@ define internal noundef i32 @_ZL26ucnv_io_countAllConvertersP12UEnumerationP10UE
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZL25ucnv_io_nextAllConvertersP12UEnumerationPiP10UErrorCode(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr readnone captures(none) %2) #11 {
+define internal noundef ptr @_ZL25ucnv_io_nextAllConvertersP12UEnumerationPiP10UErrorCode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr readnone captures(none) %2) #11 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !53
   %6 = load i16, ptr %5, align 2, !tbaa !22

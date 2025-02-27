@@ -10733,7 +10733,7 @@ declare i32 @llhttp__on_header_field_complete(ptr noundef, ptr noundef, ptr noun
 declare i32 @llhttp__on_header_field(ptr noundef, ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc { i32, ptr } @llparse__match_sequence_id(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 2, 11) %4) unnamed_addr #7 {
+define internal fastcc { i32, ptr } @llparse__match_sequence_id(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 2, 11) %4) unnamed_addr #7 {
   %6 = load i32, ptr %0, align 8, !tbaa !30
   %.not25 = icmp eq ptr %1, %2
   br i1 %.not25, label %.loopexit.sink.split, label %.lr.ph.preheader

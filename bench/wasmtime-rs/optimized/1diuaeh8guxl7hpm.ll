@@ -1629,7 +1629,7 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define nonnull align 8 ptr @_ZN15wiggle_generate6config14ErrorConfField9abi_error17h3f996a7b289aa905E(ptr readonly align 8 %0) unnamed_addr #2 {
+define nonnull align 8 ptr @_ZN15wiggle_generate6config14ErrorConfField9abi_error17h3f996a7b289aa905E(ptr readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775808
   %.0.v = select i1 %3, i64 8, i64 48
@@ -1638,7 +1638,7 @@ define nonnull align 8 ptr @_ZN15wiggle_generate6config14ErrorConfField9abi_erro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define nonnull align 4 ptr @_ZN15wiggle_generate6config14ErrorConfField7err_loc17h73e70029c78c1122E(ptr readonly align 8 %0) unnamed_addr #2 {
+define nonnull align 4 ptr @_ZN15wiggle_generate6config14ErrorConfField7err_loc17h73e70029c78c1122E(ptr readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775808
   %.0.v = select i1 %3, i64 72, i64 80
@@ -1855,7 +1855,7 @@ define noundef zeroext i1 @_ZN15wiggle_generate6config9Asyncness8is_async17h3538
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define align 8 ptr @_ZN15wiggle_generate6config9Asyncness8blocking17hc8f535ae2704a41dE(ptr readonly align 8 %0) unnamed_addr #2 {
+define align 8 ptr @_ZN15wiggle_generate6config9Asyncness8blocking17hc8f535ae2704a41dE(ptr readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !19, !noundef !3
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ugt i64 %3, 2

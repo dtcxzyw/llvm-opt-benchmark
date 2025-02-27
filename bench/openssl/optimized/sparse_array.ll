@@ -181,7 +181,7 @@ sa_doall.exit:                                    ; preds = %32
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_sa_doall(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define void @ossl_sa_doall(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [16 x i32], align 16
   %4 = alloca [16 x ptr], align 16
   %.not = icmp eq ptr %0, null
@@ -263,7 +263,7 @@ sa_doall.exit:                                    ; preds = %36
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_sa_doall_arg(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @ossl_sa_doall_arg(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [16 x ptr], align 16
   %.not = icmp eq ptr %0, null
@@ -393,7 +393,7 @@ sa_doall.exit:                                    ; preds = %62, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_sa_num(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i64 @ossl_sa_num(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -408,7 +408,7 @@ define i64 @ossl_sa_num(ptr noundef readonly %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @ossl_sa_get(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #4 {
+define ptr @ossl_sa_get(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %30, label %4
 
@@ -468,7 +468,7 @@ define ptr @ossl_sa_get(ptr noundef readonly %0, i64 noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_sa_set(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_sa_set(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %.preheader48
 

@@ -4187,7 +4187,7 @@ define dso_local zeroext i1 @drm_dp_pcon_hdmi_link_active(ptr noundef %0) #3 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 2) i32 @drm_dp_pcon_hdmi_link_mode(ptr noundef %0, ptr noundef writeonly %1) #3 align 16 {
+define dso_local range(i32 -2147483648, 2) i32 @drm_dp_pcon_hdmi_link_mode(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #3 align 16 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #18
   store i8 0, ptr %3, align 1, !annotation !11
@@ -5355,7 +5355,7 @@ select.unfold:                                    ; preds = %234, %208
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_panel_dp_aux_backlight(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local i32 @drm_panel_dp_aux_backlight(ptr noundef captures(address_is_null) %0, ptr noundef %1) #3 align 16 {
   %3 = alloca %struct.backlight_properties, align 4
   %4 = alloca i16, align 2
   %5 = alloca i8, align 1

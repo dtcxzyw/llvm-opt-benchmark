@@ -1120,7 +1120,7 @@ declare dso_local void @ext4_get_group_no_and_offset(ptr noundef, i64 noundef, p
 declare dso_local i32 @ext4_mballoc_query_range(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ext4_getfsmap_datadev_helper(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #1 align 16 {
+define internal i32 @ext4_getfsmap_datadev_helper(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address) %4) #1 align 16 {
   %6 = alloca %struct.ext4_fsmap, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 872

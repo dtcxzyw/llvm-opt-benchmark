@@ -28525,7 +28525,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2ENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13getUsefulBitsN4llvm7SDValueERNS_5APIntEj(ptr readonly %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL13getUsefulBitsN4llvm7SDValueERNS_5APIntEj(ptr readonly captures(address) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
@@ -30572,7 +30572,7 @@ declare noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm15MachineFunc
 declare { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952), i64 noundef, ptr noundef nonnull align 8 dereferenceable(12), i16, ptr, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm9transformIRNS_11SmallVectorINS_7SDValueELj4EEEPS2_N12_GLOBAL__N_111WidenVectorEEET0_OT_S8_T1_(ptr readonly %.0.val, i32 %.8.val, ptr noundef writeonly %0, ptr %1) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm9transformIRNS_11SmallVectorINS_7SDValueELj4EEEPS2_N12_GLOBAL__N_111WidenVectorEEET0_OT_S8_T1_(ptr readonly captures(address) %.0.val, i32 %.8.val, ptr noundef writeonly captures(ret: address, provenance) %0, ptr %1) unnamed_addr #0 {
   %3 = alloca %"struct.llvm::EVT", align 8
   %4 = alloca %"class.llvm::SDLoc", align 8
   %5 = alloca %"class.llvm::SDValue", align 8

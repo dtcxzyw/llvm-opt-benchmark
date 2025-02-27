@@ -1412,7 +1412,7 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @process_utp_payload(ptr noundef %0, ptr noundef initializes((340, 342)) %1, ptr noundef %2, i16 noundef zeroext %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @process_utp_payload(ptr noundef %0, ptr noundef initializes((340, 342)) %1, ptr noundef %2, i16 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4

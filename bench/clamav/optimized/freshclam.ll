@@ -251,7 +251,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.42 = private unnamed_addr constant [85 x i8] c"                                         set and the PEM file is password protected.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 17) i32 @download_complete_callback(ptr noundef %0, ptr noundef readonly %1) #0 {
+define dso_local range(i32 0, 17) i32 @download_complete_callback(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca [256 x i8], align 16
   %5 = alloca [2 x i32], align 4
@@ -524,7 +524,7 @@ declare i32 @cli_chomp(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 17) i32 @get_official_database_lists(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 17) i32 @get_official_database_lists(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %7 = icmp eq ptr %2, null
@@ -762,7 +762,7 @@ define internal fastcc range(i32 0, 17) i32 @string_list_add(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_string_list(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @free_string_list(ptr noundef captures(address_is_null) %0, i32 noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %.preheader
 
@@ -800,7 +800,7 @@ define internal fastcc void @free_string_list(ptr noundef %0, i32 noundef %1) un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 17) i32 @select_from_official_databases(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local range(i32 0, 17) i32 @select_from_official_databases(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1167,7 +1167,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 17) i32 @select_specific_databases(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 17) i32 @select_specific_databases(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -3108,7 +3108,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare void @print_version(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 17) i32 @get_string_list(ptr noundef readonly %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 17) i32 @get_string_list(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread.sink.split, label %5
 

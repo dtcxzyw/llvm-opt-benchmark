@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @K512 = internal unnamed_addr constant [80 x i64] [i64 4794697086780616226, i64 8158064640168781261, i64 -5349999486874862801, i64 -1606136188198331460, i64 4131703408338449720, i64 6480981068601479193, i64 -7908458776815382629, i64 -6116909921290321640, i64 -2880145864133508542, i64 1334009975649890238, i64 2608012711638119052, i64 6128411473006802146, i64 8268148722764581231, i64 -9160688886553864527, i64 -7215885187991268811, i64 -4495734319001033068, i64 -1973867731355612462, i64 -1171420211273849373, i64 1135362057144423861, i64 2597628984639134821, i64 3308224258029322869, i64 5365058923640841347, i64 6679025012923562964, i64 8573033837759648693, i64 -7476448914759557205, i64 -6327057829258317296, i64 -5763719355590565569, i64 -4658551843659510044, i64 -4116276920077217854, i64 -3051310485924567259, i64 489312712824947311, i64 1452737877330783856, i64 2861767655752347644, i64 3322285676063803686, i64 5560940570517711597, i64 5996557281743188959, i64 7280758554555802590, i64 8532644243296465576, i64 -9096487096722542874, i64 -7894198246740708037, i64 -6719396339535248540, i64 -6333637450476146687, i64 -4446306890439682159, i64 -4076793802049405392, i64 -3345356375505022440, i64 -2983346525034927856, i64 -860691631967231958, i64 1182934255886127544, i64 1847814050463011016, i64 2177327727835720531, i64 2830643537854262169, i64 3796741975233480872, i64 4115178125766777443, i64 5681478168544905931, i64 6601373596472566643, i64 7507060721942968483, i64 8399075790359081724, i64 8693463985226723168, i64 -8878714635349349518, i64 -8302665154208450068, i64 -8016688836872298968, i64 -6606660893046293015, i64 -4685533653050689259, i64 -4147400797238176981, i64 -3880063495543823972, i64 -3348786107499101689, i64 -1523767162380948706, i64 -757361751448694408, i64 500013540394364858, i64 748580250866718886, i64 1242879168328830382, i64 1977374033974150939, i64 2944078676154940804, i64 3659926193048069267, i64 4368137639120453308, i64 4836135668995329356, i64 5532061633213252278, i64 6448918945643986474, i64 6902733635092675308, i64 7801388544844847127], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitSha512_ex(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha512_ex(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %InitSha512_Family.exit, label %InitSha512.exit
 
@@ -42,7 +42,7 @@ InitSha512_Family.exit:                           ; preds = %3, %InitSha512.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitSha512_224_ex(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha512_224_ex(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %InitSha512_Family.exit, label %InitSha512_224.exit
 
@@ -76,7 +76,7 @@ InitSha512_Family.exit:                           ; preds = %3, %InitSha512_224.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitSha512_256_ex(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha512_256_ex(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %InitSha512_Family.exit, label %InitSha512_256.exit
 
@@ -110,7 +110,7 @@ InitSha512_Family.exit:                           ; preds = %3, %InitSha512_256.
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha512Update(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha512Update(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %Sha512Update.exit, label %5
 
@@ -227,7 +227,7 @@ Sha512Update.exit:                                ; preds = %8, %44, %.loopexit.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha512FinalRaw(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Sha512FinalRaw(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -253,7 +253,7 @@ Sha512FinalRaw.exit:                              ; preds = %2, %ByteReverseWord
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -192, 1) i32 @wc_Sha512Final(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 -192, 1) i32 @wc_Sha512Final(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -381,7 +381,7 @@ Sha512_Family_Final.exit:                         ; preds = %2, %5, %InitSha512.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitSha512(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha512(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %wc_InitSha512_ex.exit, label %InitSha512.exit.i
 
@@ -474,7 +474,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha384Update(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha384Update(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %Sha512Update.exit, label %5
 
@@ -591,7 +591,7 @@ Sha512Update.exit:                                ; preds = %8, %44, %.loopexit.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha384FinalRaw(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Sha384FinalRaw(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -620,7 +620,7 @@ ByteReverseWords64.exit:                          ; preds = %.lr.ph.i
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -192, 1) i32 @wc_Sha384Final(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 -192, 1) i32 @wc_Sha384Final(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -748,7 +748,7 @@ Sha512Final.exit:                                 ; preds = %5, %2, %49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitSha384_ex(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha384_ex(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %16, label %5
 
@@ -782,7 +782,7 @@ define range(i32 -173, 1) i32 @wc_InitSha384_ex(ptr noundef writeonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitSha384(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha384(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %wc_InitSha384_ex.exit, label %3
 
@@ -869,7 +869,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -192, 1) i32 @wc_Sha512GetHash(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -192, 1) i32 @wc_Sha512GetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca [1 x %struct.wc_Sha512], align 16
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #8
   %4 = icmp eq ptr %0, null
@@ -898,7 +898,7 @@ Sha512_Family_GetHash.exit:                       ; preds = %.lr.ph29.i.i.i, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha512Copy(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
+define range(i32 -173, 1) i32 @wc_Sha512Copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -914,7 +914,7 @@ define range(i32 -173, 1) i32 @wc_Sha512Copy(ptr noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitSha512_224(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha512_224(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %wc_InitSha512_224_ex.exit, label %InitSha512_224.exit.i
 
@@ -948,13 +948,13 @@ wc_InitSha512_224_ex.exit:                        ; preds = %1, %InitSha512_224.
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha512_224Update(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha512_224Update(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @wc_Sha512Update(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha512_224FinalRaw(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Sha512_224FinalRaw(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -980,7 +980,7 @@ Sha512FinalRaw.exit:                              ; preds = %2, %ByteReverseWord
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -192, 1) i32 @wc_Sha512_224Final(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 -192, 1) i32 @wc_Sha512_224Final(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -1161,7 +1161,7 @@ wc_Sha512Free.exit:                               ; preds = %.lr.ph35.i.i, %1, %
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -192, 1) i32 @wc_Sha512_224GetHash(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -192, 1) i32 @wc_Sha512_224GetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca [1 x %struct.wc_Sha512], align 16
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #8
   %4 = icmp eq ptr %0, null
@@ -1190,7 +1190,7 @@ Sha512_Family_GetHash.exit:                       ; preds = %.lr.ph29.i.i.i, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha512_224Copy(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
+define range(i32 -173, 1) i32 @wc_Sha512_224Copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -1206,7 +1206,7 @@ wc_Sha512Copy.exit:                               ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitSha512_256(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha512_256(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %wc_InitSha512_256_ex.exit, label %InitSha512_256.exit.i
 
@@ -1240,13 +1240,13 @@ wc_InitSha512_256_ex.exit:                        ; preds = %1, %InitSha512_256.
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha512_256Update(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha512_256Update(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @wc_Sha512Update(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha512_256FinalRaw(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Sha512_256FinalRaw(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -1272,7 +1272,7 @@ Sha512FinalRaw.exit:                              ; preds = %2, %ByteReverseWord
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -192, 1) i32 @wc_Sha512_256Final(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 -192, 1) i32 @wc_Sha512_256Final(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -1453,7 +1453,7 @@ wc_Sha512Free.exit:                               ; preds = %.lr.ph35.i.i, %1, %
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -192, 1) i32 @wc_Sha512_256GetHash(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -192, 1) i32 @wc_Sha512_256GetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca [1 x %struct.wc_Sha512], align 16
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #8
   %4 = icmp eq ptr %0, null
@@ -1482,7 +1482,7 @@ Sha512_Family_GetHash.exit:                       ; preds = %.lr.ph29.i.i.i, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha512_256Copy(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
+define range(i32 -173, 1) i32 @wc_Sha512_256Copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -1498,7 +1498,7 @@ wc_Sha512Copy.exit:                               ; preds = %2, %5
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -192, 1) i32 @wc_Sha384GetHash(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -192, 1) i32 @wc_Sha384GetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca [1 x %struct.wc_Sha512], align 16
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #8
   %4 = icmp eq ptr %0, null
@@ -1527,7 +1527,7 @@ wc_Sha384Free.exit:                               ; preds = %.lr.ph29.i.i, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha384Copy(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
+define range(i32 -173, 1) i32 @wc_Sha384Copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

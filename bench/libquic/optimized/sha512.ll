@@ -62,7 +62,7 @@ define hidden noundef i32 @SHA512_Init(ptr noundef writeonly captures(none) init
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef nonnull ptr @SHA384(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden noundef nonnull ptr @SHA384(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.sha512_state_st, align 8
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %4) #6
   store i64 -3766243637369397544, ptr %4, align 8, !tbaa !6
@@ -212,7 +212,7 @@ SHA512_Update.exit:                               ; preds = %3, %37, %.sink.spli
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SHA384_Final(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @SHA384_Final(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call i32 @SHA512_Final(ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }
@@ -223,7 +223,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef nonnull ptr @SHA512(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden noundef nonnull ptr @SHA512(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.sha512_state_st, align 8
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %4) #6
   store i64 7640891576956012808, ptr %4, align 8, !tbaa !6
@@ -371,7 +371,7 @@ define hidden noundef i32 @SHA512_Update(ptr noundef %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %5 = load i32, ptr %4, align 8, !tbaa !10

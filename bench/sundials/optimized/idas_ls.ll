@@ -2942,7 +2942,7 @@ define range(i32 -101, 1) i32 @IDASetLinearSolverB(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @idaLsFreeB(ptr noundef readonly %0) #10 {
+define noundef i32 @idaLsFreeB(ptr noundef readonly captures(address_is_null) %0) #10 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 

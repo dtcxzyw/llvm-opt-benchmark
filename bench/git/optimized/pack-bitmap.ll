@@ -2758,7 +2758,7 @@ declare void @trace2_region_enter_fl(ptr noundef, i32 noundef, ptr noundef, ptr 
 declare void @trace2_region_leave_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_objects(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @find_objects(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.include_data, align 8
   %6 = alloca %struct.bitmap_show_data, align 8
   %7 = alloca ptr, align 8
@@ -3077,7 +3077,7 @@ declare void @reset_revision_walk() local_unnamed_addr #2
 declare void @bitmap_and_not(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @filter_bitmap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @filter_bitmap(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca %struct.ewah_iterator, align 8
   %6 = alloca i64, align 8
   %.not = icmp eq ptr %3, null
@@ -4263,7 +4263,7 @@ nth_bitmap_object_oid.exit:                       ; preds = %53, %51, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @count_bitmap_commit_list(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local void @count_bitmap_commit_list(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
@@ -5586,7 +5586,7 @@ declare i32 @close_midx_revindex(ptr noundef) local_unnamed_addr #2
 declare void @free_pseudo_merge_map(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @bitmap_has_oid_in_uninteresting(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @bitmap_has_oid_in_uninteresting(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %bitmap_walk_contains.exit, label %3
 
@@ -7266,7 +7266,7 @@ define internal void @show_commit(ptr readnone captures(none) %0, ptr readnone c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @show_object(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
+define internal void @show_object(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %2, align 8, !tbaa !190
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = tail call fastcc i32 @bitmap_position(ptr noundef %4, ptr noundef nonnull %5)
@@ -7288,7 +7288,7 @@ define internal void @show_object(ptr noundef %0, ptr noundef %1, ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ext_index_add_object(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @ext_index_add_object(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %.sroa.7.i = alloca [32 x i8], align 4
   %.sroa.4.i = alloca [32 x i8], align 4
   %4 = alloca %struct.object_id, align 8
@@ -7790,7 +7790,7 @@ bitmap_num_objects.exit:                          ; preds = %273, %275
 declare i32 @apply_pseudo_merges_for_commit(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3) unnamed_addr #0 {
+define internal fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3) unnamed_addr #0 {
   %5 = alloca %struct.ewah_iterator, align 8
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160

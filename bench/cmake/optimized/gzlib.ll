@@ -282,7 +282,7 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @cm_zlib_gzbuffer(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @cm_zlib_gzbuffer(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %13, label %4
 
@@ -314,7 +314,7 @@ define dso_local range(i32 -1, 1) i32 @cm_zlib_gzbuffer(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @cm_zlib_gzrewind(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @cm_zlib_gzrewind(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %35, label %3
 
@@ -399,7 +399,7 @@ gz_reset.exit:                                    ; preds = %25, %32
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @cm_zlib_gzseek64(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i64 @cm_zlib_gzseek64(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread69, label %5
 
@@ -643,13 +643,13 @@ define dso_local void @cm_zlib_gz_error(ptr noundef captures(none) %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @cm_zlib_gzseek(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i64 @cm_zlib_gzseek(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @cm_zlib_gzseek64(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @cm_zlib_gztell64(ptr noundef readonly %0) local_unnamed_addr #6 {
+define dso_local i64 @cm_zlib_gztell64(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %17, label %3
 
@@ -685,7 +685,7 @@ define dso_local i64 @cm_zlib_gztell64(ptr noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @cm_zlib_gztell(ptr noundef readonly %0) local_unnamed_addr #6 {
+define dso_local i64 @cm_zlib_gztell(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %cm_zlib_gztell64.exit, label %3
 
@@ -721,7 +721,7 @@ cm_zlib_gztell64.exit:                            ; preds = %1, %3, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @cm_zlib_gzoffset64(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @cm_zlib_gzoffset64(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %3
 
@@ -758,7 +758,7 @@ define dso_local i64 @cm_zlib_gzoffset64(ptr noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @cm_zlib_gzoffset(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @cm_zlib_gzoffset(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %cm_zlib_gzoffset64.exit, label %3
 
@@ -795,7 +795,7 @@ cm_zlib_gzoffset64.exit:                          ; preds = %1, %3, %6, %11, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @cm_zlib_gzeof(ptr noundef readonly %0) local_unnamed_addr #6 {
+define dso_local i32 @cm_zlib_gzeof(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -816,7 +816,7 @@ define dso_local i32 @cm_zlib_gzeof(ptr noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @cm_zlib_gzerror(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @cm_zlib_gzerror(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %14, label %4
 
@@ -855,7 +855,7 @@ define dso_local ptr @cm_zlib_gzerror(ptr noundef readonly %0, ptr noundef write
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @cm_zlib_gzclearerr(ptr noundef %0) local_unnamed_addr #7 {
+define dso_local void @cm_zlib_gzclearerr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %18, label %3
 

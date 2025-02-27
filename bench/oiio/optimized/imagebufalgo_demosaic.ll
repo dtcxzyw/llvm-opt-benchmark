@@ -38605,7 +38605,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIffLi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIffLi2ELi3EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIffLi2ELi3EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIffLi2ELi3EXadsoA2_KmL_ZNS4_L17bayer_channel_mapEEEEE6Window3RowEEEvT_SC_.exit, label %.lr.ph.i
 
@@ -41530,7 +41530,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi3EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi3EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi3EXadsoA2_KmL_ZNS4_L17bayer_channel_mapEEEEE6Window3RowEEEvT_SC_.exit, label %.lr.ph.i
 
@@ -44237,7 +44237,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfN9I
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfN9Imath_3_14halfELi2ELi3EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SC_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfN9Imath_3_14halfELi2ELi3EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SC_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfN9Imath_3_14halfELi2ELi3EXadsoA2_KmL_ZNS4_L17bayer_channel_mapEEEEE6Window3RowEEEvT_SE_.exit, label %.lr.ph.i
 
@@ -47160,7 +47160,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi3EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi3EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi3EXadsoA2_KmL_ZNS4_L17bayer_channel_mapEEEEE6Window3RowEEEvT_SC_.exit, label %.lr.ph.i
 
@@ -50299,7 +50299,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi3EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi3EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi3EXadsoA2_KmL_ZNS4_L17bayer_channel_mapEEEEE6Window3RowEEEvT_SC_.exit, label %.lr.ph.i
 
@@ -52782,7 +52782,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIN9Im
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIN9Imath_3_14halfES5_Li2ELi3EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SC_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIN9Imath_3_14halfES5_Li2ELi3EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SC_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIN9Imath_3_14halfES7_Li2ELi3EXadsoA2_KmL_ZNS4_L17bayer_channel_mapEEEEE6Window3RowEEEvT_SE_.exit, label %.lr.ph.i
 
@@ -55943,7 +55943,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi3EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi3EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi3EXadsoA2_KmL_ZNS4_L17bayer_channel_mapEEEEE6Window3RowEEEvT_SC_.exit, label %.lr.ph.i
 
@@ -59073,7 +59073,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIffLi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIffLi2ELi5EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIffLi2ELi5EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIffLi2ELi5EXadsoA2_KmL_ZNS4_L17bayer_channel_mapEEEEE6Window3RowEEEvT_SC_.exit, label %.lr.ph.i
 
@@ -62218,7 +62218,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi5EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi5EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi5EXadsoA2_KmL_ZNS4_L17bayer_channel_mapEEEEE6Window3RowEEEvT_SC_.exit, label %.lr.ph.i
 
@@ -65147,7 +65147,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfN9I
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfN9Imath_3_14halfELi2ELi5EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SC_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfN9Imath_3_14halfELi2ELi5EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SC_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfN9Imath_3_14halfELi2ELi5EXadsoA2_KmL_ZNS4_L17bayer_channel_mapEEEEE6Window3RowEEEvT_SE_.exit, label %.lr.ph.i
 
@@ -68292,7 +68292,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi5EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi5EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi5EXadsoA2_KmL_ZNS4_L17bayer_channel_mapEEEEE6Window3RowEEEvT_SC_.exit, label %.lr.ph.i
 
@@ -71653,7 +71653,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi5EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi5EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi5EXadsoA2_KmL_ZNS4_L17bayer_channel_mapEEEEE6Window3RowEEEvT_SC_.exit, label %.lr.ph.i
 
@@ -74260,7 +74260,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIN9Im
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIN9Imath_3_14halfES5_Li2ELi5EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SC_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIN9Imath_3_14halfES5_Li2ELi5EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SC_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIN9Imath_3_14halfES7_Li2ELi5EXadsoA2_KmL_ZNS4_L17bayer_channel_mapEEEEE6Window3RowEEEvT_SE_.exit, label %.lr.ph.i
 
@@ -77621,7 +77621,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi5EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi5EXadsoA2_KmL_ZNS2_L17bayer_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi5EXadsoA2_KmL_ZNS4_L17bayer_channel_mapEEEEE6Window3RowEEEvT_SC_.exit, label %.lr.ph.i
 
@@ -85987,7 +85987,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIffLi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIffLi6ELi5EXadsoA6_KmL_ZNS2_L18xtrans_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIffLi6ELi5EXadsoA6_KmL_ZNS2_L18xtrans_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIffLi6ELi5EXadsoA6_KmL_ZNS4_L18xtrans_channel_mapEEEEE6Window3RowEEEvT_SC_.exit, label %.lr.ph.i
 
@@ -94424,7 +94424,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS2_L18xtrans_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS2_L18xtrans_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS4_L18xtrans_channel_mapEEEEE6Window3RowEEEvT_SC_.exit, label %.lr.ph.i
 
@@ -101469,7 +101469,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfN9I
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfN9Imath_3_14halfELi6ELi5EXadsoA6_KmL_ZNS2_L18xtrans_channel_mapEEEEE6Window3RowEEvT_SC_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfN9Imath_3_14halfELi6ELi5EXadsoA6_KmL_ZNS2_L18xtrans_channel_mapEEEEE6Window3RowEEvT_SC_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfN9Imath_3_14halfELi6ELi5EXadsoA6_KmL_ZNS4_L18xtrans_channel_mapEEEEE6Window3RowEEEvT_SE_.exit, label %.lr.ph.i
 
@@ -109906,7 +109906,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS2_L18xtrans_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS2_L18xtrans_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS4_L18xtrans_channel_mapEEEEE6Window3RowEEEvT_SC_.exit, label %.lr.ph.i
 
@@ -119315,7 +119315,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS2_L18xtrans_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS2_L18xtrans_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS4_L18xtrans_channel_mapEEEEE6Window3RowEEEvT_SC_.exit, label %.lr.ph.i
 
@@ -124908,7 +124908,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIN9Im
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIN9Imath_3_14halfES5_Li6ELi5EXadsoA6_KmL_ZNS2_L18xtrans_channel_mapEEEEE6Window3RowEEvT_SC_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIN9Imath_3_14halfES5_Li6ELi5EXadsoA6_KmL_ZNS2_L18xtrans_channel_mapEEEEE6Window3RowEEvT_SC_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIN9Imath_3_14halfES7_Li6ELi5EXadsoA6_KmL_ZNS4_L18xtrans_channel_mapEEEEE6Window3RowEEEvT_SE_.exit, label %.lr.ph.i
 
@@ -134317,7 +134317,7 @@ _ZNSt15__new_allocatorIN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS2_L18xtrans_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS2_L18xtrans_channel_mapEEEEE6Window3RowEEvT_SA_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS4_L18xtrans_channel_mapEEEEE6Window3RowEEEvT_SC_.exit, label %.lr.ph.i
 

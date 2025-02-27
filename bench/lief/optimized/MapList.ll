@@ -762,7 +762,7 @@ _ZNSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEEaSERKSA_.
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF6ObjectaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF3DEX7MapList5itemsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.LIEF::ref_iterator") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN4LIEF3DEX7MapList5itemsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.LIEF::ref_iterator") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !17
   %5 = icmp ugt i64 %4, 1152921504606846975
@@ -875,7 +875,7 @@ _ZNSt6vectorIPN4LIEF3DEX7MapItemESaIS3_EED2Ev.exit5: ; preds = %_ZNSt20back_inse
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK4LIEF3DEX7MapList5itemsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.LIEF::ref_iterator.46") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #1 align 2 {
+define void @_ZNK4LIEF3DEX7MapList5itemsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.LIEF::ref_iterator.46") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !17
   %5 = icmp ugt i64 %4, 1152921504606846975
@@ -1038,7 +1038,7 @@ _ZNSt6vectorIPN4LIEF3DEX7MapItemESaIS3_EED2Ev.exit5: ; preds = %59, %_ZN4LIEF12r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK4LIEF3DEX7MapList3hasENS0_7MapItem5TYPESE(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i16 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4LIEF3DEX7MapList3hasENS0_7MapItem5TYPESE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %0, i16 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1076,7 +1076,7 @@ _ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE5countER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4LIEF3DEX7MapList3getENS0_7MapItem5TYPESE(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4LIEF3DEX7MapList3getENS0_7MapItem5TYPESE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(56) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !14
@@ -1123,7 +1123,7 @@ _ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4LIEF3DEX7MapList3getENS0_7MapItem5TYPESE(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4LIEF3DEX7MapList3getENS0_7MapItem5TYPESE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(56) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !14
@@ -1170,7 +1170,7 @@ _ZNK4LIEF3DEX7MapList3getENS0_7MapItem5TYPESE.exit: ; preds = %_ZNKSt3mapIN4LIEF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4LIEF3DEX7MapListixENS0_7MapItem5TYPESE(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4LIEF3DEX7MapListixENS0_7MapItem5TYPESE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(56) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !14
@@ -1217,7 +1217,7 @@ _ZNK4LIEF3DEX7MapList3getENS0_7MapItem5TYPESE.exit: ; preds = %_ZNKSt3mapIN4LIEF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4LIEF3DEX7MapListixENS0_7MapItem5TYPESE(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4LIEF3DEX7MapListixENS0_7MapItem5TYPESE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(56) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !14
@@ -1273,7 +1273,7 @@ define void @_ZNK4LIEF3DEX7MapList6acceptERNS_7VisitorE(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3DEXlsERSoRKNS0_7MapListE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3DEXlsERSoRKNS0_7MapListE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #1 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.LIEF::ref_iterator.46", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #23

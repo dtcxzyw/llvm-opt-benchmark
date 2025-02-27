@@ -687,7 +687,7 @@ define hidden void @hwloc_ps_free_process(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @hwloc_ps_foreach_process(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly %5, i64 noundef %6) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @hwloc_ps_foreach_process(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.hwloc_ps_process, align 8
   %9 = alloca ptr, align 8
   %10 = tail call ptr @opendir(ptr noundef nonnull @.str.16)
@@ -801,7 +801,7 @@ hwloc_ps_free_process.exit:                       ; preds = %43, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @hwloc_ps_foreach_child(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @hwloc_ps_foreach_child(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i64 noundef %5, ptr noundef captures(address_is_null) %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.hwloc_ps_process, align 8
   %10 = alloca [512 x i8], align 16
   %11 = alloca [4096 x i8], align 16

@@ -3270,7 +3270,7 @@ define i32 @stbvox_get_quad_count(ptr noundef readonly captures(none) %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @stbvox_get_input_description(ptr noundef readnone returned %0) local_unnamed_addr #14 {
+define noundef ptr @stbvox_get_input_description(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #14 {
   ret ptr %0
 }
 

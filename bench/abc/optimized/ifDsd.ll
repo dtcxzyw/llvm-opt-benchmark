@@ -1741,7 +1741,7 @@ Vec_IntFreeP.exit95:                              ; preds = %212, %224
 }
 
 ; Function Attrs: nounwind uwtable
-define void @If_DsdManPrint(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #4 {
+define void @If_DsdManPrint(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #4 {
   %8 = alloca i32, align 4
   %.not212 = icmp eq ptr %1, null
   br i1 %.not212, label %.thread, label %10
@@ -2903,7 +2903,7 @@ define range(i32 0, 2) i32 @If_DsdManCheckNonDec_rec(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @If_DsdManPrint_rec(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #13 {
+define void @If_DsdManPrint_rec(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(none) %4) local_unnamed_addr #13 {
   %6 = and i32 %2, 1
   %.not = icmp eq i32 %6, 0
   %7 = select i1 %.not, ptr @.str.11, ptr @.str.10
@@ -3103,7 +3103,7 @@ Abc_TtPrintHexRev.exit:                           ; preds = %..loopexit_crit_edg
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: nofree nounwind uwtable
-define void @If_DsdManPrintOne(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #13 {
+define void @If_DsdManPrintOne(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #13 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #39
   store i32 0, ptr %6, align 4, !tbaa !40
@@ -4283,7 +4283,7 @@ If_DsdObjTruthId.exit59:                          ; preds = %If_DsdObjTruthId.ex
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @If_DsdObjSort(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #17 {
+define void @If_DsdObjSort(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #17 {
   %6 = icmp sgt i32 %3, 1
   br i1 %6, label %.lr.ph42, label %._crit_edge43
 
@@ -13286,7 +13286,7 @@ If_LogCreateAndXorMulti.exit:                     ; preds = %If_LogCreateAndXor.
 declare i32 @If_CutSopBalanceEvalInt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i32 @If_LogCounterAddAig(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, -1) %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #26 {
+define internal fastcc i32 @If_LogCounterAddAig(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, -1) %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #26 {
   %9 = load i32, ptr %1, align 4, !tbaa !40
   %.not = icmp eq ptr %5, null
   %.pre = sext i32 %9 to i64

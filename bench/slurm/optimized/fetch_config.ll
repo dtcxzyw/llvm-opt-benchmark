@@ -962,7 +962,7 @@ declare void @slurm_free_return_code_msg(ptr noundef) local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, -2147483648) i32 @dump_to_memfd(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @dump_to_memfd(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @getpid() #12
   %5 = tail call i32 @memfd_create(ptr noundef %0, i32 noundef 1) #12
   %6 = icmp slt i32 %5, 0

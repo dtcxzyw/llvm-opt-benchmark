@@ -32598,7 +32598,7 @@ define void @_ZThn16_N23LBMLBTRUTransportDialogD0Ev(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN23LBMLBTRUTransportDialog14setCaptureFileEP13_capture_file(ptr noundef align 8 captures(none) dereferenceable_or_null(112) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRUTransportDialog14setCaptureFileEP13_capture_file(ptr noundef align 8 captures(none) dereferenceable_or_null(112) %0, ptr noundef readnone captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %13
 

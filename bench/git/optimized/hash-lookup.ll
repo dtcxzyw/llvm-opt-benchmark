@@ -157,7 +157,7 @@ index_pos_to_insert_pos.exit71:                   ; preds = %77
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @bsearch_hash(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @bsearch_hash(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
 git_bswap32.exit:
   %5 = load i8, ptr %0, align 1, !tbaa !35
   %6 = zext i8 %5 to i64

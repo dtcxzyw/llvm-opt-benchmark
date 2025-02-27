@@ -45028,7 +45028,7 @@ _ZNK7testing8internal14ComparisonBaseINS0_9EqMatcherIPN12_GLOBAL__N_118Construct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE16GetDescriberImplINS7_11ValuePolicyINS0_9EqMatcherIS4_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS7_(ptr noundef nonnull readnone returned align 8 dereferenceable(24) %0) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEE16GetDescriberImplINS7_11ValuePolicyINS0_9EqMatcherIS4_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS7_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) #19 align 2 personality ptr @__gxx_personality_v0 {
   ret ptr %0
 }
 

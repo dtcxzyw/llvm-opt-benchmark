@@ -512,7 +512,7 @@ hmac_ctx_alloc_mds.exit.thread:                   ; preds = %12, %6, %28, %23, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @HMAC(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define ptr @HMAC(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = tail call i32 @EVP_MD_get_size(ptr noundef %0) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7

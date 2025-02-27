@@ -101,7 +101,7 @@ define noundef ptr @SUNMatClone_Sparse(ptr noundef readonly captures(none) %0) #
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @SUNMatDestroy_Sparse(ptr noundef %0) #3 {
+define void @SUNMatDestroy_Sparse(ptr noundef captures(address_is_null) %0) #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %36, label %3
 

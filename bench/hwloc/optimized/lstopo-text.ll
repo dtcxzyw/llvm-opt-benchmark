@@ -1023,7 +1023,7 @@ thread-pre-split49:                               ; preds = %.lr.ph64, %101
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @output_topology(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @output_topology(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40

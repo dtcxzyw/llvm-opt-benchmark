@@ -689,7 +689,7 @@ define i32 @Hop_DagSize(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Hop_ObjFanoutCount_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define i32 @Hop_ObjFanoutCount_rec(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load i32, ptr %3, align 8
   %4 = and i32 %.val, 22
@@ -804,7 +804,7 @@ Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.e
 declare ptr @Hop_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Hop_Transfer(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Hop_Transfer(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %39, label %6
 

@@ -799,7 +799,7 @@ define internal void @update_protobuf_udp_message_types() #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @protobuf_uri_message_type_copy_cb(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @protobuf_uri_message_type_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -1734,7 +1734,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare ptr @g_string_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_protobuf_message(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i1 noundef zeroext %7, ptr noundef %8, ptr noundef %9, ptr noundef writeonly %10) unnamed_addr #0 {
+define internal fastcc void @dissect_protobuf_message(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i1 noundef zeroext %7, ptr noundef %8, ptr noundef %9, ptr noundef writeonly captures(address_is_null) %10) unnamed_addr #0 {
   %12 = alloca i64, align 8
   %13 = alloca ptr, align 8
   %14 = alloca i32, align 4

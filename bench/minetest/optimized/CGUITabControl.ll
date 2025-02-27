@@ -2935,7 +2935,7 @@ cond.end:                                         ; preds = %cond.true, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr3gui14CGUITabControl17needScrollControlEibPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(388) %this, i32 noundef %startIndex, i1 noundef zeroext %withScrollControl, ptr noundef writeonly %pos_rightmost) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3irr3gui14CGUITabControl17needScrollControlEibPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(388) %this, i32 noundef %startIndex, i1 noundef zeroext %withScrollControl, ptr noundef writeonly captures(address_is_null) %pos_rightmost) local_unnamed_addr #0 align 2 {
 entry:
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %startIndex, i32 0)
   %Environment = getelementptr inbounds nuw i8, ptr %this, i64 296
@@ -5230,7 +5230,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3irr3gui14CGUITabControl11getTabIndexEPKNS0_11IGUIElementE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(388) %this, ptr noundef readnone %tab) unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK3irr3gui14CGUITabControl11getTabIndexEPKNS0_11IGUIElementE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(388) %this, ptr noundef readnone captures(address) %tab) unnamed_addr #8 align 2 {
 entry:
   %Tabs = getelementptr inbounds nuw i8, ptr %this, i64 312
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320

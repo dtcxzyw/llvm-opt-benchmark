@@ -254,7 +254,7 @@ define zeroext i1 @H5AC_cache_image_pending(ptr noundef readonly captures(none) 
 declare zeroext i1 @H5C_cache_image_pending(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5AC_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @H5AC_create(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = alloca %struct.H5C_cache_image_ctl_t, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) @__const.H5AC_validate_cache_image_config.internal_config, i64 16, i1 false)
@@ -407,7 +407,7 @@ define range(i32 -1, 1) i32 @H5AC_create(ptr noundef %0, ptr noundef %1, ptr nou
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef %0) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = alloca %struct.H5C_auto_size_ctl_t, align 8
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %2) #8
   %3 = load i8, ptr @H5AC_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -568,7 +568,7 @@ define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5AC_validate_cache_image_config(ptr noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @H5AC_validate_cache_image_config(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = alloca %struct.H5C_cache_image_ctl_t, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) @__const.H5AC_validate_cache_image_config.internal_config, i64 16, i1 false)
@@ -1214,7 +1214,7 @@ declare i32 @H5C_flush_cache(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @H5C_log_write_flush_cache_msg(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5AC_get_entry_status(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @H5AC_get_entry_status(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -2472,7 +2472,7 @@ declare i32 @H5C_unprotect(ptr noundef, i64 noundef, ptr noundef, i32 noundef) l
 declare i32 @H5C_log_write_unprotect_entry_msg(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5AC_get_cache_auto_resize_config(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @H5AC_get_cache_auto_resize_config(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = alloca %struct.H5C_auto_size_ctl_t, align 8
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %3) #8
@@ -2798,7 +2798,7 @@ define range(i32 -1, 1) i32 @H5AC_reset_cache_hit_rate_stats(ptr noundef %0) loc
 declare i32 @H5C_reset_cache_hit_rate_stats(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5AC__ext_config_2_int_config(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @H5AC__ext_config_2_int_config(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #4 {
   %3 = load i8, ptr @H5AC_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -2979,7 +2979,7 @@ define range(i32 -1, 1) i32 @H5AC_ignore_tags(ptr noundef readonly captures(none
 declare i32 @H5C_ignore_tags(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @H5AC_tag(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define void @H5AC_tag(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = load i8, ptr @H5AC_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -3289,7 +3289,7 @@ define range(i32 -1, 1) i32 @H5AC_get_entry_ring(ptr noundef %0, i64 noundef %1,
 declare i32 @H5C_get_entry_ring(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @H5AC_set_ring(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define void @H5AC_set_ring(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = load i8, ptr @H5AC_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7

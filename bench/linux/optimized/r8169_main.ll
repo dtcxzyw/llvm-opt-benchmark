@@ -4517,7 +4517,7 @@ define internal i64 @rtl8169_features_check(ptr noundef %0, ptr noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_set_rx_mode(ptr noundef readonly %0) #0 align 16 {
+define internal void @rtl_set_rx_mode(ptr noundef readonly captures(address) %0) #0 align 16 {
   %2 = alloca [2 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4

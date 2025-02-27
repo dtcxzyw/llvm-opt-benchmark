@@ -386,7 +386,7 @@ define noundef ptr @utrans_openInverse_77(ptr noundef %0, ptr noundef %1) local_
 declare noundef ptr @_ZNK6icu_7714Transliterator13createInverseER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @utrans_clone_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @utrans_clone_77(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %15, label %4
 
@@ -434,7 +434,7 @@ define void @utrans_close_77(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utrans_getUnicodeID_77(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define ptr @utrans_getUnicodeID_77(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -493,7 +493,7 @@ define noundef i32 @utrans_getID_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 declare noundef i32 @_ZNK6icu_7713UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @utrans_register_77(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define void @utrans_register_77(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %8, label %4
 
@@ -693,7 +693,7 @@ define noundef i32 @utrans_getAvailableID_77(i32 noundef %0, ptr noundef %1, i32
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7714Transliterator14getAvailableIDEi(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @utrans_openIDs_77(ptr noundef %0) local_unnamed_addr #4 {
+define noalias noundef ptr @utrans_openIDs_77(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 
@@ -732,7 +732,7 @@ declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #7
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @utrans_trans_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @utrans_trans_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.icu_77::ReplaceableGlue", align 8
   %8 = icmp eq ptr %5, null
   br i1 %8, label %25, label %9
@@ -834,7 +834,7 @@ define void @utrans_transIncremental_77(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @utrans_transUChars_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @utrans_transUChars_77(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.icu_77::UnicodeString", align 8
   %9 = alloca %"class.icu_77::Char16Ptr", align 8
   %10 = icmp eq ptr %6, null
@@ -930,7 +930,7 @@ declare void @_ZN6icu_7713UnicodeStringC1EPDsii(ptr noundef nonnull align 8 dere
 declare noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @utrans_transIncrementalUChars_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @utrans_transIncrementalUChars_77(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.icu_77::UnicodeString", align 8
   %8 = alloca %"class.icu_77::Char16Ptr", align 8
   %9 = icmp eq ptr %5, null
@@ -1098,7 +1098,7 @@ define noundef i32 @utrans_toRules_77(ptr noundef %0, i8 noundef signext %1, ptr
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utrans_getSourceSet_77(ptr noundef %0, i8 noundef signext %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #4 {
+define ptr @utrans_getSourceSet_77(ptr noundef %0, i8 noundef signext %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %20, label %6
 
@@ -1151,7 +1151,7 @@ define internal void @_ZL17utrans_enum_closeP12UEnumeration(ptr noundef %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL17utrans_enum_countP12UEnumerationP10UErrorCode(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #9 {
+define internal noundef i32 @_ZL17utrans_enum_countP12UEnumerationP10UErrorCode(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #9 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %10, label %4
 
@@ -1171,7 +1171,7 @@ define internal noundef i32 @_ZL17utrans_enum_countP12UEnumerationP10UErrorCode(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL17utrans_enum_unextP12UEnumerationPiP10UErrorCode(ptr noundef captures(none) %0, ptr noundef writeonly %1, ptr noundef readonly %2) #4 {
+define internal noundef ptr @_ZL17utrans_enum_unextP12UEnumerationPiP10UErrorCode(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) #4 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %_ZNK6icu_7713UnicodeString9getBufferEv.exit, label %5
 
@@ -1244,7 +1244,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %34, %32, %26, %38, 
 declare ptr @uenum_nextDefault_77(ptr noundef, ptr noundef, ptr noundef) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL17utrans_enum_resetP12UEnumerationP10UErrorCode(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) #4 {
+define internal void @_ZL17utrans_enum_resetP12UEnumerationP10UErrorCode(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #4 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %11, label %4
 

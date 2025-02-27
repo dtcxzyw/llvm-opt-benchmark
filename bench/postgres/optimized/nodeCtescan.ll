@@ -125,7 +125,7 @@ declare void @ExecAssignScanProjectionInfo(ptr noundef) local_unnamed_addr #1
 declare ptr @ExecInitQual(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecEndCteScan(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecEndCteScan(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %0

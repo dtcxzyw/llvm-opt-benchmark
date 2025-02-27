@@ -34,7 +34,7 @@ define noundef i64 @_Z44alts_iovec_record_protocol_get_header_lengthv() local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z41alts_iovec_record_protocol_get_tag_lengthPK26alts_iovec_record_protocol(ptr noundef readonly %0) local_unnamed_addr #1 {
+define noundef i64 @_Z41alts_iovec_record_protocol_get_tag_lengthPK26alts_iovec_record_protocol(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -49,7 +49,7 @@ define noundef i64 @_Z41alts_iovec_record_protocol_get_tag_lengthPK26alts_iovec_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z52alts_iovec_record_protocol_max_unprotected_data_sizePK26alts_iovec_record_protocolm(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define noundef i64 @_Z52alts_iovec_record_protocol_max_unprotected_data_sizePK26alts_iovec_record_protocolm(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 
@@ -72,7 +72,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z49alts_iovec_record_protocol_integrity_only_protectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr writeonly %3, i64 %4, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %5, ptr noundef %6) local_unnamed_addr #3 {
+define noundef i32 @_Z49alts_iovec_record_protocol_integrity_only_protectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr writeonly captures(address_is_null) %3, i64 %4, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %5, ptr noundef %6) local_unnamed_addr #3 {
   %8 = alloca i64, align 8
   %9 = icmp eq ptr %0, null
   br i1 %9, label %10, label %13
@@ -259,7 +259,7 @@ _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %45, %44, %39, %38, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef readonly %0, ptr noundef writeonly %1) unnamed_addr #3 {
+define internal fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #3 {
   %3 = icmp ne ptr %1, null
   %4 = icmp ne ptr %0, null
   %or.cond = and i1 %4, %3
@@ -327,7 +327,7 @@ _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %11, %10, %7, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z51alts_iovec_record_protocol_integrity_only_unprotectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr readonly %3, i64 %4, ptr noundef byval(%struct.iovec) align 8 %5, ptr noundef %6) local_unnamed_addr #3 {
+define noundef i32 @_Z51alts_iovec_record_protocol_integrity_only_unprotectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr readonly captures(address_is_null) %3, i64 %4, ptr noundef byval(%struct.iovec) align 8 %5, ptr noundef %6) local_unnamed_addr #3 {
   %8 = alloca i64, align 8
   %9 = alloca %struct.iovec, align 8
   %10 = icmp eq ptr %0, null
@@ -525,7 +525,7 @@ _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %63, %62, %57, %56, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 14) i32 @_ZL19verify_frame_headermPhPPc(i64 noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 14) i32 @_ZL19verify_frame_headermPhPPc(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #3 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %8
 
@@ -583,7 +583,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef byval(%struct.iovec) align 8, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #7 {
+define internal fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #7 {
   %3 = icmp ne ptr %1, null
   %4 = icmp ne ptr %0, null
   %or.cond = and i1 %4, %3
@@ -610,7 +610,7 @@ define internal fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z52alts_iovec_record_protocol_privacy_integrity_protectP26alts_iovec_record_protocolPK5iovecmS1_PPc(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr %3, i64 %4, ptr noundef %5) local_unnamed_addr #3 {
+define noundef i32 @_Z52alts_iovec_record_protocol_privacy_integrity_protectP26alts_iovec_record_protocolPK5iovecmS1_PPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr %3, i64 %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = alloca i64, align 8
   %8 = alloca %struct.iovec, align 8
   %9 = icmp eq ptr %0, null
@@ -776,7 +776,7 @@ _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %42, %41, %34, %33, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z54alts_iovec_record_protocol_privacy_integrity_unprotectP26alts_iovec_record_protocol5iovecPKS1_mS1_PPc(ptr noundef readonly %0, ptr %1, i64 %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %5, ptr noundef %6) local_unnamed_addr #3 {
+define noundef i32 @_Z54alts_iovec_record_protocol_privacy_integrity_unprotectP26alts_iovec_record_protocol5iovecPKS1_mS1_PPc(ptr noundef readonly captures(address_is_null) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %5, ptr noundef %6) local_unnamed_addr #3 {
   %8 = alloca i64, align 8
   %9 = icmp eq ptr %0, null
   br i1 %9, label %10, label %13
@@ -942,7 +942,7 @@ _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %45, %44, %41, %40, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 10) i32 @_Z33alts_iovec_record_protocol_createP17gsec_aead_cryptermbbbPP26alts_iovec_record_protocolPPc(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef writeonly %5, ptr noundef %6) local_unnamed_addr #3 {
+define noundef range(i32 0, 10) i32 @_Z33alts_iovec_record_protocol_createP17gsec_aead_cryptermbbbPP26alts_iovec_record_protocolPPc(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #3 {
   %8 = alloca i64, align 8
   %9 = zext i1 %3 to i8
   %10 = zext i1 %4 to i8

@@ -779,7 +779,7 @@ declare noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef, i32 noundef)
 declare void @_Z13luaL_buffinitP9lua_StateP11luaL_Strbuf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL8addfieldP9lua_StateP11luaL_StrbufiP8LuaTable(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @_ZL8addfieldP9lua_StateP11luaL_StrbufiP8LuaTable(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %24, label %5
 

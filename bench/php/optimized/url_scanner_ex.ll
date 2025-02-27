@@ -77,7 +77,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.27 = private unnamed_addr constant [59 x i8] c"Usage of session.trans_sid_hosts INI setting is deprecated\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @php_url_scanner_adapt_single_url(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local noalias ptr @php_url_scanner_adapt_single_url(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
 smart_str_alloc.exit:
   %6 = alloca %struct.smart_str, align 8
   %7 = alloca %struct.smart_str, align 8

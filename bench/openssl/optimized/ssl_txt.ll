@@ -430,7 +430,7 @@ declare i32 @ssl_cipher_get_evp(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare ptr @X509_verify_cert_error_string(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_SESSION_print_keylog(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_SESSION_print_keylog(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %4
 

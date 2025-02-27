@@ -3875,7 +3875,7 @@ define dso_local double @rb_cstr_to_dbl(ptr noundef nonnull %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc double @rb_cstr_to_dbl_raise(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef writeonly %4) unnamed_addr #2 {
+define internal fastcc double @rb_cstr_to_dbl_raise(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca [70 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
@@ -4306,7 +4306,7 @@ define dso_local double @rb_str_to_dbl(i64 noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc double @rb_str_to_dbl_raise(i64 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc double @rb_str_to_dbl_raise(i64 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8

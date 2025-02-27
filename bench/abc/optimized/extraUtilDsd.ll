@@ -702,7 +702,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Sdm_ManBuildHashTable(ptr noundef writeonly %0) local_unnamed_addr #3 {
+define noalias noundef ptr @Sdm_ManBuildHashTable(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = tail call i32 @Extra_FileSize(ptr noundef nonnull @.str.6) #25
   %3 = sdiv i32 %2, 12
   %4 = add nsw i32 %3, -1
@@ -1174,7 +1174,7 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Sdm_ManPrecomputePerms(ptr noundef initializes((0, 8), (32, 40)) %0) local_unnamed_addr #3 {
+define void @Sdm_ManPrecomputePerms(ptr noundef captures(address_is_null) initializes((0, 8), (32, 40)) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = tail call i32 @Extra_Factorial(i32 noundef 6) #25
@@ -1765,7 +1765,7 @@ Hsh_IntManLookup.exit.thread:                     ; preds = %.lr.ph.i, %Hsh_IntM
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @Sdm_ManComputeFunc(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 {
+define range(i32 -32768, 32768) i32 @Sdm_ManComputeFunc(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 {
   %7 = alloca [6 x i32], align 16
   %8 = and i32 %4, 262143
   %9 = lshr i32 %4, 18

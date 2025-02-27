@@ -60,7 +60,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.46 = private unnamed_addr constant [89 x i8] c"<?xml version=\221.0\22 encoding=\22UTF-8\22?>\0A<!DOCTYPE topologydiff SYSTEM \22hwloc2-diff.dtd\22>\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @hwloc_nolibxml_backend_init(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @hwloc_nolibxml_backend_init(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #0 {
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %23, label %6
@@ -244,7 +244,7 @@ define internal void @hwloc_nolibxml_free_buffer(ptr noundef captures(none) %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hwloc_nolibxml_import_diff(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly %5) #0 {
+define internal i32 @hwloc_nolibxml_import_diff(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) #0 {
   %7 = alloca %struct.hwloc__xml_import_state_s, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8

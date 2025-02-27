@@ -408,7 +408,7 @@ declare void @g_return_if_fail_warning(ptr noundef, ptr noundef, ptr noundef) lo
 declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @dtgtk_gradient_slider_multivalue_clear_stops(ptr noundef %0) local_unnamed_addr #0 {
+define void @dtgtk_gradient_slider_multivalue_clear_stops(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3, !prof !45
 
@@ -573,7 +573,7 @@ declare void @g_signal_emit_by_name(ptr noundef, ptr noundef, ...) local_unnamed
 declare void @gtk_widget_queue_draw(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @dtgtk_gradient_slider_multivalue_set_values(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @dtgtk_gradient_slider_multivalue_set_values(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4, !prof !45
 
@@ -884,7 +884,7 @@ define void @dtgtk_gradient_slider_multivalue_set_picker_meanminmax(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dtgtk_gradient_slider_multivalue_is_dragging(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i32 @dtgtk_gradient_slider_multivalue_is_dragging(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3, !prof !45
 
@@ -903,7 +903,7 @@ define i32 @dtgtk_gradient_slider_multivalue_is_dragging(ptr noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dtgtk_gradient_slider_multivalue_set_increment(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
+define void @dtgtk_gradient_slider_multivalue_set_increment(ptr noundef writeonly captures(address_is_null) %0, double noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4, !prof !45
 
@@ -1277,7 +1277,7 @@ define void @dtgtk_gradient_slider_set_picker_meanminmax(ptr noundef %0, double 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dtgtk_gradient_slider_is_dragging(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i32 @dtgtk_gradient_slider_is_dragging(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3, !prof !45
 
@@ -1296,7 +1296,7 @@ define i32 @dtgtk_gradient_slider_is_dragging(ptr noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dtgtk_gradient_slider_set_increment(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
+define void @dtgtk_gradient_slider_set_increment(ptr noundef writeonly captures(address_is_null) %0, double noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4, !prof !45
 

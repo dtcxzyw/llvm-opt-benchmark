@@ -848,7 +848,7 @@ declare i64 @tls12_get_psigalgs(ptr noundef, i32 noundef, ptr noundef) local_unn
 declare i32 @tls12_copy_sigalgs(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tls_construct_ctos_status_request(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @tls_construct_ctos_status_request(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %.not = icmp eq ptr %3, null
@@ -1217,7 +1217,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_etm(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tls_construct_ctos_sct(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @tls_construct_ctos_sct(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2920
   %7 = load ptr, ptr %6, align 8, !tbaa !135
   %8 = icmp ne ptr %7, null

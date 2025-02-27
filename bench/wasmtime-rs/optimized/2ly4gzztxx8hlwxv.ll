@@ -1682,7 +1682,7 @@ define hidden void @_ZN4core4hash6Hasher9write_i3217hce53b23871634746E.llvm.1715
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hd68684116297058dE.llvm.1715581770924364745"(ptr noalias noundef readonly returned align 8 dereferenceable(56) %0) unnamed_addr #12 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hd68684116297058dE.llvm.1715581770924364745"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(56) %0) unnamed_addr #12 {
   ret ptr %0
 }
 
@@ -4736,7 +4736,7 @@ define hidden noundef i64 @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef range(i16 0, 16384) i16 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$10value_type17h7b6a63310212520dE"(ptr readonly %.0.val, i32 noundef %0) unnamed_addr #0 {
+define internal fastcc noundef range(i16 0, 16384) i16 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$10value_type17h7b6a63310212520dE"(ptr readonly captures(address_is_null) %.0.val, i32 noundef %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = load ptr, ptr %.0.val, align 8, !nonnull !5, !align !63, !noundef !5

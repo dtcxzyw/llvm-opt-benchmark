@@ -195,7 +195,7 @@ define dso_local ptr @php_stream_encloses(ptr noundef %0, ptr noundef captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 3) i32 @php_stream_from_persistent_id(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 3) i32 @php_stream_from_persistent_id(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
   %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 664), ptr noundef nonnull %0, i64 noundef %3) #27
   %.not.i = icmp eq ptr %4, null
@@ -957,7 +957,7 @@ declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #6
 declare void @zend_hash_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @_php_stream_free_persistent(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #12 {
+define internal range(i32 0, 2) i32 @_php_stream_free_persistent(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #12 {
   %3 = load ptr, ptr %0, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !25
@@ -2060,7 +2060,7 @@ define dso_local ptr @php_stream_locate_eol(ptr noundef captures(none) %0, ptr n
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_php_stream_get_line(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
+define dso_local ptr @_php_stream_get_line(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %.not87.not = icmp ne ptr %1, null
   %5 = icmp eq i64 %2, 0
   %or.cond = and i1 %.not87.not, %5
@@ -3601,7 +3601,7 @@ zend_string_truncate.exit113:                     ; preds = %255, %254, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_php_stream_copy_to_stream_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @_php_stream_copy_to_stream_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca [8192 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -4366,7 +4366,7 @@ define dso_local i32 @php_unregister_url_stream_wrapper_volatile(ptr noundef %0)
 declare i32 @zend_hash_del(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @php_stream_locate_url_wrapper(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local noundef ptr @php_stream_locate_url_wrapper(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [32 x i8], align 16
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 64), align 8, !tbaa !8
   %.not = icmp eq ptr %5, null
@@ -5412,7 +5412,7 @@ declare void @php_error_docref1(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @php_stream_context_set(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define dso_local ptr @php_stream_context_set(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8, !tbaa !37
   %.not = icmp eq ptr %4, null
@@ -5687,7 +5687,7 @@ define dso_local i32 @php_stream_dirent_alphasortr(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_php_stream_scandir(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define dso_local i32 @_php_stream_scandir(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = alloca %struct._php_stream_dirent, align 1
   call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %6) #27
   %.not = icmp eq ptr %1, null

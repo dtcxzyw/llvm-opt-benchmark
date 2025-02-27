@@ -4599,7 +4599,7 @@ define { ptr, ptr } @"_ZN76_$LT$wasmtime_wasi..preview0..types..Error$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN13wasmtime_wasi8preview05types5Error4trap17h434c741b32150156E(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
+define noundef nonnull ptr @_ZN13wasmtime_wasi8preview05types5Error4trap17h434c741b32150156E(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -19039,7 +19039,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u64$GT$$GT$6as_ref17hbf264e69eb5065f1E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u64$GT$$GT$6as_ref17hbf264e69eb5065f1E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -19236,7 +19236,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17hc155b6b9a72fb65fE"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #3 {
+define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17hc155b6b9a72fb65fE"(ptr noalias noundef readonly returned align 2 captures(ret: address, provenance) dereferenceable(2) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -19433,7 +19433,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h5f87678d11752250E"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #3 {
+define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h5f87678d11752250E"(ptr noalias noundef readonly returned align 2 captures(ret: address, provenance) dereferenceable(2) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -19630,7 +19630,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u32$GT$$GT$6as_ref17he603ba1b877cc24fE"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #3 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u32$GT$$GT$6as_ref17he603ba1b877cc24fE"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -19827,7 +19827,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17hefe443e1c7245539E"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #3 {
+define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17hefe443e1c7245539E"(ptr noalias noundef readonly returned align 2 captures(ret: address, provenance) dereferenceable(2) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -20024,7 +20024,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h4032c31876e43040E"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #3 {
+define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h4032c31876e43040E"(ptr noalias noundef readonly returned align 2 captures(ret: address, provenance) dereferenceable(2) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -20221,7 +20221,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h0647658a2378c571E"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #3 {
+define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h0647658a2378c571E"(ptr noalias noundef readonly returned align 2 captures(ret: address, provenance) dereferenceable(2) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -20418,7 +20418,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h7223284bcfec9e91E"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #3 {
+define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h7223284bcfec9e91E"(ptr noalias noundef readonly returned align 2 captures(ret: address, provenance) dereferenceable(2) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -20615,7 +20615,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h119878320c615abdE"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #3 {
+define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN103_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h119878320c615abdE"(ptr noalias noundef readonly returned align 2 captures(ret: address, provenance) dereferenceable(2) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -20812,7 +20812,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN102_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17h2a078e68a9e3fcc5E"(ptr noalias noundef readonly returned align 1 dereferenceable(1) %0) unnamed_addr #3 {
+define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN102_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17h2a078e68a9e3fcc5E"(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(1) %0) unnamed_addr #3 {
   ret ptr %0
 }
 

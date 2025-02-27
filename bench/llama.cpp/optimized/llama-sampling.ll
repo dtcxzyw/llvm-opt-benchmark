@@ -1530,7 +1530,7 @@ define noalias noundef nonnull ptr @llama_sampler_init_top_n_sigma(float noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef nonnull ptr @llama_sampler_init_dry(ptr noundef %0, i32 noundef %1, float noundef %2, float noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6, i64 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull ptr @llama_sampler_init_dry(ptr noundef %0, i32 noundef %1, float noundef %2, float noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i64 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::vector<int>>, std::allocator<std::pair<const int, std::vector<int>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, false>>::_Scoped_node", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3416,7 +3416,7 @@ define i32 @llama_sampler_get_seed(ptr noundef readonly captures(none) %0) local
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, i32 } @llama_perf_sampler(ptr noundef readonly %0) local_unnamed_addr #0 {
+define { double, i32 } @llama_perf_sampler(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -3445,7 +3445,7 @@ define { double, i32 } @llama_perf_sampler(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_perf_sampler_print(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @llama_perf_sampler_print(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -3477,7 +3477,7 @@ llama_perf_sampler.exit:                          ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_perf_sampler_reset(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @llama_perf_sampler_reset(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -4336,7 +4336,7 @@ define internal fastcc void @_ZL26llama_sampler_softmax_implP22llama_token_data_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL17llama_sample_distP22llama_token_data_arrayRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE(ptr readonly %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(5000) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL17llama_sample_distP22llama_token_data_arrayRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE(ptr readonly captures(address) %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(5000) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::discrete_distribution", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #33
   %3 = getelementptr inbounds nuw %struct.llama_token_data, ptr %.0.val, i64 %.8.val
@@ -6093,7 +6093,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit95:                  ; preds = %181, %_ZNSt6vectorI
 declare float @llvm.fmuladd.f32(float, float, float) #22
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_"(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #23 {
+define internal fastcc void @"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_"(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) unnamed_addr #23 {
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5

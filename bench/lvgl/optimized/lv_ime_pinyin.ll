@@ -1359,7 +1359,7 @@ lv_ime_pinyin_set_mode.exit149:                   ; preds = %113
 declare void @lv_obj_align_to(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @lv_ime_pinyin_set_dict(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @lv_ime_pinyin_set_dict(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1440,7 +1440,7 @@ init_pinyin_dict.exit:                            ; preds = %9, %28, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_ime_pinyin_set_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_ime_pinyin_set_mode(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1503,7 +1503,7 @@ declare void @lv_keyboard_set_map(ptr noundef, i32 noundef, ptr noundef, ptr nou
 declare void @lv_keyboard_set_mode(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_ime_pinyin_get_kb(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_ime_pinyin_get_kb(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1517,7 +1517,7 @@ define ptr @lv_ime_pinyin_get_kb(ptr noundef readonly %0) local_unnamed_addr #4 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_ime_pinyin_get_cand_panel(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_ime_pinyin_get_cand_panel(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1531,7 +1531,7 @@ define ptr @lv_ime_pinyin_get_cand_panel(ptr noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_ime_pinyin_get_dict(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_ime_pinyin_get_dict(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_readytorun = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @pthread_join(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define i32 @pthread_join(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr @g_readytorun, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16

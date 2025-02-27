@@ -671,7 +671,7 @@ declare void @SetShellResultVariables(i32 noundef) local_unnamed_addr #2
 declare void @restore_sigpipe_trap() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @handleCopyOut(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @handleCopyOut(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   %5 = call i32 @PQgetCopyData(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 0) #11
@@ -790,7 +790,7 @@ declare ptr @PQgetResult(ptr noundef) local_unnamed_addr #2
 declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(address) %1, i1 noundef zeroext %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [8192 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %5) #11
   %6 = call i32 @__sigsetjmp(ptr noundef nonnull @sigint_interrupt_jmp, i32 noundef 1) #14

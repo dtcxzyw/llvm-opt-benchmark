@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.wc_AesGetKeySize.1 = private unnamed_addr constant [5 x i32] [i32 0, i32 -173, i32 0, i32 -173, i32 0], align 4
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_AesSetKey(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_AesSetKey(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = icmp eq ptr %0, null
   %8 = icmp ugt i32 %2, 240
@@ -641,7 +641,7 @@ wc_AesSetKeyLocal.exit:                           ; preds = %AesSetKey_C.exit.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_AesSetIV(ptr noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_AesSetIV(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 
@@ -670,7 +670,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -226, 1) i32 @wc_AesCbcEncrypt(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define range(i32 -226, 1) i32 @wc_AesCbcEncrypt(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = ptrtoint ptr %2 to i64
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
@@ -2230,7 +2230,7 @@ AesEncrypt_C.exit:                                ; preds = %7, %892, %1085
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -226, 1) i32 @wc_AesCbcDecrypt(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #4 {
+define range(i32 -226, 1) i32 @wc_AesCbcDecrypt(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = ptrtoint ptr %1 to i64
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
@@ -4393,7 +4393,7 @@ Shift4_M0.exit:                                   ; preds = %242
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -226, 1) i32 @wc_AesGcmSetKey(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -226, 1) i32 @wc_AesGcmSetKey(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   switch i32 %2, label %.thread [
@@ -4431,7 +4431,7 @@ define range(i32 -226, 1) i32 @wc_AesGcmSetKey(ptr noundef %0, ptr noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @GHASH(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #4 {
+define void @GHASH(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #4 {
   %8 = ptrtoint ptr %3 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = alloca [16 x i8], align 16
@@ -5490,7 +5490,7 @@ AES_GCM_encrypt_C.exit:                           ; preds = %IncrementGcmCounter
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -226, 1) i32 @wc_AesGcmDecrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) local_unnamed_addr #6 {
+define range(i32 -226, 1) i32 @wc_AesGcmDecrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) local_unnamed_addr #6 {
   %11 = alloca [16 x i8], align 16
   %12 = alloca [16 x i8], align 16
   %13 = alloca [16 x i8], align 16
@@ -5782,7 +5782,7 @@ AES_GCM_decrypt_C.exit:                           ; preds = %IncrementGcmCounter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_AesGcmSetExtIV(ptr noundef writeonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_AesGcmSetExtIV(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -5815,7 +5815,7 @@ define range(i32 -173, 1) i32 @wc_AesGcmSetExtIV(ptr noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_AesGcmSetIV(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #7 {
+define i32 @wc_AesGcmSetIV(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #7 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %4, null
   %or.cond = or i1 %6, %7
@@ -5877,7 +5877,7 @@ define i32 @wc_AesGcmSetIV(ptr noundef %0, i32 noundef %1, ptr noundef readonly 
 declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -260, 1) i32 @wc_AesGcmEncrypt_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) local_unnamed_addr #6 {
+define range(i32 -260, 1) i32 @wc_AesGcmEncrypt_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) local_unnamed_addr #6 {
   %11 = icmp eq ptr %0, null
   br i1 %11, label %IncCtr.exit, label %12
 
@@ -5954,7 +5954,7 @@ IncCtr.exit:                                      ; preds = %41, %.preheader, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_Gmac(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #7 {
+define i32 @wc_Gmac(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #7 {
   %10 = alloca [16 x i8], align 16
   %11 = alloca [1 x %struct.Aes], align 16
   call void @llvm.lifetime.start.p0(i64 848, ptr nonnull %11) #12
@@ -6066,7 +6066,7 @@ wc_AesFree.exit:                                  ; preds = %.lr.ph29.i.i, %9, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_AesInit(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #9 {
+define range(i32 -173, 1) i32 @wc_AesInit(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %7, label %5
 
@@ -6135,7 +6135,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 -226, 1) i32 @wc_GmacVerify(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #10 {
+define range(i32 -226, 1) i32 @wc_GmacVerify(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #10 {
   %9 = alloca [16 x i8], align 16
   %10 = alloca [1 x %struct.Aes], align 16
   call void @llvm.lifetime.start.p0(i64 848, ptr nonnull %10) #12
@@ -6207,7 +6207,7 @@ wc_AesFree.exit:                                  ; preds = %.lr.ph29.i.i, %8, %
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -226, 1) i32 @wc_GmacSetKey(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -226, 1) i32 @wc_GmacSetKey(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
@@ -6263,7 +6263,7 @@ define range(i32 -226, 1) i32 @wc_GmacUpdate(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @wc_AesNew(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #7 {
+define ptr @wc_AesNew(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #7 {
   %4 = tail call ptr @wolfSSL_Malloc(i64 noundef 848) #12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %wc_AesInit.exit
@@ -6292,7 +6292,7 @@ declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #8
 declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wc_AesDelete(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #7 {
+define range(i32 -173, 1) i32 @wc_AesDelete(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %18, label %4
 
@@ -6355,7 +6355,7 @@ wc_AesFree.exit:                                  ; preds = %.lr.ph35.i.i, %.pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_AesGetKeySize(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_AesGetKeySize(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

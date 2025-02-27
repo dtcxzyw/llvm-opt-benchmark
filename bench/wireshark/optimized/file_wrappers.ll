@@ -1368,7 +1368,7 @@ define hidden i64 @file_tell_raw(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong uwtable
-define hidden range(i32 -1, 1) i32 @file_fstat(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #15 {
+define hidden range(i32 -1, 1) i32 @file_fstat(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #15 {
   %4 = load i32, ptr %0, align 8
   %5 = tail call i32 @fstat(i32 noundef %4, ptr noundef %1) #21
   %6 = icmp eq i32 %5, -1
@@ -3026,7 +3026,7 @@ define range(i32 0, 2) i32 @file_eof(ptr noundef readonly captures(none) %0) loc
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @file_error(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define i32 @file_error(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4
   %5 = icmp ne i32 %4, 0

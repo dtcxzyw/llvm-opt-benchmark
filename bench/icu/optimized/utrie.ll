@@ -115,7 +115,7 @@ declare void @uprv_free_77(ptr noundef) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @utrie_clone_77(ptr noundef writeonly %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef ptr @utrie_clone_77(ptr noundef writeonly captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %59, label %6
 
@@ -282,7 +282,7 @@ define void @utrie_close_77(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @utrie_getData_77(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
+define ptr @utrie_getData_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -302,7 +302,7 @@ define ptr @utrie_getData_77(ptr noundef readonly %0, ptr noundef writeonly %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define signext range(i8 0, 2) i8 @utrie_set32_77(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define signext range(i8 0, 2) i8 @utrie_set32_77(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %_ZL18utrie_getDataBlockP8UNewTriei.exit.thread, label %5
 
@@ -365,7 +365,7 @@ _ZL18utrie_getDataBlockP8UNewTriei.exit.thread:   ; preds = %16, %_ZL20utrie_all
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @utrie_get32_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #8 {
+define i32 @utrie_get32_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #8 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %10, label %5
 
@@ -416,7 +416,7 @@ define i32 @utrie_get32_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define signext range(i8 0, 2) i8 @utrie_setRange32_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef signext %4) local_unnamed_addr #9 {
+define signext range(i8 0, 2) i8 @utrie_setRange32_77(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef signext %4) local_unnamed_addr #9 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %_ZL15utrie_fillBlockPjiijja.exit135, label %7
 
@@ -755,7 +755,7 @@ _ZL15utrie_fillBlockPjiijja.exit135:              ; preds = %.lr.ph.i104, %66, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @utrie_serialize_77(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef readonly %3, i8 noundef signext %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @utrie_serialize_77(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i8 noundef signext %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca [32 x i32], align 16
   %8 = icmp eq ptr %5, null
   br i1 %8, label %.loopexit, label %9
@@ -1489,7 +1489,7 @@ define noundef i32 @utrie_defaultGetFoldingOffset_77(i32 noundef returned %0) #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @utrie_unserialize_77(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define i32 @utrie_unserialize_77(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #6 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %65, label %6
 
@@ -1611,7 +1611,7 @@ define i32 @utrie_unserialize_77(ptr noundef writeonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 5376) i32 @utrie_unserializeDummy_77(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef signext %5, ptr noundef %6) local_unnamed_addr #12 {
+define range(i32 -1, 5376) i32 @utrie_unserializeDummy_77(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef signext %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #12 {
   %8 = icmp eq ptr %6, null
   br i1 %8, label %52, label %9
 
@@ -1760,7 +1760,7 @@ define range(i32 -1, 5376) i32 @utrie_unserializeDummy_77(ptr noundef captures(n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @utrie_enum_77(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.loopexit236, label %6
 

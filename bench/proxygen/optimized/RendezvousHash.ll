@@ -224,7 +224,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK8proxygen14RendezvousHash20getNthByWeightedHashEmmPSt6vectorImSaImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %key, i64 noundef %rank, ptr noundef %returnRankIds) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK8proxygen14RendezvousHash20getNthByWeightedHashEmmPSt6vectorImSaImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %key, i64 noundef %rank, ptr noundef captures(address_is_null) %returnRankIds) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %weights_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -743,7 +743,7 @@ entry:
 declare double @pow(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8proxygen14RendezvousHash17selectNUnweightedEmm(ptr noalias sret(%"class.std::vector.18") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %key, i64 noundef %rank) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8proxygen14RendezvousHash17selectNUnweightedEmm(ptr noalias sret(%"class.std::vector.18") align 8 captures(address_is_null) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %key, i64 noundef %rank) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %weights_ = getelementptr inbounds nuw i8, ptr %this, i64 8

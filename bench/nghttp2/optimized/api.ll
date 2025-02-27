@@ -1568,7 +1568,7 @@ define i32 @llhttp__on_reset(ptr noundef %0, ptr noundef readnone captures(none)
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define void @llhttp__debug(ptr noundef %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr noundef %3) local_unnamed_addr #8 {
+define void @llhttp__debug(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, ptr noundef %3) local_unnamed_addr #8 {
   %5 = icmp eq ptr %1, %2
   %6 = load ptr, ptr @stderr, align 8, !tbaa !48
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72

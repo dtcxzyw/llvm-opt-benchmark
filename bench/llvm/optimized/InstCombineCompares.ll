@@ -37372,7 +37372,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %136
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN4llvm16InstCombinerImpl25replacedSelectWithOperandEPNS_10SelectInstEPKNS_8ICmpInstEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1088) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN4llvm16InstCombinerImpl25replacedSelectWithOperandEPNS_10SelectInstEPKNS_8ICmpInstEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1088) %0, ptr noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !176
   %.not.i = icmp eq ptr %6, null
@@ -48521,7 +48521,7 @@ declare void @_ZN4llvm11Instruction18setHasNoSignedWrapEb(ptr noundef nonnull al
 declare void @_ZN4llvm11Instruction20setHasNoUnsignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK4llvm16InstCombinerImpl16dominatesAllUsesEPKNS_11InstructionES3_PKNS_10BasicBlockE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1088) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK4llvm16InstCombinerImpl16dominatesAllUsesEPKNS_11InstructionES3_PKNS_10BasicBlockE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1088) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !176
   %.not = icmp eq ptr %6, null
@@ -55619,7 +55619,7 @@ _ZN4llvm12PatternMatch25OverflowingBinaryOp_matchINS0_14CastInst_matchINS0_7bind
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL20processUMulZExtIdiomRN4llvm8ICmpInstEPNS_5ValueEPKNS_5APIntERNS_16InstCombinerImplE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(1088) %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL20processUMulZExtIdiomRN4llvm8ICmpInstEPNS_5ValueEPKNS_5APIntERNS_16InstCombinerImplE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(1088) %3) unnamed_addr #0 {
   %5 = alloca %"struct.std::pair.367", align 8
   %6 = alloca %"struct.std::pair.370", align 8
   %7 = alloca %"struct.std::pair.367", align 8

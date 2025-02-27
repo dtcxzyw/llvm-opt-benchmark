@@ -5838,7 +5838,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit11: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(608) ptr @_ZN4cvc58internal4prop16ZeroLevelLearner18getSimplificationsEv(ptr noundef nonnull readnone align 8 dereferenceable(1320) %0) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(608) ptr @_ZN4cvc58internal4prop16ZeroLevelLearner18getSimplificationsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1320) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 712
   ret ptr %2
 }

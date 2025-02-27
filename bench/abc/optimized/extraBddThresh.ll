@@ -156,7 +156,7 @@ define i32 @Extra_ThreshComputeChow(ptr noundef readonly captures(none) %0, i32 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Extra_ThreshSortByChow(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
+define void @Extra_ThreshSortByChow(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = icmp slt i32 %1, 7
   %5 = add nsw i32 %1, -6
   %6 = shl nuw i32 1, %5
@@ -342,7 +342,7 @@ Abc_TtSwapAdjacent.exit.us46:                     ; preds = %.lr.ph.i.us44, %68,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Extra_ThreshSortByChowInverted(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
+define void @Extra_ThreshSortByChowInverted(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = icmp slt i32 %1, 7
   %5 = add nsw i32 %1, -6
   %6 = shl nuw i32 1, %5
@@ -3093,7 +3093,7 @@ define void @Extra_ThreshPrintWeights(i32 noundef %0, ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483647, -2147483648) i32 @Extra_ThreshCheck(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
+define range(i32 -2147483647, -2147483648) i32 @Extra_ThreshCheck(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = alloca [16 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
   %5 = tail call fastcc i32 @Abc_TtIsUnate(ptr noundef %0, i32 noundef %1)
@@ -3189,7 +3189,7 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i, %.lr.ph34
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_TtIsUnate(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #11 {
+define internal fastcc range(i32 0, 2) i32 @Abc_TtIsUnate(ptr noundef readonly captures(address) %0, i32 noundef %1) unnamed_addr #11 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %Abc_TtPosVar.exit.thread37
 
@@ -3401,7 +3401,7 @@ Abc_TtPosVar.exit.thread37:                       ; preds = %Abc_TtNegVar.exit.t
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_TtMakePosUnate(ptr noundef %0, i32 noundef %1) unnamed_addr #12 {
+define internal fastcc void @Abc_TtMakePosUnate(ptr noundef captures(address) %0, i32 noundef %1) unnamed_addr #12 {
   %3 = icmp slt i32 %1, 7
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %._crit_edge

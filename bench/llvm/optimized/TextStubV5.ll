@@ -4074,7 +4074,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113JSONStubErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_113JSONStubErrorD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_113JSONStubErrorE, i64 16), ptr %0, align 8, !tbaa !40
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !227
@@ -4540,7 +4540,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %99, %_ZN4llvm11Smal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110StubParser18getUmbrellaSectionB5cxx11EPKN4llvm4json6ObjectERKNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 dereferenceable(136) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110StubParser18getUmbrellaSectionB5cxx11EPKN4llvm4json6ObjectERKNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.llvm::Error", align 8
@@ -5270,7 +5270,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110StubParser13getLibSectionB5cxx11EPKN4llvm4json6ObjectENS_6TBDKeyES6_RKNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, i64 noundef range(i64 17, 34) %2, i64 noundef range(i64 18, 35) %3, ptr noundef nonnull readonly align 8 dereferenceable(136) %4) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110StubParser13getLibSectionB5cxx11EPKN4llvm4json6ObjectENS_6TBDKeyES6_RKNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, i64 noundef range(i64 17, 34) %2, i64 noundef range(i64 18, 35) %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Error", align 8
   %8 = alloca %class.anon.199, align 1
@@ -5670,7 +5670,7 @@ _ZN4llvm11SmallVectorINS_5MachO6TargetELj5EED2Ev.exit: ; preds = %.loopexit, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110StubParser16getSymbolSectionEPKN4llvm4json6ObjectENS_6TBDKeyERNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, i64 noundef range(i64 22, 25) %2, ptr noundef nonnull readonly align 8 dereferenceable(136) %3) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110StubParser16getSymbolSectionEPKN4llvm4json6ObjectENS_6TBDKeyERNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, i64 noundef range(i64 22, 25) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca [3 x %"class.llvm::StringRef"], align 8
   %7 = alloca %"class.llvm::Error", align 8
@@ -6976,7 +6976,7 @@ declare void @_ZN4llvm5MachO13InterfaceFile17addParentUmbrellaERKNS0_6TargetENS_
 declare void @_ZN4llvm5MachO13InterfaceFile8addRPathENS_9StringRefERKNS0_6TargetE(ptr noundef nonnull align 8 dereferenceable(464), ptr, i64, ptr noundef nonnull align 4 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm11SmallVectorISt4pairINS0_INS_5MachO6TargetELj5EEESt6vectorIN12_GLOBAL__N_110JSONSymbolESaIS7_EEELj1EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(176) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm11SmallVectorISt4pairINS0_INS_5MachO6TargetELj5EEESt6vectorIN12_GLOBAL__N_110JSONSymbolESaIS7_EEELj1EED2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(176) %0) unnamed_addr #0 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !152
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load i32, ptr %2, align 8, !tbaa !153
@@ -7075,7 +7075,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_11SmallVectorINS_5MachO6TargetELj5EEESt6vec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm8ExpectedINS_11SmallVectorISt4pairINS1_INS_5MachO6TargetELj5EEESt6vectorIN12_GLOBAL__N_110JSONSymbolESaIS8_EEELj1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(177) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm8ExpectedINS_11SmallVectorISt4pairINS1_INS_5MachO6TargetELj5EEESt6vectorIN12_GLOBAL__N_110JSONSymbolESaIS8_EEELj1EEEED2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(177) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -9629,7 +9629,7 @@ _ZN4llvm11SmallVectorINS_5MachO6TargetELj5EEC2ERKS3_.exit: ; preds = %_ZNSt7__cx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser13getLibSectionB5cxx11EPKNS_4json6ObjectENS5_6TBDKeyESB_RKNS_11SmallVectorINS_5MachO6TargetELj5EEEE3$_0EEvlS1_"(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal void @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser13getLibSectionB5cxx11EPKNS_4json6ObjectENS5_6TBDKeyESB_RKNS_11SmallVectorINS_5MachO6TargetELj5EEEE3$_0EEvlS1_"(i64 noundef %0, ptr readonly captures(address_is_null) %1, i64 %2) #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = inttoptr i64 %0 to ptr
@@ -10086,7 +10086,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_11SmallVectorINS_5MachO6TargetELj5E
 declare noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_0EEvlS1_"(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal void @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_0EEvlS1_"(i64 noundef %0, ptr readonly captures(address_is_null) %1, i64 %2) #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.(anonymous namespace)::JSONSymbol", align 8
   %6 = inttoptr i64 %0 to ptr
@@ -10397,7 +10397,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110JSONSymbolESaIS1_EE17_M_realloc_insertIJRS1_EEEvN9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_1EEvlS1_"(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal void @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_1EEvlS1_"(i64 noundef %0, ptr readonly captures(address_is_null) %1, i64 %2) #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.(anonymous namespace)::JSONSymbol", align 8
   %6 = inttoptr i64 %0 to ptr
@@ -10492,7 +10492,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_2EEvlS1_"(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal void @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_2EEvlS1_"(i64 noundef %0, ptr readonly captures(address_is_null) %1, i64 %2) #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.(anonymous namespace)::JSONSymbol", align 8
   %6 = inttoptr i64 %0 to ptr
@@ -10587,7 +10587,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_3EEvlS1_"(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal void @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_3EEvlS1_"(i64 noundef %0, ptr readonly captures(address_is_null) %1, i64 %2) #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.(anonymous namespace)::JSONSymbol", align 8
   %6 = inttoptr i64 %0 to ptr
@@ -10682,7 +10682,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_4EEvlS1_"(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal void @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_4EEvlS1_"(i64 noundef %0, ptr readonly captures(address_is_null) %1, i64 %2) #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.(anonymous namespace)::JSONSymbol", align 8
   %6 = inttoptr i64 %0 to ptr
@@ -10776,7 +10776,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_5EEvlS1_"(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal void @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_5EEvlS1_"(i64 noundef %0, ptr readonly captures(address_is_null) %1, i64 %2) #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.(anonymous namespace)::JSONSymbol", align 8
   %6 = inttoptr i64 %0 to ptr
@@ -13501,7 +13501,7 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit: ; preds = %_ZNKSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114serializeFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairIN4llvm5MachO6TargetES6_ESaISC_EEEENS9_4json5ArrayENS_6TBDKeyERKT0_RKNS9_11SmallVectorISB_Lj5EEEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 noundef range(i64 16, 35) %1, ptr %.0.val, ptr readnone %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114serializeFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairIN4llvm5MachO6TargetES6_ESaISC_EEEENS9_4json5ArrayENS_6TBDKeyERKT0_RKNS9_11SmallVectorISB_Lj5EEEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 noundef range(i64 16, 35) %1, ptr %.0.val, ptr readnone captures(address) %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.std::_Rb_tree<llvm::MachO::Target, llvm::MachO::Target, std::_Identity<llvm::MachO::Target>, std::less<llvm::MachO::Target>>::_Alloc_node", align 8
   %7 = alloca %"struct.std::_Rb_tree<llvm::MachO::Target, llvm::MachO::Target, std::_Identity<llvm::MachO::Target>, std::less<llvm::MachO::Target>>::_Alloc_node", align 8
@@ -14132,7 +14132,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114serializeFieldENS_6TBDKeyERKSt6vectorIN4llvm5MachO16InterfaceFileRefESaIS4_EERKNS2_11SmallVectorINS3_6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 noundef range(i64 18, 21) %1, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114serializeFieldENS_6TBDKeyERKSt6vectorIN4llvm5MachO16InterfaceFileRefESaIS4_EERKNS2_11SmallVectorINS3_6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 noundef range(i64 18, 21) %1, ptr readonly captures(address) %.0.val, ptr readnone captures(address) %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -16477,7 +16477,7 @@ _ZNKSt4lessISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116serializeTargetsISt3setIN4llvm5MachO6TargetESt4lessIS4_ESaIS4_EEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EET_RKNS2_11SmallVectorIS4_Lj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly %1, i32 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116serializeTargetsISt3setIN4llvm5MachO6TargetESt4lessIS4_ESaIS4_EEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EET_RKNS2_11SmallVectorIS4_Lj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly captures(address) %1, i32 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -16701,7 +16701,7 @@ _ZNSt8_Rb_treeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122serializeAttrToTargetsISt3mapISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESA_St4lessISA_ESaISt4pairIKSA_SA_EEEEEN4llvm4json5ArrayERT_NS_6TBDKeyE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 noundef range(i64 16, 35) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_122serializeAttrToTargetsISt3mapISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESA_St4lessISA_ESaISt4pairIKSA_SA_EEEEEN4llvm4json5ArrayERT_NS_6TBDKeyE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1, i64 noundef range(i64 16, 35) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18855,7 +18855,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN4llvm5MachO6TargetES2_St9_IdentityIS2_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120insertNonEmptyValuesIKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEbRN4llvm4json6ObjectENS_6TBDKeyEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120insertNonEmptyValuesIKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEbRN4llvm4json6ObjectENS_6TBDKeyEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.0.val, ptr readnone captures(address) %.8.val) unnamed_addr #0 {
   %2 = alloca %"class.llvm::json::Array", align 8
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::ObjectKey", align 8
@@ -22738,7 +22738,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit10: ; preds = %_ZNSt6vectorIN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120insertNonEmptyValuesISt6vectorIN4llvm9StringRefESaIS3_EEEEbRNS2_4json6ObjectENS_6TBDKeyEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 27, 33) %1, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120insertNonEmptyValuesISt6vectorIN4llvm9StringRefESaIS3_EEEEbRNS2_4json6ObjectENS_6TBDKeyEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 27, 33) %1, ptr %.0.val, ptr readnone captures(address) %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.llvm::json::Array", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::ObjectKey", align 8

@@ -1635,7 +1635,7 @@ define dso_local void @get_part_list(ptr noundef %0, ptr noundef captures(none) 
 declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @_match_part_ptr(ptr noundef readnone %0, ptr noundef readnone %1) #10 {
+define internal range(i32 0, 2) i32 @_match_part_ptr(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #10 {
   %3 = icmp eq ptr %0, %1
   %. = zext i1 %3 to i32
   ret i32 %.
@@ -1842,7 +1842,7 @@ _part_is_visible.exit.thread:                     ; preds = %2, %9, %32, %_part_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @part_not_on_list(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @part_not_on_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not16 = icmp eq ptr %3, null
   br i1 %.not16, label %.loopexit, label %.lr.ph
@@ -4617,7 +4617,7 @@ declare ptr @get_groups_members(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @clear_group_cache() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @_find_part_qos(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #12 {
+define internal range(i32 0, 2) i32 @_find_part_qos(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
@@ -5039,7 +5039,7 @@ declare zeroext i1 @partition_in_use(ptr noundef) local_unnamed_addr #3
 declare i32 @kill_job_by_part_name(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2046) i32 @part_policy_valid_acct(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2046) i32 @part_policy_valid_acct(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.slurmdb_assoc_rec, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
@@ -5118,7 +5118,7 @@ thread-pre-split.thread:                          ; preds = %12, %28, %23, %25, 
 declare i32 @assoc_mgr_fill_in_assoc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @_find_acct_in_list(ptr noundef readnone %0, ptr noundef readonly %1) #14 {
+define internal range(i32 0, 2) i32 @_find_acct_in_list(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(address) %1) #14 {
   %.not7 = icmp eq ptr %1, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -5141,7 +5141,7 @@ define internal range(i32 0, 2) i32 @_find_acct_in_list(ptr noundef readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2067) i32 @part_policy_valid_qos(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2067) i32 @part_policy_valid_qos(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   store ptr null, ptr %5, align 8

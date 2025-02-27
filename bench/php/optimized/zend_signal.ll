@@ -165,7 +165,7 @@ define internal void @zend_signal_handler_defer(i32 noundef %0, ptr noundef %1, 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_sigaction(i32 noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @zend_sigaction(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.sigaction, align 8
   %5 = alloca %struct.__sigset_t, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #8

@@ -312,7 +312,7 @@ tloop_spawnwait_tasks.exit:                       ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @reject_atomic_push(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local void @reject_atomic_push(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %.not7 = icmp eq ptr %0, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 

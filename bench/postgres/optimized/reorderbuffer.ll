@@ -1064,7 +1064,7 @@ ReorderBufferCheckMemoryLimit.exit:               ; preds = %172, %156, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ReorderBufferTXNByXid(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly %3, i64 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc ptr @ReorderBufferTXNByXid(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3, i64 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   store i32 %1, ptr %7, align 4
@@ -1281,7 +1281,7 @@ declare void @TeardownHistoricSnapshot(i1 noundef zeroext) local_unnamed_addr #2
 declare void @pg_re_throw() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @ReorderBufferGetOldestTXN(ptr noundef readonly %0) local_unnamed_addr #4 {
+define dso_local ptr @ReorderBufferGetOldestTXN(ptr noundef readonly captures(address) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -1294,7 +1294,7 @@ define dso_local ptr @ReorderBufferGetOldestTXN(ptr noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @ReorderBufferGetOldestXmin(ptr noundef readonly %0) local_unnamed_addr #8 {
+define dso_local i32 @ReorderBufferGetOldestXmin(ptr noundef readonly captures(address) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -3129,7 +3129,7 @@ dclist_push_tail.exit16:                          ; preds = %28, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ReorderBufferGetCatalogChangesXacts(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @ReorderBufferGetCatalogChangesXacts(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr i8, ptr %0, i64 56
   %.val = load i32, ptr %3, align 8
@@ -3404,7 +3404,7 @@ declare zeroext i1 @ReplicationSlotValidateName(ptr noundef, i32 noundef) local_
 declare i32 @FreeDir(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca [1024 x i8], align 16
   %8 = alloca %struct.LogicalRewriteMappingData, align 4
   %9 = alloca %struct.ReorderBufferTupleCidKey, align 4

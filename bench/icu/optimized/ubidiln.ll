@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Point = type { i32, i32 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ubidi_setLine_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @ubidi_setLine_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %144, label %7
 
@@ -458,7 +458,7 @@ define zeroext i8 @ubidi_getLevelAt_77(ptr noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ubidi_getLevels_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @ubidi_getLevels_77(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %51, label %4
 
@@ -566,7 +566,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @ubidi_getLogicalRun_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define void @ubidi_getLogicalRun_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %1, 0
   br i1 %5, label %ubidi_countRuns_77.exit, label %6
 
@@ -699,7 +699,7 @@ ubidi_countRuns_77.exit:                          ; preds = %ubidi_countRuns_77.
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ubidi_countRuns_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @ubidi_countRuns_77(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %23, label %4
 
@@ -1259,7 +1259,7 @@ _ZL22getRunFromLogicalIndexP5UBiDii.exit181:      ; preds = %216
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @ubidi_getVisualRun_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ubidi_getVisualRun_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %39, label %5
 
@@ -1338,7 +1338,7 @@ define range(i32 0, 2) i32 @ubidi_getVisualRun_77(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ubidi_reorderLogical_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define void @ubidi_reorderLogical_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %_ZL14prepareReorderPKhiPiPhS2_.exit.thread, label %5
 
@@ -1472,7 +1472,7 @@ _ZL14prepareReorderPKhiPiPhS2_.exit.thread:       ; preds = %.preheader.i, %.cri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ubidi_reorderVisual_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define void @ubidi_reorderVisual_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %_ZL14prepareReorderPKhiPiPhS2_.exit.thread, label %5
 
@@ -1607,7 +1607,7 @@ _ZL14prepareReorderPKhiPiPhS2_.exit.thread:       ; preds = %.preheader.i, %.cri
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ubidi_getVisualIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @ubidi_getVisualIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.loopexit, label %5
 
@@ -1880,7 +1880,7 @@ switch.early.test:                                ; preds = %84
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ubidi_getLogicalIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @ubidi_getLogicalIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.thread, label %5
 
@@ -2235,7 +2235,7 @@ define i32 @ubidi_getLogicalIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ubidi_getLogicalMap_77(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @ubidi_getLogicalMap_77(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.loopexit137, label %5
 
@@ -2535,7 +2535,7 @@ switch.early.test:                                ; preds = %114
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ubidi_getVisualMap_77(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @ubidi_getVisualMap_77(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.loopexit, label %5
 
@@ -2945,7 +2945,7 @@ switch.early.test208:                             ; preds = %.lr.ph177.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ubidi_invertMap_77(ptr noundef readonly %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @ubidi_invertMap_77(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5

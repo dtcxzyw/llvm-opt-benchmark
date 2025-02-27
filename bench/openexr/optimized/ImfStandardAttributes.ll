@@ -159,7 +159,7 @@ declare void @_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED1Ev(p
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_421hasOriginalDataWindowERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_421hasOriginalDataWindowERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(19) @.str, i64 noundef 255) #11
@@ -348,7 +348,7 @@ declare void @_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IfEEEC1ERKS3_(ptr 
 declare void @_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IfEEED1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_416hasWorldToCameraERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_416hasWorldToCameraERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(14) @.str.1, i64 noundef 255) #11
@@ -532,7 +532,7 @@ define void @_ZN7Imf_3_413addWorldToNDCERNS_6HeaderERKN9Imath_3_28Matrix44IfEE(p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_413hasWorldToNDCERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_413hasWorldToNDCERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(11) @.str.2, i64 noundef 255) #11
@@ -721,7 +721,7 @@ declare void @_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IfEEEC1ERKS3_(ptr noun
 declare void @_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IfEEED1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_421hasSensorCenterOffsetERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_421hasSensorCenterOffsetERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(19) @.str.3, i64 noundef 255) #11
@@ -905,7 +905,7 @@ define void @_ZN7Imf_3_426addSensorOverallDimensionsERNS_6HeaderERKN9Imath_3_24V
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_426hasSensorOverallDimensionsERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_426hasSensorOverallDimensionsERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(24) @.str.4, i64 noundef 255) #11
@@ -1094,7 +1094,7 @@ declare void @_ZN7Imf_3_414TypedAttributeIfEC1ERKf(ptr noundef nonnull align 8 d
 declare void @_ZN7Imf_3_414TypedAttributeIfED1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_423hasSensorPhotositePitchERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_423hasSensorPhotositePitchERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(21) @.str.5, i64 noundef 255) #11
@@ -1278,7 +1278,7 @@ define void @_ZN7Imf_3_429addSensorAcquisitionRectangleERNS_6HeaderERKN9Imath_3_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_429hasSensorAcquisitionRectangleERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_429hasSensorAcquisitionRectangleERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(27) @.str.6, i64 noundef 255) #11
@@ -1467,7 +1467,7 @@ declare void @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_tr
 declare void @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_425hasAscFramingDecisionListERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_425hasAscFramingDecisionListERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(23) @.str.7, i64 noundef 255) #11
@@ -1651,7 +1651,7 @@ define void @_ZN7Imf_3_411addXDensityERNS_6HeaderERKf(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_411hasXDensityERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_411hasXDensityERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(9) @.str.8, i64 noundef 255) #11
@@ -1835,7 +1835,7 @@ define void @_ZN7Imf_3_412addLongitudeERNS_6HeaderERKf(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_412hasLongitudeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_412hasLongitudeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(10) @.str.9, i64 noundef 255) #11
@@ -2019,7 +2019,7 @@ define void @_ZN7Imf_3_411addLatitudeERNS_6HeaderERKf(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_411hasLatitudeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_411hasLatitudeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(9) @.str.10, i64 noundef 255) #11
@@ -2203,7 +2203,7 @@ define void @_ZN7Imf_3_411addAltitudeERNS_6HeaderERKf(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_411hasAltitudeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_411hasAltitudeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(9) @.str.11, i64 noundef 255) #11
@@ -2387,7 +2387,7 @@ define void @_ZN7Imf_3_413addCameraMakeERNS_6HeaderERKNSt7__cxx1112basic_stringI
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_413hasCameraMakeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_413hasCameraMakeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(11) @.str.12, i64 noundef 255) #11
@@ -2571,7 +2571,7 @@ define void @_ZN7Imf_3_414addCameraModelERNS_6HeaderERKNSt7__cxx1112basic_string
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_414hasCameraModelERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_414hasCameraModelERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(12) @.str.13, i64 noundef 255) #11
@@ -2755,7 +2755,7 @@ define void @_ZN7Imf_3_421addCameraSerialNumberERNS_6HeaderERKNSt7__cxx1112basic
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_421hasCameraSerialNumberERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_421hasCameraSerialNumberERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(19) @.str.14, i64 noundef 255) #11
@@ -2939,7 +2939,7 @@ define void @_ZN7Imf_3_424addCameraFirmwareVersionERNS_6HeaderERKNSt7__cxx1112ba
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_424hasCameraFirmwareVersionERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_424hasCameraFirmwareVersionERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(22) @.str.15, i64 noundef 255) #11
@@ -3123,7 +3123,7 @@ define void @_ZN7Imf_3_413addCameraUuidERNS_6HeaderERKNSt7__cxx1112basic_stringI
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_413hasCameraUuidERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_413hasCameraUuidERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(11) @.str.16, i64 noundef 255) #11
@@ -3307,7 +3307,7 @@ define void @_ZN7Imf_3_414addCameraLabelERNS_6HeaderERKNSt7__cxx1112basic_string
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_414hasCameraLabelERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_414hasCameraLabelERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(12) @.str.17, i64 noundef 255) #11
@@ -3491,7 +3491,7 @@ define void @_ZN7Imf_3_419addCameraCCTSettingERNS_6HeaderERKf(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_419hasCameraCCTSettingERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_419hasCameraCCTSettingERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(17) @.str.18, i64 noundef 255) #11
@@ -3675,7 +3675,7 @@ define void @_ZN7Imf_3_420addCameraTintSettingERNS_6HeaderERKf(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_420hasCameraTintSettingERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_420hasCameraTintSettingERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(18) @.str.19, i64 noundef 255) #11
@@ -3859,7 +3859,7 @@ define void @_ZN7Imf_3_421addCameraColorBalanceERNS_6HeaderERKN9Imath_3_24Vec2If
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_421hasCameraColorBalanceERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_421hasCameraColorBalanceERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(19) @.str.20, i64 noundef 255) #11
@@ -4043,7 +4043,7 @@ define void @_ZN7Imf_3_411addIsoSpeedERNS_6HeaderERKf(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_411hasIsoSpeedERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_411hasIsoSpeedERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(9) @.str.21, i64 noundef 255) #11
@@ -4227,7 +4227,7 @@ define void @_ZN7Imf_3_410addExpTimeERNS_6HeaderERKf(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_410hasExpTimeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_410hasExpTimeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(8) @.str.22, i64 noundef 255) #11
@@ -4411,7 +4411,7 @@ define void @_ZN7Imf_3_415addShutterAngleERNS_6HeaderERKf(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_415hasShutterAngleERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_415hasShutterAngleERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(13) @.str.23, i64 noundef 255) #11
@@ -4600,7 +4600,7 @@ declare void @_ZN7Imf_3_414TypedAttributeINS_8RationalEEC1ERKS1_(ptr noundef non
 declare void @_ZN7Imf_3_414TypedAttributeINS_8RationalEED1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_414hasCaptureRateERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_414hasCaptureRateERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(12) @.str.24, i64 noundef 255) #11
@@ -4784,7 +4784,7 @@ define void @_ZN7Imf_3_411addLensMakeERNS_6HeaderERKNSt7__cxx1112basic_stringIcS
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_411hasLensMakeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_411hasLensMakeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(9) @.str.25, i64 noundef 255) #11
@@ -4968,7 +4968,7 @@ define void @_ZN7Imf_3_412addLensModelERNS_6HeaderERKNSt7__cxx1112basic_stringIc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_412hasLensModelERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_412hasLensModelERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(10) @.str.26, i64 noundef 255) #11
@@ -5152,7 +5152,7 @@ define void @_ZN7Imf_3_419addLensSerialNumberERNS_6HeaderERKNSt7__cxx1112basic_s
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_419hasLensSerialNumberERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_419hasLensSerialNumberERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(17) @.str.27, i64 noundef 255) #11
@@ -5336,7 +5336,7 @@ define void @_ZN7Imf_3_422addLensFirmwareVersionERNS_6HeaderERKNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_422hasLensFirmwareVersionERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_422hasLensFirmwareVersionERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(20) @.str.28, i64 noundef 255) #11
@@ -5520,7 +5520,7 @@ define void @_ZN7Imf_3_421addNominalFocalLengthERNS_6HeaderERKf(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_421hasNominalFocalLengthERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_421hasNominalFocalLengthERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(19) @.str.29, i64 noundef 255) #11
@@ -5704,7 +5704,7 @@ define void @_ZN7Imf_3_421addPinholeFocalLengthERNS_6HeaderERKf(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_421hasPinholeFocalLengthERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_421hasPinholeFocalLengthERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(19) @.str.30, i64 noundef 255) #11
@@ -5888,7 +5888,7 @@ define void @_ZN7Imf_3_423addEffectiveFocalLengthERNS_6HeaderERKf(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_423hasEffectiveFocalLengthERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_423hasEffectiveFocalLengthERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(21) @.str.31, i64 noundef 255) #11
@@ -6072,7 +6072,7 @@ define void @_ZN7Imf_3_422addEntrancePupilOffsetERNS_6HeaderERKf(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_422hasEntrancePupilOffsetERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_422hasEntrancePupilOffsetERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(20) @.str.32, i64 noundef 255) #11
@@ -6256,7 +6256,7 @@ define void @_ZN7Imf_3_411addApertureERNS_6HeaderERKf(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_411hasApertureERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_411hasApertureERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(9) @.str.33, i64 noundef 255) #11
@@ -6440,7 +6440,7 @@ define void @_ZN7Imf_3_48addTStopERNS_6HeaderERKf(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_48hasTStopERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_48hasTStopERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(6) @.str.34, i64 noundef 255) #11
@@ -6624,7 +6624,7 @@ define void @_ZN7Imf_3_48addFocusERNS_6HeaderERKf(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_48hasFocusERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_48hasFocusERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(6) @.str.35, i64 noundef 255) #11
@@ -6808,7 +6808,7 @@ define void @_ZN7Imf_3_48addOwnerERNS_6HeaderERKNSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_48hasOwnerERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_48hasOwnerERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(6) @.str.36, i64 noundef 255) #11
@@ -6992,7 +6992,7 @@ define void @_ZN7Imf_3_411addCommentsERNS_6HeaderERKNSt7__cxx1112basic_stringIcS
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_411hasCommentsERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_411hasCommentsERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(9) @.str.37, i64 noundef 255) #11
@@ -7176,7 +7176,7 @@ define void @_ZN7Imf_3_410addCapDateERNS_6HeaderERKNSt7__cxx1112basic_stringIcSt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_410hasCapDateERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_410hasCapDateERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(8) @.str.38, i64 noundef 255) #11
@@ -7360,7 +7360,7 @@ define void @_ZN7Imf_3_412addUtcOffsetERNS_6HeaderERKf(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_412hasUtcOffsetERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_412hasUtcOffsetERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(10) @.str.39, i64 noundef 255) #11
@@ -7549,7 +7549,7 @@ declare void @_ZN7Imf_3_414TypedAttributeINS_7KeyCodeEEC1ERKS1_(ptr noundef nonn
 declare void @_ZN7Imf_3_414TypedAttributeINS_7KeyCodeEED1Ev(ptr noundef nonnull align 8 dereferenceable(36)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_410hasKeyCodeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_410hasKeyCodeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(8) @.str.40, i64 noundef 255) #11
@@ -7738,7 +7738,7 @@ declare void @_ZN7Imf_3_414TypedAttributeINS_8TimeCodeEEC1ERKS1_(ptr noundef non
 declare void @_ZN7Imf_3_414TypedAttributeINS_8TimeCodeEED1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_411hasTimeCodeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_411hasTimeCodeERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(9) @.str.41, i64 noundef 255) #11
@@ -7922,7 +7922,7 @@ define void @_ZN7Imf_3_418addFramesPerSecondERNS_6HeaderERKNS_8RationalE(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_418hasFramesPerSecondERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_418hasFramesPerSecondERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(16) @.str.42, i64 noundef 255) #11
@@ -8111,7 +8111,7 @@ declare void @_ZN7Imf_3_414TypedAttributeIiEC1ERKi(ptr noundef nonnull align 8 d
 declare void @_ZN7Imf_3_414TypedAttributeIiED1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_415hasImageCounterERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_415hasImageCounterERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(13) @.str.43, i64 noundef 255) #11
@@ -8295,7 +8295,7 @@ define void @_ZN7Imf_3_411addReelNameERNS_6HeaderERKNSt7__cxx1112basic_stringIcS
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_411hasReelNameERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_411hasReelNameERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(9) @.str.44, i64 noundef 255) #11
@@ -8484,7 +8484,7 @@ declare void @_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEEC1ERKS1_(ptr noun
 declare void @_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEED1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_417hasChromaticitiesERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_417hasChromaticitiesERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(15) @.str.45, i64 noundef 255) #11
@@ -8668,7 +8668,7 @@ define void @_ZN7Imf_3_417addWhiteLuminanceERNS_6HeaderERKf(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_417hasWhiteLuminanceERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_417hasWhiteLuminanceERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(15) @.str.46, i64 noundef 255) #11
@@ -8852,7 +8852,7 @@ define void @_ZN7Imf_3_417addAdoptedNeutralERNS_6HeaderERKN9Imath_3_24Vec2IfEE(p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_417hasAdoptedNeutralERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_417hasAdoptedNeutralERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(15) @.str.47, i64 noundef 255) #11
@@ -9036,7 +9036,7 @@ define void @_ZN7Imf_3_421addRenderingTransformERNS_6HeaderERKNSt7__cxx1112basic
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_421hasRenderingTransformERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_421hasRenderingTransformERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(19) @.str.48, i64 noundef 255) #11
@@ -9220,7 +9220,7 @@ define void @_ZN7Imf_3_419addLookModTransformERNS_6HeaderERKNSt7__cxx1112basic_s
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_419hasLookModTransformERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_419hasLookModTransformERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(17) @.str.49, i64 noundef 255) #11
@@ -9409,7 +9409,7 @@ declare void @_ZN7Imf_3_414TypedAttributeINS_6EnvmapEEC1ERKS1_(ptr noundef nonnu
 declare void @_ZN7Imf_3_414TypedAttributeINS_6EnvmapEED1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_49hasEnvmapERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_49hasEnvmapERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(7) @.str.50, i64 noundef 255) #11
@@ -9593,7 +9593,7 @@ define void @_ZN7Imf_3_412addWrapmodesERNS_6HeaderERKNSt7__cxx1112basic_stringIc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_412hasWrapmodesERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_412hasWrapmodesERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(10) @.str.51, i64 noundef 255) #11
@@ -9782,7 +9782,7 @@ declare void @_ZN7Imf_3_414TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcS
 declare void @_ZN7Imf_3_414TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_412hasMultiViewERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_412hasMultiViewERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(10) @.str.52, i64 noundef 255) #11
@@ -9971,7 +9971,7 @@ declare void @_ZN7Imf_3_414TypedAttributeINS_14DeepImageStateEEC1ERKS1_(ptr noun
 declare void @_ZN7Imf_3_414TypedAttributeINS_14DeepImageStateEED1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_417hasDeepImageStateERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_417hasDeepImageStateERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(15) @.str.53, i64 noundef 255) #11
@@ -10155,7 +10155,7 @@ define void @_ZN7Imf_3_422addDwaCompressionLevelERNS_6HeaderERKf(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_422hasDwaCompressionLevelERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_422hasDwaCompressionLevelERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(20) @.str.54, i64 noundef 255) #11
@@ -10344,7 +10344,7 @@ declare void @_ZN7Imf_3_414TypedAttributeINS_20CompressedIDManifestEEC1ERKS1_(pt
 declare void @_ZN7Imf_3_414TypedAttributeINS_20CompressedIDManifestEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7Imf_3_413hasIDManifestERKNS_6HeaderE(ptr noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN7Imf_3_413hasIDManifestERKNS_6HeaderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 {
   %2 = alloca %"class.Imf_3_4::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #11
   %3 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %2, ptr noundef nonnull dereferenceable(11) @.str.55, i64 noundef 255) #11

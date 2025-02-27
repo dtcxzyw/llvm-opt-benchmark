@@ -1769,7 +1769,7 @@ define noundef ptr @_ZN11TransTableL10LookupSuitEPNS_12distHashTypeExRb(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN11TransTableL11LookupCardsERKNS_12winMatchTypeEPNS_12winBlockTypeEiRb(ptr noundef nonnull align 8 captures(none) dereferenceable(664216) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(52) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %4) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZN11TransTableL11LookupCardsERKNS_12winMatchTypeEPNS_12winBlockTypeEiRb(ptr noundef nonnull align 8 captures(none) dereferenceable(664216) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(52) %1, ptr noundef captures(ret: address, provenance) %2, i32 noundef %3, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %4) local_unnamed_addr #9 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 12

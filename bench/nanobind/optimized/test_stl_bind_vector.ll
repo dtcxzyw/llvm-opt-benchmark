@@ -14017,7 +14017,7 @@ _ZNSt16allocator_traitsISaISt6vectorIZL38nanobind_init_test_stl_bind_vector_extR
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
-define internal fastcc void @_ZSt8_DestroyIPSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS4_EEEvT_S8_(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS4_EEEvT_S8_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %.not5.i = icmp eq ptr %0, %1
   br i1 %.not5.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS6_EEEEvT_SA_.exit, label %.lr.ph.i
 
@@ -14046,7 +14046,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPSt6vectorIZL38nanobind_init_test_stl_bind_v
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
-define internal fastcc void @_ZSt8_DestroyIPSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS4_EES6_EvT_S8_RSaIT0_E(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS4_EES6_EvT_S8_RSaIT0_E(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %.not5.i.i = icmp eq ptr %0, %1
   br i1 %.not5.i.i, label %_ZSt8_DestroyIPSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS4_EEEvT_S8_.exit, label %.lr.ph.i.i
 
@@ -15394,7 +15394,7 @@ _ZZN8nanobind6detail11func_createILb0ELb1EZNS_11bind_vectorISt6vectorIS3_IZL38na
 }
 
 ; Function Attrs: mustprogress nounwind optsize uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EEaSEOS5_(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((8, 16)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EEaSEOS5_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) initializes((8, 16)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !241
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15844,7 +15844,7 @@ _ZZN8nanobind6detail11func_createILb0ELb1EZNS_11bind_vectorISt6vectorIS3_IZL38na
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EEaSERKS5_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EEaSERKS5_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, %0
   br i1 %.not, label %40, label %3
 

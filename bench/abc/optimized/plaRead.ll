@@ -86,7 +86,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Pla_ReadPlaRemoveComments(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #4 {
+define void @Pla_ReadPlaRemoveComments(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 {
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -121,7 +121,7 @@ define void @Pla_ReadPlaRemoveComments(ptr noundef %0, ptr noundef readnone %1) 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @Pla_ReadPlaHeader(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Pla_ReadPlaHeader(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = alloca [100 x i8], align 16
   store i32 0, ptr %5, align 4, !tbaa !12
   store i32 -1, ptr %4, align 4, !tbaa !12
@@ -289,7 +289,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Pla_ReadPlaBody(ptr noundef readonly %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #6 {
+define noalias noundef ptr @Pla_ReadPlaBody(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4, !tbaa !15

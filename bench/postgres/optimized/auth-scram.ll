@@ -211,7 +211,7 @@ mock_scram_secret.exit:                           ; preds = %62
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly %5) #0 {
+define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5) #0 {
   %7 = alloca [32 x i8], align 16
   %8 = alloca [32 x i8], align 16
   %9 = alloca [32 x i8], align 16
@@ -1419,7 +1419,7 @@ define internal fastcc void @sanitize_str(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @read_any_attr(ptr noundef nonnull captures(none) %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @read_any_attr(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0

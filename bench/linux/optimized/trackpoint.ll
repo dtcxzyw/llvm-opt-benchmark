@@ -1705,7 +1705,7 @@ declare dso_local i32 @kstrtobool(ptr noundef, ptr noundef) local_unnamed_addr #
 declare dso_local i32 @device_add_groups(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i16 @trackpoint_is_attr_visible(ptr noundef %0, ptr noundef readonly %1, i32 %2) #0 align 16 {
+define internal zeroext i16 @trackpoint_is_attr_visible(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -344
   %5 = tail call ptr @psmouse_from_serio(ptr noundef %4) #7
   %6 = load ptr, ptr %5, align 8

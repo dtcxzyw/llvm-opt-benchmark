@@ -21,7 +21,7 @@ define dso_local void @PHP_FNV132Init(ptr noundef writeonly captures(none) initi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @PHP_FNV132Update(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #1 {
+define dso_local void @PHP_FNV132Update(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) #1 {
   %4 = load i32, ptr %0, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not24.i = icmp eq i64 %2, 0
@@ -70,7 +70,7 @@ declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #2
 declare i32 @php_hash_unserialize(ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @PHP_FNV1a32Update(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #1 {
+define dso_local void @PHP_FNV1a32Update(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) #1 {
   %4 = load i32, ptr %0, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not24.i = icmp eq i64 %2, 0
@@ -100,7 +100,7 @@ define dso_local void @PHP_FNV164Init(ptr noundef writeonly captures(none) initi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @PHP_FNV164Update(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #1 {
+define dso_local void @PHP_FNV164Update(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) #1 {
   %4 = load i64, ptr %0, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not24.i = icmp eq i64 %2, 0
@@ -143,7 +143,7 @@ define dso_local void @PHP_FNV164Final(ptr noundef writeonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @PHP_FNV1a64Update(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #1 {
+define dso_local void @PHP_FNV1a64Update(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) #1 {
   %4 = load i64, ptr %0, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not24.i = icmp eq i64 %2, 0

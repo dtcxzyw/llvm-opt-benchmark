@@ -975,7 +975,7 @@ validate_new_branchname.exit.thread._crit_edge:   ; preds = %validate_new_branch
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dwim_branch_start(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc void @dwim_branch_start(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca %struct.object_id, align 4
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #14

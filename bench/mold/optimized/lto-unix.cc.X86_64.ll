@@ -6573,7 +6573,7 @@ _ZN4mold4WarnINS_7ContextINS_6X86_64EEEED2Ev.exit: ; preds = %_ZN4mold4WarnINS_7
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind
-define internal fastcc noundef nonnull ptr @_ZZZN4moldL15load_lto_pluginINS_6X86_64EEEvRNS_7ContextIT_EEENKUlvE_clEvENKUlSt17basic_string_viewIcSt11char_traitsIcEEE_clESA_(ptr %.0.val, i64 %0, ptr readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef nonnull ptr @_ZZZN4moldL15load_lto_pluginINS_6X86_64EEEvRNS_7ContextIT_EEENKUlvE_clEvENKUlSt17basic_string_viewIcSt11char_traitsIcEEE_clESA_(ptr %.0.val, i64 %0, ptr readonly captures(address_is_null) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
@@ -8335,7 +8335,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef range(i32 0, 2) i32 @_ZN4moldL14get_symbols_v2INS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolE(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #4 {
+define internal noundef range(i32 0, 2) i32 @_ZN4moldL14get_symbols_v2INS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolE(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #4 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #19
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -8675,7 +8675,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef range(i32 0, 2) i32 @_ZN4moldL14get_symbols_v3INS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolE(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #4 {
+define internal noundef range(i32 0, 2) i32 @_ZN4moldL14get_symbols_v3INS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolE(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #4 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #19
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112

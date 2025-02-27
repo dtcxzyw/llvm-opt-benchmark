@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.wc_Md5 = type { i32, i32, i32, [16 x i32], [4 x i32], ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitMd5_ex(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitMd5_ex(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %13, label %5
 
@@ -40,7 +40,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Md5Update(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Md5Update(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %41, label %5
 
@@ -683,7 +683,7 @@ define internal fastcc void @Transform(ptr noundef nonnull captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Md5Final(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define range(i32 -173, 1) i32 @wc_Md5Final(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -765,7 +765,7 @@ define range(i32 -173, 1) i32 @wc_Md5Final(ptr noundef %0, ptr noundef writeonly
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitMd5(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitMd5(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %wc_InitMd5_ex.exit
 
@@ -798,7 +798,7 @@ define void @wc_Md5Free(ptr noundef readnone captures(none) %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Md5GetHash(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define range(i32 -173, 1) i32 @wc_Md5GetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = alloca %struct.wc_Md5, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #8
   %4 = icmp eq ptr %0, null
@@ -871,7 +871,7 @@ wc_Md5Final.exit:                                 ; preds = %22, %6, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Md5Copy(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define range(i32 -173, 1) i32 @wc_Md5Copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

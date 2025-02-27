@@ -851,7 +851,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 declare void @_ZN5clang13MangleContext6anchorEv(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126MicrosoftMangleContextImplD2Ev(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_126MicrosoftMangleContextImplD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(288) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 288) (i8, ptr @_ZTVN12_GLOBAL__N_126MicrosoftMangleContextImplE, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8, !tbaa !24
@@ -3865,7 +3865,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %44, %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126MicrosoftMangleContextImpl16mangleCXXVFTableEPKN5clang13CXXRecordDeclEN4llvm8ArrayRefIS4_EERNS5_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %1, ptr readonly %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126MicrosoftMangleContextImpl16mangleCXXVFTableEPKN5clang13CXXRecordDeclEN4llvm8ArrayRefIS4_EERNS5_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.(anonymous namespace)::msvc_hashing_ostream", align 8
   %7 = alloca %"class.(anonymous namespace)::MicrosoftCXXNameMangler", align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #23
@@ -4144,7 +4144,7 @@ _ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleNameEN5clang10GlobalDeclE.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126MicrosoftMangleContextImpl16mangleCXXVBTableEPKN5clang13CXXRecordDeclEN4llvm8ArrayRefIS4_EERNS5_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %1, ptr readonly %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126MicrosoftMangleContextImpl16mangleCXXVBTableEPKN5clang13CXXRecordDeclEN4llvm8ArrayRefIS4_EERNS5_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.(anonymous namespace)::msvc_hashing_ostream", align 8
   %7 = alloca %"class.(anonymous namespace)::MicrosoftCXXNameMangler", align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #23
@@ -16852,7 +16852,7 @@ _ZN12_GLOBAL__N_123MicrosoftCXXNameMangler16mangleQualifiersEN5clang10Qualifiers
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler23mangleMemberDataPointerEPKN5clang13CXXRecordDeclEPKNS1_9ValueDeclEPKNS1_23NonTypeTemplateParmDeclENS1_8QualTypeEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(593) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly %3, i64 %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler23mangleMemberDataPointerEPKN5clang13CXXRecordDeclEPKNS1_9ValueDeclEPKNS1_23NonTypeTemplateParmDeclENS1_8QualTypeEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(593) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::APSInt", align 8
   %8 = alloca %"class.llvm::APSInt", align 8
   %9 = alloca %"class.llvm::APSInt", align 8
@@ -17129,7 +17129,7 @@ _ZN5clang13CXXRecordDecl28getMostRecentNonInjectedDeclEv.exit: ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler27mangleMemberFunctionPointerEPKN5clang13CXXRecordDeclEPKNS1_13CXXMethodDeclEPKNS1_23NonTypeTemplateParmDeclENS1_8QualTypeEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(593) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly %3, i64 %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler27mangleMemberFunctionPointerEPKN5clang13CXXRecordDeclEPKNS1_13CXXMethodDeclEPKNS1_23NonTypeTemplateParmDeclENS1_8QualTypeEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(593) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::APSInt", align 8
   %8 = alloca %"class.llvm::APSInt", align 8
   %9 = alloca %"class.llvm::APSInt", align 8
@@ -17724,7 +17724,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit89:               ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler21mangleFunctionPointerEPKN5clang12FunctionDeclEPKNS1_23NonTypeTemplateParmDeclENS1_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(593) %0, ptr noundef nonnull %1, ptr noundef readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler21mangleFunctionPointerEPKN5clang12FunctionDeclEPKNS1_23NonTypeTemplateParmDeclENS1_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(593) %0, ptr noundef nonnull %1, ptr noundef readonly captures(address_is_null) %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !554
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -17950,7 +17950,7 @@ _ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit25: ; preds = %_ZNK5clang4Decl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler13mangleVarDeclEPKN5clang7VarDeclEPKNS1_23NonTypeTemplateParmDeclENS1_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(593) %0, ptr noundef nonnull %1, ptr noundef readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler13mangleVarDeclEPKN5clang7VarDeclEPKNS1_23NonTypeTemplateParmDeclENS1_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(593) %0, ptr noundef nonnull %1, ptr noundef readonly captures(address_is_null) %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !554
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -18076,7 +18076,7 @@ _ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleNameEN5clang10GlobalDeclE.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler20mangleIntegerLiteralERKN4llvm6APSIntEPKN5clang23NonTypeTemplateParmDeclENS5_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(593) %0, ptr noundef nonnull align 8 dereferenceable(13) %1, ptr noundef readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler20mangleIntegerLiteralERKN4llvm6APSIntEPKN5clang23NonTypeTemplateParmDeclENS5_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(593) %0, ptr noundef nonnull align 8 dereferenceable(13) %1, ptr noundef readonly captures(address_is_null) %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::APSInt", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !554
@@ -30542,7 +30542,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %33, %31, %28, %26, 
 declare noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler23mangleArtificialTagTypeEN5clang11TagTypeKindEN4llvm9StringRefENS3_8ArrayRefIS4_EE(ptr noundef nonnull align 8 dereferenceable(593) %0, i32 noundef range(i32 0, 5) %1, ptr %2, i64 %3, ptr readonly %4, i64 %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler23mangleArtificialTagTypeEN5clang11TagTypeKindEN4llvm9StringRefENS3_8ArrayRefIS4_EE(ptr noundef nonnull align 8 dereferenceable(593) %0, i32 noundef range(i32 0, 5) %1, ptr %2, i64 %3, ptr readonly captures(address) %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %7, align 8
   tail call fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler17mangleTagTypeKindEN5clang11TagTypeKindE(ptr %.val, i32 noundef %1)

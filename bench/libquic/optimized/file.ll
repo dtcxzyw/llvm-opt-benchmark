@@ -425,7 +425,7 @@ define internal noundef i32 @file_new(ptr readnone captures(none) %0) #5 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 2) i32 @file_free(ptr noundef %0) #6 {
+define internal range(i32 0, 2) i32 @file_free(ptr noundef captures(address_is_null) %0) #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 

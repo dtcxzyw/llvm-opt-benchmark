@@ -696,7 +696,7 @@ Mig_ObjSiblId.exit.thread:                        ; preds = %.critedge2, %Mig_Ob
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Mig_ManSuppSize_rec(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @Mig_ManSuppSize_rec(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %Mig_ObjIsCi.exit._crit_edge, label %.lr.ph
 

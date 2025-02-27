@@ -19,7 +19,7 @@ $__clang_call_terminate = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_EAGlobal.cpp, ptr null }]
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN2EA4StdC11GetOSGlobalEjPFPNS0_12OSGlobalNodeEvE(i32 noundef %id, ptr noundef readonly %pFactory) local_unnamed_addr #0 {
+define dso_local noundef ptr @_ZN2EA4StdC11GetOSGlobalEjPFPNS0_12OSGlobalNodeEvE(i32 noundef %id, ptr noundef readonly captures(address_is_null) %pFactory) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118InitOSGlobalSystemEv()
   br i1 %call, label %if.end, label %return
@@ -277,7 +277,7 @@ return:                                           ; preds = %entry, %if.end7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC15ReleaseOSGlobalEPNS0_12OSGlobalNodeE(ptr noundef %p) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC15ReleaseOSGlobalEPNS0_12OSGlobalNodeE(ptr noundef captures(address) %p) local_unnamed_addr #0 {
 entry:
   %uniqueName.i = alloca [96 x i8], align 16
   %0 = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8

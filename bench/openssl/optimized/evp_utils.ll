@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.seterr = private unnamed_addr constant [7 x i8] c"seterr\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_do_ciph_getparams(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @evp_do_ciph_getparams(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %15, label %4
 
@@ -40,7 +40,7 @@ define i32 @evp_do_ciph_getparams(ptr noundef readonly %0, ptr noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_do_ciph_ctx_getparams(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @evp_do_ciph_ctx_getparams(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %16, label %5
 
@@ -72,7 +72,7 @@ define i32 @evp_do_ciph_ctx_getparams(ptr noundef readonly %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_do_ciph_ctx_setparams(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @evp_do_ciph_ctx_setparams(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %16, label %5
 
@@ -104,7 +104,7 @@ define i32 @evp_do_ciph_ctx_setparams(ptr noundef readonly %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_do_md_getparams(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @evp_do_md_getparams(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %15, label %4
 
@@ -136,7 +136,7 @@ define i32 @evp_do_md_getparams(ptr noundef readonly %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_do_md_ctx_getparams(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @evp_do_md_ctx_getparams(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %16, label %5
 
@@ -168,7 +168,7 @@ define i32 @evp_do_md_ctx_getparams(ptr noundef readonly %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_do_md_ctx_setparams(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @evp_do_md_ctx_setparams(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %16, label %5
 

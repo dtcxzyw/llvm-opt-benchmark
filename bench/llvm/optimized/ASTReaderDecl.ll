@@ -49437,7 +49437,7 @@ declare void @_ZN5clang15XRayLogArgsAttrC1ERNS_10ASTContextERKNS_19AttributeComm
 declare void @_ZN5clang20ZeroCallUsedRegsAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_20ZeroCallUsedRegsKindE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(23216), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang9ASTReader22isConsumerInterestedInEPNS_4DeclE(ptr noundef nonnull readonly align 8 dereferenceable(16272) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang9ASTReader22isConsumerInterestedInEPNS_4DeclE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16272) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 127

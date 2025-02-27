@@ -14859,7 +14859,7 @@ return:                                           ; preds = %sw.bb, %if.then29, 
 declare void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6google8protobuf8internal8TcParser17MaybeGetSplitBaseEPNS0_11MessageLiteEbPKNS1_16TcParseTableBaseE(ptr noundef %msg, i1 noundef zeroext %is_split, ptr noundef %table) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN6google8protobuf8internal8TcParser17MaybeGetSplitBaseEPNS0_11MessageLiteEbPKNS1_16TcParseTableBaseE(ptr noundef captures(ret: address, provenance) %msg, i1 noundef zeroext %is_split, ptr noundef %table) local_unnamed_addr #3 align 2 {
 entry:
   br i1 %is_split, label %if.then, label %if.end13
 

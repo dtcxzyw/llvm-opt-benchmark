@@ -1006,7 +1006,7 @@ define hidden noundef ptr @_ZN22SystemDictionaryShared15get_info_lockedEP13Insta
 declare noundef ptr @_ZN24DumpTimeSharedClassTable8get_infoEP13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(127124), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN22SystemDictionaryShared19check_for_exclusionEP13InstanceKlassP17DumpTimeClassInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN22SystemDictionaryShared19check_for_exclusionEP13InstanceKlassP17DumpTimeClassInfo(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN12MetaspaceObj21_shared_metaspace_topE, align 8
   %4 = icmp ult ptr %0, %3
   %5 = load ptr, ptr @_ZN12MetaspaceObj22_shared_metaspace_baseE, align 8
@@ -2228,7 +2228,7 @@ define hidden noundef zeroext i1 @_ZN22SystemDictionaryShared27has_platform_or_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN22SystemDictionaryShared25find_or_load_shared_classEP6Symbol6HandleP10JavaThread(ptr noundef %0, ptr readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN22SystemDictionaryShared25find_or_load_shared_classEP6Symbol6HandleP10JavaThread(ptr noundef %0, ptr readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #18
   br i1 %4, label %5, label %_ZN22SystemDictionaryShared27has_platform_or_app_classesEv.exit
 
@@ -4316,7 +4316,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN22SystemDictionaryShared27retrieve_lambda_proxy_classEPK27RunTimeLambdaProxyClassInfo(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN22SystemDictionaryShared27retrieve_lambda_proxy_classEPK27RunTimeLambdaProxyClassInfo(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN12ResourceMarkD2Ev.exit, label %2
 

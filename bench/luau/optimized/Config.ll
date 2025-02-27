@@ -5388,7 +5388,7 @@ _ZN4Luau12AstNameTableD2Ev.exit187.i:             ; preds = %345, %_ZN4Luau5Lexe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(280) ptr @_ZNK4Luau18NullConfigResolver9getConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readnone align 8 dereferenceable(288) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #8 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(280) ptr @_ZNK4Luau18NullConfigResolver9getConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(288) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %3
 }

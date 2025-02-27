@@ -703,7 +703,7 @@ define void @_ZN6icu_779BytesTrie8IteratorD2Ev(ptr noundef nonnull readonly alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_779BytesTrie8Iterator5resetEv(ptr noundef nonnull returned align 8 dereferenceable(56) initializes((8, 16), (24, 28)) %0) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_779BytesTrie8Iterator5resetEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(56) initializes((8, 16), (24, 28)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

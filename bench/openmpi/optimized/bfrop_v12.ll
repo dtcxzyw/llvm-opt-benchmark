@@ -2442,7 +2442,7 @@ declare i32 @pmix12_bfrop_copy_payload(ptr noundef, ptr noundef) #1
 declare i32 @pmix12_bfrop_value_xfer(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @pmix12_bfrop_value_load(ptr noundef writeonly captures(none) initializes((0, 2)) %0, ptr noundef readonly %1, i16 noundef zeroext %2) #2 {
+define void @pmix12_bfrop_value_load(ptr noundef writeonly captures(none) initializes((0, 2)) %0, ptr noundef readonly captures(address_is_null) %1, i16 noundef zeroext %2) #2 {
   store i16 %2, ptr %0, align 8, !tbaa !40
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %7
@@ -2597,7 +2597,7 @@ define void @pmix12_bfrop_value_load(ptr noundef writeonly captures(none) initia
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define range(i32 -27, 1) i32 @pmix12_bfrop_value_unload(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #3 {
+define range(i32 -27, 1) i32 @pmix12_bfrop_value_unload(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) #3 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %77, label %5
 

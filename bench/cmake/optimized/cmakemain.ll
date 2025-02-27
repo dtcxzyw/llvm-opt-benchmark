@@ -21196,7 +21196,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124cmakemainMessageCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataP5cmake(ptr %.0.val, i32 %.8.val, ptr noundef %0) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_124cmakemainMessageCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataP5cmake(ptr %.0.val, i32 %.8.val, ptr noundef captures(address_is_null) %0) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = load ptr, ptr @stderr, align 8, !tbaa !708
   tail call void (i32, ptr, ptr, ...) @cmsysTerminal_cfprintf(i32 noundef %.8.val, ptr noundef %3, ptr noundef nonnull @.str.128, ptr noundef %.0.val)
@@ -21311,7 +21311,7 @@ declare void @cmsysTerminal_cfprintf(i32 noundef, ptr noundef, ptr noundef, ...)
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117cmakemainGetStackB5cxx11EP5cmake(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly %1) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117cmakemainGetStackB5cxx11EP5cmake(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21716,7 +21716,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125cmakemainProgressCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfP5cmake(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, float noundef %1, ptr noundef %2) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125cmakemainProgressCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfP5cmake(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, float noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x %"struct.std::pair"], align 8
   %5 = alloca %class.cmAlphaNum, align 8
   %6 = alloca [2 x %"struct.std::pair"], align 8

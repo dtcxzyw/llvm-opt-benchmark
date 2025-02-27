@@ -274,7 +274,7 @@ define hidden range(i32 -4, 7) i32 @UTF8_getc(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 -1, 7) i32 @UTF8_putc(ptr noundef writeonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -1, 7) i32 @UTF8_putc(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %4
 

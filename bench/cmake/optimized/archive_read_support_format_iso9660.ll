@@ -632,7 +632,7 @@ isPVD.exit:                                       ; preds = %230, %isJolietSVD.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -20, 1) i32 @archive_read_format_iso9660_options(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #4 {
+define internal range(i32 -20, 1) i32 @archive_read_format_iso9660_options(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = load ptr, ptr %5, align 8, !tbaa !42
@@ -3184,7 +3184,7 @@ define internal fastcc range(i64 0, -1) i64 @isodate7(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @parse_rockridge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @parse_rockridge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 {
   %5 = alloca %struct.tm, align 8
   %6 = alloca %struct.tm, align 8
   %7 = alloca %struct.tm, align 8

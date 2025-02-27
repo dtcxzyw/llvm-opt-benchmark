@@ -849,7 +849,7 @@ entry:
 declare void @_ZN6google8protobuf8compiler6csharp12GetClassNameB5cxx11EPKNS0_10DescriptorE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf8compiler6csharp16MessageGenerator16fields_by_numberEv(ptr noundef nonnull readnone align 8 dereferenceable(57) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf8compiler6csharp16MessageGenerator16fields_by_numberEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(57) %this) local_unnamed_addr #7 align 2 {
 entry:
   %fields_by_number_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %fields_by_number_

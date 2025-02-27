@@ -538,7 +538,7 @@ declare noundef ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN16FieldInformation11tvbContainsEPS_(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(40) %0, ptr noundef readonly %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN16FieldInformation11tvbContainsEPS_(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(40) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ne ptr %4, null

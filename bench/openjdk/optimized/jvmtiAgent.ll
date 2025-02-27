@@ -284,12 +284,12 @@ define hidden noundef zeroext i1 @_ZNK10JvmtiAgent8is_jplisEv(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK10JvmtiAgent19initialization_timeEv(ptr noundef nonnull readnone returned align 8 dereferenceable(86) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK10JvmtiAgent19initialization_timeEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(86) %0) local_unnamed_addr #4 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK10JvmtiAgent23initialization_durationEv(ptr noundef nonnull readnone align 8 dereferenceable(86) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK10JvmtiAgent23initialization_durationEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(86) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }

@@ -158,7 +158,7 @@ define internal noundef i32 @test_rng_reseed(ptr readnone captures(none) %0, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @test_rng_nonce(ptr noundef captures(none) %0, ptr noundef writeonly %1, i32 noundef %2, i64 noundef %3, i64 %4) #2 {
+define internal i64 @test_rng_nonce(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, i64 noundef %3, i64 %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !16
   %8 = icmp ugt i32 %2, %7
@@ -222,7 +222,7 @@ define internal i64 @test_rng_nonce(ptr noundef captures(none) %0, ptr noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @test_rng_enable_locking(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @test_rng_enable_locking(ptr noundef captures(address_is_null) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -250,7 +250,7 @@ define internal range(i32 0, 2) i32 @test_rng_enable_locking(ptr noundef %0) #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rng_lock(ptr noundef readonly %0) #0 {
+define internal i32 @test_rng_lock(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -270,7 +270,7 @@ define internal i32 @test_rng_lock(ptr noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @test_rng_unlock(ptr noundef readonly %0) #0 {
+define internal void @test_rng_unlock(ptr noundef readonly captures(address_is_null) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 

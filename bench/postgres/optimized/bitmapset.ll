@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.bms_add_range = private unnamed_addr constant [14 x i8] c"bms_add_range\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @bms_copy(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @bms_copy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -44,7 +44,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @bms_equal(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @bms_equal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %brmerge = or i1 %3, %4
@@ -84,7 +84,7 @@ define dso_local noundef zeroext i1 @bms_equal(ptr noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 -1, 2) i32 @bms_compare(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 2) i32 @bms_compare(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %7
 
@@ -198,7 +198,7 @@ define dso_local void @bms_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @bms_union(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @bms_union(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   br i1 %3, label %5, label %9
@@ -264,7 +264,7 @@ bms_copy.exit:                                    ; preds = %23, %bms_copy.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @bms_intersect(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @bms_intersect(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -327,7 +327,7 @@ define dso_local ptr @bms_intersect(ptr noundef readonly %0, ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @bms_difference(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @bms_difference(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %bms_nonempty_difference.exit, label %4
 
@@ -435,7 +435,7 @@ bms_nonempty_difference.exit:                     ; preds = %25, %.preheader, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @bms_nonempty_difference(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @bms_nonempty_difference(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -478,7 +478,7 @@ define dso_local noundef zeroext i1 @bms_nonempty_difference(ptr noundef readonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @bms_is_subset(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @bms_is_subset(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -521,7 +521,7 @@ define dso_local noundef zeroext i1 @bms_is_subset(ptr noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 4) i32 @bms_subset_compare(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define dso_local range(i32 0, 4) i32 @bms_subset_compare(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -608,7 +608,7 @@ define dso_local range(i32 0, 4) i32 @bms_subset_compare(ptr noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @bms_is_member(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @bms_is_member(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %0, 0
   br i1 %3, label %4, label %7
 
@@ -648,7 +648,7 @@ define dso_local zeroext i1 @bms_is_member(i32 noundef %0, ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bms_member_index(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @bms_member_index(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %4, label %7
 
@@ -727,7 +727,7 @@ bms_is_member.exit.thread:                        ; preds = %9, %7, %bms_is_memb
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @bms_overlap(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @bms_overlap(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -764,7 +764,7 @@ define dso_local noundef zeroext i1 @bms_overlap(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @bms_overlap_list(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @bms_overlap_list(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -826,7 +826,7 @@ define dso_local noundef zeroext i1 @bms_overlap_list(ptr noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bms_singleton_member(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i32 @bms_singleton_member(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %6
 
@@ -886,7 +886,7 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -937,7 +937,7 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bms_num_members(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i32 @bms_num_members(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -975,7 +975,7 @@ define dso_local i32 @bms_num_members(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 3) i32 @bms_membership(ptr noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 0, 3) i32 @bms_membership(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -1167,7 +1167,7 @@ define dso_local noundef ptr @bms_del_member(ptr noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @bms_add_members(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @bms_add_members(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   br i1 %3, label %5, label %13
@@ -1241,7 +1241,7 @@ bms_copy.exit:                                    ; preds = %6, %5, %34, %35, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @bms_replace_members(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @bms_replace_members(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   br i1 %3, label %5, label %13
@@ -1433,7 +1433,7 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @bms_int_members(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @bms_int_members(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %26, label %4
 
@@ -1492,7 +1492,7 @@ define dso_local noundef ptr @bms_int_members(ptr noundef %0, ptr noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @bms_del_members(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @bms_del_members(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -1616,7 +1616,7 @@ define dso_local ptr @bms_join(ptr noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @bms_next_member(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local i32 @bms_next_member(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -1663,7 +1663,7 @@ define dso_local i32 @bms_next_member(ptr noundef readonly %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 -2, -2147483648) i32 @bms_prev_member(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 -2, -2147483648) i32 @bms_prev_member(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq i32 %1, 0
   %or.cond = or i1 %3, %4

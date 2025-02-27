@@ -655,7 +655,7 @@ define range(i32 0, 2) i32 @IteratorCubePairStart(i32 noundef %0, ptr noundef %1
 declare i32 @ExorLinkCubeIteratorStart(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @CubeExtract(ptr noundef returned %0) local_unnamed_addr #5 {
+define noundef ptr @CubeExtract(ptr noundef returned captures(address, ret: address, provenance) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr @s_List, align 8, !tbaa !3
   %3 = icmp eq ptr %2, %0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32

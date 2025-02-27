@@ -43,7 +43,7 @@ declare i32 @PQmblen(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @PQdsplen(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pg_wcssize(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local void @pg_wcssize(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = load i8, ptr %0, align 1
   %8 = icmp ne i8 %7, 0
   %9 = icmp ne i64 %1, 0
@@ -424,7 +424,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #2
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @mbvalidate(ptr noundef returned %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @mbvalidate(ptr noundef returned captures(address, ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @pg_get_utf8_id.utf8_id, align 4
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %pg_get_utf8_id.exit

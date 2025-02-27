@@ -117,7 +117,7 @@ define linkonce_odr noundef ptr @_ZN5folly12EpollBackend12getEventBaseEv(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 3) i32 @_ZN5folly12EpollBackend18eb_event_base_loopEi(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 3) i32 @_ZN5folly12EpollBackend18eb_event_base_loopEi(ptr noundef nonnull align 8 captures(address) dereferenceable(160) %0, i32 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.google::LogMessageFatal", align 8
   %5 = alloca %"class.boost::intrusive::list", align 8
@@ -537,7 +537,7 @@ define noundef i32 @_ZN5folly12EpollBackend23eb_event_base_loopbreakEv(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly12EpollBackend12eb_event_addERNS_14EventBaseEventEPK7timeval(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef readonly %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN5folly12EpollBackend12eb_event_addERNS_14EventBaseEventEPK7timeval(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 .critedge:
   %3 = alloca %"class.google::LogMessageFatal", align 8
   %4 = alloca %struct.epoll_event, align 4
@@ -1812,7 +1812,7 @@ _ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNode
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12EpollBackend14processSignalsEv(ptr noundef nonnull readonly align 8 dereferenceable(160) %0) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly12EpollBackend14processSignalsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"struct.std::array.81", align 1
   %3 = alloca %"struct.std::array.82", align 1
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %2) #21

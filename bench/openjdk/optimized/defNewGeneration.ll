@@ -1184,7 +1184,7 @@ define hidden noundef i64 @_ZNK16DefNewGeneration12max_capacityEv(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK16DefNewGeneration5is_inEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(744) %0, ptr noundef readnone %1) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK16DefNewGeneration5is_inEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(744) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1278,7 +1278,7 @@ define hidden void @_ZN16DefNewGeneration14object_iterateEP13ObjectClosure(ptr n
 declare void @_ZN15ContiguousSpace14object_iterateEP13ObjectClosure(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK16DefNewGeneration11block_startEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(744) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK16DefNewGeneration11block_startEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(744) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8

@@ -4372,7 +4372,7 @@ reassembly_add_segment.exit302:                   ; preds = %323, %324
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull readonly captures(none) %5, i1 noundef zeroext %6, ptr noundef readonly %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull readonly captures(none) %5, i1 noundef zeroext %6, ptr noundef readonly captures(address_is_null) %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8

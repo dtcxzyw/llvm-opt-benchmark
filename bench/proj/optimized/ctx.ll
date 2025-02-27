@@ -61,7 +61,7 @@ $_ZSt16__do_uninit_copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
 @_ZN6pj_ctxD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6pj_ctxD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_Z10pj_get_ctxP8PJconsts(ptr noundef readonly %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_Z10pj_get_ctxP8PJconsts(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %11
 
@@ -1703,7 +1703,7 @@ declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnul
 declare void @_ZdlPvRKSt9nothrow_t(ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define i32 @proj_errno(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define i32 @proj_errno(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef ptr @_Z10pj_get_ctxP8PJconsts(ptr noundef %0)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !44
@@ -1711,7 +1711,7 @@ define i32 @proj_errno(ptr noundef %0) local_unnamed_addr #0 personality ptr @__
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @proj_context_errno(ptr noundef readonly %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define i32 @proj_context_errno(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %_Z18pj_get_default_ctxv.exit
 
@@ -1748,7 +1748,7 @@ _Z18pj_get_default_ctxv.exit:                     ; preds = %9, %6, %3, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @proj_errno_set(ptr noundef %0, i32 noundef returned %1) local_unnamed_addr #0 {
+define noundef i32 @proj_errno_set(ptr noundef captures(address_is_null) %0, i32 noundef returned %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %7, label %4
 
@@ -1769,7 +1769,7 @@ declare void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef, i32 noundef) loca
 declare ptr @__errno_location() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @proj_errno_restore(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef i32 @proj_errno_restore(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %6, label %proj_errno_set.exit
 
@@ -1785,7 +1785,7 @@ proj_errno_set.exit:                              ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @proj_errno_reset(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define i32 @proj_errno_reset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef ptr @_Z10pj_get_ctxP8PJconsts(ptr noundef %0)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !44
@@ -1840,7 +1840,7 @@ _Z18pj_get_default_ctxv.exit:                     ; preds = %3, %6, %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @proj_context_use_proj4_init_rules(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @proj_context_use_proj4_init_rules(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_Z18pj_get_default_ctxv.exit
 

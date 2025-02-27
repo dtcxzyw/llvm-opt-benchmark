@@ -2370,13 +2370,13 @@ define dso_local noundef ptr @_ZNK4Luau10ParseError4whatEv(ptr noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4Luau10ParseError11getLocationEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4Luau10ParseError11getLocationEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Luau10ParseError10getMessageB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Luau10ParseError10getMessageB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
@@ -2774,7 +2774,7 @@ define dso_local noundef ptr @_ZNK4Luau11ParseErrors4whatEv(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4Luau11ParseErrors9getErrorsEv(ptr noundef nonnull readnone align 8 dereferenceable(64) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4Luau11ParseErrors9getErrorsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(64) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -15781,7 +15781,7 @@ _ZN4Luau10TempVectorIPNS_7AstAttrEED2Ev.exit4:    ; preds = %.loopexit, %._crit_
 declare void @_ZNK4Luau6Lexeme8toStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZN4Luau6Parser17parseFunctionBodyEbRKNS_6LexemeERKNS_7AstNameEPKNS0_4NameERKNS_8AstArrayIPNS_7AstAttrEEE(ptr noundef nonnull align 8 dereferenceable(1072) %0, i1 noundef zeroext %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef readonly %4, ptr noundef nonnull align 8 dereferenceable(16) %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, ptr } @_ZN4Luau6Parser17parseFunctionBodyEbRKNS_6LexemeERKNS_7AstNameEPKNS0_4NameERKNS_8AstArrayIPNS_7AstAttrEEE(ptr noundef nonnull align 8 dereferenceable(1072) %0, i1 noundef zeroext %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::pair.236", align 8
   %8 = alloca %"struct.Luau::Lexeme", align 8
   %9 = alloca %"struct.Luau::Lexeme", align 8
@@ -16573,7 +16573,7 @@ define dso_local void @_ZN4Luau6Parser12parseNameOptEPKc(ptr dead_on_unwind noal
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau6Parser20parseGenericTypeListEbPNS_8PositionEPNS_10TempVectorIS1_EES2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::pair.191") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(1072) %1, i1 noundef zeroext %2, ptr noundef writeonly %3, ptr noundef %4, ptr noundef writeonly %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau6Parser20parseGenericTypeListEbPNS_8PositionEPNS_10TempVectorIS1_EES2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::pair.191") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(1072) %1, i1 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.Luau::Location", align 4
   %8 = alloca %"struct.Luau::Location", align 4
   %9 = alloca %"struct.Luau::Lexeme", align 8
@@ -19068,7 +19068,7 @@ define dso_local noundef ptr @_ZN4Luau6Parser15reportTypeErrorERKNS_8LocationERK
 declare void @_ZN4Luau5Lexer9lookaheadEv(ptr dead_on_unwind writable sret(%"struct.Luau::Lexeme") align 8, ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau6Parser14parseCharArrayEPNS_8AstArrayIcEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.224") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(1072) %1, ptr noundef writeonly %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau6Parser14parseCharArrayEPNS_8AstArrayIcEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.224") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(1072) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1000
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -26201,7 +26201,7 @@ define dso_local void @_ZN4Luau6Parser14parseIndexNameEPKcRKNS_8PositionE(ptr de
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i64 } @_ZN4Luau6Parser15parseTypeParamsEPNS_8PositionEPNS_10TempVectorIS1_EES2_(ptr noundef nonnull align 8 dereferenceable(1072) %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, i64 } @_ZN4Luau6Parser15parseTypeParamsEPNS_8PositionEPNS_10TempVectorIS1_EES2_(ptr noundef nonnull align 8 dereferenceable(1072) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Luau::Location", align 4
   %6 = alloca %"struct.Luau::Location", align 4
   %7 = alloca %"struct.Luau::Lexeme", align 8

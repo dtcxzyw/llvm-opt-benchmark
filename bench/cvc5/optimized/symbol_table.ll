@@ -827,7 +827,7 @@ _ZN4cvc54TermC2ERKS0_.exit29:                     ; preds = %_ZNKSt3mapIN4cvc54S
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6parser18OverloadedTypeTrie23getOverloadedFunctionAtEPKNS2_11TypeArgTrieEb(ptr dead_on_unwind noalias writable writeonly sret(%"class.cvc5::Term") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(89) %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6parser18OverloadedTypeTrie23getOverloadedFunctionAtEPKNS2_11TypeArgTrieEb(ptr dead_on_unwind noalias writable writeonly sret(%"class.cvc5::Term") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(89) %1, ptr noundef readonly captures(address) %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cvc5::Term", align 8
   %6 = alloca %"class.cvc5::Term", align 8
   %7 = alloca %"class.cvc5::Term", align 8

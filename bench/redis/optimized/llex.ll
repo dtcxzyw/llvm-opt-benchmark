@@ -1612,7 +1612,7 @@ define internal fastcc i32 @skip_sep(ptr noundef captures(none) %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_long_string(ptr noundef captures(none) %0, ptr noundef writeonly %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #0 {
+define internal fastcc void @read_long_string(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #0 {
   %4 = alloca [80 x i8], align 16
   %5 = alloca [80 x i8], align 16
   %6 = load i32, ptr %0, align 8, !tbaa !63

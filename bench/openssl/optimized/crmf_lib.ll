@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [6 x i8] c"UNDEF\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CRMF_MSG_get0_regCtrl_regToken(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @OSSL_CRMF_MSG_get0_regCtrl_regToken(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -83,7 +83,7 @@ declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_regToken(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_regToken(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -180,7 +180,7 @@ define internal fastcc range(i32 0, 2) i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noun
 declare void @OSSL_CRMF_ATTRIBUTETYPEANDVALUE_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CRMF_MSG_get0_regCtrl_authenticator(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @OSSL_CRMF_MSG_get0_regCtrl_authenticator(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -221,7 +221,7 @@ define ptr @OSSL_CRMF_MSG_get0_regCtrl_authenticator(ptr noundef readonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_authenticator(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_authenticator(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -261,7 +261,7 @@ define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_authenticator(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set0_SinglePubInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set0_SinglePubInfo(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp ugt i32 %1, 3
   %or.cond3 = or i1 %4, %5
@@ -303,7 +303,7 @@ declare i32 @ASN1_INTEGER_set(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @GENERAL_NAME_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CRMF_MSG_PKIPublicationInfo_push0_SinglePubInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @OSSL_CRMF_MSG_PKIPublicationInfo_push0_SinglePubInfo(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -338,7 +338,7 @@ define i32 @OSSL_CRMF_MSG_PKIPublicationInfo_push0_SinglePubInfo(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CRMF_MSG_set_PKIPublicationInfo_action(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @OSSL_CRMF_MSG_set_PKIPublicationInfo_action(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ugt i32 %1, 1
   %or.cond3 = or i1 %3, %4
@@ -362,7 +362,7 @@ define i32 @OSSL_CRMF_MSG_set_PKIPublicationInfo_action(ptr noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CRMF_MSG_get0_regCtrl_pkiPublicationInfo(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @OSSL_CRMF_MSG_get0_regCtrl_pkiPublicationInfo(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -403,7 +403,7 @@ define ptr @OSSL_CRMF_MSG_get0_regCtrl_pkiPublicationInfo(ptr noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_pkiPublicationInfo(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_pkiPublicationInfo(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -445,7 +445,7 @@ define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_pkiPublicationInfo(ptr no
 declare ptr @OSSL_CRMF_PKIPUBLICATIONINFO_dup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CRMF_MSG_get0_regCtrl_oldCertID(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @OSSL_CRMF_MSG_get0_regCtrl_oldCertID(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -486,7 +486,7 @@ define ptr @OSSL_CRMF_MSG_get0_regCtrl_oldCertID(ptr noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_oldCertID(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_oldCertID(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -583,7 +583,7 @@ declare ptr @ASN1_INTEGER_dup(ptr noundef) local_unnamed_addr #2
 declare void @OSSL_CRMF_CERTID_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CRMF_MSG_get0_regCtrl_protocolEncrKey(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @OSSL_CRMF_MSG_get0_regCtrl_protocolEncrKey(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -624,7 +624,7 @@ define ptr @OSSL_CRMF_MSG_get0_regCtrl_protocolEncrKey(ptr noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_protocolEncrKey(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_protocolEncrKey(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -666,7 +666,7 @@ define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_protocolEncrKey(ptr nound
 declare ptr @X509_PUBKEY_dup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CRMF_MSG_get0_regInfo_utf8Pairs(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @OSSL_CRMF_MSG_get0_regInfo_utf8Pairs(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -707,7 +707,7 @@ define ptr @OSSL_CRMF_MSG_get0_regInfo_utf8Pairs(ptr noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regInfo_utf8Pairs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regInfo_utf8Pairs(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -773,7 +773,7 @@ OSSL_CRMF_MSG_push0_regInfo.exit.thread:          ; preds = %.thread.thread.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CRMF_MSG_get0_regInfo_certReq(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @OSSL_CRMF_MSG_get0_regInfo_certReq(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -814,7 +814,7 @@ define ptr @OSSL_CRMF_MSG_get0_regInfo_certReq(ptr noundef readonly %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regInfo_certReq(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regInfo_certReq(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -882,7 +882,7 @@ OSSL_CRMF_MSG_push0_regInfo.exit.thread:          ; preds = %.thread.thread.i, %
 declare ptr @OSSL_CRMF_CERTREQUEST_dup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CRMF_MSG_get0_tmpl(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @OSSL_CRMF_MSG_get0_tmpl(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -908,7 +908,7 @@ define ptr @OSSL_CRMF_MSG_get0_tmpl(ptr noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set0_validity(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set0_validity(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %OSSL_CRMF_MSG_get0_tmpl.exit.thread, label %5
 
@@ -956,7 +956,7 @@ OSSL_CRMF_MSG_get0_tmpl.exit:                     ; preds = %5
 declare ptr @OSSL_CRMF_OPTIONALVALIDITY_new() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CRMF_MSG_set_certReqId(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @OSSL_CRMF_MSG_set_certReqId(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -987,7 +987,7 @@ define i32 @OSSL_CRMF_MSG_set_certReqId(ptr noundef readonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CRMF_MSG_get_certReqId(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i32 @OSSL_CRMF_MSG_get_certReqId(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
@@ -1052,7 +1052,7 @@ crmf_asn1_get_int.exit:                           ; preds = %11, %15, %18, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set0_extensions(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set0_extensions(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %OSSL_CRMF_MSG_get0_tmpl.exit.thread, label %4
 
@@ -1108,7 +1108,7 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @X509_EXTENSION_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CRMF_MSG_push0_extension(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_push0_extension(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %OSSL_CRMF_MSG_get0_tmpl.exit.thread, label %4
 
@@ -1173,7 +1173,7 @@ declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #2
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CRMF_MSG_create_popo(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_create_popo(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %11, label %8
 
@@ -1504,7 +1504,7 @@ declare i32 @ASN1_item_verify_ex(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @X509_PUBKEY_get0(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @OSSL_CRMF_MSG_centralkeygen_requested(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @OSSL_CRMF_MSG_centralkeygen_requested(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
@@ -1592,7 +1592,7 @@ OSSL_CRMF_CERTTEMPLATE_get0_publicKey.exit.thread: ; preds = %OSSL_CRMF_MSG_get0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_CRMF_CERTTEMPLATE_get0_publicKey(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @OSSL_CRMF_CERTTEMPLATE_get0_publicKey(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1609,7 +1609,7 @@ define ptr @OSSL_CRMF_CERTTEMPLATE_get0_publicKey(ptr noundef readonly %0) local
 declare i32 @X509_PUBKEY_get0_param(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_CRMF_CERTTEMPLATE_get0_serialNumber(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @OSSL_CRMF_CERTTEMPLATE_get0_serialNumber(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1624,7 +1624,7 @@ define ptr @OSSL_CRMF_CERTTEMPLATE_get0_serialNumber(ptr noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_CRMF_CERTTEMPLATE_get0_subject(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @OSSL_CRMF_CERTTEMPLATE_get0_subject(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1639,7 +1639,7 @@ define ptr @OSSL_CRMF_CERTTEMPLATE_get0_subject(ptr noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_CRMF_CERTTEMPLATE_get0_issuer(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @OSSL_CRMF_CERTTEMPLATE_get0_issuer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1654,7 +1654,7 @@ define ptr @OSSL_CRMF_CERTTEMPLATE_get0_issuer(ptr noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_CRMF_CERTTEMPLATE_get0_extensions(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @OSSL_CRMF_CERTTEMPLATE_get0_extensions(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1669,7 +1669,7 @@ define ptr @OSSL_CRMF_CERTTEMPLATE_get0_extensions(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @OSSL_CRMF_CERTID_get0_issuer(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @OSSL_CRMF_CERTID_get0_issuer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -1690,7 +1690,7 @@ define ptr @OSSL_CRMF_CERTID_get0_issuer(ptr noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_CRMF_CERTID_get0_serialNumber(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @OSSL_CRMF_CERTID_get0_serialNumber(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1769,7 +1769,7 @@ define range(i32 0, 2) i32 @OSSL_CRMF_CERTTEMPLATE_fill(ptr noundef %0, ptr noun
 declare i32 @X509_PUBKEY_set(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CRMF_ENCRYPTEDKEY_get1_pkey(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define ptr @OSSL_CRMF_ENCRYPTEDKEY_get1_pkey(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = icmp eq ptr %0, null
@@ -1895,7 +1895,7 @@ define ptr @OSSL_CRMF_ENCRYPTEDKEY_get1_pkey(ptr noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CRMF_ENCRYPTEDVALUE_decrypt(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define ptr @OSSL_CRMF_ENCRYPTEDVALUE_decrypt(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %8 = alloca [50 x i8], align 16
@@ -2232,7 +2232,7 @@ declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CRMF_ENCRYPTEDVALUE_get1_encCert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @OSSL_CRMF_ENCRYPTEDVALUE_get1_encCert(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8

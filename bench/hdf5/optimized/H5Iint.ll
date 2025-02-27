@@ -3678,7 +3678,7 @@ declare i32 @H5_user_cb_prepare(ptr noundef) local_unnamed_addr #2
 declare i32 @H5_user_cb_restore(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5I_find_id(ptr noundef readnone %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5I_find_id(ptr noundef readnone captures(address) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @H5I_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !7

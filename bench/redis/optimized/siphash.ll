@@ -13,7 +13,7 @@ define dso_local i32 @siptlw(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i64 @siphash(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
+define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = load i64, ptr %2, align 8, !tbaa !5
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !5
@@ -188,7 +188,7 @@ default.unreachable:                              ; preds = %._crit_edge
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i64 @siphash_nocase(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
+define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = load i64, ptr %2, align 8, !tbaa !5
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !5

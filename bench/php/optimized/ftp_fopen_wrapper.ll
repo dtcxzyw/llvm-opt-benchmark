@@ -606,7 +606,7 @@ declare ptr @php_stream_context_get_option(ptr noundef, ptr noundef, ptr noundef
 declare ptr @php_stream_url_wrap_http(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #0 {
   %9 = alloca [512 x i8], align 16
   %10 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9) #15
@@ -1718,7 +1718,7 @@ define internal noundef i32 @php_stream_ftp_stream_stat(ptr readnone captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @php_stream_ftp_url_stat(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal range(i32 -1, 1) i32 @php_stream_ftp_url_stat(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [512 x i8], align 16
   %8 = alloca %struct.tm, align 8

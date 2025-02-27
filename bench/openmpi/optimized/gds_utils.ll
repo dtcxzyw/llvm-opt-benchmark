@@ -492,7 +492,7 @@ define noundef zeroext i1 @pmix_gds_hash_check_node(ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @pmix_gds_hash_check_session(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define ptr @pmix_gds_hash_check_session(ptr noundef captures(address_is_null) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.preheader, label %35
 
@@ -901,7 +901,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #8
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @pmix_gds_hash_check_nodename(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #7 {
+define ptr @pmix_gds_hash_check_nodename(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit33, label %4
 

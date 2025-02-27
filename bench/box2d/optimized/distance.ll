@@ -274,7 +274,7 @@ define void @b2MakeProxy(ptr dead_on_unwind noalias writable writeonly sret(%str
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define void @b2ShapeDistance(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2DistanceOutput) align 4 captures(none) initializes((0, 28)) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #6 {
+define void @b2ShapeDistance(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2DistanceOutput) align 4 captures(none) initializes((0, 28)) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #6 {
   %6 = alloca [3 x ptr], align 16
   %7 = alloca [3 x ptr], align 16
   %8 = alloca %struct.b2Simplex, align 8

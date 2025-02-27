@@ -2377,7 +2377,7 @@ addresses_equal.exit:                             ; preds = %41, %33, %27, %20, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noalias noundef ptr @tcp_segment_temporary_key(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) #0 {
+define internal noalias noundef ptr @tcp_segment_temporary_key(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %5
 
@@ -2431,7 +2431,7 @@ define internal noalias noundef ptr @tcp_segment_temporary_key(ptr noundef reado
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noalias noundef ptr @tcp_segment_persistent_key(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) #0 {
+define internal noalias noundef ptr @tcp_segment_persistent_key(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %5
 
@@ -3000,7 +3000,7 @@ declare void @except_free(ptr noundef) local_unnamed_addr #2
 declare ptr @except_pop() local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @decode_tcp_ports(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6, ptr noundef %7) local_unnamed_addr #0 {
+define noundef zeroext i1 @decode_tcp_ports(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.exp_pdu_data_item, align 8
   %10 = alloca [8 x ptr], align 16
   %11 = alloca ptr, align 8
@@ -3672,7 +3672,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @dissect_tcp_payload(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
+define void @dissect_tcp_payload(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef captures(address_is_null) %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = alloca i32, align 4
@@ -5604,7 +5604,7 @@ desegment_tcp.exit:                               ; preds = %148, %.split1329.us
 declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @process_tcp_payload(ptr noundef %0, i32 noundef %1, ptr noundef initializes((340, 342)) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %9, ptr noundef %10, ptr noundef %11) unnamed_addr #0 {
+define internal fastcc void @process_tcp_payload(ptr noundef %0, i32 noundef %1, ptr noundef initializes((340, 342)) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %9, ptr noundef captures(address_is_null) %10, ptr noundef %11) unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
   %15 = alloca i32, align 4
@@ -11321,7 +11321,7 @@ tcp_option_len_check.exit:                        ; preds = %14, %22
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_tcpopt_sack(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @dissect_tcpopt_sack(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = load i8, ptr @tcp_analyze_seq, align 1, !range !6, !noundef !7
   %7 = trunc nuw i8 %6 to i1
@@ -12272,7 +12272,7 @@ define internal i32 @dissect_tcpopt_tfo(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_tcpopt_rvbd_probe(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_tcpopt_rvbd_probe(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = load i32, ptr @proto_tcp_option_rvbd_probe, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
@@ -14061,7 +14061,7 @@ declare zeroext i1 @proto_is_protocol_enabled(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @col_get_writable(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @tcp_analyze_get_acked_struct(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @tcp_analyze_get_acked_struct(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -14506,7 +14506,7 @@ declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef,
 declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @tcp_analyze_sequence_number(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @tcp_analyze_sequence_number(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -17163,7 +17163,7 @@ define internal range(i32 0, 131071) i32 @tcp_conv_cb_update(ptr noundef %0) #0 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @tcp_conv_get_filter_type(ptr noundef readonly %0, i32 noundef %1) #6 {
+define internal nonnull ptr @tcp_conv_get_filter_type(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #6 {
   %switch.tableidx = add i32 %1, -3
   %3 = icmp ult i32 %switch.tableidx, 3
   br i1 %3, label %switch.lookup, label %4
@@ -17221,7 +17221,7 @@ switch.lookup:                                    ; preds = %2
 declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @tcp_endpoint_get_filter_type(ptr noundef readonly %0, i32 noundef %1) #6 {
+define internal nonnull ptr @tcp_endpoint_get_filter_type(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #6 {
   %switch.tableidx = add i32 %1, -3
   %3 = icmp ult i32 %switch.tableidx, 3
   br i1 %3, label %switch.lookup, label %4
@@ -17739,7 +17739,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @get_or_create_mptcpd_from_key(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @get_or_create_mptcpd_from_key(ptr noundef %0, ptr noundef captures(address) %1, i8 noundef zeroext %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   %6 = alloca i64, align 8
   %7 = alloca [20 x i8], align 16
@@ -17836,7 +17836,7 @@ mptcp_cryptodata_sha256.exit:                     ; preds = %18
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @mptcp_get_meta_from_token(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @mptcp_get_meta_from_token(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176

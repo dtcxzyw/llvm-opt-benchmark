@@ -193,7 +193,7 @@ define internal range(i32 -1, 2) i32 @p_compare(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @p_get_proto_data(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @p_get_proto_data(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._proto_data, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
   store i32 %2, ptr %5, align 8
@@ -245,7 +245,7 @@ define ptr @p_get_proto_data(ptr noundef readnone %0, ptr noundef readonly captu
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @p_remove_proto_data(ptr noundef readnone %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @p_remove_proto_data(ptr noundef readnone captures(address) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._proto_data, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
   store i32 %2, ptr %5, align 8
@@ -305,7 +305,7 @@ define void @p_remove_proto_data(ptr noundef readnone %0, ptr noundef captures(n
 declare ptr @g_slist_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noalias ptr @p_get_proto_name_and_key(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden noalias ptr @p_get_proto_name_and_key(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %0, %5

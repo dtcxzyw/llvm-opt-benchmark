@@ -369,7 +369,7 @@ declare void @ggml_hash_set_free(ptr noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @ggml_gallocr_reserve_n(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define noundef zeroext i1 @ggml_gallocr_reserve_n(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.ggml_hash_set, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !49
@@ -2233,7 +2233,7 @@ declare i64 @ggml_backend_buft_get_max_size(ptr noundef) local_unnamed_addr #2
 declare ptr @ggml_get_first_tensor(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @alloc_tensor_range(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef %3, i64 noundef range(i64 1, 0) %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @alloc_tensor_range(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef %3, i64 noundef range(i64 1, 0) %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #0 {
   %8 = alloca %struct.ggml_tallocr, align 8
   %9 = tail call ptr @ggml_backend_buft_alloc_buffer(ptr noundef %3, i64 noundef %4) #12
   %10 = icmp ne ptr %9, null

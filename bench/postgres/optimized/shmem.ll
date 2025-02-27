@@ -212,7 +212,7 @@ ShmemAllocRaw.exit:                               ; preds = %9, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @ShmemAddrIsValid(ptr noundef readnone %0) local_unnamed_addr #5 {
+define dso_local zeroext i1 @ShmemAddrIsValid(ptr noundef readnone captures(address) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr @ShmemBase, align 8
   %3 = icmp uge ptr %0, %2
   %4 = load ptr, ptr @ShmemEnd, align 8

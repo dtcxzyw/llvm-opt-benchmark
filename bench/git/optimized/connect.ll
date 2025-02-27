@@ -645,7 +645,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare void @trace2_data_intmax_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_remote_heads(ptr noundef %0, ptr noundef initializes((0, 8)) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @get_remote_heads(ptr noundef %0, ptr noundef captures(ret: address, provenance) initializes((0, 8)) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.string_list, align 8
   %7 = alloca %struct.object_id, align 4
   %8 = alloca %struct.object_id, align 4
@@ -1473,7 +1473,7 @@ declare i32 @bundle_uri_parse_line(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_remote_refs(i32 noundef %0, ptr noundef %1, ptr noundef writeonly initializes((0, 8)) %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local ptr @get_remote_refs(i32 noundef %0, ptr noundef %1, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 8)) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.object_id, align 4
   %9 = alloca %struct.string_list, align 8
   %10 = alloca ptr, align 8
@@ -1898,7 +1898,7 @@ check_stateless_delimiter.exit:                   ; preds = %_.exit, %163
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @parse_feature_value(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #9 {
+define dso_local ptr @parse_feature_value(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread65, label %5
 
@@ -2016,7 +2016,7 @@ declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr 
 declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @server_supports_hash(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @server_supports_hash(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @server_capabilities_v1, align 8, !tbaa !15
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %next_server_feature_value.exit, label %4
@@ -2203,7 +2203,7 @@ next_server_feature_value.exit27.thread:          ; preds = %next_server_feature
 declare i32 @xstrncmpz(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @server_feature_value(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #9 {
+define dso_local ptr @server_feature_value(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %3 = load ptr, ptr @server_capabilities_v1, align 8, !tbaa !15
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %parse_feature_value.exit, label %4
@@ -2360,7 +2360,7 @@ define dso_local range(i32 0, 2) i32 @url_is_local_not_ssh(ptr noundef readonly 
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 0, 2) i32 @git_connection_is_socket(ptr noundef readnone %0) local_unnamed_addr #12 {
+define dso_local range(i32 0, 2) i32 @git_connection_is_socket(ptr noundef readnone captures(address) %0) local_unnamed_addr #12 {
   %2 = icmp eq ptr %0, @no_fork
   %3 = zext i1 %2 to i32
   ret i32 %3

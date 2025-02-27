@@ -854,7 +854,7 @@ define dso_local void @_ZN8simdjson8internal13parse_decimalERPKc(ptr dead_on_unw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN8simdjson8internal13parse_decimalERPKcS2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.simdjson::internal::decimal") align 4 captures(none) initializes((0, 8), (9, 10)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef readnone %2) local_unnamed_addr #3 {
+define dso_local void @_ZN8simdjson8internal13parse_decimalERPKcS2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.simdjson::internal::decimal") align 4 captures(none) initializes((0, 8), (9, 10)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #3 {
   store i32 0, ptr %0, align 4, !tbaa !13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4, !tbaa !16
@@ -1609,7 +1609,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef double @_ZN8simdjson8internal10from_charsEPKcS2_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local noundef double @_ZN8simdjson8internal10from_charsEPKcS2_(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"struct.simdjson::internal::decimal", align 4
   %5 = load i8, ptr %0, align 1, !tbaa !4
@@ -12485,7 +12485,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage213json_iterator13walk_documentILb1ENS2_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation12parse_stringEPKhPhb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 32)) %2, i1 noundef zeroext %3) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation12parse_stringEPKhPhb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 32)) %2, i1 noundef zeroext %3) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load <4 x i64>, ptr %1, align 1, !tbaa !4, !noalias !221
   store <4 x i64> %5, ptr %2, align 1, !tbaa !4
   %6 = bitcast <4 x i64> %5 to <32 x i8>
@@ -12747,7 +12747,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 32)) %2) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 32)) %2) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load <4 x i64>, ptr %1, align 1, !tbaa !4, !noalias !224
   store <4 x i64> %4, ptr %2, align 1, !tbaa !4
   %5 = bitcast <4 x i64> %4 to <32 x i8>
@@ -21302,7 +21302,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage213json_iterator13walk_documentILb1ENS2_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation12parse_stringEPKhPhb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 64)) %2, i1 noundef zeroext %3) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation12parse_stringEPKhPhb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 64)) %2, i1 noundef zeroext %3) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load <8 x i64>, ptr %1, align 1, !tbaa !4, !noalias !326
   store <8 x i64> %5, ptr %2, align 1, !tbaa !4
   %6 = bitcast <8 x i64> %5 to <64 x i8>
@@ -21560,7 +21560,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 64)) %2) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 64)) %2) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load <8 x i64>, ptr %1, align 1, !tbaa !4, !noalias !329
   store <8 x i64> %4, ptr %2, align 1, !tbaa !4
   %5 = bitcast <8 x i64> %4 to <64 x i8>
@@ -30998,7 +30998,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage213json_iterator13walk_documentILb1ENS2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation12parse_stringEPKhPhb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, i1 noundef zeroext %3) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation12parse_stringEPKhPhb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(ret: address, provenance) %2, i1 noundef zeroext %3) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
   br label %.noexc
 
 .noexc:                                           ; preds = %.noexc.backedge, %4
@@ -31254,7 +31254,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(ret: address, provenance) %2) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
   br label %.noexc
 
 .noexc:                                           ; preds = %.noexc.backedge, %3
@@ -38923,7 +38923,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_16stage213json_iterator13walk_documentILb1ENS2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson8fallback25dom_parser_implementation12parse_stringEPKhPhb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson8fallback25dom_parser_implementation12parse_stringEPKhPhb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(ret: address, provenance) %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   br label %5
 
 5:                                                ; preds = %.noexc.thread54, %4
@@ -39141,7 +39141,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson8fallback25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson8fallback25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(ret: address, provenance) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   br label %4
 
 4:                                                ; preds = %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread, %3

@@ -102,7 +102,7 @@ define zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closur
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 4 ptr @_ZN4core4iter6traits8iterator8Iterator4last4some17haaac19e1cb093c2dE(ptr readnone align 4 captures(none) %0, ptr readnone returned align 4 %1) unnamed_addr #2 {
+define align 4 ptr @_ZN4core4iter6traits8iterator8Iterator4last4some17haaac19e1cb093c2dE(ptr readnone align 4 captures(none) %0, ptr readnone returned align 4 captures(ret: address, provenance) %1) unnamed_addr #2 {
   ret ptr %1
 }
 

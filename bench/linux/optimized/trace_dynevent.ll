@@ -209,7 +209,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dyn_event_release(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @dyn_event_release(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   store i32 0, ptr %3, align 4, !annotation !20
@@ -385,7 +385,7 @@ define dso_local void @dyn_event_seq_stop(ptr readnone captures(none) %0, ptr re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dyn_events_release_all(ptr noundef readnone %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @dyn_events_release_all(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @event_mutex) #9
   %2 = load ptr, ptr @dyn_event_list, align 8
   %3 = icmp eq ptr %2, @dyn_event_list
@@ -491,7 +491,7 @@ define internal noundef i32 @init_dynamic_event() #5 section ".init.text" align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dynevent_arg_add(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @dynevent_arg_add(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %8, label %5
 
@@ -528,7 +528,7 @@ declare dso_local i32 @seq_buf_printf(ptr noundef, ptr noundef, ...) local_unnam
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dynevent_arg_pair_add(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @dynevent_arg_pair_add(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %8, label %5
 

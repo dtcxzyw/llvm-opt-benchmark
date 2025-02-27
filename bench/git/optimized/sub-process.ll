@@ -261,7 +261,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #4
 declare void @hashmap_add(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @subprocess_handshake(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @subprocess_handshake(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #3 {
   %7 = alloca i32, align 4
   %8 = tail call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12

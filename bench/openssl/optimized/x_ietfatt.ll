@@ -182,7 +182,7 @@ define void @OSSL_IETF_ATTR_SYNTAX_set0_policyAuthority(ptr noundef captures(non
 declare void @GENERAL_NAMES_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_IETF_ATTR_SYNTAX_get0_value(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define ptr @OSSL_IETF_ATTR_SYNTAX_get0_value(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = tail call ptr @OPENSSL_sk_value(ptr noundef %5, i32 noundef %1) #5

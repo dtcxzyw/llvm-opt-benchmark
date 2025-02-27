@@ -221,7 +221,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_get_cuesheet(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_get_picture(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 8)) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__metadata_get_picture(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 8)) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca [4 x i8], align 1
   store ptr null, ptr %1, align 8, !tbaa !14
   %11 = tail call noalias dereferenceable_or_null(248) ptr @calloc(i64 noundef 1, i64 noundef 248) #34
@@ -2671,7 +2671,7 @@ declare i64 @fread(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #13
 declare ptr @FLAC__metadata_object_new(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_set_block(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_set_block(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %6 = load i32, ptr %5, align 4, !tbaa !92
@@ -3162,7 +3162,7 @@ write_metadata_block_header_.exit47:              ; preds = %write_metadata_bloc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @rewrite_whole_file_(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @rewrite_whole_file_(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = alloca [8192 x i8], align 16
@@ -4002,7 +4002,7 @@ read_metadata_block_header_.exit:                 ; preds = %32, %read_metadata_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_insert_block_after(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_insert_block_after(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
@@ -6468,7 +6468,7 @@ chain_calculate_length_.exit91:                   ; preds = %chain_calculate_len
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @chain_rewrite_file_(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @chain_rewrite_file_(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 {
   %3 = alloca [8192 x i8], align 16
   %4 = alloca [4 x i8], align 1
   %5 = alloca [8192 x i8], align 16
@@ -6767,7 +6767,7 @@ define internal fastcc void @set_file_stats_(ptr noundef %0, ptr noundef readonl
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_chain_write_new_file(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__metadata_chain_write_new_file(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !109
   %.not = icmp eq i32 %5, 0

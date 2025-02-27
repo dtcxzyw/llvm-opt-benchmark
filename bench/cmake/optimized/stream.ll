@@ -1751,7 +1751,7 @@ uv_try_write2.exit:                               ; preds = %3, %6, %9, %13, %uv
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_try_write2(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @uv_try_write2(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8, !tbaa !35
   %.not = icmp eq ptr %6, null
@@ -1786,7 +1786,7 @@ uv__check_before_write.exit.thread:               ; preds = %14, %10, %4, %7, %u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @uv__try_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @uv__try_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca %struct.msghdr, align 8
   %6 = alloca %union.anon.7, align 8
   %7 = tail call i32 @uv__getiovmax() #12

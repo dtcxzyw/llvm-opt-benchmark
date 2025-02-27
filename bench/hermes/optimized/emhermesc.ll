@@ -227,7 +227,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @hermesCompileResult_getBytecodeAddr(ptr noundef readonly %res) local_unnamed_addr #3 {
+define hidden ptr @hermesCompileResult_getBytecodeAddr(ptr noundef readonly captures(address_is_null) %res) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %res, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -249,7 +249,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 4294967296) i64 @hermesCompileResult_getBytecodeSize(ptr noundef readonly %res) local_unnamed_addr #3 {
+define hidden range(i64 0, 4294967296) i64 @hermesCompileResult_getBytecodeSize(ptr noundef readonly captures(address_is_null) %res) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %res, null
   br i1 %tobool.not, label %return, label %lor.lhs.false

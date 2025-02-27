@@ -481,7 +481,7 @@ signal_ignored.exit:                              ; preds = %94
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @signm2signo(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2, ptr noundef writeonly %3) unnamed_addr #1 {
+define internal fastcc i32 @signm2signo(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #1 {
   %5 = load i64, ptr %0, align 8, !tbaa !20
   %6 = and i64 %5, 255
   %7 = icmp eq i64 %6, 12
@@ -2035,7 +2035,7 @@ rb_check_arity.exit:                              ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @install_sighandler_core(i32 noundef range(i32 1, 32) %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @install_sighandler_core(i32 noundef range(i32 1, 32) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #1 {
   %4 = alloca %struct.sigaction, align 8
   %5 = alloca %struct.sigaction, align 8
   %6 = alloca [6 x i64], align 16

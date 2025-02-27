@@ -6246,7 +6246,7 @@ define void @_ZN15RtpStreamDialog7tapDrawEP18_rtpstream_tapinfo(ptr noundef read
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN15RtpStreamDialog13tapMarkPacketEP18_rtpstream_tapinfoP11_frame_data(ptr noundef readonly %0, ptr noundef %1) #0 align 2 {
+define void @_ZN15RtpStreamDialog13tapMarkPacketEP18_rtpstream_tapinfoP11_frame_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %3
 

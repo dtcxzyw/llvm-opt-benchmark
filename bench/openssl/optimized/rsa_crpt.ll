@@ -67,7 +67,7 @@ define i32 @RSA_public_decrypt(i32 noundef %0, ptr noundef %1, ptr noundef %2, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @RSA_flags(ptr noundef readonly %0) local_unnamed_addr #2 {
+define i32 @RSA_flags(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 

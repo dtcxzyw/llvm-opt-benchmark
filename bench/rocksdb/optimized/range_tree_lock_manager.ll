@@ -3413,7 +3413,7 @@ declare void @_ZN4toku12range_buffer7destroyEv(ptr noundef nonnull align 8 deref
 declare void @_ZN4toku12lock_request23retry_all_lock_requestsEPNS_8locktreeEPFvPvPSt6vectorINS_14lock_wait_infoESaIS5_EEES3_PFvvE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20RangeTreeLockManager6UnLockEPNS_22PessimisticTransactionERKNS_11LockTrackerEPNS_3EnvE(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 dereferenceable(8) %2, ptr readnone captures(none) %3) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb20RangeTreeLockManager6UnLockEPNS_22PessimisticTransactionERKNS_11LockTrackerEPNS_3EnvE(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %2, ptr readnone captures(none) %3) unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !214
   %.not.i = icmp eq ptr %6, null
@@ -6764,7 +6764,7 @@ _ZN7rocksdb21InstrumentedMutexLockD2Ev.exit9:     ; preds = %23, %15
 declare void @_ZN4toku8locktree10dump_locksEPvPFvS1_PK10__toku_dbtS4_mbP11TxnidVectorE(ptr noundef nonnull align 8 dereferenceable(400), ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdbL26push_into_lock_status_dataEPvPK10__toku_dbtS3_mbP11TxnidVector(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef readonly %5) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdbL26push_into_lock_status_dataEPvPK10__toku_dbtS3_mbP11TxnidVector(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(address) %5) #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.rocksdb::RangeLockInfo", align 8
   %8 = alloca %"struct.std::pair.184", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7) #26

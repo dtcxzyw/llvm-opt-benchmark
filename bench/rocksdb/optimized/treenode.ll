@@ -423,7 +423,7 @@ define noundef i32 @_ZNK4toku8treenode18get_depth_estimateEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN4toku8treenode32find_node_with_overlapping_childERKNS_8keyrangeEPKNS1_10comparisonE(ptr noundef nonnull align 8 dereferenceable(202) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef readonly %2) local_unnamed_addr #5 align 2 {
+define noundef nonnull ptr @_ZN4toku8treenode32find_node_with_overlapping_childERKNS_8keyrangeEPKNS1_10comparisonE(ptr noundef nonnull align 8 dereferenceable(202) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #5 align 2 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
   %.not = icmp eq ptr %2, null

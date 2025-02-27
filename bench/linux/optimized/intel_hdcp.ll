@@ -1128,7 +1128,7 @@ define dso_local void @intel_hdcp_enable(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @_intel_hdcp_enable(ptr noundef readonly captures(none) %0, ptr readonly %.0.val, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @_intel_hdcp_enable(ptr noundef readonly captures(none) %0, ptr readonly captures(address_is_null) %.0.val, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca [5 x i8], align 1
   %6 = alloca i8, align 1
@@ -6625,7 +6625,7 @@ declare dso_local i32 @snb_pcode_write_timeout(ptr noundef, i32 noundef, i32 nou
 declare dso_local i32 @get_random_u32() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, -2146435071) i32 @intel_hdcp_get_repeater_ctl(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, -2146435071) i32 @intel_hdcp_get_repeater_ctl(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 11

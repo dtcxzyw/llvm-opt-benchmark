@@ -35302,7 +35302,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit26: ; preds = %.noexc25, %_ZN4dmlc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost12_GLOBAL__N_16UsePtrISt10unique_ptrINS_11ObjFunctionESt14default_deleteIS3_EEEERT_S8_(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost12_GLOBAL__N_16UsePtrISt10unique_ptrINS_11ObjFunctionESt14default_deleteIS3_EEEERT_S8_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.dmlc::LogMessageFatal", align 1
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null

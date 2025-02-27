@@ -44,7 +44,7 @@ define signext i8 @uprv_ebcdictolower_77(i8 noundef signext %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @T_CString_toLowerCase_77(ptr noundef returned %0) local_unnamed_addr #1 {
+define noundef ptr @T_CString_toLowerCase_77(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -71,7 +71,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @T_CString_toUpperCase_77(ptr noundef returned %0) local_unnamed_addr #1 {
+define noundef ptr @T_CString_toUpperCase_77(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -210,7 +210,7 @@ define i32 @T_CString_stringToInteger_77(ptr noundef %0, i32 noundef %1) local_u
 declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -254, 255) i32 @uprv_stricmp_77(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #7 {
+define range(i32 -254, 255) i32 @uprv_stricmp_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -272,7 +272,7 @@ define range(i32 -254, 255) i32 @uprv_stricmp_77(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -254, 255) i32 @uprv_strnicmp_77(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #7 {
+define range(i32 -254, 255) i32 @uprv_strnicmp_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 

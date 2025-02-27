@@ -61,7 +61,7 @@ define void @lv_anim_timeline_pause(ptr noundef %0) local_unnamed_addr #0 {
 declare void @lv_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_anim_timeline_add(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define void @lv_anim_timeline_add(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 
@@ -209,7 +209,7 @@ lv_anim_timeline_get_playtime.exit:               ; preds = %.lr.ph.i, %8, %.pre
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_anim_timeline_get_playtime(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i32 @lv_anim_timeline_get_playtime(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %.preheader33
 
@@ -293,7 +293,7 @@ declare ptr @lv_anim_start(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @lv_anim_delete(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_anim_timeline_set_reverse(ptr noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
+define void @lv_anim_timeline_set_reverse(ptr noundef writeonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -308,7 +308,7 @@ define void @lv_anim_timeline_set_reverse(ptr noundef writeonly %0, i1 noundef z
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_anim_timeline_set_repeat_count(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @lv_anim_timeline_set_repeat_count(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -322,7 +322,7 @@ define void @lv_anim_timeline_set_repeat_count(ptr noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_anim_timeline_set_repeat_delay(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @lv_anim_timeline_set_repeat_delay(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -777,7 +777,7 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
 declare i32 @lv_anim_get_playtime(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_anim_timeline_get_reverse(ptr noundef readonly %0) local_unnamed_addr #5 {
+define zeroext i1 @lv_anim_timeline_get_reverse(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -792,7 +792,7 @@ define zeroext i1 @lv_anim_timeline_get_reverse(ptr noundef readonly %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i16 @lv_anim_timeline_get_progress(ptr noundef readonly %0) local_unnamed_addr #0 {
+define zeroext i16 @lv_anim_timeline_get_progress(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %.preheader33.i
 
@@ -840,7 +840,7 @@ lv_anim_timeline_get_playtime.exit:               ; preds = %.lr.ph.i, %7, %.pre
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_anim_timeline_get_repeat_count(ptr noundef readonly %0) local_unnamed_addr #5 {
+define i32 @lv_anim_timeline_get_repeat_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -854,7 +854,7 @@ define i32 @lv_anim_timeline_get_repeat_count(ptr noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_anim_timeline_get_repeat_delay(ptr noundef readonly %0) local_unnamed_addr #5 {
+define i32 @lv_anim_timeline_get_repeat_delay(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

@@ -589,7 +589,7 @@ define dso_local void @swiotlb_update_mem_attributes() local_unnamed_addr #4 sec
 declare dso_local i32 @set_memory_decrypted(i64 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @swiotlb_init_remap(i1 noundef zeroext %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 section ".init.text" align 16 {
+define dso_local void @swiotlb_init_remap(i1 noundef zeroext %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 section ".init.text" align 16 {
   br i1 %0, label %6, label %4
 
 4:                                                ; preds = %3
@@ -844,7 +844,7 @@ define internal fastcc void @swiotlb_adjust_nareas(i32 noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc ptr @swiotlb_memblock_alloc(i64 noundef range(i64 0, -127) %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc ptr @swiotlb_memblock_alloc(i64 noundef range(i64 0, -127) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #4 section ".init.text" align 16 {
   %4 = shl i64 %0, 11
   %5 = add i64 %4, 4095
   %6 = and i64 %5, -4096
@@ -885,7 +885,7 @@ define dso_local void @swiotlb_init(i1 noundef zeroext %0, i32 noundef %1) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 align 16 {
+define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 align 16 {
   %4 = lshr i64 %0, 11
   %5 = add nuw nsw i64 %4, 127
   %6 = and i64 %5, 18014398509481856

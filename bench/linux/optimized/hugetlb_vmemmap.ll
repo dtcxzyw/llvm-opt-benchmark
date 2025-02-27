@@ -181,7 +181,7 @@ define internal fastcc i32 @__hugetlb_vmemmap_restore_folio(ptr noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @hugetlb_vmemmap_restore_folios(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i64 @hugetlb_vmemmap_restore_folios(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %1
   br i1 %5, label %.thread3, label %.preheader
@@ -408,7 +408,7 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @hugetlb_vmemmap_optimize_folios(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @hugetlb_vmemmap_optimize_folios(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.vmemmap_remap_walk, align 8
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7

@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.InvalidateTableSpaceCacheCallback = private unnamed_addr constant [34 x i8] c"InvalidateTableSpaceCacheCallback\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @get_tablespace_page_costs(i32 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @get_tablespace_page_costs(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @get_tablespace(i32 noundef %0)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %14, label %5

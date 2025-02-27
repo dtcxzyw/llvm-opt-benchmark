@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.t_complex = type { float, float }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef captures(address) %0, ptr noundef writeonly captures(address) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [500 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 500, ptr nonnull %5) #4
   %6 = icmp slt i32 %2, 2

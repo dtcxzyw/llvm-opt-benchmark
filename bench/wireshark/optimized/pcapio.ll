@@ -210,7 +210,7 @@ declare i32 @dup(i32 noundef) local_unnamed_addr #5
 declare i32 @close(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef zeroext i1 @writecap_flush(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @writecap_flush(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -287,7 +287,7 @@ declare i32 @lz4wfile_geterr(ptr noundef) local_unnamed_addr #4
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden zeroext i1 @writecap_close(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden zeroext i1 @writecap_close(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @__errno_location() #13
   store i32 -11, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -494,7 +494,7 @@ define hidden noundef zeroext i1 @pcapng_write_block(ptr noundef readonly captur
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef zeroext i1 @pcapng_write_section_header_block(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pcapng_write_section_header_block(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.ws_option, align 2
   %10 = alloca i32, align 4
   %11 = alloca %struct.ws_option, align 2

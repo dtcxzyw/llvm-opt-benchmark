@@ -139,7 +139,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_pk_can_do(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_pk_can_do(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %11, label %4
 
@@ -363,7 +363,7 @@ mbedtls_pk_ec_ro.exit:                            ; preds = %switch.edge, %switc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_pk_get_type(ptr noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @mbedtls_pk_get_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -407,7 +407,7 @@ define hidden i64 @mbedtls_pk_get_bitlen(ptr noundef %0) local_unnamed_addr #1 {
 declare zeroext i8 @mbedtls_ecc_group_to_psa(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_pk_import_into_psa(ptr noundef readonly %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_pk_import_into_psa(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2) local_unnamed_addr #1 {
   %4 = alloca [2363 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -952,7 +952,7 @@ mbedtls_pk_verify_restartable.exit:               ; preds = %6, %10, %pk_hashlen
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_pk_verify_ext(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_pk_verify_ext(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #1 {
   %9 = icmp ne i32 %3, 0
   %10 = icmp ne i64 %5, 0
   %or.cond = or i1 %9, %10
@@ -1406,7 +1406,7 @@ define hidden range(i32 -16128, 1) i32 @mbedtls_pk_debug(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @mbedtls_pk_get_name(ptr noundef readonly %0) local_unnamed_addr #5 {
+define hidden ptr @mbedtls_pk_get_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 

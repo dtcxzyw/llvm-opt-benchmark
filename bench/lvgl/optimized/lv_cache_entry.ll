@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_cache_entry_reset_ref(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define void @lv_cache_entry_reset_ref(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -18,7 +18,7 @@ define void @lv_cache_entry_reset_ref(ptr noundef writeonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_cache_entry_inc_ref(ptr noundef %0) local_unnamed_addr #1 {
+define void @lv_cache_entry_inc_ref(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -34,7 +34,7 @@ define void @lv_cache_entry_inc_ref(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_cache_entry_dec_ref(ptr noundef %0) local_unnamed_addr #1 {
+define void @lv_cache_entry_dec_ref(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -51,7 +51,7 @@ define void @lv_cache_entry_dec_ref(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_cache_entry_get_ref(ptr noundef readonly %0) local_unnamed_addr #2 {
+define i32 @lv_cache_entry_get_ref(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -72,7 +72,7 @@ define i32 @lv_cache_entry_get_node_size(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_cache_entry_set_node_size(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_cache_entry_set_node_size(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -86,7 +86,7 @@ define void @lv_cache_entry_set_node_size(ptr noundef writeonly %0, i32 noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_cache_entry_set_invalid(ptr noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define void @lv_cache_entry_set_invalid(ptr noundef writeonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -101,7 +101,7 @@ define void @lv_cache_entry_set_invalid(ptr noundef writeonly %0, i1 noundef zer
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_cache_entry_is_invalid(ptr noundef readonly %0) local_unnamed_addr #2 {
+define zeroext i1 @lv_cache_entry_is_invalid(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -116,7 +116,7 @@ define zeroext i1 @lv_cache_entry_is_invalid(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define nonnull ptr @lv_cache_entry_get_data(ptr noundef readonly %0) local_unnamed_addr #2 {
+define nonnull ptr @lv_cache_entry_get_data(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -133,7 +133,7 @@ define nonnull ptr @lv_cache_entry_get_data(ptr noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define nonnull ptr @lv_cache_entry_acquire_data(ptr noundef %0) local_unnamed_addr #1 {
+define nonnull ptr @lv_cache_entry_acquire_data(ptr noundef captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %lv_cache_entry_get_data.exit
 
@@ -154,7 +154,7 @@ lv_cache_entry_get_data.exit:                     ; preds = %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_cache_entry_release_data(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
+define void @lv_cache_entry_release_data(ptr noundef captures(address_is_null) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %lv_cache_entry_get_ref.exit
 
@@ -178,7 +178,7 @@ lv_cache_entry_dec_ref.exit:                      ; preds = %lv_cache_entry_get_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define nonnull ptr @lv_cache_entry_get_entry(ptr noundef readnone %0, i32 noundef %1) local_unnamed_addr #4 {
+define nonnull ptr @lv_cache_entry_get_entry(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -192,7 +192,7 @@ define nonnull ptr @lv_cache_entry_get_entry(ptr noundef readnone %0, i32 nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_cache_entry_set_cache(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_cache_entry_set_cache(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -205,7 +205,7 @@ define void @lv_cache_entry_set_cache(ptr noundef writeonly %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_cache_entry_get_cache(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_cache_entry_get_cache(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -257,7 +257,7 @@ lv_cache_entry_init.exit:                         ; preds = %6
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_cache_entry_init(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_cache_entry_init(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 

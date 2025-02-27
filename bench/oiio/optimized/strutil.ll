@@ -778,7 +778,7 @@ define hidden void @oiio_stbsp_set_separators(i8 noundef signext %0, i8 noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @oiio_stbsp_vsprintfcb(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #6 {
+define hidden i32 @oiio_stbsp_vsprintfcb(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #6 {
   %6 = alloca [512 x i8], align 16
   %7 = ptrtoint ptr %6 to i64
   %8 = alloca [8 x i8], align 1
@@ -4226,7 +4226,7 @@ _ZL21stbsp__clamp_callbackPKcPvi.exit:            ; preds = %20, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef nonnull ptr @_ZL27stbsp__count_clamp_callbackPKcPvi(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2) #10 {
+define internal noundef nonnull ptr @_ZL27stbsp__count_clamp_callbackPKcPvi(ptr readnone captures(none) %0, ptr noundef captures(ret: address, provenance) %1, i32 noundef %2) #10 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !59
   %6 = add nsw i32 %5, %2
@@ -4236,7 +4236,7 @@ define internal noundef nonnull ptr @_ZL27stbsp__count_clamp_callbackPKcPvi(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZL21stbsp__clamp_callbackPKcPvi(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #11 {
+define internal noundef ptr @_ZL21stbsp__clamp_callbackPKcPvi(ptr noundef readonly captures(address) %0, ptr noundef captures(ret: address, provenance) %1, i32 noundef %2) #11 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !59
   %6 = add nsw i32 %5, %2
@@ -4422,7 +4422,7 @@ _ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11OpenImageIO6v3_1_07Strutil11sync_outputEP8_IO_FILENS0_17basic_string_viewIcSt11char_traitsIcEEEb(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN11OpenImageIO6v3_1_07Strutil11sync_outputEP8_IO_FILENS0_17basic_string_viewIcSt11char_traitsIcEEEb(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !64
   %6 = icmp ne i64 %5, 0
@@ -4524,7 +4524,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr nounde
 declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN11OpenImageIO6v3_1_07Strutil4stoiENS0_17basic_string_viewIcSt11char_traitsIcEEEPmi(ptr noundef captures(none) %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN11OpenImageIO6v3_1_07Strutil4stoiENS0_17basic_string_viewIcSt11char_traitsIcEEEPmi(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !64
@@ -11567,7 +11567,7 @@ _ZNSt8__detail11_Scoped_ptrISt18codecvt_utf8_utf16IDsLm1114111ELSt12codecvt_mode
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcpyEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcpyEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !64
   %.not = icmp eq i64 %5, 0
@@ -11617,7 +11617,7 @@ define noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcpyEPcNS0_17basic_s
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef returned %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #26 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #26 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !64
   %.not = icmp eq i64 %5, 0
@@ -11661,7 +11661,7 @@ define noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_s
 declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN11OpenImageIO6v3_1_07Strutil11safe_strlenEPKcm(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #30 {
+define noundef i64 @_ZN11OpenImageIO6v3_1_07Strutil11safe_strlenEPKcm(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #30 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -12044,7 +12044,7 @@ _ZN11OpenImageIO6v3_1_07Strutil15skip_whitespaceERNS0_17basic_string_viewIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZN11OpenImageIO6v3_1_07Strutil4stofENS0_17basic_string_viewIcSt11char_traitsIcEEEPm(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZN11OpenImageIO6v3_1_07Strutil4stofENS0_17basic_string_viewIcSt11char_traitsIcEEEPm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13977,7 +13977,7 @@ _ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11OpenImageIO6v3_1_07Strutil24excise_string_after_headERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17basic_string_viewIcS5_EE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN11OpenImageIO6v3_1_07Strutil24excise_string_after_headERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17basic_string_viewIcS5_EE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
@@ -14973,7 +14973,7 @@ define noundef double @_ZN11OpenImageIO6v3_1_07Strutil6strtodEPKcPPc(ptr noundef
 declare double @strtod_l(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef float @_ZN11OpenImageIO6v3_1_07Strutil4stofEPKcPm(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define noundef float @_ZN11OpenImageIO6v3_1_07Strutil4stofEPKcPm(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %4
@@ -15013,7 +15013,7 @@ define noundef float @_ZN11OpenImageIO6v3_1_07Strutil4stofEPKcPm(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef float @_ZN11OpenImageIO6v3_1_07Strutil4stofERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define noundef float @_ZN11OpenImageIO6v3_1_07Strutil4stofERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !90
   %.not.i = icmp eq ptr %4, null
@@ -15054,7 +15054,7 @@ _ZN11OpenImageIO6v3_1_07Strutil4stofEPKcPm.exit:  ; preds = %13, %14, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef double @_ZN11OpenImageIO6v3_1_07Strutil4stodEPKcPm(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define noundef double @_ZN11OpenImageIO6v3_1_07Strutil4stodEPKcPm(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %4
@@ -15094,7 +15094,7 @@ define noundef double @_ZN11OpenImageIO6v3_1_07Strutil4stodEPKcPm(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef double @_ZN11OpenImageIO6v3_1_07Strutil4stodERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define noundef double @_ZN11OpenImageIO6v3_1_07Strutil4stodERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !90
   %.not.i = icmp eq ptr %4, null
@@ -15135,7 +15135,7 @@ _ZN11OpenImageIO6v3_1_07Strutil4stodEPKcPm.exit:  ; preds = %13, %14, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN11OpenImageIO6v3_1_07Strutil4stodENS0_17basic_string_viewIcSt11char_traitsIcEEEPm(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN11OpenImageIO6v3_1_07Strutil4stodENS0_17basic_string_viewIcSt11char_traitsIcEEEPm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15248,7 +15248,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN11OpenImageIO6v3_1_07Strutil5stouiENS0_17basic_string_viewIcSt11char_traitsIcEEEPmi(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN11OpenImageIO6v3_1_07Strutil5stouiENS0_17basic_string_viewIcSt11char_traitsIcEEEPmi(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

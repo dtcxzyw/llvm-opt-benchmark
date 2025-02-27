@@ -916,7 +916,7 @@ define ptr @getTestName() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define ptr @getTest(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define ptr @getTest(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -998,7 +998,7 @@ strncmp_nullcheck.exit.thread:                    ; preds = %24, %strncmp_nullch
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @vlog_info(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
+define void @vlog_info(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
   %.b.i.i = load i1, ptr @ON_LINE, align 1
   br i1 %.b.i.i, label %.thread.i, label %4
 
@@ -1113,7 +1113,7 @@ define internal fastcc void @vlog_err(ptr noundef readonly captures(none) %0, pt
 declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nounwind uwtable
-define signext range(i8 0, 2) i8 @log_knownIssue(ptr noundef %0, ptr noundef readonly %1, ...) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @log_knownIssue(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ...) local_unnamed_addr #0 {
   %3 = alloca [2048 x i8], align 16
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
@@ -1361,7 +1361,7 @@ go_offline_err.exit:                              ; preds = %1, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @initArgs(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @initArgs(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store i32 0, ptr @VERBOSITY, align 4, !tbaa !18

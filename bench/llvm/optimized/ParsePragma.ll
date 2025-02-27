@@ -9253,7 +9253,7 @@ declare noundef ptr @_ZN5clang13IdentifierLoc6createERNS_10ASTContextENS_14Sourc
 declare void @_ZN5clang6Parser4DiagENS_14SourceLocationEj(ptr dead_on_unwind writable sret(%"class.clang::DiagnosticBuilder") align 8, ptr noundef nonnull align 8 dereferenceable(2936), i32, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.8.val, ptr readonly %.8.val1, i16 %.16.val3) unnamed_addr #0 {
+define internal fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.8.val, ptr readonly captures(address_is_null) %.8.val1, i16 %.16.val3) unnamed_addr #0 {
 _ZNK5clang5Token17getIdentifierInfoEv.exit:
   %1 = alloca i64, align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8

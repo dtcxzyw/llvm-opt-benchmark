@@ -482,7 +482,7 @@ cleanup:                                          ; preds = %do.end39, %entry, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14SigintWatchdogD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14SigintWatchdogD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14SigintWatchdogE, i64 16), ptr %this, align 8
   tail call void @uv_mutex_lock(ptr noundef nonnull @_ZN4node20SigintWatchdogHelper22instance_action_mutex_E) #16
@@ -493,7 +493,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node20SigintWatchdogHelper10UnregisterEPNS_18SigintWatchdogBaseE(ptr noundef nonnull align 8 dereferenceable(162) %this, ptr noundef readnone %wd) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node20SigintWatchdogHelper10UnregisterEPNS_18SigintWatchdogBaseE(ptr noundef nonnull align 8 dereferenceable(162) %this, ptr noundef readnone captures(address) %wd) local_unnamed_addr #3 align 2 {
 entry:
   %list_mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %list_mutex_) #16
@@ -1059,7 +1059,7 @@ _ZN4node19TraceSigintWatchdog12HandleSigintEv.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node19TraceSigintWatchdog15HandleInterruptEv(ptr noundef nonnull align 8 dereferenceable(236) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node19TraceSigintWatchdog15HandleInterruptEv(ptr noundef nonnull align 8 captures(address) dereferenceable(236) %this) local_unnamed_addr #3 align 2 {
 entry:
   %interrupting = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i8, ptr %interrupting, align 8
@@ -1557,7 +1557,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZZN4node19TraceSigintWatchdog12HandleSigintEvEN3$_08__invokeEPN2v87IsolateEPv"(ptr readnone captures(none) %isolate, ptr noundef %data) #3 align 2 {
+define internal void @"_ZZN4node19TraceSigintWatchdog12HandleSigintEvEN3$_08__invokeEPN2v87IsolateEPv"(ptr readnone captures(none) %isolate, ptr noundef captures(address) %data) #3 align 2 {
 entry:
   %signal_flag_.i = getelementptr inbounds nuw i8, ptr %data, i64 232
   %0 = load i32, ptr %signal_flag_.i, align 8

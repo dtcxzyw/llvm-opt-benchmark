@@ -559,7 +559,7 @@ define void @_ZNK7rocksdb31UserKeyTablePropertiesCollector21GetReadablePropertie
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN7rocksdb14GetDeletedKeysERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 {
+define noundef i64 @_ZN7rocksdb14GetDeletedKeysERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef nonnull align 8 captures(address) dereferenceable(48) %0) local_unnamed_addr #1 {
   %2 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #13
   %_ZN7rocksdb20TablePropertiesNames12kDeletedKeysB5cxx11E.val = load ptr, ptr @_ZN7rocksdb20TablePropertiesNames12kDeletedKeysB5cxx11E, align 8
@@ -570,7 +570,7 @@ define noundef i64 @_ZN7rocksdb14GetDeletedKeysERKSt3mapINSt7__cxx1112basic_stri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN7rocksdb12_GLOBAL__N_117GetUint64PropertyERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_Pb(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr readonly captures(none) %.0.val, i64 %.8.val, ptr noundef writeonly captures(none) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN7rocksdb12_GLOBAL__N_117GetUint64PropertyERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_Pb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %0, ptr readonly captures(none) %.0.val, i64 %.8.val, ptr noundef writeonly captures(none) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !63
@@ -667,7 +667,7 @@ _ZN7rocksdb11GetVarint64EPNS_5SliceEPm.exit:      ; preds = %_ZNKSt3mapINSt7__cx
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN7rocksdb16GetMergeOperandsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEEPb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
+define noundef i64 @_ZN7rocksdb16GetMergeOperandsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEEPb(ptr noundef nonnull align 8 captures(address) dereferenceable(48) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %_ZN7rocksdb20TablePropertiesNames14kMergeOperandsB5cxx11E.val = load ptr, ptr @_ZN7rocksdb20TablePropertiesNames14kMergeOperandsB5cxx11E, align 8
   %_ZN7rocksdb20TablePropertiesNames14kMergeOperandsB5cxx11E.val2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN7rocksdb20TablePropertiesNames14kMergeOperandsB5cxx11E, i64 8), align 8
   %3 = tail call fastcc noundef i64 @_ZN7rocksdb12_GLOBAL__N_117GetUint64PropertyERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_Pb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %_ZN7rocksdb20TablePropertiesNames14kMergeOperandsB5cxx11E.val, i64 %_ZN7rocksdb20TablePropertiesNames14kMergeOperandsB5cxx11E.val2, ptr noundef %1)

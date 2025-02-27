@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [53 x i8] c"Sat_SolverWriteDimacs(): Cannot open the ouput file.\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %0, align 8, !tbaa !3
   %8 = icmp sgt i32 %7, 0

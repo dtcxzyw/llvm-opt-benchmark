@@ -2706,7 +2706,7 @@ pcpu_block_update.exit:                           ; preds = %126, %132, %136, %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define dso_local noundef zeroext i1 @__is_kernel_percpu_address(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #5 align 16 {
+define dso_local noundef zeroext i1 @__is_kernel_percpu_address(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #5 align 16 {
   %3 = load i64, ptr @__cpu_possible_mask, align 8
   %4 = inttoptr i64 %0 to ptr
   br label %5
@@ -3986,7 +3986,7 @@ define internal noundef range(i32 -22, 1) i32 @percpu_alloc_setup(ptr noundef %0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #7 section ".init.text" align 16 {
+define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #7 section ".init.text" align 16 {
   %6 = tail call fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #28
   %7 = icmp ugt ptr %6, inttoptr (i64 -4096 to ptr)
   br i1 %7, label %8, label %11
@@ -4285,7 +4285,7 @@ define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly %3) unnamed_addr #7 section ".init.text" align 16 {
+define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #7 section ".init.text" align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @pcpu_build_alloc_info.group_map, i8 0, i64 256, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @pcpu_build_alloc_info.group_cnt, i8 0, i64 256, i1 false)
   %5 = tail call i64 @llvm.umax.i64(i64 %1, i64 20480)
@@ -4667,7 +4667,7 @@ define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc ptr @pcpu_fc_alloc(i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly %3) unnamed_addr #7 section ".init.text" align 16 {
+define internal fastcc ptr @pcpu_fc_alloc(i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #7 section ".init.text" align 16 {
   %5 = load i64, ptr @page_offset_base, align 8
   %6 = add i64 %5, 2164260864
   %7 = icmp ult i64 %6, 2147483648
@@ -4928,7 +4928,7 @@ define weak dso_local void @pcpu_populate_pte(i64 noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @pcpu_page_first_chunk(i64 noundef %0, ptr noundef %1) local_unnamed_addr #7 section ".init.text" align 16 {
+define dso_local i32 @pcpu_page_first_chunk(i64 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #7 section ".init.text" align 16 {
   %3 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !15
@@ -6645,7 +6645,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #0
 declare dso_local void @dump_stack() local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pcpu_block_update_hint_alloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @pcpu_block_update_hint_alloc(ptr noundef captures(address) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = ashr i32 %1, 10
   %6 = add i32 %2, %1

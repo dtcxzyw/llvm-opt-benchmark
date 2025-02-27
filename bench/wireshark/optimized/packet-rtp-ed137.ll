@@ -418,7 +418,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_rtp_hdr_ext_ed137(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly %3) #0 {
+define internal i32 @dissect_rtp_hdr_ext_ed137(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.loopexit, label %6
@@ -577,7 +577,7 @@ define internal i32 @dissect_rtp_hdr_ext_ed137(ptr noundef %0, ptr noundef reado
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_rtp_hdr_ext_ed137a(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) #0 {
+define internal i32 @dissect_rtp_hdr_ext_ed137a(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.thread138, label %6

@@ -1284,7 +1284,7 @@ _ZN3gmx26FreeEnergyPerturbationData7Element29enableExternalFepStateSettingEv.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN3gmx26FreeEnergyPerturbationData7Element29enableExternalFepStateSettingEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3gmx26FreeEnergyPerturbationData7Element29enableExternalFepStateSettingEv(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(80) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8, !tbaa !11, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1

@@ -3062,7 +3062,7 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEED2Ev.exit: ; preds = %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16CompilerInstance17createDiagnosticsERN4llvm3vfs10FileSystemEPNS_17DiagnosticOptionsEPNS_18DiagnosticConsumerEbPKNS_14CodeGenOptionsE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef readonly %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang16CompilerInstance17createDiagnosticsERN4llvm3vfs10FileSystemEPNS_17DiagnosticOptionsEPNS_18DiagnosticConsumerEbPKNS_14CodeGenOptionsE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 align 2 {
 _ZN4llvm18IntrusiveRefCntPtrIN5clang13DiagnosticIDsEEC2ERKS3_.exit:
   %6 = alloca %"class.std::unique_ptr.584", align 8
   %7 = alloca %"class.std::unique_ptr.56", align 8
@@ -16706,7 +16706,7 @@ declare noundef zeroext i1 @_ZN5clang12Preprocessor22checkModuleIsAvailableERKNS
 declare void @_ZN5clang9ModuleMap25resolveLinkAsDependenciesEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(1448), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16CompilerInstance22createModuleFromSourceENS_14SourceLocationEN4llvm9StringRefES3_(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 %1, ptr %2, i64 %3, ptr readonly %4, i64 %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang16CompilerInstance22createModuleFromSourceENS_14SourceLocationEN4llvm9StringRefES3_(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 %1, ptr %2, i64 %3, ptr readonly captures(address_is_null) %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -17467,7 +17467,7 @@ declare { i32, ptr } @_ZN4llvm3sys2fs19createTemporaryFileERKNS_5TwineENS_9Strin
 declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL17compileModuleImplRN5clang16CompilerInstanceENS_14SourceLocationEN4llvm9StringRefENS_17FrontendInputFileES4_S4_NS3_12function_refIFvS1_EEES8_(ptr noundef nonnull align 8 captures(none) dereferenceable(352) %0, i32 %1, ptr %2, i64 %3, ptr noundef nonnull readonly captures(none) %4, ptr readonly %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3, ptr readonly captures(none) %.0.val5, i64 %.8.val7, ptr readonly captures(none) %.0.val9, i64 %.8.val11) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL17compileModuleImplRN5clang16CompilerInstanceENS_14SourceLocationEN4llvm9StringRefENS_17FrontendInputFileES4_S4_NS3_12function_refIFvS1_EEES8_(ptr noundef nonnull align 8 captures(none) dereferenceable(352) %0, i32 %1, ptr %2, i64 %3, ptr noundef nonnull readonly captures(none) %4, ptr readonly captures(address_is_null) %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3, ptr readonly captures(none) %.0.val5, i64 %.8.val7, ptr readonly captures(none) %.0.val9, i64 %.8.val11) unnamed_addr #0 {
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -21210,7 +21210,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamls
 declare ptr @_ZN4llvm3sys14DynamicLibrary19getPermanentLibraryEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18writeTimestampFileN4llvm9StringRefE(ptr readonly %0, i64 %1) unnamed_addr #0 {
+define internal fastcc void @_ZL18writeTimestampFileN4llvm9StringRefE(ptr readonly captures(address_is_null) %0, i64 %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::error_code", align 8
   %5 = alloca %"class.llvm::raw_fd_ostream", align 8
@@ -23256,7 +23256,7 @@ declare { i32, ptr } @_ZN4llvm15LockFileManager20unsafeRemoveLockFileEv(ptr noun
 declare noundef i32 @_ZN4llvm15LockFileManager13waitForUnlockEj(ptr noundef nonnull align 8 dereferenceable(552), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL25readASTAfterCompileModuleRN5clang16CompilerInstanceENS_14SourceLocationES2_PNS_6ModuleEN4llvm9StringRefEPb(ptr %.32.val, ptr %.152.val, i32 %0, i32 %1, ptr noundef readonly captures(none) %2, ptr %3, i64 %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL25readASTAfterCompileModuleRN5clang16CompilerInstanceENS_14SourceLocationES2_PNS_6ModuleEN4llvm9StringRefEPb(ptr %.32.val, ptr %.152.val, i32 %0, i32 %1, ptr noundef readonly captures(none) %2, ptr %3, i64 %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca %"class.clang::CharSourceRange", align 8
   %8 = alloca %"class.clang::DiagnosticBuilder", align 8
   %9 = icmp ne ptr %5, null
@@ -29812,7 +29812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115ReadModuleNames14ReadModuleNameEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr readonly %1, i64 %2) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115ReadModuleNames14ReadModuleNameEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr readonly captures(address_is_null) %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16

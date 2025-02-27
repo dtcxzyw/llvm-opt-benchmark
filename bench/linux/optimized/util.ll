@@ -551,7 +551,7 @@ declare dso_local void @idr_preload(i32 noundef) local_unnamed_addr #2
 declare dso_local ptr @idr_remove(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ipc_rmid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local void @ipc_rmid(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr @ipc_mni_shift, align 4
@@ -601,7 +601,7 @@ define dso_local void @ipc_rmid(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly captures(address) %1) unnamed_addr #1 align 16 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
@@ -928,7 +928,7 @@ define internal fastcc i32 @ipc_search_maxidx(ptr noundef %0, i32 noundef range(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ipc_set_key_private(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local void @ipc_set_key_private(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #1 align 16 {
   tail call fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %3, align 4

@@ -572,7 +572,7 @@ define void @_ZN6icu_7715SortKeyByteSink6AppendEPKci(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7715SortKeyByteSink15GetAppendBufferEiiPciPi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %1, i32 noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) unnamed_addr #1 align 2 {
+define noundef ptr @_ZN6icu_7715SortKeyByteSink15GetAppendBufferEiiPciPi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %1, i32 noundef %2, ptr noundef readnone captures(ret: address, provenance) %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) unnamed_addr #1 align 2 {
   %7 = icmp slt i32 %1, 1
   %8 = icmp slt i32 %4, %1
   %or.cond = or i1 %7, %8

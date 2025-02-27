@@ -420,7 +420,7 @@ define hidden void @_ZN5Klass15set_java_mirrorE6Handle(ptr noundef nonnull align
 declare void @_ZN15ClassLoaderData10add_handleE6Handle(ptr dead_on_unwind writable sret(%class.OopHandle) align 8, ptr noundef nonnull align 8 dereferenceable(160), ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK5Klass12is_cloneableEv(ptr noundef nonnull align 8 dereferenceable(196) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK5Klass12is_cloneableEv(ptr noundef nonnull align 8 captures(address) dereferenceable(196) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %3 = load i32, ptr %2, align 4
   %4 = icmp slt i32 %3, 0
@@ -562,7 +562,7 @@ define hidden void @_ZN5Klass16set_is_cloneableEv(ptr noundef nonnull align 8 ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext range(i8 0, 64) i8 @_ZN5Klass17compute_hash_slotEP6Symbol(ptr noundef readonly %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext range(i8 0, 64) i8 @_ZN5Klass17compute_hash_slotEP6Symbol(ptr noundef readonly captures(address) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 128), align 8
   %3 = icmp eq ptr %0, %2
   br i1 %3, label %26, label %4
@@ -742,7 +742,7 @@ declare void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN22SystemDictionaryShared18init_dumptime_infoEP13InstanceKlass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK5Klass14is_subclass_ofEPKS_(ptr noundef nonnull readonly align 8 dereferenceable(196) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK5Klass14is_subclass_ofEPKS_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(196) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -778,7 +778,7 @@ define hidden void @_ZN5Klass25release_C_heap_structuresEb(ptr noundef nonnull r
 declare void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK5Klass23search_secondary_supersEPS_(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK5Klass23search_secondary_supersEPS_(ptr noundef nonnull align 8 captures(address) dereferenceable(196) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %4
 

@@ -107,7 +107,7 @@ gt.exit.backedge:                                 ; preds = %40, %.lr.ph
 declare void @ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @PQdelete(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @PQdelete(ptr noundef captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %.not = icmp eq ptr %4, null
@@ -246,7 +246,7 @@ define ptr @PQextractmin(ptr noundef captures(none) %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @PQcleanup(ptr noundef %0) local_unnamed_addr #5 {
+define void @PQcleanup(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 

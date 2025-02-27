@@ -82,7 +82,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.68 = private unnamed_addr constant [16 x i8] c"EXR_ERR_UNKNOWN\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @exr_get_library_version(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define void @exr_get_library_version(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %5
 
@@ -152,7 +152,7 @@ define void @exr_set_default_maximum_image_size(i32 noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @exr_get_default_maximum_image_size(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
+define void @exr_get_default_maximum_image_size(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -190,7 +190,7 @@ define void @exr_set_default_maximum_tile_size(i32 noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @exr_get_default_maximum_tile_size(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
+define void @exr_get_default_maximum_tile_size(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -221,7 +221,7 @@ define void @exr_set_default_zip_compression_level(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @exr_get_default_zip_compression_level(ptr noundef writeonly %0) local_unnamed_addr #3 {
+define void @exr_get_default_zip_compression_level(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -245,7 +245,7 @@ define void @exr_set_default_dwa_compression_quality(float noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @exr_get_default_dwa_compression_quality(ptr noundef writeonly %0) local_unnamed_addr #3 {
+define void @exr_get_default_dwa_compression_quality(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 

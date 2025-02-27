@@ -4920,7 +4920,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #20
 declare void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEhSt16initializer_listINS_9KnownFlagEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 %1, ptr readonly %2, i8 noundef zeroext %3, ptr readonly %4, i64 %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEhSt16initializer_listINS_9KnownFlagEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 %1, ptr readonly captures(address_is_null) %2, i8 noundef zeroext %3, ptr readonly captures(address) %4, i64 %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca [32 x i8], align 16
   %8 = alloca i64, align 8
   %9 = alloca %"class.absl::lts_20240722::AlphaNum", align 8

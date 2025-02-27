@@ -973,7 +973,7 @@ define noundef zeroext i1 @_ZNK3gmx15TrajectoryFrame6hasBoxEv(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(36) ptr @_ZNK3gmx15TrajectoryFrame3boxEv(ptr noundef nonnull readnone align 8 dereferenceable(44) %0) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 4 dereferenceable(36) ptr @_ZNK3gmx15TrajectoryFrame3boxEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(44) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

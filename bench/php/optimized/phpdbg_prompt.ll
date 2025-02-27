@@ -788,7 +788,7 @@ define hidden noundef i32 @phpdbg_do_continue(ptr readnone captures(none) %0) #2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_run(ptr noundef readonly %0) #0 {
+define hidden noundef i32 @phpdbg_do_run(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
@@ -2067,7 +2067,7 @@ phpdbg_user_execute_data.exit:                    ; preds = %33
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_generator(ptr noundef readonly %0) #0 {
+define hidden noundef i32 @phpdbg_do_generator(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1392), align 8, !tbaa !46, !range !47, !noundef !48
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %7, label %4
@@ -2479,7 +2479,7 @@ define hidden noundef i32 @phpdbg_do_break(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_back(ptr noundef readonly %0) #0 {
+define hidden noundef i32 @phpdbg_do_back(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1392), align 8, !tbaa !46, !range !47, !noundef !48
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %7, label %4
@@ -2508,7 +2508,7 @@ define hidden noundef i32 @phpdbg_do_back(ptr noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_frame(ptr noundef readonly %0) #0 {
+define hidden noundef i32 @phpdbg_do_frame(ptr noundef readonly captures(address_is_null) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %6
 
@@ -4460,7 +4460,7 @@ declare void @phpdbg_stack_free(ptr noundef) local_unnamed_addr #3
 declare void @phpdbg_destroy_input(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @phpdbg_call_register(i32 %.0.val, ptr readonly %.72.val) unnamed_addr #18 {
+define internal fastcc range(i32 -1, 1) i32 @phpdbg_call_register(i32 %.0.val, ptr readonly captures(address_is_null) %.72.val) unnamed_addr #18 {
   %1 = alloca %struct._zval_struct, align 8
   %2 = alloca ptr, align 8
   %3 = icmp ne i32 %.0.val, 9

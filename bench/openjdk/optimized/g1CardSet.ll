@@ -1399,7 +1399,7 @@ _ZN14G1CardSetArray20G1CardSetArrayLockerC2EPVj.exit: ; preds = %_ZN9SpinYield4w
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN9G1CardSet11add_to_howlEPvjjb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZN9G1CardSet11add_to_howlEPvjjb(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 align 2 {
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, -4
   %8 = inttoptr i64 %7 to ptr
@@ -1584,7 +1584,7 @@ _ZN9G1CardSet32release_and_maybe_free_containerEPv.exit37: ; preds = %_ZN9G1Card
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN9G1CardSet16add_to_containerEPVPvS0_jjb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZN9G1CardSet16add_to_containerEPVPvS0_jjb(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #1 align 2 {
   %7 = ptrtoint ptr %2 to i64
   %8 = trunc i64 %7 to i32
   %9 = and i32 %8, 3

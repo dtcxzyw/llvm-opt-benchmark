@@ -1409,7 +1409,7 @@ define void @_ZN3tbb6detail2r14waitERNS0_2d112wait_contextERNS2_18task_group_con
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef readonly %0) local_unnamed_addr #4 {
+define noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 

@@ -59,7 +59,7 @@ define void @vec_negate(ptr noundef captures(none) %0, i64 noundef %1) local_unn
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @csc_update_values(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
+define void @csc_update_values(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #2 {
   %.not = icmp eq ptr %2, null
   %5 = icmp sgt i64 %3, 0
   br i1 %.not, label %.preheader, label %.preheader16

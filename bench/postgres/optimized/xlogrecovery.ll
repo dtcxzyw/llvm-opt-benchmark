@@ -5312,7 +5312,7 @@ define dso_local zeroext i1 @HotStandbyActive() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @GetXLogReplayRecPtr(ptr noundef writeonly %0) local_unnamed_addr #2 {
+define dso_local i64 @GetXLogReplayRecPtr(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr @XLogRecoveryCtl, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #23, !srcloc !10
@@ -5347,7 +5347,7 @@ define dso_local i64 @GetXLogReplayRecPtr(ptr noundef writeonly %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @GetCurrentReplayRecPtr(ptr noundef writeonly %0) local_unnamed_addr #2 {
+define dso_local i64 @GetCurrentReplayRecPtr(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr @XLogRecoveryCtl, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #23, !srcloc !10
@@ -5693,7 +5693,7 @@ declare ptr @__errno_location() local_unnamed_addr #14
 declare ptr @format_elog_string(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @assign_recovery_target(ptr noundef readonly %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
+define dso_local void @assign_recovery_target(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr @recoveryTarget, align 4
   switch i32 %3, label %4 [
     i32 5, label %5
@@ -5770,7 +5770,7 @@ declare i64 @pg_lsn_in_internal(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @guc_malloc(i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @assign_recovery_target_lsn(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define dso_local void @assign_recovery_target_lsn(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr @recoveryTarget, align 4
   %4 = and i32 %3, -5
   %or.cond.not = icmp eq i32 %4, 0
@@ -5960,7 +5960,7 @@ declare i32 @DecodeDateTime(ptr noundef, ptr noundef, i32 noundef, ptr noundef, 
 declare i32 @tm2timestamp(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @assign_recovery_target_time(ptr noundef readonly %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
+define dso_local void @assign_recovery_target_time(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr @recoveryTarget, align 4
   %4 = and i32 %3, -3
   %or.cond.not = icmp eq i32 %4, 0
@@ -6081,7 +6081,7 @@ define dso_local noundef zeroext i1 @check_recovery_target_xid(ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @assign_recovery_target_xid(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define dso_local void @assign_recovery_target_xid(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr @recoveryTarget, align 4
   %or.cond = icmp ugt i32 %3, 1
   br i1 %or.cond, label %4, label %5

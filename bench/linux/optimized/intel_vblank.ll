@@ -316,7 +316,7 @@ define dso_local zeroext i1 @intel_crtc_get_vblank_timestamp(ptr noundef %0, ptr
 declare dso_local zeroext i1 @drm_crtc_vblank_helper_get_vblank_timestamp_internal(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @i915_get_crtc_scanoutpos(ptr noundef readonly captures(none) %0, i1 zeroext %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef readonly captures(none) %6) #0 align 16 {
+define internal noundef zeroext i1 @i915_get_crtc_scanoutpos(ptr noundef readonly captures(none) %0, i1 zeroext %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef readonly captures(none) %6) #0 align 16 {
   %8 = alloca i64, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1648

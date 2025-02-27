@@ -296,7 +296,7 @@ declare ptr @ossl_ecx_key_allocate_privkey(ptr noundef) local_unnamed_addr #1
 declare void @ossl_ecx_key_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_ecx_key_op(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define ptr @ossl_ecx_key_op(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %.not = icmp eq i32 %4, 2
   br i1 %.not, label %28, label %9

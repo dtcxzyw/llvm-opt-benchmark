@@ -1879,7 +1879,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit6: ; preds = %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr14RemoveDelegateEPNS0_8DelegateE(ptr noundef nonnull align 8 captures(none) dereferenceable(481) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr14RemoveDelegateEPNS0_8DelegateE(ptr noundef nonnull align 8 captures(none) dereferenceable(481) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %80, label %4
 
@@ -4044,7 +4044,7 @@ _ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__7TfErrorESaIS2_EE5eraseESt
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr18_GetErrorMarkBeginEmPm(ptr noundef nonnull align 8 dereferenceable(481) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define ptr @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr18_GetErrorMarkBeginEmPm(ptr noundef nonnull align 8 dereferenceable(481) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -4097,7 +4097,7 @@ define ptr @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr18_GetErrorMar
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr10EraseRangeESt14_List_iteratorINS_7TfErrorEES3_(ptr noundef nonnull align 8 dereferenceable(481) %0, ptr %1, ptr readnone returned %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define ptr @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr10EraseRangeESt14_List_iteratorINS_7TfErrorEES3_(ptr noundef nonnull align 8 dereferenceable(481) %0, ptr %1, ptr readnone returned captures(address, ret: address, provenance) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -5005,13 +5005,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyINSt6thread2idEEENSt7__cxx1112
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__28ArchSetExtraLogInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText16AppendAndPublishESt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr %1, ptr %2) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText16AppendAndPublishESt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr %1, ptr captures(address) %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText21_AppendAndPublishImplEbSt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %0, i1 noundef zeroext false, ptr %1, ptr %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText21_AppendAndPublishImplEbSt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %0, i1 noundef zeroext %1, ptr %2, ptr readnone %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText21_AppendAndPublishImplEbSt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %0, i1 noundef zeroext %1, ptr %2, ptr readnone captures(address) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfEnum", align 8
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfEnum", align 8
@@ -5239,7 +5239,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText17RebuildAndPublishESt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr %1, ptr %2) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText17RebuildAndPublishESt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr %1, ptr captures(address) %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText21_AppendAndPublishImplEbSt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %0, i1 noundef zeroext true, ptr %1, ptr %2)
   ret void
 }

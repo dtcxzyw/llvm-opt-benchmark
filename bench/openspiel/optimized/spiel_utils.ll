@@ -1182,7 +1182,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN10open_spiellsERSoRKN4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9NormalizeEN4absl7debian24SpanIdEE(ptr %0, i64 %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9NormalizeEN4absl7debian24SpanIdEE(ptr captures(address) %0, i64 %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

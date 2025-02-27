@@ -118,7 +118,7 @@ define hidden i32 @ev_token_bucket_get_tick_(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ev_token_bucket_cfg_new(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #3 {
+define ptr @ev_token_bucket_cfg_new(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
   %.not = icmp eq ptr %4, null
@@ -2756,7 +2756,7 @@ bev_group_suspend_writing_.exit:                  ; preds = %29, %14, %35, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @bufferevent_rate_limit_group_get_totals(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define void @bufferevent_rate_limit_group_get_totals(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 

@@ -153,7 +153,7 @@ quote_literal_internal.exit:                      ; preds = %45, %.loopexit.thre
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @quote_literal_cstr(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @quote_literal_cstr(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #4
   %3 = trunc i64 %2 to i32
   %4 = shl i32 %3, 1

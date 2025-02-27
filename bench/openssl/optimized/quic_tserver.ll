@@ -798,7 +798,7 @@ define ptr @ossl_quic_tserver_get0_ssl_ctx(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_tserver_stream_has_peer_stop_sending(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tserver_stream_has_peer_stop_sending(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8, !tbaa !46
   %6 = tail call ptr @ossl_quic_channel_get_qsm(ptr noundef %5) #6
@@ -835,7 +835,7 @@ define range(i32 0, 2) i32 @ossl_quic_tserver_stream_has_peer_stop_sending(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_tserver_stream_has_peer_reset_stream(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tserver_stream_has_peer_reset_stream(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8, !tbaa !46
   %6 = tail call ptr @ossl_quic_channel_get_qsm(ptr noundef %5) #6

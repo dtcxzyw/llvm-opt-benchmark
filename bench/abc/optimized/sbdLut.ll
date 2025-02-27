@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [3 x i8] c" }\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Sbd_ProblemCountParams(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define i32 @Sbd_ProblemCountParams(i32 noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds %struct.Sbd_Str_t_, ptr %1, i64 %3
   %5 = icmp sgt i32 %0, 0
@@ -48,7 +48,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address) %4) local_unnamed_addr #2 {
   %6 = alloca [6 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
   %7 = sext i32 %2 to i64
@@ -225,7 +225,7 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
 declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Sbd_ProblemAddClausesInit(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4) local_unnamed_addr #2 {
+define void @Sbd_ProblemAddClausesInit(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address) %4) local_unnamed_addr #2 {
   %6 = alloca [10 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #15
   %7 = sext i32 %2 to i64
@@ -434,7 +434,7 @@ define void @Sbd_ProblemPrintSolution(i32 noundef %0, ptr noundef %1, ptr nounde
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
+define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds %struct.Sbd_Str_t_, ptr %1, i64 %4
   %6 = icmp sgt i32 %0, 0
@@ -579,7 +579,7 @@ define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Sbd_ProblemSolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Sbd_ProblemSolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7, i32 noundef %8, ptr noundef captures(address) %9) local_unnamed_addr #2 {
 Abc_Clock.exit:
   %10 = alloca %struct.timespec, align 8
   %11 = alloca [256 x i32], align 16

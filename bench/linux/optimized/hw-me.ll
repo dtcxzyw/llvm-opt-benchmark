@@ -3925,7 +3925,7 @@ define internal range(i32 0, 256) i32 @mei_me_hbuf_depth(ptr noundef readonly ca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -90, 1) i32 @mei_me_hbuf_write(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4) #0 align 16 {
+define internal range(i32 -90, 1) i32 @mei_me_hbuf_write(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4) #0 align 16 {
   %6 = alloca i32, align 4
   %7 = icmp eq ptr %1, null
   %8 = and i64 %2, 3

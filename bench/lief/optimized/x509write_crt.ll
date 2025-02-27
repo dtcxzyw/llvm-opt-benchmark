@@ -403,7 +403,7 @@ define hidden i32 @mbedtls_x509write_crt_set_key_usage(ptr noundef %0, i32 nound
 declare i32 @mbedtls_asn1_write_named_bitstring(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509write_crt_set_ext_key_usage(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_x509write_crt_set_ext_key_usage(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #2 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #11

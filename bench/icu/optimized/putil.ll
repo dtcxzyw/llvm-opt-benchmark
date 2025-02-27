@@ -1674,7 +1674,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #11
 declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define void @u_setDataDirectory_77(ptr noundef readonly %0) local_unnamed_addr #1 {
+define void @u_setDataDirectory_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 
@@ -1788,7 +1788,7 @@ define internal noundef signext i8 @_ZL13putil_cleanupv() #1 personality ptr @__
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext range(i8 0, 2) i8 @uprv_pathIsAbsolute_77(ptr noundef readonly %0) local_unnamed_addr #26 {
+define signext range(i8 0, 2) i8 @uprv_pathIsAbsolute_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #26 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -2253,7 +2253,7 @@ declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly c
 declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @u_versionFromString_77(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #10 {
+define void @u_versionFromString_77(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #10 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #32
   %4 = icmp eq ptr %0, null
@@ -2316,7 +2316,7 @@ define void @u_versionFromString_77(ptr noundef writeonly %0, ptr noundef %1) lo
 declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #27
 
 ; Function Attrs: mustprogress uwtable
-define void @u_versionFromUString_77(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @u_versionFromUString_77(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca [21 x i8], align 16
   %5 = icmp ne ptr %0, null
@@ -2390,7 +2390,7 @@ declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #9
 declare void @u_UCharsToChars_77(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @u_versionToString_77(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #28 {
+define void @u_versionToString_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #28 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %47, label %4
 
@@ -2506,7 +2506,7 @@ define void @u_versionToString_77(ptr noundef readonly %0, ptr noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @u_getVersion_77(ptr noundef writeonly %0) local_unnamed_addr #10 {
+define void @u_getVersion_77(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #10 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #32
   %3 = icmp eq ptr %0, null

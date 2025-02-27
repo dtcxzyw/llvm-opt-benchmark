@@ -493,7 +493,7 @@ activeDefragAlloc.exit30:                         ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zslUpdateNode(ptr noundef captures(none) %0, ptr noundef readnone %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define dso_local void @zslUpdateNode(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !48
   %7 = icmp sgt i32 %6, 0
@@ -1975,7 +1975,7 @@ declare i32 @raxNext(ptr noundef) local_unnamed_addr #2
 declare void @raxSetData(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @defragRadixTree(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @defragRadixTree(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.raxIterator, align 8
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %5) #10
   %6 = load ptr, ptr %0, align 8, !tbaa !115
@@ -2876,7 +2876,7 @@ define dso_local void @defragScanCallback(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local float @getAllocatorFragmentation(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local float @getAllocatorFragmentation(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8

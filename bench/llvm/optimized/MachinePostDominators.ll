@@ -8240,7 +8240,7 @@ _ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker9preservedEv.exit.thread36:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local noundef ptr @_ZNK4llvm24MachinePostDominatorTree26findNearestCommonDominatorENS_8ArrayRefIPNS_17MachineBasicBlockEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr readonly %1, i64 %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZNK4llvm24MachinePostDominatorTree26findNearestCommonDominatorENS_8ArrayRefIPNS_17MachineBasicBlockEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !107
   %5 = getelementptr ptr, ptr %1, i64 %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56

@@ -3170,7 +3170,7 @@ _ZN7uu_tail6chunks10LinesChunk10get_buffer17h49ad03b84d6908c1E.exit: ; preds = %
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7uu_tail6chunks10LinesChunk10from_chunk17h3bb0dd871f51c231E(ptr noalias noundef writeonly sret({ { [8192 x i8], i64 }, i64, i8, [7 x i8] }) align 8 captures(none) dereferenceable(8216) %0, ptr noalias noundef readonly align 8 dereferenceable(8216) %1, i64 noundef %2) unnamed_addr #4 {
+define void @_ZN7uu_tail6chunks10LinesChunk10from_chunk17h3bb0dd871f51c231E(ptr noalias noundef writeonly sret({ { [8192 x i8], i64 }, i64, i8, [7 x i8] }) align 8 captures(none) dereferenceable(8216) %0, ptr noalias noundef readonly align 8 captures(address) dereferenceable(8216) %1, i64 noundef %2) unnamed_addr #4 {
   %4 = alloca [8192 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8200
   %6 = load i64, ptr %5, align 8, !noundef !4
@@ -3317,7 +3317,7 @@ define noundef i64 @_ZN7uu_tail6chunks10LinesChunk9get_lines17h07b8496c96f98439E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E(ptr noalias noundef readonly align 8 dereferenceable(8216) %0, i64 noundef %1) unnamed_addr #4 {
+define noundef i64 @_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E(ptr noalias noundef readonly align 8 captures(address) dereferenceable(8216) %0, i64 noundef %1) unnamed_addr #4 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !411)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8192

@@ -6236,7 +6236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt17BasicSceneBuilder9AttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 64 dereferenceable(3544) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly %2, ptr noundef byval(%"struct.pbrt::FileLoc") align 8 %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4pbrt17BasicSceneBuilder9AttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 64 dereferenceable(3544) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(address) %2, ptr noundef byval(%"struct.pbrt::FileLoc") align 8 %3) unnamed_addr #5 align 2 {
   %5 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.31) #35
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %20, label %7
@@ -24164,7 +24164,7 @@ _ZN4pbrt11SceneEntityD2Ev.exit:                   ; preds = %1, %5
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4pbrt10BasicScene10SetOptionsENS_11SceneEntityES1_NS_17CameraSceneEntityES1_S1_S1_EN3$_1D2Ev"(ptr noundef nonnull align 8 dereferenceable(1008) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt10BasicScene10SetOptionsENS_11SceneEntityES1_NS_17CameraSceneEntityES1_S1_S1_EN3$_1D2Ev"(ptr noundef nonnull align 8 captures(address) dereferenceable(1008) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 984
@@ -26726,7 +26726,7 @@ _ZN4pbrt22TransformedSceneEntityC2ERKS0_.exit:    ; preds = %40, %_ZN4pbrt13Inli
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4pbrt10BasicScene8AddLightENS_16LightSceneEntityEEN3$_0D2Ev"(ptr noundef nonnull align 8 dereferenceable(888) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt10BasicScene8AddLightENS_16LightSceneEntityEEN3$_0D2Ev"(ptr noundef nonnull align 8 captures(address) dereferenceable(888) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 864
@@ -42619,7 +42619,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit4:           ; preds = %_ZNSt11unique_lockI
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZNSt5_BindIFZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_1vEED2Ev"(ptr noundef nonnull align 8 dereferenceable(1009) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt5_BindIFZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_1vEED2Ev"(ptr noundef nonnull align 8 captures(address) dereferenceable(1009) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 984
@@ -47286,7 +47286,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit4:           ; preds = %_ZNSt11unique_lockI
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZNSt5_BindIFZN4pbrt10BasicScene8AddLightENS0_16LightSceneEntityEE3$_0vEED2Ev"(ptr noundef nonnull align 8 dereferenceable(889) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt5_BindIFZN4pbrt10BasicScene8AddLightENS0_16LightSceneEntityEE3$_0vEED2Ev"(ptr noundef nonnull align 8 captures(address) dereferenceable(889) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 864

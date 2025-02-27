@@ -256,7 +256,7 @@ define dso_local i32 @map_pt_dma_locked(ptr noundef readonly captures(none) %0, 
 declare dso_local ptr @i915_gem_object_pin_map(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_vm_lock_objects(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @i915_vm_lock_objects(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
@@ -1376,7 +1376,7 @@ declare dso_local void @i915_vma_resource_bind_dep_sync_all(ptr noundef) local_u
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @clear_vm_list(ptr noundef readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc void @clear_vm_list(ptr noundef readonly captures(address) %0) unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, %0
   br i1 %3, label %.loopexit, label %.preheader8

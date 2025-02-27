@@ -2875,7 +2875,7 @@ declare noundef ptr @_ZNK7SRBRoot11getKeyBytesEPi(ptr noundef nonnull align 8 de
 declare noundef i32 @_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL17make_res_filenamePKcS0_S0_R10UErrorCode(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZL17make_res_filenamePKcS0_S0_R10UErrorCode(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3) unnamed_addr #4 {
   %5 = load i32, ptr %3, align 4, !tbaa !14
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %68

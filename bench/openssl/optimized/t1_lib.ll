@@ -720,7 +720,7 @@ define void @tls1_get_group_tuples(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_valid_group(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls_valid_group(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !126
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1664
@@ -1619,7 +1619,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_set_groups_list(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef %5, ptr noundef writeonly %6, ptr noundef %7) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls1_set_groups_list(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef %7) local_unnamed_addr #2 {
   %9 = alloca %struct.gid_cb_st, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #14
   %10 = icmp eq ptr %0, null
@@ -1813,7 +1813,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @CONF_parse_list(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tuple_cb(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) #2 {
+define internal i32 @tuple_cb(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) #2 {
   %4 = icmp eq ptr %2, null
   %5 = icmp eq ptr %0, null
   %or.cond = or i1 %5, %4
@@ -2151,7 +2151,7 @@ define range(i32 0, 2) i32 @tls1_check_ec_tmp_key(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_setup_sigalgs(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ssl_setup_sigalgs(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = tail call ptr @EVP_PKEY_new() #14
   %3 = icmp eq ptr %0, null
   br i1 %3, label %85, label %4
@@ -2466,7 +2466,7 @@ declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) 
 declare i64 @OPENSSL_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_lookup_md(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls1_lookup_md(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %16, label %5
 
@@ -5145,7 +5145,7 @@ define void @ssl_hmac_free(ptr noundef %0) local_unnamed_addr #2 {
 declare ptr @ssl_cert_lookup_by_idx(i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tls12_sigalg_allowed(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #2 {
+define internal fastcc i32 @tls12_sigalg_allowed(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #2 {
   %4 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #14
   %5 = icmp eq ptr %2, null
@@ -5727,7 +5727,7 @@ tls1_save_u16.exit:                               ; preds = %.critedge.thread.i1
 declare i32 @ssl_cert_is_disabled(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -2147483648) i32 @SSL_get_sigalgs(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @SSL_get_sigalgs(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #2 {
   %8 = icmp eq ptr %0, null
   br i1 %8, label %.critedge, label %9
 
@@ -5885,7 +5885,7 @@ tls1_lookup_sigalg.exit:                          ; preds = %52, %39, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SSL_get_shared_sigalgs(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #2 {
+define i32 @SSL_get_shared_sigalgs(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #2 {
   %8 = icmp eq ptr %0, null
   br i1 %8, label %.thread, label %9
 
@@ -5989,7 +5989,7 @@ define i32 @SSL_get_shared_sigalgs(ptr noundef %0, i32 noundef %1, ptr noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_set_sigalgs_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls1_set_sigalgs_list(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.sig_cb_st, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #14
   store i64 0, ptr %5, align 8, !tbaa !272
@@ -6049,7 +6049,7 @@ tls1_set_raw_sigalgs.exit:                        ; preds = %.sink.split.i, %16,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sig_cb(ptr noundef readonly %0, i32 noundef %1, ptr noundef captures(none) %2) #2 {
+define internal range(i32 0, 2) i32 @sig_cb(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(none) %2) #2 {
   %4 = alloca [40 x i8], align 16
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

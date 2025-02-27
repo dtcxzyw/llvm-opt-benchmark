@@ -4470,7 +4470,7 @@ define void @uidna_close_77(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uidna_labelToASCII_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef i32 @uidna_labelToASCII_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.icu_77::UnicodeString", align 8
   %9 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %10 = alloca %"class.icu_77::UnicodeString", align 8
@@ -4631,7 +4631,7 @@ declare void @_ZN6icu_7713UnicodeStringC1EPDsii(ptr noundef nonnull align 8 dere
 declare noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uidna_labelToUnicode_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef i32 @uidna_labelToUnicode_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.icu_77::UnicodeString", align 8
   %9 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %10 = alloca %"class.icu_77::UnicodeString", align 8
@@ -4786,7 +4786,7 @@ _ZL9checkArgsPKviPviP9UIDNAInfoP10UErrorCode.exit.thread: ; preds = %7, %34, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uidna_nameToASCII_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef i32 @uidna_nameToASCII_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.icu_77::UnicodeString", align 8
   %9 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %10 = alloca %"class.icu_77::UnicodeString", align 8
@@ -4941,7 +4941,7 @@ _ZL9checkArgsPKviPviP9UIDNAInfoP10UErrorCode.exit.thread: ; preds = %7, %34, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uidna_nameToUnicode_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef i32 @uidna_nameToUnicode_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.icu_77::UnicodeString", align 8
   %9 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %10 = alloca %"class.icu_77::UnicodeString", align 8
@@ -5096,7 +5096,7 @@ _ZL9checkArgsPKviPviP9UIDNAInfoP10UErrorCode.exit.thread: ; preds = %7, %34, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uidna_labelToASCII_UTF8_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define i32 @uidna_labelToASCII_UTF8_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.icu_77::IDNAInfo", align 4
   %9 = alloca %"class.icu_77::CheckedArrayByteSink", align 8
   %10 = load i32, ptr %6, align 4, !tbaa !13
@@ -5241,7 +5241,7 @@ define i32 @uidna_labelToASCII_UTF8_77(ptr noundef %0, ptr noundef %1, i32 nound
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uidna_labelToUnicodeUTF8_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define i32 @uidna_labelToUnicodeUTF8_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.icu_77::IDNAInfo", align 4
   %9 = alloca %"class.icu_77::CheckedArrayByteSink", align 8
   %10 = load i32, ptr %6, align 4, !tbaa !13
@@ -5383,7 +5383,7 @@ define i32 @uidna_labelToUnicodeUTF8_77(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uidna_nameToASCII_UTF8_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define i32 @uidna_nameToASCII_UTF8_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.icu_77::IDNAInfo", align 4
   %9 = alloca %"class.icu_77::CheckedArrayByteSink", align 8
   %10 = load i32, ptr %6, align 4, !tbaa !13
@@ -5525,7 +5525,7 @@ define i32 @uidna_nameToASCII_UTF8_77(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uidna_nameToUnicodeUTF8_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define i32 @uidna_nameToUnicodeUTF8_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.icu_77::IDNAInfo", align 4
   %9 = alloca %"class.icu_77::CheckedArrayByteSink", align 8
   %10 = load i32, ptr %6, align 4, !tbaa !13

@@ -442,7 +442,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @job_next_locked(ptr noundef readonly %0) local_unnamed_addr #6 {
+define dso_local ptr @job_next_locked(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %.0.in = select i1 %.not, ptr @jobs, ptr %2
@@ -451,7 +451,7 @@ define dso_local ptr @job_next_locked(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @job_next(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @job_next(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
 glib_autoptr_cleanup_QemuLockable.exit:
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
@@ -1007,7 +1007,7 @@ define dso_local void @job_progress_increase_remaining(ptr noundef %0, i64 nound
 declare void @progress_increase_remaining(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @job_enter_cond_locked(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @job_enter_cond_locked(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8
   %.not10 = icmp eq ptr %.val, null
@@ -2735,7 +2735,7 @@ define dso_local i32 @job_cancel_sync_locked(ptr noundef %0, i1 noundef zeroext 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @job_finish_sync_locked(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @job_finish_sync_locked(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   store ptr null, ptr %4, align 8

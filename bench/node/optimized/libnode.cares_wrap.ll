@@ -2255,7 +2255,7 @@ _ZN4node7ReqWrapI16uv_getnameinfo_sEC2EPNS_11EnvironmentEN2v85LocalINS5_6ObjectE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10cares_wrap11ChannelWrap11AresTimeoutEP10uv_timer_s(ptr noundef readonly %handle) #3 align 2 {
+define dso_local void @_ZN4node10cares_wrap11ChannelWrap11AresTimeoutEP10uv_timer_s(ptr noundef readonly captures(address) %handle) #3 align 2 {
 entry:
   %0 = load ptr, ptr %handle, align 8
   %timer_handle_.i = getelementptr inbounds nuw i8, ptr %0, i64 56

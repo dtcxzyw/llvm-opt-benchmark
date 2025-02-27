@@ -1271,7 +1271,7 @@ declare void @EC_POINT_free(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EC_GROUP_new_from_ecpkparameters(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @EC_GROUP_new_from_ecpkparameters(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -1336,7 +1336,7 @@ define ptr @EC_GROUP_new_from_ecpkparameters(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_ECPKParameters(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @d2i_ECPKParameters(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   %5 = load ptr, ptr %1, align 8, !tbaa !3
@@ -1424,7 +1424,7 @@ define i32 @i2d_ECPKParameters(ptr noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_ECPrivateKey(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @d2i_ECPrivateKey(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   %5 = load ptr, ptr %1, align 8, !tbaa !3
@@ -1787,7 +1787,7 @@ declare void @ossl_asn1_string_set_bits_left(ptr noundef, i32 noundef) local_unn
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2d_ECParameters(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @i2d_ECParameters(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1809,7 +1809,7 @@ define i32 @i2d_ECParameters(ptr noundef readonly %0, ptr noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_ECParameters(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @d2i_ECParameters(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5
 
@@ -1906,7 +1906,7 @@ define ptr @d2i_ECParameters(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @o2i_ECPublicKey(ptr noundef readonly %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @o2i_ECPublicKey(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %12, label %5
 
@@ -1951,7 +1951,7 @@ define ptr @o2i_ECPublicKey(ptr noundef readonly %0, ptr noundef captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2o_ECPublicKey(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @i2o_ECPublicKey(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 
@@ -2063,7 +2063,7 @@ define void @ECDSA_SIG_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @d2i_ECDSA_SIG(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @d2i_ECDSA_SIG(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i64 %2, 0
   br i1 %4, label %43, label %5
 
@@ -2154,7 +2154,7 @@ define noundef ptr @d2i_ECDSA_SIG(ptr noundef %0, ptr noundef %1, i64 noundef %2
 declare i64 @ossl_decode_der_dsa_sig(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2d_ECDSA_SIG(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @i2d_ECDSA_SIG(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.wpacket_st, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
@@ -2268,7 +2268,7 @@ declare i32 @WPACKET_finish(ptr noundef) local_unnamed_addr #1
 declare void @WPACKET_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ECDSA_SIG_get0(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define void @ECDSA_SIG_get0(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 

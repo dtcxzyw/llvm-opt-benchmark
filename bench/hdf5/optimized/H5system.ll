@@ -401,7 +401,7 @@ declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5_init_g, align 1, !tbaa !11, !range !13, !noundef !14
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !13
@@ -543,7 +543,7 @@ declare noalias ptr @H5MM_strndup(ptr noundef, i64 noundef) local_unnamed_addr #
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5_basename(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5_basename(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
   %4 = load i8, ptr @H5_init_g, align 1, !tbaa !11, !range !13, !noundef !14
   %5 = trunc nuw i8 %4 to i1
@@ -685,7 +685,7 @@ define range(i32 -1, 1) i32 @H5_basename(ptr noundef %0, ptr noundef writeonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr @H5_get_option.sp, align 4, !tbaa !26
   %6 = icmp eq i32 %5, 1
   %.pre = load i32, ptr @H5_optind, align 4, !tbaa !26
@@ -1009,7 +1009,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @H5_strcasestr(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
+define noundef ptr @H5_strcasestr(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
   %3 = tail call ptr @__ctype_tolower_loc() #18
   %4 = load ptr, ptr %3, align 8, !tbaa !40
   %5 = load i8, ptr %1, align 1, !tbaa !22

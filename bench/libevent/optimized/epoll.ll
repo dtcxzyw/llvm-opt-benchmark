@@ -236,7 +236,7 @@ define internal range(i32 -1, 1) i32 @epoll_nochangelist_del(ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @epoll_dispatch(ptr noundef %0, ptr noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @epoll_dispatch(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8

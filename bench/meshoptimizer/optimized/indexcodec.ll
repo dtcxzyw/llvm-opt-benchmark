@@ -628,7 +628,7 @@ define dso_local range(i32 -1, 2) i32 @meshopt_decodeIndexVersion(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexBuffer(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4) local_unnamed_addr #6 {
+define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexBuffer(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address) %3, i64 noundef %4) local_unnamed_addr #6 {
   %6 = alloca [16 x [2 x i32]], align 16
   %7 = alloca [16 x i32], align 16
   %8 = udiv i64 %1, 3
@@ -1298,7 +1298,7 @@ define dso_local i64 @meshopt_encodeIndexSequenceBound(i64 noundef %0, i64 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexSequence(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4) local_unnamed_addr #7 {
+define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexSequence(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address) %3, i64 noundef %4) local_unnamed_addr #7 {
   %6 = alloca [2 x i32], align 8
   %7 = add i64 %1, 5
   %8 = icmp ult i64 %4, %7

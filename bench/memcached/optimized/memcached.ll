@@ -3196,7 +3196,7 @@ define dso_local void @thread_io_queue_add(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local ptr @thread_io_queue_get(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
+define dso_local ptr @thread_io_queue_get(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6840
   %4 = load i32, ptr %3, align 8, !tbaa !96
   %.not8 = icmp eq i32 %4, 0
@@ -3270,7 +3270,7 @@ define dso_local void @conn_io_queue_return(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @conn_new(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readnone %6, i64 noundef %7, i32 noundef %8) local_unnamed_addr #1 {
+define dso_local ptr @conn_new(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readnone captures(address_is_null) %6, i64 noundef %7, i32 noundef %8) local_unnamed_addr #1 {
   %10 = load ptr, ptr @conns, align 8, !tbaa !137
   %11 = sext i32 %0 to i64
   %12 = getelementptr inbounds ptr, ptr %10, i64 %11
@@ -3848,7 +3848,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 declare void @item_remove(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @resp_finish(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local ptr @resp_finish(ptr noundef captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !110
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -4957,7 +4957,7 @@ append_ascii_stats.exit:                          ; preds = %79, %82, %84
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @do_store_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5, i64 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #1 {
+define dso_local range(i32 0, 4) i32 @do_store_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, i64 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #1 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %11 = load i16, ptr %10, align 2, !tbaa !87
@@ -6016,7 +6016,7 @@ prot_text.exit:                                   ; preds = %switch.lookup, %2
 declare zeroext i1 @item_stats_sizes_status() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @get_stats(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @get_stats(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %nz_strcmp.exit32.thread, label %5
 
@@ -6351,7 +6351,7 @@ declare ptr @item_get_locked(ptr noundef, i64 noundef, ptr noundef, i1 noundef z
 declare void @item_unlock(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @do_add_delta(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef writeonly %8) local_unnamed_addr #1 {
+define dso_local range(i32 0, 5) i32 @do_add_delta(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, i32 noundef %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #1 {
   %10 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #34
   %11 = tail call ptr @do_item_get(ptr noundef %1, i64 noundef %2, i32 noundef %7, ptr noundef %0, i1 noundef zeroext false) #34
@@ -10220,7 +10220,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #25
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @server_sockets(i32 noundef range(i32 1, 0) %0, i32 noundef range(i32 1, 3) %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @server_sockets(i32 noundef range(i32 1, 0) %0, i32 noundef range(i32 1, 3) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -10582,7 +10582,7 @@ declare ptr @do_cache_alloc(ptr noundef) local_unnamed_addr #2
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #27
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_store_item_copy_chunks(ptr noundef nonnull %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @_store_item_copy_chunks(ptr noundef nonnull %0, ptr noundef readonly captures(address) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %6 = load i8, ptr %5, align 1, !tbaa !76
@@ -11546,7 +11546,7 @@ declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #4
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @server_socket(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 3) %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @server_socket(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 3) %2, ptr noundef captures(address_is_null) %3, i64 noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

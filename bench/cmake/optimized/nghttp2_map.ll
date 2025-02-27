@@ -35,7 +35,7 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_map_init(ptr noundef writeonly 
 declare ptr @nghttp2_mem_calloc(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nghttp2_map_free(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @nghttp2_map_free(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 

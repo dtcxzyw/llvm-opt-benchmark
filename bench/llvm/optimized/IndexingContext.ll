@@ -1163,7 +1163,7 @@ switch.edge:                                      ; preds = %2, %2, %2, %2, %2, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEE(i1 noundef zeroext %0, ptr readonly %1, i64 %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEE(i1 noundef zeroext %0, ptr readonly captures(address) %1, i64 %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca %class.anon.615, align 8
   br i1 %0, label %6, label %.critedge
@@ -1501,7 +1501,7 @@ _ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL12adjustParentPKN5clang4DeclE(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL12adjustParentPKN5clang4DeclE(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 

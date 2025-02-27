@@ -492,7 +492,7 @@ define internal i64 @ft_gzip_stream_io(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 65) i32 @FT_Gzip_Uncompress(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 65) i32 @FT_Gzip_Uncompress(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.z_stream_s, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #6
   %7 = icmp ne ptr %0, null

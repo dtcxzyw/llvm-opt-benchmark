@@ -1250,7 +1250,7 @@ define internal fastcc i64 @calc_transition(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @timelib_fetch_posix_timezone_offset(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden ptr @timelib_fetch_posix_timezone_offset(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct._timelib_time, align 8
   %5 = alloca %struct._timelib_posix_transitions, align 8
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %4) #8

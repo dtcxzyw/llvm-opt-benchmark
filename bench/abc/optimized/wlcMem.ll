@@ -3991,7 +3991,7 @@ Vec_IntGrow.exit.i298:                            ; preds = %Vec_IntFree.exit296
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Wlc_NtkAbstractMemory(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef readonly %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
+define ptr @Wlc_NtkAbstractMemory(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %10, align 4, !tbaa !26
@@ -6938,7 +6938,7 @@ define void @Wlc_NtkPrintConflict(ptr noundef %0, ptr noundef readonly captures(
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Wlc_NtkPrintCex(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #10 {
+define void @Wlc_NtkPrintCex(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #10 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %4
 

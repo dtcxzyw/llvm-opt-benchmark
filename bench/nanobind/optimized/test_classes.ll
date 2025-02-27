@@ -8895,7 +8895,7 @@ define internal void @_ZN8nanobind6detail13wrap_destructIZL30nanobind_init_test_
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
-define internal void @_ZZL30nanobind_init_test_classes_extRN8nanobind7module_EEN3DogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZL30nanobind_init_test_classes_extRN8nanobind7module_EEN3DogD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVZL30nanobind_init_test_classes_extRN8nanobind7module_EE3Dog, i64 16), ptr %0, align 8, !tbaa !24
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !291
@@ -9651,7 +9651,7 @@ define internal void @_ZN8nanobind6detail13wrap_destructIZL30nanobind_init_test_
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
-define internal void @_ZZL30nanobind_init_test_classes_extRN8nanobind7module_EEN3CatD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZL30nanobind_init_test_classes_extRN8nanobind7module_EEN3CatD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVZL30nanobind_init_test_classes_extRN8nanobind7module_EE3Cat, i64 16), ptr %0, align 8, !tbaa !24
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !291
@@ -11979,7 +11979,7 @@ _ZZN8nanobind6detail11func_createILb0ELb1ERPFZL30nanobind_init_test_classes_extR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable
-define internal noundef nonnull align 4 dereferenceable(4) ptr @_ZN8nanobind6detail7op_implILNS0_5op_idE27ELNS0_7op_typeE0EZL30nanobind_init_test_classes_extRNS_7module_EE3IntS6_S6_E7executeERS6_RKS6_(ptr noundef nonnull returned align 4 dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) #22 align 2 {
+define internal noundef nonnull align 4 dereferenceable(4) ptr @_ZN8nanobind6detail7op_implILNS0_5op_idE27ELNS0_7op_typeE0EZL30nanobind_init_test_classes_extRNS_7module_EE3IntS6_S6_E7executeERS6_RKS6_(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) #22 align 2 {
   %.sroa.0.0.copyload = load i32, ptr %1, align 4, !tbaa !32
   %3 = load i32, ptr %0, align 4, !tbaa !430
   %4 = add nsw i32 %3, %.sroa.0.0.copyload

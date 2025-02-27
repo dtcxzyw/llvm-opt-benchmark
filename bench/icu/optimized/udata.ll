@@ -1145,7 +1145,7 @@ define noundef ptr @udata_open_77(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL12doOpenChoicePKcS0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCode(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL12doOpenChoicePKcS0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCode(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca %"class.icu_77::CharString", align 8
   %9 = alloca %"class.icu_77::CharString", align 8
@@ -1690,7 +1690,7 @@ thread-pre-split:                                 ; preds = %199, %196, %.thread
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @udata_openChoice_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define noundef ptr @udata_openChoice_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %20, label %8
 
@@ -1724,7 +1724,7 @@ define noundef ptr @udata_openChoice_77(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @udata_getInfo_77(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @udata_getInfo_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %25, label %3
 
@@ -1918,7 +1918,7 @@ declare signext i8 @uprv_pathIsAbsolute_77(ptr noundef) local_unnamed_addr #9
 declare ptr @u_getTimeZoneFilesDirectory_77(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL25doLoadFromIndividualFilesPKcS0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef readonly %6, ptr noundef %7, ptr noundef nonnull writeonly captures(none) %8, ptr noundef nonnull %9) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL25doLoadFromIndividualFilesPKcS0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7, ptr noundef nonnull writeonly captures(none) %8, ptr noundef nonnull %9) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %11 = alloca %struct.UDataMemory, align 8
   %12 = alloca %"class.icu_77::UDataPathIterator", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #15
@@ -2114,7 +2114,7 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL20doLoadFromCommonDataaPKcS0_S0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(i8 noundef signext range(i8 0, 2) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef readonly %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL20doLoadFromCommonDataaPKcS0_S0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(i8 noundef signext range(i8 0, 2) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %10 = alloca %struct.UDataMemory, align 8
   %11 = alloca i32, align 4
   %.not = icmp eq i8 %0, 0

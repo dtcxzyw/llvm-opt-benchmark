@@ -66,7 +66,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z13ufmt_64tou_77PDsPimhai(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i8 noundef zeroext %3, i8 noundef signext %4, i32 noundef %5) local_unnamed_addr #2 {
+define void @_Z13ufmt_64tou_77PDsPimhai(ptr noundef captures(address) %0, ptr noundef captures(none) %1, i64 noundef %2, i8 noundef zeroext %3, i8 noundef signext %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = zext i8 %3 to i64
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %.split.us, label %.split
@@ -218,7 +218,7 @@ define void @_Z12ufmt_ptou_77PDsPiPva(ptr noundef writeonly captures(none) %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i64 @_Z13ufmt_uto64_77PKDsPia(ptr noundef readonly %0, ptr noundef captures(none) %1, i8 noundef signext %2) local_unnamed_addr #2 {
+define noundef i64 @_Z13ufmt_uto64_77PKDsPia(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1, i8 noundef signext %2) local_unnamed_addr #2 {
   %4 = load i32, ptr %1, align 4, !tbaa !9
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i16, ptr %0, i64 %5

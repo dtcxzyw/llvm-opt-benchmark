@@ -17,7 +17,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN10approx_nataSEj(ptr noundef nonnull returned writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %val) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN10approx_nataSEj(ptr noundef nonnull returned writeonly align 4 captures(ret: address, provenance) dereferenceable(4) initializes((0, 4)) %this, i32 noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp ugt i32 %val, 1073741823
   %cond = select i1 %cmp, i32 -1, i32 %val
@@ -26,7 +26,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN10approx_natpLEj(ptr noundef nonnull returned align 4 dereferenceable(4) %this, i32 noundef %w) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN10approx_natpLEj(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %this, i32 noundef %w) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %cmp.i = icmp eq i32 %0, -1
@@ -45,7 +45,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN10approx_natmLEj(ptr noundef nonnull returned align 4 dereferenceable(4) %this, i32 noundef %w) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN10approx_natmLEj(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %this, i32 noundef %w) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %cmp.i = icmp eq i32 %0, -1

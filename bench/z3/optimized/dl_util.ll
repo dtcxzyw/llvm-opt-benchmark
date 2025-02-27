@@ -667,7 +667,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog16mk_new_rule_tailER11ast_managerP3appRK8uint_setRjR5u_mapIP3varER10ref_bufferI4sortS0_Lj16EERSD_I4exprS0_Lj16EER7obj_refIS2_S0_E(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef readonly captures(none) %pred, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %non_local_vars, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %next_idx, ptr noundef nonnull align 8 dereferenceable(24) %varidx2var, ptr noundef nonnull align 8 dereferenceable(152) %new_rule_domain, ptr noundef nonnull align 8 dereferenceable(152) %new_rule_args, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %new_pred) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog16mk_new_rule_tailER11ast_managerP3appRK8uint_setRjR5u_mapIP3varER10ref_bufferI4sortS0_Lj16EERSD_I4exprS0_Lj16EER7obj_refIS2_S0_E(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef readonly captures(none) %pred, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %non_local_vars, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %next_idx, ptr noundef nonnull align 8 dereferenceable(24) %varidx2var, ptr noundef nonnull align 8 captures(address) dereferenceable(152) %new_rule_domain, ptr noundef nonnull align 8 captures(address) dereferenceable(152) %new_rule_args, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %new_pred) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %struct._key_data.187, align 8
   %new_args = alloca %class.ref_buffer, align 8
@@ -2034,7 +2034,7 @@ for.end:                                          ; preds = %_ZN8uint_set6insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN7datalog21variable_intersection12values_matchEPK4exprS3_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %this, ptr noundef readnone %v1, ptr noundef readnone %v2) local_unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZN7datalog21variable_intersection12values_matchEPK4exprS3_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %this, ptr noundef readnone captures(address) %v1, ptr noundef readnone captures(address) %v2) local_unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp eq ptr %v1, %v2
   ret i1 %cmp

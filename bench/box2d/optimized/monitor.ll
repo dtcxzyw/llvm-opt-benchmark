@@ -957,7 +957,7 @@ define void @glfwGetMonitorWorkarea(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @glfwGetMonitorPhysicalSize(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define void @glfwGetMonitorPhysicalSize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 
@@ -1040,7 +1040,7 @@ define void @glfwGetMonitorContentScale(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @glfwGetMonitorName(ptr noundef readnone %0) local_unnamed_addr #0 {
+define noundef ptr @glfwGetMonitorName(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @_glfw, align 8, !tbaa !161
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4

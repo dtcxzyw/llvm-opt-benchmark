@@ -2762,7 +2762,7 @@ _ZN2cv3PtrINS_2ml10DTreesImpl8WorkDataEE7releaseEv.exit: ; preds = %18, %36, %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv2ml10DTreesImpl13getActiveVarsEv(ptr noundef nonnull readnone align 8 dereferenceable(448) %0) unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv2ml10DTreesImpl13getActiveVarsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(448) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   ret ptr %2
 }

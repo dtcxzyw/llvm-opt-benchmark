@@ -183,7 +183,7 @@ lv_menu_set_page_title.exit:                      ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_menu_set_page_title(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_menu_set_page_title(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -768,7 +768,7 @@ switch.lookup:                                    ; preds = %9
 declare void @lv_obj_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_menu_set_mode_header(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_menu_set_mode_header(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -993,7 +993,7 @@ declare void @lv_free(ptr noundef) local_unnamed_addr #1
 declare ptr @lv_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_menu_set_page_title_static(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_menu_set_page_title_static(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1026,7 +1026,7 @@ define void @lv_menu_set_page_title_static(ptr noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_menu_get_cur_main_page(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_menu_get_cur_main_page(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1040,7 +1040,7 @@ define ptr @lv_menu_get_cur_main_page(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_menu_get_cur_sidebar_page(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_menu_get_cur_sidebar_page(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1054,7 +1054,7 @@ define ptr @lv_menu_get_cur_sidebar_page(ptr noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_menu_get_main_header(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_menu_get_main_header(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1068,7 +1068,7 @@ define ptr @lv_menu_get_main_header(ptr noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_menu_get_main_header_back_button(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_menu_get_main_header_back_button(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1082,7 +1082,7 @@ define ptr @lv_menu_get_main_header_back_button(ptr noundef readonly %0) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_menu_get_sidebar_header(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_menu_get_sidebar_header(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1096,7 +1096,7 @@ define ptr @lv_menu_get_sidebar_header(ptr noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_menu_get_sidebar_header_back_button(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_menu_get_sidebar_header_back_button(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1110,7 +1110,7 @@ define ptr @lv_menu_get_sidebar_header_back_button(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef zeroext i1 @lv_menu_back_button_is_root(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #2 {
+define noundef zeroext i1 @lv_menu_back_button_is_root(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 

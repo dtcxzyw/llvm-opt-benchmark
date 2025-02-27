@@ -1418,7 +1418,7 @@ define void @free_html_data(ptr noundef readonly captures(none) %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define void @free_html_text(ptr noundef %0) local_unnamed_addr #0 {
+define void @free_html_text(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %27, label %2
 
@@ -1740,7 +1740,7 @@ define ptr @html_port(ptr noundef readonly captures(none) %0, ptr noundef readon
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal fastcc ptr @portToTbl(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #7 {
+define internal fastcc ptr @portToTbl(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !193
   %.not = icmp eq ptr %4, null

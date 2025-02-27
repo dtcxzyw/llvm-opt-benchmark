@@ -56,7 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.snprint_PKIStatusInfo_parts.1 = private unnamed_addr constant [27 x ptr] [ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44], align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_pkisi_get_status(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i32 @ossl_cmp_pkisi_get_status(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %2
 
@@ -107,7 +107,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_cmp_pkisi_get0_statusString(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @ossl_cmp_pkisi_get0_statusString(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2, !prof !10
 
@@ -122,7 +122,7 @@ define ptr @ossl_cmp_pkisi_get0_statusString(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_pkisi_get_pkifailureinfo(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i32 @ossl_cmp_pkisi_get_pkifailureinfo(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2, !prof !10
 
@@ -153,7 +153,7 @@ define i32 @ossl_cmp_pkisi_get_pkifailureinfo(ptr noundef readonly %0) local_unn
 declare i32 @ASN1_BIT_STRING_get_bit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_pkisi_check_pkifailureinfo(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @ossl_cmp_pkisi_check_pkifailureinfo(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %3
 
@@ -183,7 +183,7 @@ define i32 @ossl_cmp_pkisi_check_pkifailureinfo(ptr noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @OSSL_CMP_snprint_PKIStatusInfo(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @OSSL_CMP_snprint_PKIStatusInfo(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 

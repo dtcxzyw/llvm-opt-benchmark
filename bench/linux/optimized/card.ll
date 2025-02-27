@@ -511,7 +511,7 @@ define dso_local noundef i32 @pnp_add_card_device(ptr noundef %0, ptr noundef in
 declare dso_local void @__pnp_remove_device(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @pnp_request_card_device(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
+define dso_local noundef ptr @pnp_request_card_device(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %6 = and i1 %4, %5

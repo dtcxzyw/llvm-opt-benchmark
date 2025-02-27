@@ -9051,7 +9051,7 @@ _ZNSt10unique_ptrIN4llvm14InstrProfErrorESt14default_deleteIS1_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21readBinaryIdsInternalRKN4llvm12MemoryBufferENS_8ArrayRefIhEERSt6vectorINS_11SmallVectorIhLj10EEESaIS7_EENS_10endiannessE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) %0, ptr readnone %.16.val, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL21readBinaryIdsInternalRKN4llvm12MemoryBufferENS_8ArrayRefIhEERSt6vectorINS_11SmallVectorIhLj10EEESaIS7_EENS_10endiannessE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) %0, ptr readnone captures(address) %.16.val, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -13895,7 +13895,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm22IndexedInstrProfReader11readSummaryENS_16IndexedInstrProf11ProfVersionEPKhb(ptr noundef nonnull align 8 captures(none) dereferenceable(492) %0, i32 noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm22IndexedInstrProfReader11readSummaryENS_16IndexedInstrProf11ProfVersionEPKhb(ptr noundef nonnull align 8 captures(none) dereferenceable(492) %0, i32 noundef %1, ptr noundef readonly captures(ret: address, provenance) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::InstrProfSummaryBuilder", align 8
   %6 = alloca %"class.std::unique_ptr.40", align 8
   %7 = icmp sgt i32 %1, 3
@@ -16205,7 +16205,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_Pm(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.310") align 8 %0, ptr noundef nonnull align 8 dereferenceable(492) %1, ptr %2, i64 %3, i64 noundef %4, ptr noundef byval(%"class.llvm::StringRef") align 8 %5, ptr noundef writeonly %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_Pm(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.310") align 8 %0, ptr noundef nonnull align 8 dereferenceable(492) %1, ptr %2, i64 %3, i64 noundef %4, ptr noundef byval(%"class.llvm::StringRef") align 8 %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Error", align 8

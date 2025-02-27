@@ -3501,7 +3501,7 @@ _ZN7testing8internal10scoped_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef double @_ZN11opencv_testL14getMaxDistanceERSt3mapIiSt6vectorIN2cv6Point_IfEESaIS4_EESt4lessIiESaISt4pairIKiS6_EEERKS1_IiSaIiEERKS1_IS6_SaIS6_EE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN11opencv_testL14getMaxDistanceERSt3mapIiSt6vectorIN2cv6Point_IfEESaIS4_EESt4lessIiESaISt4pairIKiS6_EEERKS1_IiSaIiEERKS1_IS6_SaIS6_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::map.126", align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #33

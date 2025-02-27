@@ -406,7 +406,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4absl14flags_internal8FlagImpl12OneWordValueEv(ptr noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4absl14flags_internal8FlagImpl12OneWordValueEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = tail call noundef ptr %3(i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef null)
@@ -416,7 +416,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4absl14flag
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZNK4absl14flags_internal8FlagImpl17AtomicBufferValueEv(ptr noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZNK4absl14flags_internal8FlagImpl17AtomicBufferValueEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = tail call noundef ptr %3(i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef null)
@@ -426,7 +426,7 @@ define dso_local noundef nonnull ptr @_ZNK4absl14flags_internal8FlagImpl17Atomic
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4absl14flags_internal8FlagImpl10PtrStorageEv(ptr noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4absl14flags_internal8FlagImpl10PtrStorageEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = tail call noundef ptr %3(i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef null)
@@ -462,7 +462,7 @@ _ZN4absl9call_onceIMNS_14flags_internal8FlagImplEFvvEJPS2_EEEvRNS_9once_flagEOT_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.absl::AlphaNum", align 8
   %6 = alloca %"class.absl::AlphaNum", align 8
@@ -2271,7 +2271,7 @@ _ZN4absl9MutexLockD2Ev.exit8:                     ; preds = %40
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl14flags_internal8FlagImpl8TryParseESt17basic_string_viewIcSt11char_traitsIcEERNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4absl14flags_internal8FlagImpl8TryParseESt17basic_string_viewIcSt11char_traitsIcEERNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %2, ptr %3, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [7 x %"class.std::basic_string_view"], align 8
   %7 = alloca %"class.std::basic_string_view", align 8
   %8 = alloca %"class.std::unique_ptr", align 8
@@ -3149,7 +3149,7 @@ _ZN4absl9MutexLockD2Ev.exit42:                    ; preds = %139
 declare void @_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumES2_S2_S2_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal8FlagImpl9ParseFromESt17basic_string_viewIcSt11char_traitsIcEENS0_15FlagSettingModeENS0_11ValueSourceERNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, ptr %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal8FlagImpl9ParseFromESt17basic_string_viewIcSt11char_traitsIcEENS0_15FlagSettingModeENS0_11ValueSourceERNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, ptr %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca { i64, i64 }, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.std::unique_ptr", align 8

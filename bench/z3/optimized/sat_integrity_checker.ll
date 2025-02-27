@@ -458,7 +458,7 @@ return:                                           ; preds = %if.then6.i95, %for.
 declare noundef i32 @_ZNK3sat6solver6statusERKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(4408), ptr noundef nonnull align 4 dereferenceable(20)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK3sat17integrity_checker13check_clausesEPKPNS_6clauseES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly %begin, ptr noundef readnone %end) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK3sat17integrity_checker13check_clausesEPKPNS_6clauseES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(address) %begin, ptr noundef readnone captures(address) %end) local_unnamed_addr #4 align 2 {
 entry:
   %cmp.not3 = icmp eq ptr %begin, %end
   br i1 %cmp.not3, label %for.end, label %for.body

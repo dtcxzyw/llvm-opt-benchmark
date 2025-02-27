@@ -195,7 +195,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18printEscapedStringENS_9StringRefERNS_11raw_ostreamE(ptr readonly %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18printEscapedStringENS_9StringRefERNS_11raw_ostreamE(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %.not33 = icmp samesign eq i64 %1, 0
   br i1 %.not33, label %._crit_edge, label %.lr.ph
@@ -339,7 +339,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %64, %62, %35, %33, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16printHTMLEscapedENS_9StringRefERNS_11raw_ostreamE(ptr readonly %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm16printHTMLEscapedENS_9StringRefERNS_11raw_ostreamE(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %.not31 = icmp samesign eq i64 %1, 0
   br i1 %.not31, label %._crit_edge, label %.lr.ph
@@ -486,7 +486,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %74, %72, %66, %64, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14printLowerCaseENS_9StringRefERNS_11raw_ostreamE(ptr readonly %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm14printLowerCaseENS_9StringRefERNS_11raw_ostreamE(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %.not9 = icmp samesign eq i64 %1, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph

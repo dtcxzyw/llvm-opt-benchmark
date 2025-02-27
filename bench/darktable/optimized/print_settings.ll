@@ -4695,7 +4695,7 @@ declare ptr @dtgtk_togglebutton_new(ptr noundef, i32 noundef, ptr noundef) local
 declare void @dtgtk_cairo_paint_alignment(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_alignment_callback(ptr noundef readnone %0, ptr noundef %1) #1 {
+define internal void @_alignment_callback(ptr noundef readnone captures(address) %0, ptr noundef %1) #1 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load i32, ptr %4, align 8, !tbaa !62
@@ -5211,7 +5211,7 @@ define internal void @_style_mode_changed(ptr readnone captures(none) %0, ptr no
 declare void @gtk_widget_set_visible(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_style_label(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @_update_style_label(ptr noundef captures(address_is_null) %0, ptr noundef %1) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %52, label %3
 

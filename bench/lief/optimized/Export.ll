@@ -1128,7 +1128,7 @@ _ZNSt6vectorIN4LIEF2PE11ExportEntryESaIS2_EE9push_backERKS2_.exit: ; preds = %7,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN4LIEF2PE6Export12remove_entryERKNS0_11ExportEntryE(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, ptr noundef nonnull readnone align 8 dereferenceable(136) %1) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4LIEF2PE6Export12remove_entryERKNS0_11ExportEntryE(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(136) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64

@@ -3820,7 +3820,7 @@ define internal void @q931_calls_draw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @change_call_num_graph(ptr readonly %.88.val, i16 noundef zeroext %0, i16 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc i32 @change_call_num_graph(ptr readonly captures(address_is_null) %.88.val, i16 noundef zeroext %0, i16 noundef zeroext %1) unnamed_addr #0 {
   %.not = icmp eq ptr %.88.val, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -7752,7 +7752,7 @@ declare ptr @g_string_assign(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @g_string_truncate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal range(i32 0, 2) i32 @skinny_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @skinny_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 %4) #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -16
   %8 = inttoptr i64 %7 to ptr
@@ -8076,7 +8076,7 @@ define internal void @skinny_calls_draw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal range(i32 0, 2) i32 @iax2_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @iax2_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 %4) #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -4
   %8 = inttoptr i64 %7 to ptr

@@ -27,7 +27,7 @@ define noalias noundef ptr @SUNAdaptController_NewEmpty(ptr noundef %0) local_un
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @SUNAdaptController_DestroyEmpty(ptr noundef %0) local_unnamed_addr #2 {
+define void @SUNAdaptController_DestroyEmpty(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 

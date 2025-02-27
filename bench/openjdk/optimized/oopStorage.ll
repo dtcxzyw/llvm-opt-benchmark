@@ -247,7 +247,7 @@ define hidden void @_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK10OopStorage14AllocationList8containsERKNS_5BlockE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(576) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK10OopStorage14AllocationList8containsERKNS_5BlockE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(576) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %4 = load ptr, ptr %3, align 8
   %.not = icmp ne ptr %4, null
@@ -550,7 +550,7 @@ define hidden void @_ZN10OopStorage5Block25set_deferred_updates_nextEPS0_(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK10OopStorage5Block8containsEPKP7oopDesc(ptr noundef nonnull readnone align 8 dereferenceable(576) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK10OopStorage5Block8containsEPKP7oopDesc(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(576) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 align 2 {
   %3 = icmp ule ptr %0, %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %5 = icmp ult ptr %1, %4

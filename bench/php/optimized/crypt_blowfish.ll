@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @BF_atoi64 = internal unnamed_addr constant [96 x i8] c"@@@@@@@@@@@@@@\00\016789:;<=>?@@@@@@@\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B@@@@@@\1C\1D\1E\1F !\22#$%&'()*+,-./012345@@@@@", align 16
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @php_crypt_blowfish_rn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden noundef ptr @php_crypt_blowfish_rn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address, ret: address, provenance) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.anon, align 1
   %6 = alloca [18 x i32], align 16
   %7 = alloca [18 x i32], align 16
@@ -263,7 +263,7 @@ _crypt_output_magic.exit57:                       ; preds = %99, %100, %105, %10
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @BF_crypt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef range(i32 1, 17) %4) unnamed_addr #2 {
+define internal fastcc noundef ptr @BF_crypt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(ret: address, provenance) %2, i32 noundef %3, i32 noundef range(i32 1, 17) %4) unnamed_addr #2 {
   %6 = alloca %struct.anon.0, align 4
   call void @llvm.lifetime.start.p0(i64 4264, ptr nonnull %6) #9
   %7 = icmp slt i32 %3, 61

@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZL8gNullStr = internal constant [7 x i16] [i16 40, i16 110, i16 117, i16 108, i16 108, i16 41, i16 0], align 2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_printf_parse_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
+define i32 @u_printf_parse_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca %union.ufmt_args, align 8
   %9 = alloca %struct.u_printf_spec, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9

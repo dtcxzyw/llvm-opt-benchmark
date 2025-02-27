@@ -280,7 +280,7 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @libpq_fetch_file(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) #0 {
+define internal ptr @libpq_fetch_file(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 {
   %4 = alloca [1 x ptr], align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8

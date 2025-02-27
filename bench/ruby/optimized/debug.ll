@@ -124,7 +124,7 @@ define dso_local noundef i64 @ruby_debug_print_id(i32 noundef %0, i32 noundef %1
 declare ptr @rb_id2name(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @ruby_debug_print_node(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly returned %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @ruby_debug_print_node(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly returned captures(ret: address, provenance) %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %0, %1
   br i1 %5, label %nd_line.exit, label %26
 

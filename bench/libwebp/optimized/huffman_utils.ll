@@ -36,7 +36,7 @@ define hidden void @VP8LHtreeGroupsFree(ptr noundef %0) local_unnamed_addr #0 {
 declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @VP8LBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden i32 @VP8LBuildHuffmanTable(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [512 x i16], align 16
   %6 = tail call fastcc i32 @BuildHuffmanTable(ptr noundef null, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null)
   %7 = icmp eq i32 %6, 0
@@ -120,7 +120,7 @@ define hidden i32 @VP8LBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #3 {
+define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #3 {
   %6 = alloca [16 x i32], align 16
   %7 = alloca [16 x i32], align 16
   %8 = shl nuw i32 1, %1
@@ -684,7 +684,7 @@ define hidden range(i32 0, 2) i32 @VP8LHuffmanTablesAllocate(i32 noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LHuffmanTablesDeallocate(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @VP8LHuffmanTablesDeallocate(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 

@@ -4523,7 +4523,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost20read_gr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost20read_graphviz_detail15props_to_stringERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost20read_graphviz_detail15props_to_stringERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4950,7 +4950,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost20read_graphviz_detail26translate_results_to_graphERKNS0_13parser_resultEPNS_6detail5graph12mutate_graphE(ptr noundef nonnull readonly align 8 dereferenceable(128) %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost20read_graphviz_detail26translate_results_to_graphERKNS0_13parser_resultEPNS_6detail5graph12mutate_graphE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(128) %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::detail::graph::edge_t", align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32

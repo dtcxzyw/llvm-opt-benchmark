@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.a7a9fefc7a091c1942cec375bb75d85f.12 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr104drop_in_place$LT$$RF$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$17hce755468282973cfE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h636ec27650d2a5e5E" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 8 ptr @_ZN17pyo3_build_config6errors5Error6report17h55505fb5dfbd4c47E(ptr readnone returned align 8 %0) unnamed_addr #0 {
+define align 8 ptr @_ZN17pyo3_build_config6errors5Error6report17h55505fb5dfbd4c47E(ptr readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #0 {
   ret ptr %0
 }
 

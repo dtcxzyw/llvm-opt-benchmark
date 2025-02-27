@@ -117,7 +117,7 @@ dsa_gen_cleanup.exit:                             ; preds = %8, %18, %.split, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dsa_gen_set_template(ptr noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @dsa_gen_set_template(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @ossl_prov_is_running() #7
   %4 = icmp eq i32 %3, 0
   %5 = icmp eq ptr %0, null
@@ -330,7 +330,7 @@ define internal noundef nonnull ptr @dsa_gen_settable_params(ptr readnone captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @dsa_gen_get_params(ptr noundef readnone %0, ptr readonly captures(none) %1) #1 {
+define internal range(i32 0, 2) i32 @dsa_gen_get_params(ptr noundef readnone captures(address_is_null) %0, ptr readonly captures(none) %1) #1 {
 ossl_param_is_empty.exit:
   %2 = icmp ne ptr %0, null
   %.0 = zext i1 %2 to i32

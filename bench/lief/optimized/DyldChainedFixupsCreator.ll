@@ -5172,7 +5172,7 @@ declare void @_ZN4LIEF5MachO15RelocationFixup4nextEj(ptr noundef nonnull align 8
 declare noundef ptr @_ZN4LIEF5MachO6Binary3addESt10unique_ptrINS0_11LoadCommandESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(488), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN4LIEF5MachO24DyldChainedFixupsCreator14add_relocationEmm(ptr noundef nonnull returned align 8 dereferenceable(168) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN4LIEF5MachO24DyldChainedFixupsCreator14add_relocationEmm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(168) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !336

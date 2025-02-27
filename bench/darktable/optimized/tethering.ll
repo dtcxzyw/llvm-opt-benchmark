@@ -90,7 +90,7 @@ define void @init(ptr noundef initializes((288, 296)) %0) local_unnamed_addr #3 
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_capture_view_get_jobcode(ptr noundef readonly %0) #1 {
+define internal ptr @_capture_view_get_jobcode(ptr noundef readonly captures(address_is_null) %0) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3, !prof !78
 
@@ -108,7 +108,7 @@ define internal ptr @_capture_view_get_jobcode(ptr noundef readonly %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_capture_view_set_jobcode(ptr noundef readonly %0, ptr noundef %1) #1 {
+define internal void @_capture_view_set_jobcode(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4, !prof !78
 
@@ -131,7 +131,7 @@ define internal void @_capture_view_set_jobcode(ptr noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_capture_view_get_selected_imgid(ptr noundef readonly %0) #1 {
+define internal i32 @_capture_view_get_selected_imgid(ptr noundef readonly captures(address_is_null) %0) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3, !prof !78
 

@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.fetch_att = private unnamed_addr constant [10 x i8] c"fetch_att\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 noundef signext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef readonly captures(none) %15, ptr noundef readonly captures(none) %16, ptr noundef readonly captures(none) %17, ptr noundef readonly captures(none) %18, i32 noundef %19, i8 noundef signext %20, i8 noundef signext %21, ptr noundef readonly captures(none) %22, i32 noundef %23, i8 noundef signext %24, ptr noundef readonly %25, ptr noundef %26, ptr noundef %27, i1 noundef zeroext %28, i16 noundef signext %29, i1 noundef zeroext %30, i1 noundef zeroext %31, i1 noundef zeroext %32) local_unnamed_addr #0 {
+define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 noundef signext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef readonly captures(none) %15, ptr noundef readonly captures(none) %16, ptr noundef readonly captures(none) %17, ptr noundef readonly captures(none) %18, i32 noundef %19, i8 noundef signext %20, i8 noundef signext %21, ptr noundef readonly captures(none) %22, i32 noundef %23, i8 noundef signext %24, ptr noundef readonly captures(address_is_null) %25, ptr noundef %26, ptr noundef %27, i1 noundef zeroext %28, i16 noundef signext %29, i1 noundef zeroext %30, i1 noundef zeroext %31, i1 noundef zeroext %32) local_unnamed_addr #0 {
   %34 = alloca [28 x i8], align 16
   %35 = alloca [28 x i64], align 16
   %36 = alloca %struct.nameData, align 1
@@ -698,7 +698,7 @@ define dso_local zeroext i1 @ConstraintNameExists(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ChooseConstraintName(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define dso_local ptr @ChooseConstraintName(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca [64 x i8], align 16
   %7 = alloca [2 x %struct.ScanKeyData], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #11
@@ -2271,7 +2271,7 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @DeconstructFkConstraintRow(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly %8) local_unnamed_addr #0 {
+define dso_local void @DeconstructFkConstraintRow(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #0 {
   %10 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #11
   %11 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 19, ptr noundef %0, i16 noundef signext 21) #11
@@ -2657,7 +2657,7 @@ declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 declare void @GetOperatorFromCompareType(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @check_functional_grouping(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @check_functional_grouping(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   %7 = call ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext false, ptr noundef nonnull %6)

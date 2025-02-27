@@ -4681,7 +4681,7 @@ declare dso_local ptr @xa_store(ptr noundef, i64 noundef, ptr noundef, i32 nound
 declare dso_local i32 @i915_sw_fence_await_active(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @kill_engines(ptr noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc void @kill_engines(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %0, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72

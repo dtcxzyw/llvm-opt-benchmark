@@ -473,7 +473,7 @@ declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noun
 declare void @lv_line_set_points_mutable(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_scale_set_image_needle_value(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_scale_set_image_needle_value(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 
@@ -633,7 +633,7 @@ define nonnull ptr @lv_scale_add_section(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @lv_ll_ins_head(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_scale_set_section_range(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @lv_scale_set_section_range(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %5
 
@@ -657,7 +657,7 @@ define void @lv_scale_set_section_range(ptr noundef %0, ptr noundef writeonly %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_scale_section_set_range(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @lv_scale_section_set_range(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -673,7 +673,7 @@ define void @lv_scale_section_set_range(ptr noundef writeonly %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_scale_set_section_style_main(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @lv_scale_set_section_style_main(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 
@@ -694,7 +694,7 @@ define void @lv_scale_set_section_style_main(ptr noundef %0, ptr noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_scale_set_section_style_indicator(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @lv_scale_set_section_style_indicator(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 
@@ -716,7 +716,7 @@ define void @lv_scale_set_section_style_indicator(ptr noundef %0, ptr noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_scale_set_section_style_items(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @lv_scale_set_section_style_items(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 
@@ -738,7 +738,7 @@ define void @lv_scale_set_section_style_items(ptr noundef %0, ptr noundef writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_scale_section_set_style(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @lv_scale_section_set_style(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %11, label %5
 

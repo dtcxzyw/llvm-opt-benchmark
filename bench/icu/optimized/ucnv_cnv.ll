@@ -25,7 +25,7 @@ define void @ucnv_getNonSurrogateUnicodeSet_77(ptr noundef readnone captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ucnv_fromUWriteBytes_77(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef readnone %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #1 {
+define void @ucnv_fromUWriteBytes_77(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef readnone captures(address) %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #1 {
   %9 = load ptr, ptr %3, align 8, !tbaa !10
   %10 = icmp eq ptr %5, null
   br i1 %10, label %17, label %11
@@ -126,7 +126,7 @@ define void @ucnv_fromUWriteBytes_77(ptr noundef writeonly %0, ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ucnv_toUWriteUChars_77(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef readnone %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #1 {
+define void @ucnv_toUWriteUChars_77(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef readnone captures(address) %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #1 {
   %9 = load ptr, ptr %3, align 8, !tbaa !27
   %10 = icmp eq ptr %5, null
   br i1 %10, label %17, label %11
@@ -227,7 +227,7 @@ define void @ucnv_toUWriteUChars_77(ptr noundef writeonly %0, ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ucnv_toUWriteCodePoint_77(ptr noundef writeonly %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef readnone %3, ptr noundef %4, i32 noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #2 {
+define void @ucnv_toUWriteCodePoint_77(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef readnone captures(address) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #2 {
   %8 = load ptr, ptr %2, align 8, !tbaa !27
   %9 = icmp ult ptr %8, %3
   br i1 %9, label %10, label %33

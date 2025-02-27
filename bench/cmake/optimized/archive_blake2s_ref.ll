@@ -95,7 +95,7 @@ blake2s_init_param.exit:                          ; preds = %12
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @blake2s_init_key(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @blake2s_init_key(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = alloca [1 x %struct.blake2s_param__], align 16
   %6 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
@@ -1554,7 +1554,7 @@ define internal fastcc void @blake2s_compress(ptr noundef captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @blake2s_final(ptr noundef captures(none) %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @blake2s_final(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -1643,7 +1643,7 @@ blake2s_set_lastblock.exit:                       ; preds = %12, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @blake2s(ptr noundef writeonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @blake2s(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5) local_unnamed_addr #3 {
   %7 = alloca [32 x i8], align 16
   %8 = alloca [1 x %struct.blake2s_param__], align 16
   %9 = alloca [1 x %struct.blake2s_param__], align 16

@@ -9559,7 +9559,7 @@ _ZN7rocksdb6StatusD2Ev.exit27:                    ; preds = %95, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb27ExternalSstFileIngestionJob23AssignLevelsForOneBatchERNS_13FileBatchInfoEPNS_12SuperVersionEbPmPiSt8optionalIiE(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(9696) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(169) %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4, ptr noundef captures(none) %5, ptr noundef captures(none) initializes((0, 4)) %6, i64 %7) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb27ExternalSstFileIngestionJob23AssignLevelsForOneBatchERNS_13FileBatchInfoEPNS_12SuperVersionEbPmPiSt8optionalIiE(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %0, ptr noundef nonnull align 8 dereferenceable(9696) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(169) %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4, ptr noundef captures(none) %5, ptr noundef captures(none) initializes((0, 4)) %6, i64 %7) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.rocksdb::Status", align 8
   %10 = alloca i64, align 8
   %11 = alloca %"class.rocksdb::Status", align 8
@@ -13844,7 +13844,7 @@ _ZNSt10unique_ptrIN7rocksdb14FSRandomRWFileESt14default_deleteIS1_EED2Ev.exit84:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb27ExternalSstFileIngestionJob31GenerateChecksumForIngestedFileEPNS_16IngestedFileInfoE(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef nonnull align 8 dereferenceable(9696) %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb27ExternalSstFileIngestionJob31GenerateChecksumForIngestedFileEPNS_16IngestedFileInfoE(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::IOStatus") align 8 captures(address) %0, ptr noundef nonnull align 8 dereferenceable(9696) %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16741,7 +16741,7 @@ _ZN7rocksdb6StatusD2Ev.exit31:                    ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb27ExternalSstFileIngestionJob16ResetTableReaderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmbPNS_12SuperVersionEPNS_16IngestedFileInfoEPSt10unique_ptrINS_11TableReaderESt14default_deleteISE_EE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(9696) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef captures(none) %6, ptr noundef %7) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb27ExternalSstFileIngestionJob16ResetTableReaderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmbPNS_12SuperVersionEPNS_16IngestedFileInfoEPSt10unique_ptrINS_11TableReaderESt14default_deleteISE_EE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 captures(address) %0, ptr noundef nonnull align 8 dereferenceable(9696) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef captures(none) %6, ptr noundef %7) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca %"class.std::unique_ptr.516", align 8
   %11 = alloca %"struct.rocksdb::FileOptions", align 8

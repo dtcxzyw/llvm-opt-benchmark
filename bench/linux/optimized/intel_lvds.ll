@@ -92,7 +92,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @intel_get_lvds_encoder(ptr noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local ptr @intel_get_lvds_encoder(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 688
   br label %3
 
@@ -118,7 +118,7 @@ define dso_local ptr @intel_get_lvds_encoder(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef zeroext i1 @intel_is_dual_link_lvds(ptr noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef zeroext i1 @intel_is_dual_link_lvds(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 688
   br label %3
 

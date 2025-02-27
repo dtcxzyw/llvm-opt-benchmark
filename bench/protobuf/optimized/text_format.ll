@@ -2236,7 +2236,7 @@ return:                                           ; preds = %lor.rhs, %_ZNK4absl
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN6google8protobuf10TextFormat6Parser19UnsetFieldsMetadata20GetUnsetFieldAddressERKNS0_7MessageERKNS0_10ReflectionERKNS0_15FieldDescriptorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %message, ptr noundef nonnull align 8 dereferenceable(112) %reflection, ptr noundef nonnull align 8 dereferenceable(88) %fd) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN6google8protobuf10TextFormat6Parser19UnsetFieldsMetadata20GetUnsetFieldAddressERKNS0_7MessageERKNS0_10ReflectionERKNS0_15FieldDescriptorE(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %message, ptr noundef nonnull align 8 dereferenceable(112) %reflection, ptr noundef nonnull align 8 dereferenceable(88) %fd) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %schema_.i = getelementptr inbounds nuw i8, ptr %reflection, i64 8
   %call.i = tail call noundef i32 @_ZNK6google8protobuf8internal16ReflectionSchema14GetFieldOffsetEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(72) %schema_.i, ptr noundef nonnull %fd)

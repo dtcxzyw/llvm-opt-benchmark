@@ -401,7 +401,7 @@ define hidden i32 @dissect_netlink_attributes_array(ptr noundef %0, i32 noundef 
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef i32 @dissect_netlink_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #1 {
+define hidden noundef i32 @dissect_netlink_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 {
   %7 = load i32, ptr @ett_netlink_msghdr, align 4
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 16, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.4)
   %9 = load i32, ptr @hf_netlink_hdr_len, align 4

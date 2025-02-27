@@ -2436,7 +2436,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4Luau16OverloadResolver14selectOverloadEPKNS_4TypeEPKNS_11TypePackVarEENK3$_0clES3_"(ptr %.0.val, ptr readonly captures(none) %.8.val, ptr noundef readonly %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN4Luau16OverloadResolver14selectOverloadEPKNS_4TypeEPKNS_11TypePackVarEENK3$_0clES3_"(ptr %.0.val, ptr readonly captures(none) %.8.val, ptr noundef readonly captures(address_is_null) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.Luau::SubtypingResult", align 8
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.thread, label %3
@@ -7340,7 +7340,7 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau16OverloadResolver9isLiteralEPNS_7AstExprE(ptr noundef readonly %0) local_unnamed_addr #11 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau16OverloadResolver9isLiteralEPNS_7AstExprE(ptr noundef readonly captures(address) %0) local_unnamed_addr #11 align 2 {
   %2 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprGroupEE5valueE, align 4, !tbaa !4
   %3 = load i32, ptr @_ZN4Luau7AstRttiINS_20AstExprTypeAssertionEE5valueE, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8701,7 +8701,7 @@ _ZNKSt13unordered_mapIPKN4Luau4TypeEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau17solveFunctionCallENS_7NotNullINS_9TypeArenaEEENS0_INS_12BuiltinTypesEEENS0_INS_19EqSatSimplification10SimplifierEEENS0_INS_10NormalizerEEENS0_INS_19TypeFunctionRuntimeEEENS0_INS_21InternalErrorReporterEEENS0_INS_15TypeCheckLimitsEEENS0_INS_5ScopeEEERKNS_8LocationEPKNS_4TypeEPKNS_11TypePackVarE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::SolveResult") align 8 %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5, i64 %6, i64 %7, i64 %8, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau17solveFunctionCallENS_7NotNullINS_9TypeArenaEEENS0_INS_12BuiltinTypesEEENS0_INS_19EqSatSimplification10SimplifierEEENS0_INS_10NormalizerEEENS0_INS_19TypeFunctionRuntimeEEENS0_INS_21InternalErrorReporterEEENS0_INS_15TypeCheckLimitsEEENS0_INS_5ScopeEEERKNS_8LocationEPKNS_4TypeEPKNS_11TypePackVarE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::SolveResult") align 8 captures(address) %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5, i64 %6, i64 %7, i64 %8, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %13 = alloca %"struct.Luau::Location", align 8
   %14 = alloca %"class.std::unique_ptr.277", align 8
   %15 = alloca %"struct.Luau::FunctionType", align 8

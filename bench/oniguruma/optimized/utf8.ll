@@ -212,7 +212,7 @@ define internal i32 @get_ctype_code_range(i32 noundef %0, ptr noundef writeonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal noundef ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef readonly %1) #2 {
+define internal noundef ptr @left_adjust_char_head(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) #2 {
   %.not = icmp ugt ptr %1, %0
   br i1 %.not, label %.preheader, label %.loopexit
 
@@ -233,7 +233,7 @@ define internal noundef ptr @left_adjust_char_head(ptr noundef readnone %0, ptr 
 declare i32 @onigenc_always_true_is_allowed_reverse_match(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0, ptr noundef readnone %1) #2 {
+define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) #2 {
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph21, label %.loopexit15
 

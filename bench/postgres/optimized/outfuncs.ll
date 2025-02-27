@@ -1812,7 +1812,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._outBoolExpr = private unnamed_addr constant [3 x ptr] [ptr @.str.144, ptr @.str.145, ptr @.str.146], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @outToken(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @outToken(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit.sink.split, label %4
 

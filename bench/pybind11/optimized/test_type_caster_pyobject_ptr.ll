@@ -36378,7 +36378,7 @@ _ZN8pybind116detail15argument_loaderIJRKSt6vectorIP7_objectSaIS4_EEEED2Ev.exit26
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @"_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIP7_objectSaIS4_EEEE4callIiNS0_9void_typeERZ39test_submodule_type_caster_pyobject_ptrRNS_7module_EE4$_11EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESH_E4typeEOT1_"(ptr readonly %.0.val, ptr readnone %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @"_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIP7_objectSaIS4_EEEE4callIiNS0_9void_typeERZ39test_submodule_type_caster_pyobject_ptrRNS_7module_EE4$_11EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESH_E4typeEOT1_"(ptr readonly captures(address) %.0.val, ptr readnone captures(address) %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.pybind11::detail::type_caster.373", align 4
   %2 = alloca %"class.pybind11::detail::accessor.280", align 8
   %3 = alloca %"class.pybind11::object", align 8

@@ -1447,7 +1447,7 @@ declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare i32 @ASN1_bn_print(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsa_pss_param_print(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rsa_pss_param_print(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %3, i32 noundef 128) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %101, label %6

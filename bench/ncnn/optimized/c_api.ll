@@ -337,7 +337,7 @@ declare noundef ptr @_ZN4ncnn21UnlockedPoolAllocator10fastMallocEm(ptr noundef n
 declare void @_ZN4ncnn21UnlockedPoolAllocator8fastFreeEPv(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @ncnn_allocator_destroy(ptr noundef %0) local_unnamed_addr #9 {
+define hidden void @ncnn_allocator_destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -427,7 +427,7 @@ define hidden void @ncnn_option_set_use_local_pool_allocator(ptr noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ncnn_option_set_blob_allocator(ptr noundef writeonly captures(none) initializes((8, 16)) %0, ptr noundef readonly %1) local_unnamed_addr #13 {
+define hidden void @ncnn_option_set_blob_allocator(ptr noundef writeonly captures(none) initializes((8, 16)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -443,7 +443,7 @@ define hidden void @ncnn_option_set_blob_allocator(ptr noundef writeonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ncnn_option_set_workspace_allocator(ptr noundef writeonly captures(none) initializes((16, 24)) %0, ptr noundef readonly %1) local_unnamed_addr #13 {
+define hidden void @ncnn_option_set_workspace_allocator(ptr noundef writeonly captures(none) initializes((16, 24)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -480,7 +480,7 @@ define hidden noalias noundef nonnull ptr @ncnn_mat_create() local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_create_1d(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_create_1d(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
@@ -512,7 +512,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %6
 declare void @_ZN4ncnn3Mat6createEimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_create_2d(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_create_2d(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
@@ -544,7 +544,7 @@ _ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit:           ; preds = %7
 declare void @_ZN4ncnn3Mat6createEiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_create_3d(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_create_3d(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %6
@@ -576,7 +576,7 @@ _ZN4ncnn3MatC2EiiimPNS_9AllocatorE.exit:          ; preds = %8
 declare void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_create_4d(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_create_4d(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %7
@@ -608,7 +608,7 @@ _ZN4ncnn3MatC2EiiiimPNS_9AllocatorE.exit:         ; preds = %9
 declare void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_1d(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_1d(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
@@ -645,7 +645,7 @@ define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_1d(i32 nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_2d(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_2d(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %6
@@ -684,7 +684,7 @@ define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_2d(i32 nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_3d(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_3d(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %7
@@ -725,7 +725,7 @@ define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_3d(i32 nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_4d(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_4d(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %8
@@ -768,7 +768,7 @@ define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_4d(i32 nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_create_1d_elem(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_create_1d_elem(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %6
@@ -800,7 +800,7 @@ _ZN4ncnn3MatC2EimiPNS_9AllocatorE.exit:           ; preds = %8
 declare void @_ZN4ncnn3Mat6createEimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_create_2d_elem(i32 noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_create_2d_elem(i32 noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %7
@@ -832,7 +832,7 @@ _ZN4ncnn3MatC2EiimiPNS_9AllocatorE.exit:          ; preds = %9
 declare void @_ZN4ncnn3Mat6createEiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_create_3d_elem(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_create_3d_elem(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %8
@@ -864,7 +864,7 @@ _ZN4ncnn3MatC2EiiimiPNS_9AllocatorE.exit:         ; preds = %10
 declare void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_create_4d_elem(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef readonly %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_create_4d_elem(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %8 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %9
@@ -896,7 +896,7 @@ _ZN4ncnn3MatC2EiiiimiPNS_9AllocatorE.exit:        ; preds = %11
 declare void @_ZN4ncnn3Mat6createEiiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_1d_elem(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_1d_elem(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %7
@@ -933,7 +933,7 @@ define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_1d_elem(i32 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_2d_elem(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_2d_elem(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %8
@@ -972,7 +972,7 @@ define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_2d_elem(i32 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_3d_elem(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef readonly %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_3d_elem(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %8 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %9
@@ -1015,7 +1015,7 @@ define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_3d_elem(i32 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_4d_elem(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef readonly %7) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_4d_elem(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %9 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %10
@@ -1153,7 +1153,7 @@ _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_clone(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_clone(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
@@ -1180,7 +1180,7 @@ define hidden noundef nonnull ptr @ncnn_mat_clone(ptr noundef %0, ptr noundef re
 declare void @_ZNK4ncnn3Mat5cloneEPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_reshape_1d(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_reshape_1d(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
@@ -1207,7 +1207,7 @@ define hidden noundef nonnull ptr @ncnn_mat_reshape_1d(ptr noundef %0, i32 nound
 declare void @_ZNK4ncnn3Mat7reshapeEiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_reshape_2d(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_reshape_2d(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %6
@@ -1234,7 +1234,7 @@ define hidden noundef nonnull ptr @ncnn_mat_reshape_2d(ptr noundef %0, i32 nound
 declare void @_ZNK4ncnn3Mat7reshapeEiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_reshape_3d(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_reshape_3d(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %7
@@ -1261,7 +1261,7 @@ define hidden noundef nonnull ptr @ncnn_mat_reshape_3d(ptr noundef %0, i32 nound
 declare void @_ZNK4ncnn3Mat7reshapeEiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_reshape_4d(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_reshape_4d(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %8
@@ -1365,7 +1365,7 @@ _ZN4ncnn3MatD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_from_pixels(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_from_pixels(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %8
@@ -1392,7 +1392,7 @@ define hidden noundef nonnull ptr @ncnn_mat_from_pixels(ptr noundef %0, i32 noun
 declare void @_ZN4ncnn3Mat11from_pixelsEPKhiiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_from_pixels_resize(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_from_pixels_resize(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %9 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %10
@@ -1419,7 +1419,7 @@ define hidden noundef nonnull ptr @ncnn_mat_from_pixels_resize(ptr noundef %0, i
 declare void @_ZN4ncnn3Mat18from_pixels_resizeEPKhiiiiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_from_pixels_roi(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly %9) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_from_pixels_roi(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly captures(address_is_null) %9) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %11 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %14, label %12
@@ -1446,7 +1446,7 @@ define hidden noundef nonnull ptr @ncnn_mat_from_pixels_roi(ptr noundef %0, i32 
 declare void @_ZN4ncnn3Mat15from_pixels_roiEPKhiiiiiiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @ncnn_mat_from_pixels_roi_resize(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef readonly %11) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @ncnn_mat_from_pixels_roi_resize(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef readonly captures(address_is_null) %11) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %13 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %16, label %14
@@ -6923,7 +6923,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %59, %56, %65, %69, 
 declare noundef i32 @_ZN4ncnn9Extractor7extractEiRNS_3MatEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(72), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @ncnn_copy_make_border(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef nofpclass(nan inf) %7, ptr noundef readonly %8) local_unnamed_addr #1 {
+define hidden void @ncnn_copy_make_border(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef nofpclass(nan inf) %7, ptr noundef readonly captures(address_is_null) %8) local_unnamed_addr #1 {
   %10 = alloca %"class.ncnn::Option", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #28
   %.not = icmp eq ptr %8, null
@@ -6946,7 +6946,7 @@ define hidden void @ncnn_copy_make_border(ptr noundef %0, ptr noundef %1, i32 no
 declare void @_ZN4ncnn16copy_make_borderERKNS_3MatERS0_iiiiifRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, float noundef nofpclass(nan inf), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @ncnn_copy_make_border_3d(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, float noundef nofpclass(nan inf) %9, ptr noundef readonly %10) local_unnamed_addr #1 {
+define hidden void @ncnn_copy_make_border_3d(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, float noundef nofpclass(nan inf) %9, ptr noundef readonly captures(address_is_null) %10) local_unnamed_addr #1 {
   %12 = alloca %"class.ncnn::Option", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #28
   %.not = icmp eq ptr %10, null
@@ -6969,7 +6969,7 @@ define hidden void @ncnn_copy_make_border_3d(ptr noundef %0, ptr noundef %1, i32
 declare void @_ZN4ncnn19copy_make_border_3dERKNS_3MatERS0_iiiiiiifRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, float noundef nofpclass(nan inf), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @ncnn_copy_cut_border(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6) local_unnamed_addr #1 {
+define hidden void @ncnn_copy_cut_border(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #1 {
   %8 = alloca %"class.ncnn::Option", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #28
   %.not = icmp eq ptr %6, null
@@ -6992,7 +6992,7 @@ define hidden void @ncnn_copy_cut_border(ptr noundef %0, ptr noundef %1, i32 nou
 declare void @_ZN4ncnn15copy_cut_borderERKNS_3MatERS0_iiiiRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @ncnn_copy_cut_border_3d(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly %8) local_unnamed_addr #1 {
+define hidden void @ncnn_copy_cut_border_3d(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8) local_unnamed_addr #1 {
   %10 = alloca %"class.ncnn::Option", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #28
   %.not = icmp eq ptr %8, null

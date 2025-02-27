@@ -70,7 +70,7 @@ define noundef i64 @unscale_lu(ptr noundef readonly captures(none) %0, ptr nound
 declare void @OSQPVectorf_ew_prod(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @adjoint_derivative_get_mat(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define i64 @adjoint_derivative_get_mat(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %4
 
@@ -241,7 +241,7 @@ declare void @OSQPVectorf_view_free(ptr noundef) local_unnamed_addr #1
 declare void @OSQPVectorf_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @adjoint_derivative_get_vec(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i64 @adjoint_derivative_get_vec(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %5
 
@@ -313,7 +313,7 @@ declare void @OSQPVectorf_to_raw(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @OSQPVectorf_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @adjoint_derivative_compute(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %5
 

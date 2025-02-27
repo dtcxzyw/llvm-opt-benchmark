@@ -480,7 +480,7 @@ declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @pbl_get_node_full_name(ptr noundef %0) local_unnamed_addr #0 {
+define hidden ptr @pbl_get_node_full_name(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.lr.ph
 
@@ -568,13 +568,13 @@ tailrecurse:                                      ; preds = %check_node_depth.ex
 declare noalias ptr @g_strconcat(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef ptr @pbl_message_descriptor_pool_FindMethodByName(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @pbl_message_descriptor_pool_FindMethodByName(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @pbl_find_node_in_pool(ptr noundef %0, ptr noundef %1, i32 noundef 9)
   ret ptr %3
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef ptr @pbl_find_node_in_pool(ptr noundef readonly %0, ptr noundef %1, i32 noundef range(i32 2, 10) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @pbl_find_node_in_pool(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef range(i32 2, 10) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -700,13 +700,13 @@ define hidden ptr @pbl_method_descriptor_name(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @pbl_method_descriptor_full_name(ptr noundef %0) local_unnamed_addr #0 {
+define hidden ptr @pbl_method_descriptor_full_name(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pbl_get_node_full_name(ptr noundef %0)
   ret ptr %2
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef ptr @pbl_method_descriptor_input_type(ptr noundef %0) local_unnamed_addr #0 {
+define hidden noundef ptr @pbl_method_descriptor_input_type(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc ptr @pbl_find_node_in_context(ptr noundef %0, ptr noundef %3, i32 noundef 2)
@@ -714,7 +714,7 @@ define hidden noundef ptr @pbl_method_descriptor_input_type(ptr noundef %0) loca
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef ptr @pbl_find_node_in_context(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 2, 7) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @pbl_find_node_in_context(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef range(i32 2, 7) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -808,7 +808,7 @@ define internal fastcc noundef ptr @pbl_find_node_in_context(ptr noundef %0, ptr
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef ptr @pbl_method_descriptor_output_type(ptr noundef %0) local_unnamed_addr #0 {
+define hidden noundef ptr @pbl_method_descriptor_output_type(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc ptr @pbl_find_node_in_context(ptr noundef %0, ptr noundef %3, i32 noundef 2)
@@ -816,7 +816,7 @@ define hidden noundef ptr @pbl_method_descriptor_output_type(ptr noundef %0) loc
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef ptr @pbl_message_descriptor_pool_FindMessageTypeByName(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @pbl_message_descriptor_pool_FindMessageTypeByName(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @pbl_find_node_in_pool(ptr noundef %0, ptr noundef %1, i32 noundef 2)
   ret ptr %3
 }
@@ -829,13 +829,13 @@ define hidden ptr @pbl_message_descriptor_name(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @pbl_message_descriptor_full_name(ptr noundef %0) local_unnamed_addr #0 {
+define hidden ptr @pbl_message_descriptor_full_name(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pbl_get_node_full_name(ptr noundef %0)
   ret ptr %2
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @pbl_message_descriptor_field_count(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @pbl_message_descriptor_field_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -858,7 +858,7 @@ define hidden i32 @pbl_message_descriptor_field_count(ptr noundef readonly %0) l
 declare i32 @g_queue_get_length(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @pbl_message_descriptor_field(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @pbl_message_descriptor_field(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
 
@@ -881,7 +881,7 @@ define hidden ptr @pbl_message_descriptor_field(ptr noundef readonly %0, i32 nou
 declare ptr @g_queue_peek_nth(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @pbl_message_descriptor_FindFieldByNumber(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @pbl_message_descriptor_FindFieldByNumber(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -903,7 +903,7 @@ define hidden ptr @pbl_message_descriptor_FindFieldByNumber(ptr noundef readonly
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @pbl_message_descriptor_FindFieldByName(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden ptr @pbl_message_descriptor_FindFieldByName(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
 
@@ -923,7 +923,7 @@ define hidden ptr @pbl_message_descriptor_FindFieldByName(ptr noundef readonly %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @pbl_field_descriptor_full_name(ptr noundef %0) local_unnamed_addr #0 {
+define hidden ptr @pbl_field_descriptor_full_name(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pbl_get_node_full_name(ptr noundef %0)
   ret ptr %2
 }
@@ -1309,7 +1309,7 @@ pbl_field_descriptor_enum_type.exit.thread:       ; preds = %pbl_field_descripto
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @pbl_enum_descriptor_FindValueByName(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden ptr @pbl_enum_descriptor_FindValueByName(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
 
@@ -1329,7 +1329,7 @@ define hidden ptr @pbl_enum_descriptor_FindValueByName(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @pbl_enum_descriptor_value(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @pbl_enum_descriptor_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
 
@@ -1356,13 +1356,13 @@ define hidden ptr @pbl_enum_descriptor_name(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @pbl_enum_descriptor_full_name(ptr noundef %0) local_unnamed_addr #0 {
+define hidden ptr @pbl_enum_descriptor_full_name(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pbl_get_node_full_name(ptr noundef %0)
   ret ptr %2
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @pbl_enum_descriptor_value_count(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @pbl_enum_descriptor_value_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -1382,7 +1382,7 @@ define hidden i32 @pbl_enum_descriptor_value_count(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @pbl_enum_descriptor_FindValueByNumber(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @pbl_enum_descriptor_FindValueByNumber(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -1411,7 +1411,7 @@ define hidden ptr @pbl_enum_value_descriptor_name(ptr noundef readonly captures(
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @pbl_enum_value_descriptor_full_name(ptr noundef %0) local_unnamed_addr #0 {
+define hidden ptr @pbl_enum_value_descriptor_full_name(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pbl_get_node_full_name(ptr noundef %0)
   ret ptr %2
 }
@@ -1544,7 +1544,7 @@ define hidden noalias noundef ptr @pbl_create_node(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef ptr @pbl_set_node_name(ptr noundef returned %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden noundef ptr @pbl_set_node_name(ptr noundef returned captures(ret: address, provenance) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5)
@@ -2154,7 +2154,7 @@ check_node_depth.exit:                            ; preds = %.preheader
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef ptr @pbl_merge_children(ptr noundef returned %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @pbl_merge_children(ptr noundef returned %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

@@ -21379,7 +21379,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(408) ptr @
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4moldL24read_retain_symbols_fileINS_6X86_64EEEvRNS_7ContextIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(4520) %0, i64 %1, ptr readonly %2) unnamed_addr #4 {
+define internal fastcc void @_ZN4moldL24read_retain_symbols_fileINS_6X86_64EEEvRNS_7ContextIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(4520) %0, i64 %1, ptr readonly captures(address_is_null) %2) unnamed_addr #4 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %4, align 8, !tbaa !30

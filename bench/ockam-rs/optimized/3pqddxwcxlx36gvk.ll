@@ -6084,7 +6084,7 @@ define void @_ZN10ockam_core7routing7message13local_message12LocalMessage12onwar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN10ockam_core7routing7message13local_message12LocalMessage16onward_route_ref17h32b7fb085ef150e1E(ptr noalias noundef readonly returned align 8 dereferenceable(168) %0) unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN10ockam_core7routing7message13local_message12LocalMessage16onward_route_ref17h32b7fb085ef150e1E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(168) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -6768,7 +6768,7 @@ define void @_ZN10ockam_core7routing7message13local_message12LocalMessage12retur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN10ockam_core7routing7message13local_message12LocalMessage16return_route_ref17h6443a8b51b89aaa0E(ptr noalias noundef readonly align 8 dereferenceable(168) %0) unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN10ockam_core7routing7message13local_message12LocalMessage16return_route_ref17h6443a8b51b89aaa0E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(168) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
@@ -7309,7 +7309,7 @@ define { ptr, i64 } @_ZN10ockam_core7routing7message13local_message12LocalMessag
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN10ockam_core7routing7message13local_message12LocalMessage11payload_mut17h679ac69af29eeb4bE(ptr noalias noundef readnone align 8 dereferenceable(168) %0) unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN10ockam_core7routing7message13local_message12LocalMessage11payload_mut17h679ac69af29eeb4bE(ptr noalias noundef readnone align 8 captures(ret: address, provenance) dereferenceable(168) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }
@@ -7385,7 +7385,7 @@ define { ptr, i64 } @_ZN10ockam_core7routing7message13local_message12LocalMessag
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN10ockam_core7routing7message13local_message12LocalMessage14local_info_mut17hac6dd8f26a27da32E(ptr noalias noundef readnone align 8 dereferenceable(168) %0) unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN10ockam_core7routing7message13local_message12LocalMessage14local_info_mut17hac6dd8f26a27da32E(ptr noalias noundef readnone align 8 captures(ret: address, provenance) dereferenceable(168) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   ret ptr %2
 }

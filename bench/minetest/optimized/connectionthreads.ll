@@ -16027,7 +16027,7 @@ eh.resume:                                        ; preds = %catch.dispatch367
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3con23ConnectionReceiveThread14getFromBuffersERtR12SharedBufferIhE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 2 captures(none) dereferenceable(2) %peer_id, ptr noundef nonnull align 8 dereferenceable(24) %dst) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3con23ConnectionReceiveThread14getFromBuffersERtR12SharedBufferIhE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 2 captures(none) dereferenceable(2) %peer_id, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %dst) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %peer = alloca %"class.con::PeerHelper", align 8
   %m_connection = getelementptr inbounds nuw i8, ptr %this, i64 144
@@ -16624,7 +16624,7 @@ unreachable:                                      ; preds = %invoke.cont64, %inv
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN3con23ConnectionReceiveThread20checkIncomingBuffersEPNS_7ChannelERtR12SharedBufferIhE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %channel, ptr noundef nonnull align 2 captures(none) dereferenceable(2) %peer_id, ptr noundef nonnull align 8 dereferenceable(24) %dst) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3con23ConnectionReceiveThread20checkIncomingBuffersEPNS_7ChannelERtR12SharedBufferIhE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %channel, ptr noundef nonnull align 2 captures(none) dereferenceable(2) %peer_id, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %dst) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %firstseqnum = alloca i16, align 2
   %p = alloca %"class.std::shared_ptr.87", align 8

@@ -44,7 +44,7 @@ define void @Fxu_ListMatrixAddVariable(ptr noundef captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Fxu_ListMatrixDelVariable(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @Fxu_ListMatrixDelVariable(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = icmp eq ptr %4, %1
@@ -132,7 +132,7 @@ define void @Fxu_ListMatrixAddCube(ptr noundef captures(none) %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Fxu_ListMatrixDelCube(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @Fxu_ListMatrixDelCube(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !19
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %5, label %8
@@ -220,7 +220,7 @@ define void @Fxu_ListMatrixAddSingle(ptr noundef captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Fxu_ListMatrixDelSingle(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @Fxu_ListMatrixDelSingle(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8, !tbaa !26
   %5 = icmp eq ptr %4, %1
@@ -318,7 +318,7 @@ define void @Fxu_ListTableAddDivisor(ptr noundef captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @Fxu_ListTableDelDivisor(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define void @Fxu_ListTableDelDivisor(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -416,7 +416,7 @@ define void @Fxu_ListCubeAddLiteral(ptr noundef captures(none) %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Fxu_ListCubeDelLiteral(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @Fxu_ListCubeDelLiteral(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = icmp eq ptr %4, %1
@@ -505,7 +505,7 @@ define void @Fxu_ListVarAddLiteral(ptr noundef captures(none) %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Fxu_ListVarDelLiteral(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @Fxu_ListVarDelLiteral(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = icmp eq ptr %4, %1
@@ -645,7 +645,7 @@ define void @Fxu_ListDoubleAddPairMiddle(ptr noundef captures(none) %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Fxu_ListDoubleDelPair(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @Fxu_ListDoubleDelPair(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !64
   %5 = icmp eq ptr %4, %1

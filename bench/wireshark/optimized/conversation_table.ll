@@ -35,7 +35,7 @@ define zeroext i1 @get_conversation_hide_ports(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define i32 @get_conversation_proto_id(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i32 @get_conversation_proto_id(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -366,7 +366,7 @@ define i32 @conversation_table_get_num() local_unnamed_addr #1 {
 declare i32 @wmem_tree_count(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @reset_conversation_table_data(ptr noundef %0) local_unnamed_addr #1 {
+define void @reset_conversation_table_data(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %40, label %2
 
@@ -470,7 +470,7 @@ declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @reset_endpoint_table_data(ptr noundef %0) local_unnamed_addr #1 {
+define void @reset_endpoint_table_data(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %2
 
@@ -544,7 +544,7 @@ free_address.exit:                                ; preds = %.lr.ph, %11, %15, %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @reset_hostlist_table_data(ptr noundef %0) local_unnamed_addr #1 {
+define void @reset_hostlist_table_data(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %reset_endpoint_table_data.exit, label %2
 

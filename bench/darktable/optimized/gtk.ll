@@ -421,7 +421,7 @@ declare i32 @dt_conf_get_bool(ptr noundef) local_unnamed_addr #2
 declare i32 @gtk_accelerator_get_default_mod_mask() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_gui_get_scroll_deltas(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_gui_get_scroll_deltas(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @gdk_event_get_pointer_emulated(ptr noundef %0) #18
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %34
@@ -531,7 +531,7 @@ define range(i32 0, 2) i32 @dt_gui_get_scroll_deltas(ptr noundef %0, ptr noundef
 declare i32 @gdk_event_get_pointer_emulated(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_gui_get_scroll_unit_deltas(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_gui_get_scroll_unit_deltas(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @gdk_event_get_pointer_emulated(ptr noundef %0) #18
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %51
@@ -5053,7 +5053,7 @@ declare i64 @gtk_label_get_type() local_unnamed_addr #5
 declare ptr @gtk_button_new_with_mnemonic(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @_yes_no_button_handler(ptr noundef readnone %0, ptr noundef captures(none) %1) #0 {
+define internal void @_yes_no_button_handler(ptr noundef readnone captures(address) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !209
   %5 = icmp eq ptr %0, %4
@@ -7484,7 +7484,7 @@ define internal range(i32 0, 2) i32 @_collapse_expander_click(ptr readnone captu
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_gui_collapsible_section_set_label(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @dt_gui_collapsible_section_set_label(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %3
 

@@ -17601,7 +17601,7 @@ _ZNSt12__shared_ptrIKN4Luau14NormalizedTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 declare noundef ptr @_ZN4Luau9TypeArena11addTypePackESt6vectorIPKNS_4TypeESaIS4_EESt8optionalIPKNS_11TypePackVarEE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef, ptr, i8) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau15andTypeFunctionEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_19TypeFunctionContextEEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::TypeFunctionReductionResult") align 8 %0, ptr noundef readnone %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr readonly captures(none) %4) #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau15andTypeFunctionEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_19TypeFunctionContextEEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::TypeFunctionReductionResult") align 8 %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr readonly captures(none) %4) #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.31", align 1
   %8 = alloca %"struct.Luau::SimplifyResult", align 8
@@ -18370,7 +18370,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau14orTypeFunctionEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_19TypeFunctionContextEEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::TypeFunctionReductionResult") align 8 %0, ptr noundef readnone %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr readonly captures(none) %4) #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau14orTypeFunctionEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_19TypeFunctionContextEEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::TypeFunctionReductionResult") align 8 %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr readonly captures(none) %4) #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.31", align 1
   %8 = alloca %"struct.Luau::SimplifyResult", align 8
@@ -30400,7 +30400,7 @@ _ZNSt12__shared_ptrIKN4Luau14NormalizedTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt9transformIN4Luau6detail14DenseHashTableIPKNS0_4TypeES5_S5_NS1_16ItemInterfaceSetIS5_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorESC_ZNS0_17indexFunctionImplERKSt6vectorIS5_SaIS5_EERKSD_IPKNS0_11TypePackVarESaISK_EENS0_7NotNullINS0_19TypeFunctionContextEEEbE3$_0ET0_T_SU_ST_T1_"(ptr readonly %0, i64 %1, ptr readnone %2, i64 %3, ptr %4, i64 %5) unnamed_addr #4 {
+define internal fastcc void @"_ZSt9transformIN4Luau6detail14DenseHashTableIPKNS0_4TypeES5_S5_NS1_16ItemInterfaceSetIS5_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorESC_ZNS0_17indexFunctionImplERKSt6vectorIS5_SaIS5_EERKSD_IPKNS0_11TypePackVarESaISK_EENS0_7NotNullINS0_19TypeFunctionContextEEEbE3$_0ET0_T_SU_ST_T1_"(ptr readonly captures(address) %0, i64 %1, ptr readnone captures(address) %2, i64 %3, ptr %4, i64 %5) unnamed_addr #4 {
   %.not.i = icmp ne ptr %0, %2
   %.not.i.fr = freeze i1 %.not.i
   %7 = icmp ne i64 %1, %3

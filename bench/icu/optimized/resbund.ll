@@ -165,7 +165,7 @@ define void @_ZN6icu_7714ResourceBundleC2EPKcRKNS_6LocaleER10UErrorCode(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6icu_7714ResourceBundleaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6icu_7714ResourceBundleaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i32, align 4
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %22, label %5

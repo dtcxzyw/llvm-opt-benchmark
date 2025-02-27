@@ -3791,7 +3791,7 @@ define dso_local noundef ptr @_ZNK4llvm27TargetLoweringObjectFileELF22getSection
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm27TargetLoweringObjectFileELF22getSectionForJumpTableERKNS_8FunctionERKNS_13TargetMachineEPKNS_21MachineJumpTableEntryE(ptr noundef nonnull align 8 captures(none) dereferenceable(1026) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(1264) %2, ptr noundef %3) unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK4llvm27TargetLoweringObjectFileELF22getSectionForJumpTableERKNS_8FunctionERKNS_13TargetMachineEPKNS_21MachineJumpTableEntryE(ptr noundef nonnull align 8 captures(none) dereferenceable(1026) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(1264) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !526
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 876
@@ -3825,7 +3825,7 @@ define dso_local noundef ptr @_ZNK4llvm27TargetLoweringObjectFileELF22getSection
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbjPjPKNS_11MCSymbolELFEPKNS_21MachineJumpTableEntryE(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef nonnull %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1264) %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef nonnull captures(none) %7, ptr noundef %8, ptr noundef %9) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbjPjPKNS_11MCSymbolELFEPKNS_21MachineJumpTableEntryE(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef nonnull %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1264) %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef nonnull captures(none) %7, ptr noundef %8, ptr noundef captures(address_is_null) %9) unnamed_addr #1 {
   %11 = alloca %"class.std::tuple.555", align 8
   %12 = alloca %"class.llvm::SmallString", align 8
   %13 = alloca %"class.llvm::Twine", align 8
@@ -4726,7 +4726,7 @@ declare noundef ptr @_ZNK4llvm17MachineBasicBlock9getSymbolEv(ptr noundef nonnul
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm27TargetLoweringObjectFileELF20getStaticCtorSectionEjPKNS_8MCSymbolE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1026) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK4llvm27TargetLoweringObjectFileELF20getStaticCtorSectionEjPKNS_8MCSymbolE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1026) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %5 = load ptr, ptr %4, align 8, !tbaa !65
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 976
@@ -4737,7 +4737,7 @@ define dso_local noundef ptr @_ZNK4llvm27TargetLoweringObjectFileELF20getStaticC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL24getStaticStructorSectionRN4llvm9MCContextEbbjPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(2432) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL24getStaticStructorSectionRN4llvm9MCContextEbbjPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(2432) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca [21 x i8], align 16
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4993,7 +4993,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm27TargetLoweringObjectFileELF20getStaticDtorSectionEjPKNS_8MCSymbolE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1026) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK4llvm27TargetLoweringObjectFileELF20getStaticDtorSectionEjPKNS_8MCSymbolE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1026) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %5 = load ptr, ptr %4, align 8, !tbaa !65
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 976
@@ -12573,7 +12573,7 @@ declare noundef zeroext i1 @_ZN4llvm9MCContext28isELFGenericMergeableSectionENS_
 declare i64 @_ZN4llvm9MCContext24getELFUniqueIDForEntsizeENS_9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(2432), ptr, i64, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26getELFSectionNameForGlobalPKN4llvm12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEjbPKNS_21MachineJumpTableEntryE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1264) %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef readonly %7) unnamed_addr #1 {
+define internal fastcc void @_ZL26getELFSectionNameForGlobalPKN4llvm12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEjbPKNS_21MachineJumpTableEntryE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1264) %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #1 {
   %9 = alloca i64, align 8
   %10 = alloca [21 x i8], align 16
   %11 = alloca i64, align 8

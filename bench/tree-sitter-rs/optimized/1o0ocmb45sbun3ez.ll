@@ -8271,7 +8271,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h0ac6d3e78beb484bE.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @_ZN4core3ops8function6FnOnce9call_once17h3491195420096f98E.llvm.10157987788164207885(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #10 {
+define hidden noundef nonnull align 8 ptr @_ZN4core3ops8function6FnOnce9call_once17h3491195420096f98E.llvm.10157987788164207885(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #10 {
   ret ptr %0
 }
 
@@ -15778,7 +15778,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @_ZN4core6option6Option4Some17h1e2039a2396295d8E.llvm.10157987788164207885(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #10 {
+define hidden noundef nonnull align 8 ptr @_ZN4core6option6Option4Some17h1e2039a2396295d8E.llvm.10157987788164207885(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #10 {
   ret ptr %0
 }
 
@@ -17822,7 +17822,7 @@ define hidden { i32, i32 } @"_ZN73_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(6) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8804c207f0611199E.llvm.10157987788164207885"(i64 noundef %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #11 {
+define hidden noundef nonnull align 1 dereferenceable(6) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8804c207f0611199E.llvm.10157987788164207885"(i64 noundef %0, ptr noalias noundef nonnull readonly align 1 captures(ret: address, provenance) %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #11 {
   %5 = icmp ult i64 %0, %2
   br i1 %5, label %6, label %8, !prof !54
 

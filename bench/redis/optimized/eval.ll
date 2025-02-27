@@ -620,7 +620,7 @@ define dso_local void @scriptingReset(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @evalExtractShebangFlags(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evalExtractShebangFlags(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
 sub_0:
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

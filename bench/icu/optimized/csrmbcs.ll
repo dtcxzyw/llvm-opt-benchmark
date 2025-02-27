@@ -120,7 +120,7 @@ define void @_ZN6icu_7717CharsetRecog_mbcsD0Ev(ptr nonnull readnone align 8 capt
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 101) i32 @_ZNK6icu_7717CharsetRecog_mbcs10match_mbcsEPNS_9InputTextEPKti(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
+define noundef range(i32 0, 101) i32 @_ZNK6icu_7717CharsetRecog_mbcs10match_mbcsEPNS_9InputTextEPKti(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = alloca %"class.icu_77::IteratedChar", align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
   call void @_ZN6icu_7712IteratedCharC1Ev(ptr noundef nonnull align 4 dereferenceable(14) %5)

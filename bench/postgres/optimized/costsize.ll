@@ -107,7 +107,7 @@ define dso_local i64 @clamp_cardinality_to_long(double noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cost_seqscan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #2 {
+define dso_local void @cost_seqscan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.cost_qual_eval_context, align 8
   %6 = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
@@ -268,7 +268,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cost_samplescan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #2 {
+define dso_local void @cost_samplescan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.cost_qual_eval_context, align 8
   %6 = alloca double, align 8
   %7 = alloca double, align 8
@@ -416,7 +416,7 @@ get_restriction_qual_cost.exit:                   ; preds = %cost_qual_eval.exit
 declare ptr @GetTsmRoutine(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @cost_gather(ptr noundef captures(none) initializes((40, 52), (56, 72)) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef readonly %4) local_unnamed_addr #5 {
+define dso_local void @cost_gather(ptr noundef captures(none) initializes((40, 52), (56, 72)) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %11
 
@@ -461,7 +461,7 @@ define dso_local void @cost_gather(ptr noundef captures(none) initializes((40, 5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local void @cost_gather_merge(ptr noundef captures(none) initializes((40, 52), (56, 72)) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i32 noundef %4, double noundef %5, double noundef %6, ptr noundef readonly %7) local_unnamed_addr #6 {
+define dso_local void @cost_gather_merge(ptr noundef captures(none) initializes((40, 52), (56, 72)) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, double noundef %5, double noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #6 {
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %14
 
@@ -1195,7 +1195,7 @@ declare double @llvm.ceil.f64(double) #1
 declare i32 @compute_parallel_worker(ptr noundef, double noundef, double noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cost_qual_eval(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @cost_qual_eval(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.cost_qual_eval_context, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
   store ptr %2, ptr %4, align 8
@@ -1230,7 +1230,7 @@ define dso_local void @cost_qual_eval(ptr noundef writeonly captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cost_bitmap_heap_scan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4, double noundef %5) local_unnamed_addr #2 {
+define dso_local void @cost_bitmap_heap_scan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, double noundef %5) local_unnamed_addr #2 {
   %7 = alloca %struct.cost_qual_eval_context, align 8
   %8 = alloca double, align 8
   %9 = alloca double, align 8
@@ -1415,7 +1415,7 @@ clamp_row_est.exit:                               ; preds = %get_parallel_diviso
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @compute_bitmap_pages(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, double noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #2 {
+define dso_local double @compute_bitmap_pages(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, double noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #2 {
   %7 = load i32, ptr %2, align 4
   switch i32 %7, label %25 [
     i32 279, label %8
@@ -1869,7 +1869,7 @@ list_head.exit.thread:                            ; preds = %18
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cost_tidscan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef readonly %4) local_unnamed_addr #2 {
+define dso_local void @cost_tidscan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = alloca %struct.cost_qual_eval_context, align 8
   %7 = alloca %struct.cost_qual_eval_context, align 8
   %8 = alloca double, align 8
@@ -2053,7 +2053,7 @@ get_restriction_qual_cost.exit:                   ; preds = %cost_qual_eval.exit
 declare double @estimate_array_length(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cost_tidrangescan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #2 {
+define dso_local void @cost_tidrangescan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = alloca %struct.cost_qual_eval_context, align 8
   %7 = alloca %struct.cost_qual_eval_context, align 8
   %8 = alloca double, align 8
@@ -2210,7 +2210,7 @@ get_restriction_qual_cost.exit:                   ; preds = %cost_qual_eval.exit
 declare double @clauselist_selectivity(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cost_subqueryscan(ptr noundef captures(none) initializes((40, 52), (56, 72)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #2 {
+define dso_local void @cost_subqueryscan(ptr noundef captures(none) initializes((40, 52), (56, 72)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #2 {
   %6 = alloca %struct.cost_qual_eval_context, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %7
@@ -2369,7 +2369,7 @@ get_restriction_qual_cost.exit:                   ; preds = %cost_qual_eval.exit
 declare ptr @list_concat_copy(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cost_functionscan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #2 {
+define dso_local void @cost_functionscan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.cost_qual_eval_context, align 8
   %6 = alloca %struct.cost_qual_eval_context, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -2518,7 +2518,7 @@ define dso_local void @cost_qual_eval_node(ptr noundef writeonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cost_tablefuncscan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #2 {
+define dso_local void @cost_tablefuncscan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.cost_qual_eval_context, align 8
   %6 = alloca %struct.cost_qual_eval_context, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -2654,7 +2654,7 @@ get_restriction_qual_cost.exit:                   ; preds = %cost_qual_eval.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cost_valuesscan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #2 {
+define dso_local void @cost_valuesscan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.cost_qual_eval_context, align 8
   %.not = icmp eq ptr %3, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2755,7 +2755,7 @@ get_restriction_qual_cost.exit:                   ; preds = %get_restriction_qua
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cost_ctescan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #2 {
+define dso_local void @cost_ctescan(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.cost_qual_eval_context, align 8
   %.not = icmp eq ptr %3, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2858,7 +2858,7 @@ get_restriction_qual_cost.exit:                   ; preds = %get_restriction_qua
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cost_namedtuplestorescan(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #2 {
+define dso_local void @cost_namedtuplestorescan(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.cost_qual_eval_context, align 8
   %.not = icmp eq ptr %3, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2950,7 +2950,7 @@ get_restriction_qual_cost.exit:                   ; preds = %get_restriction_qua
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cost_resultscan(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #2 {
+define dso_local void @cost_resultscan(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.cost_qual_eval_context, align 8
   %.not = icmp eq ptr %3, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3081,7 +3081,7 @@ define dso_local void @cost_recursive_union(ptr noundef captures(none) initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cost_incremental_sort(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, double noundef %5, double noundef %6, double noundef %7, i32 noundef %8, double noundef %9, i32 noundef %10, double noundef %11) local_unnamed_addr #2 {
+define dso_local void @cost_incremental_sort(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, double noundef %5, double noundef %6, double noundef %7, i32 noundef %8, double noundef %9, i32 noundef %10, double noundef %11) local_unnamed_addr #2 {
   %13 = alloca double, align 8
   %14 = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #17
@@ -3863,7 +3863,7 @@ define dso_local void @cost_material(ptr noundef writeonly captures(none) initia
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cost_agg(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4, double noundef %5, ptr noundef %6, i32 noundef %7, double noundef %8, double noundef %9, double noundef %10, double noundef %11) local_unnamed_addr #2 {
+define dso_local void @cost_agg(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, double noundef %5, ptr noundef %6, i32 noundef %7, double noundef %8, double noundef %9, double noundef %10, double noundef %11) local_unnamed_addr #2 {
   %13 = alloca %struct.cost_qual_eval_context, align 8
   %.sroa.0 = alloca double, align 8
   %.sroa.4 = alloca double, align 8
@@ -4120,7 +4120,7 @@ declare i64 @hash_agg_entry_size(i32 noundef, i64 noundef, i64 noundef) local_un
 declare void @hash_agg_set_limits(double noundef, double noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cost_windowagg(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, i32 noundef %4, double noundef %5, double noundef %6, double noundef %7) local_unnamed_addr #2 {
+define dso_local void @cost_windowagg(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, double noundef %5, double noundef %6, double noundef %7) local_unnamed_addr #2 {
   %9 = alloca %struct.cost_qual_eval_context, align 8
   %10 = alloca %struct.cost_qual_eval_context, align 8
   %11 = alloca %struct.QualCost, align 8
@@ -5116,7 +5116,7 @@ cost_qual_eval.exit:                              ; preds = %cost_qual_eval.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @initial_cost_mergejoin(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef readonly %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #2 {
+define dso_local void @initial_cost_mergejoin(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #2 {
   %10 = alloca double, align 8
   %11 = alloca double, align 8
   %12 = alloca double, align 8
@@ -5936,7 +5936,7 @@ approx_tuple_count.exit._crit_edge:               ; preds = %approx_tuple_count.
 declare zeroext i1 @ExecSupportsMarkRestore(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @initial_cost_hashjoin(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4), (8, 32), (80, 96)) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readnone captures(none) %6, i1 noundef zeroext %7) local_unnamed_addr #2 {
+define dso_local void @initial_cost_hashjoin(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4), (8, 32), (80, 96)) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readnone captures(none) %6, i1 noundef zeroext %7) local_unnamed_addr #2 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -8727,7 +8727,7 @@ cost_qual_eval.exit:                              ; preds = %.lr.ph16.i, %2, %.l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @set_pathtarget_cost_width(ptr noundef %0, ptr noundef returned initializes((24, 40)) %1) local_unnamed_addr #2 {
+define dso_local noundef ptr @set_pathtarget_cost_width(ptr noundef %0, ptr noundef returned captures(ret: address, provenance) initializes((24, 40)) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.cost_qual_eval_context, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32

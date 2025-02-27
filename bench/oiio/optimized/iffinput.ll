@@ -3516,7 +3516,7 @@ _ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit:   ; preds = %45, %43, %_ZNSt12_V
 declare noundef i64 @_ZNK11OpenImageIO6v3_1_09ImageSpec11image_bytesEb(ptr noundef nonnull align 8 dereferenceable(160), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i64 @_ZN11OpenImageIO6v3_1_08IffInput22uncompress_rle_channelEPKhPhi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(352) %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #11 align 2 {
+define hidden noundef i64 @_ZN11OpenImageIO6v3_1_08IffInput22uncompress_rle_channelEPKhPhi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(352) %0, ptr noundef %1, ptr noundef writeonly captures(address) %2, i32 noundef %3) local_unnamed_addr #11 align 2 {
   %5 = sext i32 %3 to i64
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = icmp sgt i32 %3, 0

@@ -200,7 +200,7 @@ declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unname
 declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = udiv i32 %0, 819
   %5 = zext nneg i32 %4 to i64
   %6 = urem i32 %0, 819
@@ -364,7 +364,7 @@ define internal fastcc void @error_commit_ts_disabled() unnamed_addr #4 {
 declare i32 @SimpleLruReadPage_ReadOnly(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @GetLatestCommitTsData(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i32 @GetLatestCommitTsData(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MainLWLockArray, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4992
   %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %4, i32 noundef 1) #9

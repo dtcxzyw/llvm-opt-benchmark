@@ -349,7 +349,7 @@ _ZNK6Symbol11as_C_stringEPci.exit:                ; preds = %10, %1
 declare noundef zeroext i1 @_ZN11StringUtils13is_star_matchEPKcS1_(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZNK6Symbol11as_C_stringEPci(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef returned writeonly %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZNK6Symbol11as_C_stringEPci(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef returned writeonly captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %5, label %17
 
@@ -548,7 +548,7 @@ define hidden noundef ptr @_ZNK6Symbol10as_unicodeERi(ptr noundef nonnull align 
 declare void @_ZN4UTF818convert_to_unicodeItEEvPKcPT_i(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZNK6Symbol22as_klass_external_nameEPci(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef returned %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK6Symbol22as_klass_external_nameEPci(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef returned captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %5, label %.loopexit
 

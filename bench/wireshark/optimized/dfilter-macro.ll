@@ -28,13 +28,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [20 x i8] c"name already exists\00", align 1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noalias ptr @dfilter_macro_apply(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noalias ptr @dfilter_macro_apply(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @dfilter_macro_apply_recurse(ptr noundef %0, i32 noundef 0, ptr noundef %1)
   ret ptr %3
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noalias ptr @dfilter_macro_apply_recurse(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noalias ptr @dfilter_macro_apply_recurse(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
   %4 = icmp ugt i32 %1, 31
   %.not214 = icmp eq ptr %2, null
   br i1 %4, label %5, label %8
@@ -1157,7 +1157,7 @@ define void @dfilter_macro_table_iter_init(ptr noundef %0) local_unnamed_addr #0
 declare void @g_hash_table_iter_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @dfilter_macro_table_iter_next(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @dfilter_macro_table_iter_next(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
@@ -1205,7 +1205,7 @@ declare ptr @g_string_sized_new(i64 noundef) local_unnamed_addr #2
 declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noalias ptr @dfilter_macro_resolve(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc noalias ptr @dfilter_macro_resolve(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = load ptr, ptr @macros_table, align 8
   %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0)
   %.not = icmp eq ptr %5, null

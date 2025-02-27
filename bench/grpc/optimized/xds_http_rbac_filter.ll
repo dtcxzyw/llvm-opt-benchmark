@@ -12038,7 +12038,7 @@ define linkonce_odr void @_ZN9grpc_core20UpbStringToStdStringB5cxx11ERK14upb_Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_123ParseRegexMatcherToJsonEPK34envoy_type_matcher_v3_RegexMatcher(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %.16.val, i64 %.24.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_123ParseRegexMatcherToJsonEPK34envoy_type_matcher_v3_RegexMatcher(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(address_is_null) %.16.val, i64 %.24.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.anon, align 1
   %3 = alloca %class.anon, align 1
   %4 = alloca i64, align 8

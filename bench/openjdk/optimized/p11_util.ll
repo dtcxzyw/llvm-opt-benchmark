@@ -436,7 +436,7 @@ throwByName.exit:                                 ; preds = %2, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @freeCKAttributeArray(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @freeCKAttributeArray(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %.preheader
 
@@ -476,7 +476,7 @@ define hidden void @freeCKAttributeArray(ptr noundef %0, i32 noundef %1) local_u
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @freeCKMechanismPtr(ptr noundef %0) local_unnamed_addr #3 {
+define hidden void @freeCKMechanismPtr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %117, label %2
 
@@ -727,7 +727,7 @@ define hidden void @freeCKMechanismPtr(ptr noundef %0) local_unnamed_addr #3 {
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden noundef ptr @updateGCMParams(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden noundef ptr @updateGCMParams(ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %42, label %3
 

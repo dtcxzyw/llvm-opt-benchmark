@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [29 x i8] c"wsutil/wmem/wmem_strutl.c:75\00", align 1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noalias noundef ptr @wmem_strdup(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noalias noundef ptr @wmem_strdup(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %spec.store.select = select i1 %.not, ptr @.str, ptr %1
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #13

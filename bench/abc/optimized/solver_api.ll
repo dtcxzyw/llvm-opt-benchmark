@@ -3141,13 +3141,13 @@ define i32 @satoko_final_conflict(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @satoko_stats(ptr noundef readnone %0) local_unnamed_addr #18 {
+define nonnull ptr @satoko_stats(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #18 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @satoko_options(ptr noundef readnone %0) local_unnamed_addr #18 {
+define nonnull ptr @satoko_options(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #18 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   ret ptr %2
 }
@@ -3687,7 +3687,7 @@ define void @satoko_unmark_cone(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @satoko_write_dimacs(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #21 {
+define void @satoko_write_dimacs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !54
   %7 = getelementptr i8, ptr %6, i64 4

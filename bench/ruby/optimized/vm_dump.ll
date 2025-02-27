@@ -552,7 +552,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef zeroext i1 @rb_vmdebug_env_dump_raw(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @rb_vmdebug_env_dump_raw(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.2) #13
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %.loopexit, label %.preheader21
@@ -978,7 +978,7 @@ declare i32 @backtrace(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @rb_dump_backtrace_with_lines(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef zeroext i1 @rb_vm_bugreport(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @rb_vm_bugreport(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16

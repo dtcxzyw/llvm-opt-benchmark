@@ -24951,7 +24951,7 @@ define void @_ZN6duckdb11FSSTStorage13SetDictionaryERNS_13ColumnSegmentERNS_12Bu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @_ZN6duckdb11FSSTStorage18FetchStringPointerENS_25StringDictionaryContainerEPhi(i64 %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZN6duckdb11FSSTStorage18FetchStringPointerENS_25StringDictionaryContainerEPhi(i64 %0, ptr noundef readnone captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = icmp eq i32 %2, 0
   %.sroa.1.0.extract.shift = lshr i64 %0, 32
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.1.0.extract.shift

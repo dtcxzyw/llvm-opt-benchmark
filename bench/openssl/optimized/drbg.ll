@@ -1154,7 +1154,7 @@ ossl_drbg_unlock_parent.exit:                     ; preds = %23, %25, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_drbg_enable_locking(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_drbg_enable_locking(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
 
@@ -1196,7 +1196,7 @@ define range(i32 0, 2) i32 @ossl_drbg_enable_locking(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_rand_drbg_new(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
+define ptr @ossl_rand_drbg_new(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
   %10 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
   %11 = tail call i32 @ossl_prov_is_running() #8

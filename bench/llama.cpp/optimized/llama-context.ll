@@ -3807,7 +3807,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %101
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @llama_get_embeddings_seq(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define ptr @llama_get_embeddings_seq(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #2 {
   tail call void @llama_synchronize(ptr noundef %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %4 = load ptr, ptr %3, align 8, !tbaa !175

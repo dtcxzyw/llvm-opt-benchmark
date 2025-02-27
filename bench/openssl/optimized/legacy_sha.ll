@@ -122,7 +122,7 @@ define internal i32 @shake_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @shake_ctrl(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #2 {
+define internal range(i32 0, 2) i32 @shake_ctrl(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #2 {
   %5 = icmp ne ptr %0, null
   %cond = icmp eq i32 %1, 3
   %or.cond = and i1 %5, %cond

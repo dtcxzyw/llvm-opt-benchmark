@@ -352,13 +352,13 @@ define i32 @EVP_MAC_update(ptr noundef readonly captures(none) %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MAC_final(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define i32 @EVP_MAC_final(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @evp_mac_final(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @evp_mac_final(ptr noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef writeonly %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @evp_mac_final(ptr noundef readonly captures(address_is_null) %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca [2 x %struct.ossl_param_st], align 16
   %8 = alloca i32, align 4
@@ -522,7 +522,7 @@ EVP_MAC_CTX_set_params.exit.thread:               ; preds = %50, %EVP_MAC_CTX_se
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MAC_finalXOF(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @EVP_MAC_finalXOF(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @evp_mac_final(ptr noundef %0, i32 noundef 1, ptr noundef %1, ptr noundef null, i64 noundef %2)
   ret i32 %4
 }
@@ -603,7 +603,7 @@ define ptr @EVP_MAC_get0_description(ptr noundef readonly captures(none) %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_MAC_is_a(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_MAC_is_a(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -643,7 +643,7 @@ define i32 @EVP_MAC_names_do_all(ptr noundef readonly captures(none) %0, ptr nou
 declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_Q_mac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10, ptr noundef writeonly %11) local_unnamed_addr #0 {
+define ptr @EVP_Q_mac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10, ptr noundef writeonly captures(address_is_null) %11) local_unnamed_addr #0 {
   %13 = alloca [2 x %struct.ossl_param_st], align 16
   %14 = alloca i64, align 8
   %15 = tail call ptr @EVP_MAC_fetch(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6

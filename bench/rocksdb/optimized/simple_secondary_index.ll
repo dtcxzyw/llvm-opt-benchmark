@@ -112,7 +112,7 @@ define void @_ZNK7rocksdb20SimpleSecondaryIndex24UpdatePrimaryColumnValueERKNS_5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK7rocksdb20SimpleSecondaryIndex21GetSecondaryKeyPrefixERKNS_5SliceES3_PSt7variantIJS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(none) initializes((0, 6), (8, 16)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb20SimpleSecondaryIndex21GetSecondaryKeyPrefixERKNS_5SliceES3_PSt7variantIJS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(none) initializes((0, 6), (8, 16)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef captures(address) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %7 = load i8, ptr %6, align 8, !tbaa !27
   %8 = icmp eq i8 %7, 0

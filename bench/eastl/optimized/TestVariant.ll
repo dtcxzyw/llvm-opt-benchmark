@@ -5219,7 +5219,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl18visitor_caller_n_rIRZ18TestVariantVisitorvE15MultipleVisitorNS_16integer_sequenceImJLm0ELm1EEEES1_JRNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEESA_EE14visitor_leaf_rIS2_JLm0ELm1EEE21invoke_visitor_leaf_rEOS1_SA_SA_(ptr noundef nonnull readnone returned align 1 dereferenceable(1) %visitor, ptr nonnull readonly align 8 captures(none) %variants, ptr noundef nonnull align 8 dereferenceable(40) %variants1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl18visitor_caller_n_rIRZ18TestVariantVisitorvE15MultipleVisitorNS_16integer_sequenceImJLm0ELm1EEEES1_JRNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEESA_EE14visitor_leaf_rIS2_JLm0ELm1EEE21invoke_visitor_leaf_rEOS1_SA_SA_(ptr noundef nonnull readnone returned align 1 captures(ret: address, provenance) dereferenceable(1) %visitor, ptr nonnull readonly align 8 captures(none) %variants, ptr noundef nonnull align 8 dereferenceable(40) %variants1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.eastl::basic_string", align 8
   %mStorage.i1 = getelementptr inbounds nuw i8, ptr %variants1, i64 8

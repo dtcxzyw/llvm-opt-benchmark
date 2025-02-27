@@ -292,7 +292,7 @@ entry:
 declare noundef ptr @_ZN6hermes9IRBuilder19getLiteralUndefinedEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen15FunctionContextD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen15FunctionContextD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(480) %this) unnamed_addr #0 align 2 {
 entry:
   %oldContext_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %oldContext_, align 8

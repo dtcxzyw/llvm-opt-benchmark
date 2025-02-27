@@ -77,7 +77,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 declare void @string_list_clear_func(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @complete_reflogs_clear(ptr noundef %0, ptr readnone captures(none) %1) #0 {
+define internal void @complete_reflogs_clear(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1) #0 {
   tail call fastcc void @free_complete_reflog(ptr noundef %0)
   ret void
 }
@@ -418,7 +418,7 @@ declare i32 @repo_dwim_log(ptr noundef, ptr noundef, i32 noundef, ptr noundef, p
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_complete_reflog(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @free_complete_reflog(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %.preheader
 
@@ -665,7 +665,7 @@ define dso_local i64 @get_reflog_timestamp(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @show_reflog_message(ptr noundef readonly %0, i32 noundef %1, i64 %2, ptr %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local void @show_reflog_message(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 %2, ptr %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.strbuf, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %7
@@ -724,7 +724,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @reflog_walk_empty(ptr noundef readonly %0) local_unnamed_addr #10 {
+define dso_local range(i32 0, 2) i32 @reflog_walk_empty(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 

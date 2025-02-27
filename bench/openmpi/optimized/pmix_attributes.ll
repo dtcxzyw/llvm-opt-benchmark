@@ -2685,7 +2685,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare zeroext i1 @PMIx_Check_key(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_get_attrs(ptr noundef nonnull %0, ptr %.528.val, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_get_attrs(ptr noundef nonnull %0, ptr %.528.val, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
   %3 = tail call ptr @PMIx_Argv_split(ptr noundef %.528.val, i32 noundef 44) #18
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 240
@@ -3007,7 +3007,7 @@ pmix_attributes_lookup_term.exit:                 ; preds = %111
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_get_fns(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_get_fns(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(address) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
   store ptr null, ptr %4, align 8, !tbaa !164
@@ -3537,7 +3537,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %11
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define ptr @pmix_attributes_lookup(ptr noundef readonly %0) local_unnamed_addr #8 {
+define ptr @pmix_attributes_lookup(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 3048), align 8, !tbaa !154
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %4 = load i32, ptr %3, align 8, !tbaa !155
@@ -3583,7 +3583,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
 declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define ptr @pmix_attributes_reverse_lookup(ptr noundef readonly %0) local_unnamed_addr #8 {
+define ptr @pmix_attributes_reverse_lookup(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 3048), align 8, !tbaa !154
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %4 = load i32, ptr %3, align 8, !tbaa !155

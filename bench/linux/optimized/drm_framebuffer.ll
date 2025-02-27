@@ -1663,7 +1663,7 @@ define dso_local i32 @drm_mode_dirtyfb_ioctl(ptr noundef %0, ptr noundef readonl
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_fb_release(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @drm_fb_release(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.drm_mode_rmfb_work, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 32, i1 false), !annotation !28

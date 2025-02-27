@@ -227,7 +227,7 @@ _ZNSt12_Vector_baseIPK4FactSaIS2_EED2Ev.exit:     ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z30get_return_fact_for_invocationPK22FunctionInvocationUserPK8Variable13eFactCategory(ptr noundef readnone %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @_Z30get_return_fact_for_invocationPK22FunctionInvocationUserPK8Variable13eFactCategory(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL12return_facts, i64 8), align 8, !tbaa !22
   %5 = load ptr, ptr @_ZL12return_facts, align 8, !tbaa !18
   %.not17.not = icmp eq ptr %4, %5

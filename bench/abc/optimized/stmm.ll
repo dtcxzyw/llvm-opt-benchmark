@@ -151,7 +151,7 @@ define void @stmm_clean(ptr noundef captures(none) initializes((20, 24)) %0) loc
 declare void @Extra_MmFixedRestart(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stmm_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @stmm_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = icmp eq ptr %5, @stmm_ptrhash
@@ -273,21 +273,21 @@ define range(i32 0, -2147483648) i32 @stmm_numhash(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @stmm_numcmp(ptr noundef readnone %0, ptr noundef readnone %1) #4 {
+define range(i32 0, 2) i32 @stmm_numcmp(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #4 {
   %3 = icmp ne ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @stmm_ptrcmp(ptr noundef readnone %0, ptr noundef readnone %1) #4 {
+define range(i32 0, 2) i32 @stmm_ptrcmp(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #4 {
   %3 = icmp ne ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stmm_lookup_int(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @stmm_lookup_int(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = icmp eq ptr %5, @stmm_ptrhash
@@ -827,7 +827,7 @@ define range(i32 -10000, 2) i32 @stmm_add_direct(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = icmp eq ptr %5, @stmm_ptrhash
@@ -1006,7 +1006,7 @@ define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stmm_find(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @stmm_find(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = icmp eq ptr %5, @stmm_ptrhash
@@ -1187,7 +1187,7 @@ define noalias noundef ptr @stmm_copy(ptr noundef readonly captures(none) %0) lo
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stmm_delete(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @stmm_delete(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8, !tbaa !28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !11
@@ -1308,7 +1308,7 @@ define range(i32 0, 2) i32 @stmm_delete(ptr noundef captures(none) %0, ptr nound
 declare void @Extra_MmFixedEntryRecycle(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stmm_delete_int(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @stmm_delete_int(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8, !tbaa !48
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1544,7 +1544,7 @@ define noalias noundef ptr @stmm_init_gen(ptr noundef %0) local_unnamed_addr #7 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stmm_gen(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @stmm_gen(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !58
   %6 = icmp eq ptr %5, null
@@ -1609,7 +1609,7 @@ define range(i32 0, 2) i32 @stmm_gen(ptr noundef captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stmm_gen_int(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @stmm_gen_int(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !58
   %6 = icmp eq ptr %5, null
@@ -1675,7 +1675,7 @@ define range(i32 0, 2) i32 @stmm_gen_int(ptr noundef captures(none) %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @stmm_free_gen(ptr noundef %0) local_unnamed_addr #9 {
+define void @stmm_free_gen(ptr noundef captures(address_is_null) %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

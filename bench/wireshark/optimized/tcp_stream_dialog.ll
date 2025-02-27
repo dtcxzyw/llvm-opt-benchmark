@@ -21651,7 +21651,7 @@ declare void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%cla
 declare ptr @format_size_wmem(ptr noundef, i64 noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN15TCPStreamDialog10mouseMovedEP11QMouseEvent(ptr noundef align 8 dereferenceable_or_null(584) %0, ptr noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15TCPStreamDialog10mouseMovedEP11QMouseEvent(ptr noundef align 8 dereferenceable_or_null(584) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -24341,7 +24341,7 @@ declare void @_ZN11QRubberBand11setGeometryERK5QRect(ptr noundef align 8 derefer
 declare void @_ZN7QWidget4showEv(ptr noundef align 8 dereferenceable_or_null(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN15TCPStreamDialog11axisClickedEP7QCPAxisNS0_14SelectablePartEP11QMouseEvent(ptr noundef align 8 dereferenceable_or_null(584) %0, ptr noundef readnone %1, i32 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 align 2 {
+define void @_ZN15TCPStreamDialog11axisClickedEP7QCPAxisNS0_14SelectablePartEP11QMouseEvent(ptr noundef align 8 dereferenceable_or_null(584) %0, ptr noundef readnone captures(address) %1, i32 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 264
@@ -25666,7 +25666,7 @@ define void @_ZN15TCPStreamDialog22on_resetButton_clickedEv(ptr noundef align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define void @_ZN15TCPStreamDialog14setCaptureFileEP13_capture_file(ptr noundef writeonly align 8 captures(none) dereferenceable_or_null(584) %0, ptr noundef readnone %1) local_unnamed_addr #16 align 2 {
+define void @_ZN15TCPStreamDialog14setCaptureFileEP13_capture_file(ptr noundef writeonly align 8 captures(none) dereferenceable_or_null(584) %0, ptr noundef readnone captures(address_is_null) %1) local_unnamed_addr #16 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %5
 

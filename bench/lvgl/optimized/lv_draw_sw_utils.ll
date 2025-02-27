@@ -258,7 +258,7 @@ define void @lv_draw_sw_i1_invert(ptr noundef %0, i32 noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_sw_i1_convert_to_vtiled(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
+define void @lv_draw_sw_i1_convert_to_vtiled(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
   %8 = icmp ne ptr %0, null
   %9 = icmp ne ptr %4, null
   %or.cond = and i1 %8, %9

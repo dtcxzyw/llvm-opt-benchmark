@@ -238,7 +238,7 @@ define dso_local noundef ptr @_ZN4absl12log_internal19GetAndroidNativeTagEv() lo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl19SetAndroidNativeTagEPKc(ptr noundef readonly %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl19SetAndroidNativeTagEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1

@@ -3022,7 +3022,7 @@ _ZNSt10unique_ptrIN7openvdb5v11_02io14StreamMetadata4ImplESt14default_deleteIS4_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7openvdb5v11_02io14StreamMetadataaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %other) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7openvdb5v11_02io14StreamMetadataaSERKS2_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %other) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::any>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::any>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %cmp.not = icmp eq ptr %other, %this
@@ -4720,7 +4720,7 @@ declare void @_ZN7openvdb5v11_02io19compressionToStringB5cxx11Ej(ptr sret(%"clas
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7openvdb5v11_02iolsERSoRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anySt4lessIS9_ESaISt4pairIKS9_SA_EEE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 dereferenceable(48) %auxData) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7openvdb5v11_02iolsERSoRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anySt4lessIS9_ESaISt4pairIKS9_SA_EEE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %auxData) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %__arg.i.i.i.i.i403 = alloca %"union.std::any::_Arg", align 8
   %__arg.i.i404 = alloca %"union.std::any::_Arg", align 8

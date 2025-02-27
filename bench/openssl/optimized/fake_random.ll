@@ -185,7 +185,7 @@ define void @fake_rand_finish(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @fake_rand_set_callback(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @fake_rand_set_callback(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 

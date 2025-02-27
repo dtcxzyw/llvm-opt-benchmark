@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [3 x i8] c"wb\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @opj_set_info_handler(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @opj_set_info_handler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
 
@@ -30,7 +30,7 @@ define hidden range(i32 0, 2) i32 @opj_set_info_handler(ptr noundef writeonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @opj_set_warning_handler(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @opj_set_warning_handler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
 
@@ -47,7 +47,7 @@ define hidden range(i32 0, 2) i32 @opj_set_warning_handler(ptr noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @opj_set_error_handler(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @opj_set_error_handler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
 
@@ -255,7 +255,7 @@ declare ptr @opj_jp2_create(i32 noundef) local_unnamed_addr #3
 declare void @opj_set_default_event_handler(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @opj_set_default_decoder_parameters(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @opj_set_default_decoder_parameters(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -277,7 +277,7 @@ define hidden void @opj_set_default_decoder_parameters(ptr noundef writeonly %0)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @opj_codec_set_threads(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden i32 @opj_codec_set_threads(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp ne ptr %0, null
   %4 = icmp sgt i32 %1, -1
   %or.cond = and i1 %3, %4
@@ -693,7 +693,7 @@ declare i32 @opj_jp2_setup_encoder(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @opj_jp2_encoder_set_extra_options(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @opj_set_default_encoder_parameters(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @opj_set_default_encoder_parameters(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -983,7 +983,7 @@ define hidden void @opj_destroy_codec(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @opj_dump_codec(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define hidden void @opj_dump_codec(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
 
@@ -1000,7 +1000,7 @@ define hidden void @opj_dump_codec(ptr noundef readonly %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @opj_get_cstr_info(ptr noundef readonly %0) local_unnamed_addr #2 {
+define hidden ptr @opj_get_cstr_info(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -1018,7 +1018,7 @@ define hidden ptr @opj_get_cstr_info(ptr noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @opj_destroy_cstr_info(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @opj_destroy_cstr_info(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -1045,7 +1045,7 @@ define hidden void @opj_destroy_cstr_info(ptr noundef %0) local_unnamed_addr #2 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @opj_get_cstr_index(ptr noundef readonly %0) local_unnamed_addr #2 {
+define hidden ptr @opj_get_cstr_index(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -1080,13 +1080,13 @@ define hidden void @opj_destroy_cstr_index(ptr noundef captures(none) %0) local_
 declare void @j2k_destroy_cstr_index(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @opj_stream_create_default_file_stream(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden ptr @opj_stream_create_default_file_stream(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @opj_stream_create_file_stream(ptr noundef %0, i64 noundef 1048576, i32 noundef %1)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @opj_stream_create_file_stream(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define hidden ptr @opj_stream_create_file_stream(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %4
 

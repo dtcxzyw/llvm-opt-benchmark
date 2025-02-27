@@ -10,7 +10,7 @@ define noundef double @_Z7pj_atofPKc(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef double @_Z9pj_strtodPKcPPc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef double @_Z9pj_strtodPKcPPc(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @localeconv() #8
   %.not.i = icmp eq ptr %4, null

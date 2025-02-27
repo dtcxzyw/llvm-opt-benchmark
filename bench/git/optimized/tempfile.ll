@@ -611,7 +611,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_tempfile_path(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @get_tempfile_path(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not2 = icmp eq ptr %0, null
   br i1 %.not2, label %2, label %3
 

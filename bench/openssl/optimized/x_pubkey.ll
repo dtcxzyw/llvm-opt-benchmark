@@ -271,7 +271,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @x509_pubkey_ex_free(ptr noundef %0, ptr readnone captures(none) %1) #0 {
+define internal void @x509_pubkey_ex_free(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %3
 
@@ -385,7 +385,7 @@ declare i32 @ERR_clear_last_mark() local_unnamed_addr #2
 declare i32 @ERR_pop_to_mark() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_PUBKEY_set(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_PUBKEY_set(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -534,7 +534,7 @@ declare i32 @EVP_PKEY_up_ref(ptr noundef) local_unnamed_addr #2
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_PUBKEY_get0(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @X509_PUBKEY_get0(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -562,7 +562,7 @@ define ptr @X509_PUBKEY_get0(ptr noundef readonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_PUBKEY_get(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @X509_PUBKEY_get(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -601,13 +601,13 @@ X509_PUBKEY_get0.exit.thread:                     ; preds = %8, %3, %10, %X509_P
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_d2i_PUBKEY_legacy(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @ossl_d2i_PUBKEY_legacy(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @d2i_PUBKEY_int(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef null, i32 noundef 1)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @d2i_PUBKEY_int(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc ptr @d2i_PUBKEY_int(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
@@ -692,13 +692,13 @@ x509_pubkey_set0_libctx.exit.thread:              ; preds = %20, %34, %36, %31, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_PUBKEY_ex(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define ptr @d2i_PUBKEY_ex(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc ptr @d2i_PUBKEY_int(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef 0)
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_PUBKEY(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @d2i_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %5 = load ptr, ptr %1, align 8, !tbaa !46
@@ -857,7 +857,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_RSA_PUBKEY(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @d2i_RSA_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %5 = load ptr, ptr %1, align 8, !tbaa !46
@@ -928,7 +928,7 @@ declare ptr @EVP_PKEY_new() local_unnamed_addr #2
 declare i32 @EVP_PKEY_assign(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_d2i_DH_PUBKEY(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @ossl_d2i_DH_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %5 = load ptr, ptr %1, align 8, !tbaa !46
@@ -1006,7 +1006,7 @@ define i32 @ossl_i2d_DH_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_d2i_DHx_PUBKEY(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @ossl_d2i_DHx_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %5 = load ptr, ptr %1, align 8, !tbaa !46
@@ -1078,7 +1078,7 @@ define i32 @ossl_i2d_DHx_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_DSA_PUBKEY(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @d2i_DSA_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %5 = load ptr, ptr %1, align 8, !tbaa !46
@@ -1116,7 +1116,7 @@ declare ptr @EVP_PKEY_get1_DSA(ptr noundef) local_unnamed_addr #2
 declare void @DSA_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_d2i_DSA_PUBKEY(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @ossl_d2i_DSA_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1210,7 +1210,7 @@ define i32 @i2d_DSA_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_EC_PUBKEY(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @d2i_EC_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %5 = load ptr, ptr %1, align 8, !tbaa !46
@@ -1288,7 +1288,7 @@ define i32 @i2d_EC_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_d2i_ED25519_PUBKEY(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @ossl_d2i_ED25519_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %5 = load ptr, ptr %1, align 8, !tbaa !46
@@ -1355,7 +1355,7 @@ define i32 @ossl_i2d_ED25519_PUBKEY(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_d2i_ED448_PUBKEY(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @ossl_d2i_ED448_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %5 = load ptr, ptr %1, align 8, !tbaa !46
@@ -1429,7 +1429,7 @@ define i32 @ossl_i2d_ED448_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_d2i_X25519_PUBKEY(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @ossl_d2i_X25519_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %5 = load ptr, ptr %1, align 8, !tbaa !46
@@ -1503,7 +1503,7 @@ define i32 @ossl_i2d_X25519_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_d2i_X448_PUBKEY(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @ossl_d2i_X448_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %5 = load ptr, ptr %1, align 8, !tbaa !46
@@ -1617,7 +1617,7 @@ define range(i32 0, 2) i32 @X509_PUBKEY_set0_param(ptr noundef readonly captures
 declare i32 @X509_ALGOR_set0(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @X509_PUBKEY_get0_param(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #5 {
+define noundef i32 @X509_PUBKEY_get0_param(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %6
 
@@ -1655,7 +1655,7 @@ define noundef i32 @X509_PUBKEY_get0_param(ptr noundef writeonly %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @X509_get0_pubkey_bitstr(ptr noundef readonly %0) local_unnamed_addr #6 {
+define ptr @X509_get0_pubkey_bitstr(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -1672,7 +1672,7 @@ define ptr @X509_get0_pubkey_bitstr(ptr noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_PUBKEY_eq(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define i32 @X509_PUBKEY_eq(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %23, label %4
 
@@ -1735,7 +1735,7 @@ declare i32 @X509_ALGOR_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_PKEY_eq(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ossl_x509_PUBKEY_get0_libctx(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
+define noundef i32 @ossl_x509_PUBKEY_get0_libctx(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
 

@@ -155,7 +155,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdReprTokens_StaticTok
 declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelectorixEm(ptr noundef nonnull readnone align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelectorixEm(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   switch i64 %1, label %7 [
     i64 2, label %5
     i64 1, label %3

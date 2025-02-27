@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [28 x i8] c"Could not allocate %u bytes\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @acpi_ns_get_external_pathname(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @acpi_ns_get_external_pathname(ptr noundef captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call ptr @acpi_ns_get_normalized_pathname(ptr noundef %0, i8 noundef zeroext 0)
   ret ptr %2
 }
@@ -18,7 +18,7 @@ define dso_local ptr @acpi_ns_get_external_pathname(ptr noundef %0) local_unname
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @acpi_ns_get_normalized_pathname(ptr noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @acpi_ns_get_normalized_pathname(ptr noundef readonly captures(address) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [4 x i8], align 4
   %4 = alloca i64, align 8
   %5 = alloca [4 x i8], align 4
@@ -331,7 +331,7 @@ define dso_local range(i64 0, 4294967296) i64 @acpi_ns_get_pathname_length(ptr n
 declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local i32 @acpi_ns_build_normalized_path(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #3 align 16 {
+define dso_local i32 @acpi_ns_build_normalized_path(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #3 align 16 {
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %6 = icmp eq ptr %1, null
@@ -725,7 +725,7 @@ define dso_local i32 @acpi_ns_handle_to_pathname(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @acpi_ns_build_prefixed_pathname(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @acpi_ns_build_prefixed_pathname(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7

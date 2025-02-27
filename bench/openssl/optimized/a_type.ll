@@ -200,7 +200,7 @@ declare ptr @OBJ_dup(ptr noundef) local_unnamed_addr #2
 declare ptr @ASN1_STRING_dup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_TYPE_cmp(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define i32 @ASN1_TYPE_cmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -253,7 +253,7 @@ declare i32 @OBJ_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ASN1_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ASN1_TYPE_pack_sequence(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define noundef ptr @ASN1_TYPE_pack_sequence(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @ASN1_item_pack(ptr noundef %1, ptr noundef %0, ptr noundef null) #4
   %6 = icmp eq ptr %5, null
@@ -327,7 +327,7 @@ declare ptr @ASN1_TYPE_new() local_unnamed_addr #2
 declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @ASN1_TYPE_unpack_sequence(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define ptr @ASN1_TYPE_unpack_sequence(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %12, label %4
 

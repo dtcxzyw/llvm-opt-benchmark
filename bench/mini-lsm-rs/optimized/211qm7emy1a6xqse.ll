@@ -7116,7 +7116,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.14580040072198541846.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN13mini_lsm_mvcc9iterators15concat_iterator17SstConcatIterator15check_sst_valid17hef3742b3df2bbc71E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN13mini_lsm_mvcc9iterators15concat_iterator17SstConcatIterator15check_sst_valid17hef3742b3df2bbc71E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds ptr, ptr %0, i64 %1
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %.thread, label %.lr.ph

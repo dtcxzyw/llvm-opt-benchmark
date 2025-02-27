@@ -607,7 +607,7 @@ define void @_ZN6icu_7713CharacterNode5clearEv(ptr noundef nonnull writeonly ali
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7713CharacterNode12deleteValuesEPFvPvE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly %1) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7713CharacterNode12deleteValuesEPFvPvE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !15
   %4 = icmp eq ptr %3, null
   br i1 %4, label %13, label %5
@@ -3182,7 +3182,7 @@ define void @_ZN6icu_7717TimeZoneNamesImplD0Ev(ptr noundef nonnull align 8 deref
 declare void @ures_close_77(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7717TimeZoneNamesImpleqERKNS_13TimeZoneNamesE(ptr noundef nonnull readnone align 8 dereferenceable(320) %0, ptr noundef nonnull readnone align 8 dereferenceable(8) %1) unnamed_addr #13 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7717TimeZoneNamesImpleqERKNS_13TimeZoneNamesE(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(320) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(8) %1) unnamed_addr #13 align 2 {
   %3 = icmp eq ptr %0, %1
   ret i1 %3
 }
@@ -6153,7 +6153,7 @@ define void @_ZN6icu_7717TZDBTimeZoneNamesD0Ev(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7717TZDBTimeZoneNameseqERKNS_13TimeZoneNamesE(ptr noundef nonnull readnone align 8 dereferenceable(296) %0, ptr noundef nonnull readnone align 8 dereferenceable(8) %1) unnamed_addr #13 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7717TZDBTimeZoneNameseqERKNS_13TimeZoneNamesE(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(296) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(8) %1) unnamed_addr #13 align 2 {
   %3 = icmp eq ptr %0, %1
   ret i1 %3
 }

@@ -316,7 +316,7 @@ define void @_ZN5folly6netops9Msgheader11incrCmsgLenEm(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN5folly6netops9Msgheader24getFirstOrNextCmsgHeaderEP7cmsghdr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly %1) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZN5folly6netops9Msgheader24getFirstOrNextCmsgHeaderEP7cmsghdr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #9 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %3
 
@@ -362,7 +362,7 @@ _ZN5folly6netops9Msgheader11cmsgNextHrdEP7cmsghdr.exit: ; preds = %17, %6, %3, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN5folly6netops9Msgheader11cmsgNextHrdEP7cmsghdr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly %1) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZN5folly6netops9Msgheader11cmsgNextHrdEP7cmsghdr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #9 align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !27
   %4 = icmp ult i64 %3, 16
   br i1 %4, label %__cmsg_nxthdr.exit, label %5
@@ -406,7 +406,7 @@ define noundef ptr @_ZN5folly6netops9Msgheader12cmsgFirstHrdEv(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN5folly6netops9Msgheader6getMsgEv(ptr noundef nonnull readnone returned align 8 dereferenceable(56) %0) local_unnamed_addr #10 align 2 {
+define noundef nonnull ptr @_ZN5folly6netops9Msgheader6getMsgEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(56) %0) local_unnamed_addr #10 align 2 {
   ret ptr %0
 }
 

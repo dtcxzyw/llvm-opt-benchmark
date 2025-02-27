@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.do_shifts = private unnamed_addr constant [10 x i8] c"do_shifts\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @tcg_can_emit_vecop_list(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @tcg_can_emit_vecop_list(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %.preheader
 

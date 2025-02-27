@@ -412,7 +412,7 @@ define void @_ZN5folly21ExecutorBlockingGuardC2ENS0_11ProhibitTagEPNS_8ExecutorE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly21ExecutorBlockingGuardD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21ExecutorBlockingGuardD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly22executor_blocking_listE)
   %3 = load ptr, ptr %2, align 8, !tbaa !26
   %.not = icmp eq ptr %3, %0

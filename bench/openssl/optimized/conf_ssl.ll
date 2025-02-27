@@ -29,7 +29,7 @@ define ptr @conf_ssl_get(i64 noundef %0, ptr noundef writeonly captures(none) in
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @conf_ssl_name_find(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @conf_ssl_name_find(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 

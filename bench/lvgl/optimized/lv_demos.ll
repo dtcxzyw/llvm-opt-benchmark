@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @lv_demos_create(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @lv_demos_create(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, 1
   br i1 %3, label %.thread19, label %4
 

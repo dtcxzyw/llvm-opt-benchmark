@@ -1699,7 +1699,7 @@ define range(i32 0, 2) i32 @ossl_rand_check_random_provider_on_load(ptr noundef 
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rand_check_random_provider_on_unload(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rand_check_random_provider_on_unload(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %0, i32 noundef 5) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5

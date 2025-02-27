@@ -25695,7 +25695,7 @@ _ZN4QMapIP11RasterModeliED2Ev.exit:               ; preds = %_ZNK4QMapIP11Raster
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN25FilterImgPatchParamPlugin14extractPatchesER5QHashIP11RasterModel7QVectorI5PatchEERS5_R6CMeshOR10VisibleSetRNSt7__cxx114listIS2_SaIS2_EEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1196) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %5) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN25FilterImgPatchParamPlugin14extractPatchesER5QHashIP11RasterModel7QVectorI5PatchEERS5_R6CMeshOR10VisibleSetRNSt7__cxx114listIS2_SaIS2_EEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1196) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %4, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %5) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca ptr, align 8
   %8 = alloca %class.QVector, align 8
   %9 = alloca %"class.std::queue", align 8

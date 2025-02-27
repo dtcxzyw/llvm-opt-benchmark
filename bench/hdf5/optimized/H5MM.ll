@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5MM_strndup = private unnamed_addr constant [13 x i8] c"H5MM_strndup\00", align 1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @H5MM_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @H5MM_realloc(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq i64 %1, 0
   %or.cond = and i1 %3, %4
@@ -35,7 +35,7 @@ define noalias noundef ptr @H5MM_realloc(ptr noundef %0, i64 noundef %1) local_u
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @H5MM_xstrdup(ptr noundef readonly %0) local_unnamed_addr #2 {
+define noalias ptr @H5MM_xstrdup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -61,7 +61,7 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @H5MM_strdup(ptr noundef readonly %0) local_unnamed_addr #2 {
+define noalias ptr @H5MM_strdup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %6
 
@@ -88,7 +88,7 @@ define noalias ptr @H5MM_strdup(ptr noundef readonly %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @H5MM_strndup(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #2 {
+define noalias ptr @H5MM_strndup(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %7
 

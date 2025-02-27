@@ -2212,7 +2212,7 @@ define i32 @Res6_FindGetCost(ptr noundef readonly captures(none) %0, i32 noundef
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @Res6_FindBestDiv(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #7 {
+define i32 @Res6_FindBestDiv(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !37
   %5 = icmp sgt i32 %4, 0
@@ -2546,7 +2546,7 @@ define void @Res6_ManResubVerify(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Res6_ManResubCheck(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Res6_ManResubCheck(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [1000 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %5) #21

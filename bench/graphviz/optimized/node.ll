@@ -1216,7 +1216,7 @@ node_set_remove.exit:                             ; preds = %19, %33, %3, %28
 declare ptr @agparent(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @free_subnode(ptr noundef %0) #7 {
+define internal void @free_subnode(ptr noundef captures(address) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !32
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32

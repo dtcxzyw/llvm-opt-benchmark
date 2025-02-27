@@ -797,7 +797,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %0
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @BackgroundWorkerMain(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local void @BackgroundWorkerMain(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #14
   %4 = icmp eq ptr %0, null
@@ -1285,7 +1285,7 @@ declare i32 @errdetail_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %.thread45

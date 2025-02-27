@@ -1533,7 +1533,7 @@ _ZL36rtlil_frontend_yyensure_buffer_stackv.exit:  ; preds = %11, %.critedge, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL29rtlil_frontend_yy_init_bufferP15yy_buffer_stateP8_IO_FILE(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @_ZL29rtlil_frontend_yy_init_bufferP15yy_buffer_stateP8_IO_FILE(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #4 {
   %3 = tail call ptr @__errno_location() #30
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %0, null
@@ -1733,7 +1733,7 @@ define noalias noundef ptr @_Z22rtlil_frontend_yyallocm(i64 noundef %0) local_un
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_Z31rtlil_frontend_yy_delete_bufferP15yy_buffer_state(ptr noundef %0) local_unnamed_addr #12 {
+define void @_Z31rtlil_frontend_yy_delete_bufferP15yy_buffer_state(ptr noundef captures(address) %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -1780,7 +1780,7 @@ define void @_Z21rtlil_frontend_yyfreePv(ptr noundef captures(none) %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state(ptr noundef %0) local_unnamed_addr #14 {
+define void @_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state(ptr noundef captures(address) %0) local_unnamed_addr #14 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 

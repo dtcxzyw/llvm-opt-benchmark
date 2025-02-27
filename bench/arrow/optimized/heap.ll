@@ -645,7 +645,7 @@ define hidden ptr @mi_heap_set_default(ptr noundef %0) local_unnamed_addr #0 {
 declare void @_mi_heap_set_default_direct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %0, @_mi_heap_empty
   %or.cond = and i1 %3, %4
@@ -692,7 +692,7 @@ mi_heap_of_block.exit:                            ; preds = %5, %7, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @mi_heap_check_owned(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @mi_heap_check_owned(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %mi_heap_visit_pages.exit, label %5

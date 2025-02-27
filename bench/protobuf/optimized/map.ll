@@ -1518,7 +1518,7 @@ if.end26:                                         ; preds = %if.else.i, %if.end.
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, i32 } @_ZNK6google8protobuf8internal14UntypedMapBase12FindFromTreeEjNS1_10VariantKeyEPN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIS3_PNS1_8NodeBaseESt4lessIS3_ENS1_12MapAllocatorISt4pairIKS3_SB_EEELi256ELb0EEEEERSH_PSH_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %b, ptr %key.coerce0, i64 %key.coerce1, ptr noundef writeonly %it) local_unnamed_addr #5 align 2 {
+define { ptr, i32 } @_ZNK6google8protobuf8internal14UntypedMapBase12FindFromTreeEjNS1_10VariantKeyEPN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIS3_PNS1_8NodeBaseESt4lessIS3_ENS1_12MapAllocatorISt4pairIKS3_SB_EEELi256ELb0EEEEERSH_PSH_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %b, ptr %key.coerce0, i64 %key.coerce1, ptr noundef writeonly captures(address_is_null) %it) local_unnamed_addr #5 align 2 {
 entry:
   %key = alloca %"struct.google::protobuf::internal::VariantKey", align 8
   store ptr %key.coerce0, ptr %key, align 8

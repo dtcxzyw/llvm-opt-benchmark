@@ -114,7 +114,7 @@ pmix_mca_base_component_unload.exit:              ; preds = %.thread11, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_mca_base_framework_components_close(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @pmix_mca_base_framework_components_close(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -123,7 +123,7 @@ define noundef i32 @pmix_mca_base_framework_components_close(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_mca_base_components_close(i32 noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define noundef i32 @pmix_mca_base_components_close(i32 noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %6 = load ptr, ptr %5, align 8, !tbaa !23

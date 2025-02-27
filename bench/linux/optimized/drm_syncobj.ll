@@ -3490,7 +3490,7 @@ declare dso_local ptr @__dma_fence_unwrap_merge(i32 noundef, ptr noundef, ptr no
 declare dso_local i32 @wake_up_process(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef writeonly %5, ptr noundef readonly %6) unnamed_addr #0 align 16 {
+define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #0 align 16 {
   %8 = alloca ptr, align 8
   %9 = and i32 %3, 6
   %10 = zext i32 %2 to i64

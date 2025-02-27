@@ -647,7 +647,7 @@ define void @printAssemblyHeadersToStdErr() local_unnamed_addr #13 {
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
+define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca [64 x i8], align 16
   %9 = alloca [96 x i8], align 16
@@ -1279,7 +1279,7 @@ declare i32 @T_FileStream_error(ptr noundef) local_unnamed_addr #9
 declare void @T_FileStream_close(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @writeCCode(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #1 {
+define void @writeCCode(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #1 {
   %8 = alloca [4 x i8], align 1
   %9 = alloca [4096 x i8], align 16
   %10 = alloca [96 x i8], align 16
@@ -1521,7 +1521,7 @@ _ZL6write8P11_FileStreamhj.exit:                  ; preds = %84, %94, %97
 declare i32 @T_FileStream_size(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @writeObjectCode(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef readnone captures(none) %4, ptr noundef %5, ptr noundef %6, i64 noundef %7, i8 noundef signext %8) local_unnamed_addr #1 {
+define void @writeObjectCode(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef readnone captures(none) %4, ptr noundef %5, ptr noundef %6, i64 noundef %7, i8 noundef signext %8) local_unnamed_addr #1 {
   %10 = alloca %union.anon.0, align 4
   %11 = alloca [4096 x i8], align 16
   %12 = alloca [96 x i8], align 16

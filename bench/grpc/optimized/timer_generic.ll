@@ -949,7 +949,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %51, %54
 }
 
 ; Function Attrs: uwtable
-define internal noundef i32 @_ZL11timer_checkPN9grpc_core9TimestampE(ptr noundef %0) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZL11timer_checkPN9grpc_core9TimestampE(ptr noundef captures(address_is_null) %0) #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -2243,7 +2243,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL23run_some_expired_timersN9grpc_core9TimestampEPS0_N4absl12lts_202407226StatusE(i64 %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL23run_some_expired_timersN9grpc_core9TimestampEPS0_N4absl12lts_202407226StatusE(i64 %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

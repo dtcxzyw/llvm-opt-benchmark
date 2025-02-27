@@ -46567,7 +46567,7 @@ declare noundef ptr @_ZN8GraphKit15access_store_atEP4NodeS1_PK7TypePtrS1_PK4Type
 declare noundef ptr @_ZN8GraphKit14access_load_atEP4NodeS1_PK7TypePtrPK4Type9BasicTypem(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN14LibraryCallKit17round_double_nodeEP4Node(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(108) %0, ptr noundef readnone returned %1) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN14LibraryCallKit17round_double_nodeEP4Node(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(108) %0, ptr noundef readnone returned captures(ret: address, provenance) %1) local_unnamed_addr #4 align 2 {
   ret ptr %1
 }
 
@@ -49678,7 +49678,7 @@ _ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14LibraryCallKit19sharpen_unsafe_typeEPN7Compile9AliasTypeEPK7TypePtr(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14LibraryCallKit19sharpen_unsafe_typeEPN7Compile9AliasTypeEPK7TypePtr(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -55023,7 +55023,7 @@ declare noundef ptr @_ZNK8JVMState13clone_shallowEP7Compile(ptr noundef nonnull 
 declare void @_ZN4Node7ins_reqEjPS_(ptr noundef nonnull align 8 dereferenceable(52), i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14LibraryCallKit30arraycopy_move_allocation_hereEP17AllocateArrayNodeP4NodeP8JVMStateij(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14LibraryCallKit30arraycopy_move_allocation_hereEP17AllocateArrayNodeP4NodeP8JVMStateij(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.ReplacedNodes, align 8
   %8 = alloca %class.CallProjections, align 8
   %.not = icmp eq ptr %3, null
@@ -56205,7 +56205,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 declare noundef i32 @_ZNK18CallStaticJavaNode21uncommon_trap_requestEv(ptr noundef nonnull align 8 dereferenceable(145)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %3) local_unnamed_addr #0 align 2 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %_ZN7Matcher18supports_simd_sortE9BasicType.exit.thread, label %6
 

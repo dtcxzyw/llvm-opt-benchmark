@@ -636,7 +636,7 @@ define internal fastcc void @ggml_print_backtrace() unnamed_addr #4 {
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_log_internal(i32 noundef %0, ptr noundef readonly %1, ...) local_unnamed_addr #4 {
+define void @ggml_log_internal(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ...) local_unnamed_addr #4 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [128 x i8], align 16
   %5 = alloca [1 x %struct.__va_list_tag], align 16
@@ -2133,7 +2133,7 @@ declare void @ggml_critical_section_end() local_unnamed_addr #19
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ggml_reset(ptr noundef writeonly %0) local_unnamed_addr #21 {
+define void @ggml_reset(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #21 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -2147,7 +2147,7 @@ define void @ggml_reset(ptr noundef writeonly %0) local_unnamed_addr #21 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @ggml_free(ptr noundef %0) local_unnamed_addr #22 {
+define void @ggml_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #22 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -2807,7 +2807,7 @@ define noundef ptr @ggml_dup_tensor(ptr noundef captures(none) %0, ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ggml_unravel_index(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #25 {
+define void @ggml_unravel_index(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #25 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8, !tbaa !39
@@ -2875,13 +2875,13 @@ define ptr @ggml_get_data_f32(ptr noundef readonly captures(none) %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ggml_get_name(ptr noundef readnone %0) local_unnamed_addr #9 {
+define nonnull ptr @ggml_get_name(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   ret ptr %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @ggml_set_name(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
+define noundef ptr @ggml_set_name(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %4
 
@@ -2907,7 +2907,7 @@ define noundef ptr @ggml_set_name(ptr noundef returned writeonly %0, ptr noundef
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @ggml_format_name(ptr noundef returned %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #16 {
+define noundef ptr @ggml_format_name(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #16 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #42
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -16825,7 +16825,7 @@ ggml_graph_get_grad.exit:                         ; preds = %52, %40, %59, %57, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_graph_dump_dot(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define void @ggml_graph_dump_dot(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16

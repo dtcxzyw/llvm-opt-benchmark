@@ -110,7 +110,7 @@ define internal void @debug_print(ptr noundef readonly captures(none) %0, ...) u
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @is_ld(ptr noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc zeroext i1 @is_ld(ptr noundef nonnull readonly captures(address) %0) unnamed_addr #3 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %2
   br label %4

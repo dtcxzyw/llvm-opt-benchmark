@@ -115,7 +115,7 @@ _ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11: ; pr
 declare noundef i32 @_ZNK6icu_7717RuleBasedCollator11cloneBinaryEPhiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucol_safeClone_77(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define noundef ptr @ucol_safeClone_77(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %20, label %6
 
@@ -160,7 +160,7 @@ define noundef ptr @ucol_safeClone_77(ptr noundef %0, ptr noundef readnone captu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucol_clone_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @ucol_clone_77(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ucol_safeClone_77.exit, label %4
 
@@ -208,7 +208,7 @@ define void @ucol_close_77(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ucol_mergeSortkeys_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #4 {
+define i32 @ucol_mergeSortkeys_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = icmp eq ptr %0, null
   %8 = icmp slt i32 %1, -1
   %or.cond = or i1 %7, %8
@@ -420,7 +420,7 @@ define noundef i32 @ucol_nextSortKeyPart_77(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483647, -2147483648) i32 @ucol_getBound_77(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #6 {
+define range(i32 -2147483647, -2147483648) i32 @ucol_getBound_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #6 {
   %8 = icmp eq ptr %6, null
   br i1 %8, label %44, label %9
 

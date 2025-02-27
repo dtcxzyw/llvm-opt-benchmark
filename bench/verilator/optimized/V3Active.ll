@@ -564,25 +564,25 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN11ActiveNamer16getSpecialActiveIN10AstSenItem6StaticEEERP9AstActivev(ptr noundef nonnull readnone align 8 dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN11ActiveNamer16getSpecialActiveIN10AstSenItem6StaticEEERP9AstActivev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN11ActiveNamer16getSpecialActiveIN10AstSenItem7InitialEEERP9AstActivev(ptr noundef nonnull readnone align 8 dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN11ActiveNamer16getSpecialActiveIN10AstSenItem7InitialEEERP9AstActivev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN11ActiveNamer16getSpecialActiveIN10AstSenItem5FinalEEERP9AstActivev(ptr noundef nonnull readnone align 8 dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN11ActiveNamer16getSpecialActiveIN10AstSenItem5FinalEEERP9AstActivev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN11ActiveNamer16getSpecialActiveIN10AstSenItem5ComboEEERP9AstActivev(ptr noundef nonnull readnone align 8 dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN11ActiveNamer16getSpecialActiveIN10AstSenItem5ComboEEERP9AstActivev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }

@@ -3774,7 +3774,7 @@ define internal fastcc noalias ptr @decode_gtpv2_uli(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @dissect_diameter_3gpp_uli(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+define hidden i32 @dissect_diameter_3gpp_uli(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #1 {
   %.not = icmp eq ptr %3, null
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sink = select i1 %.not, ptr null, ptr %5
@@ -3783,7 +3783,7 @@ define hidden i32 @dissect_diameter_3gpp_uli(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_3gpp_uli(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_3gpp_uli(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -6341,7 +6341,7 @@ define internal void @dissect_gtpv2_tad(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_gtpv2_f_teid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr noundef %7) #1 {
+define internal void @dissect_gtpv2_f_teid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr noundef captures(address_is_null) %7) #1 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
   %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)

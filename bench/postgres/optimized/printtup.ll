@@ -370,7 +370,7 @@ define dso_local void @SetRemoteDestReceiverParams(ptr noundef writeonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SendRowDescriptionMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define dso_local void @SendRowDescriptionMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr %1, align 8
   %.not.i = icmp eq ptr %2, null

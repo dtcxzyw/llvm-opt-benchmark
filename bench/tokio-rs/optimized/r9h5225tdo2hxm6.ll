@@ -2600,7 +2600,7 @@ define noundef i32 @_ZN5tokio4loom3std10atomic_u329AtomicU3211unsync_load17hc488
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 ptr @"_ZN83_$LT$tokio..loom..std..atomic_u32..AtomicU32$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3acff91d489086b1E"(ptr noundef nonnull readnone returned align 4 %0) unnamed_addr #3 {
+define noundef nonnull align 4 ptr @"_ZN83_$LT$tokio..loom..std..atomic_u32..AtomicU32$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3acff91d489086b1E"(ptr noundef nonnull readnone returned align 4 captures(ret: address, provenance) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -11537,7 +11537,7 @@ define hidden void @"_ZN5tokio6signal8registry17Registry$LT$S$GT$12record_event1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @"_ZN76_$LT$tokio..signal..registry..Globals$u20$as$u20$core..ops..deref..Deref$GT$5deref17h12a8e116fcd8bfb2E"(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 {
+define noundef nonnull align 4 dereferenceable(8) ptr @"_ZN76_$LT$tokio..signal..registry..Globals$u20$as$u20$core..ops..deref..Deref$GT$5deref17h12a8e116fcd8bfb2E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }

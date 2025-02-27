@@ -11650,7 +11650,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN19OpenColorIO_
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPZN19OpenColorIO_v2_5dev4ACES11RegisterAllERNS0_28BuiltinTransformRegistryImplEE20ACES2OutputTransformEvT_S6_(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPZN19OpenColorIO_v2_5dev4ACES11RegisterAllERNS0_28BuiltinTransformRegistryImplEE20ACES2OutputTransformEvT_S6_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPZN19OpenColorIO_v2_5dev4ACES11RegisterAllERNS2_28BuiltinTransformRegistryImplEE20ACES2OutputTransformEEvT_S8_.exit, label %.lr.ph.i
 

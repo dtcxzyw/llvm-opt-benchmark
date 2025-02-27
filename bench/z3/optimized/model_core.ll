@@ -375,7 +375,7 @@ entry:
 declare void @llvm.trap() #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK10model_core4evalEP9func_declR7obj_refI4expr11ast_managerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr noundef readonly %f, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %r) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK10model_core4evalEP9func_declR7obj_refI4expr11ast_managerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr noundef readonly captures(address) %f, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %r) local_unnamed_addr #8 align 2 {
 entry:
   %m_arity.i = getelementptr inbounds nuw i8, ptr %f, i64 32
   %0 = load i32, ptr %m_arity.i, align 8

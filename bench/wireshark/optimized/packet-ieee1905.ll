@@ -3401,7 +3401,7 @@ declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #3
 declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @ieee1905_fragment_hash(ptr noundef readonly %0) #0 {
+define internal i32 @ieee1905_fragment_hash(ptr noundef readonly captures(address_is_null) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %41, label %2
 
@@ -3461,7 +3461,7 @@ define internal i32 @ieee1905_fragment_hash(ptr noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @ieee1905_fragment_equal(ptr noundef readonly %0, ptr noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @ieee1905_fragment_equal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #5 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

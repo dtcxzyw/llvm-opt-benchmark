@@ -242,7 +242,7 @@ define i32 @Gia_ManLutNum(ptr noundef readonly captures(none) %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -2147483648) i32 @Gia_ManLutLevel(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define range(i32 0, -2147483648) i32 @Gia_ManLutLevel(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val52 = load i32, ptr %3, align 8, !tbaa !27
   %4 = sext i32 %.val52 to i64
@@ -1774,7 +1774,7 @@ declare void @Gia_ManCleanMark01(ptr noundef) local_unnamed_addr #7
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManPrintMappingStats(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define void @Gia_ManPrintMappingStats(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca ptr, align 8
@@ -4137,7 +4137,7 @@ Gia_ObjLevel.exit111:                             ; preds = %175, %._crit_edge.i
 declare void @Gia_ManCleanLevels(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @If_ManCheckChoices_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #9 {
+define void @If_ManCheckChoices_rec(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #9 {
   %.not14 = icmp eq ptr %1, null
   br i1 %.not14, label %tailrecurse._crit_edge, label %.lr.ph
 
@@ -15189,7 +15189,7 @@ Vec_IntPush.exit52:                               ; preds = %Vec_IntPush.exit52.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Gia_ManTransferTiming(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #14 {
+define void @Gia_ManTransferTiming(ptr noundef writeonly captures(address) %0, ptr noundef captures(address) %1) local_unnamed_addr #14 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %86, label %4
 
@@ -15361,7 +15361,7 @@ define void @Gia_ManTransferTiming(ptr noundef writeonly %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_FrameMiniAigSetCiArrivals(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define void @Abc_FrameMiniAigSetCiArrivals(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5
 
@@ -15436,7 +15436,7 @@ Vec_IntFreeP.exit:                                ; preds = %12, %21
 declare ptr @Abc_FrameReadGia(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_FrameMiniAigSetCoRequireds(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define void @Abc_FrameMiniAigSetCoRequireds(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5
 
@@ -17295,7 +17295,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #21
 declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_TtSwapVars(ptr noundef nonnull %0, i32 noundef %1, i32 noundef range(i32 -2147483648, 2147483647) %2, i32 noundef %3) unnamed_addr #22 {
+define internal fastcc void @Abc_TtSwapVars(ptr noundef nonnull captures(address) %0, i32 noundef %1, i32 noundef range(i32 -2147483648, 2147483647) %2, i32 noundef %3) unnamed_addr #22 {
   %5 = icmp eq i32 %2, %3
   br i1 %5, label %.loopexit, label %6
 

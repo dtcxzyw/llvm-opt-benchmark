@@ -172,7 +172,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare dso_local i32 @ll_back_merge_fn(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca [8 x ptr], align 16
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
@@ -1290,7 +1290,7 @@ define dso_local range(i32 -14, 1) i32 @blk_rq_unmap_user(ptr noundef %0) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @blk_rq_map_user(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #0 align 16 {
+define dso_local i32 @blk_rq_map_user(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #0 align 16 {
   %7 = alloca %struct.iov_iter, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !8
@@ -1315,7 +1315,7 @@ define dso_local i32 @blk_rq_map_user(ptr noundef %0, ptr noundef %1, ptr nounde
 declare dso_local i32 @import_ubuf(i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @blk_rq_map_user_io(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, i1 noundef zeroext %7, i32 noundef %8) #0 align 16 {
+define dso_local i32 @blk_rq_map_user_io(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, i1 noundef zeroext %7, i32 noundef %8) #0 align 16 {
   %10 = alloca %struct.iov_iter, align 8
   %11 = alloca [8 x %struct.iovec], align 16
   %12 = alloca ptr, align 8

@@ -7332,7 +7332,7 @@ define internal ptr @unix_seq_start(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @unix_seq_stop(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #0 align 16 {
+define internal void @unix_seq_stop(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %14, label %4
 
@@ -7354,7 +7354,7 @@ define internal void @unix_seq_stop(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @unix_seq_next(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2) #0 align 16 {
+define internal ptr @unix_seq_next(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8

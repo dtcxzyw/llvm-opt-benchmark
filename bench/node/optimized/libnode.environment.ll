@@ -990,7 +990,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node29DebuggingArrayBufferAllocator25UnregisterPointerInternalEPvm(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %data, i64 noundef %size) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node29DebuggingArrayBufferAllocator25UnregisterPointerInternalEPvm(ptr noundef nonnull align 8 captures(address) dereferenceable(128) %this, ptr noundef %data, i64 noundef %size) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %data, null
   br i1 %cmp, label %return, label %if.end
@@ -2518,14 +2518,14 @@ declare void @_ZN2v815SealHandleScopeD1Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN2v87Isolate32DisallowJavascriptExecutionScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(13)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node24GetInspectorParentHandleEPNS_11EnvironmentENS_8ThreadIdEPKc(ptr noalias writeonly sret(%"class.std::unique_ptr.395") align 8 captures(none) %agg.result, ptr noundef %env, i64 %thread_id.coerce, ptr noundef %url) local_unnamed_addr #3 {
+define dso_local void @_ZN4node24GetInspectorParentHandleEPNS_11EnvironmentENS_8ThreadIdEPKc(ptr noalias writeonly sret(%"class.std::unique_ptr.395") align 8 captures(none) %agg.result, ptr noundef captures(address_is_null) %env, i64 %thread_id.coerce, ptr noundef %url) local_unnamed_addr #3 {
 entry:
   tail call void @_ZN4node24GetInspectorParentHandleEPNS_11EnvironmentENS_8ThreadIdEPKcS4_(ptr sret(%"class.std::unique_ptr.395") align 8 %agg.result, ptr noundef %env, i64 %thread_id.coerce, ptr noundef %url, ptr noundef nonnull @.str.20)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node24GetInspectorParentHandleEPNS_11EnvironmentENS_8ThreadIdEPKcS4_(ptr noalias writeonly sret(%"class.std::unique_ptr.395") align 8 captures(none) %agg.result, ptr noundef readonly %env, i64 %thread_id.coerce, ptr noundef %url, ptr noundef %name) local_unnamed_addr #3 {
+define dso_local void @_ZN4node24GetInspectorParentHandleEPNS_11EnvironmentENS_8ThreadIdEPKcS4_(ptr noalias writeonly sret(%"class.std::unique_ptr.395") align 8 captures(none) %agg.result, ptr noundef readonly captures(address_is_null) %env, i64 %thread_id.coerce, ptr noundef %url, ptr noundef %name) local_unnamed_addr #3 {
 entry:
   %ref.tmp20 = alloca %"class.std::unique_ptr.418", align 8
   %ref.tmp23 = alloca %"class.std::__cxx11::basic_string", align 8

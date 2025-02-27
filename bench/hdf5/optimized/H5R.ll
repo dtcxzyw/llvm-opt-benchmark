@@ -2366,7 +2366,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Ropen_attr(ptr noundef %0, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5R__open_attr_api_common(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5R__open_attr_api_common(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.H5VL_loc_params_t, align 8
   %8 = alloca %struct.H5O_token_t, align 1

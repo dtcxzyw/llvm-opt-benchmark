@@ -56,7 +56,7 @@ return:                                           ; preds = %entry, %do.end22
 declare i32 @uv_signal_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @uv__wait_children(ptr noundef readonly %loop) local_unnamed_addr #0 {
+define hidden void @uv__wait_children(ptr noundef readonly captures(address) %loop) local_unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   %pending = alloca %struct.uv__queue, align 8

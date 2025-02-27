@@ -38,7 +38,7 @@ define noundef double @_Z21eigenvalueToFrequencyd(double noundef %0) local_unnam
 declare double @sqrt(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define noundef double @_Z19calcZeroPointEnergyN3gmx8ArrayRefIKfEEf(ptr readonly %0, ptr readnone %1, float noundef %2) local_unnamed_addr #2 {
+define noundef double @_Z19calcZeroPointEnergyN3gmx8ArrayRefIKfEEf(ptr readonly captures(address) %0, ptr readnone captures(address) %1, float noundef %2) local_unnamed_addr #2 {
   %.not13 = icmp eq ptr %0, %1
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 

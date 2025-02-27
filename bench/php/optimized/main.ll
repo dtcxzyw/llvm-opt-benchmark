@@ -1929,7 +1929,7 @@ declare void @php_info_print_table_end() local_unnamed_addr #0
 declare void @display_ini_entries(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @php_register_extensions(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @php_register_extensions(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds ptr, ptr %0, i64 %3
   %5 = icmp sgt i32 %1, 0
@@ -4210,7 +4210,7 @@ define internal range(i32 -1, 1) i32 @OnSetPrecision(ptr readnone captures(none)
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 1) i32 @OnChangeMailForceExtra(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5) #23 {
+define internal range(i32 -1, 1) i32 @OnChangeMailForceExtra(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5) #23 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %7
 

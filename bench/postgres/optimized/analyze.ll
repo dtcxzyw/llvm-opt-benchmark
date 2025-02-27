@@ -3341,7 +3341,7 @@ define dso_local noundef zeroext i1 @analyze_requires_snapshot(ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformInsertRow(ptr noundef %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr noundef readonly %3, ptr noundef readonly %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local ptr @transformInsertRow(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %list_length.exit, label %7
 
@@ -3663,7 +3663,7 @@ declare i32 @exprLocation(ptr noundef) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @count_rowexpr_columns(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @count_rowexpr_columns(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %list_length.exit, label %4
 
@@ -4058,7 +4058,7 @@ declare void @updateTargetListEntry(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @transformReturningClause(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @transformReturningClause(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -5134,7 +5134,7 @@ declare i32 @select_common_collation(ptr noundef, ptr noundef, i1 noundef zeroex
 declare ptr @expandNSItemAttrs(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformSetOperationTree(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformSetOperationTree(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
@@ -5627,7 +5627,7 @@ declare i32 @locate_var_of_level(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @determineRecursiveColTypes(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @determineRecursiveColTypes(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %.not53 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %.not53)
   %4 = load i32, ptr %1, align 4

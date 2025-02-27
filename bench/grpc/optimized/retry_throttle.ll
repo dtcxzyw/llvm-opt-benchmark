@@ -44,7 +44,7 @@ $_ZTSN9grpc_core19PolymorphicRefCountE = comdat any
 @_ZN9grpc_core8internal23ServerRetryThrottleDataD1Ev = unnamed_addr alias void (ptr), ptr @_ZN9grpc_core8internal23ServerRetryThrottleDataD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core8internal23ServerRetryThrottleDataC2EmmPS1_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 32), (40, 48)) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8internal23ServerRetryThrottleDataC2EmmPS1_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 32), (40, 48)) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core8internal23ServerRetryThrottleDataE, i64 16), ptr %0, align 8, !tbaa !8

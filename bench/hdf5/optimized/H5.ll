@@ -2260,7 +2260,7 @@ define range(i32 -1, 1) i32 @H5get_free_list_sizes(ptr noundef %0, ptr noundef %
 declare i32 @H5FL_get_free_list_sizes(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5get_libversion(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5get_libversion(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %4) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %4, i8 0, i64 480, i1 false)
@@ -2570,7 +2570,7 @@ define noundef i32 @H5free_memory(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @H5is_library_threadsafe(ptr noundef writeonly %0) local_unnamed_addr #13 {
+define range(i32 -1, 1) i32 @H5is_library_threadsafe(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -2584,7 +2584,7 @@ define range(i32 -1, 1) i32 @H5is_library_threadsafe(ptr noundef writeonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @H5is_library_terminating(ptr noundef writeonly %0) local_unnamed_addr #14 {
+define range(i32 -1, 1) i32 @H5is_library_terminating(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 

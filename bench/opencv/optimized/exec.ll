@@ -29280,7 +29280,7 @@ _ZNSt12__shared_ptrIN2cv5gimpl7GIslandELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit5:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv5gimpl12_GLOBAL__N_111MergeActionD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv5gimpl12_GLOBAL__N_111MergeActionD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(168) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8, !tbaa !460
   %.not8.i.i.i = icmp eq ptr %3, %2
@@ -32343,7 +32343,7 @@ _ZNSt10unique_ptrIN7ChangeTIJN2cv5gimpl13DesyncIslEdgeEEE4BaseESt14default_delet
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv5gimpl12_GLOBAL__N_111MergeAction12MergeObjectsD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv5gimpl12_GLOBAL__N_111MergeAction12MergeObjectsD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(320) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !190
   %.not5.i.i.i.i = icmp eq ptr %3, null

@@ -299,7 +299,7 @@ define dso_local void @_ZN4absl5Mutex45InternalAttemptToUseMutexInFatalSignalHan
 declare noundef ptr @_ZN4absl13base_internal30CurrentThreadIdentityIfPresentEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl5Mutex14EnableDebugLogEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl5Mutex14EnableDebugLogEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca { i64, i64 }, align 8
   %4 = tail call fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef %0, ptr noundef %1, i64 noundef 16, i64 noundef 64)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -351,7 +351,7 @@ _ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit: ; preds = %_ZN4absl13base_int
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef nonnull %0, ptr noundef readonly %1, i64 noundef range(i64 2, 17) %2, i64 noundef range(i64 1, 65) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef range(i64 2, 17) %2, i64 noundef range(i64 1, 65) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = ptrtoint ptr %0 to i64
   %6 = urem i64 %5, 1031
   %7 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
@@ -576,7 +576,7 @@ define dso_local void @_ZN4absl29SetMutexDeadlockDetectionModeENS_15OnDeadlockCy
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl5Mutex9TryRemoveEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl5Mutex9TryRemoveEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(address) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i64, ptr %0 monotonic, align 8
   %4 = and i64 %3, 77
   %5 = icmp eq i64 %4, 4
@@ -906,7 +906,7 @@ _ZN4absl9Condition15GuaranteedEqualEPKS0_S2_.exit: ; preds = %37, %31, %25, %23,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::base_internal::SchedulingGuard::ScopedEnable", align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load atomic i32, ptr %4 acquire, align 4
@@ -2820,7 +2820,7 @@ define internal fastcc void @_ZN4abslL23CheckForMutexCorruptionElPKc(i64 noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::base_internal::SchedulingGuard::ScopedEnable", align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.sched_param, align 4
@@ -3707,7 +3707,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %.critedge9, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl7CondVar14EnableDebugLogEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl7CondVar14EnableDebugLogEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef %0, ptr noundef %1, i64 noundef 2, i64 noundef 1)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i8 1, ptr %4, align 8, !tbaa !41
@@ -3755,7 +3755,7 @@ _ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit: ; preds = %_ZN4absl13base_int
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl7CondVar6RemoveEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl7CondVar6RemoveEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::base_internal::SchedulingGuard::ScopedEnable", align 4
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit
 
@@ -4443,7 +4443,7 @@ define internal noundef zeroext i1 @_ZN4abslL11DereferenceEPv(ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl9Condition15GuaranteedEqualEPKS0_S2_(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #16 align 2 {
+define dso_local noundef zeroext i1 @_ZN4absl9Condition15GuaranteedEqualEPKS0_S2_(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #16 align 2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

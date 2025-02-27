@@ -6485,7 +6485,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Acb_NtkFindNodes(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Acb_NtkFindNodes(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #29
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4, !tbaa !19
@@ -6856,7 +6856,7 @@ declare i32 @Gia_ManHashOr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_
 declare i32 @Gia_ManHashXor(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Acb_NtkToGia(ptr noundef captures(none) initializes((164, 168)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #0 {
+define ptr @Acb_NtkToGia(ptr noundef captures(none) initializes((164, 168)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %0, i64 116
   %.val83 = load i32, ptr %7, align 4, !tbaa !3
   %8 = shl i32 %.val83, 1
@@ -7138,7 +7138,7 @@ declare void @Gia_ManHashStop(ptr noundef) local_unnamed_addr #2
 declare ptr @Gia_ManCleanup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Acb_NtkSaveNames(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4, ptr noundef readonly %5, ptr noundef captures(none) initializes((632, 640)) %6) local_unnamed_addr #0 {
+define noundef i32 @Acb_NtkSaveNames(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef captures(none) initializes((632, 640)) %6) local_unnamed_addr #0 {
   %8 = alloca [100 x i8], align 16
   %9 = getelementptr i8, ptr %6, i64 64
   %.val71 = load ptr, ptr %9, align 8, !tbaa !72
@@ -9042,7 +9042,7 @@ Abc_TtAndSharp.exit:                              ; preds = %82
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Acb_FindSupportMinOne(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define ptr @Acb_FindSupportMinOne(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef readonly captures(ret: address, provenance) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %2, i64 4
   %.val37 = load i32, ptr %7, align 4, !tbaa !102
   %8 = sdiv i32 %.val37, 256
@@ -9806,7 +9806,7 @@ Vec_WrdFreeP.exit:                                ; preds = %.loopexit, %122
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Acb_DerivePatchSupport(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly %6, i32 noundef %7) local_unnamed_addr #0 {
+define ptr @Acb_DerivePatchSupport(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [3 x i32], align 4
   %10 = alloca %struct.timespec, align 8
   %11 = alloca i32, align 4
@@ -16853,7 +16853,7 @@ define void @Acb_GenerateFilePatch(ptr noundef readonly captures(none) %0, ptr n
 declare void @Acb_NtkInsert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_GenerateFileOut(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define void @Acb_GenerateFileOut(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @Extra_FileReadContents(ptr noundef %1) #32
   %6 = icmp eq ptr %5, null
   br i1 %6, label %28, label %7

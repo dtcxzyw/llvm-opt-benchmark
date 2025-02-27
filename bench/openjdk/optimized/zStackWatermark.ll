@@ -226,7 +226,7 @@ define hidden void @_ZN22ZOnStackNMethodClosure10do_nmethodEP7nmethod(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN15ZStackWatermark5statsEv(ptr noundef nonnull readnone align 8 dereferenceable(296) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN15ZStackWatermark5statsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(296) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   ret ptr %2
 }

@@ -1608,7 +1608,7 @@ signal_install_handlers.exit:                     ; preds = %18, %15, %13, %7, %
 declare ptr @PyLong_FromVoidPtr(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_PyOS_InterruptOccurred(ptr noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @_PyOS_InterruptOccurred(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %_Py_EnsureFuncTstateNotNULL.exit
 

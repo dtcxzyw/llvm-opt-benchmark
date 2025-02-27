@@ -1851,7 +1851,7 @@ define void @_ZN17grpc_auth_context15ensure_capacityEv(ptr noundef nonnull align
 declare ptr @gpr_realloc(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_auth_context12add_propertyEPKcS1_m(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #8 align 2 {
+define void @_ZN17grpc_auth_context12add_propertyEPKcS1_m(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !119
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2385,7 +2385,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12l
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z30grpc_find_auth_context_in_argsPK17grpc_channel_args(ptr noundef readonly %0) local_unnamed_addr #8 {
+define noundef ptr @_Z30grpc_find_auth_context_in_argsPK17grpc_channel_args(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -2786,7 +2786,7 @@ declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216
 declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL29auth_context_pointer_arg_copyPv(ptr noundef returned %0) #22 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZL29auth_context_pointer_arg_copyPv(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) #22 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev.exit
 
@@ -2818,7 +2818,7 @@ _ZNK9grpc_core10RefCountedI17grpc_auth_contextNS_22NonPolymorphicRefCountENS_11U
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL24auth_context_pointer_cmpPvS_(ptr noundef readnone %0, ptr noundef readnone %1) #23 {
+define internal noundef range(i32 -1, 2) i32 @_ZL24auth_context_pointer_cmpPvS_(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #23 {
   %3 = icmp ult ptr %0, %1
   %4 = icmp ult ptr %1, %0
   %..i = zext i1 %4 to i32

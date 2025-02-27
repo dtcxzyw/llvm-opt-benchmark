@@ -708,7 +708,7 @@ declare noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN10MethodData10next_extraEP10DataLayout(ptr noundef readonly %0) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN10MethodData10next_extraEP10DataLayout(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #2 align 2 {
   %2 = load i8, ptr %0, align 8
   switch i8 %2, label %4 [
     i8 1, label %8
@@ -5747,7 +5747,7 @@ _ZN10MethodData36exception_handler_bci_to_data_helperEi.exit: ; preds = %19, %.l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10MethodData22bci_to_extra_data_findEiP6MethodRP10DataLayout(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %1, ptr noundef readnone %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN10MethodData22bci_to_extra_data_findEiP6MethodRP10DataLayout(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %6 = load i32, ptr %5, align 8
   %.not.i.i = icmp eq i32 %6, -2
@@ -6413,7 +6413,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(312) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(312) %0, ptr noundef captures(address) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 {
   %5 = ptrtoint ptr %1 to i64
   %6 = icmp eq i32 %2, 0
   br i1 %6, label %.loopexit, label %7

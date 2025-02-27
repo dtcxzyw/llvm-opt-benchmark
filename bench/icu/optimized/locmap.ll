@@ -1177,7 +1177,7 @@ define noundef i32 @uprv_convertToLCIDPlatform_77(ptr noundef readnone captures(
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @uprv_convertToLCID_77(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #12 {
+define i32 @uprv_convertToLCID_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2) local_unnamed_addr #12 {
   %4 = load i32, ptr %2, align 4, !tbaa !13
   %5 = icmp sgt i32 %4, 0
   %6 = icmp eq ptr %0, null

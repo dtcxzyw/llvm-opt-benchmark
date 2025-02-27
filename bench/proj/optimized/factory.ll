@@ -2025,7 +2025,7 @@ define hidden void @_ZN5osgeo4proj5lru1111KeyNotFoundD0Ev(ptr noundef nonnull al
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj2io12SQLiteHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj2io12SQLiteHandleD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8, !tbaa !3, !range !22, !noundef !23
   %4 = trunc nuw i8 %3 to i1
@@ -4754,7 +4754,7 @@ _ZN5osgeo4proj2io12SQLiteHandle10initializeEv.exit: ; preds = %.noexc5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj2io12SQLiteHandle3runEP12sqlite3_stmtRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS5_4listINS1_9SQLValuesESaISE_EEEb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i1 noundef zeroext %5) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj2io12SQLiteHandle3runEP12sqlite3_stmtRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS5_4listINS1_9SQLValuesESaISE_EEEb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %4, i1 noundef zeroext %5) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::vector", align 8
   %8 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %9 = alloca %"class.std::locale", align 8
@@ -5680,7 +5680,7 @@ _ZNSt7__cxx1110_List_baseISt6vectorINS_12basic_stringIcSt11char_traitsIcESaIcEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj2io12SQLiteHandle3runERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_4listINS1_9SQLValuesESaISC_EEEb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj2io12SQLiteHandle3runERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_4listINS1_9SQLValuesESaISC_EEEb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %3, i1 noundef zeroext %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca ptr, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9426,7 +9426,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14_Li
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj2io15DatabaseContext7Private3runERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS4_4listINS1_9SQLValuesESaISD_EEEb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1696) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj2io15DatabaseContext7Private3runERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS4_4listINS1_9SQLValuesESaISD_EEEb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1696) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %3, i1 noundef zeroext %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::shared_ptr", align 8
   %8 = alloca ptr, align 8
@@ -53781,7 +53781,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj2io15Data
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK5osgeo4proj2io15DatabaseContext11getMetadataEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK5osgeo4proj2io15DatabaseContext11getMetadataEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
@@ -71726,7 +71726,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj2io16AuthorityFactory7Private3runERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS4_4listINS1_9SQLValuesESaISD_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN5osgeo4proj2io16AuthorityFactory7Private3runERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS4_4listINS1_9SQLValuesESaISD_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %3) local_unnamed_addr #6 align 2 {
   %5 = load ptr, ptr %1, align 8, !tbaa !407
   %6 = load ptr, ptr %5, align 8, !tbaa !409
   tail call void @_ZN5osgeo4proj2io15DatabaseContext7Private3runERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS4_4listINS1_9SQLValuesESaISD_EEEb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1696) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext false)
@@ -72002,7 +72002,7 @@ _ZN5osgeo4proj2io9SQLValuesD2Ev.exit23:           ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj2io16AuthorityFactory7Private16runWithCodeParamEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef readonly %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj2io16AuthorityFactory7Private16runWithCodeParamEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #37
@@ -107032,12 +107032,12 @@ _ZNSt7__cxx1110_List_baseISt6vectorINS_12basic_stringIcSt11char_traitsIcESaIcEEE
           to label %2336 unwind label %4910
 
 2336:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i928, %2335, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit929, %295, %2322
-  %.merged913 = phi { ptr, i32 } [ %.pn8992129, %295 ], [ %286, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit929 ], [ %.pn886.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2322 ], [ %.pn897, %2335 ], [ %286, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i928 ]
+  %.merged909 = phi { ptr, i32 } [ %.pn8992129, %295 ], [ %286, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit929 ], [ %.pn886.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2322 ], [ %.pn897, %2335 ], [ %286, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i928 ]
   call void @_ZNSt7__cxx1110_List_baseISt6vectorINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #37
   br label %2337
 
 2337:                                             ; preds = %2336, %282
-  %.merged912 = phi { ptr, i32 } [ %.merged913, %2336 ], [ %283, %282 ]
+  %.merged908 = phi { ptr, i32 } [ %.merged909, %2336 ], [ %283, %282 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #37
   br label %4903
 
@@ -111614,22 +111614,22 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
           to label %4131 unwind label %4910
 
 4131:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1720, %4130, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1721, %3362, %4117
-  %.merged908 = phi { ptr, i32 } [ %.pn7432136, %3362 ], [ %3353, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1721 ], [ %.pn732.pn.pn.pn.pn.pn.pn.pn, %4117 ], [ %.pn741, %4130 ], [ %3353, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1720 ]
+  %.merged913 = phi { ptr, i32 } [ %.pn7432136, %3362 ], [ %3353, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1721 ], [ %.pn732.pn.pn.pn.pn.pn.pn.pn, %4117 ], [ %.pn741, %4130 ], [ %3353, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1720 ]
   call void @_ZNSt7__cxx1110_List_baseISt6vectorINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %127) #37
   br label %4132
 
 4132:                                             ; preds = %4131, %.body1711
-  %.merged907 = phi { ptr, i32 } [ %.merged908, %4131 ], [ %.pn698, %.body1711 ]
+  %.merged912 = phi { ptr, i32 } [ %.merged913, %4131 ], [ %.pn698, %.body1711 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %127) #37
   br label %4133
 
 4133:                                             ; preds = %4132, %3301, %3280
-  %.merged906 = phi { ptr, i32 } [ %3302, %3301 ], [ %.merged907, %4132 ], [ %3281, %3280 ]
+  %.merged911 = phi { ptr, i32 } [ %3302, %3301 ], [ %.merged912, %4132 ], [ %3281, %3280 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %125) #37
   br label %4134
 
 4134:                                             ; preds = %4133, %3278
-  %.merged905 = phi { ptr, i32 } [ %.merged906, %4133 ], [ %3279, %3278 ]
+  %.merged910 = phi { ptr, i32 } [ %.merged911, %4133 ], [ %3279, %3278 ]
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %125) #37
   br label %4903
 
@@ -113580,17 +113580,17 @@ _ZNSt7__cxx1110_List_baseISt6vectorINS_12basic_stringIcSt11char_traitsIcESaIcEEE
   br label %4877
 
 4877:                                             ; preds = %4874, %4189
-  %.merged911 = phi { ptr, i32 } [ %4876, %4874 ], [ %4190, %4189 ]
+  %.merged907 = phi { ptr, i32 } [ %4876, %4874 ], [ %4190, %4189 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %160) #37
   br label %4878
 
 4878:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1913, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1914, %4163, %4877
-  %.merged910 = phi { ptr, i32 } [ %.pn6962142, %4163 ], [ %4154, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1914 ], [ %.merged911, %4877 ], [ %4154, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1913 ]
+  %.merged906 = phi { ptr, i32 } [ %.pn6962142, %4163 ], [ %4154, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1914 ], [ %.merged907, %4877 ], [ %4154, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1913 ]
   call void @_ZNSt7__cxx1110_List_baseISt6vectorINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %157) #37
   br label %4879
 
 4879:                                             ; preds = %4878, %4150
-  %.merged909 = phi { ptr, i32 } [ %.merged910, %4878 ], [ %4151, %4150 ]
+  %.merged905 = phi { ptr, i32 } [ %.merged906, %4878 ], [ %4151, %4150 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %157) #37
   br label %4903
 
@@ -113665,7 +113665,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2113: ; preds = %_
   ret void
 
 4903:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2110, %4895, %4879, %4134, %3262, %2337, %266, %249
-  %.merged = phi { ptr, i32 } [ %.pn901.pn.pn, %249 ], [ %267, %266 ], [ %.merged912, %2337 ], [ %.merged914, %3262 ], [ %.merged905, %4134 ], [ %.merged909, %4879 ], [ %.pn2153, %4895 ], [ %4886, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2110 ], [ %4886, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2109 ]
+  %.merged = phi { ptr, i32 } [ %.pn901.pn.pn, %249 ], [ %267, %266 ], [ %.merged908, %2337 ], [ %.merged914, %3262 ], [ %.merged910, %4134 ], [ %.merged905, %4879 ], [ %.pn2153, %4895 ], [ %4886, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2110 ], [ %4886, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2109 ]
   %4904 = load ptr, ptr %24, align 8, !tbaa !26
   %4905 = icmp eq ptr %4904, %179
   br i1 %4905, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2115, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2114
@@ -113986,7 +113986,7 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18O
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj2io16AuthorityFactory7Private21createProjectedCRSEndERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS4_4listISt6vectorIS9_SaIS9_EESaISF_EEE(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.506") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj2io16AuthorityFactory7Private21createProjectedCRSEndERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS4_4listISt6vectorIS9_SaIS9_EESaISF_EEE(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.506") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -137867,7 +137867,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125: ; preds = %_Z
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZNK5osgeo4proj2io16AuthorityFactory35createFromCRSCodesWithIntermediatesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_SA_bbbbRKSt6vectorISt4pairIS8_S8_ESaISD_EENS2_10ObjectTypeERKSB_IS8_SaIS8_EERKSt10shared_ptrINS0_8metadata6ExtentEESS_ENK3$_2clB5cxx11EONS3_4listISK_SaISK_EEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK5osgeo4proj2io16AuthorityFactory35createFromCRSCodesWithIntermediatesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_SA_bbbbRKSt6vectorISt4pairIS8_S8_ESaISD_EENS2_10ObjectTypeERKSB_IS8_SaIS8_EERKSt10shared_ptrINS0_8metadata6ExtentEESS_ENK3$_2clB5cxx11EONS3_4listISK_SaISK_EEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Identity<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Alloc_node", align 8
   %4 = alloca %"struct.std::_Rb_tree<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Identity<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Alloc_node", align 8
   %5 = alloca %"class.std::set.897", align 8
@@ -178253,7 +178253,7 @@ _ZNSt7__cxx1110_List_baseISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5osgeo4proj2ioL27buildSqlLookForAuthNameCodeERKNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEEiESaISD_EEERNS3_INS1_9SQLValuesESaISI_EEEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5osgeo4proj2ioL27buildSqlLookForAuthNameCodeERKNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEEiESaISD_EEERNS3_INS1_9SQLValuesESaISI_EEEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::set", align 8
@@ -199845,7 +199845,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiED2Ev.exit: ; pr
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #23
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZN5osgeo4proj2io15DatabaseContext31getVersionedAuthoritiesFromNameERKS8_E3$_0EEEvT_SP_T0_"(ptr %0, ptr readnone %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZN5osgeo4proj2io15DatabaseContext31getVersionedAuthoritiesFromNameERKS8_E3$_0EEEvT_SP_T0_"(ptr %0, ptr readnone captures(address) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair.725", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit20, label %.preheader

@@ -38,7 +38,7 @@ define ptr @Mvc_CoverReadCubeTail(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @Mvc_CoverReadCubeList(ptr noundef readnone %0) local_unnamed_addr #1 {
+define nonnull ptr @Mvc_CoverReadCubeList(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }

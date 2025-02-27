@@ -126,7 +126,7 @@ declare double @llvm.fabs.f64(double) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @PyOS_string_to_double(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #3 {
+define dso_local double @PyOS_string_to_double(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   %5 = tail call ptr @__errno_location() #13
@@ -412,7 +412,7 @@ declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #5
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyOS_double_to_string(double noundef %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #3 {
+define dso_local ptr @PyOS_double_to_string(double noundef %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4

@@ -1039,7 +1039,7 @@ dissect_ice_facet.exit.thread:                    ; preds = %147, %154, %176, %d
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_ice_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef captures(none) initializes((0, 4)) %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc void @dissect_ice_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef captures(none) initializes((0, 4)) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #3
   store ptr null, ptr %9, align 8

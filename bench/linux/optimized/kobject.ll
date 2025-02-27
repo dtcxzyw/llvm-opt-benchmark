@@ -180,7 +180,7 @@ define dso_local void @kobject_get_ownership(ptr noundef %0, ptr noundef initial
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @kobject_get_path(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local ptr @kobject_get_path(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #0 align 16 {
   %3 = or i32 %1, 256
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null

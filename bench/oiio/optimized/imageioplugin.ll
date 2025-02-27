@@ -970,7 +970,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5 align 2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11OpenImageIO6v3_1_029declare_imageio_format_lockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFPNS0_10ImageInputEvEPPKcPFPNS0_11ImageOutputEvESF_SE_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11OpenImageIO6v3_1_029declare_imageio_format_lockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFPNS0_10ImageInputEvEPPKcPFPNS0_11ImageOutputEvESF_SE_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.fmt::v8::format_arg_store.224", align 16
   %8 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %9 = alloca i64, align 8
@@ -3651,7 +3651,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11OpenImageIO6v3_1_022declare_imageio_formatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFPNS0_10ImageInputEvEPPKcPFPNS0_11ImageOutputEvESF_SE_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define void @_ZN11OpenImageIO6v3_1_022declare_imageio_formatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFPNS0_10ImageInputEvEPPKcPFPNS0_11ImageOutputEvESF_SE_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN11OpenImageIO6v3_1_03pvt13imageio_mutexE) #27
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %8

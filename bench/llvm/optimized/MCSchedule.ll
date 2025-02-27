@@ -532,7 +532,7 @@ define dso_local noundef double @_ZN4llvm12MCSchedModel23getReciprocalThroughput
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, -2147483648) i32 @_ZN4llvm12MCSchedModel24getForwardingDelayCyclesENS_8ArrayRefINS_18MCReadAdvanceEntryEEEj(ptr readonly %0, i64 %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 0, -2147483648) i32 @_ZN4llvm12MCSchedModel24getForwardingDelayCyclesENS_8ArrayRefINS_18MCReadAdvanceEntryEEEj(ptr readonly captures(address) %0, i64 %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %14, label %.lr.ph.preheader
 

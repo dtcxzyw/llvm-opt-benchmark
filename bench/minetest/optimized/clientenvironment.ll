@@ -2201,7 +2201,7 @@ _ZNSt6vectorIP18ClientSimpleObjectSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN17ClientEnvironment13getGenericCAOEt(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, i16 noundef zeroext %id) local_unnamed_addr #5 align 2 {
+define dso_local noundef ptr @_ZN17ClientEnvironment13getGenericCAOEt(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(464) %this, i16 noundef zeroext %id) local_unnamed_addr #5 align 2 {
 entry:
   %m_iterating.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load i32, ptr %m_iterating.i.i.i, align 8, !tbaa !63
@@ -3511,7 +3511,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN17ClientEnvironment26processActiveObjectMessageEtRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(464) %this, i16 noundef zeroext %id, ptr noundef nonnull align 8 dereferenceable(32) %data) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17ClientEnvironment26processActiveObjectMessageEtRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(464) %this, i16 noundef zeroext %id, ptr noundef nonnull align 8 dereferenceable(32) %data) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp25 = alloca ptr, align 8
   %m_iterating.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 256

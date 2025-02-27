@@ -153,7 +153,7 @@ declare ptr @RAND_OpenSSL() local_unnamed_addr #1
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @openssl_ciphers(ptr readnone captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #0 {
+define internal i32 @openssl_ciphers(ptr readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %27
 
@@ -243,7 +243,7 @@ test_cipher_nids.exit:                            ; preds = %._crit_edge5.i, %22
 declare i32 @ENGINE_set_digests(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @openssl_digests(ptr readnone captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #0 {
+define internal i32 @openssl_digests(ptr readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %19
 

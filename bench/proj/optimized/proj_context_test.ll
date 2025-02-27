@@ -1119,7 +1119,7 @@ declare ptr @proj_destroy(ptr noundef) local_unnamed_addr #0
 declare ptr @proj_context_destroy(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_146proj_context_proj_context_set_file_finder_Test8TestBodyEvEN10FinderDataD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_146proj_context_proj_context_set_file_finder_Test8TestBodyEvEN10FinderDataD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !47
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56

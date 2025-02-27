@@ -1504,7 +1504,7 @@ getEGLErrorString.exit8:                          ; preds = %17, %switch.lookup9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @swapBuffersEGL(ptr noundef readonly %0) #0 {
+define internal void @swapBuffersEGL(ptr noundef readonly captures(address) %0) #0 {
   %2 = tail call ptr @_glfwPlatformGetTls(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_glfw, i64 133412)) #4
   %.not = icmp eq ptr %0, %2
   br i1 %.not, label %4, label %3

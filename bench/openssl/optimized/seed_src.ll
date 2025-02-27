@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.seed_get_seed = private unnamed_addr constant [14 x i8] c"seed_get_seed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @seed_src_new(ptr noundef %0, ptr noundef readnone %1, ptr readnone captures(none) %2) #0 {
+define internal noalias ptr @seed_src_new(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, ptr readnone captures(none) %2) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 

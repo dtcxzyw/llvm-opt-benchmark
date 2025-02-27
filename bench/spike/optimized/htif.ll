@@ -4814,7 +4814,7 @@ define linkonce_odr void @_ZN7memif_tD2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN6htif_t10get_symbolEm(ptr noundef nonnull readonly align 8 dereferenceable(712) %0, i64 noundef %1) local_unnamed_addr #17 align 2 {
+define noundef ptr @_ZN6htif_t10get_symbolEm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(712) %0, i64 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %4 = load ptr, ptr %3, align 8, !tbaa !86
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 672

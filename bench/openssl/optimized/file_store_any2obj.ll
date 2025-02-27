@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.pvk2obj_decode = private unnamed_addr constant [15 x i8] c"pvk2obj_decode\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @any2obj_newctx(ptr noundef readnone returned %0) #0 {
+define internal noundef ptr @any2obj_newctx(ptr noundef readnone returned captures(ret: address, provenance) %0) #0 {
   ret ptr %0
 }
 

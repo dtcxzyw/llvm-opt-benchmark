@@ -995,7 +995,7 @@ define ptr @ggml_backend_init_best() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ggml_backend_load(ptr noundef readonly %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @ggml_backend_load(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string.10", align 8
@@ -2096,7 +2096,7 @@ define void @ggml_backend_load_all() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ggml_backend_load_all_from_path(ptr noundef %0) local_unnamed_addr #0 {
+define void @ggml_backend_load_all_from_path(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   tail call fastcc void @_ZL22ggml_backend_load_bestPKcbS0_(ptr noundef nonnull @.str.4, ptr noundef %0)
   tail call fastcc void @_ZL22ggml_backend_load_bestPKcbS0_(ptr noundef nonnull @.str.5, ptr noundef %0)
   tail call fastcc void @_ZL22ggml_backend_load_bestPKcbS0_(ptr noundef nonnull @.str.6, ptr noundef %0)
@@ -2122,7 +2122,7 @@ define void @ggml_backend_load_all_from_path(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL22ggml_backend_load_bestPKcbS0_(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL22ggml_backend_load_bestPKcbS0_(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8

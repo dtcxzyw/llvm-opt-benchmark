@@ -1220,7 +1220,7 @@ define void @_ZN4LIEF2PE20FunctionOverrideInfoC2EOS1_(ptr noundef nonnull writeo
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN4LIEF2PE20FunctionOverrideInfoaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(64) initializes((0, 12), (24, 32)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN4LIEF2PE20FunctionOverrideInfoaSEOS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(64) initializes((0, 12), (24, 32)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #2 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16

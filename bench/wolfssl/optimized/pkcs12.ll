@@ -181,7 +181,7 @@ define internal fastcc void @freeSafe(ptr noundef nonnull %0) unnamed_addr #0 {
 declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PKCS12_verify_ex(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @wc_PKCS12_verify_ex(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [64 x i8], align 16
   %5 = icmp eq ptr %0, null
   br i1 %5, label %31, label %6
@@ -234,7 +234,7 @@ wc_PKCS12_verify.exit:                            ; preds = %10, %19, %23, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_d2i_PKCS12(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @wc_d2i_PKCS12(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -908,7 +908,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @GetSignData(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_d2i_PKCS12_fp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @wc_d2i_PKCS12_fp(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
@@ -978,7 +978,7 @@ define i32 @wc_d2i_PKCS12_fp(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 declare i32 @wc_FileLoad(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_i2d_PKCS12(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca [5 x i8], align 1
   %5 = alloca [6 x i8], align 1
   %6 = alloca [5 x i8], align 1
@@ -1317,7 +1317,7 @@ define void @wc_FreeCertList(ptr noundef %0, ptr noundef readnone captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PKCS12_parse(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define i32 @wc_PKCS12_parse(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca [1 x %struct.DecodedCert], align 16
   %9 = alloca [64 x i8], align 16
   %10 = alloca i32, align 4
@@ -2061,7 +2061,7 @@ declare i32 @ToTraditional_ex(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare i32 @ToTraditionalEnc(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @wc_PKCS12_create(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef readonly %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13) local_unnamed_addr #0 {
+define ptr @wc_PKCS12_create(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13) local_unnamed_addr #0 {
   %15 = alloca [6 x i8], align 1
   %16 = alloca i32, align 4
   %17 = alloca [6 x i8], align 1
@@ -2695,7 +2695,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph29.i67, %.lr.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_PKCS12_SetHeap(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
+define range(i32 -173, 1) i32 @wc_PKCS12_SetHeap(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %5, label %4
 
@@ -2709,7 +2709,7 @@ define range(i32 -173, 1) i32 @wc_PKCS12_SetHeap(ptr noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @wc_PKCS12_GetHeap(ptr noundef readonly %0) local_unnamed_addr #7 {
+define ptr @wc_PKCS12_GetHeap(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 

@@ -121,7 +121,7 @@ define hidden void @mbedtls_ct_memmove_left(ptr noundef %0, i64 noundef %1, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_ct_memcpy_if(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i64 noundef %4) local_unnamed_addr #1 {
+define hidden void @mbedtls_ct_memcpy_if(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %0) #3, !srcloc !13
   %7 = xor i64 %6, -1
   %8 = icmp eq ptr %3, null

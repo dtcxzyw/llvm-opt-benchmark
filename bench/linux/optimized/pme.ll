@@ -561,7 +561,7 @@ declare dso_local zeroext i1 @pci_check_pme_status(ptr noundef) local_unnamed_ad
 declare dso_local void @down_read(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @pcie_pme_walk_bus(ptr noundef readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc zeroext i1 @pcie_pme_walk_bus(ptr noundef readonly captures(address) %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -678,7 +678,7 @@ declare dso_local ptr @free_irq(i32 noundef, ptr noundef) local_unnamed_addr #3
 declare dso_local zeroext i1 @cancel_work_sync(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc noundef zeroext i1 @pcie_pme_check_wakeup(ptr noundef readonly %0) unnamed_addr #8 align 16 {
+define internal fastcc noundef zeroext i1 @pcie_pme_check_wakeup(ptr noundef readonly captures(address) %0) unnamed_addr #8 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 

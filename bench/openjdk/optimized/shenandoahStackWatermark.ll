@@ -123,7 +123,7 @@ define hidden void @_ZN31ShenandoahOnStackNMethodClosure10do_nmethodEP7nmethod(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN24ShenandoahStackWatermark5statsEv(ptr noundef nonnull readnone align 8 dereferenceable(320) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN24ShenandoahStackWatermark5statsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(320) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   ret ptr %2
 }
@@ -182,7 +182,7 @@ declare void @_ZN14StackWatermarkC2EP10JavaThread18StackWatermarkKindj(ptr nound
 declare void @_ZN21ThreadLocalAllocStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24ShenandoahStackWatermark20closure_from_contextEPv(ptr noundef nonnull readonly align 8 dereferenceable(320) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24ShenandoahStackWatermark20closure_from_contextEPv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(320) %0, ptr noundef readnone captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %20
 

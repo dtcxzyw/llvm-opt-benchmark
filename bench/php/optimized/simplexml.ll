@@ -616,7 +616,7 @@ zend_string_copy.exit25:                          ; preds = %44, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @node_as_zval_str(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2, i32 noundef range(i32 0, 4) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly %5) unnamed_addr #1 {
+define internal fastcc void @node_as_zval_str(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2, i32 noundef range(i32 0, 4) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #1 {
 zend_string_alloc.exit18:
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #16
   %7 = and i64 %6, -8
@@ -5108,7 +5108,7 @@ zend_string_copy.exit:                            ; preds = %62, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @sxe_property_read(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef %4) #1 {
+define internal noundef ptr @sxe_property_read(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef captures(ret: address, provenance) %4) #1 {
   %6 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
   store ptr %1, ptr %6, align 8, !tbaa !9
@@ -5144,7 +5144,7 @@ define internal ptr @sxe_property_write(ptr noundef captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @sxe_dimension_read(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef ptr @sxe_dimension_read(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(ret: address, provenance) %3) #1 {
   %5 = tail call fastcc ptr @sxe_prop_dim_read(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef %2, ptr noundef %3)
   ret ptr %5
 }
@@ -6010,7 +6010,7 @@ declare ptr @xmlCopyDoc(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @xmlDocCopyNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @sxe_prop_dim_read(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3, ptr noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc noundef ptr @sxe_prop_dim_read(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3, ptr noundef writeonly captures(ret: address, provenance) %4) unnamed_addr #1 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
@@ -6662,7 +6662,7 @@ zval_ptr_dtor_str.exit:                           ; preds = %26, %281, %276, %.c
 declare ptr @zval_try_get_string_func(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sxe_get_element_by_offset(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3) unnamed_addr #1 {
+define internal fastcc ptr @sxe_get_element_by_offset(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null, ret: address, provenance) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4, !tbaa !44
@@ -6781,7 +6781,7 @@ match_ns.exit:                                    ; preds = %.thread.i, %33, %38
 declare ptr @xmlNewTextChild(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sxe_prop_dim_write(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc ptr @sxe_prop_dim_write(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca %struct._zval_struct, align 8

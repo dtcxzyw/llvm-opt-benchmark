@@ -118,7 +118,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare dso_local void @setup_sysctl_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal range(i32 0, 2) i32 @set_is_seen(ptr noundef readnone %0) #3 align 16 {
+define internal range(i32 0, 2) i32 @set_is_seen(ptr noundef readnone captures(address) %0) #3 align 16 {
   %2 = icmp eq ptr %0, getelementptr inbounds nuw (i8, ptr @init_user_ns, i64 376)
   %3 = zext i1 %2 to i32
   ret i32 %3
@@ -677,7 +677,7 @@ define dso_local void @dec_rlimit_put_ucounts(ptr noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @do_dec_rlimit_put_ucounts(ptr noundef %0, ptr noundef readnone %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @do_dec_rlimit_put_ucounts(ptr noundef %0, ptr noundef readnone captures(address) %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %.loopexit, label %6

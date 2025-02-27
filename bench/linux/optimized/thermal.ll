@@ -1160,7 +1160,7 @@ define internal noundef range(i32 -22, 1) i32 @thermal_get_temp(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @thermal_get_trend(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @thermal_get_trend(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) #2 align 16 {
   %4 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #12
   %5 = icmp ne ptr %4, null
   %6 = icmp ne ptr %1, null
@@ -1556,7 +1556,7 @@ define internal noundef i32 @acpi_thermal_suspend(ptr readnone captures(none) %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @acpi_thermal_resume(ptr noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_thermal_resume(ptr noundef readonly captures(address_is_null) %0) #2 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
   %3 = icmp eq ptr %0, null

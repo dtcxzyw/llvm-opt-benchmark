@@ -6187,7 +6187,7 @@ define dso_local noalias noundef ptr @psql_yyalloc(i64 noundef %0, ptr noundef r
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @psql_yy_delete_buffer(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define dso_local void @psql_yy_delete_buffer(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -6236,7 +6236,7 @@ define dso_local void @psql_yyfree(ptr noundef captures(none) %0, ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @psql_yy_flush_buffer(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
+define dso_local void @psql_yy_flush_buffer(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -6854,7 +6854,7 @@ define dso_local void @psql_yyset_lval(ptr noundef %0, ptr noundef writeonly cap
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @psql_yylex_init(ptr noundef writeonly %0) local_unnamed_addr #14 {
+define dso_local range(i32 0, 2) i32 @psql_yylex_init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -6879,7 +6879,7 @@ define dso_local range(i32 0, 2) i32 @psql_yylex_init(ptr noundef writeonly %0) 
 declare ptr @__errno_location() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @psql_yylex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #14 {
+define dso_local range(i32 0, 2) i32 @psql_yylex_init_extra(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #14 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 

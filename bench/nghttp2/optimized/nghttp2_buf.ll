@@ -106,7 +106,7 @@ define hidden range(i32 -901, 1) i32 @nghttp2_buf_reserve(ptr noundef captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_buf_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden void @nghttp2_buf_free(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -518,7 +518,7 @@ buf_chain_new.exit:                               ; preds = %nghttp2_buf_init2.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_bufs_free(ptr noundef %0) local_unnamed_addr #1 {
+define hidden void @nghttp2_bufs_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -694,7 +694,7 @@ nghttp2_bufs_wrap_init.exit:                      ; preds = %nghttp2_bufs_wrap_i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_bufs_wrap_free(ptr noundef readonly %0) local_unnamed_addr #1 {
+define hidden void @nghttp2_bufs_wrap_free(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 

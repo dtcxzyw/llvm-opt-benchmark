@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [37 x i8] c"Constructing global BDDs is aborted.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDeriveFromBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define ptr @Abc_NtkDeriveFromBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %2, null
   %spec.store.select = select i1 %5, ptr @.str, ptr %2
   %6 = icmp eq ptr %3, null

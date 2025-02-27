@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.30 = private unnamed_addr constant [32 x i8] c"new lessee %d %p, lessor %d %p\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @drm_lease_owner(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @drm_lease_owner(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 align 16 {
   br label %2
 
 2:                                                ; preds = %2, %1

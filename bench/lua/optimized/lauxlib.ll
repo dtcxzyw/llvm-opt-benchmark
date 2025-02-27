@@ -81,7 +81,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.68 = private unnamed_addr constant [14 x i8] c"Lua warning: \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaL_traceback(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @luaL_traceback(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -349,7 +349,7 @@ define dso_local void @luaL_buffinit(ptr noundef %0, ptr noundef initializes((24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaL_addstring(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local void @luaL_addstring(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %luaL_addlstring.exit, label %4
@@ -368,7 +368,7 @@ luaL_addlstring.exit:                             ; preds = %2, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @luaL_prepbuffsize(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @luaL_prepbuffsize(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @prepbuffsize(ptr noundef %0, i64 noundef %1, i32 noundef -1)
   ret ptr %3
 }
@@ -378,7 +378,7 @@ declare i32 @lua_getstack(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare ptr @lua_pushfstring(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaL_addvalue(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @luaL_addvalue(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !4
@@ -404,7 +404,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare i32 @lua_getinfo(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaL_pushresult(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @luaL_pushresult(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1031,7 +1031,7 @@ luaL_optlstring.exit:                             ; preds = %luaL_optlstring.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @luaL_optlstring(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @luaL_optlstring(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null, ret: address, provenance) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @lua_type(ptr noundef %0, i32 noundef %1) #19
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %13
@@ -1255,7 +1255,7 @@ luaL_checkinteger.exit:                           ; preds = %7, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @prepbuffsize(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 -2, 0) %2) unnamed_addr #0 {
+define internal fastcc ptr @prepbuffsize(ptr noundef captures(address) %0, i64 noundef %1, i32 noundef range(i32 -2, 0) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1405,7 +1405,7 @@ resizebox.exit:                                   ; preds = %50, %36, %resizebox
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaL_addlstring(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @luaL_addlstring(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %9, label %4
 
@@ -1438,7 +1438,7 @@ declare i32 @lua_gc(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 declare void @lua_rotate(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaL_pushresultsize(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local void @luaL_pushresultsize(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !13
   %5 = add i64 %4, %1
@@ -1756,7 +1756,7 @@ declare ptr @freopen64(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @lua_load(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal ptr @getF(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #9 {
+define internal ptr @getF(ptr readnone captures(none) %0, ptr noundef captures(ret: address, provenance) %1, ptr noundef writeonly captures(none) %2) #9 {
   %4 = load i32, ptr %1, align 8, !tbaa !39
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -2149,7 +2149,7 @@ luaL_getsubtable.exit:                            ; preds = %4, %7
 declare void @lua_setglobal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaL_addgsub(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define dso_local void @luaL_addgsub(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
   %6 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %2) #20
   %.not15 = icmp eq ptr %6, null

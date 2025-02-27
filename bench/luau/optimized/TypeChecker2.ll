@@ -3728,7 +3728,7 @@ _ZNK4Luau7AstNameeqEPKc.exit14.thread:            ; preds = %9, %_ZNK4Luau7AstNa
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau12TypeChecker28hasBreakEPNS_7AstStatE(ptr noundef nonnull align 8 dereferenceable(784) %0, ptr noundef readonly %1) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau12TypeChecker28hasBreakEPNS_7AstStatE(ptr noundef nonnull align 8 dereferenceable(784) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !244
   %5 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstStatBlockEE5valueE, align 4, !tbaa !4
@@ -3798,7 +3798,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau12TypeChecker28hasBreakEPNS_7AstSta
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN4Luau12TypeChecker214getFallthroughEPKNS_7AstStatE(ptr noundef nonnull align 8 dereferenceable(784) %0, ptr noundef readonly %1) local_unnamed_addr #9 align 2 {
+define dso_local noundef ptr @_ZN4Luau12TypeChecker214getFallthroughEPKNS_7AstStatE(ptr noundef nonnull align 8 dereferenceable(784) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #9 align 2 {
   br label %tailrecurse189
 
 tailrecurse189:                                   ; preds = %.critedge, %2
@@ -15817,7 +15817,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i8 } @_ZN4Luau12TypeChecker214getBindingTypeEPNS_7AstExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(784) %0, ptr noundef readonly %1) local_unnamed_addr #5 align 2 {
+define dso_local { ptr, i8 } @_ZN4Luau12TypeChecker214getBindingTypeEPNS_7AstExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(784) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !244
   %5 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprLocalEE5valueE, align 4, !tbaa !4
@@ -22557,7 +22557,7 @@ _ZN4Luau12TypeChecker25visitEPNS_19AstTypePackExplicitE.exit: ; preds = %._crit_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau12TypeChecker213visitGenericsENS_8AstArrayIPNS_14AstGenericTypeEEENS1_IPNS_18AstGenericTypePackEEE(ptr noundef nonnull align 8 dereferenceable(784) %0, ptr readonly %1, i64 %2, ptr readonly %3, i64 %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau12TypeChecker213visitGenericsENS_8AstArrayIPNS_14AstGenericTypeEEENS1_IPNS_18AstGenericTypePackEEE(ptr noundef nonnull align 8 dereferenceable(784) %0, ptr readonly captures(address) %1, i64 %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %"class.Luau::DenseHashSet.661", align 8
@@ -34012,7 +34012,7 @@ declare noundef zeroext i1 @_ZNK4Luau14NormalizedType17isSubtypeOfStringEv(ptr n
 declare noundef zeroext i1 @_ZN4Luau8isStringEPKNS_4TypeE(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL22getIdentifierOfBaseVarB5cxx11EPNS_7AstExprE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL22getIdentifierOfBaseVarB5cxx11EPNS_7AstExprE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprGlobalEE5valueE, align 4, !tbaa !4
@@ -34228,7 +34228,7 @@ declare noundef i32 @_ZN4Luau10Normalizer23isIntersectionInhabitedEPKNS_4TypeES3
 declare { ptr, i8 } @_ZN4Luau12getMetatableEPKNS_4TypeENS_7NotNullINS_12BuiltinTypesEEE(ptr noundef, ptr) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZN4Luau12TypeChecker25visitEPNS_13AstExprBinaryEPNS_7AstNodeEENK3$_0clEPKNS_9UnionTypeESt8optionalIPKNS_4TypeEE"(ptr writeonly captures(none) %.0.val, ptr %.8.val, ptr noundef nonnull %0, ptr readnone %1, i8 %2) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4Luau12TypeChecker25visitEPNS_13AstExprBinaryEPNS_7AstNodeEENK3$_0clEPKNS_9UnionTypeESt8optionalIPKNS_4TypeEE"(ptr writeonly captures(none) %.0.val, ptr %.8.val, ptr noundef nonnull %0, ptr readnone captures(address) %1, i8 %2) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::TypeIterator", align 8
   %5 = alloca %"struct.Luau::TypeIterator", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #33

@@ -133,7 +133,7 @@ _ZN4toku8keyrange13set_both_keysEPK10__toku_dbt.exit: ; preds = %19, %17, %_ZN4t
 declare noundef zeroext i1 @_Z15toku_dbt_equalsPK10__toku_dbtS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZNK4toku8keyrange12get_left_keyEv(ptr noundef nonnull readonly align 8 dereferenceable(81) %0) local_unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZNK4toku8keyrange12get_left_keyEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(81) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %.not = icmp eq ptr %3, null
@@ -142,7 +142,7 @@ define noundef nonnull ptr @_ZNK4toku8keyrange12get_left_keyEv(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZNK4toku8keyrange13get_right_keyEv(ptr noundef nonnull readonly align 8 dereferenceable(81) %0) local_unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZNK4toku8keyrange13get_right_keyEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(81) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not = icmp eq ptr %3, null

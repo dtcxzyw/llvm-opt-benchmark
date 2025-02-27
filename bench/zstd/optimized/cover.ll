@@ -2515,7 +2515,7 @@ define internal i32 @COVER_cmp(ptr noundef readonly captures(none) %0, ptr nound
 declare void @qsort_r(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @COVER_strict_cmp8(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) #15 {
+define internal range(i32 -1, 2) i32 @COVER_strict_cmp8(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) #15 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %5 = load i32, ptr %4, align 8, !tbaa !40
   %6 = icmp eq i32 %5, 8
@@ -2544,7 +2544,7 @@ define internal range(i32 -1, 2) i32 @COVER_strict_cmp8(ptr noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @COVER_strict_cmp(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) #16 {
+define internal i32 @COVER_strict_cmp(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) #16 {
   %4 = load i32, ptr %0, align 4, !tbaa !18
   %5 = load i32, ptr %1, align 4, !tbaa !18
   %6 = load ptr, ptr %2, align 8, !tbaa !35

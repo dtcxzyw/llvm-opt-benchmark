@@ -1389,7 +1389,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN7datalog16relation_manager28get_requested_predicate_kindEP9func_decl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly %pred) local_unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZN7datalog16relation_manager28get_requested_predicate_kindEP9func_decl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly captures(address) %pred) local_unnamed_addr #9 align 2 {
 entry:
   %m_pred_kinds = getelementptr inbounds nuw i8, ptr %this, i64 176
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %pred, i64 12
@@ -1747,7 +1747,7 @@ if.end:                                           ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK7datalog16relation_manager16try_get_relationEP9func_decl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly %pred) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZNK7datalog16relation_manager16try_get_relationEP9func_decl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly captures(address) %pred) local_unnamed_addr #9 align 2 {
 entry:
   %m_relations = getelementptr inbounds nuw i8, ptr %this, i64 120
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %pred, i64 12
@@ -4007,7 +4007,7 @@ return:                                           ; preds = %_ZNK7datalog12dl_de
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog16relation_manager17mk_empty_relationERKNS_18relation_signatureEP9func_decl(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef readonly %pred) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN7datalog16relation_manager17mk_empty_relationERKNS_18relation_signatureEP9func_decl(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef readonly captures(address) %pred) local_unnamed_addr #4 align 2 {
 entry:
   %m_pred_kinds.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %m_hash.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %pred, i64 12

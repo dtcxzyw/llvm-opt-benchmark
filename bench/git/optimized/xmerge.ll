@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @sane_ctype = external local_unnamed_addr constant [256 x i8], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @xdl_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((0, 16)) %4) local_unnamed_addr #0 {
+define dso_local i32 @xdl_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) initializes((0, 16)) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %struct.s_xdfenv, align 8
@@ -153,7 +153,7 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @xdl_do_merge(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly %3, ptr noundef %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @xdl_do_merge(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(address) %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca %struct.s_mmfile, align 8
   %8 = alloca %struct.s_mmfile, align 8
   %9 = alloca %struct.s_xdfenv, align 8
@@ -1506,7 +1506,7 @@ declare void @xdl_free_env(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @xdl_fill_merge_buffer(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef %6, ptr noundef writeonly %7, i32 noundef %8, i32 noundef %9) unnamed_addr #4 {
+define internal fastcc i32 @xdl_fill_merge_buffer(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, i32 noundef %8, i32 noundef %9) unnamed_addr #4 {
   %.not151 = icmp eq ptr %6, null
   br i1 %.not151, label %._crit_edge, label %.lr.ph
 

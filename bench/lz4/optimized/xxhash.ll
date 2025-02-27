@@ -9,7 +9,7 @@ define dso_local noundef i32 @XXH_versionNumber() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @XXH32(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local i32 @XXH32(ptr noundef readonly captures(address) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp ugt i64 %1, 15
   br i1 %4, label %5, label %41
 

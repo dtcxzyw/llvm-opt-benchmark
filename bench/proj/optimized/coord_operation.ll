@@ -20,7 +20,7 @@ $__clang_call_terminate = comdat any
 @_ZN16PJCoordOperationC1EiddddddddP8PJconstsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddPKcPKS0_SD_ = hidden unnamed_addr alias void (ptr, i32, double, double, double, double, double, double, double, double, ptr, ptr, double, double, ptr, ptr, ptr), ptr @_ZN16PJCoordOperationC2EiddddddddP8PJconstsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddPKcPKS0_SD_
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16PJCoordOperationD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(188) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN16PJCoordOperationD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(188) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = invoke ptr @proj_destroy(ptr noundef %3)
@@ -129,7 +129,7 @@ define hidden noundef zeroext i1 @_ZNK16PJCoordOperation14isInstantiableEv(ptr n
 declare i32 @proj_coordoperation_is_instantiable(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16PJCoordOperationC2EiddddddddP8PJconstsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddPKcPKS0_SD_(ptr noundef nonnull align 8 dereferenceable(188) initializes((0, 4), (8, 80)) %0, i32 noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, ptr noundef %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %11, double noundef %12, double noundef %13, ptr noundef readonly %14, ptr noundef %15, ptr noundef %16) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN16PJCoordOperationC2EiddddddddP8PJconstsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddPKcPKS0_SD_(ptr noundef nonnull align 8 dereferenceable(188) initializes((0, 4), (8, 80)) %0, i32 noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, ptr noundef %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %11, double noundef %12, double noundef %13, ptr noundef readonly captures(address_is_null) %14, ptr noundef %15, ptr noundef %16) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %18 = alloca i64, align 8
   %19 = alloca i64, align 8
   store i32 %1, ptr %0, align 8, !tbaa !44

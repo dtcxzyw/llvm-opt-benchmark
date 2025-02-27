@@ -1354,7 +1354,7 @@ _ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread8: ; preds = %_ZNK5clang4Decl21ge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL20FindBlockDeclRefExprPKN5clang4StmtEPKNS_7VarDeclE(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL20FindBlockDeclRefExprPKN5clang4StmtEPKNS_7VarDeclE(ptr noundef %0, ptr noundef captures(address) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::iterator_range.343", align 8
   %4 = alloca %"struct.clang::ConstStmtIterator", align 8
   %5 = load i16, ptr %0, align 8

@@ -3610,7 +3610,7 @@ _ZN4node6UnwrapINS_2fs10FileHandleEEEPT_N2v85LocalINS5_5ValueEEE.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node2fs10FileHandle8CloseReqC2EPNS_11EnvironmentEN2v85LocalINS5_6ObjectEEENS6_INS5_7PromiseEEENS6_INS5_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(544) %this, ptr noundef %env, ptr %obj.coerce, ptr readonly %promise.coerce, ptr readonly %ref.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node2fs10FileHandle8CloseReqC2EPNS_11EnvironmentEN2v85LocalINS5_6ObjectEEENS6_INS5_7PromiseEEENS6_INS5_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(544) %this, ptr noundef %env, ptr %obj.coerce, ptr readonly captures(address_is_null) %promise.coerce, ptr readonly captures(address_is_null) %ref.coerce) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(528) %this, ptr noundef %env, ptr %obj.coerce, i32 noundef 5, double noundef -1.000000e+00) #30
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 56

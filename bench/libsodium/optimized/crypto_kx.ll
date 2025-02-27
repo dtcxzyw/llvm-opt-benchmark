@@ -28,7 +28,7 @@ define dso_local i32 @crypto_kx_keypair(ptr noundef nonnull %0, ptr noundef nonn
 declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local range(i32 -1, 1) i32 @crypto_kx_client_session_keys(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @crypto_kx_client_session_keys(ptr noundef writeonly captures(address) %0, ptr noundef writeonly captures(address) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) local_unnamed_addr #0 {
   %6 = alloca %struct.crypto_generichash_blake2b_state, align 64
   %7 = alloca [32 x i8], align 16
   %8 = alloca [64 x i8], align 16
@@ -108,7 +108,7 @@ declare i32 @crypto_generichash_final(ptr noundef, ptr noundef, i64 noundef) loc
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local range(i32 -1, 1) i32 @crypto_kx_server_session_keys(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @crypto_kx_server_session_keys(ptr noundef writeonly captures(address) %0, ptr noundef writeonly captures(address) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) local_unnamed_addr #0 {
   %6 = alloca %struct.crypto_generichash_blake2b_state, align 64
   %7 = alloca [32 x i8], align 16
   %8 = alloca [64 x i8], align 16

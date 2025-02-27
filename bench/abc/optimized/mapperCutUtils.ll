@@ -146,7 +146,7 @@ define range(i32 0, 2) i32 @Map_NodeGetLeafPhase(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @Map_CutListAppend(ptr noundef %0, ptr noundef %1) local_unnamed_addr #7 {
+define noundef ptr @Map_CutListAppend(ptr noundef %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 
@@ -170,7 +170,7 @@ define noundef ptr @Map_CutListAppend(ptr noundef %0, ptr noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Map_CutListRecycle(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define void @Map_CutListRecycle(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -198,7 +198,7 @@ define void @Map_CutListRecycle(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Map_CutListCount(ptr noundef readonly %0) local_unnamed_addr #8 {
+define i32 @Map_CutListCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 

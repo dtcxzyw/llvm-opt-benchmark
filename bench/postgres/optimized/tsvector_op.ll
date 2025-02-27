@@ -3842,7 +3842,7 @@ define dso_local range(i64 0, 2) i64 @ts_match_vq(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @checkcondition_str(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
+define internal range(i32 0, 3) i32 @checkcondition_str(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -4829,7 +4829,7 @@ define dso_local i64 @tsvector_update_trigger_byid(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @tsvector_update_trigger(ptr readonly %.8.val, i1 noundef zeroext %0) unnamed_addr #0 {
+define internal fastcc i64 @tsvector_update_trigger(ptr readonly captures(address_is_null) %.8.val, i1 noundef zeroext %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.ParsedText, align 8
   %4 = alloca i64, align 8
@@ -5517,7 +5517,7 @@ define internal fastcc i32 @TS_phrase_execute(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 1, 8) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 1, 8) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = and i32 %3, 2
   %.not = icmp eq i32 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5886,7 +5886,7 @@ declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @checkclass_str(ptr noundef readonly captures(none) %0, i32 %.0.val, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @checkclass_str(ptr noundef readonly captures(none) %0, i32 %.0.val, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
   %4 = and i32 %.0.val, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %72, label %5

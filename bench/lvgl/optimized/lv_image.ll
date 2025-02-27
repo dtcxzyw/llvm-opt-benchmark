@@ -1094,7 +1094,7 @@ declare i32 @lv_obj_get_width(ptr noundef) local_unnamed_addr #2
 declare i32 @lv_obj_get_height(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_image_get_pivot(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define void @lv_image_get_pivot(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1573,7 +1573,7 @@ define void @lv_image_set_bitmap_map_src(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_image_get_src(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_image_get_src(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1587,7 +1587,7 @@ define ptr @lv_image_get_src(ptr noundef readonly %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_image_get_offset_x(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_offset_x(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1601,7 +1601,7 @@ define i32 @lv_image_get_offset_x(ptr noundef readonly %0) local_unnamed_addr #3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_image_get_offset_y(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_offset_y(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1615,7 +1615,7 @@ define i32 @lv_image_get_offset_y(ptr noundef readonly %0) local_unnamed_addr #3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_image_get_rotation(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_rotation(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1631,7 +1631,7 @@ define i32 @lv_image_get_rotation(ptr noundef readonly %0) local_unnamed_addr #3
 declare i32 @lv_pct_to_px(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_image_get_scale(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_scale(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1645,7 +1645,7 @@ define i32 @lv_image_get_scale(ptr noundef readonly %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_image_get_scale_x(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_scale_x(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1659,7 +1659,7 @@ define i32 @lv_image_get_scale_x(ptr noundef readonly %0) local_unnamed_addr #3 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_image_get_scale_y(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_scale_y(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1673,7 +1673,7 @@ define i32 @lv_image_get_scale_y(ptr noundef readonly %0) local_unnamed_addr #3 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 16) i32 @lv_image_get_blend_mode(ptr noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 16) i32 @lv_image_get_blend_mode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1689,7 +1689,7 @@ define range(i32 0, 16) i32 @lv_image_get_blend_mode(ptr noundef readonly %0) lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_image_get_antialias(ptr noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_image_get_antialias(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1705,7 +1705,7 @@ define zeroext i1 @lv_image_get_antialias(ptr noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 16) i32 @lv_image_get_inner_align(ptr noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 16) i32 @lv_image_get_inner_align(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1722,7 +1722,7 @@ define range(i32 0, 16) i32 @lv_image_get_inner_align(ptr noundef readonly %0) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_image_get_bitmap_map_src(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_image_get_bitmap_map_src(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

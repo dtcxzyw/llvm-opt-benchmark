@@ -7253,7 +7253,7 @@ declare void @_ZN5arith6solver12mk_div_axiomEP4exprS2_(ptr noundef nonnull align
 declare void @_ZN5arith6solver13mk_band_axiomEP3app(ptr noundef nonnull align 8 dereferenceable(1144), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5arith6solver15ensure_arg_varsEP3app(ptr noundef nonnull align 8 dereferenceable(1144) %this, ptr noundef readonly %n) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN5arith6solver15ensure_arg_varsEP3app(ptr noundef nonnull align 8 dereferenceable(1144) %this, ptr noundef readonly captures(address) %n) local_unnamed_addr #3 align 2 {
 entry:
   %m_num_args.i = getelementptr inbounds nuw i8, ptr %n, i64 24
   %0 = load i32, ptr %m_num_args.i, align 8

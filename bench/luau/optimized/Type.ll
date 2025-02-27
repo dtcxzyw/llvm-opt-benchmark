@@ -9096,7 +9096,7 @@ _ZN4Luau7areSeenERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef readnone returned %0) local_unnamed_addr #14 {
+define dso_local noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #14 {
   ret ptr %0
 }
 
@@ -13954,12 +13954,12 @@ define dso_local noundef ptr @_ZNK4Luau12BuiltinTypes21errorRecoveryTypePackEv(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @_ZNK4Luau12BuiltinTypes17errorRecoveryTypeEPKNS_4TypeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, ptr noundef readnone returned %1) local_unnamed_addr #14 align 2 {
+define dso_local noundef ptr @_ZNK4Luau12BuiltinTypes17errorRecoveryTypeEPKNS_4TypeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, ptr noundef readnone returned captures(ret: address, provenance) %1) local_unnamed_addr #14 align 2 {
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @_ZNK4Luau12BuiltinTypes21errorRecoveryTypePackEPKNS_11TypePackVarE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, ptr noundef readnone returned %1) local_unnamed_addr #14 align 2 {
+define dso_local noundef ptr @_ZNK4Luau12BuiltinTypes21errorRecoveryTypePackEPKNS_11TypePackVarE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, ptr noundef readnone returned captures(ret: address, provenance) %1) local_unnamed_addr #14 align 2 {
   ret ptr %1
 }
 
@@ -14674,7 +14674,7 @@ _ZN4Luau3getINS_12FreeTypePackEEEPKT_PKNS_11TypePackVarE.exit: ; preds = %3
 declare noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN4Luau15lookupClassPropEPKNS_9ClassTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #20 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4Luau15lookupClassPropEPKNS_9ClassTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #20 personality ptr @__gxx_personality_v0 {
   %.not18 = icmp eq ptr %0, null
   br i1 %.not18, label %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit.thread, label %.lr.ph
 
@@ -14783,7 +14783,7 @@ _ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %32, %35, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau10isSubclassEPKNS_9ClassTypeES2_(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #21 {
+define dso_local noundef zeroext i1 @_ZN4Luau10isSubclassEPKNS_9ClassTypeES2_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #21 {
   %.not7 = icmp eq ptr %0, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -14816,12 +14816,12 @@ define dso_local noundef zeroext i1 @_ZN4Luau10isSubclassEPKNS_9ClassTypeES2_(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8getTypesEPKNS_9UnionTypeE(ptr noundef readnone returned %0) local_unnamed_addr #14 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8getTypesEPKNS_9UnionTypeE(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #14 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8getTypesEPKNS_16IntersectionTypeE(ptr noundef readnone returned %0) local_unnamed_addr #14 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8getTypesEPKNS_16IntersectionTypeE(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #14 {
   ret ptr %0
 }
 

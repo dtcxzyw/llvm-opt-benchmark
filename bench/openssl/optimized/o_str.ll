@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.OPENSSL_hexchar2int = private unnamed_addr constant [55 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15], align 4
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @CRYPTO_strdup(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noalias ptr @CRYPTO_strdup(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %11, label %5
 
@@ -126,7 +126,7 @@ define noundef i64 @OPENSSL_strnlen(ptr noundef %0, i64 noundef %1) local_unname
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @CRYPTO_memdup(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noalias ptr @CRYPTO_memdup(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   %6 = icmp ugt i64 %1, 2147483646
   %or.cond = or i1 %5, %6
@@ -252,7 +252,7 @@ OPENSSL_strlcpy.exit:                             ; preds = %5, %3, %.critedge.t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define range(i32 0, 2) i32 @OPENSSL_strtoul(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @OPENSSL_strtoul(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #8 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   %6 = icmp eq ptr %1, null
@@ -322,13 +322,13 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OPENSSL_hexstr2buf_ex(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i8 noundef signext %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OPENSSL_hexstr2buf_ex(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i8 noundef signext %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @hexstr2buf_sep(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef signext %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @hexstr2buf_sep(ptr noundef writeonly %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef readonly captures(none) %3, i8 noundef signext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hexstr2buf_sep(ptr noundef writeonly captures(address) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i8 noundef signext %4) unnamed_addr #0 {
   %6 = sext i8 %4 to i32
   br label %.outer
 
@@ -417,7 +417,7 @@ define internal fastcc range(i32 0, 2) i32 @hexstr2buf_sep(ptr noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_hexstr2buf_sep(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i8 noundef signext %2) local_unnamed_addr #0 {
+define ptr @ossl_hexstr2buf_sep(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i8 noundef signext %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
@@ -477,19 +477,19 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OPENSSL_hexstr2buf(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @OPENSSL_hexstr2buf(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @ossl_hexstr2buf_sep(ptr noundef %0, ptr noundef %1, i8 noundef signext 58)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OPENSSL_buf2hexstr_ex(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i8 noundef signext %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OPENSSL_buf2hexstr_ex(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i8 noundef signext %5) local_unnamed_addr #0 {
   %7 = tail call fastcc i32 @buf2hexstr_sep(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i8 noundef signext %5)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @buf2hexstr_sep(ptr noundef writeonly %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i8 noundef signext %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @buf2hexstr_sep(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i8 noundef signext %5) unnamed_addr #0 {
   %7 = icmp ne i8 %5, 0
   %8 = mul i64 %4, 3
   %9 = shl i64 %4, 1

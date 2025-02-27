@@ -104,7 +104,7 @@ define void @ossl_quic_reactor_cleanup(ptr noundef %0) local_unnamed_addr #0 {
 declare void @ossl_crypto_condvar_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_quic_reactor_set_poll_r(ptr noundef captures(none) initializes((0, 4)) %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define void @ossl_quic_reactor_set_poll_r(ptr noundef captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5
 
@@ -138,7 +138,7 @@ define range(i32 0, 2) i32 @ossl_quic_reactor_can_support_poll_descriptor(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_quic_reactor_set_poll_w(ptr noundef captures(none) initializes((16, 20)) %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define void @ossl_quic_reactor_set_poll_w(ptr noundef captures(none) initializes((16, 20)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %3, label %5, label %6
@@ -165,12 +165,12 @@ define void @ossl_quic_reactor_set_poll_w(ptr noundef captures(none) initializes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @ossl_quic_reactor_get_poll_r(ptr noundef readnone returned %0) local_unnamed_addr #5 {
+define noundef ptr @ossl_quic_reactor_get_poll_r(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_quic_reactor_get_poll_w(ptr noundef readnone %0) local_unnamed_addr #5 {
+define nonnull ptr @ossl_quic_reactor_get_poll_w(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -303,7 +303,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_quic_reactor_get0_notifier(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @ossl_quic_reactor_get0_notifier(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 16

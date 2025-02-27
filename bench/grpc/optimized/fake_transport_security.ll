@@ -97,13 +97,13 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z49tsi_fake_zero_copy_grpc_protector_next_frame_sizePK17grpc_slice_buffer(ptr noundef %0) local_unnamed_addr #3 {
+define noundef i32 @_Z49tsi_fake_zero_copy_grpc_protector_next_frame_sizePK17grpc_slice_buffer(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = tail call fastcc noundef i32 @_ZL15read_frame_sizePK17grpc_slice_buffer(ptr noundef %0)
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL15read_frame_sizePK17grpc_slice_buffer(ptr noundef readonly %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL15read_frame_sizePK17grpc_slice_buffer(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %4 = alloca [4 x i8], align 4
@@ -232,7 +232,7 @@ declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #0
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z31tsi_create_fake_frame_protectorPm(ptr noundef readonly %0) local_unnamed_addr #3 {
+define noundef ptr @_Z31tsi_create_fake_frame_protectorPm(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = tail call noundef ptr @gpr_zalloc(i64 noundef 96)
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
@@ -250,7 +250,7 @@ define noundef ptr @_Z31tsi_create_fake_frame_protectorPm(ptr noundef readonly %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z40tsi_create_fake_zero_copy_grpc_protectorPm(ptr noundef readonly %0) local_unnamed_addr #3 {
+define noundef ptr @_Z40tsi_create_fake_zero_copy_grpc_protectorPm(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = tail call ptr @gpr_zalloc(i64 noundef 488)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @grpc_slice_buffer_init(ptr noundef nonnull %3)
@@ -445,7 +445,7 @@ _ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit7: ; preds = %_ZL23tsi_fake_fr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 9) i32 @_ZL20fake_handshaker_nextP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr noundef %8) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 9) i32 @_ZL20fake_handshaker_nextP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr noundef %8) #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca i32, align 4
   %11 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %12 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
@@ -1357,7 +1357,7 @@ define internal noundef i32 @_ZL47fake_handshaker_result_get_frame_protector_typ
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL54fake_handshaker_result_create_zero_copy_grpc_protectorPK21tsi_handshaker_resultPmPP28tsi_zero_copy_grpc_protector(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #3 {
+define internal noundef i32 @_ZL54fake_handshaker_result_create_zero_copy_grpc_protectorPK21tsi_handshaker_resultPmPP28tsi_zero_copy_grpc_protector(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #3 {
   %4 = tail call ptr @gpr_zalloc(i64 noundef 488)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @grpc_slice_buffer_init(ptr noundef nonnull %5)
@@ -1382,7 +1382,7 @@ _Z40tsi_create_fake_zero_copy_grpc_protectorPm.exit: ; preds = %3, %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL45fake_handshaker_result_create_frame_protectorPK21tsi_handshaker_resultPmPP19tsi_frame_protector(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #3 {
+define internal noundef i32 @_ZL45fake_handshaker_result_create_frame_protectorPK21tsi_handshaker_resultPmPP19tsi_frame_protector(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #3 {
   %4 = tail call noundef ptr @gpr_zalloc(i64 noundef 96)
   %5 = icmp eq ptr %1, null
   br i1 %5, label %_Z31tsi_create_fake_frame_protectorPm.exit, label %6
@@ -1834,7 +1834,7 @@ _ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit6: ; preds = %_ZL23tsi_fake_fr
 declare noundef ptr @_Z20tsi_result_to_string10tsi_result(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 3) i32 @_ZL37fake_zero_copy_grpc_protector_protectP28tsi_zero_copy_grpc_protectorP17grpc_slice_bufferS2_(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) #3 {
+define internal noundef range(i32 0, 3) i32 @_ZL37fake_zero_copy_grpc_protector_protectP28tsi_zero_copy_grpc_protectorP17grpc_slice_bufferS2_(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #3 {
   %4 = alloca %struct.grpc_slice, align 8
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
@@ -1900,7 +1900,7 @@ define internal noundef range(i32 0, 3) i32 @_ZL37fake_zero_copy_grpc_protector_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 9) i32 @_ZL39fake_zero_copy_grpc_protector_unprotectP28tsi_zero_copy_grpc_protectorP17grpc_slice_bufferS2_Pi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 9) i32 @_ZL39fake_zero_copy_grpc_protector_unprotectP28tsi_zero_copy_grpc_protectorP17grpc_slice_bufferS2_Pi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %2, null
@@ -2018,7 +2018,7 @@ define internal void @_ZL37fake_zero_copy_grpc_protector_destroyP28tsi_zero_copy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef range(i32 0, 3) i32 @_ZL44fake_zero_copy_grpc_protector_max_frame_sizeP28tsi_zero_copy_grpc_protectorPm(ptr noundef readonly %0, ptr noundef writeonly %1) #15 {
+define internal noundef range(i32 0, 3) i32 @_ZL44fake_zero_copy_grpc_protector_max_frame_sizeP28tsi_zero_copy_grpc_protectorPm(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) #15 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

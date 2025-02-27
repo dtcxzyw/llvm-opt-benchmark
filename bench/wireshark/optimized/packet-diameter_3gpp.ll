@@ -1831,7 +1831,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dissect_diameter_3ggp_qos_susbscribed.3 = private unnamed_addr constant [3 x ptr] [ptr @.str.991, ptr @.str.992, ptr @.str.998], align 8
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef i32 @dissect_diameter_3gpp_core_network_restrictions(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define hidden noundef i32 @dissect_diameter_3gpp_core_network_restrictions(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %proto_item_set_hidden.exit, label %5
 
@@ -2347,7 +2347,7 @@ define internal i32 @dissect_diameter_3gpp_user_data(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @dissect_diameter_3gpp_feature_list_id(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly %3) #0 {
+define internal noundef i32 @dissect_diameter_3gpp_feature_list_id(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %5
 
@@ -2362,7 +2362,7 @@ define internal noundef i32 @dissect_diameter_3gpp_feature_list_id(ptr noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @dissect_diameter_3gpp_feature_list(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal noundef i32 @dissect_diameter_3gpp_feature_list(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %proto_item_set_visible.exit, label %5
 
@@ -4324,7 +4324,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_diameter_3gpp_sm_rp_ui(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_diameter_3gpp_sm_rp_ui(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8

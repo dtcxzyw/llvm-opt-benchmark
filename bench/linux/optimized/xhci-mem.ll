@@ -916,7 +916,7 @@ define dso_local i32 @xhci_ring_expansion(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @xhci_update_stream_segment_mapping(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readnone %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @xhci_update_stream_segment_mapping(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %.preheader5, !prof !15
 

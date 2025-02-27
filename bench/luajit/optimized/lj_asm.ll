@@ -18530,7 +18530,7 @@ emit_op.exit:                                     ; preds = %209, %214, %235
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @asm_stack_check(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef range(i32 0, 49136) %3, i32 noundef %4) unnamed_addr #8 {
+define internal fastcc void @asm_stack_check(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef range(i32 0, 49136) %3, i32 noundef %4) unnamed_addr #8 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %6
 
@@ -20206,7 +20206,7 @@ asm_snap_canremat.exit.thread:                    ; preds = %128, %127
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_comp(ptr noundef nonnull %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @asm_comp(ptr noundef nonnull %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %5 = load i8, ptr %4, align 1, !tbaa !20

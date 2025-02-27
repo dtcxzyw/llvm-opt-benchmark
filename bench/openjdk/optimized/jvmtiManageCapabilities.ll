@@ -85,7 +85,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare noundef zeroext i1 @_ZN2os28is_thread_cpu_time_supportedEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly %2) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly captures(ret: address, provenance) %2) local_unnamed_addr #4 align 2 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -109,7 +109,7 @@ define hidden noundef ptr @_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabili
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly %2) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly captures(ret: address, provenance) %2) local_unnamed_addr #4 align 2 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -133,7 +133,7 @@ define hidden noundef ptr @_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabiliti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly %2) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly captures(ret: address, provenance) %2) local_unnamed_addr #4 align 2 {
   br label %4
 
 4:                                                ; preds = %3, %4

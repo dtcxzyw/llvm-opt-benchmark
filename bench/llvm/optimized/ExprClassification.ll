@@ -26,7 +26,7 @@ $_ZNK5clang18DesignatedInitExpr7getInitEv = comdat any
 @switch.table._ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE = private unnamed_addr constant [6 x i32] [i32 0, i32 0, i32 11, i32 11, i32 11, i32 0], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 720896) i32 @_ZNK5clang4Expr12ClassifyImplERNS_10ASTContextEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i32 0, 720896) i32 @_ZNK5clang4Expr12ClassifyImplERNS_10ASTContextEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call fastcc noundef i32 @_ZL16ClassifyInternalRN5clang10ASTContextEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull %0)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2160
   %6 = load ptr, ptr %5, align 8, !tbaa !3
@@ -958,7 +958,7 @@ _ZNK5clang4Expr8ClassifyERNS_10ASTContextE.exit.thread: ; preds = %8, %_ZNK5clan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 17) i32 @_ZNK5clang4Expr18isModifiableLvalueERNS_10ASTContextEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 17) i32 @_ZNK5clang4Expr18isModifiableLvalueERNS_10ASTContextEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::SourceLocation", align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
   %.not = icmp eq ptr %2, null

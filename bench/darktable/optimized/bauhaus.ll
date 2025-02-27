@@ -3426,7 +3426,7 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %3, %5, %7
 declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @dt_bauhaus_update_from_field(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define void @dt_bauhaus_update_from_field(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct._GSList, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %.thread105
@@ -4817,7 +4817,7 @@ declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @g_ptr_array_new_full(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @_free_combobox_entry(ptr noundef %0) #0 {
+define internal void @_free_combobox_entry(ptr noundef captures(address_is_null) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -9364,7 +9364,7 @@ declare void @cairo_save(ptr noundef) local_unnamed_addr #2
 declare void @cairo_set_line_width(ptr noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_show_pango_text(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, float noundef %4, float noundef %5, float noundef %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 2) %8, i32 noundef %9, i32 noundef range(i32 0, 2) %10, ptr noundef writeonly %11, ptr noundef writeonly %12) unnamed_addr #0 {
+define internal fastcc i32 @_show_pango_text(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, float noundef %4, float noundef %5, float noundef %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 2) %8, i32 noundef %9, i32 noundef range(i32 0, 2) %10, ptr noundef writeonly captures(address_is_null) %11, ptr noundef writeonly captures(address_is_null) %12) unnamed_addr #0 {
   %14 = alloca ptr, align 8
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4

@@ -375,7 +375,7 @@ declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @parse_ascend(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @parse_ascend(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.ascend_state_t, align 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %8) #5
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8

@@ -995,7 +995,7 @@ declare void @_ZN6hermes8oscompat18vm_reserve_alignedEmmPv(ptr sret(%"class.llvh
 declare void @_ZN6hermes12hermes_fatalEN4llvh9StringRefESt10error_code(ptr, i64, i32, ptr) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %start_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %start_, align 8

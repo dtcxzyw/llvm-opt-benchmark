@@ -1226,7 +1226,7 @@ define dso_local void @_free_job_info_list(ptr noundef %0) #0 {
 declare void @slurm_free_resource_allocation_response_msg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pack_config_file(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define dso_local void @pack_config_file(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = icmp ugt i16 %1, 10239
   br i1 %4, label %5, label %27
 
@@ -1443,7 +1443,7 @@ declare void @destroy_config_file(ptr noundef) #1
 declare void @slurm_free_config_response_msg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pack_multi_core_data(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @pack_multi_core_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -12046,7 +12046,7 @@ declare void @slurm_persist_pack_init_req_msg(ptr noundef, ptr noundef) local_un
 declare void @slurm_persist_pack_rc_msg(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_reboot_msg(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_pack_reboot_msg(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = icmp ugt i16 %2, 10239
   br i1 %4, label %5, label %32
 
@@ -17084,7 +17084,7 @@ define dso_local void @pack_step_id(ptr noundef readonly captures(none) %0, ptr 
 declare void @pack_slurm_step_layout(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_job_step_pids(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_pack_job_step_pids(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 
@@ -21308,7 +21308,7 @@ define internal fastcc void @_pack_license_info_request_msg(ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_job_array_resp_msg(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_pack_job_array_resp_msg(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = icmp ugt i16 %2, 10239
   br i1 %4, label %5, label %.loopexit
 

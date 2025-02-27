@@ -9581,7 +9581,7 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit:       ; preds = %._ZN8ImVectorI6ImVe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList7AddTextEP6ImFontfRK6ImVec2jPKcS6_fPK6ImVec4(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %0, ptr noundef readonly %1, float noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef readonly %8) local_unnamed_addr #12 align 2 {
+define void @_ZN10ImDrawList7AddTextEP6ImFontfRK6ImVec2jPKcS6_fPK6ImVec4(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %0, ptr noundef readonly captures(address_is_null) %1, float noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef readonly captures(address_is_null) %8) local_unnamed_addr #12 align 2 {
   %10 = alloca %struct.ImVec4, align 4
   %11 = icmp ult i32 %4, 16777216
   %12 = icmp eq ptr %5, %6
@@ -13713,7 +13713,7 @@ _ZN8ImVectorIP6ImFontE12clear_deleteEv.exit:      ; preds = %._crit_edge.i, %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImFontAtlas18GetTexDataAsAlpha8EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(676) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #12 align 2 {
+define void @_ZN11ImFontAtlas18GetTexDataAsAlpha8EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(676) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #12 align 2 {
   %6 = alloca %struct.ImFontConfig, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !255
@@ -13905,7 +13905,7 @@ _ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig.exit: ; preds = %14, %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImFontAtlas18GetTexDataAsRGBA32EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(676) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #12 align 2 {
+define void @_ZN11ImFontAtlas18GetTexDataAsRGBA32EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(676) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #12 align 2 {
   %6 = alloca %struct.ImFontConfig, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !256
@@ -14351,7 +14351,7 @@ define void @_Z35ImFontAtlasUpdateConfigDataPointersP11ImFontAtlas(ptr noundef r
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig(ptr noundef nonnull align 8 captures(none) dereferenceable(676) %0, ptr noundef readonly %1) local_unnamed_addr #12 align 2 {
+define noundef ptr @_ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig(ptr noundef nonnull align 8 captures(none) dereferenceable(676) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #12 align 2 {
   %3 = alloca %struct.ImFontConfig, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #42
   %.not = icmp eq ptr %1, null
@@ -14420,7 +14420,7 @@ define noundef nonnull ptr @_ZN11ImFontAtlas21GetGlyphRangesDefaultEv(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ImFontAtlas30AddFontFromMemoryCompressedTTFEPKvifPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(676) %0, ptr noundef %1, i32 %2, float noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #12 align 2 {
+define noundef ptr @_ZN11ImFontAtlas30AddFontFromMemoryCompressedTTFEPKvifPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(676) %0, ptr noundef %1, i32 %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #12 align 2 {
   %7 = alloca %struct.ImFontConfig, align 8
   %8 = alloca %struct.ImFontConfig, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -14937,7 +14937,7 @@ _ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImFontConfigPKt.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ImFontAtlas18AddFontFromFileTTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(676) %0, ptr noundef %1, float noundef %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #12 align 2 {
+define noundef ptr @_ZN11ImFontAtlas18AddFontFromFileTTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(676) %0, ptr noundef %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #12 align 2 {
   %6 = alloca %struct.ImFontConfig, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.ImFontConfig, align 8
@@ -15034,7 +15034,7 @@ declare noundef zeroext i1 @_ZN5ImGui8ErrorLogEPKc(ptr noundef) local_unnamed_ad
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(676) %0, ptr noundef %1, i32 noundef %2, float noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #12 align 2 {
+define noundef ptr @_ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(676) %0, ptr noundef %1, i32 noundef %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #12 align 2 {
   %7 = alloca %struct.ImFontConfig, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #42
   %.not = icmp eq ptr %4, null
@@ -15072,7 +15072,7 @@ define noundef ptr @_ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImFontConfigP
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ImFontAtlas36AddFontFromMemoryCompressedBase85TTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(676) %0, ptr noundef readonly captures(none) %1, float noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #12 align 2 {
+define noundef ptr @_ZN11ImFontAtlas36AddFontFromMemoryCompressedBase85TTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(676) %0, ptr noundef readonly captures(none) %1, float noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #12 align 2 {
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #44
   %7 = trunc i64 %6 to i32
   %8 = add nsw i32 %7, 4
@@ -22676,7 +22676,7 @@ _ZN8ImVectorItE5clearEv.exit:                     ; preds = %_ZN8ImVectorIfE5cle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z31ImFontAtlasBuildPackCustomRectsP11ImFontAtlasPv(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define void @_Z31ImFontAtlasBuildPackCustomRectsP11ImFontAtlasPv(ptr noundef captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 _ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i:
   %2 = alloca %struct.ImVector.13, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -22799,7 +22799,7 @@ _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %._crit_edge36
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #32 {
+define internal fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #32 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -24154,7 +24154,7 @@ _ZL34ImFontAtlasBuildRenderLinesTexDataP11ImFontAtlas.exit: ; preds = %.loopexit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6ImFont8AddGlyphEPK12ImFontConfigtfffffffff(ptr noundef nonnull align 8 captures(none) dereferenceable(114) initializes((112, 113)) %0, ptr noundef readonly %1, i16 noundef zeroext %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11) local_unnamed_addr #12 align 2 {
+define void @_ZN6ImFont8AddGlyphEPK12ImFontConfigtfffffffff(ptr noundef nonnull align 8 captures(none) dereferenceable(114) initializes((112, 113)) %0, ptr noundef readonly captures(address_is_null) %1, i16 noundef zeroext %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11) local_unnamed_addr #12 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %40, label %13
 
@@ -25904,7 +25904,7 @@ _ZL14ImCharIsBlankWj.exit:                        ; preds = %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define <2 x float> @_ZN6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(114) %0, float noundef %1, float noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 align 2 {
+define <2 x float> @_ZN6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(114) %0, float noundef %1, float noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca i32, align 4
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %12
@@ -28235,7 +28235,7 @@ define internal fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5, ptr noundef writeonly %6, ptr noundef writeonly %7) unnamed_addr #24 {
+define internal fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #24 {
   %9 = alloca %struct.stbtt__csctx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %11 = load i32, ptr %10, align 4, !tbaa !429
@@ -32450,7 +32450,7 @@ _ZL22stbtt__GetGlyphShapeTTPK14stbtt_fontinfoiPP12stbtt_vertex.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #37 {
+define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #37 {
   %11 = icmp sgt i32 %9, 16
   br i1 %11, label %.loopexit, label %.lr.ph.preheader
 
@@ -32521,7 +32521,7 @@ _ZL16stbtt__add_pointP12stbtt__pointiff.exit:     ; preds = %36, %38
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL22stbtt__tesselate_cubicP12stbtt__pointPifffffffffi(ptr noundef %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) unnamed_addr #37 {
+define internal fastcc void @_ZL22stbtt__tesselate_cubicP12stbtt__pointPifffffffffi(ptr noundef captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) unnamed_addr #37 {
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 17)
   %exitcond107 = icmp sgt i32 %11, 16
   br i1 %exitcond107, label %.loopexit, label %.lr.ph

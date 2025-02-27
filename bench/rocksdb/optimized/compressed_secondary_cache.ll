@@ -1938,7 +1938,7 @@ _ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24CompressedSecondaryCache20MergeChunksIntoValueEPKvRm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.14") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %1, ptr noundef readonly %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24CompressedSecondaryCache20MergeChunksIntoValueEPKvRm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.14") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i64 0, ptr %3, align 8, !tbaa !108
   %.not19 = icmp eq ptr %2, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph

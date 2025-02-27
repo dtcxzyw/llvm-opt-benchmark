@@ -5146,7 +5146,7 @@ _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit5026: ; preds = %_ZN4ll
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc { ptr, i64 } @_ZL18getSupportedHWMultPKN4llvm3opt3ArgE(ptr noundef readonly %0) unnamed_addr #3 {
+define internal fastcc { ptr, i64 } @_ZL18getSupportedHWMultPKN4llvm3opt3ArgE(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread13126, label %2
 

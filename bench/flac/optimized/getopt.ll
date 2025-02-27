@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [16 x i8] c"POSIXLY_CORRECT\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @share___getopt_internal(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef writeonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @share___getopt_internal(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef readonly %2, ptr noundef readonly captures(address) %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   store ptr null, ptr @share__optarg, align 8, !tbaa !4
   %7 = load i32, ptr @share__optind, align 4, !tbaa !9
   %8 = icmp ne i32 %7, 0

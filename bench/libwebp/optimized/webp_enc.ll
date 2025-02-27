@@ -27,7 +27,7 @@ define hidden noundef i32 @WebPEncodingSetError(ptr noundef captures(none) %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPReportProgress(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @WebPReportProgress(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %WebPEncodingSetError.exit, label %4
 

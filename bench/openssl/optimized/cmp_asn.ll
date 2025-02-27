@@ -602,7 +602,7 @@ define void @OSSL_CMP_ITAV_set0(ptr noundef writeonly captures(none) initializes
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_CMP_ITAV_get0_type(ptr noundef readonly %0) local_unnamed_addr #5 {
+define ptr @OSSL_CMP_ITAV_get0_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -616,7 +616,7 @@ define ptr @OSSL_CMP_ITAV_get0_type(ptr noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_CMP_ITAV_get0_value(ptr noundef readonly %0) local_unnamed_addr #5 {
+define ptr @OSSL_CMP_ITAV_get0_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -631,7 +631,7 @@ define ptr @OSSL_CMP_ITAV_get0_value(ptr noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_ITAV_push0_stack_item(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_CMP_ITAV_push0_stack_item(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -705,7 +705,7 @@ define ptr @OSSL_CMP_ITAV_new0_certProfile(ptr noundef %0) local_unnamed_addr #1
 declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_certProfile(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_certProfile(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -783,7 +783,7 @@ declare ptr @X509_dup(ptr noundef) #2
 declare void @X509_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_caCerts(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_caCerts(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -860,7 +860,7 @@ define ptr @OSSL_CMP_ITAV_new_rootCaCert(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_rootCaCert(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_rootCaCert(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -957,7 +957,7 @@ define ptr @OSSL_CMP_ITAV_new_rootCaKeyUpdate(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_rootCaKeyUpdate(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_rootCaKeyUpdate(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -1079,7 +1079,7 @@ define ptr @OSSL_CMP_ITAV_new0_certReqTemplate(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get1_certReqTemplate(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get1_certReqTemplate(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -1214,7 +1214,7 @@ declare ptr @OPENSSL_sk_new_reserve(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_CMP_ATAV_get0_type(ptr noundef readonly %0) local_unnamed_addr #5 {
+define ptr @OSSL_CMP_ATAV_get0_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -1232,7 +1232,7 @@ declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #2
 declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_ATAV_push1(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_CMP_ATAV_push1(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1358,7 +1358,7 @@ declare ptr @X509_ALGOR_dup(ptr noundef) local_unnamed_addr #2
 declare void @X509_ALGOR_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CMP_ATAV_get0_algId(ptr noundef readonly %0) local_unnamed_addr #1 {
+define ptr @OSSL_CMP_ATAV_get0_algId(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -1428,7 +1428,7 @@ declare i32 @ASN1_INTEGER_set(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, -2147483648) i32 @OSSL_CMP_ATAV_get_rsaKeyLen(ptr noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 -2, -2147483648) i32 @OSSL_CMP_ATAV_get_rsaKeyLen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
   %3 = icmp eq ptr %0, null
@@ -1464,7 +1464,7 @@ define range(i32 -2, -2147483648) i32 @OSSL_CMP_ATAV_get_rsaKeyLen(ptr noundef r
 declare i32 @ASN1_INTEGER_get_int64(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_CMP_ATAV_get0_value(ptr noundef readonly %0) local_unnamed_addr #5 {
+define ptr @OSSL_CMP_ATAV_get0_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1498,7 +1498,7 @@ define ptr @OSSL_CMP_ITAV_new0_crlStatusList(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_crlStatusList(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_crlStatusList(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1912,7 +1912,7 @@ declare void @ISSUING_DIST_POINT_free(ptr noundef) local_unnamed_addr #2
 declare void @AUTHORITY_KEYID_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_CRLSTATUS_get0(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_CMP_CRLSTATUS_get0(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -2029,7 +2029,7 @@ declare ptr @X509_CRL_dup(ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_crls(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_crls(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

@@ -2173,7 +2173,7 @@ _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %97
 declare noundef zeroext i1 @_ZNK4llvm11Instruction17isSameOperationAsEPKS0_j(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_6detail5zippyINS1_12zip_shortestEJRKNS_11SmallVectorIPNS_5ValueELj4EEES9_EEEZNS_12IRSimilarity7isCloseERKNSC_17IRInstructionDataESF_E3$_0EEbOT_T0_"(ptr readonly %.0.val.0.val, i32 %.0.val.8.val, ptr readonly %.8.val.0.val, i32 %.8.val.8.val) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_6detail5zippyINS1_12zip_shortestEJRKNS_11SmallVectorIPNS_5ValueELj4EEES9_EEEZNS_12IRSimilarity7isCloseERKNSC_17IRInstructionDataESF_E3$_0EEbOT_T0_"(ptr readonly captures(address) %.0.val.0.val, i32 %.0.val.8.val, ptr readonly captures(address) %.8.val.0.val, i32 %.8.val.8.val) unnamed_addr #6 {
   %1 = zext i32 %.8.val.8.val to i64
   %2 = getelementptr inbounds nuw ptr, ptr %.8.val.0.val, i64 %1
   %3 = zext i32 %.0.val.8.val to i64
@@ -2225,7 +2225,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_6detail5zippyINS
 declare noundef zeroext i1 @_ZNK4llvm17GetElementPtrInst10isInBoundsEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12IRSimilarity19IRInstructionMapper20convertToUnsignedVecERNS_10BasicBlockERSt6vectorIPNS0_17IRInstructionDataESaIS6_EERS4_IjSaIjEE(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm12IRSimilarity19IRInstructionMapper20convertToUnsignedVecERNS_10BasicBlockERSt6vectorIPNS0_17IRInstructionDataESaIS6_EERS4_IjSaIjEE(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::ilist_iterator_w_bits", align 8
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.std::vector.73", align 8
@@ -13101,7 +13101,7 @@ _ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12IRSimilarity22IRSimilarityIdentifier14findSimilarityENS_8ArrayRefISt10unique_ptrINS_6ModuleESt14default_deleteIS4_EEEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr readonly %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12IRSimilarity22IRSimilarityIdentifier14findSimilarityENS_8ArrayRefISt10unique_ptrINS_6ModuleESt14default_deleteIS4_EEEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.std::vector.73", align 8
   %5 = alloca %"class.std::vector", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -20940,7 +20940,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS6_IPNSC_17IRInstructionDataESaISF_EERS6_IjSaIjEEE3$_0EEEvT_SO_T0_"(ptr %0, ptr readnone %1) unnamed_addr #1 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS6_IPNSC_17IRInstructionDataESaISF_EERS6_IjSaIjEEE3$_0EEEvT_SO_T0_"(ptr %0, ptr readnone captures(address) %1) unnamed_addr #1 {
   %3 = alloca %"struct.llvm::SuffixTree::RepeatedSubstring", align 8
   %4 = alloca %"struct.llvm::SuffixTree::RepeatedSubstring", align 8
   %5 = icmp eq ptr %0, %1

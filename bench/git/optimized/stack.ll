@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 1) i32 @reftable_new_stack(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @reftable_new_stack(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.reftable_buf, align 8
   %.sroa.0 = alloca { i8, i32, i8, i16 }, align 8
   %.sroa.7 = alloca { i32, i8, i8, i64, ptr, ptr, ptr }, align 8
@@ -2042,7 +2042,7 @@ define dso_local i64 @reftable_stack_next_update_index(ptr noundef readonly capt
 declare i64 @reftable_reader_max_update_index(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_stack_compact_all(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @reftable_stack_compact_all(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2053,7 +2053,7 @@ define dso_local i32 @reftable_stack_compact_all(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @stack_compact_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc i32 @stack_compact_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.reftable_buf, align 8
   %7 = alloca %struct.reftable_buf, align 8
   %8 = alloca %struct.reftable_buf, align 8
@@ -2673,7 +2673,7 @@ define dso_local void @suggest_compaction_segment(ptr dead_on_unwind noalias wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @reftable_stack_compaction_stats(ptr noundef readnone %0) local_unnamed_addr #11 {
+define dso_local nonnull ptr @reftable_stack_compaction_stats(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   ret ptr %2
 }
@@ -3011,7 +3011,7 @@ declare ptr @reftable_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @flock_close(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @stack_compact_locked(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
+define internal fastcc i32 @stack_compact_locked(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.reftable_iterator, align 8
   %8 = alloca %struct.reftable_ref_record, align 8

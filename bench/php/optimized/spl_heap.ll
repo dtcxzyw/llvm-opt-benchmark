@@ -373,7 +373,7 @@ spl_heap_elem_copy.exit32:                        ; preds = %66, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplHeap_extract(ptr noundef %0, ptr noundef %1) #0 {
+define hidden void @zim_SplHeap_extract(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !4
@@ -426,7 +426,7 @@ define hidden void @zim_SplHeap_extract(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @spl_ptr_heap_delete_top(ptr noundef captures(none) %0, ptr noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_ptr_heap_delete_top(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !50
   %6 = add nsw i32 %5, -1
@@ -733,7 +733,7 @@ define internal range(i32 -1, 2) i32 @spl_ptr_pqueue_elem_cmp_double(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @spl_ptr_pqueue_elem_cmp(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define internal i32 @spl_ptr_pqueue_elem_cmp(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1205,7 +1205,7 @@ spl_ptr_heap_zval_max_cmp.exit:                   ; preds = %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @spl_ptr_heap_zval_max_cmp(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define internal i32 @spl_ptr_heap_zval_max_cmp(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !8
   %.not = icmp eq ptr %5, null
@@ -1407,7 +1407,7 @@ spl_ptr_heap_zval_min_cmp.exit:                   ; preds = %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @spl_ptr_heap_zval_min_cmp(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define internal i32 @spl_ptr_heap_zval_min_cmp(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !8
   %.not = icmp eq ptr %5, null
@@ -2427,7 +2427,7 @@ declare ptr @zend_register_internal_class_with_flags(ptr noundef, ptr noundef, i
 declare void @zend_class_implements(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @spl_heap_object_new_ex(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @spl_heap_object_new_ex(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !101
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28

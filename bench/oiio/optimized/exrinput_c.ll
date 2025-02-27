@@ -3373,7 +3373,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 declare void @_ZN11OpenImageIO6v3_1_010Filesystem6IOFileC1ENS0_17basic_string_viewIcSt11char_traitsIcEEENS1_7IOProxy4ModeE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef, i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN11OpenImageIO6v3_1_0L18oiio_exr_read_funcEPK19_priv_exr_context_tPvS4_mmPFiS3_iPKczE(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5) #5 personality ptr @__gxx_personality_v0 {
+define internal noundef i64 @_ZN11OpenImageIO6v3_1_0L18oiio_exr_read_funcEPK19_priv_exr_context_tPvS4_mmPFiS3_iPKczE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5) #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %41, label %8
@@ -3457,7 +3457,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN11OpenImageIO6v3_1_0L24oiio_exr_query_size_funcEPK19_priv_exr_context_tPv(ptr readnone captures(none) %0, ptr noundef readonly %1) #5 {
+define internal noundef i64 @_ZN11OpenImageIO6v3_1_0L24oiio_exr_query_size_funcEPK19_priv_exr_context_tPv(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %3
 

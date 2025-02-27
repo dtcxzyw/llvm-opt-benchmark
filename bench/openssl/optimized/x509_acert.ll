@@ -211,7 +211,7 @@ define i32 @PEM_write_X509_ACERT(ptr noundef %0, ptr noundef %1) local_unnamed_a
 declare i32 @PEM_ASN1_write(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @OSSL_OBJECT_DIGEST_INFO_get0_digest(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
+define void @OSSL_OBJECT_DIGEST_INFO_get0_digest(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %5
 
@@ -269,7 +269,7 @@ get_dirName.exit:                                 ; preds = %1, %4, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_ISSUER_SERIAL_get0_serial(ptr noundef readnone %0) local_unnamed_addr #0 {
+define nonnull ptr @OSSL_ISSUER_SERIAL_get0_serial(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -291,7 +291,7 @@ define i64 @X509_ACERT_get_version(ptr noundef readonly captures(none) %0) local
 declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_ACERT_get0_signature(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
+define void @X509_ACERT_get0_signature(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 

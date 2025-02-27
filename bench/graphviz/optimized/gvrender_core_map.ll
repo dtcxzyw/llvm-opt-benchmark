@@ -197,7 +197,7 @@ declare i32 @gvputs_xml(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @map_output_shape(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @map_output_shape(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i64 %3, 0
   %or.cond = and i1 %9, %10

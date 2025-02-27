@@ -613,7 +613,7 @@ define zeroext i1 @u_hasIDType_77(i32 noundef %0, i32 noundef %1) local_unnamed_
 declare i32 @u_getUnicodeProperties_77(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 7) i32 @u_getIDTypes_77(i32 noundef %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define range(i32 0, 7) i32 @u_getIDTypes_77(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4, !tbaa !18
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %68

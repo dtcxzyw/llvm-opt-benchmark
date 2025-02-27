@@ -1072,7 +1072,7 @@ define dso_local noundef ptr @object_list_insert(ptr noundef %0, ptr noundef cap
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @object_list_contains(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #11 {
+define dso_local range(i32 0, 2) i32 @object_list_contains(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #11 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -1620,7 +1620,7 @@ define dso_local noundef ptr @raw_object_store_new() local_unnamed_addr #2 {
 declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @pack_map_entry_cmp(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) #16 {
+define internal i32 @pack_map_entry_cmp(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) #16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %.not = icmp eq ptr %3, null
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 248

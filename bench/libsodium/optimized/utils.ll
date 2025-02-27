@@ -585,7 +585,7 @@ _sodium_mprotect.exit:                            ; preds = %1
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local range(i32 -1, 1) i32 @sodium_pad(ptr noundef writeonly %0, ptr noundef nonnull captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sodium_pad(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   %7 = icmp eq i64 %3, 0

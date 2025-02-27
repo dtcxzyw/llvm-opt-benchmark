@@ -65,7 +65,7 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @mbms_add_members(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @mbms_add_members(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not.i26 = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br i1 %.not.i26, label %.split.us.preheader, label %.split
@@ -156,7 +156,7 @@ list_length.exit.thread:                          ; preds = %.split
 declare ptr @bms_add_members(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @mbms_int_members(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @mbms_int_members(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %list_length.exit.split.us, label %list_length.exit.split
 
@@ -220,7 +220,7 @@ declare ptr @list_truncate(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @bms_int_members(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @mbms_is_member(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @mbms_is_member(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = or i32 %1, %0
   %or.cond.not = icmp sgt i32 %4, -1
   br i1 %or.cond.not, label %8, label %5
@@ -263,7 +263,7 @@ list_length.exit:                                 ; preds = %8, %9
 declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @mbms_overlap_sets(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @mbms_overlap_sets(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %0, null
   %.not23 = icmp eq ptr %1, null

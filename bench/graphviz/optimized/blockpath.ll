@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [9 x i8] c"_span_%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @layout_block(ptr dead_on_unwind noalias writable sret(%struct.nodelist_t) align 8 %0, ptr noundef %1, ptr noundef %2, double noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
+define void @layout_block(ptr dead_on_unwind noalias writable sret(%struct.nodelist_t) align 8 %0, ptr noundef %1, ptr noundef captures(address) %2, double noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.nodelist_t, align 8
   %7 = alloca %struct.nodelist_t, align 8
   %8 = alloca %struct.nodelist_t, align 8

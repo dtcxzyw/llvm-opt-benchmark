@@ -2318,7 +2318,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat6binspr22clause_is_unit_impliedERKNS_6clauseE(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((92, 108)) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat6binspr22clause_is_unit_impliedERKNS_6clauseE(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((92, 108)) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp21.i = alloca %"class.sat::justification", align 8
   %s = getelementptr inbounds nuw i8, ptr %this, i64 8

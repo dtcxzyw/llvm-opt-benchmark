@@ -443,7 +443,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZNK8QuantLib15SwapBasisSystem9evolutionEv(ptr noundef nonnull readnone align 8 dereferenceable(216) %this) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZNK8QuantLib15SwapBasisSystem9evolutionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(216) %this) unnamed_addr #5 align 2 {
 entry:
   %evolution_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   ret ptr %evolution_

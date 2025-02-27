@@ -12747,7 +12747,7 @@ _ZN3net14QuicConnection25CheckIfApplicationLimitedEv.exit: ; preds = %.noexc1, %
 declare void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3net14QuicConnection25CheckIfApplicationLimitedEv(ptr noundef nonnull readonly align 8 dereferenceable(3372) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN3net14QuicConnection25CheckIfApplicationLimitedEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(3372) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %3 = load ptr, ptr %2, align 8, !tbaa !179
   %4 = icmp eq ptr %3, %2

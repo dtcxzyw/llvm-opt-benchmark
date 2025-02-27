@@ -3626,7 +3626,7 @@ define void @_Z18setPrevStepPullComP6pull_tN3gmx8ArrayRefIKdEE(ptr noundef reado
 declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z25allocStatePrevStepPullComP7t_statePK6pull_t(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_Z25allocStatePrevStepPullComP7t_statePK6pull_t(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %10

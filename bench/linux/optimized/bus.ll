@@ -270,7 +270,7 @@ define dso_local void @acpi_bus_detach_private_data(ptr noundef %0) #0 align 16 
 declare dso_local i32 @acpi_detach_data(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_run_osc(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @acpi_run_osc(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 align 16 {
   %3 = alloca %struct.acpi_object_list, align 8
   %4 = alloca [4 x %union.acpi_object], align 16
   %5 = alloca %struct.guid_t, align 1
@@ -468,7 +468,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @acpi_device_is_first_physical_node(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @acpi_device_is_first_physical_node(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   tail call void @mutex_lock(ptr noundef nonnull %3) #15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1352
@@ -493,7 +493,7 @@ define dso_local zeroext i1 @acpi_device_is_first_physical_node(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @acpi_companion_match(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @acpi_companion_match(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %3) #15
@@ -575,7 +575,7 @@ define dso_local void @acpi_set_modalias(ptr noundef readonly captures(none) %0,
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local ptr @acpi_match_acpi_device(ptr noundef %0, ptr noundef %1) #6 align 16 {
+define dso_local ptr @acpi_match_acpi_device(ptr noundef %0, ptr noundef captures(address) %1) #6 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   store ptr null, ptr %3, align 8
@@ -586,7 +586,7 @@ define dso_local ptr @acpi_match_acpi_device(ptr noundef %0, ptr noundef %1) #6 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @__acpi_match_device(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3) unnamed_addr #6 align 16 {
+define internal fastcc noundef zeroext i1 @__acpi_match_device(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #6 align 16 {
   %5 = alloca [3 x i8], align 1
   %6 = icmp eq ptr %0, null
   br i1 %6, label %.loopexit6, label %7
@@ -725,7 +725,7 @@ define internal fastcc noundef zeroext i1 @__acpi_match_device(ptr noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @acpi_match_device(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
+define dso_local ptr @acpi_match_device(ptr noundef %0, ptr noundef readonly captures(address) %1) #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 632
   %5 = load ptr, ptr %4, align 8
@@ -774,7 +774,7 @@ define dso_local ptr @acpi_match_device(ptr noundef %0, ptr noundef readonly %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @acpi_device_get_match_data(ptr noundef readonly %0) #0 align 16 {
+define dso_local ptr @acpi_device_get_match_data(ptr noundef readonly captures(address) %0) #0 align 16 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
@@ -911,14 +911,14 @@ define dso_local ptr @acpi_device_get_match_data(ptr noundef readonly %0) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2, 1) i32 @acpi_match_device_ids(ptr noundef %0, ptr noundef %1) #6 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @acpi_match_device_ids(ptr noundef captures(address) %0, ptr noundef %1) #6 align 16 {
   %3 = tail call fastcc zeroext i1 @__acpi_match_device(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef null)
   %4 = select i1 %3, i32 0, i32 -2
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @acpi_driver_match_device(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #0 align 16 {
+define dso_local noundef zeroext i1 @acpi_driver_match_device(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1033,7 +1033,7 @@ define dso_local noundef zeroext i1 @acpi_driver_match_device(ptr noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define internal fastcc noundef zeroext i1 @acpi_of_match_device(ptr readonly %.552.val, ptr noundef readonly %0) unnamed_addr #7 align 16 {
+define internal fastcc noundef zeroext i1 @acpi_of_match_device(ptr readonly captures(address_is_null) %.552.val, ptr noundef readonly captures(address_is_null) %0) unnamed_addr #7 align 16 {
   %2 = icmp ne ptr %0, null
   %3 = icmp ne ptr %.552.val, null
   %4 = select i1 %2, i1 %3, i1 false
@@ -1129,7 +1129,7 @@ define dso_local void @acpi_bus_unregister_driver(ptr noundef %0) #0 align 16 {
 declare dso_local void @driver_unregister(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @acpi_bus_match(ptr noundef %0, ptr noundef readonly captures(none) %1) #6 align 16 {
+define internal noundef range(i32 0, 2) i32 @acpi_bus_match(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) #6 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -500
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 16

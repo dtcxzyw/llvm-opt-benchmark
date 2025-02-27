@@ -2432,7 +2432,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @ioctx_add_table(ptr nounde
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @aio_free_ring(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @aio_free_ring(ptr noundef captures(address) %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load ptr, ptr %2, align 64
   %4 = icmp eq ptr %3, null
@@ -4936,7 +4936,7 @@ declare dso_local void @eventfd_ctx_put(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @get_timespec64(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @do_io_getevents(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #1 align 16 {
+define internal fastcc i64 @do_io_getevents(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #1 align 16 {
   %6 = alloca %struct.hrtimer_sleeper, align 8
   %7 = alloca %struct.aio_waiter, align 8
   %8 = alloca i64, align 8

@@ -3674,7 +3674,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN32pxrInternal_v0_24__pxrReserved__L13_ForEachFieldIZNS_11SdfCopySpecERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathES5_S8_RKSt8functionIFbNS_11SdfSpecTypeERKNS_7TfTokenES5_S8_bS5_S8_bPSt8optionalINS_7VtValueEEEERKS9_IFbSD_S5_S8_bS5_S8_bSH_SH_EEE3$_0EEvRKSt6vectorISB_SaISB_EESV_RKT_"(ptr %.0.val, ptr readnone %.8.val, ptr %.0.val1, ptr readnone %.8.val3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN32pxrInternal_v0_24__pxrReserved__L13_ForEachFieldIZNS_11SdfCopySpecERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathES5_S8_RKSt8functionIFbNS_11SdfSpecTypeERKNS_7TfTokenES5_S8_bS5_S8_bPSt8optionalINS_7VtValueEEEERKS9_IFbSD_S5_S8_bS5_S8_bSH_SH_EEE3$_0EEvRKSt6vectorISB_SaISB_EESV_RKT_"(ptr %.0.val, ptr readnone captures(address) %.8.val, ptr %.0.val1, ptr readnone captures(address) %.8.val3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = icmp ne ptr %.0.val, %.8.val
   %3 = icmp ne ptr %.0.val1, %.8.val3
   %or.cond53 = select i1 %2, i1 %3, i1 false
@@ -4186,7 +4186,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN32pxrInternal_v0_24__pxrReserved__L13_ForEachFieldIZNS_11SdfCopySpecERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathES5_S8_RKSt8functionIFbNS_11SdfSpecTypeERKNS_7TfTokenES5_S8_bS5_S8_bPSt8optionalINS_7VtValueEEEERKS9_IFbSD_S5_S8_bS5_S8_bSH_SH_EEE3$_2EEvRKSt6vectorISB_SaISB_EESV_RKT_"(ptr %.0.val, ptr readnone %.8.val, ptr %.0.val1, ptr readnone %.8.val3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN32pxrInternal_v0_24__pxrReserved__L13_ForEachFieldIZNS_11SdfCopySpecERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathES5_S8_RKSt8functionIFbNS_11SdfSpecTypeERKNS_7TfTokenES5_S8_bS5_S8_bPSt8optionalINS_7VtValueEEEERKS9_IFbSD_S5_S8_bS5_S8_bSH_SH_EEE3$_2EEvRKSt6vectorISB_SaISB_EESV_RKT_"(ptr %.0.val, ptr readnone captures(address) %.8.val, ptr %.0.val1, ptr readnone captures(address) %.8.val3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = icmp ne ptr %.0.val, %.8.val
   %3 = icmp ne ptr %.0.val1, %.8.val3
   %or.cond53 = select i1 %2, i1 %3, i1 false
@@ -5209,7 +5209,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L17_DoAddNewPrimSpecERKNS_9TfWeakPtrINS_8Sd
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer8SetFieldERKNS_7SdfPathERKNS_7TfTokenERKNS_7VtValueE(ptr noundef nonnull align 8 dereferenceable(557), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN32pxrInternal_v0_24__pxrReserved__L13_ForEachFieldIZNS_11SdfCopySpecERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathES5_S8_RKSt8functionIFbNS_11SdfSpecTypeERKNS_7TfTokenES5_S8_bS5_S8_bPSt8optionalINS_7VtValueEEEERKS9_IFbSD_S5_S8_bS5_S8_bSH_SH_EEE3$_3EEvRKSt6vectorISB_SaISB_EESV_RKT_"(ptr %.0.val, ptr readnone %.8.val, ptr %.0.val1, ptr readnone %.8.val3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN32pxrInternal_v0_24__pxrReserved__L13_ForEachFieldIZNS_11SdfCopySpecERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathES5_S8_RKSt8functionIFbNS_11SdfSpecTypeERKNS_7TfTokenES5_S8_bS5_S8_bPSt8optionalINS_7VtValueEEEERKS9_IFbSD_S5_S8_bS5_S8_bSH_SH_EEE3$_3EEvRKSt6vectorISB_SaISB_EESV_RKT_"(ptr %.0.val, ptr readnone captures(address) %.8.val, ptr %.0.val1, ptr readnone captures(address) %.8.val3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = icmp ne ptr %.0.val, %.8.val
   %3 = icmp ne ptr %.0.val1, %.8.val3
   %or.cond53 = select i1 %2, i1 %3, i1 false
@@ -11246,7 +11246,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryES2_EvT_S4_RSaIT0_E(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryES2_EvT_S4_RSaIT0_E(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i.i = icmp eq ptr %0, %1
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryEEvT_S4_.exit, label %.lr.ph.i.i
 

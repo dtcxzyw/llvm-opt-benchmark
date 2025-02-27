@@ -19182,7 +19182,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm6objec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm6object14WasmObjectFile9getHeaderEv(ptr noundef nonnull readnone align 8 dereferenceable(684) %0) local_unnamed_addr #8 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm6object14WasmObjectFile9getHeaderEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(684) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }

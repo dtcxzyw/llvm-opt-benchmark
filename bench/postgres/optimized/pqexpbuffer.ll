@@ -73,7 +73,7 @@ define void @initPQExpBuffer(ptr noundef writeonly captures(none) initializes((0
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @destroyPQExpBuffer(ptr noundef %0) local_unnamed_addr #4 {
+define void @destroyPQExpBuffer(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -115,7 +115,7 @@ define void @termPQExpBuffer(ptr noundef captures(none) initializes((8, 24)) %0)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @resetPQExpBuffer(ptr noundef %0) local_unnamed_addr #6 {
+define void @resetPQExpBuffer(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %2
 
@@ -157,7 +157,7 @@ initPQExpBuffer.exit:                             ; preds = %9, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @enlargePQExpBuffer(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @enlargePQExpBuffer(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %26, label %4
 
@@ -235,7 +235,7 @@ markPQExpBufferBroken.exit32:                     ; preds = %23, %25
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @printfPQExpBuffer(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #7 {
+define void @printfPQExpBuffer(ptr noundef captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #7 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = tail call ptr @__errno_location() #19
   %5 = load i32, ptr %4, align 4
@@ -441,7 +441,7 @@ enlargePQExpBuffer.exit:                          ; preds = %markPQExpBufferBrok
 declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nounwind uwtable
-define void @appendPQExpBuffer(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #7 {
+define void @appendPQExpBuffer(ptr noundef captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #7 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = tail call ptr @__errno_location() #19
   %5 = load i32, ptr %4, align 4
@@ -470,14 +470,14 @@ define void @appendPQExpBuffer(ptr noundef %0, ptr noundef %1, ...) local_unname
 declare i32 @pg_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @appendPQExpBufferStr(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
+define void @appendPQExpBufferStr(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   tail call void @appendBinaryPQExpBuffer(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @appendBinaryPQExpBuffer(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #7 {
+define void @appendBinaryPQExpBuffer(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %enlargePQExpBuffer.exit.thread, label %5
 
@@ -572,7 +572,7 @@ enlargePQExpBuffer.exit.thread:                   ; preds = %3, %5, %markPQExpBu
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define void @appendPQExpBufferChar(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #7 {
+define void @appendPQExpBufferChar(ptr noundef captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %enlargePQExpBuffer.exit.thread, label %4
 

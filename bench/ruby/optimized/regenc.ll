@@ -172,7 +172,7 @@ onigenc_mbclen.exit:                              ; preds = %36, %31, %21, %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @onigenc_get_right_adjust_char_head_with_prev(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #3 {
+define dso_local ptr @onigenc_get_right_adjust_char_head_with_prev(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8, !tbaa !16
   %8 = tail call ptr %7(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %0) #11
@@ -709,7 +709,7 @@ onigenc_ascii_apply_all_case_fold.exit:           ; preds = %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef readnone %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #6 {
+define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address) %4, ptr noundef readnone captures(address) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #6 {
   %8 = load i8, ptr %4, align 1, !tbaa !24
   %9 = add i8 %8, -65
   %or.cond82 = icmp ult i8 %9, 26
@@ -886,7 +886,7 @@ define dso_local noundef i32 @onigenc_not_support_get_ctype_code_range(i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @onigenc_is_mbc_newline_0x0a(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @onigenc_is_mbc_newline_0x0a(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #7 {
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %5, label %8
 
@@ -954,7 +954,7 @@ define dso_local noundef i32 @onigenc_single_byte_code_to_mbc(i32 noundef %0, pt
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef ptr @onigenc_single_byte_left_adjust_char_head(ptr noundef readnone captures(none) %0, ptr noundef readnone returned %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @onigenc_single_byte_left_adjust_char_head(ptr noundef readnone captures(none) %0, ptr noundef readnone returned captures(ret: address, provenance) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   ret ptr %1
 }
 
@@ -1771,7 +1771,7 @@ onigenc_mbclen.exit:                              ; preds = %40, %31, %38, %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @onigenc_ascii_only_case_map(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone %4, ptr noundef %5) local_unnamed_addr #3 {
+define dso_local i32 @onigenc_ascii_only_case_map(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(address) %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = load i32, ptr %0, align 4, !tbaa !30
   %8 = load ptr, ptr %1, align 8, !tbaa !19
   %9 = icmp ult ptr %8, %2
@@ -1859,7 +1859,7 @@ define dso_local i32 @onigenc_ascii_only_case_map(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @onigenc_single_byte_ascii_only_case_map(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone %2, ptr noundef %3, ptr noundef readnone %4, ptr noundef readnone captures(none) %5) local_unnamed_addr #10 {
+define dso_local i32 @onigenc_single_byte_ascii_only_case_map(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef %3, ptr noundef readnone captures(address) %4, ptr noundef readnone captures(none) %5) local_unnamed_addr #10 {
   %7 = load i32, ptr %0, align 4, !tbaa !30
   %8 = load ptr, ptr %1, align 8, !tbaa !19
   %9 = icmp ult ptr %8, %2

@@ -71,7 +71,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.jsonXDot = private unnamed_addr constant [3 x ptr] [ptr @.str.25, ptr @.str.27, ptr @.str.26], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @parseXDotFOn(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define noundef ptr @parseXDotFOn(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null, ret: address, provenance) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -769,7 +769,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @parseXDotF(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @parseXDotF(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @parseXDotFOn(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null)
   ret ptr %4
 }
@@ -4754,7 +4754,7 @@ freeXOpData.exit:                                 ; preds = %13, %25, %freeXDotC
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @statXDot(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @statXDot(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #7 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

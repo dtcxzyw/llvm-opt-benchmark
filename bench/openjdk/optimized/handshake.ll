@@ -226,7 +226,7 @@ $_ZTV26UnsafeAccessErrorHandshake = comdat any
 @_ZN14HandshakeStateD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14HandshakeStateD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1128
   %5 = load volatile i32, ptr %4, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
@@ -377,7 +377,7 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP10JavaThread(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandleP10JavaThread(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandleP10JavaThread(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.HandshakeOperation, align 8
   %5 = alloca [128 x i8], align 16
   %6 = alloca %class.HandshakeSpinYield, align 8
@@ -1541,7 +1541,7 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %15, %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14HandshakeState17operation_pendingEP18HandshakeOperation(ptr noundef nonnull align 8 dereferenceable(131) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14HandshakeState17operation_pendingEP18HandshakeOperation(ptr noundef nonnull align 8 dereferenceable(131) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

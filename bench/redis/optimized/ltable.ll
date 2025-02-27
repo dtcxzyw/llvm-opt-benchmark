@@ -819,7 +819,7 @@ hashnum.exit:                                     ; preds = %hashnum.exit.prehea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @luaH_getstr(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden ptr @luaH_getstr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12

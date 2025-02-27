@@ -319,7 +319,7 @@ define hidden void @timelib_error_container_dtor(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i64 @timelib_date_to_int(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #8 {
+define hidden i64 @timelib_date_to_int(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -436,7 +436,7 @@ define hidden noundef i64 @timelib_hms_to_seconds(i64 noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define hidden i32 @timelib_strcasecmp(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #12 {
+define hidden i32 @timelib_strcasecmp(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #12 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %5 = icmp eq ptr %0, %1
@@ -485,7 +485,7 @@ define hidden i32 @timelib_strcasecmp(ptr noundef readonly %0, ptr noundef reado
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define hidden i32 @timelib_strncasecmp(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #12 {
+define hidden i32 @timelib_strncasecmp(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #12 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %6 = icmp eq ptr %0, %1

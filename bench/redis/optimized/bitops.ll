@@ -551,7 +551,7 @@ getUnsignedBitfield.exit.thread:                  ; preds = %3, %getUnsignedBitf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 -1, 2) i32 @checkUnsignedBitfieldOverflow(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #9 {
+define dso_local range(i32 -1, 2) i32 @checkUnsignedBitfieldOverflow(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = icmp eq i64 %2, 64
   %notmask = shl nsw i64 -1, %2
   %7 = xor i64 %notmask, -1
@@ -610,7 +610,7 @@ define dso_local range(i32 -1, 2) i32 @checkUnsignedBitfieldOverflow(i64 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 -1, 2) i32 @checkSignedBitfieldOverflow(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #9 {
+define dso_local range(i32 -1, 2) i32 @checkSignedBitfieldOverflow(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = icmp ne i64 %2, 64
   %7 = add i64 %2, -1
   %8 = shl nuw i64 1, %7
@@ -907,7 +907,7 @@ define dso_local range(i32 -1, 1) i32 @getBitfieldTypeFromArgument(ptr noundef %
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getObjectReadOnlyString(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local ptr @getObjectReadOnlyString(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge25, label %4
 

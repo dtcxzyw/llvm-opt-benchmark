@@ -277,7 +277,7 @@ define void @_ZN4LIEF3OAT7DexFileC2Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4LIEF3OAT7DexFile8locationB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(92) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4LIEF3OAT7DexFile8locationB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(92) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -333,7 +333,7 @@ define void @_ZN4LIEF3OAT7DexFile10dex_offsetEj(ptr noundef nonnull writeonly al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4LIEF3OAT7DexFile15classes_offsetsEv(ptr noundef nonnull readnone align 8 dereferenceable(92) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4LIEF3OAT7DexFile15classes_offsetsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(92) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }

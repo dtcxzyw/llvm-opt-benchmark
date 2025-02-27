@@ -571,7 +571,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
 declare i32 @ggml_graph_compute(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define zeroext i1 @ggml_backend_is_cpu(ptr noundef readonly %0) local_unnamed_addr #0 {
+define zeroext i1 @ggml_backend_is_cpu(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -588,7 +588,7 @@ define zeroext i1 @ggml_backend_is_cpu(ptr noundef readonly %0) local_unnamed_ad
 declare zeroext i1 @ggml_guid_matches(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @ggml_backend_cpu_set_n_threads(ptr noundef readonly %0, i32 noundef %1) #0 {
+define void @ggml_backend_cpu_set_n_threads(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %ggml_backend_is_cpu.exit.thread, label %ggml_backend_is_cpu.exit
 
@@ -612,7 +612,7 @@ ggml_backend_is_cpu.exit.thread:                  ; preds = %2, %ggml_backend_is
 declare void @ggml_abort(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @ggml_backend_cpu_set_threadpool(ptr noundef readonly %0, ptr noundef %1) #0 {
+define void @ggml_backend_cpu_set_threadpool(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %ggml_backend_is_cpu.exit.thread, label %ggml_backend_is_cpu.exit
 
@@ -647,7 +647,7 @@ ggml_backend_is_cpu.exit.thread:                  ; preds = %2, %ggml_backend_is
 declare void @ggml_threadpool_pause(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @ggml_backend_cpu_set_abort_callback(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define void @ggml_backend_cpu_set_abort_callback(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %ggml_backend_is_cpu.exit.thread, label %ggml_backend_is_cpu.exit
 

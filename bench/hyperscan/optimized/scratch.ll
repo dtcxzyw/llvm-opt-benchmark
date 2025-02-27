@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hs_scratch_free = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hs_alloc_scratch(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @hs_alloc_scratch(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -577,7 +577,7 @@ define internal fastcc range(i32 -9, 1) i32 @alloc_scratch(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -9, 1) i32 @hs_clone_scratch(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -9, 1) i32 @hs_clone_scratch(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %1, null
   %4 = icmp ne ptr %0, null
   %or.cond = and i1 %4, %3
@@ -644,7 +644,7 @@ markScratchInUse.exit:                            ; preds = %8, %1, %11, %6, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @hs_scratch_size(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @hs_scratch_size(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp ne ptr %1, null
   %4 = icmp ne ptr %0, null
   %or.cond = and i1 %4, %3

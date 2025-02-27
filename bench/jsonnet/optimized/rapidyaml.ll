@@ -1249,7 +1249,7 @@ define noundef range(i64 0, 5) i64 @_ZN2c417decode_code_pointEPhmj(ptr noalias n
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, i64 } @_ZN2c417decode_code_pointENS_15basic_substringIcEENS0_IKcEE(ptr %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define { ptr, i64 } @_ZN2c417decode_code_pointENS_15basic_substringIcEENS0_IKcEE(ptr %0, i64 %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   %.not.i20 = icmp samesign eq i64 %3, 0
   br i1 %.not.i20, label %_ZN2c48read_hexIjEEbNS_15basic_substringIKcEEPT_.exit.thread.thread, label %.lr.ph
@@ -1371,7 +1371,7 @@ _ZN2c417decode_code_pointEPhmj.exit:              ; preds = %_ZN2c48read_hexIjEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN2c412base64_validENS_15basic_substringIKcEE(ptr readonly %0, i64 %1) local_unnamed_addr #11 {
+define noundef zeroext i1 @_ZN2c412base64_validENS_15basic_substringIKcEE(ptr readonly captures(address) %0, i64 %1) local_unnamed_addr #11 {
   %3 = and i64 %1, 3
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %.thread
@@ -1626,7 +1626,7 @@ define noundef i64 @_ZN2c413base64_encodeENS_15basic_substringIcEENS_5blob_IKcEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN2c413base64_decodeENS_15basic_substringIKcEENS_5blob_IcEE(ptr readonly %0, i64 %1, ptr writeonly captures(none) %2, i64 %3) local_unnamed_addr #1 {
+define noundef i64 @_ZN2c413base64_decodeENS_15basic_substringIKcEENS_5blob_IcEE(ptr readonly captures(address) %0, i64 %1, ptr writeonly captures(none) %2, i64 %3) local_unnamed_addr #1 {
   %5 = and i64 %1, 3
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %6, label %.thread, !prof !53
@@ -1954,7 +1954,7 @@ declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) 
 declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN2c43yml17report_error_implEPKcmNS0_8LocationEP8_IO_FILE(ptr noundef %0, i64 noundef %1, ptr noundef readonly byval(%"struct.c4::yml::Location") align 8 captures(none) %2, ptr noundef %3) local_unnamed_addr #19 {
+define void @_ZN2c43yml17report_error_implEPKcmNS0_8LocationEP8_IO_FILE(ptr noundef %0, i64 noundef %1, ptr noundef readonly byval(%"struct.c4::yml::Location") align 8 captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #19 {
   %.not = icmp eq ptr %3, null
   %5 = load ptr, ptr @stderr, align 8
   %spec.select = select i1 %.not, ptr %5, ptr %3
@@ -4110,7 +4110,7 @@ define void @_ZN2c43yml4Tree5_copyERKS1_(ptr noundef nonnull align 8 captures(no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(256) ptr @_ZN2c43yml4TreeaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(256) initializes((16, 40), (56, 64), (96, 256)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %1) local_unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(256) ptr @_ZN2c43yml4TreeaSERKS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(256) initializes((16, 40), (56, 64), (96, 256)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %1) local_unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN2c43yml4Tree5_freeEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
           to label %3 unwind label %7
 
@@ -4296,7 +4296,7 @@ _ZN2c43yml4Tree6_clearEv.exit:                    ; preds = %66
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(256) ptr @_ZN2c43yml4TreeaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(256) initializes((16, 40), (56, 64), (96, 256)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(256) %1) local_unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(256) ptr @_ZN2c43yml4TreeaSEOS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(256) initializes((16, 40), (56, 64), (96, 256)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(256) %1) local_unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN2c43yml4Tree5_freeEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
           to label %3 unwind label %7
 
@@ -7949,7 +7949,7 @@ _ZN2c43yml4Tree14_rem_hierarchyEm.exit:           ; preds = %123, %125
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN2c43yml4Tree4moveEPS1_mmm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define noundef i64 @_ZN2c43yml4Tree4moveEPS1_mmm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [31 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [29 x i8], align 16
@@ -8061,7 +8061,7 @@ define noundef i64 @_ZN2c43yml4Tree4moveEPS1_mmm(ptr noundef nonnull align 8 cap
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN2c43yml4Tree9duplicateEPKS1_mmm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define noundef i64 @_ZN2c43yml4Tree9duplicateEPKS1_mmm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [31 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [29 x i8], align 16
@@ -8549,13 +8549,13 @@ define noundef zeroext i1 @_ZN2c43yml4Tree11change_typeEmNS0_8NodeTypeE(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN2c43yml4Tree9duplicateEmmm(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
+define noundef i64 @_ZN2c43yml4Tree9duplicateEmmm(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = tail call noundef i64 @_ZN2c43yml4Tree9duplicateEPKS1_mmm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2, i64 noundef %3)
   ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN2c43yml4Tree18duplicate_childrenEPKS1_mmm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define noundef i64 @_ZN2c43yml4Tree18duplicate_childrenEPKS1_mmm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [31 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [29 x i8], align 16
@@ -8689,19 +8689,19 @@ define noundef i64 @_ZN2c43yml4Tree18duplicate_childrenEPKS1_mmm(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN2c43yml4Tree18duplicate_childrenEmmm(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
+define noundef i64 @_ZN2c43yml4Tree18duplicate_childrenEmmm(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = tail call noundef i64 @_ZN2c43yml4Tree18duplicate_childrenEPKS1_mmm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2, i64 noundef %3)
   ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2c43yml4Tree18duplicate_contentsEmm(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define void @_ZN2c43yml4Tree18duplicate_contentsEmm(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   tail call void @_ZN2c43yml4Tree18duplicate_contentsEPKS1_mm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2c43yml4Tree18duplicate_contentsEPKS1_mm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
+define void @_ZN2c43yml4Tree18duplicate_contentsEPKS1_mm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca [31 x i8], align 16
   %6 = alloca %"struct.c4::yml::Location", align 8
   %7 = alloca [29 x i8], align 16
@@ -8821,13 +8821,13 @@ define void @_ZN2c43yml4Tree18duplicate_contentsEPKS1_mm(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN2c43yml4Tree25duplicate_children_no_repEmmm(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
+define noundef i64 @_ZN2c43yml4Tree25duplicate_children_no_repEmmm(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = tail call noundef i64 @_ZN2c43yml4Tree25duplicate_children_no_repEPKS1_mmm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2, i64 noundef %3)
   ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN2c43yml4Tree25duplicate_children_no_repEPKS1_mmm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define noundef i64 @_ZN2c43yml4Tree25duplicate_children_no_repEPKS1_mmm(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(256) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [29 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [31 x i8], align 16
@@ -12086,7 +12086,7 @@ _ZNK2c415basic_substringIKcE5trimrEc.exit:        ; preds = %11, %.preheader.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK2c43yml4Tree11resolve_tagENS_15basic_substringIcEENS2_IKcEEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr writeonly captures(none) %1, i64 %2, ptr readonly %3, i64 %4, i64 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK2c43yml4Tree11resolve_tagENS_15basic_substringIcEENS2_IKcEEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr writeonly captures(none) %1, i64 %2, ptr readonly captures(address) %3, i64 %4, i64 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca [28 x i8], align 16
   %8 = alloca %"struct.c4::yml::Location", align 8
   %9 = alloca [27 x i8], align 16
@@ -39760,7 +39760,7 @@ _ZNK2c415basic_substringIKcE15begins_with_anyES2_.exit: ; preds = %.preheader.i2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN2c43yml12_GLOBAL__N_126_is_scalar_next__rseq_rvalENS_15basic_substringIKcEE(ptr readonly %0, i64 %1) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @_ZN2c43yml12_GLOBAL__N_126_is_scalar_next__rseq_rvalENS_15basic_substringIKcEE(ptr readonly captures(address_is_null) %0, i64 %1) unnamed_addr #11 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.thread31, label %.lr.ph.i
 
@@ -39908,7 +39908,7 @@ _ZNK2c415basic_substringIKcE17first_of_any_iterIPS2_EENS2_19first_of_any_resultE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN2c43yml12_GLOBAL__N_125_is_scalar_next__rmap_valENS_15basic_substringIKcEE(ptr readonly %0, i64 %1) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @_ZN2c43yml12_GLOBAL__N_125_is_scalar_next__rmap_valENS_15basic_substringIKcEE(ptr readonly captures(address_is_null) %0, i64 %1) unnamed_addr #11 {
   %3 = icmp ult i64 %1, 2
   br i1 %3, label %.loopexit18, label %.lr.ph.i
 
@@ -39965,7 +39965,7 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit: ; preds = %4, %14, %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN2c43yml12_GLOBAL__N_121_is_scalar_next__runkENS_15basic_substringIKcEE(ptr readonly %0, i64 %1) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @_ZN2c43yml12_GLOBAL__N_121_is_scalar_next__runkENS_15basic_substringIKcEE(ptr readonly captures(address_is_null) %0, i64 %1) unnamed_addr #11 {
   %3 = icmp ult i64 %1, 2
   br i1 %3, label %.loopexit, label %.lr.ph.i
 
@@ -41018,7 +41018,7 @@ _ZN2c43yml6Parser20_finish_filter_arenaENS_15basic_substringIcEEm.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, i64 } @_ZN2c43yml6Parser23_scan_plain_scalar_blckENS_15basic_substringIKcEES4_m(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr %1, i64 %2, ptr readonly %3, i64 %4, i64 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define { ptr, i64 } @_ZN2c43yml6Parser23_scan_plain_scalar_blckENS_15basic_substringIKcEES4_m(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr %1, i64 %2, ptr readonly captures(address) %3, i64 %4, i64 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca [74 x i8], align 16
   %8 = alloca %"struct.c4::yml::Location", align 8
   %9 = alloca [1024 x i8], align 16
@@ -47821,7 +47821,7 @@ _ZNK2c415basic_substringIcE12first_not_ofENS0_IKcEEm.exit.thread: ; preds = %54,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN2c43yml6Parser12_apply_chompENS_15basic_substringIcEEPmNS1_12BlockChomp_eE(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr readonly %1, i64 %2, ptr noalias noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN2c43yml6Parser12_apply_chompENS_15basic_substringIcEEPmNS1_12BlockChomp_eE(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noalias noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca %"struct.c4::yml::detail::_SubstrWriter", align 8
   %8 = alloca %class.anon.7, align 8

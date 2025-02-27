@@ -509,13 +509,13 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19MatrixTransformImpl21setFileOutput
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5dev19MatrixTransformImpl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 dereferenceable(272) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5dev19MatrixTransformImpl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(272) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_5dev19MatrixTransformImpl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 dereferenceable(272) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_5dev19MatrixTransformImpl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(272) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
@@ -563,7 +563,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19MatrixTransformImpl9setMatrixEPKd(
 declare void @_ZN19OpenColorIO_v2_5dev12MatrixOpData7setRGBAIdEEvPKT_(ptr noundef nonnull align 8 dereferenceable(260), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_5dev19MatrixTransformImpl9getMatrixEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0, ptr noundef writeonly %1) unnamed_addr #17 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_5dev19MatrixTransformImpl9getMatrixEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #17 align 2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZN19OpenColorIO_v2_5dev9GetMatrixIdEEvRKSt6vectorIdSaIdEEPT_.exit, label %3
 
@@ -653,7 +653,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19MatrixTransformImpl9setOffsetEPKd(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_5dev19MatrixTransformImpl9getOffsetEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0, ptr noundef writeonly %1) unnamed_addr #18 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_5dev19MatrixTransformImpl9getOffsetEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #18 align 2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZN19OpenColorIO_v2_5dev9GetOffsetIdEEvPKdPT_.exit, label %3
 
@@ -680,7 +680,7 @@ _ZN19OpenColorIO_v2_5dev9GetOffsetIdEEvPKdPT_.exit: ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform3FitEPdS1_PKdS3_S3_S3_(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform3FitEPdS1_PKdS3_S3_S3_(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = icmp ne ptr %2, null
@@ -935,7 +935,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare double @llvm.fmuladd.f64(double, double, double) #19
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform8IdentityEPdS1_(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 align 2 {
+define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform8IdentityEPdS1_(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
 
@@ -964,7 +964,7 @@ define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform8IdentityEPdS1_(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform3SatEPdS1_dPKd(ptr noundef writeonly %0, ptr noundef writeonly %1, double noundef %2, ptr noundef readonly %3) local_unnamed_addr #18 align 2 {
+define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform3SatEPdS1_dPKd(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, double noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #18 align 2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %42, label %5
 
@@ -1034,7 +1034,7 @@ define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform3SatEPdS1_dPKd(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform5ScaleEPdS1_PKd(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef readonly %2) local_unnamed_addr #18 align 2 {
+define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform5ScaleEPdS1_PKd(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #18 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %18, label %4
 
@@ -1073,7 +1073,7 @@ define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform5ScaleEPdS1_PKd(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform4ViewEPdS1_PiPKd(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #3 align 2 {
+define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform4ViewEPdS1_PiPKd(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca [3 x double], align 16
   %6 = icmp ne ptr %2, null
   %7 = icmp ne ptr %3, null

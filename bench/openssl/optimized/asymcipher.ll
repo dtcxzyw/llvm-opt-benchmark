@@ -1096,7 +1096,7 @@ define i32 @EVP_ASYM_CIPHER_names_do_all(ptr noundef readonly captures(none) %0,
 declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_ASYM_CIPHER_gettable_ctx_params(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @EVP_ASYM_CIPHER_gettable_ctx_params(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -1122,7 +1122,7 @@ define ptr @EVP_ASYM_CIPHER_gettable_ctx_params(ptr noundef readonly %0) local_u
 declare ptr @ossl_provider_ctx(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_ASYM_CIPHER_settable_ctx_params(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @EVP_ASYM_CIPHER_settable_ctx_params(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 

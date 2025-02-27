@@ -733,7 +733,7 @@ _ZN3gmx15NoseHooverGroup17calculateIntegralEv.exit: ; preds = %83, %._crit_edge.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmx20NoseHooverChainsData8clientIDB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(72) %0) unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmx20NoseHooverChainsData8clientIDB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

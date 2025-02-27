@@ -113,7 +113,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes6parser9JSONValue8emitIntoERNS_11JSONEmitterE(ptr noundef nonnull readonly align 4 dereferenceable(4) %this, ptr noundef nonnull align 8 dereferenceable(72) %emitter) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6hermes6parser9JSONValue8emitIntoERNS_11JSONEmitterE(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(4) %this, ptr noundef nonnull align 8 dereferenceable(72) %emitter) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   switch i32 %0, label %sw.epilog [
@@ -2695,7 +2695,7 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIPN6hermes6parser10JSONStringEPNS2_9JSONValueEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_11JSONFactory9sortPropsES8_S8_E3$_0EEEvT_SF_T0_"(ptr noundef %__first, ptr noundef readnone %__last) unnamed_addr #12 {
+define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIPN6hermes6parser10JSONStringEPNS2_9JSONValueEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_11JSONFactory9sortPropsES8_S8_E3$_0EEEvT_SF_T0_"(ptr noundef %__first, ptr noundef readnone captures(address) %__last) unnamed_addr #12 {
 entry:
   %cmp = icmp eq ptr %__first, %__last
   br i1 %cmp, label %for.end, label %for.cond.preheader

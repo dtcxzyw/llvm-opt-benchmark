@@ -9955,7 +9955,7 @@ declare noundef zeroext i1 @_ZNK4llvm3opt7ArgList14hasFlagNoClaimENS0_12OptSpeci
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %.8.val, i32 %.16.val, i64 %1, i64 %2) unnamed_addr #3 {
+define internal fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(address) %.8.val, i32 %.16.val, i64 %1, i64 %2) unnamed_addr #3 {
   %4 = zext i32 %.16.val to i64
   %5 = getelementptr inbounds nuw ptr, ptr %.8.val, i64 %4
   %.not12.i.i.i = icmp eq i32 %.16.val, 0
@@ -12195,7 +12195,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit551: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i64 } @_ZL17parseSanitizeArgsRKN5clang6driver6DriverERKN4llvm3opt7ArgListEbNS_13SanitizerMaskES9_S9_ii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0, ptr readonly %.8.val, i32 %.16.val, i1 noundef zeroext %1, i64 range(i64 34068720254976, 6917668657027350529) %2, i64 range(i64 0, 129) %3, i64 %.0.val, i64 %.8.val1, i64 %.0.val3, i64 %.8.val5, i32 noundef range(i32 1718, 1731) %4, i32 noundef range(i32 1339, 1350) %5) unnamed_addr #3 {
+define internal fastcc { i64, i64 } @_ZL17parseSanitizeArgsRKN5clang6driver6DriverERKN4llvm3opt7ArgListEbNS_13SanitizerMaskES9_S9_ii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0, ptr readonly captures(address) %.8.val, i32 %.16.val, i1 noundef zeroext %1, i64 range(i64 34068720254976, 6917668657027350529) %2, i64 range(i64 0, 129) %3, i64 %.0.val, i64 %.8.val1, i64 %.0.val3, i64 %.8.val5, i32 noundef range(i32 1718, 1731) %4, i32 noundef range(i32 1339, 1350) %5) unnamed_addr #3 {
   %7 = alloca %"struct.clang::SanitizerSet", align 8
   %8 = alloca %"class.clang::DiagnosticBuilder", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12548,7 +12548,7 @@ _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit: ; preds = %.lr.ph.i.i, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23parseSpecialCaseListArgRKN5clang6driver6DriverERKN4llvm3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS5_12OptSpecifierESJ_jb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0, ptr readonly %.8.val, i32 %.16.val, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 %2, i32 %3, i32 noundef range(i32 409, 413) %4, i1 noundef zeroext %5) unnamed_addr #3 {
+define internal fastcc void @_ZL23parseSpecialCaseListArgRKN5clang6driver6DriverERKN4llvm3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS5_12OptSpecifierESJ_jb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0, ptr readonly captures(address) %.8.val, i32 %.16.val, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 %2, i32 %3, i32 noundef range(i32 409, 413) %4, i1 noundef zeroext %5) unnamed_addr #3 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17158,7 +17158,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21addSpecialCaseListOptRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEES6_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef readonly %2, ptr readonly %.0.val, ptr readnone %.8.val) unnamed_addr #3 {
+define internal fastcc void @_ZL21addSpecialCaseListOptRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEES6_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef readonly captures(address_is_null) %2, ptr readonly captures(address) %.0.val, ptr readnone captures(address) %.8.val) unnamed_addr #3 {
   %4 = alloca %"class.llvm::SmallString", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %.not8 = icmp eq ptr %.0.val, %.8.val

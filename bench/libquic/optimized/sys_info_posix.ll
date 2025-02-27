@@ -98,7 +98,7 @@ define noundef i64 @_ZN4base7SysInfo21AmountOfFreeDiskSpaceERKNS_8FilePathE(ptr 
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116GetDiskSpaceInfoERKN4base8FilePathEPlS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116GetDiskSpaceInfoERKN4base8FilePathEPlS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.statfs, align 8
   %5 = alloca %struct.statvfs, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #12

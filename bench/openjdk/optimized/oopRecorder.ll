@@ -1438,7 +1438,7 @@ _ZNK12ObjectLookup11ObjectEntry9oop_valueEv.exit4: ; preds = %_ZNK12ObjectLookup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN12ObjectLookup15sort_by_addressEP7oopDescS1_(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN12ObjectLookup15sort_by_addressEP7oopDescS1_(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = icmp ult ptr %0, %1
   %4 = icmp ugt ptr %0, %1
   %..i.neg = sext i1 %4 to i32

@@ -306,7 +306,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef
 declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN8Internal5GetIdEP19EAThreadDynamicData(ptr noundef readonly %pTDD) local_unnamed_addr #10 {
+define dso_local noundef i64 @_ZN8Internal5GetIdEP19EAThreadDynamicData(ptr noundef readonly captures(address_is_null) %pTDD) local_unnamed_addr #10 {
 entry:
   %tobool.not = icmp eq ptr %pTDD, null
   br i1 %tobool.not, label %return, label %if.then
@@ -321,7 +321,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN8Internal13SetThreadNameEP19EAThreadDynamicData(ptr noundef readonly %pTDD) local_unnamed_addr #6 {
+define dso_local void @_ZN8Internal13SetThreadNameEP19EAThreadDynamicData(ptr noundef readonly captures(address_is_null) %pTDD) local_unnamed_addr #6 {
 entry:
   %nameBuf.i = alloca [16 x i8], align 16
   %tobool.not.i = icmp eq ptr %pTDD, null
@@ -353,7 +353,7 @@ if.end:                                           ; preds = %if.then, %_ZN8Inter
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA6Thread13SetThreadNameEPKc(ptr noundef readonly %pName) local_unnamed_addr #2 {
+define dso_local void @_ZN2EA6Thread13SetThreadNameEPKc(ptr noundef readonly captures(address) %pName) local_unnamed_addr #2 {
 entry:
   %nameBuf.i.i.i = alloca [16 x i8], align 16
   %call.i = tail call noundef i64 @pthread_self() #18
@@ -392,7 +392,7 @@ _ZN2EA6Thread13SetThreadNameERKmPKc.exit:         ; preds = %entry, %_ZN8Interna
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA6Thread13SetThreadNameERKmPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %id, ptr noundef readonly %pName) local_unnamed_addr #2 {
+define dso_local void @_ZN2EA6Thread13SetThreadNameERKmPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %id, ptr noundef readonly captures(address) %pName) local_unnamed_addr #2 {
 entry:
   %nameBuf.i.i = alloca [16 x i8], align 16
   %0 = load i64, ptr %id, align 8

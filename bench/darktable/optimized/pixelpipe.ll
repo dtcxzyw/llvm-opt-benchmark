@@ -657,7 +657,7 @@ define range(i32 0, 2) i32 @dt_dev_pixelpipe_cache_available(ptr noundef capture
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_dev_pixelpipe_cache_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_dev_pixelpipe_cache_get(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i64, ptr %8, align 8, !tbaa !16
   %10 = add i64 %9, 1
@@ -1071,7 +1071,7 @@ _get_cacheline.exit:                              ; preds = %_get_oldest_cacheli
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_print_pipe_ext(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef readonly %5, ptr noundef readonly captures(none) %6, ...) local_unnamed_addr #0 {
+define void @dt_print_pipe_ext(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(none) %6, ...) local_unnamed_addr #0 {
   %8 = alloca [128 x i8], align 16
   %9 = alloca [128 x i8], align 16
   %10 = alloca [64 x i8], align 16
@@ -1290,7 +1290,7 @@ declare ptr @dt_iop_colorspace_to_name(i32 noundef) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_pixelpipe_cache_invalidate_later(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @dt_dev_pixelpipe_cache_invalidate_later(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8, !tbaa !6
   %4 = icmp sgt i32 %3, 2
   br i1 %4, label %.lr.ph, label %._crit_edge.thread
@@ -1353,7 +1353,7 @@ define void @dt_dev_pixelpipe_cache_invalidate_later(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_pixelpipe_cache_flush(ptr noundef %0) local_unnamed_addr #0 {
+define void @dt_dev_pixelpipe_cache_flush(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8, !tbaa !6
   %3 = icmp sgt i32 %2, 2
   br i1 %3, label %.lr.ph.i, label %dt_dev_pixelpipe_cache_invalidate_later.exit
@@ -1414,7 +1414,7 @@ dt_dev_pixelpipe_cache_invalidate_later.exit:     ; preds = %1, %._crit_edge.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @dt_dev_pixelpipe_important_cacheline(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i64 noundef %2) local_unnamed_addr #8 {
+define void @dt_dev_pixelpipe_important_cacheline(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = load i32, ptr %0, align 8, !tbaa !6
   %5 = icmp sgt i32 %4, 2
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -1469,7 +1469,7 @@ define void @dt_dev_pixelpipe_important_cacheline(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @dt_dev_pixelpipe_invalidate_cacheline(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #8 {
+define void @dt_dev_pixelpipe_invalidate_cacheline(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #8 {
   %3 = load i32, ptr %0, align 8, !tbaa !6
   %4 = icmp sgt i32 %3, 2
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -1511,7 +1511,7 @@ define void @dt_dev_pixelpipe_invalidate_cacheline(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_pixelpipe_cache_checkmem(ptr noundef %0) local_unnamed_addr #0 {
+define void @dt_dev_pixelpipe_cache_checkmem(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8, !tbaa !6
   %3 = icmp eq i32 %2, 2
   br i1 %3, label %138, label %.preheader40
@@ -1788,7 +1788,7 @@ _cline_stats.exit:                                ; preds = %118, %.critedge.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_pixelpipe_cache_report(ptr noundef initializes((104, 116)) %0) local_unnamed_addr #0 {
+define void @dt_dev_pixelpipe_cache_report(ptr noundef captures(address_is_null) initializes((104, 116)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 0, ptr %2, align 8, !tbaa !134
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -3834,7 +3834,7 @@ _skip_piece_on_tags.exit.thread:                  ; preds = %.lr.ph, %28, %_skip
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_pixelpipe_usedetails(ptr noundef %0) local_unnamed_addr #0 {
+define void @dt_dev_pixelpipe_usedetails(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %3 = load i32, ptr %2, align 16, !tbaa !83
   %.not = icmp eq i32 %3, 0
@@ -5307,7 +5307,7 @@ declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captur
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_dev_pixelpipe_process_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull %5, ptr noundef readonly %6, ptr noundef readonly captures(none) %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_dev_pixelpipe_process_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef readonly captures(none) %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca %struct.dt_iop_roi_t, align 4
   %11 = alloca [256 x i8], align 16
   %12 = alloca ptr, align 8
@@ -7897,7 +7897,7 @@ define internal fastcc void @_dump_pipe_pfm_diff(ptr noundef %0, ptr noundef rea
 declare i32 @dt_develop_blend_colorspace(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @_request_color_pick(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) unnamed_addr #19 {
+define internal fastcc range(i32 0, 2) i32 @_request_color_pick(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2) unnamed_addr #19 {
   %4 = load i32, ptr %1, align 16, !tbaa !286
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %25, label %5

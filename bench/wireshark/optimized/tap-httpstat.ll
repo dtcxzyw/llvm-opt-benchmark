@@ -297,7 +297,7 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @http_draw_hash_responses(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) #0 {
+define internal void @http_draw_hash_responses(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %7
 

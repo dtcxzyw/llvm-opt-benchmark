@@ -1681,7 +1681,7 @@ _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev
 declare noundef i32 @_ZNK5clang12FunctionDecl21getOverloadedOperatorEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager27getSummaryForObjCOrCFObjectEPKNS_12FunctionDeclEN4llvm9StringRefENS_8QualTypeEPKNS_12FunctionTypeERb(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1, ptr %2, i64 %3, i64 %4, ptr noundef %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %6) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager27getSummaryForObjCOrCFObjectEPKNS_12FunctionDeclEN4llvm9StringRefENS_8QualTypeEPKNS_12FunctionTypeERb(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1, ptr %2, i64 %3, i64 %4, ptr noundef captures(address_is_null) %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %6) local_unnamed_addr #2 align 2 {
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca %"class.clang::ento::RetainSummary", align 8
   %10 = alloca %"class.clang::ento::RetainSummary", align 8
@@ -2964,7 +2964,7 @@ _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager15getUnarySummaryEPKNS_12FunctionTypeENS0_13ArgEffectKindE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager15getUnarySummaryEPKNS_12FunctionTypeENS0_13ArgEffectKindE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %"class.clang::ento::RetainSummary", align 8
   %5 = alloca %"class.clang::ento::RetainSummary", align 8
   %6 = alloca %"class.clang::ento::ArgEffect", align 4
@@ -8922,7 +8922,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttr
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL10isSubclassPKN5clang4DeclEN4llvm9StringRefE(ptr noundef nonnull %0, ptr readonly %1, i64 %2) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZL10isSubclassPKN5clang4DeclEN4llvm9StringRefE(ptr noundef nonnull %0, ptr readonly captures(address_is_null) %1, i64 %2) unnamed_addr #2 {
   %4 = alloca %"class.clang::ast_matchers::internal::Matcher.69", align 8
   %5 = alloca %"class.clang::DynTypedNode", align 8
   %6 = alloca %"class.clang::ast_matchers::internal::Matcher.69", align 8

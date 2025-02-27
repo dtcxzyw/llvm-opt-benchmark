@@ -69,7 +69,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11SliceBuffer6AppendENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core11SliceBuffer6AppendENS_5SliceE(ptr noundef nonnull align 8 captures(address) dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %struct.grpc_slice, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false), !noalias !10
@@ -78,7 +78,7 @@ define void @_ZN9grpc_core11SliceBuffer6AppendENS_5SliceE(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_slice_buffer_add(ptr noundef %0, ptr noundef readonly byval(%struct.grpc_slice) align 8 captures(none) %1) local_unnamed_addr #3 {
+define void @grpc_slice_buffer_add(ptr noundef captures(address) %0, ptr noundef readonly byval(%struct.grpc_slice) align 8 captures(none) %1) local_unnamed_addr #3 {
   %.sroa.6 = alloca [16 x i8], align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !13
@@ -308,7 +308,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %36
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11SliceBuffer6AppendERKS0_(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11SliceBuffer6AppendERKS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(232) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.grpc_core::Slice", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !29
@@ -407,7 +407,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %4,
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN9grpc_core11SliceBuffer13AppendIndexedENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
+define noundef i64 @_ZN9grpc_core11SliceBuffer13AppendIndexedENS_5SliceE(ptr noundef nonnull align 8 captures(address) dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   %.sroa.6 = alloca [16 x i8], align 8
   %.sroa.05.0.copyload = load ptr, ptr %1, align 8, !tbaa !4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -468,7 +468,7 @@ grpc_slice_buffer_add_indexed.exit:               ; preds = %6, %9, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @grpc_slice_buffer_add_indexed(ptr noundef %0, ptr noundef readonly byval(%struct.grpc_slice) align 8 captures(none) %1) local_unnamed_addr #3 {
+define i64 @grpc_slice_buffer_add_indexed(ptr noundef captures(address) %0, ptr noundef readonly byval(%struct.grpc_slice) align 8 captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !13
   %5 = icmp eq i64 %4, 0
@@ -1028,7 +1028,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %5,
 declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define ptr @grpc_slice_buffer_tiny_add(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define ptr @grpc_slice_buffer_tiny_add(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !tbaa !20
   %5 = add i64 %4, %1
@@ -1099,7 +1099,7 @@ _ZL14maybe_embiggenP17grpc_slice_buffer.exit:     ; preds = %35, %25, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_slice_buffer_addn(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
+define void @grpc_slice_buffer_addn(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2926,7 +2926,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZL11do_embiggenP17grpc_slice_buffermm(ptr noundef %0, i64 noundef %1, i64 noundef range(i64 -288230376151711744, 288230376151711744) %2) unnamed_addr #16 {
+define internal fastcc void @_ZL11do_embiggenP17grpc_slice_buffermm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef range(i64 -288230376151711744, 288230376151711744) %2) unnamed_addr #16 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %12, label %4
 

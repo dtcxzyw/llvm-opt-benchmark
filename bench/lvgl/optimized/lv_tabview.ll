@@ -418,7 +418,7 @@ define void @lv_tabview_set_tab_bar_size(ptr noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_tabview_get_tab_active(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_tabview_get_tab_active(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

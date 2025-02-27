@@ -668,7 +668,7 @@ define hidden noundef ptr @add_thread_info(ptr noundef captures(none) %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @delete_thread_info(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #10 {
+define hidden void @delete_thread_info(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4

@@ -534,7 +534,7 @@ define hidden range(i32 10000, 9999) i32 @event_debug_map_HT_REP_IS_BAD_(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @event_base_gettimeofday_cached(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define noundef i32 @event_base_gettimeofday_cached(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %7
 
@@ -722,7 +722,7 @@ define nonnull ptr @event_init() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @event_base_new_with_config(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @event_base_new_with_config(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.timeval, align 8
@@ -3697,7 +3697,7 @@ declare i32 @evmap_reinit_(ptr noundef) local_unnamed_addr #7
 declare i32 @evsig_init_(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 2, 1) i32 @event_add_nolock_(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 2, 1) i32 @event_add_nolock_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca %struct.timeval, align 8
   %6 = alloca %struct.timeval, align 8
@@ -4849,7 +4849,7 @@ event_mm_free_.exit:                              ; preds = %17, %16, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @event_config_set_flag(ptr noundef %0, i32 noundef %1) local_unnamed_addr #10 {
+define range(i32 -1, 1) i32 @event_config_set_flag(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -4866,7 +4866,7 @@ define range(i32 -1, 1) i32 @event_config_set_flag(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @event_config_avoid_method(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @event_config_avoid_method(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @mm_malloc_fn_, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %6, label %4
@@ -4954,7 +4954,7 @@ event_mm_free_.exit:                              ; preds = %27, %26, %event_mm_
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @event_mm_strdup_(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @event_mm_strdup_(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -4998,7 +4998,7 @@ define ptr @event_mm_strdup_(ptr noundef readonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @event_config_require_features(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #11 {
+define range(i32 -1, 1) i32 @event_config_require_features(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -5013,7 +5013,7 @@ define range(i32 -1, 1) i32 @event_config_require_features(ptr noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @event_config_set_num_cpus_hint(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #11 {
+define range(i32 -1, 1) i32 @event_config_set_num_cpus_hint(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -5028,7 +5028,7 @@ define range(i32 -1, 1) i32 @event_config_set_num_cpus_hint(ptr noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @event_config_set_max_dispatch_interval(ptr noundef writeonly captures(none) initializes((24, 32), (40, 48)) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 {
+define noundef i32 @event_config_set_max_dispatch_interval(ptr noundef writeonly captures(none) initializes((24, 32), (40, 48)) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %.not, label %7, label %6
@@ -5060,7 +5060,7 @@ define range(i32 -1, 1) i32 @event_priority_init(i32 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @event_base_get_npriorities(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i32 @event_base_get_npriorities(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   %3 = load ptr, ptr @event_global_current_base_, align 8
   %spec.select = select i1 %2, ptr %3, ptr %0
@@ -6943,14 +6943,14 @@ define ptr @event_base_get_signal_method(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 2, 1) i32 @event_loopexit(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 2, 1) i32 @event_loopexit(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @event_global_current_base_, align 8
   %3 = tail call range(i32 2, 1) i32 @event_base_once(ptr noundef %2, i32 noundef -1, i16 noundef signext 1, ptr noundef nonnull @event_loopexit_cb, ptr noundef %2, ptr noundef %0)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 2, 1) i32 @event_once(i32 noundef %0, i16 noundef signext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 2, 1) i32 @event_once(i32 noundef %0, i16 noundef signext %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr @event_global_current_base_, align 8
   %7 = tail call i32 @event_base_once(ptr noundef %6, i32 noundef %0, i16 noundef signext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %7
@@ -6964,13 +6964,13 @@ define internal void @event_loopexit_cb(i32 %0, i16 signext %1, ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 2, 1) i32 @event_base_loopexit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 2, 1) i32 @event_base_loopexit(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @event_base_once(ptr noundef %0, i32 noundef -1, i16 noundef signext 1, ptr noundef nonnull @event_loopexit_cb, ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 2, 1) i32 @event_base_once(ptr noundef %0, i32 noundef %1, i16 noundef signext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 2, 1) i32 @event_base_once(ptr noundef %0, i32 noundef %1, i16 noundef signext %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %.not = icmp ne ptr %0, null
   %7 = and i16 %2, 24
   %.not48 = icmp eq i16 %7, 0
@@ -8468,7 +8468,7 @@ event_callback_finalize_nolock_.exit32:           ; preds = %45, %47
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 144) i32 @event_pending(ptr noundef %0, i16 noundef signext %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 144) i32 @event_pending(ptr noundef %0, i16 noundef signext %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 952
@@ -8644,7 +8644,7 @@ define range(i32 0, 2) i32 @event_initialized(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define void @event_get_assignment(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define void @event_get_assignment(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = load i32, ptr @event_debug_mode_on_, align 4
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %event_debug_assert_is_setup_.exit, label %8
@@ -9195,7 +9195,7 @@ event_debug_assert_is_setup_.exit:                ; preds = %1, %event_debug_map
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 2, 1) i32 @event_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 2, 1) i32 @event_add(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 952
@@ -10134,7 +10134,7 @@ define hidden void @event_deferred_cb_set_priority_(ptr noundef writeonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define void @event_deferred_cb_cancel_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @event_deferred_cb_cancel_(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %3 = load ptr, ptr @event_global_current_base_, align 8
   %spec.select = select i1 %.not, ptr %3, ptr %0
@@ -11279,7 +11279,7 @@ declare void @evmap_io_clear_(ptr noundef) local_unnamed_addr #7
 declare void @evmap_signal_clear_(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @event_process_active_single_queue(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @event_process_active_single_queue(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca %struct.timeval, align 8
   %6 = alloca %struct.timeval, align 8
   %7 = alloca %struct.timeval, align 8

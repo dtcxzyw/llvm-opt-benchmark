@@ -661,7 +661,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare noundef ptr @_ZNK10JvmtiAgent4nameEv(ptr noundef nonnull align 8 dereferenceable(86)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14JvmtiAgentList21is_dynamic_lib_loadedEPv(ptr noundef readnone %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14JvmtiAgentList21is_dynamic_lib_loadedEPv(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.JvmtiAgentList::Iterator", align 8
   call void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull @_ZN14JvmtiAgentList5_listE, i32 noundef 3)
   %3 = load ptr, ptr %2, align 8

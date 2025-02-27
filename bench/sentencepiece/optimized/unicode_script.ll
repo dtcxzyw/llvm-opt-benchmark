@@ -147,7 +147,7 @@ define internal fastcc void @_ZN13sentencepiece14unicode_script12_GLOBAL__N_117G
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternalD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !28
   %.not5.i.i.i.i = icmp eq ptr %3, null

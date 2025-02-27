@@ -604,7 +604,7 @@ define noundef nonnull ptr @jsonnet_json_make_object(ptr noundef readnone captur
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @jsonnet_json_object_append(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @jsonnet_json_object_append(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1891,7 +1891,7 @@ define void @jsonnet_import_callback(ptr noundef writeonly captures(none) initia
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @jsonnet_native_callback(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @jsonnet_native_callback(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::vector.34", align 8
@@ -2552,7 +2552,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @jsonnet_ext_var(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @jsonnet_ext_var(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -3023,7 +3023,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @jsonnet_ext_code(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @jsonnet_ext_code(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -3399,7 +3399,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @jsonnet_tla_var(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @jsonnet_tla_var(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -3775,7 +3775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @jsonnet_tla_code(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @jsonnet_tla_code(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -4964,7 +4964,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #3 align 2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZL23jsonnet_fmt_snippet_auxP9JsonnetVmPKcS2_Pi(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZL23jsonnet_fmt_snippet_auxP9JsonnetVmPKcS2_Pi(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.jsonnet::internal::Allocator", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5653,7 +5653,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZN
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #3 align 2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @jsonnet_fmt_snippet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef ptr @jsonnet_fmt_snippet(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = invoke fastcc noundef ptr @_ZL23jsonnet_fmt_snippet_auxP9JsonnetVmPKcS2_Pi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
           to label %28 unwind label %6
 
@@ -6320,7 +6320,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %23
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @jsonnet_evaluate_snippet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef ptr @jsonnet_evaluate_snippet(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = invoke fastcc noundef ptr @_ZL28jsonnet_evaluate_snippet_auxP9JsonnetVmPKcS2_PiN12_GLOBAL__N_18EvalKindE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 0)
           to label %28 unwind label %6
 
@@ -6387,7 +6387,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZL28jsonnet_evaluate_snippet_auxP9JsonnetVmPKcS2_PiN12_GLOBAL__N_18EvalKindE(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZL28jsonnet_evaluate_snippet_auxP9JsonnetVmPKcS2_PiN12_GLOBAL__N_18EvalKindE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.jsonnet::internal::Allocator", align 8
   %8 = alloca ptr, align 8
@@ -7217,7 +7217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @jsonnet_evaluate_snippet_multi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef ptr @jsonnet_evaluate_snippet_multi(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = invoke fastcc noundef ptr @_ZL28jsonnet_evaluate_snippet_auxP9JsonnetVmPKcS2_PiN12_GLOBAL__N_18EvalKindE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1)
           to label %28 unwind label %6
 
@@ -7284,7 +7284,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @jsonnet_evaluate_snippet_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef ptr @jsonnet_evaluate_snippet_stream(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = invoke fastcc noundef ptr @_ZL28jsonnet_evaluate_snippet_auxP9JsonnetVmPKcS2_PiN12_GLOBAL__N_18EvalKindE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 2)
           to label %28 unwind label %6
 
@@ -7351,7 +7351,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noalias noundef ptr @jsonnet_realloc(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define noalias noundef ptr @jsonnet_realloc(ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq i64 %2, 0
   br i1 %4, label %6, label %11
@@ -9065,7 +9065,7 @@ _ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL23default_import_callbackPvPKcS1_PPcS3_Pm(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) #6 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @_ZL23default_import_callbackPvPKcS1_PPcS3_Pm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) #6 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8

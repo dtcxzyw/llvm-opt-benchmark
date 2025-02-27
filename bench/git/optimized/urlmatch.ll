@@ -35,13 +35,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.26 = private unnamed_addr constant [30 x i8] c"strbuf_setlen() beyond buffer\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @url_normalize(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @url_normalize(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @url_normalize_1(ptr noundef %0, ptr noundef %1, i8 noundef signext 0)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @url_normalize_1(ptr noundef %0, ptr noundef writeonly %1, i8 noundef signext range(i8 0, 2) %2) unnamed_addr #0 {
+define internal fastcc ptr @url_normalize_1(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i8 noundef signext range(i8 0, 2) %2) unnamed_addr #0 {
   %4 = alloca %struct.strbuf, align 8
   %5 = alloca i64, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
@@ -1548,7 +1548,7 @@ declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i64 @url_match_prefix(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #12 {
+define internal fastcc i64 @url_match_prefix(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) unnamed_addr #12 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5

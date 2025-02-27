@@ -1953,7 +1953,7 @@ makeItemType.exit16:                              ; preds = %26, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @makeItemLikeRegex(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @makeItemLikeRegex(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.pg_regex_t, align 8
   %7 = alloca [100 x i8], align 16
   %8 = tail call ptr @palloc(i64 noundef 40) #6

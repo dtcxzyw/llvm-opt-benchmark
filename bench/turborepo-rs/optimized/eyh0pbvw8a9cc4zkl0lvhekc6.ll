@@ -65,7 +65,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.00247c9f33c00b0b46b5ade0a9a40b3b.109.llvm.16596560796952818888 = external hidden unnamed_addr constant <{ [1 x i8] }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_RINvMs5_NtNtCs1LoaDTb72WA_4core3fmt8buildersNtB6_9DebugList7entriesRNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryINtNtNtBa_5slice4iter4IterB14_EEB1a_(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef nonnull align 8 dereferenceable(16) ptr @_RINvMs5_NtNtCs1LoaDTb72WA_4core3fmt8buildersNtB6_9DebugList7entriesRNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryINtNtNtBa_5slice4iter4IterB14_EEB1a_(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)

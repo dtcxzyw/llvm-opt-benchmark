@@ -277,7 +277,7 @@ free_address.exit5:                               ; preds = %free_address.exit, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rtpstream_id_to_hash(ptr noundef readonly %0) local_unnamed_addr #2 {
+define hidden i32 @rtpstream_id_to_hash(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %add_address_to_hash.exit20, label %2
 
@@ -703,7 +703,7 @@ addresses_equal.exit:                             ; preds = %44, %36, %30, %16, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @pinfo_rtp_info_to_hash(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define hidden i32 @pinfo_rtp_info_to_hash(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

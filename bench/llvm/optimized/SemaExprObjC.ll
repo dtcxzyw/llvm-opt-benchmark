@@ -561,7 +561,7 @@ $_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS_11SourceRangeEEEE = comdat any
 @switch.table._ZN12_GLOBAL__N_114ARCCastChecker17checkCallToMethodEPN5clang14ObjCMethodDeclE = private unnamed_addr constant [5 x i32] [i32 3, i32 3, i32 2, i32 3, i32 3], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN5clang8SemaObjC22ParseObjCStringLiteralEPNS_14SourceLocationEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef readonly captures(none) %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZN5clang8SemaObjC22ParseObjCStringLiteralEPNS_14SourceLocationEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef readonly captures(none) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -3661,7 +3661,7 @@ declare i64 @_ZNK5clang10ASTContext14getPointerTypeENS_8QualTypeE(ptr noundef no
 declare void @_ZN5clang14ObjCMethodDecl15setMethodParamsERNS_10ASTContextEN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS4_INS_14SourceLocationEEE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(23216), ptr, i64, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL20validateBoxingMethodRN5clang4SemaENS_14SourceLocationEPKNS_17ObjCInterfaceDeclENS_8SelectorEPKNS_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, ptr noundef readonly captures(none) %2, i64 %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL20validateBoxingMethodRN5clang4SemaENS_14SourceLocationEPKNS_17ObjCInterfaceDeclENS_8SelectorEPKNS_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, ptr noundef readonly captures(none) %2, i64 %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %7 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %8 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -16723,7 +16723,7 @@ declare void @_ZNK5clang4Type20getObjCSubstitutionsEPKNS_11DeclContextE(ptr dead
 declare noundef ptr @_ZN5clang4Expr20IgnoreParenNoopCastsERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(23216)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang8SemaObjC21stripARCUnbridgedCastEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang8SemaObjC21stripARCUnbridgedCastEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector.899", align 8
   %4 = alloca %"class.llvm::SmallVector.1590", align 8
   %5 = alloca %"class.llvm::ArrayRef", align 8
@@ -17054,7 +17054,7 @@ _ZN5clang8SemaObjC10isSelfExprEPNS_4ExprEPKNS_14ObjCMethodDeclE.exit: ; preds = 
 declare noundef ptr @_ZN5clang11DeclContext21getNonClosureAncestorEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef zeroext i1 @_ZN5clang8SemaObjC10isSelfExprEPNS_4ExprEPKNS_14ObjCMethodDeclE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(328) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang8SemaObjC10isSelfExprEPNS_4ExprEPKNS_14ObjCMethodDeclE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(328) %0, ptr noundef readonly %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #8 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %15, label %4
 
@@ -43240,7 +43240,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit: ; preds = %16, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL22maybeUndoReclaimObjectPN5clang4ExprE(ptr noundef %0) unnamed_addr #9 {
+define internal fastcc noundef ptr @_ZL22maybeUndoReclaimObjectPN5clang4ExprE(ptr noundef captures(address, ret: address, provenance) %0) unnamed_addr #9 {
   br label %2
 
 2:                                                ; preds = %.backedge, %1
@@ -52034,7 +52034,7 @@ declare noundef zeroext i1 @_ZN5clang4ento14coreFoundation17followsCreateRuleEPK
 declare noundef zeroext i1 @_ZN5clang4Sema29makeUnavailableInSystemHeaderENS_14SourceLocationENS_15UnavailableAttr14ImplicitReasonE(ptr noundef nonnull align 8 dereferenceable(17504), i32, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28addFixitForObjCARCConversionIN5clang8SemaBase21SemaDiagnosticBuilderEEvRNS0_4SemaERT_NS0_21CheckedConversionKindENS0_14SourceLocationENS0_8QualTypeEPNS0_4ExprESB_PKcSD_(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %2, i32 %3, i64 %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef readonly %8) unnamed_addr #0 {
+define internal fastcc void @_ZL28addFixitForObjCARCConversionIN5clang8SemaBase21SemaDiagnosticBuilderEEvRNS0_4SemaERT_NS0_21CheckedConversionKindENS0_14SourceLocationENS0_8QualTypeEPNS0_4ExprESB_PKcSD_(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %2, i32 %3, i64 %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef readonly captures(address_is_null) %8) unnamed_addr #0 {
   %10 = alloca %"class.clang::QualType", align 8
   %11 = alloca %"class.llvm::SmallString.2142", align 8
   %12 = alloca %"class.clang::FixItHint", align 8

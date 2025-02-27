@@ -28573,7 +28573,7 @@ define void @"_ZN93_$LT$wasmtime_wasi..filesystem.._..InternalBitFlags$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN100_$LT$wasmtime_wasi..filesystem.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$usize$GT$$GT$6as_ref17hd150eeb30658e810E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN100_$LT$wasmtime_wasi..filesystem.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$usize$GT$$GT$6as_ref17hd150eeb30658e810E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -28770,7 +28770,7 @@ define void @"_ZN93_$LT$wasmtime_wasi..filesystem.._..InternalBitFlags$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN100_$LT$wasmtime_wasi..filesystem.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$usize$GT$$GT$6as_ref17hff0462fec4d01217E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN100_$LT$wasmtime_wasi..filesystem.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$usize$GT$$GT$6as_ref17hff0462fec4d01217E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -28967,7 +28967,7 @@ define void @"_ZN93_$LT$wasmtime_wasi..filesystem.._..InternalBitFlags$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN100_$LT$wasmtime_wasi..filesystem.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$usize$GT$$GT$6as_ref17h8c996b768f30a633E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN100_$LT$wasmtime_wasi..filesystem.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$usize$GT$$GT$6as_ref17h8c996b768f30a633E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #4 {
   ret ptr %0
 }
 

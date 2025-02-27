@@ -69,7 +69,7 @@ define dso_local ptr @ASN1_TIME_dup(ptr noundef %0) local_unnamed_addr #1 {
 declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @ossl_asn1_time_to_tm(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @ossl_asn1_time_to_tm(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -787,7 +787,7 @@ declare i32 @ASN1_GENERALIZEDTIME_check(ptr noundef) local_unnamed_addr #2
 declare i32 @ASN1_UTCTIME_check(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ASN1_TIME_to_generalizedtime(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local noundef ptr @ASN1_TIME_to_generalizedtime(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #8
@@ -878,7 +878,7 @@ ossl_asn1_time_from_tm.exit.thread:               ; preds = %6, %29, %30, %.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @ASN1_TIME_to_tm(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @ASN1_TIME_to_tm(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %8
@@ -1027,7 +1027,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i64 @time(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ASN1_TIME_diff(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #1 {
+define dso_local i32 @ASN1_TIME_diff(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %struct.tm, align 8
@@ -1257,7 +1257,7 @@ declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 2) i32 @ASN1_TIME_cmp_time_t(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 -2, 2) i32 @ASN1_TIME_cmp_time_t(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.tm, align 8
@@ -1398,7 +1398,7 @@ ossl_asn1_time_from_tm.exit:                      ; preds = %42, %18, %9, %.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 2) i32 @ASN1_TIME_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 -2, 2) i32 @ASN1_TIME_compare(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8

@@ -12,7 +12,7 @@ define hidden void @upb_Arena_SetMaxBlockSize(i64 noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @upb_Arena_SpaceAllocated(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define hidden i64 @upb_Arena_SpaceAllocated(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load atomic i64, ptr %4 acquire, align 8
@@ -307,7 +307,7 @@ define internal fastcc noundef ptr @_upb_Arena_InitSlow(ptr noundef %0) unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @upb_Arena_Free(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @upb_Arena_Free(ptr noundef captures(address) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load atomic i64, ptr %3 acquire, align 8
@@ -617,7 +617,7 @@ _upb_Arena_FindRoot.exit:                         ; preds = %.lr.ph.i, %.lr.ph.i
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @upb_Arena_DecRefFor(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
+define hidden void @upb_Arena_DecRefFor(ptr noundef captures(address) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load atomic i64, ptr %4 acquire, align 8

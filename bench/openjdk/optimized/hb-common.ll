@@ -241,7 +241,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @hb_tag_from_string(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden i32 @hb_tag_from_string(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca [4 x i8], align 1
   %4 = icmp ne ptr %0, null
   %5 = icmp ne i32 %1, 0
@@ -334,7 +334,7 @@ define hidden void @hb_tag_to_string(i32 noundef %0, ptr noundef writeonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 8) i32 @hb_direction_from_string(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 8) i32 @hb_direction_from_string(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne i32 %1, 0
   %or.cond = and i1 %3, %4
@@ -385,7 +385,7 @@ define hidden nonnull ptr @hb_direction_to_string(i32 noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @hb_language_from_string(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define hidden ptr @hb_language_from_string(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = alloca [64 x i8], align 16
   %4 = icmp ne ptr %0, null
   %5 = icmp ne i32 %1, 0
@@ -546,7 +546,7 @@ _ZN18hb_language_item_taSEPKc.exit:               ; preds = %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @hb_language_to_string(ptr noundef readnone returned %0) local_unnamed_addr #5 {
+define hidden noundef ptr @hb_language_to_string(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -579,7 +579,7 @@ hb_language_from_string.exit:                     ; preds = %4, %6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @hb_language_matches(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @hb_language_matches(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %24, label %4
 
@@ -679,7 +679,7 @@ define hidden range(i32 0, 2139062144) i32 @hb_script_from_iso15924_tag(i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2139062144) i32 @hb_script_from_string(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 2139062144) i32 @hb_script_from_string(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %4 = icmp ne ptr %0, null
@@ -892,7 +892,7 @@ define hidden range(i32 0, 2) i32 @hb_version_atleast(i32 noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @hb_feature_from_string(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @hb_feature_from_string(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #8 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1585,7 +1585,7 @@ _ZL9hb_memcpyPvPKvm.exit:                         ; preds = %79, %82
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @hb_variation_from_string(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @hb_variation_from_string(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #8 {
   %4 = alloca double, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.hb_variation_t, align 8
@@ -2422,7 +2422,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL9parse_tagPPKcS0_Pj(ptr noundef nonnull captures(none) %0, ptr noundef readnone %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #15 {
+define internal fastcc noundef zeroext i1 @_ZL9parse_tagPPKcS0_Pj(ptr noundef nonnull captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #15 {
   %4 = ptrtoint ptr %1 to i64
   %5 = alloca [4 x i8], align 1
   %.promoted.i = load ptr, ptr %0, align 8

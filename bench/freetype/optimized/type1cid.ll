@@ -1153,7 +1153,7 @@ cid_face_open.exit:                               ; preds = %.thread.i, %353
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cid_face_done(ptr noundef %0) #2 {
+define internal void @cid_face_done(ptr noundef captures(address_is_null) %0) #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %46, label %2
 
@@ -1852,7 +1852,7 @@ define internal noundef i32 @cid_ps_get_font_extra(ptr noundef readonly captures
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @cid_get_ros(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) #0 {
+define internal noundef i32 @cid_get_ros(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %5
 
@@ -1887,7 +1887,7 @@ define internal noundef i32 @cid_get_ros(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @cid_get_is_cid(ptr readnone captures(none) %0, ptr noundef writeonly %1) #8 {
+define internal noundef i32 @cid_get_is_cid(ptr readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) #8 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -1909,7 +1909,7 @@ define internal i32 @cid_get_cid_from_glyph_index(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cid_compute_fd_and_offsets(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #2 {
+define internal fastcc i32 @cid_compute_fd_and_offsets(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %7 = load ptr, ptr %6, align 8, !tbaa !102
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 552

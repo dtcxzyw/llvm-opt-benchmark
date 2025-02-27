@@ -292,7 +292,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__percpu_counter_init_many(ptr n
 declare dso_local noalias ptr @__alloc_percpu_gfp(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @percpu_counter_destroy_many(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local void @percpu_counter_destroy_many(ptr noundef captures(address_is_null) %0, i32 noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5, !prof !22
 

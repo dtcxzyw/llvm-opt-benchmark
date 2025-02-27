@@ -2921,7 +2921,7 @@ _ZNSt10unique_ptrIN3ue29HWLMProtoESt14default_deleteIS1_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(780) %1, ptr %.0.val, ptr readnone %.8.val, i32 noundef range(i32 1, 4) %2, i1 noundef zeroext %3, i64 noundef %4, i32 noundef range(i32 -1, 33) %5) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(780) %1, ptr %.0.val, ptr readnone captures(address) %.8.val, i32 noundef range(i32 1, 4) %2, i1 noundef zeroext %3, i64 noundef %4, i32 noundef range(i32 -1, 33) %5) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca i64, align 8

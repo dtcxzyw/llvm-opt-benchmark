@@ -2775,7 +2775,7 @@ declare void @ssl_dissector_add(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare void @dtls_dissector_add(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @dissect_diameter_user_name(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal noundef i32 @dissect_diameter_user_name(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %5
 
@@ -2918,7 +2918,7 @@ define internal range(i32 2, 536870915) i32 @dissect_diameter_base_framed_ipv6_p
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @dissect_diameter_mip6_feature_vector(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal noundef i32 @dissect_diameter_mip6_feature_vector(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %6
 
@@ -3115,7 +3115,7 @@ define internal range(i32 0, 17) i32 @dissect_diameter_user_equipment_info_value
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal range(i32 0, 5) i32 @dissect_diameter_3gpp2_exp_res(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 5) i32 @dissect_diameter_3gpp2_exp_res(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %19, label %6
 
@@ -5179,7 +5179,7 @@ define internal ptr @time_avp(ptr noundef readonly captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @build_appid_avp(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone %4, ptr readnone captures(none) %5) #0 {
+define internal noundef ptr @build_appid_avp(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(address_is_null) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call ptr @wmem_epan_scope()
   %8 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %7, i64 noundef 40) #15
   store i32 %1, ptr %8, align 8

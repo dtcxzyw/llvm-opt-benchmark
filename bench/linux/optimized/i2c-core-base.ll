@@ -1107,7 +1107,7 @@ define dso_local noundef nonnull ptr @i2c_freq_mode_string(i32 noundef %0) #2 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef ptr @i2c_match_id(ptr noundef readonly %0, ptr noundef readonly %1) #4 align 16 {
+define dso_local noundef ptr @i2c_match_id(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(address_is_null) %1) #4 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4
@@ -1675,7 +1675,7 @@ define internal void @i2c_client_dev_release(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @i2c_verify_client(ptr noundef readonly %0) #7 align 16 {
+define dso_local ptr @i2c_verify_client(ptr noundef readonly captures(ret: address, provenance) %0) #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @i2c_client_type
@@ -2308,7 +2308,7 @@ define internal void @i2c_adapter_dev_release(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @i2c_verify_adapter(ptr noundef readonly %0) #7 align 16 {
+define dso_local ptr @i2c_verify_adapter(ptr noundef readonly captures(ret: address, provenance) %0) #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @i2c_adapter_type
@@ -2318,7 +2318,7 @@ define dso_local ptr @i2c_verify_adapter(ptr noundef readonly %0) #7 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @i2c_handle_smbus_host_notify(ptr noundef readonly %0, i16 noundef zeroext %1) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @i2c_handle_smbus_host_notify(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1) #1 align 16 {
   %3 = alloca i32, align 4
   %4 = icmp eq ptr %0, null
   br i1 %4, label %16, label %5
@@ -2957,7 +2957,7 @@ declare dso_local void @i2c_acpi_remove_space_handler(ptr noundef) local_unnamed
 declare dso_local i32 @bus_for_each_drv(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @__process_removed_adapter(ptr noundef readonly %0, ptr noundef readnone %1) #1 align 16 {
+define internal noundef i32 @__process_removed_adapter(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
@@ -3200,7 +3200,7 @@ define dso_local ptr @i2c_find_adapter_by_fwnode(ptr noundef %0) #1 align 16 {
 declare dso_local ptr @bus_find_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @i2c_dev_or_parent_fwnode_match(ptr noundef %0, ptr noundef readnone %1) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @i2c_dev_or_parent_fwnode_match(ptr noundef %0, ptr noundef readnone captures(address) %1) #1 align 16 {
   %3 = tail call ptr @__dev_fwnode(ptr noundef %0) #22
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %13, label %5
@@ -3442,7 +3442,7 @@ define dso_local void @i2c_del_driver(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @__process_removed_driver(ptr noundef readonly %0, ptr noundef readonly %1) #1 align 16 {
+define internal noundef i32 @__process_removed_driver(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @i2c_adapter_type
@@ -4581,7 +4581,7 @@ define dso_local i32 @i2c_get_device_id(ptr noundef readonly captures(none) %0, 
 declare dso_local i32 @i2c_smbus_xfer(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef ptr @i2c_client_get_device_id(ptr noundef readonly %0) #11 align 16 {
+define dso_local noundef ptr @i2c_client_get_device_id(ptr noundef readonly captures(address_is_null) %0) #11 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 144
@@ -4623,7 +4623,7 @@ define dso_local range(i32 0, 2) i32 @i2c_probe_func_quick_read(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @i2c_new_scanned_device(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) #1 align 16 {
+define dso_local noundef ptr @i2c_new_scanned_device(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) #1 align 16 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %3, null
   %7 = select i1 %6, ptr @i2c_default_probe, ptr %3

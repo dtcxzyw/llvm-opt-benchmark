@@ -13248,7 +13248,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14DirectoryEntryENS2_9ModuleMap17In
 declare ptr @_ZN5clang12HeaderSearch19lookupModuleMapFileENS_17DirectoryEntryRefEb(ptr noundef nonnull align 8 dereferenceable(2296), ptr, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang9ModuleMap18parseModuleMapFileENS_12FileEntryRefEbNS_17DirectoryEntryRefENS_6FileIDEPjNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(1448) %0, ptr %1, i1 noundef zeroext %2, ptr %3, i32 %4, ptr noundef %5, i32 %6) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang9ModuleMap18parseModuleMapFileENS_12FileEntryRefEbNS_17DirectoryEntryRefENS_6FileIDEPjNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(1448) %0, ptr %1, i1 noundef zeroext %2, ptr %3, i32 %4, ptr noundef captures(address_is_null) %5, i32 %6) local_unnamed_addr #1 align 2 {
   %8 = alloca %"class.clang::DiagnosticBuilder", align 8
   %9 = alloca %"class.std::optional.580", align 8
   %10 = alloca ptr, align 8

@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @node_record_table_ptr = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @srun_allocate_abort(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @srun_allocate_abort(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %38, label %2
 
@@ -139,7 +139,7 @@ declare ptr @slurm_conf_get_nodeaddr(ptr noundef) local_unnamed_addr #2
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @srun_node_fail(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @srun_node_fail(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.srun_node_fail_args_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4

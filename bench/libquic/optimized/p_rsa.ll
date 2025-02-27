@@ -387,7 +387,7 @@ setup_tbuf.exit49.thread:                         ; preds = %40, %setup_tbuf.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @pkey_rsa_verify_recover(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) #1 {
+define internal range(i32 0, 2) i32 @pkey_rsa_verify_recover(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4

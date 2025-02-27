@@ -167,7 +167,7 @@ define ptr @GENERAL_NAME_dup(ptr noundef %0) local_unnamed_addr #1 {
 declare ptr @ASN1_dup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @GENERAL_NAME_set1_X509_NAME(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @GENERAL_NAME_set1_X509_NAME(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -226,7 +226,7 @@ declare ptr @X509_NAME_new() local_unnamed_addr #2
 declare i32 @X509_NAME_set(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @GENERAL_NAME_cmp(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define i32 @GENERAL_NAME_cmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -368,7 +368,7 @@ edipartyname_cmp.exit:                            ; preds = %50, %46, %39, %37, 
 declare i32 @ASN1_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @OTHERNAME_cmp(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define i32 @OTHERNAME_cmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -418,7 +418,7 @@ define void @GENERAL_NAME_set0_value(ptr noundef writeonly captures(none) initia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @GENERAL_NAME_get0_value(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define ptr @GENERAL_NAME_get0_value(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   %.pre = load i32, ptr %0, align 8, !tbaa !3
   br i1 %.not, label %4, label %3
@@ -466,7 +466,7 @@ define range(i32 0, 2) i32 @GENERAL_NAME_set0_othername(ptr noundef writeonly ca
 declare void @ASN1_TYPE_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @GENERAL_NAME_get0_otherName(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @GENERAL_NAME_get0_otherName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
   %4 = load i32, ptr %0, align 8, !tbaa !3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %16

@@ -1294,7 +1294,7 @@ define range(i32 0, 2) i32 @test_ptr_null(ptr noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readnone %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %6
 

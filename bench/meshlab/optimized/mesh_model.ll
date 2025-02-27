@@ -3175,7 +3175,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE6QImageSt4lessIS5
 declare void @_ZN6QImageC1ERKS_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK9MeshModel11getTexturesB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(1288) %0) local_unnamed_addr #18 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK9MeshModel11getTexturesB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1288) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   ret ptr %2
 }

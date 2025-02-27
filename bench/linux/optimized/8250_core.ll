@@ -2467,7 +2467,7 @@ define internal noundef i32 @serial8250_probe(ptr noundef %0) #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @serial8250_remove(ptr noundef readnone %0) #5 align 16 {
+define internal void @serial8250_remove(ptr noundef readnone captures(address) %0) #5 align 16 {
   %2 = load i32, ptr @nr_uarts, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.loopexit, label %4
@@ -2501,7 +2501,7 @@ define internal void @serial8250_remove(ptr noundef readnone %0) #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @serial8250_suspend(ptr noundef readnone %0, i32 %1) #5 align 16 {
+define internal noundef i32 @serial8250_suspend(ptr noundef readnone captures(address) %0, i32 %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %4
 
@@ -2533,7 +2533,7 @@ define internal noundef i32 @serial8250_suspend(ptr noundef readnone %0, i32 %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @serial8250_resume(ptr noundef readnone %0) #5 align 16 {
+define internal noundef i32 @serial8250_resume(ptr noundef readnone captures(address) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 

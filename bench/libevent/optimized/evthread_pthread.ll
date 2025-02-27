@@ -193,7 +193,7 @@ define internal range(i32 -1, 1) i32 @evthread_posix_cond_signal(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @evthread_posix_cond_wait(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define internal range(i32 -1, 2) i32 @evthread_posix_cond_wait(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca %struct.timespec, align 8
   %.not = icmp eq ptr %2, null

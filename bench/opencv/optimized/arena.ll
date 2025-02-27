@@ -79,7 +79,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: mustprogress noinline uwtable
-define hidden { ptr, ptr } @_ZN6google8protobuf8internal11SerialArena34AllocateAlignedWithCleanupFallbackEmPKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden { ptr, ptr } @_ZN6google8protobuf8internal11SerialArena34AllocateAlignedWithCleanupFallbackEmPKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = add i64 %1, 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !23
@@ -125,7 +125,7 @@ define hidden { ptr, ptr } @_ZN6google8protobuf8internal11SerialArena34AllocateA
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEmPKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEmPKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -166,7 +166,7 @@ define hidden void @_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define hidden noundef nonnull ptr @_ZN6google8protobuf8internal11SerialArena23AllocateAlignedFallbackEmPKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN6google8protobuf8internal11SerialArena23AllocateAlignedFallbackEmPKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -208,7 +208,7 @@ define hidden noundef nonnull ptr @_ZN6google8protobuf8internal11SerialArena23Al
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i64 } @_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i64 } @_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %5 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   %.not = icmp eq ptr %0, null

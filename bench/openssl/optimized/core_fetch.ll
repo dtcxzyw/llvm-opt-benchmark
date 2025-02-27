@@ -205,7 +205,7 @@ define internal i32 @ossl_method_construct_unreserve_store(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ossl_method_construct_postcondition(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly %4) #0 {
+define internal range(i32 0, 2) i32 @ossl_method_construct_postcondition(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %7, !prof !19
 

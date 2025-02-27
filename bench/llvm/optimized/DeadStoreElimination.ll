@@ -8085,7 +8085,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_14MemoryLocationEbELb1EE9push_backE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116MemoryDefWrapperC2EPN4llvm9MemoryDefENS1_8ArrayRefISt4pairINS1_14MemoryLocationEbEEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116MemoryDefWrapperC2EPN4llvm9MemoryDefENS1_8ArrayRefISt4pairINS1_14MemoryLocationEbEEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.(anonymous namespace)::MemoryLocationWrapper", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15988,7 +15988,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116ArgumentInitInfoELb0EE21takeA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_116ArgumentInitInfoELj2EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(192) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_116ArgumentInitInfoELj2EED2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0) unnamed_addr #0 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !32
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load i32, ptr %2, align 8, !tbaa !33
@@ -22647,7 +22647,7 @@ declare noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8Att
 declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZZN12_GLOBAL__N_18DSEState17tryFoldIntoCallocEPN4llvm9MemoryDefEPKNS1_5ValueEENKUlPNS1_8CallInstES8_E_clES8_S8_(ptr readonly %.40.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #2 align 2 {
+define internal fastcc noundef zeroext i1 @_ZZN12_GLOBAL__N_18DSEState17tryFoldIntoCallocEPN4llvm9MemoryDefEPKNS1_5ValueEENKUlPNS1_8CallInstES8_E_clES8_S8_(ptr readonly captures(address) %.40.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #2 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"struct.llvm::PatternMatch::brc_match", align 8

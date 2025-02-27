@@ -185,7 +185,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_19ParseAbbrEPKcPNSt7__cxx1112basic_stri
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_111ParseOffsetEPKciiiPl(ptr noundef readonly %0, i32 noundef range(i32 -167, 1) %1, i32 noundef range(i32 24, 168) %2, i32 noundef range(i32 -1, 2) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_111ParseOffsetEPKciiiPl(ptr noundef readonly captures(address, ret: address, provenance) %0, i32 noundef range(i32 -167, 1) %1, i32 noundef range(i32 24, 168) %2, i32 noundef range(i32 -1, 2) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #2 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit.thread, label %7
 
@@ -380,7 +380,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113ParseDateTimeEPKcPNS1_15PosixTransitionE(ptr noundef %0, ptr noundef writeonly captures(none) %1) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113ParseDateTimeEPKcPNS1_15PosixTransitionE(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #3 {
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %4
@@ -662,7 +662,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi(ptr noundef nonnull readonly %0, i32 noundef range(i32 -167, 2) %1, i32 noundef range(i32 5, 366) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi(ptr noundef nonnull readonly captures(address, ret: address, provenance) %0, i32 noundef range(i32 -167, 2) %1, i32 noundef range(i32 5, 366) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #2 {
   %5 = load i8, ptr %0, align 1, !tbaa !12
   %6 = sext i8 %5 to i32
   %memchr62 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i32 %6, i64 11)

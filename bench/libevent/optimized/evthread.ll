@@ -49,7 +49,7 @@ define hidden void @evthreadimpl_disable_lock_debugging_() local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evthread_set_lock_callbacks(ptr noundef readonly %0) local_unnamed_addr #2 {
+define i32 @evthread_set_lock_callbacks(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr @evthread_lock_debugging_enabled_, align 4
   %.not.i = icmp eq i32 %2, 0
   %3 = select i1 %.not.i, ptr @evthread_lock_fns_, ptr @original_lock_fns_
@@ -186,7 +186,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @event_global_setup_locks_(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @evthread_set_condition_callbacks(ptr noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @evthread_set_condition_callbacks(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr @evthread_lock_debugging_enabled_, align 4
   %.not.i = icmp eq i32 %2, 0
   %3 = select i1 %.not.i, ptr @evthread_cond_fns_, ptr @original_cond_fns_

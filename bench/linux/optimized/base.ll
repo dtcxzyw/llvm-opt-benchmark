@@ -1904,7 +1904,7 @@ define internal i32 @proc_pid_permission(ptr readnone captures(none) %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @proc_pident_lookup(ptr %.-72.val, ptr noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @proc_pident_lookup(ptr %.-72.val, ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 align 16 {
   %4 = tail call ptr @get_pid_task(ptr noundef %.-72.val, i32 noundef 0) #18
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %6

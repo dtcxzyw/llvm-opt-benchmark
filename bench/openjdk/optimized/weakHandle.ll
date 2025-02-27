@@ -149,7 +149,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE0EE11_
 @_ZN10WeakHandleC1EP10OopStorageP7oopDesc = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN10WeakHandleC2EP10OopStorageP7oopDesc
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10WeakHandleC2EP10OopStorage6Handle(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1, ptr readonly %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN10WeakHandleC2EP10OopStorage6Handle(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1, ptr readonly captures(address_is_null) %2) unnamed_addr #0 align 2 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %_ZNK6HandleclEv.exit, label %5
 

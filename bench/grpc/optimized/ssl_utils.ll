@@ -1152,7 +1152,7 @@ define void @_Z26grpc_shallow_peer_destructP8tsi_peer(ptr noundef readonly captu
 declare void @_ZN4absl12lts_2024072220UnauthenticatedErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.absl::lts_20240722::Status") align 8, i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z31grpc_fill_alpn_protocol_stringsPm(ptr noundef %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_Z31grpc_fill_alpn_protocol_stringsPm(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %8, label %3, !prof !59
@@ -2675,7 +2675,7 @@ define internal void @_ZL34grpc_ssl_session_cache_arg_destroyPv(ptr noundef %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL30grpc_ssl_session_cache_arg_cmpPvS_(ptr noundef readnone %0, ptr noundef readnone %1) #5 {
+define internal noundef range(i32 -1, 2) i32 @_ZL30grpc_ssl_session_cache_arg_cmpPvS_(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #5 {
   %3 = icmp ult ptr %0, %1
   %4 = icmp ult ptr %1, %0
   %..i = zext i1 %4 to i32

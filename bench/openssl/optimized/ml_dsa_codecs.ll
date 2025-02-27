@@ -445,7 +445,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ml_dsa_i2d_pubkey(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define i32 @ossl_ml_dsa_i2d_pubkey(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @ossl_ml_dsa_key_params(ptr noundef %0) #6
   %4 = tail call ptr @ossl_ml_dsa_key_get_pub(ptr noundef %0) #6
   %5 = icmp eq ptr %4, null
@@ -488,7 +488,7 @@ declare ptr @ossl_ml_dsa_key_get_pub(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ml_dsa_i2d_prvkey(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @ossl_ml_dsa_i2d_prvkey(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @ossl_ml_dsa_key_params(ptr noundef %0) #6
   %5 = tail call ptr @ossl_ml_dsa_key_get_seed(ptr noundef %0) #6
   %.fr127 = freeze ptr %5

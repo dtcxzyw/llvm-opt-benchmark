@@ -599,7 +599,7 @@ define dso_local noundef zeroext i1 @memblock_validate_numa_coverage(i64 noundef
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid optsize memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @__next_mem_pfn_range(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #8 section ".meminit.text" align 16 {
+define dso_local void @__next_mem_pfn_range(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #8 section ".meminit.text" align 16 {
   %6 = load i32, ptr %0, align 4
   %7 = add i32 %6, 1
   store i32 %7, ptr %0, align 4
@@ -930,7 +930,7 @@ define dso_local noundef range(i32 -12, 1) i32 @memblock_reserved_mark_noinit(i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__next_mem_range(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #9 align 16 {
+define dso_local void @__next_mem_range(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #9 align 16 {
   %9 = load i64, ptr %0, align 8
   %10 = trunc i64 %9 to i32
   %11 = lshr i64 %9, 32
@@ -1439,7 +1439,7 @@ define dso_local void @__next_mem_range(ptr noundef captures(none) %0, i32 nound
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @__next_mem_range_rev(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #4 section ".meminit.text" align 16 {
+define dso_local void @__next_mem_range_rev(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #4 section ".meminit.text" align 16 {
   %9 = load i64, ptr %0, align 8
   %10 = trunc i64 %9 to i32
   %11 = lshr i64 %9, 32
@@ -3003,7 +3003,7 @@ define internal fastcc void @memblock_insert_region(ptr noundef captures(none) %
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -1, 1) i32 @memblock_double_array(ptr noundef %0, i64 noundef %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #4 section ".meminit.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @memblock_double_array(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #4 section ".meminit.text" align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20

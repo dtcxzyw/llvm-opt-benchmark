@@ -24744,7 +24744,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb0EE6eqNodeIL
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory3sep9TheorySep15sharesRootLabelENS0_12NodeTemplateILb1EEES5_(ptr noundef nonnull align 8 dereferenceable(1824) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory3sep9TheorySep15sharesRootLabelENS0_12NodeTemplateILb1EEES5_(ptr noundef nonnull align 8 captures(address) dereferenceable(1824) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.54", align 8
   %5 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %6 = alloca %"class.std::vector.54", align 8
@@ -48654,7 +48654,7 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory3sep9TheorySep13getRootLabelsENS0_12NodeTemplateILb1EEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.54") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(1824) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory3sep9TheorySep13getRootLabelsENS0_12NodeTemplateILb1EEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.54") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1824) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__detail::_AllocNode", align 8
   %5 = alloca %"class.std::unordered_set.633", align 8
   %6 = alloca %"class.std::vector.54", align 8

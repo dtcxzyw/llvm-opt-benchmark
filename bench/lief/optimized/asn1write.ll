@@ -1412,7 +1412,7 @@ mbedtls_asn1_write_len_and_tag.exit:              ; preds = %4, %40, %mbedtls_as
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mbedtls_asn1_store_named_data(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4) local_unnamed_addr #4 {
+define hidden ptr @mbedtls_asn1_store_named_data(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #4 {
   %6 = load ptr, ptr %0, align 8, !tbaa !17
   %7 = tail call ptr @mbedtls_asn1_find_named_data(ptr noundef %6, ptr noundef %1, i64 noundef %2) #10
   %8 = icmp eq ptr %7, null

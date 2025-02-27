@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @slurm_xsize = dso_local alias i64 (ptr), ptr @xsize
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @xfree_ptr(ptr noundef %0) #0 {
+define dso_local void @xfree_ptr(ptr noundef captures(address_is_null) %0) #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %slurm_xfree.exit, label %2
 

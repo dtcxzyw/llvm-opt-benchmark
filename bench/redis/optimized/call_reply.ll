@@ -212,7 +212,7 @@ callReplyParse.exit:                              ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @callReplyGetString(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @callReplyGetString(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ReplyParser, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4, !tbaa !5
@@ -516,7 +516,7 @@ callReplyGetCollectionElement.exit:               ; preds = %19, %16, %callReply
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @callReplyGetMapElement(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @callReplyGetMapElement(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.ReplyParser, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i32, ptr %6, align 4, !tbaa !5
@@ -606,7 +606,7 @@ define dso_local ptr @callReplyGetAttribute(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @callReplyGetAttributeElement(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @callReplyGetAttributeElement(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.ReplyParser, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i32, ptr %6, align 4, !tbaa !5
@@ -731,7 +731,7 @@ callReplyParse.exit:                              ; preds = %2, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @callReplyGetVerbatim(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local ptr @callReplyGetVerbatim(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ReplyParser, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !5

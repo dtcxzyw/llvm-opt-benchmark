@@ -70,7 +70,7 @@ define internal noundef zeroext i1 @"_ZN64_$LT$core..str..error..Utf8Error$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6base6415chunked_encoder10StringSink3new17h0ca2b6c46972fbc3E(ptr noalias noundef readnone returned align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6base6415chunked_encoder10StringSink3new17h0ca2b6c46972fbc3E(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #2 {
   ret ptr %0
 }
 

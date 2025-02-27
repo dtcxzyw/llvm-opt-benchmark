@@ -1578,7 +1578,7 @@ define dso_local void @cliRestoreTTY() #0 {
 declare i32 @tcsetattr(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @isPubsubPush(ptr noundef readonly %0) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @isPubsubPush(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -7014,7 +7014,7 @@ define dso_local void @sendRdbOnly() local_unnamed_addr #18 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @sendSync(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local i64 @sendSync(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #33
   %.not = icmp eq ptr %3, null
@@ -7221,7 +7221,7 @@ define dso_local void @type_free(ptr readnone captures(none) %0, ptr noundef %1)
 declare void @zfree(ptr noundef) #8
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef ptr @bytesToHuman(ptr noundef returned writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #14 {
+define dso_local noundef ptr @bytesToHuman(ptr noundef returned writeonly captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #14 {
   %4 = icmp slt i64 %2, 0
   br i1 %4, label %5, label %8
 
@@ -14379,7 +14379,7 @@ define internal fastcc void @slaveMode(i32 noundef range(i32 0, 2) %0) unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @getRDB(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @getRDB(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
   %2 = alloca [4096 x i8], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %41, label %3
@@ -22148,7 +22148,7 @@ declare i32 @cliSecureConnection(ptr noundef, ptr noundef byval(%struct.cliSSLco
 declare i32 @anetKeepAlive(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerCheckRedisReply(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerCheckRedisReply(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %4
 
@@ -22233,7 +22233,7 @@ declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 nound
 declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -2147483648) i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147483648) i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca %struct.listIter, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %6
@@ -23691,7 +23691,7 @@ clusterManagerCheckRedisReply.exit:               ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerSetSlot(ptr noundef readonly captures(none) %0, ptr %.8.val, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerSetSlot(ptr noundef readonly captures(none) %0, ptr %.8.val, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8, !tbaa !82
   %6 = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %5, ptr noundef nonnull @.str.295, i32 noundef %1, ptr noundef %2, ptr noundef %.8.val) #33
   %.not = icmp eq ptr %3, null
@@ -23755,7 +23755,7 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerSetSlot(ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 68, 133) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i32 noundef %2, i32 noundef range(i32 68, 133) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -24500,7 +24500,7 @@ clusterManagerCheckRedisReply.exit.thread.thread: ; preds = %2, %.thread15
 declare noalias ptr @zstrdup(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @clusterManagerMigrateKeysInReply(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc ptr @clusterManagerMigrateKeysInReply(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca [255 x i8], align 16
   %8 = alloca [255 x i8], align 16
   %9 = alloca ptr, align 8

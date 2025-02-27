@@ -920,7 +920,7 @@ declare noundef zeroext i1 @_ZNK5frame18can_be_deoptimizedEv(ptr noundef nonnull
 declare void @_ZN14Deoptimization10deoptimizeEP10JavaThread5frameNS_11DeoptReasonE(ptr noundef, ptr noundef byval(%class.frame) align 8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL19is_in_scoped_accessP10JavaThreadP7oopDesc(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL19is_in_scoped_accessP10JavaThreadP7oopDesc(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = alloca %class.vframeStream, align 8
   call void @_ZN12vframeStreamC2EP10JavaThreadbbb(ptr noundef nonnull align 8 dereferenceable(5104) %3, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 5048

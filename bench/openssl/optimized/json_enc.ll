@@ -48,7 +48,7 @@ wbuf_init.exit.thread:                            ; preds = %3, %7
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_json_cleanup(ptr noundef initializes((56, 64)) %0) local_unnamed_addr #0 {
+define void @ossl_json_cleanup(ptr noundef captures(address) initializes((56, 64)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 36) #10
@@ -71,7 +71,7 @@ define void @ossl_json_cleanup(ptr noundef initializes((56, 64)) %0) local_unnam
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_json_flush_cleanup(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_json_flush_cleanup(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
@@ -2063,7 +2063,7 @@ define void @ossl_json_str_len(ptr noundef captures(none) %0, ptr noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_json_str_hex(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @ossl_json_str_hex(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

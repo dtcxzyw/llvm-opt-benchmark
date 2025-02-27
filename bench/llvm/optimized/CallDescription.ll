@@ -49,7 +49,7 @@ $_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEbESaIS4_EE17_M_realloc_inser
 @_ZN5clang4ento18CallDescriptionSetC1EOSt16initializer_listINS0_15CallDescriptionEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang4ento18CallDescriptionSetC2EOSt16initializer_listINS0_15CallDescriptionEE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento15CallDescriptionC2ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) initializes((8, 9), (16, 60)) %0, i32 noundef %1, ptr readonly %2, i64 %3, i64 %4, i64 %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento15CallDescriptionC2ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) initializes((8, 9), (16, 60)) %0, i32 noundef %1, ptr readonly captures(address) %2, i64 %3, i64 %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8

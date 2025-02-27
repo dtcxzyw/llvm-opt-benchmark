@@ -11046,7 +11046,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$11visit_catch17hbf56826fec5efacbE"(ptr readonly %.0.val, i64 %.16.val) unnamed_addr #1 {
+define internal fastcc noundef nonnull align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$11visit_catch17hbf56826fec5efacbE"(ptr readonly captures(address_is_null) %.0.val, i64 %.16.val) unnamed_addr #1 {
   %1 = alloca [1 x { ptr, ptr }], align 8
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { ptr, i64 }, align 8
@@ -13221,7 +13221,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_rethrow17h8de12ccb185a329bE"(ptr readonly %.0.val, i64 %.16.val) unnamed_addr #1 {
+define internal fastcc noundef nonnull align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_rethrow17h8de12ccb185a329bE"(ptr readonly captures(address_is_null) %.0.val, i64 %.16.val) unnamed_addr #1 {
   %1 = alloca [1 x { ptr, ptr }], align 8
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { ptr, i64 }, align 8
@@ -14320,7 +14320,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_delegate17hcbf745cacd458a38E"(ptr readonly %.0.val, i64 %.16.val) unnamed_addr #1 {
+define internal fastcc noundef nonnull align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_delegate17hcbf745cacd458a38E"(ptr readonly captures(address_is_null) %.0.val, i64 %.16.val) unnamed_addr #1 {
   %1 = alloca [1 x { ptr, ptr }], align 8
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { ptr, i64 }, align 8
@@ -17744,7 +17744,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_catch_all17h61e11b77128b20d3E"(ptr readonly %.0.val, i64 %.16.val) unnamed_addr #1 {
+define internal fastcc noundef nonnull align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_catch_all17h61e11b77128b20d3E"(ptr readonly captures(address_is_null) %.0.val, i64 %.16.val) unnamed_addr #1 {
   %1 = alloca [1 x { ptr, ptr }], align 8
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { ptr, i64 }, align 8
@@ -34645,7 +34645,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_atomic_fence17h25ddca1bb983a8e6E"(ptr readonly %.0.val, i64 %.16.val) unnamed_addr #0 {
+define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_atomic_fence17h25ddca1bb983a8e6E"(ptr readonly captures(address_is_null) %.0.val, i64 %.16.val) unnamed_addr #0 {
   %1 = alloca [1 x { ptr, ptr }], align 8
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { ptr, i64 }, align 8
@@ -57599,7 +57599,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$9visit_try17hb6588a23b236a496E"(ptr readonly %.0.val, i64 %.16.val) unnamed_addr #1 {
+define internal fastcc noundef nonnull align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$9visit_try17hb6588a23b236a496E"(ptr readonly captures(address_is_null) %.0.val, i64 %.16.val) unnamed_addr #1 {
   %1 = alloca [1 x { ptr, ptr }], align 8
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { ptr, i64 }, align 8

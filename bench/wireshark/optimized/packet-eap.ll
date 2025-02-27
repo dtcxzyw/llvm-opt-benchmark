@@ -1163,7 +1163,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc zeroext i1 @realm_is_3gpp(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #1 {
+define internal fastcc zeroext i1 @realm_is_3gpp(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #1 {
   %3 = tail call i32 @g_strv_length(ptr noundef %0)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4

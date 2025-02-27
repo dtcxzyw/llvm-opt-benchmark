@@ -160,7 +160,7 @@ default.unreachable23:                            ; preds = %14, %2
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @agraphof(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @agraphof(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   switch i32 %3, label %default.unreachable5 [
@@ -192,7 +192,7 @@ default.unreachable5:                             ; preds = %1
 declare i32 @agmapnametoid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @agroot(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @agroot(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %17, label %3
 
@@ -254,7 +254,7 @@ define void @agmethod_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @aginitcb(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @aginitcb(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.thread, label %5
 
@@ -315,7 +315,7 @@ define void @agmethod_upd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @agupdcb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define void @agupdcb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %.thread, label %6
 
@@ -370,7 +370,7 @@ define void @agmethod_delete(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @agdelcb(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @agdelcb(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.thread, label %5
 
@@ -441,7 +441,7 @@ gv_alloc.exit:                                    ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @agpopdisc(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @agpopdisc(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56

@@ -845,7 +845,7 @@ _ZN6icu_7712LocalPointerINS_6LocaleEED2Ev.exit:   ; preds = %_ZN6icu_7712LocalPo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleMatcher7Builder18setNoDefaultLocaleEv(ptr noundef nonnull returned align 8 dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleMatcher7Builder18setNoDefaultLocaleEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
   %2 = load i32, ptr %0, align 8, !tbaa !23
   %3 = icmp slt i32 %2, 1
   br i1 %3, label %4, label %14
@@ -874,7 +874,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleMatche
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleMatcher7Builder16setDefaultLocaleEPKNS_6LocaleE(ptr noundef nonnull returned align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleMatcher7Builder16setDefaultLocaleEPKNS_6LocaleE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr %0, align 8, !tbaa !23
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %20
@@ -917,7 +917,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleMatche
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleMatcher7Builder14setFavorSubtagE20ULocMatchFavorSubtag(ptr noundef nonnull returned align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleMatcher7Builder14setFavorSubtagE20ULocMatchFavorSubtag(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 8, !tbaa !23
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %7
@@ -932,7 +932,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleMatche
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleMatcher7Builder27setDemotionPerDesiredLocaleE17ULocMatchDemotion(ptr noundef nonnull returned align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleMatcher7Builder27setDemotionPerDesiredLocaleE17ULocMatchDemotion(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 8, !tbaa !23
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %7
@@ -947,7 +947,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleMatche
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleMatcher7Builder14setMaxDistanceERKNS_6LocaleES4_(ptr noundef nonnull returned align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(217) %1, ptr noundef nonnull align 8 dereferenceable(217) %2) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleMatcher7Builder14setMaxDistanceERKNS_6LocaleES4_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(217) %1, ptr noundef nonnull align 8 dereferenceable(217) %2) local_unnamed_addr #2 align 2 {
   %4 = load i32, ptr %0, align 8, !tbaa !23
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %39
@@ -2464,7 +2464,7 @@ _ZN6icu_773LSRD2Ev.exit:                          ; preds = %26, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 0, 8589934592) i64 @_ZNK6icu_7713LocaleMatcher16getBestSuppIndexENS_3LSREPNS_17LocaleLsrIteratorER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 8589934592) i64 @_ZNK6icu_7713LocaleMatcher16getBestSuppIndexENS_3LSREPNS_17LocaleLsrIteratorER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i8, align 1
   %6 = alloca %"struct.icu_77::LSR", align 8
   %7 = load i32, ptr %3, align 4, !tbaa !16
@@ -3668,7 +3668,7 @@ _ZN6icu_773LSRD2Ev.exit20:                        ; preds = %75, %78
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uloc_acceptLanguage_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @uloc_acceptLanguage_77(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.(anonymous namespace)::LocaleFromTag", align 8
   %9 = alloca %"class.icu_77::Locale::ConvertingIterator", align 8
   %10 = alloca %"class.(anonymous namespace)::LocaleFromTag", align 8
@@ -3774,7 +3774,7 @@ _ZN6icu_776Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEC2ES4_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_114acceptLanguageER12UEnumerationRN6icu_776Locale8IteratorEPciP13UAcceptResultR10UErrorCode(ptr noundef nonnull align 1 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef nonnull align 4 dereferenceable(4) %5) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_114acceptLanguageER12UEnumerationRN6icu_776Locale8IteratorEPciP13UAcceptResultR10UErrorCode(ptr noundef nonnull align 1 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef nonnull align 4 dereferenceable(4) %5) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.icu_77::LocaleMatcher::Builder", align 8
   %8 = alloca %"class.icu_77::Locale", align 8
   %9 = alloca %"class.icu_77::LocaleMatcher", align 8
@@ -4012,7 +4012,7 @@ define internal void @_ZN6icu_776Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_11
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uloc_acceptLanguageFromHTTP_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @uloc_acceptLanguageFromHTTP_77(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.icu_77::LocalePriorityList", align 8
   %8 = alloca %"class.icu_77::StringPiece", align 8
   %9 = alloca %"class.icu_77::LocalePriorityList::Iterator", align 8

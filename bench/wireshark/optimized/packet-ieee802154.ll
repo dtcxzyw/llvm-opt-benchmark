@@ -4066,7 +4066,7 @@ declare i32 @proto_get_id_by_short_name(ptr noundef) local_unnamed_addr #1
 declare ptr @wmem_list_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal range(i32 0, 2) i32 @ieee802154_set_trel_key(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef readonly captures(none) %3) #0 {
+define internal range(i32 0, 2) i32 @ieee802154_set_trel_key(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca [32 x i8], align 16
   %6 = alloca [16 x i8], align 16
   %7 = alloca [18 x i8], align 16
@@ -5965,7 +5965,7 @@ define hidden noundef ptr @ieee802154_create_hie_tree(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
-define hidden void @ccm_init_block(ptr noundef initializes((0, 1)) %0, i1 noundef zeroext %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i32 noundef %6, ptr noundef readonly %7) local_unnamed_addr #6 {
+define hidden void @ccm_init_block(ptr noundef initializes((0, 1)) %0, i1 noundef zeroext %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #6 {
   %9 = icmp sgt i32 %2, 0
   br i1 %9, label %10, label %15
 
@@ -7133,7 +7133,7 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @addr_uat_copy_cb(ptr noundef returned writeonly initializes((0, 20)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @addr_uat_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 20)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
@@ -7195,7 +7195,7 @@ define internal void @addr_uat_free_cb(ptr noundef readonly captures(none) %0) #
 declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @ieee802154_key_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @ieee802154_key_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4)
   store ptr %5, ptr %0, align 8

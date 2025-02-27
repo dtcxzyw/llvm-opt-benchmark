@@ -1781,7 +1781,7 @@ lv_buttonmatrix_set_button_ctrl.exit:             ; preds = %.preheader8.i, %lv_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_buttonmatrix_get_map(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_buttonmatrix_get_map(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1795,7 +1795,7 @@ define ptr @lv_buttonmatrix_get_map(ptr noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_buttonmatrix_get_selected_button(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_buttonmatrix_get_selected_button(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1809,7 +1809,7 @@ define i32 @lv_buttonmatrix_get_selected_button(ptr noundef readonly %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_buttonmatrix_get_button_text(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @lv_buttonmatrix_get_button_text(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1876,7 +1876,7 @@ define ptr @lv_buttonmatrix_get_button_text(ptr noundef readonly %0, i32 noundef
 declare i32 @lv_strcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @lv_buttonmatrix_has_button_ctrl(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define zeroext i1 @lv_buttonmatrix_has_button_ctrl(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 
@@ -1905,7 +1905,7 @@ define zeroext i1 @lv_buttonmatrix_has_button_ctrl(ptr noundef readonly %0, i32 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_buttonmatrix_get_one_checked(ptr noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_buttonmatrix_get_one_checked(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

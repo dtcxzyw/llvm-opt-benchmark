@@ -1578,7 +1578,7 @@ define hidden void @BF_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @BF_set_key(ptr noundef initializes((0, 4168)) %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #3 {
+define hidden void @BF_set_key(ptr noundef initializes((0, 4168)) %0, i64 noundef %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(4168) %0, ptr noundef nonnull align 4 dereferenceable(4168) @bf_init, i64 4168, i1 false)

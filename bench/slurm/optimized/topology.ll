@@ -334,7 +334,7 @@ define dso_local i32 @topology_g_get(i32 noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @topology_g_topology_pack(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local i32 @topology_g_topology_pack(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @active_topo_id, align 4
   tail call void @pack32(i32 noundef %4, ptr noundef %1) #9
   %.not = icmp eq ptr %0, null

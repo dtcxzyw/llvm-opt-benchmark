@@ -23,7 +23,7 @@ define hidden void @lj_func_freeproto(ptr noundef captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_func_closeuv(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @lj_func_closeuv(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !27
   %5 = inttoptr i64 %4 to ptr

@@ -2620,7 +2620,7 @@ _ZN3net21QuicSentPacketManager31RecordOneSpuriousRetransmissionERKNS_16Transmiss
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3net21QuicSentPacketManager25HasPendingRetransmissionsEv(ptr noundef nonnull readonly align 8 dereferenceable(776) %0) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK3net21QuicSentPacketManager25HasPendingRetransmissionsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(776) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = icmp ne ptr %3, %2
@@ -3901,7 +3901,7 @@ define { i64, i64 } @_ZNK3net21QuicSentPacketManager22GetRetransmissionDelayEv(p
 declare noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap26HasMultipleInFlightPacketsEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK3net21QuicSentPacketManager11GetRttStatsEv(ptr noundef nonnull readnone align 8 dereferenceable(776) %0) unnamed_addr #10 align 2 {
+define noundef nonnull ptr @_ZNK3net21QuicSentPacketManager11GetRttStatsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(776) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   ret ptr %2
 }
@@ -3918,7 +3918,7 @@ define i64 @_ZNK3net21QuicSentPacketManager17BandwidthEstimateEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK3net21QuicSentPacketManager26SustainedBandwidthRecorderEv(ptr noundef nonnull readnone align 8 dereferenceable(776) %0) unnamed_addr #10 align 2 {
+define noundef nonnull ptr @_ZNK3net21QuicSentPacketManager26SustainedBandwidthRecorderEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(776) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 736
   ret ptr %2
 }

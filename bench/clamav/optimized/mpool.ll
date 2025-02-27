@@ -164,7 +164,7 @@ define void @mpool_flush(ptr noundef %0) local_unnamed_addr #0 {
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @mpool_getstats(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @mpool_getstats(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %4
 
@@ -208,7 +208,7 @@ define range(i32 -1, 1) i32 @mpool_getstats(ptr noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mpool_malloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define ptr @mpool_malloc(ptr noundef captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = and i64 %1, 7
   %.not130 = icmp eq i64 %3, 7
   br i1 %.not130, label %alignof.exit, label %switch.lookup
@@ -464,7 +464,7 @@ define void @mpool_free(ptr noundef captures(none) %0, ptr noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mpool_calloc(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @mpool_calloc(ptr noundef captures(address, ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = mul i64 %2, %1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %8, label %5
@@ -484,7 +484,7 @@ define ptr @mpool_calloc(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mpool_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @mpool_realloc(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %6
 
@@ -570,7 +570,7 @@ mpool_free.exit:                                  ; preds = %32
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mpool_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @mpool_realloc2(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %mpool_realloc.exit, label %4
 
@@ -729,7 +729,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 declare i32 @cli_hex2str_to(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @cli_mpool_strdup(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define ptr @cli_mpool_strdup(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5
 
@@ -758,7 +758,7 @@ define ptr @cli_mpool_strdup(ptr noundef %0, ptr noundef readonly %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @cli_mpool_strndup(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @cli_mpool_strndup(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6
 
@@ -795,7 +795,7 @@ define ptr @cli_mpool_strndup(ptr noundef %0, ptr noundef readonly %1, i64 nound
 declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define ptr @cli_mpool_virname(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @cli_mpool_virname(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %cli_mpool_strdup.exit, label %4
 

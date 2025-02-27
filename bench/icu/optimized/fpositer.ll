@@ -152,7 +152,7 @@ declare void @_ZN6icu_779UVector326assignERKS0_R10UErrorCode(ptr noundef nonnull
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_7721FieldPositionIteratoreqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef nonnull readonly align 8 dereferenceable(20) %1) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7721FieldPositionIteratoreqERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(20) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %17, label %4
 

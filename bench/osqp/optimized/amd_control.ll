@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [30 x i8] c"    size of AMD integer: %d\0A\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @amd_l_control(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @amd_l_control(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 

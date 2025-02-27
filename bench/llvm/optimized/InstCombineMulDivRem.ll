@@ -21742,7 +21742,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 declare noundef ptr @_ZNK4llvm11Instruction9getModuleEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_15SmallPtrSetImplIPNS_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_S5_S5_E3$_0EEbOT_T0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(21) %0, ptr readnone %1) unnamed_addr #12 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_15SmallPtrSetImplIPNS_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_S5_S5_E3$_0EEbOT_T0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(21) %0, ptr readnone captures(address) %1) unnamed_addr #12 {
   %3 = load ptr, ptr %0, align 8, !tbaa !403
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i8, ptr %4, align 4, !tbaa !408, !range !156, !noundef !157
@@ -21812,7 +21812,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i.i.i.i: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_15SmallPtrSetImplIPNS_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_S5_S5_E3$_1EEbOT_T0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(21) %0, ptr readnone %1) unnamed_addr #12 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_15SmallPtrSetImplIPNS_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_S5_S5_E3$_1EEbOT_T0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(21) %0, ptr readnone captures(address) %1) unnamed_addr #12 {
   %3 = load ptr, ptr %0, align 8, !tbaa !403
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i8, ptr %4, align 4, !tbaa !408, !range !156, !noundef !157

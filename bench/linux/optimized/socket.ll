@@ -4658,7 +4658,7 @@ __sys_shutdown.exit:                              ; preds = %1, %.thread.i, %24,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @__copy_msghdr(ptr noundef captures(none) initializes((8, 12), (56, 64), (68, 80)) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @__copy_msghdr(ptr noundef captures(none) initializes((8, 12), (56, 64), (68, 80)) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, -4
@@ -4895,7 +4895,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_sendmsg_sock(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @____sys_sendmsg(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 129) %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @____sys_sendmsg(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef range(i32 0, 129) %4) unnamed_addr #0 align 16 {
   %6 = alloca [36 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #20
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -5110,7 +5110,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_sendmsg(i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @___sys_sendmsg(ptr noundef nonnull %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 0, 129) %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @___sys_sendmsg(ptr noundef nonnull %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef range(i32 0, 129) %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.user_msghdr, align 8
   %8 = alloca %struct.__kernel_sockaddr_storage, align 8
   %9 = alloca [8 x %struct.iovec], align 16
@@ -6195,7 +6195,7 @@ declare dso_local i32 @get_timespec64(ptr noundef, ptr noundef) local_unnamed_ad
 declare dso_local i32 @get_old_timespec32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @do_recvmmsg(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @do_recvmmsg(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.timespec64, align 8
   %7 = alloca %struct.msghdr, align 8
   %8 = alloca %struct.timespec64, align 8
@@ -7135,7 +7135,7 @@ declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 declare dso_local i32 @sock_inuse_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -14, 1) i32 @get_user_ifreq(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @get_user_ifreq(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #21, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8778,7 +8778,7 @@ define internal ptr @sockfs_dname(ptr noundef readonly captures(none) %0, ptr no
 declare dso_local ptr @dynamic_dname(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal i32 @sockfs_xattr_get(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly %4, i64 noundef %5) #16 align 16 {
+define internal i32 @sockfs_xattr_get(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5) #16 align 16 {
   %7 = icmp eq ptr %4, null
   br i1 %7, label %17, label %8
 

@@ -134,7 +134,7 @@ declare i32 @_PyUnicode_Equal(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly %0, i64 noundef %1, ptr noundef nonnull readonly %2, i64 noundef %3, i64 noundef %4, ptr noundef nonnull captures(none) %5) unnamed_addr #3 {
+define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly captures(address) %0, i64 noundef %1, ptr noundef nonnull readonly captures(address) %2, i64 noundef %3, i64 noundef %4, ptr noundef nonnull captures(none) %5) unnamed_addr #3 {
   %7 = icmp eq ptr %0, %2
   br i1 %7, label %.loopexit, label %.preheader119
 

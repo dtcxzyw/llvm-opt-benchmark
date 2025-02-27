@@ -1060,7 +1060,7 @@ $_ZSt9__find_ifIPKN5clang14ParsedAttrInfo8SpellingEN9__gnu_cxx5__ops10_Iter_pred
 @switch.table._ZN5clang4attr27getSubjectMatchRuleSpellingENS0_16SubjectMatchRuleE = private unnamed_addr constant [25 x ptr] [ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN5clang12hasAttributeENS_19AttributeCommonInfo6SyntaxEPKNS_14IdentifierInfoES4_RKNS_10TargetInfoERKNS_11LangOptionsEb(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(489) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(849) %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local noundef i32 @_ZN5clang12hasAttributeENS_19AttributeCommonInfo6SyntaxEPKNS_14IdentifierInfoES4_RKNS_10TargetInfoERKNS_11LangOptionsEb(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(489) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(849) %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -13418,7 +13418,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit6993.thread11359: ; preds = %_ZN4llvmeqENS_9Str
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang27getAttributePluginInstancesB5cxx11Ev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN5clang12hasAttributeENS_19AttributeCommonInfo6SyntaxEPKNS_14IdentifierInfoES4_RKNS_10TargetInfoERKNS_11LangOptionsE(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(489) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(849) %4) local_unnamed_addr #0 {
+define dso_local noundef i32 @_ZN5clang12hasAttributeENS_19AttributeCommonInfo6SyntaxEPKNS_14IdentifierInfoES4_RKNS_10TargetInfoERKNS_11LangOptionsE(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(489) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(849) %4) local_unnamed_addr #0 {
   %6 = tail call noundef i32 @_ZN5clang12hasAttributeENS_19AttributeCommonInfo6SyntaxEPKNS_14IdentifierInfoES4_RKNS_10TargetInfoERKNS_11LangOptionsEb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(489) %3, ptr noundef nonnull align 8 dereferenceable(849) %4, i1 noundef zeroext true)
   ret i32 %6
 }
@@ -13501,7 +13501,7 @@ _ZNK5clang14IdentifierInfo5isStrILm7EEEbRAT__Kc.exit: ; preds = %_ZNK5clang14Ide
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 415) i32 @_ZN5clang19AttributeCommonInfo13getParsedKindEPKNS_14IdentifierInfoES3_NS0_6SyntaxE(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 415) i32 @_ZN5clang19AttributeCommonInfo13getParsedKindEPKNS_14IdentifierInfoES3_NS0_6SyntaxE(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallString", align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #13
   call fastcc void @_ZL13normalizeNamePKN5clang14IdentifierInfoES2_NS_19AttributeCommonInfo6SyntaxE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %0, ptr noundef %1, i32 noundef %2)
@@ -25645,7 +25645,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13normalizeNamePKN5clang14IdentifierInfoES2_NS_19AttributeCommonInfo6SyntaxE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL13normalizeNamePKN5clang14IdentifierInfoES2_NS_19AttributeCommonInfo6SyntaxE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZL22normalizeAttrScopeNamePKN5clang14IdentifierInfoENS_19AttributeCommonInfo6SyntaxE.exit, label %5
 

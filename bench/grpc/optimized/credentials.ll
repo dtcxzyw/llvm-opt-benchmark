@@ -729,7 +729,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12l
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z37grpc_channel_credentials_find_in_argsPK17grpc_channel_args(ptr noundef readonly %0) local_unnamed_addr #9 {
+define noundef ptr @_Z37grpc_channel_credentials_find_in_argsPK17grpc_channel_args(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -1114,7 +1114,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi33EEERS2_RAT__Kc.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z36grpc_find_server_credentials_in_argsPK17grpc_channel_args(ptr noundef readonly %0) local_unnamed_addr #9 {
+define noundef ptr @_Z36grpc_find_server_credentials_in_argsPK17grpc_channel_args(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -1378,7 +1378,7 @@ declare noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull al
 declare void @_ZN9grpc_core4Fork17DoDecExecCtxCountEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL28credentials_pointer_arg_copyPv(ptr noundef returned %0) #19 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZL28credentials_pointer_arg_copyPv(ptr noundef returned captures(ret: address, provenance) %0) #19 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = atomicrmw add ptr %1, i64 1 monotonic, align 8, !noalias !75
@@ -1460,7 +1460,7 @@ declare noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpSt
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPvTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS6_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL35server_credentials_pointer_arg_copyPv(ptr noundef returned %0) #19 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZL35server_credentials_pointer_arg_copyPv(ptr noundef returned captures(ret: address, provenance) %0) #19 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = atomicrmw add ptr %1, i64 1 monotonic, align 8, !noalias !82
@@ -1486,7 +1486,7 @@ _ZNK9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL30server_credentials_pointer_cmpPvS_(ptr noundef readnone %0, ptr noundef readnone %1) #21 {
+define internal noundef range(i32 -1, 2) i32 @_ZL30server_credentials_pointer_cmpPvS_(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #21 {
   %3 = icmp ult ptr %0, %1
   %4 = icmp ult ptr %1, %0
   %..i = zext i1 %4 to i32

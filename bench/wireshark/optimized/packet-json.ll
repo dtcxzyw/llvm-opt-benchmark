@@ -798,7 +798,7 @@ declare ptr @tvbparse_not_chars(i32 noundef, i32 noundef, i32 noundef, ptr nound
 declare ptr @tvbparse_chars(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @after_value(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
+define internal void @after_value(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_peek(ptr noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -1153,7 +1153,7 @@ thread-pre-split:                                 ; preds = %193
 declare ptr @tvbparse_string(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @before_array(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
+define internal void @before_array(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_peek(ptr noundef %4)
   %6 = load i32, ptr @hf_json_array, align 4
@@ -1420,7 +1420,7 @@ define internal void @after_array(ptr noundef captures(none) %0, ptr readnone ca
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @before_member(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
+define internal void @before_member(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_peek(ptr noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2225,7 +2225,7 @@ json_string_unescape.exit:                        ; preds = %19, %31, %64, %71, 
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @json_key_lookup(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc ptr @json_key_lookup(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = load ptr, ptr @json_header_fields_hash, align 8
   %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %2)
   %8 = icmp eq ptr %7, null

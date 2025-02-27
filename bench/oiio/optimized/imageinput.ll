@@ -6208,7 +6208,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010ImageInput10read_imageEiiiiNS0_8TypeDescEPvlllPFbS3_fES3_(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 %5, ptr noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, ptr noundef readonly %10, ptr noundef %11) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010ImageInput10read_imageEiiiiNS0_8TypeDescEPvlllPFbS3_fES3_(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 %5, ptr noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, ptr noundef readonly captures(address_is_null) %10, ptr noundef %11) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %13 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %14 = alloca %"struct.OpenImageIO::v3_1_0::TypeDesc", align 8
   %15 = alloca %"struct.OpenImageIO::v3_1_0::TypeDesc", align 8

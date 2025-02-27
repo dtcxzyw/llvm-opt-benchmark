@@ -257,7 +257,7 @@ define hidden void @nghttp2_stream_promise_fulfilled(ptr noundef captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 1, 8) i32 @nghttp2_stream_get_state(ptr noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 1, 8) i32 @nghttp2_stream_get_state(ptr noundef readonly captures(address) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, @root
   br i1 %2, label %20, label %3
 

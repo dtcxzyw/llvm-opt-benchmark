@@ -206,7 +206,7 @@ define dso_local void @dm_issue_global_event() local_unnamed_addr #0 align 16 {
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @dm_per_bio_data(ptr noundef readonly %0, i64 noundef %1) #2 align 16 {
+define dso_local ptr @dm_per_bio_data(ptr noundef readonly captures(ret: address, provenance) %0, i64 noundef %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -38
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 1
@@ -219,7 +219,7 @@ define dso_local ptr @dm_per_bio_data(ptr noundef readonly %0, i64 noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @dm_bio_from_per_bio_data(ptr noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local noundef ptr @dm_bio_from_per_bio_data(ptr noundef readonly captures(ret: address, provenance) %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 %1
   %4 = load i16, ptr %3, align 8
   switch i16 %4, label %5 [
@@ -1529,7 +1529,7 @@ define dso_local noundef range(i32 -16, 1) i32 @dm_hold(ptr noundef %0) #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local nonnull ptr @dm_device_name(ptr noundef readnone %0) #12 align 16 {
+define dso_local nonnull ptr @dm_device_name(ptr noundef readnone captures(ret: address, provenance) %0) #12 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   ret ptr %2
 }
@@ -2630,7 +2630,7 @@ define dso_local void @dm_uevent_add(ptr noundef %0, ptr noundef %1) local_unnam
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local nonnull ptr @dm_kobject(ptr noundef readnone %0) local_unnamed_addr #12 align 16 {
+define dso_local nonnull ptr @dm_kobject(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #12 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 560
   ret ptr %2
 }

@@ -1267,7 +1267,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_fapl_free(ptr noundef captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @H5FD_multi_open(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal noalias noundef ptr @H5FD_multi_open(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca [7 x i32], align 16
   %6 = alloca [7 x i32], align 16
   %7 = alloca i32, align 4
@@ -2139,7 +2139,7 @@ define internal i32 @H5FD_multi_cmp(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5FD_multi_query(ptr readnone captures(none) %0, ptr noundef writeonly %1) #1 {
+define internal noundef i32 @H5FD_multi_query(ptr readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -4755,7 +4755,7 @@ declare i32 @H5Pset_driver(i64 noundef, i64 noundef, ptr noundef) local_unnamed_
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5Pset_fapl_multi(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define i32 @H5Pset_fapl_multi(i64 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5FD_multi_fapl_t, align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #15
   %8 = tail call i32 @H5Eclear2(i64 noundef 0) #15
@@ -4903,7 +4903,7 @@ declare i32 @H5Iget_type(i64 noundef) local_unnamed_addr #4
 declare i32 @H5Pisa_class(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD_multi_populate_config(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i1 noundef zeroext %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD_multi_populate_config(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
   %7 = alloca [7 x i32], align 16
   %8 = alloca [7 x i64], align 16
   %9 = alloca [7 x ptr], align 16
@@ -5332,7 +5332,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD_multi_populate_config(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_fapl_multi(i64 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_fapl_multi(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5FD_multi_fapl_t, align 8
   %8 = alloca i32, align 4
   %9 = alloca %union.anon, align 8

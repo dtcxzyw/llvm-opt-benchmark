@@ -1657,7 +1657,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r15arena18has_enqueued_tasksEv(ptr nou
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN3tbb6detail2r15arena15request_workersEiib(ptr noundef nonnull readonly align 128 dereferenceable(768) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3tbb6detail2r15arena15request_workersEiib(ptr noundef nonnull readonly align 128 captures(address) dereferenceable(768) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.tbb::detail::r1::circular_doubly_linked_list_with_sentinel", align 8
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -3129,13 +3129,13 @@ _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef %0) local_unnamed_addr #1 {
+define noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = tail call noundef i32 @_ZN3tbb6detail2r115task_arena_impl15max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef %0)
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZN3tbb6detail2r115task_arena_impl15max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef readonly %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN3tbb6detail2r115task_arena_impl15max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.tbb::detail::d1::constraints", align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %.thread40
@@ -3249,7 +3249,7 @@ _ZN3tbb6detail2r18governor19default_num_threadsEv.exit: ; preds = %.critedge, %4
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN3tbb6detail2r17enqueueERNS0_2d14taskEPNS2_15task_arena_baseE(ptr noundef nonnull align 64 dereferenceable(64) initializes((16, 24), (32, 40)) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define void @_ZN3tbb6detail2r17enqueueERNS0_2d14taskEPNS2_15task_arena_baseE(ptr noundef nonnull align 64 dereferenceable(64) initializes((16, 24), (32, 40)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr @_ZN3tbb6detail2r18governor6theTLSE, align 4, !tbaa !111
   %4 = tail call noundef ptr @pthread_getspecific(i32 noundef %3) #13
   %.not.i.i = icmp eq ptr %4, null
@@ -3286,7 +3286,7 @@ _ZN3tbb6detail2r115task_arena_impl7enqueueERNS0_2d14taskEPNS3_18task_group_conte
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN3tbb6detail2r115task_arena_impl7enqueueERNS0_2d14taskEPNS3_18task_group_contextEPNS3_15task_arena_baseE(ptr noundef nonnull align 64 dereferenceable(64) initializes((16, 24), (32, 40)) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 align 2 {
+define void @_ZN3tbb6detail2r115task_arena_impl7enqueueERNS0_2d14taskEPNS3_18task_group_contextEPNS3_15task_arena_baseE(ptr noundef nonnull align 64 dereferenceable(64) initializes((16, 24), (32, 40)) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = load i32, ptr @_ZN3tbb6detail2r18governor6theTLSE, align 4, !tbaa !111
   %5 = tail call noundef ptr @pthread_getspecific(i32 noundef %4) #13
   %.not.i = icmp eq ptr %5, null
@@ -3331,7 +3331,7 @@ _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %3, %6
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN3tbb6detail2r17enqueueERNS0_2d14taskERNS2_18task_group_contextEPNS2_15task_arena_baseE(ptr noundef nonnull align 64 dereferenceable(64) initializes((16, 24), (32, 40)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define void @_ZN3tbb6detail2r17enqueueERNS0_2d14taskERNS2_18task_group_contextEPNS2_15task_arena_baseE(ptr noundef nonnull align 64 dereferenceable(64) initializes((16, 24), (32, 40)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = load i32, ptr @_ZN3tbb6detail2r18governor6theTLSE, align 4, !tbaa !111
   %5 = tail call noundef ptr @pthread_getspecific(i32 noundef %4) #13
   %.not.i.i = icmp eq ptr %5, null

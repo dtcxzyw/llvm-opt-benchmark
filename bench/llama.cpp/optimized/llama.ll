@@ -610,7 +610,7 @@ _ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 -1, 1) i32 @llama_rm_adapter_lora(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @llama_rm_adapter_lora(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %5 = load i64, ptr %4, align 8, !tbaa !26
@@ -925,13 +925,13 @@ define i64 @llama_time_us() local_unnamed_addr #0 {
 declare i64 @ggml_time_us() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @llama_load_model_from_file(ptr noundef %0, ptr noundef readonly byval(%struct.llama_model_params) align 8 captures(none) %1) local_unnamed_addr #0 {
+define noundef ptr @llama_load_model_from_file(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.llama_model_params) align 8 captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @llama_model_load_from_file(ptr noundef %0, ptr noundef nonnull byval(%struct.llama_model_params) align 8 %1)
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @llama_model_load_from_file(ptr noundef readonly %0, ptr noundef readonly byval(%struct.llama_model_params) align 8 captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @llama_model_load_from_file(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly byval(%struct.llama_model_params) align 8 captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::vector.138", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8365,7 +8365,7 @@ _ZL17llama_decode_implR13llama_context11llama_batch.exit: ; preds = %_ZNSt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @llama_chat_apply_template(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @llama_chat_apply_template(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::vector.163", align 8
@@ -8988,7 +8988,7 @@ declare ptr @ggml_backend_reg_get(i64 noundef) local_unnamed_addr #4
 declare ptr @ggml_backend_reg_name(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @llama_perf_context(ptr dead_on_unwind noalias writable writeonly sret(%struct.llama_perf_context_data) align 8 captures(none) initializes((0, 40)) %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define void @llama_perf_context(ptr dead_on_unwind noalias writable writeonly sret(%struct.llama_perf_context_data) align 8 captures(none) initializes((0, 40)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %3 = icmp eq ptr %1, null
   br i1 %3, label %30, label %4
@@ -9034,7 +9034,7 @@ define void @llama_perf_context(ptr dead_on_unwind noalias writable writeonly sr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_perf_context_print(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @llama_perf_context_print(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %llama_perf_context.exit, label %3
 
@@ -53284,7 +53284,7 @@ declare noundef i32 @_ZNK13llama_hparams12n_embd_v_gqaEj(ptr noundef nonnull ali
 declare ptr @ggml_new_graph_custom(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL18llm_build_inp_embdP12ggml_contextR13llama_contextRK13llama_hparamsRK12llama_ubatchP11ggml_tensorRKSt8functionIFvSA_PKciEE(ptr noundef %0, ptr noundef nonnull align 8 captures(none) dereferenceable(1120) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(6388) %2, i32 %.4.val, ptr readnone %.16.val, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL18llm_build_inp_embdP12ggml_contextR13llama_contextRK13llama_hparamsRK12llama_ubatchP11ggml_tensorRKSt8functionIFvSA_PKciEE(ptr noundef %0, ptr noundef nonnull align 8 captures(none) dereferenceable(1120) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(6388) %2, i32 %.4.val, ptr readnone captures(address_is_null) %.16.val, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4

@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ts_failure_info = internal unnamed_addr constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.13 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.15 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.16 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.17 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.18 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.19 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.20 }], align 16
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @TS_RESP_verify_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_verify_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
@@ -740,7 +740,7 @@ declare ptr @d2i_ESS_SIGNING_CERT_V2(ptr noundef, ptr noundef, i64 noundef) loca
 declare i64 @TS_TST_INFO_get_version(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ts_check_imprints(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr readonly captures(none) %.16.val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ts_check_imprints(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr readonly captures(none) %.16.val) unnamed_addr #0 {
   %4 = load ptr, ptr %.16.val, align 8, !tbaa !67
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %5

@@ -1334,7 +1334,7 @@ define void @_ZN7jsonnet8internal12CompilerPass5visitEPNS0_6ObjectE(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7jsonnet8internal12CompilerPass5visitEPNS0_15DesugaredObjectE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7jsonnet8internal12CompilerPass5visitEPNS0_15DesugaredObjectE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly captures(address) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.sroa.013.017 = load ptr, ptr %4, align 8, !tbaa !88

@@ -583,7 +583,7 @@ update_progress_dlg.exit:                         ; preds = %6, %8
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @update_progress_dlg(ptr noundef readonly %0, float noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
+define void @update_progress_dlg(ptr noundef readonly captures(address_is_null) %0, float noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %4
 

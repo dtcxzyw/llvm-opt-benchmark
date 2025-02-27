@@ -439,7 +439,7 @@ define dso_local void @pull_up_sublinks(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1634,7 +1634,7 @@ define dso_local void @reduce_outer_joins(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @reduce_outer_joins_pass1(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @reduce_outer_joins_pass1(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
   %2 = tail call ptr @palloc(i64 noundef 24) #7
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1755,7 +1755,7 @@ common.ret61:                                     ; preds = %8, %1, %.lr.ph, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reduce_outer_joins_pass2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @reduce_outer_joins_pass2(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %11
 
@@ -2146,7 +2146,7 @@ define dso_local void @remove_useless_result_rtes(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @remove_useless_results_recurse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc ptr @remove_useless_results_recurse(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.find_dependent_phvs_context, align 8
   %6 = load i32, ptr %1, align 4
   switch i32 %6, label %239 [
@@ -2592,7 +2592,7 @@ list_length.exit165.thread:                       ; preds = %7, %205, %202, %164
 declare ptr @list_delete_nth_cell(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_relids_in_jointree(ptr noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local ptr @get_relids_in_jointree(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread, label %5
 
@@ -2708,7 +2708,7 @@ define dso_local ptr @get_relids_for_join(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_jointree_node_for_rel(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @find_jointree_node_for_rel(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread62, label %4
 
@@ -3066,7 +3066,7 @@ declare ptr @make_andclause(ptr noundef) local_unnamed_addr #3
 declare void @ProcessInterrupts() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @is_simple_subquery(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc zeroext i1 @is_simple_subquery(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = icmp eq i32 %5, 67
   br i1 %6, label %7, label %10
@@ -3211,7 +3211,7 @@ define internal fastcc zeroext i1 @is_simple_subquery(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pull_up_simple_subquery(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @pull_up_simple_subquery(ptr noundef %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca %struct.substitute_phv_relids_context, align 8
   %7 = alloca %struct.substitute_phv_relids_context, align 8
   %8 = alloca ptr, align 8
@@ -3742,7 +3742,7 @@ is_safe_append_member.exit:                       ; preds = %list_length.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @jointree_contains_lateral_outer_refs(ptr noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @jointree_contains_lateral_outer_refs(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %48, label %6
 
@@ -3851,7 +3851,7 @@ declare void @OffsetVarNodes(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare void @IncrementVarSublevelsUp(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @perform_pullup_replace_vars(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @perform_pullup_replace_vars(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %2, null
@@ -4050,7 +4050,7 @@ declare void @CombineRangeTables(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_nullingrels_recurse(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @get_nullingrels_recurse(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread, label %.lr.ph
 
@@ -4180,7 +4180,7 @@ tailrecurse.outer.backedge:                       ; preds = %32, %40
 declare ptr @bms_copy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @replace_vars_in_jointree(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @replace_vars_in_jointree(ptr noundef captures(address_is_null) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %99, label %4
 
@@ -4995,7 +4995,7 @@ find_dependent_phvs_walker.exit.thread:           ; preds = %49, %.critedge, %fi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @remove_result_refs(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @remove_result_refs(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca %struct.substitute_phv_relids_context, align 8
   %5 = alloca %struct.substitute_phv_relids_context, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pow5mult.p05 = internal unnamed_addr constant [3 x i32] [i32 5, i32 25, i32 125], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden double @_Py_dg_strtod(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden double @_Py_dg_strtod(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %union.U, align 8
   %5 = alloca %struct.BCinfo, align 4
@@ -2586,7 +2586,7 @@ Bfree.exit:                                       ; preds = %22, %29, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mult(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @mult(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !124
   %.not = icmp eq i32 %4, 0
@@ -3069,7 +3069,7 @@ Bfree.exit:                                       ; preds = %2, %110, %109, %70,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @diff(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @diff(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !125
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -3977,7 +3977,7 @@ Bfree.exit:                                       ; preds = %8, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_Py_dg_dtoa(double noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define hidden noundef ptr @_Py_dg_dtoa(double noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = bitcast double %0 to i64
   %.not = icmp slt i64 %7, 0
   %8 = tail call double @llvm.fabs.f64(double %0)
@@ -6416,7 +6416,7 @@ Bfree.exit:                                       ; preds = %76, %75, %18, %Bfre
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @quorem(ptr noundef nonnull %0, ptr noundef nonnull readonly %1) unnamed_addr #7 {
+define internal fastcc i32 @quorem(ptr noundef nonnull captures(address) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !125
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20

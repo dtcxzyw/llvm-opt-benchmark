@@ -2806,7 +2806,7 @@ _ZN6ignore9gitignore9Gitignore7matched17h504d5d77e3b87c11E.exit: ; preds = %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable_or_null(80) ptr @"_ZN6ignore9overrides8Override7matched28_$u7b$$u7b$closure$u7d$$u7d$17h81646be060a55be4E.llvm.8988879509220902597"(ptr noalias noundef readonly returned align 8 dereferenceable(80) %0) unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable_or_null(80) ptr @"_ZN6ignore9overrides8Override7matched28_$u7b$$u7b$closure$u7d$$u7d$17h81646be060a55be4E.llvm.8988879509220902597"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(80) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -3351,7 +3351,7 @@ tailrecurse.backedge:                             ; preds = %3, %tailrecurse, %7
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
-define noundef align 8 dereferenceable_or_null(8) ptr @_ZN6ignore5Error8io_error17h46c2800049fb83cbE(ptr noalias noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #12 {
+define noundef align 8 dereferenceable_or_null(8) ptr @_ZN6ignore5Error8io_error17h46c2800049fb83cbE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(56) %0) unnamed_addr #12 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1

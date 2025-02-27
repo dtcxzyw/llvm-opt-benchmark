@@ -1650,7 +1650,7 @@ define void @dequantize_row_q2_K(ptr noalias noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q2_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #6 {
+define i64 @quantize_q2_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [16 x i8], align 16
   %8 = alloca [16 x float], align 16
@@ -3152,7 +3152,7 @@ define void @dequantize_row_q3_K(ptr noalias noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q3_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #6 {
+define i64 @quantize_q3_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [16 x float], align 16
   %8 = alloca [16 x float], align 16
@@ -4433,7 +4433,7 @@ get_scale_min_k4.exit45:                          ; preds = %23, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q4_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #6 {
+define i64 @quantize_q4_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [32 x i8], align 16
   %8 = alloca [8 x i8], align 8
@@ -6072,7 +6072,7 @@ get_scale_min_k4.exit59:                          ; preds = %23, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q5_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #6 {
+define i64 @quantize_q5_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [32 x i8], align 16
   %8 = alloca [8 x i8], align 8
@@ -7525,7 +7525,7 @@ define void @dequantize_row_q6_K(ptr noalias noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q6_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #6 {
+define i64 @quantize_q6_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [16 x float], align 16
   %8 = tail call i64 @ggml_row_size(i32 noundef 14, i64 noundef %3) #23
@@ -7905,7 +7905,7 @@ quantize_row_q6_K_impl.exit.loopexit.us:          ; preds = %.loopexit119.i.us
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q4_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #6 {
+define i64 @quantize_q4_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [32 x float], align 16
   %7 = alloca [32 x i8], align 16
   %.not = icmp eq ptr %4, null
@@ -8276,7 +8276,7 @@ quantize_row_q4_0_impl.exit.loopexit.us.us:       ; preds = %196
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q4_1(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #6 {
+define i64 @quantize_q4_1(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [32 x float], align 16
   %7 = alloca [32 x i8], align 16
   %8 = alloca [32 x i8], align 16
@@ -8607,7 +8607,7 @@ quantize_row_q4_1_impl.exit.loopexit.us.us:       ; preds = %183
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q5_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #6 {
+define i64 @quantize_q5_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [32 x float], align 16
   %7 = alloca [32 x i8], align 16
   %.not = icmp eq ptr %4, null
@@ -8902,7 +8902,7 @@ quantize_row_q5_0_impl.exit.loopexit.us.us:       ; preds = %154
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q5_1(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #6 {
+define i64 @quantize_q5_1(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [32 x float], align 16
   %7 = alloca [32 x i8], align 16
   %8 = alloca [32 x i8], align 16
@@ -11557,7 +11557,7 @@ iq2_data_index.exit:                              ; preds = %1, %3, %.fold.split
 declare void @ggml_abort(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq2_xxs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #6 {
+define i64 @quantize_iq2_xxs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [8 x float], align 16
   %7 = alloca [32 x float], align 16
   %8 = alloca [32 x float], align 16
@@ -12627,7 +12627,7 @@ quantize_row_iq2_xxs_impl.exit.loopexit.us:       ; preds = %503
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq2_xs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #6 {
+define i64 @quantize_iq2_xs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [16 x float], align 16
   %7 = alloca [16 x float], align 16
   %8 = alloca [16 x float], align 16
@@ -13932,7 +13932,7 @@ iq3_data_index.exit:                              ; preds = %1, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq3_xxs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #6 {
+define i64 @quantize_iq3_xxs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = and i64 %3, 255
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %9, label %8
@@ -13968,7 +13968,7 @@ define i64 @quantize_iq3_xxs(ptr noalias noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @quantize_row_iq3_xxs_impl(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly %3) unnamed_addr #6 {
+define internal fastcc void @quantize_row_iq3_xxs_impl(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(address_is_null) %3) unnamed_addr #6 {
   %5 = alloca [8 x float], align 16
   %6 = alloca [32 x float], align 16
   %7 = alloca [32 x float], align 16
@@ -14859,7 +14859,7 @@ define void @quantize_row_iq3_xxs_ref(ptr noalias noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq3_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #6 {
+define i64 @quantize_iq3_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [8 x float], align 16
   %7 = alloca [32 x float], align 16
   %8 = alloca [32 x float], align 16
@@ -15719,7 +15719,7 @@ define void @quantize_row_iq3_s_ref(ptr noalias noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq1_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #6 {
+define i64 @quantize_iq1_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [8 x float], align 16
   %7 = alloca [32 x float], align 16
   %8 = alloca [32 x i8], align 16
@@ -16405,7 +16405,7 @@ quantize_row_iq1_s_impl.exit.loopexit.us:         ; preds = %.loopexit.i.us
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq1_m(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #6 {
+define i64 @quantize_iq1_m(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [4 x float], align 16
   %7 = alloca [4 x float], align 16
   %8 = alloca [16 x float], align 16
@@ -17421,7 +17421,7 @@ quantize_row_iq1_m_impl.exit.loopexit.us:         ; preds = %506
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq4_nl(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #6 {
+define i64 @quantize_iq4_nl(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x float], align 16
   %8 = alloca i16, align 2
@@ -17512,7 +17512,7 @@ define i64 @quantize_iq4_nl(ptr noalias noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal fastcc void @quantize_row_iq4_nl_impl(i32 noundef range(i32 32, 257) %0, ptr noalias noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef nonnull captures(none) %6, ptr noundef nonnull captures(none) %7, ptr noundef nonnull captures(none) %8, ptr noundef readonly %9, i32 noundef range(i32 -1, 8) %10) unnamed_addr #18 {
+define internal fastcc void @quantize_row_iq4_nl_impl(i32 noundef range(i32 32, 257) %0, ptr noalias noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef nonnull captures(none) %6, ptr noundef nonnull captures(none) %7, ptr noundef nonnull captures(none) %8, ptr noundef readonly captures(address_is_null) %9, i32 noundef range(i32 -1, 8) %10) unnamed_addr #18 {
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %20
 
@@ -18112,7 +18112,7 @@ define void @quantize_row_iq4_nl_ref(ptr noalias noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq4_xs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #6 {
+define i64 @quantize_iq4_xs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [32 x float], align 16
   %8 = alloca [8 x float], align 16
@@ -18245,7 +18245,7 @@ quantize_iq4_xs.exit:                             ; preds = %.preheader.us.us.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq2_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #6 {
+define i64 @quantize_iq2_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [16 x float], align 16
   %7 = alloca [16 x float], align 16
   %8 = alloca [16 x float], align 16

@@ -240,7 +240,7 @@ define dso_local void @_ZN4pbrt7WarningEPKNS_7FileLocEPKc(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pbrtL12processErrorEPKcPKNS_7FileLocES1_(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pbrtL12processErrorEPKcPKNS_7FileLocES1_(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

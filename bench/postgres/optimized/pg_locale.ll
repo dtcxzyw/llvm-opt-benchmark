@@ -182,7 +182,7 @@ declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @check_locale(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @check_locale(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i1 @pg_is_ascii(ptr noundef %1) #21
   br i1 %4, label %10, label %5
 

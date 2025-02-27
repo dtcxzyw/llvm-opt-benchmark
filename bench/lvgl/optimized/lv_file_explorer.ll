@@ -313,7 +313,7 @@ declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_file_explorer_set_quick_access_path(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @lv_file_explorer_set_quick_access_path(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 
@@ -361,7 +361,7 @@ declare void @lv_free(ptr noundef) local_unnamed_addr #2
 declare ptr @lv_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_file_explorer_set_sort(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_file_explorer_set_sort(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -395,7 +395,7 @@ file_explorer_sort.exit:                          ; preds = %3, %9, %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_selected_file_name(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_selected_file_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -409,7 +409,7 @@ define ptr @lv_file_explorer_get_selected_file_name(ptr noundef readonly %0) loc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define nonnull ptr @lv_file_explorer_get_current_path(ptr noundef readnone %0) local_unnamed_addr #4 {
+define nonnull ptr @lv_file_explorer_get_current_path(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -422,7 +422,7 @@ define nonnull ptr @lv_file_explorer_get_current_path(ptr noundef readnone %0) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_file_table(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_file_table(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -436,7 +436,7 @@ define ptr @lv_file_explorer_get_file_table(ptr noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_header(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_header(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -450,7 +450,7 @@ define ptr @lv_file_explorer_get_header(ptr noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_path_label(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_path_label(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -464,7 +464,7 @@ define ptr @lv_file_explorer_get_path_label(ptr noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_quick_access_area(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_quick_access_area(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -478,7 +478,7 @@ define ptr @lv_file_explorer_get_quick_access_area(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_places_list(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_places_list(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -492,7 +492,7 @@ define ptr @lv_file_explorer_get_places_list(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_device_list(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_device_list(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -506,7 +506,7 @@ define ptr @lv_file_explorer_get_device_list(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_file_explorer_get_sort(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_file_explorer_get_sort(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

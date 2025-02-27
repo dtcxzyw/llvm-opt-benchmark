@@ -270,7 +270,7 @@ define hidden void @luaF_unlinkupval(ptr noundef readonly captures(none) %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaF_closeupval(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @luaF_closeupval(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !41
   %.not25 = icmp eq ptr %4, null

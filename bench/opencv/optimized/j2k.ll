@@ -385,7 +385,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @opj_j2k_setup_decoder(ptr noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define hidden void @opj_j2k_setup_decoder(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -411,7 +411,7 @@ define hidden void @opj_j2k_setup_decoder(ptr noundef writeonly %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @opj_j2k_decoder_set_strict_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden void @opj_j2k_decoder_set_strict_mode(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -793,7 +793,7 @@ opj_j2k_cp_destroy.exit:                          ; preds = %66, %75
 declare ptr @opj_procedure_list_create() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @opj_j2k_setup_encoder(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @opj_j2k_setup_encoder(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca [29 x i8], align 16
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
@@ -4024,7 +4024,7 @@ declare ptr @opj_realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @opj_j2k_tcp_destroy(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc void @opj_j2k_tcp_destroy(ptr noundef captures(address_is_null) %0) unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %opj_j2k_tcp_data_destroy.exit, label %3
 
@@ -4297,7 +4297,7 @@ define hidden void @j2k_destroy_cstr_index(ptr noundef %0) local_unnamed_addr #3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @opj_j2k_read_tile_header(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly captures(none) %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @opj_j2k_read_tile_header(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly captures(none) %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #3 {
   %12 = alloca [10 x i8], align 1
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
@@ -6770,7 +6770,7 @@ define hidden void @j2k_dump_image_header(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @opj_j2k_dump_tile_info(ptr noundef readonly %0, i32 noundef %1, ptr noundef captures(none) %2) unnamed_addr #12 {
+define internal fastcc void @opj_j2k_dump_tile_info(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(none) %2) unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %81, label %4
 
@@ -8052,7 +8052,7 @@ define hidden range(i32 0, 2) i32 @opj_j2k_set_decoded_resolution_factor(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @opj_j2k_encoder_set_extra_options(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @opj_j2k_encoder_set_extra_options(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.loopexit50, label %.preheader49
 

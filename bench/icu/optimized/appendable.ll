@@ -71,7 +71,7 @@ define noundef signext i8 @_ZN6icu_7710Appendable15appendCodePointEi(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710Appendable12appendStringEPKDsi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710Appendable12appendStringEPKDsi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) unnamed_addr #4 align 2 {
   %4 = icmp slt i32 %2, 0
   br i1 %4, label %.preheader, label %12
 
@@ -129,7 +129,7 @@ define noundef signext i8 @_ZN6icu_7710Appendable21reserveAppendCapacityEi(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_ZN6icu_7710Appendable15getAppendBufferEiiPDsiPi(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readnone %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) unnamed_addr #6 align 2 {
+define noundef ptr @_ZN6icu_7710Appendable15getAppendBufferEiiPDsiPi(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readnone captures(ret: address, provenance) %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) unnamed_addr #6 align 2 {
   %7 = icmp slt i32 %1, 1
   %8 = icmp slt i32 %4, %1
   %or.cond = or i1 %7, %8

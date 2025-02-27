@@ -247,7 +247,7 @@ define hidden ptr @_cmsStageGetPtrToCurveSet(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsStageAllocToneCurves(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden ptr @cmsStageAllocToneCurves(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 64) #18
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_cmsStageAllocPlaceholder.exit.thread, label %6
@@ -583,7 +583,7 @@ define hidden ptr @_cmsStageAllocIdentityCurves(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsStageAllocMatrix(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define hidden ptr @cmsStageAllocMatrix(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = mul i32 %2, %1
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_cmsStageAllocPlaceholder.exit.thread, label %8
@@ -846,7 +846,7 @@ define internal void @MatrixElemTypeFree(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsStageAllocCLut16bitGranular(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define hidden ptr @cmsStageAllocCLut16bitGranular(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = icmp ugt i32 %2, 15
   br i1 %6, label %7, label %8
 
@@ -1219,7 +1219,7 @@ define internal void @CLutElemTypeFree(ptr noundef readonly captures(none) %0) #
 declare ptr @_cmsComputeInterpParamsEx(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsStageAllocCLut16bit(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden ptr @cmsStageAllocCLut16bit(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca [15 x i32], align 16
   br label %7
 
@@ -1237,7 +1237,7 @@ define hidden ptr @cmsStageAllocCLut16bit(ptr noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsStageAllocCLutFloat(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden ptr @cmsStageAllocCLutFloat(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca [15 x i32], align 16
   br label %7
 
@@ -1255,7 +1255,7 @@ define hidden ptr @cmsStageAllocCLutFloat(ptr noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsStageAllocCLutFloatGranular(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define hidden ptr @cmsStageAllocCLutFloatGranular(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = icmp ugt i32 %2, 15
   br i1 %6, label %7, label %8
 
@@ -1496,7 +1496,7 @@ cmsStageFree.exit:                                ; preds = %12, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsStageSampleCLut16bit(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsStageSampleCLut16bit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i16], align 16
   %6 = alloca [128 x i16], align 16
   %7 = icmp eq ptr %0, null
@@ -1843,7 +1843,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %2, %9, %11
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsStageSampleCLutFloat(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsStageSampleCLutFloat(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x float], align 16
   %6 = alloca [128 x float], align 16
   %7 = icmp eq ptr %0, null
@@ -3145,7 +3145,7 @@ define hidden void @cmsPipelineEvalFloat(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsPipelineDup(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden ptr @cmsPipelineDup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %cmsPipelineAlloc.exit.thread, label %3
 
@@ -3444,7 +3444,7 @@ cmsPipelineAlloc.exit.thread:                     ; preds = %117, %cmsPipelineAl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #13 {
+define hidden range(i32 0, 2) i32 @cmsPipelineInsertStage(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #13 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -3536,7 +3536,7 @@ BlessLUT.exit:                                    ; preds = %30, %.lr.ph.i, %cms
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsPipelineUnlinkStage(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden void @cmsPipelineUnlinkStage(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
@@ -3903,7 +3903,7 @@ define hidden void @_cmsPipelineSetOptimizationParameters(ptr noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsPipelineEvalReverseFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsPipelineEvalReverseFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [4 x float], align 16
   %6 = alloca [4 x float], align 16
   %7 = alloca [4 x float], align 16

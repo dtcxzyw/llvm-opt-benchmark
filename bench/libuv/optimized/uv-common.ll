@@ -395,7 +395,7 @@ define dso_local range(i32 -22, 1) i32 @uv_replace_allocator(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv_os_free_passwd(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @uv_os_free_passwd(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -416,7 +416,7 @@ define dso_local void @uv_os_free_passwd(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv_os_free_group(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @uv_os_free_group(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -1306,7 +1306,7 @@ uv__strdup.exit:                                  ; preds = %1, %uv__malloc.exit
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef ptr @uv_strerror_r(i32 noundef %0, ptr noundef returned writeonly %1, i64 noundef %2) local_unnamed_addr #9 {
+define dso_local noundef ptr @uv_strerror_r(i32 noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) %1, i64 noundef %2) local_unnamed_addr #9 {
   switch i32 %0, label %174 [
     i32 -7, label %4
     i32 -13, label %6
@@ -2407,7 +2407,7 @@ define hidden range(i32 0, 2) i32 @uv__udp_is_connected(ptr noundef %0) local_un
 declare i32 @uv_udp_getpeername(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 -106, 111) i32 @uv__udp_check_before_send(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #12 {
+define hidden range(i32 -106, 111) i32 @uv__udp_check_before_send(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 15
@@ -2673,13 +2673,13 @@ uv__queue_move.exit:                              ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv_print_all_handles(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @uv_print_all_handles(ptr noundef captures(address) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   tail call fastcc void @uv__print_handles(ptr noundef %0, i32 noundef 0, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uv__print_handles(ptr noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @uv__print_handles(ptr noundef readonly captures(address) %0, i32 noundef range(i32 0, 2) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %uv_default_loop.exit
 
@@ -2805,7 +2805,7 @@ switch.lookup33:                                  ; preds = %43
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv_print_active_handles(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @uv_print_active_handles(ptr noundef captures(address) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   tail call fastcc void @uv__print_handles(ptr noundef %0, i32 noundef 1, ptr noundef %1)
   ret void
 }
@@ -2928,7 +2928,7 @@ define dso_local i32 @uv_send_buffer_size(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -105, 1) i32 @uv_fs_event_getpath(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #16 {
+define dso_local range(i32 -105, 1) i32 @uv_fs_event_getpath(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #16 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5

@@ -3071,7 +3071,7 @@ declare noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenE
 declare noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperC2EPKNS_7TfTokenEmS3_m(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 16)) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperC2EPKNS_7TfTokenEmS3_m(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 16)) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::unordered_map", align 8
   store i64 %4, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -325,7 +325,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.275 = private unnamed_addr constant [5 x i8] c"UTF8\00", align 1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @xml_get_tag(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @xml_get_tag(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.017 = load ptr, ptr %3, align 8
   %.not18 = icmp eq ptr %.017, null

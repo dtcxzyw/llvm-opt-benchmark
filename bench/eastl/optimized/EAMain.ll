@@ -80,7 +80,7 @@ _ZN2EA6EAMain11CommandLineD2Ev.exit:              ; preds = %_ZN2EA6EAMain11Comm
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(none) %pSwitch, i1 noundef zeroext %bCaseSensitive, ptr noundef writeonly %pResult, i32 noundef %nStartingIndex, i8 noundef signext %delimeter) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(none) %pSwitch, i1 noundef zeroext %bCaseSensitive, ptr noundef writeonly captures(address_is_null) %pResult, i32 noundef %nStartingIndex, i8 noundef signext %delimeter) local_unnamed_addr #1 align 2 {
 entry:
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %nStartingIndex, i32 0)
   %tobool = icmp ne ptr %pResult, null
@@ -379,7 +379,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2EA6EAMainL12ReportVaListEjPFvPKcES2_P13__va_list_tag(i32 noundef %minVerbosity, ptr noundef readonly %pReportFunction, ptr noundef %pFormat, ptr noundef %arguments) unnamed_addr #0 {
+define internal fastcc void @_ZN2EA6EAMainL12ReportVaListEjPFvPKcES2_P13__va_list_tag(i32 noundef %minVerbosity, ptr noundef readonly captures(address) %pReportFunction, ptr noundef %pFormat, ptr noundef %arguments) unnamed_addr #0 {
 entry:
   %buffer = alloca [2048 x i8], align 16
   %argumentsSaved = alloca [1 x %struct.__va_list_tag], align 16

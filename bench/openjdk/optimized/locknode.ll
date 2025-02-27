@@ -43,7 +43,7 @@ $_ZNK14FastUnlockNode3subEPK4TypeS2_ = comdat any
 @_ZN11BoxLockNodeC1Ei = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN11BoxLockNodeC2Ei
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11BoxLockNode10in_RegMaskEj(ptr noundef nonnull readnone align 8 dereferenceable(156) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11BoxLockNode10in_RegMaskEj(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(156) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %3
 }
@@ -189,7 +189,7 @@ define hidden noundef i32 @_ZNK11BoxLockNode4hashEv(ptr noundef nonnull align 8 
 declare noundef i32 @_ZNK4Node4hashEv(ptr noundef nonnull align 8 dereferenceable(52)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK11BoxLockNode3cmpERK4Node(ptr noundef nonnull readonly align 8 dereferenceable(156) %0, ptr noundef nonnull readonly align 8 dereferenceable(52) %1) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11BoxLockNode3cmpERK4Node(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(156) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(52) %1) unnamed_addr #4 align 2 {
   %3 = load i8, ptr @EliminateNestedLocks, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %7
@@ -268,7 +268,7 @@ define hidden noundef ptr @_ZN11BoxLockNode8IdentityEP8PhaseGVN(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN11BoxLockNode8box_nodeEP4Node(ptr noundef readonly %0) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN11BoxLockNode8box_nodeEP4Node(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2047
@@ -351,7 +351,7 @@ _ZNK7RegMask15find_first_elemEv.exit:             ; preds = %30, %_ZN11BoxLockNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8LockNodeP4NodePS4_(ptr noundef nonnull readonly align 8 dereferenceable(156) %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8LockNodeP4NodePS4_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(156) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 4
@@ -554,7 +554,7 @@ define hidden noundef i32 @_ZNK12FastLockNode7size_ofEv(ptr nonnull readnone ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12FastLockNode3cmpERK4Node(ptr noundef nonnull readnone align 8 dereferenceable(52) %0, ptr noundef nonnull readnone align 8 dereferenceable(52) %1) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK12FastLockNode3cmpERK4Node(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(52) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(52) %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, %0
   ret i1 %3
 }
@@ -565,7 +565,7 @@ define hidden noundef i32 @_ZNK14FastUnlockNode4hashEv(ptr nonnull readnone alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK14FastUnlockNode3cmpERK4Node(ptr noundef nonnull readnone align 8 dereferenceable(52) %0, ptr noundef nonnull readnone align 8 dereferenceable(52) %1) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK14FastUnlockNode3cmpERK4Node(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(52) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(52) %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, %0
   ret i1 %3
 }

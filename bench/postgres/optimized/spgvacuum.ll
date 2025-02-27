@@ -734,7 +734,7 @@ spgprocesspending.exit:                           ; preds = %.lr.ph.i86.i, %._cr
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @spgvacuumcleanup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @spgvacuumcleanup(ptr noundef %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.spgBulkDeleteState, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16

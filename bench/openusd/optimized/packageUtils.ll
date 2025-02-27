@@ -61,7 +61,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_FindMatchingOpeningDelimiterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9__gnu_cxx17__normal_iteratorIPKcS6_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_FindMatchingOpeningDelimiterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9__gnu_cxx17__normal_iteratorIPKcS6_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(address, ret: address, provenance) %1) unnamed_addr #0 {
   %3 = alloca %"class.std::reverse_iterator", align 8
   %4 = alloca %"class.std::reverse_iterator", align 8
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %0) #7
@@ -386,7 +386,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25ArJoinPackageRelativePathERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_JoinPackageRelativePathIPKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_T_SC_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readnone %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_JoinPackageRelativePathIPKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_T_SC_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef nonnull readnone captures(address) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::reverse_iterator.5", align 8
   %5 = alloca %"class.std::reverse_iterator.5", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

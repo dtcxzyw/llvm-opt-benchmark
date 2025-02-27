@@ -281,7 +281,7 @@ declare ptr @OPENSSL_sk_dup(ptr noundef) local_unnamed_addr #2
 declare i32 @X509_add_certs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ocsp_verify_signer(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @ocsp_verify_signer(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = tail call ptr @X509_STORE_CTX_new() #4
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -599,7 +599,7 @@ declare i32 @X509_pubkey_digest(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @ocsp_match_issuerid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @ocsp_match_issuerid(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [50 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %.not = icmp eq ptr %1, null

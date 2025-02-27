@@ -1147,7 +1147,7 @@ declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #6
 declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @umsg_clone_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define noundef ptr @umsg_clone_77(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %15, label %4
 

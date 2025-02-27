@@ -19431,7 +19431,7 @@ _ZN4llvm15SmallVectorImplINS_9AttributeEE12emplace_backIJS1_EEERS1_DpOT_.exit: ;
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_118AANoUnwindFunctionD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_118AANoUnwindFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -21977,7 +21977,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit:     ; preds = %_ZNK4llvm10IRPositi
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_118AANoUnwindCallSiteD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_118AANoUnwindCallSiteD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -22030,7 +22030,7 @@ _ZN12_GLOBAL__N_118AANoUnwindCallSiteD0Ev.exit:   ; preds = %1, %7
 declare noundef zeroext i1 @_ZN4llvm10Attributor18checkForAllCalleesENS_12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEEERKNS_17AbstractAttributeERKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(4304), ptr, i64, ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_10AANoUnwindENS9_14AANoUnwindImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE41EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_10AANoUnwindENS9_14AANoUnwindImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE41EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly captures(address) %1, i64 %2) #0 align 2 {
   %4 = alloca [1 x i32], align 4
   %5 = alloca %"struct.llvm::IRPosition", align 8
   %6 = alloca %"struct.llvm::IRPosition", align 8
@@ -22431,7 +22431,7 @@ _ZN4llvm15SmallVectorImplINS_9AttributeEE12emplace_backIJS1_EEERS1_DpOT_.exit: ;
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_116AANoSyncFunctionD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_116AANoSyncFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -23805,7 +23805,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit:     ; preds = %_ZNK4llvm10IRPositi
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_116AANoSyncCallSiteD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_116AANoSyncCallSiteD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -23856,7 +23856,7 @@ _ZN12_GLOBAL__N_116AANoSyncCallSiteD0Ev.exit:     ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_8AANoSyncENS9_12AANoSyncImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE39EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_8AANoSyncENS9_12AANoSyncImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE39EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly captures(address) %1, i64 %2) #0 align 2 {
   %4 = alloca %"struct.llvm::IRPosition", align 8
   %5 = alloca %"struct.llvm::IRPosition", align 8
   %6 = alloca %"struct.llvm::IRPosition", align 8
@@ -24315,7 +24315,7 @@ _ZN4llvm15SmallVectorImplINS_9AttributeEE12emplace_backIJS1_EEERS1_DpOT_.exit: ;
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_119AANoRecurseFunctionD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_119AANoRecurseFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -26472,7 +26472,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit:     ; preds = %_ZNK4llvm10IRPositi
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_119AANoRecurseCallSiteD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_119AANoRecurseCallSiteD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -26523,7 +26523,7 @@ _ZN12_GLOBAL__N_119AANoRecurseCallSiteD0Ev.exit:  ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_11AANoRecurseENS9_15AANoRecurseImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE34EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_11AANoRecurseENS9_15AANoRecurseImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE34EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly captures(address) %1, i64 %2) #0 align 2 {
   %4 = alloca [1 x i32], align 4
   %5 = alloca %"struct.llvm::IRPosition", align 8
   %6 = alloca %"struct.llvm::IRPosition", align 8
@@ -27170,7 +27170,7 @@ _ZN4llvm15SmallVectorImplINS_9AttributeEE12emplace_backIJS1_EEERS1_DpOT_.exit: ;
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_120AAWillReturnFunctionD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_120AAWillReturnFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -29510,7 +29510,7 @@ _ZN12_GLOBAL__N_116AAWillReturnImpl34isImpliedByMustprogressAndReadonlyERN4llvm1
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_120AAWillReturnCallSiteD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_120AAWillReturnCallSiteD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -29671,7 +29671,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit:     ; preds = %_ZNK4llvm10IRPositi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_12AAWillReturnENS9_16AAWillReturnImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE76EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_12AAWillReturnENS9_16AAWillReturnImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE76EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly captures(address) %1, i64 %2) #0 align 2 {
   %4 = alloca %"struct.llvm::IRPosition", align 8
   %5 = alloca %"struct.llvm::IRPosition", align 8
   %6 = alloca %"struct.llvm::IRPosition", align 8
@@ -30019,7 +30019,7 @@ _ZN4llvm15SmallVectorImplINS_9AttributeEE12emplace_backIJS1_EEERS1_DpOT_.exit: ;
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_118AANoReturnFunctionD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_118AANoReturnFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -30229,7 +30229,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit:     ; preds = %_ZNK4llvm10IRPositi
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_118AANoReturnCallSiteD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_118AANoReturnCallSiteD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -30280,7 +30280,7 @@ _ZN12_GLOBAL__N_118AANoReturnCallSiteD0Ev.exit:   ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_10AANoReturnENS9_14AANoReturnImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE36EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_10AANoReturnENS9_14AANoReturnImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE36EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly captures(address) %1, i64 %2) #0 align 2 {
   %4 = alloca [1 x i32], align 4
   %5 = alloca %"struct.llvm::IRPosition", align 8
   %6 = alloca %"struct.llvm::IRPosition", align 8
@@ -32268,7 +32268,7 @@ _ZN12_GLOBAL__N_120AAMemoryLocationImpl21getAccessKindFromInstEPKN4llvm11Instruc
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_124AAMemoryLocationFunctionD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_124AAMemoryLocationFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_120AAMemoryLocationImplE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_120AAMemoryLocationImplE, i64 168), ptr %0, align 8, !tbaa !15
@@ -32470,7 +32470,7 @@ define internal void @_ZN12_GLOBAL__N_120AAMemoryLocationImplD0Ev(ptr nonnull re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_120AAMemoryLocationImplD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #20 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_120AAMemoryLocationImplD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_120AAMemoryLocationImplE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_120AAMemoryLocationImplE, i64 168), ptr %0, align 8, !tbaa !15
@@ -37692,7 +37692,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4: ; preds = %_ZNK
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120AAMemoryLocationImplD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8), (80, 88)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120AAMemoryLocationImplD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(168) initializes((0, 8), (80, 88)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_120AAMemoryLocationImplE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_120AAMemoryLocationImplE, i64 168), ptr %2, align 8, !tbaa !15
@@ -37966,7 +37966,7 @@ _ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit: ; preds = %17, %20, %24, %_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_124AAMemoryLocationCallSiteD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_124AAMemoryLocationCallSiteD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_120AAMemoryLocationImplE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_120AAMemoryLocationImplE, i64 168), ptr %0, align 8, !tbaa !15
@@ -38687,7 +38687,7 @@ _ZN12_GLOBAL__N_115AACallEdgesImpl19setHasUnknownCalleeEbRN4llvm12ChangeStatusE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(40) ptr @_ZNK12_GLOBAL__N_115AACallEdgesImpl18getOptimisticEdgesEv(ptr noundef nonnull readnone align 8 dereferenceable(154) %0) unnamed_addr #16 align 2 {
+define internal noundef nonnull align 8 dereferenceable(40) ptr @_ZNK12_GLOBAL__N_115AACallEdgesImpl18getOptimisticEdgesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(154) %0) unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   ret ptr %2
 }
@@ -38743,7 +38743,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNK4llvm11AACallEdges18optimisticEdges
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_119AACallEdgesFunctionD1Ev(ptr noundef initializes((-80, -72), (0, 8), (16, 24)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_119AACallEdgesFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8), (16, 24)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12_GLOBAL__N_115AACallEdgesImplE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_115AACallEdgesImplE, i64 184), ptr %0, align 8, !tbaa !15
@@ -38838,7 +38838,7 @@ _ZN12_GLOBAL__N_119AACallEdgesFunctionD0Ev.exit:  ; preds = %_ZN4llvm9SetVectorI
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn96_N12_GLOBAL__N_119AACallEdgesFunctionD1Ev(ptr noundef initializes((-96, -88), (-16, -8), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn96_N12_GLOBAL__N_119AACallEdgesFunctionD1Ev(ptr noundef captures(address) initializes((-96, -88), (-16, -8), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -96
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12_GLOBAL__N_115AACallEdgesImplE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
@@ -38975,7 +38975,7 @@ define internal void @_ZN12_GLOBAL__N_115AACallEdgesImplD0Ev(ptr nonnull readnon
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_115AACallEdgesImplD1Ev(ptr noundef initializes((-80, -72), (0, 8), (16, 24)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_115AACallEdgesImplD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8), (16, 24)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12_GLOBAL__N_115AACallEdgesImplE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_115AACallEdgesImplE, i64 184), ptr %0, align 8, !tbaa !15
@@ -39028,7 +39028,7 @@ define internal void @_ZThn80_N12_GLOBAL__N_115AACallEdgesImplD0Ev(ptr readnone 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn96_N12_GLOBAL__N_115AACallEdgesImplD1Ev(ptr noundef initializes((-96, -88), (-16, -8), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn96_N12_GLOBAL__N_115AACallEdgesImplD1Ev(ptr noundef captures(address) initializes((-96, -88), (-16, -8), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -96
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12_GLOBAL__N_115AACallEdgesImplE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
@@ -40469,7 +40469,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115AACallEdgesImplD2Ev(ptr noundef nonnull align 8 dereferenceable(154) initializes((0, 8), (80, 88), (96, 104)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_115AACallEdgesImplD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(154) initializes((0, 8), (80, 88), (96, 104)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12_GLOBAL__N_115AACallEdgesImplE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_115AACallEdgesImplE, i64 184), ptr %2, align 8, !tbaa !15
@@ -40808,7 +40808,7 @@ _ZN4llvm11SmallVectorINS_2AA15ValueAndContextELj3EED2Ev.exit: ; preds = %102, %1
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_119AACallEdgesCallSiteD1Ev(ptr noundef initializes((-80, -72), (0, 8), (16, 24)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_119AACallEdgesCallSiteD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8), (16, 24)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12_GLOBAL__N_115AACallEdgesImplE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_115AACallEdgesImplE, i64 184), ptr %0, align 8, !tbaa !15
@@ -40903,7 +40903,7 @@ _ZN12_GLOBAL__N_119AACallEdgesCallSiteD0Ev.exit:  ; preds = %_ZN4llvm9SetVectorI
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn96_N12_GLOBAL__N_119AACallEdgesCallSiteD1Ev(ptr noundef initializes((-96, -88), (-16, -8), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn96_N12_GLOBAL__N_119AACallEdgesCallSiteD1Ev(ptr noundef captures(address) initializes((-96, -88), (-16, -8), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -96
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12_GLOBAL__N_115AACallEdgesImplE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
@@ -43793,7 +43793,7 @@ _ZNK4llvm8SetStateINS_9StringRefEE11setContainsERKS1_.exit: ; preds = %_ZN4llvm1
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_124AAAssumptionInfoFunctionD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_124AAAssumptionInfoFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm8SetStateINS_9StringRefEEE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -44082,7 +44082,7 @@ define internal void @_ZN12_GLOBAL__N_120AAAssumptionInfoImplD0Ev(ptr nonnull re
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_120AAAssumptionInfoImplD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_120AAAssumptionInfoImplD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm8SetStateINS_9StringRefEEE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -46267,7 +46267,7 @@ _ZN4llvm8SetStateINS_9StringRefEE27indicatePessimisticFixpointEv.exit: ; preds =
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_124AAAssumptionInfoCallSiteD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_124AAAssumptionInfoCallSiteD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm8SetStateINS_9StringRefEEE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -46613,7 +46613,7 @@ _ZN4llvm15SmallVectorImplINS_9AttributeEE12emplace_backIJS1_EEERS1_DpOT_.exit: ;
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_122AAMustProgressFunctionD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_122AAMustProgressFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -47715,7 +47715,7 @@ _ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE19ENS_17AbstractAttributeE
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_122AAMustProgressCallSiteD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_122AAMustProgressCallSiteD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -49038,7 +49038,7 @@ _ZN4llvm15SmallVectorImplINS_9AttributeEE12emplace_backIJS1_EEERS1_DpOT_.exit: ;
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_117AANonNullFloatingD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_117AANonNullFloatingD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -50322,7 +50322,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionESt10unique_ptrINS_22MustB
 declare noundef ptr @_ZN4llvm22MustBeExecutedIterator7advanceEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZN12_GLOBAL__N_134getKnownNonNullAndDerefBytesForUseERN4llvm10AttributorERKNS0_17AbstractAttributeERNS0_5ValueEPKNS0_3UseEPKNS0_11InstructionERbSE_(ptr noundef nonnull align 8 dereferenceable(4304) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull readnone align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %6) unnamed_addr #0 {
+define internal fastcc noundef i64 @_ZN12_GLOBAL__N_134getKnownNonNullAndDerefBytesForUseERN4llvm10AttributorERKNS0_17AbstractAttributeERNS0_5ValueEPKNS0_3UseEPKNS0_11InstructionERbSE_(ptr noundef nonnull align 8 dereferenceable(4304) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %6) unnamed_addr #0 {
   %8 = alloca %"struct.llvm::RetainedKnowledge", align 8
   %9 = alloca [2 x i32], align 4
   %10 = alloca %"struct.llvm::IRPosition", align 8
@@ -54089,7 +54089,7 @@ _ZN12_GLOBAL__N_127clampCallSiteArgumentStatesIN4llvm9AANonNullENS1_12BooleanSta
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_117AANonNullArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_117AANonNullArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -54520,7 +54520,7 @@ _ZL24clampReturnedValueStatesIN4llvm9AANonNullENS0_12BooleanStateELNS0_9Attribut
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_117AANonNullReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_117AANonNullReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -54844,7 +54844,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit:     ; preds = %_ZNK4llvm10IRPositi
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_125AANonNullCallSiteReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_125AANonNullCallSiteReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -54895,7 +54895,7 @@ _ZN12_GLOBAL__N_125AANonNullCallSiteReturnedD0Ev.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_9AANonNullENS9_13AANonNullImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE43EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_9AANonNullENS9_13AANonNullImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE43EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly captures(address) %1, i64 %2) #0 align 2 {
   %4 = alloca %"struct.llvm::IRPosition", align 8
   %5 = alloca %"struct.llvm::IRPosition", align 8
   %6 = alloca %"struct.llvm::IRPosition", align 8
@@ -55074,7 +55074,7 @@ define internal void @_ZNK12_GLOBAL__N_125AANonNullCallSiteArgument15trackStatis
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_125AANonNullCallSiteArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_125AANonNullCallSiteArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -55312,7 +55312,7 @@ _ZN4llvm15SmallVectorImplINS_9AttributeEE12emplace_backIJS1_EEERS1_DpOT_.exit: ;
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_117AANoAliasFloatingD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_117AANoAliasFloatingD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -55487,7 +55487,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_117AANoAliasArgumen
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_117AANoAliasArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_117AANoAliasArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -56039,7 +56039,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_117AANoAliasReturne
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_117AANoAliasReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_117AANoAliasReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -57220,7 +57220,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit:     ; preds = %_ZNK4llvm10IRPositi
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_125AANoAliasCallSiteReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_125AANoAliasCallSiteReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -57271,7 +57271,7 @@ _ZN12_GLOBAL__N_125AANoAliasCallSiteReturnedD0Ev.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_9AANoAliasENS9_13AANoAliasImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE22EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_9AANoAliasENS9_13AANoAliasImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE22EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly captures(address) %1, i64 %2) #0 align 2 {
   %4 = alloca %"struct.llvm::IRPosition", align 8
   %5 = alloca %"struct.llvm::IRPosition", align 8
   %6 = alloca %"struct.llvm::IRPosition", align 8
@@ -58043,7 +58043,7 @@ _ZN12_GLOBAL__N_125AANoAliasCallSiteArgument38isKnownNoAliasDueToNoAliasPreserva
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_125AANoAliasCallSiteArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_125AANoAliasCallSiteArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -58430,7 +58430,7 @@ declare noundef zeroext i1 @_ZN4llvm2AA22isPotentiallyReachableERNS_10Attributor
 declare noundef i32 @_ZN4llvm23DetermineUseCaptureKindERKNS_3UseENS_12function_refIFbPNS_5ValueERKNS_10DataLayoutEEEE(ptr noundef nonnull align 8 dereferenceable(32), ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4llvm8FunctionEEZZN12_GLOBAL__N_125AANoAliasCallSiteArgument38isKnownNoAliasDueToNoAliasPreservationERNS0_10AttributorERPNS0_9AAResultsERKNS0_16AAMemoryBehaviorEENKUlRKNS0_3UseERbE_clESH_SI_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readnone align 8 dereferenceable(136) %1) #24 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4llvm8FunctionEEZZN12_GLOBAL__N_125AANoAliasCallSiteArgument38isKnownNoAliasDueToNoAliasPreservationERNS0_10AttributorERPNS0_9AAResultsERKNS0_16AAMemoryBehaviorEENKUlRKNS0_3UseERbE_clESH_SI_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(136) %1) #24 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !1461
   %3 = icmp ne ptr %1, %.val
   ret i1 %3
@@ -58890,7 +58890,7 @@ _ZNK4llvm11ConstantInt5isOneEv.exit:              ; preds = %13
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_125AAPrivatizablePtrFloatingD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_125AAPrivatizablePtrFloatingD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -60689,7 +60689,7 @@ _ZN4llvm11SmallVectorINS_9AttributeELj1EED2Ev.exit: ; preds = %52, %55
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_125AAPrivatizablePtrArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_125AAPrivatizablePtrArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -64250,7 +64250,7 @@ define internal void @_ZNK12_GLOBAL__N_125AAPrivatizablePtrReturned15trackStatis
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_125AAPrivatizablePtrReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_125AAPrivatizablePtrReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -64366,7 +64366,7 @@ define internal void @_ZNK12_GLOBAL__N_133AAPrivatizablePtrCallSiteReturned15tra
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_133AAPrivatizablePtrCallSiteReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_133AAPrivatizablePtrCallSiteReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -64611,7 +64611,7 @@ _ZN12_GLOBAL__N_121AAPrivatizablePtrImpl27indicatePessimisticFixpointEv.exit18: 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_133AAPrivatizablePtrCallSiteArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_133AAPrivatizablePtrCallSiteArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -65457,13 +65457,13 @@ _ZN4llvm11SmallVectorINS_9AttributeELj4EED2Ev.exit: ; preds = %_ZNK4llvm10IRPosi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GLOBAL__N_121AADereferenceableImpl8getStateEv(ptr noundef nonnull readnone align 8 dereferenceable(168) %0) unnamed_addr #16 align 2 {
+define internal noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GLOBAL__N_121AADereferenceableImpl8getStateEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(168) %0) unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(88) ptr @_ZNK12_GLOBAL__N_121AADereferenceableImpl8getStateEv(ptr noundef nonnull readnone align 8 dereferenceable(168) %0) unnamed_addr #16 align 2 {
+define internal noundef nonnull align 8 dereferenceable(88) ptr @_ZNK12_GLOBAL__N_121AADereferenceableImpl8getStateEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(168) %0) unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   ret ptr %2
 }
@@ -69910,7 +69910,7 @@ _ZN12_GLOBAL__N_133AADereferenceableCallSiteReturnedD0Ev.exit: ; preds = %1, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_17AADereferenceableENS9_21AADereferenceableImplENS_10DerefStateELb0ELNS_9Attribute8AttrKindE90EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_17AADereferenceableENS9_21AADereferenceableImplENS_10DerefStateELb0ELNS_9Attribute8AttrKindE90EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly captures(address) %1, i64 %2) #0 align 2 {
   %4 = alloca %"struct.llvm::IRPosition", align 8
   %5 = alloca %"struct.llvm::IRPosition", align 8
   %6 = inttoptr i64 %0 to ptr
@@ -71860,7 +71860,7 @@ _ZN4llvm15SmallVectorImplINS_9AttributeEE12emplace_backIJS1_EEERS1_DpOT_.exit: ;
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_115AAAlignFloatingD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_115AAAlignFloatingD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -73053,7 +73053,7 @@ _ZN12_GLOBAL__N_127clampCallSiteArgumentStatesIN4llvm7AAAlignENS1_15IncIntegerSt
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_115AAAlignArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_115AAAlignArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -73685,7 +73685,7 @@ _ZL24clampReturnedValueStatesIN4llvm7AAAlignENS0_15IncIntegerStateImLm4294967296
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_115AAAlignReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_115AAAlignReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -74024,7 +74024,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit:     ; preds = %_ZNK4llvm10IRPositi
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_123AAAlignCallSiteReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_123AAAlignCallSiteReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -74075,7 +74075,7 @@ _ZN12_GLOBAL__N_123AAAlignCallSiteReturnedD0Ev.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_7AAAlignENS9_11AAAlignImplENS_15IncIntegerStateImLm4294967296ELm1EEELb0ELNS_9Attribute8AttrKindE86EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_7AAAlignENS9_11AAAlignImplENS_15IncIntegerStateImLm4294967296ELm1EEELb0ELNS_9Attribute8AttrKindE86EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly captures(address) %1, i64 %2) #0 align 2 {
   %4 = alloca %"struct.llvm::IRPosition", align 8
   %5 = alloca %"struct.llvm::IRPosition", align 8
   %6 = inttoptr i64 %0 to ptr
@@ -74388,7 +74388,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_123AAAlignCallSiteArgument10updateI
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_123AAAlignCallSiteArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_123AAAlignCallSiteArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -74750,7 +74750,7 @@ _ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE34ENS_17AbstractAttributeE
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_122AAInstanceInfoFloatingD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_122AAInstanceInfoFloatingD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -75937,7 +75937,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4llvm8FunctionEEZZN12_GLOBAL__N_118AAInstanceInfoImpl10updateImplERNS0_10AttributorEENKUlRKNS0_3UseERbE_clESB_SC_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readnone align 8 dereferenceable(136) %1) #24 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4llvm8FunctionEEZZN12_GLOBAL__N_118AAInstanceInfoImpl10updateImplERNS0_10AttributorEENKUlRKNS0_3UseERbE_clESB_SC_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(136) %1) #24 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !1875
   %3 = icmp ne ptr %1, %.val
   ret i1 %3
@@ -76031,7 +76031,7 @@ _ZN4llvm12StateWrapperINS_12BooleanStateENS_17AbstractAttributeEJEED2Ev.exit: ; 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_122AAInstanceInfoArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_122AAInstanceInfoArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -76107,7 +76107,7 @@ _ZN4llvm12StateWrapperINS_12BooleanStateENS_17AbstractAttributeEJEED2Ev.exit: ; 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_130AAInstanceInfoCallSiteReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_130AAInstanceInfoCallSiteReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -76244,7 +76244,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_130AAInstanceInfoCa
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_130AAInstanceInfoCallSiteArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_130AAInstanceInfoCallSiteArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -77157,7 +77157,7 @@ _ZNK4llvm10IRPosition18isArgumentPositionEv.exit.thread: ; preds = %11, %15, %_Z
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_119AANoCaptureFloatingD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_119AANoCaptureFloatingD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -77588,7 +77588,7 @@ define internal void @_ZNK12_GLOBAL__N_119AANoCaptureArgument15trackStatisticsEv
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_119AANoCaptureArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_119AANoCaptureArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -77724,7 +77724,7 @@ define internal void @_ZNK12_GLOBAL__N_127AANoCaptureCallSiteReturned15trackStat
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_127AANoCaptureCallSiteReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_127AANoCaptureCallSiteReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -77931,7 +77931,7 @@ _ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE89ENS_11AANoCaptureEEEbRNS
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_127AANoCaptureCallSiteArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_127AANoCaptureCallSiteArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -81896,7 +81896,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit6:                ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_124AAValueConstantRangeImpl24getConstantRangeFromSCEVERN4llvm10AttributorEPKNS1_11InstructionE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4304) %2, ptr noundef readonly %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_124AAValueConstantRangeImpl24getConstantRangeFromSCEVERN4llvm10AttributorEPKNS1_11InstructionE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4304) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %5, align 8
   %6 = and i64 %.0.copyload.i.i.i.i.i.i, 3
@@ -85649,7 +85649,7 @@ define internal void @_ZThn80_N12_GLOBAL__N_136AAValueConstantRangeCallSiteRetur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_20AAValueConstantRangeENS9_24AAValueConstantRangeImplENS_17IntegerRangeStateELb1ELNS_9Attribute8AttrKindE0EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_20AAValueConstantRangeENS9_24AAValueConstantRangeImplENS_17IntegerRangeStateELb1ELNS_9Attribute8AttrKindE0EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly captures(address) %1, i64 %2) #0 align 2 {
   %4 = alloca %"struct.llvm::IRPosition", align 8
   %5 = alloca %"struct.llvm::IRPosition", align 8
   %6 = inttoptr i64 %0 to ptr
@@ -96029,7 +96029,7 @@ define internal void @_ZThn80_N12_GLOBAL__N_141AAPotentialConstantValuesCallSite
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_25AAPotentialConstantValuesENS9_29AAPotentialConstantValuesImplENS_20PotentialValuesStateINS_5APIntEEELb0ELNS_9Attribute8AttrKindE0EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_25AAPotentialConstantValuesENS9_29AAPotentialConstantValuesImplENS_20PotentialValuesStateINS_5APIntEEELb0ELNS_9Attribute8AttrKindE0EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly captures(address) %1, i64 %2) #0 align 2 {
   %4 = alloca %"struct.llvm::IRPosition", align 8
   %5 = alloca %"struct.llvm::IRPosition", align 8
   %6 = inttoptr i64 %0 to ptr
@@ -101463,7 +101463,7 @@ _ZN4llvm20PotentialValuesStateISt4pairINS_2AA15ValueAndContextENS2_10ValueScopeE
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_125AAPotentialValuesFloatingD1Ev(ptr noundef initializes((0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_125AAPotentialValuesFloatingD1Ev(ptr noundef captures(address) initializes((0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm20PotentialValuesStateISt4pairINS_2AA15ValueAndContextENS2_10ValueScopeEEEE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -107343,7 +107343,7 @@ _ZN4llvm20PotentialValuesStateISt4pairINS_2AA15ValueAndContextENS2_10ValueScopeE
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_125AAPotentialValuesArgumentD1Ev(ptr noundef initializes((0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_125AAPotentialValuesArgumentD1Ev(ptr noundef captures(address) initializes((0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm20PotentialValuesStateISt4pairINS_2AA15ValueAndContextENS2_10ValueScopeEEEE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -108768,7 +108768,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_125AAPotentialValuesReturned27indic
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_125AAPotentialValuesReturnedD1Ev(ptr noundef initializes((0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_125AAPotentialValuesReturnedD1Ev(ptr noundef captures(address) initializes((0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm20PotentialValuesStateISt4pairINS_2AA15ValueAndContextENS2_10ValueScopeEEEE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -109784,7 +109784,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_133AAPotentialValuesCallSiteReturne
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_133AAPotentialValuesCallSiteReturnedD1Ev(ptr noundef initializes((0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_133AAPotentialValuesCallSiteReturnedD1Ev(ptr noundef captures(address) initializes((0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm20PotentialValuesStateISt4pairINS_2AA15ValueAndContextENS2_10ValueScopeEEEE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -110238,7 +110238,7 @@ define internal void @_ZNK12_GLOBAL__N_133AAPotentialValuesCallSiteArgument15tra
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_133AAPotentialValuesCallSiteArgumentD1Ev(ptr noundef initializes((0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_133AAPotentialValuesCallSiteArgumentD1Ev(ptr noundef captures(address) initializes((0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm20PotentialValuesStateISt4pairINS_2AA15ValueAndContextENS2_10ValueScopeEEEE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -111287,7 +111287,7 @@ _ZN4llvm15SmallVectorImplINS_9AttributeEE12emplace_backIJS1_EEERS1_DpOT_.exit: ;
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_117AANoUndefFloatingD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_117AANoUndefFloatingD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -112937,7 +112937,7 @@ _ZN12_GLOBAL__N_127clampCallSiteArgumentStatesIN4llvm9AANoUndefENS1_12BooleanSta
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_117AANoUndefArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_117AANoUndefArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -113224,7 +113224,7 @@ _ZL24clampReturnedValueStatesIN4llvm9AANoUndefENS0_12BooleanStateELNS0_9Attribut
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_117AANoUndefReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_117AANoUndefReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -113546,7 +113546,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit:     ; preds = %_ZNK4llvm10IRPositi
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_125AANoUndefCallSiteReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_125AANoUndefCallSiteReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -113597,7 +113597,7 @@ _ZN12_GLOBAL__N_125AANoUndefCallSiteReturnedD0Ev.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_9AANoUndefENS9_13AANoUndefImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE40EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_9AANoUndefENS9_13AANoUndefImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE40EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly captures(address) %1, i64 %2) #0 align 2 {
   %4 = alloca %"struct.llvm::IRPosition", align 8
   %5 = alloca %"struct.llvm::IRPosition", align 8
   %6 = alloca %"struct.llvm::IRPosition", align 8
@@ -113776,7 +113776,7 @@ define internal void @_ZNK12_GLOBAL__N_125AANoUndefCallSiteArgument15trackStatis
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_125AANoUndefCallSiteArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_125AANoUndefCallSiteArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -114853,7 +114853,7 @@ _ZN4llvm15SmallVectorImplINS_9AttributeEE12emplace_backIJS1_EEERS1_DpOT_.exit: ;
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_119AANoFPClassFloatingD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_119AANoFPClassFloatingD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -116389,7 +116389,7 @@ _ZN12_GLOBAL__N_127clampCallSiteArgumentStatesIN4llvm11AANoFPClassENS1_15BitInte
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_119AANoFPClassArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_119AANoFPClassArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -116694,7 +116694,7 @@ _ZL24clampReturnedValueStatesIN4llvm11AANoFPClassENS0_15BitIntegerStateIjLj1023E
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_119AANoFPClassReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_119AANoFPClassReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -117035,7 +117035,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit:     ; preds = %_ZNK4llvm10IRPositi
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_127AANoFPClassCallSiteReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_127AANoFPClassCallSiteReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -117086,7 +117086,7 @@ _ZN12_GLOBAL__N_127AANoFPClassCallSiteReturnedD0Ev.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_11AANoFPClassENS9_15AANoFPClassImplENS_15BitIntegerStateIjLj1023ELj0EEELb0ELNS_9Attribute8AttrKindE93EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_11AANoFPClassENS9_15AANoFPClassImplENS_15BitIntegerStateIjLj1023ELj0EEELb0ELNS_9Attribute8AttrKindE93EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly captures(address) %1, i64 %2) #0 align 2 {
   %4 = alloca %"struct.llvm::IRPosition", align 8
   %5 = alloca %"struct.llvm::IRPosition", align 8
   %6 = inttoptr i64 %0 to ptr
@@ -117257,7 +117257,7 @@ define internal void @_ZNK12_GLOBAL__N_127AANoFPClassCallSiteArgument15trackStat
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_127AANoFPClassCallSiteArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_127AANoFPClassCallSiteArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -118542,7 +118542,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_117AAPointerInfoImpl13reach
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_117AAPointerInfoImpl20addReturnedOffsetsToERN4llvm13AAPointerInfo10OffsetInfoE(ptr noundef nonnull readonly align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_117AAPointerInfoImpl20addReturnedOffsetsToERN4llvm13AAPointerInfo10OffsetInfoE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::pair.1510", align 8
   %4 = alloca %"struct.std::pair.1510", align 8
   %5 = alloca %"struct.llvm::AAPointerInfo::OffsetInfo", align 8
@@ -123972,7 +123972,7 @@ define linkonce_odr hidden void @_ZN4llvm13AAPointerInfo10OffsetInfo10setUnknown
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_117AAPointerInfoImpl16setReachesReturnERKN4llvm13AAPointerInfo10OffsetInfoE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_117AAPointerInfoImpl16setReachesReturnERKN4llvm13AAPointerInfo10OffsetInfoE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::pair.1510", align 8
   %4 = alloca %"struct.std::pair.1510", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -124926,7 +124926,7 @@ _ZN4llvm10IRPosition5valueERKNS_5ValueEPKNS_8CallBaseE.exit: ; preds = %12, %18,
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZZN12_GLOBAL__N_121AAPointerInfoFloating10updateImplERN4llvm10AttributorEENK3$_0clERKNS1_3UseERbENKUlRNS1_11InstructionEPNS1_5ValueERNS1_4TypeENS1_8ArrayRefISC_EENS1_13AAPointerInfo10AccessKindEE_clESA_SC_SE_SG_SI_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr readonly %4, i64 %5, i32 noundef range(i32 8, 13) %6) unnamed_addr #2 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZZN12_GLOBAL__N_121AAPointerInfoFloating10updateImplERN4llvm10AttributorEENK3$_0clERKNS1_3UseERbENKUlRNS1_11InstructionEPNS1_5ValueERNS1_4TypeENS1_8ArrayRefISC_EENS1_13AAPointerInfo10AccessKindEE_clESA_SC_SE_SG_SI_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr readonly captures(address) %4, i64 %5, i32 noundef range(i32 8, 13) %6) unnamed_addr #2 align 2 {
   %8 = alloca i8, align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !2664
@@ -124993,7 +124993,7 @@ declare noundef zeroext i1 @_ZNK4llvm11Instruction20isLifetimeStartOrEndEv(ptr n
 declare noundef ptr @_ZN4llvm15getFreedOperandEPKNS_8CallBaseEPKNS_17TargetLibraryInfoE(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_117AAPointerInfoImpl20translateAndAddStateERN4llvm10AttributorERKNS1_13AAPointerInfoERKNS4_10OffsetInfoERNS1_8CallBaseEb(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(4304) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull readonly align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_117AAPointerInfoImpl20translateAndAddStateERN4llvm10AttributorERKNS1_13AAPointerInfoERKNS4_10OffsetInfoERNS1_8CallBaseEb(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(4304) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca i32, align 4
   %8 = alloca %"struct.llvm::AAPointerInfo::RangeList", align 8
   %9 = load ptr, ptr %2, align 8, !tbaa !15
@@ -126421,7 +126421,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_2AA7RangeTyELb1EE9push_backES2_.exit: ; pre
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZZN12_GLOBAL__N_121AAPointerInfoFloating10updateImplERN4llvm10AttributorEENK3$_0clERKNS1_3UseERbENKUlPNS1_11InstructionESA_E_clESA_SA_"(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #2 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZZN12_GLOBAL__N_121AAPointerInfoFloating10updateImplERN4llvm10AttributorEENK3$_0clERKNS1_3UseERbENKUlPNS1_11InstructionESA_E_clESA_SA_"(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 align 2 {
   br label %3
 
 3:                                                ; preds = %"_ZZZN12_GLOBAL__N_121AAPointerInfoFloating10updateImplERN4llvm10AttributorEENK3$_0clERKNS1_3UseERbENKUlRNS1_11InstructionEE_clESA_.exit", %2
@@ -127711,7 +127711,7 @@ _ZN4llvm16DenseMapIteratorINS_2AA7RangeTyENS_8SmallSetIjLj4ESt4lessIjEEENS_12Den
 declare noundef zeroext i1 @_ZN4llvm2AA26isAssumedThreadLocalObjectERNS_10AttributorERNS_5ValueERKNS_17AbstractAttributeE(ptr noundef nonnull align 8 dereferenceable(4304), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4llvm8FunctionEEZNK12_GLOBAL__N_117AAPointerInfoImpl25forallInterferingAccessesERNS0_10AttributorERKNS0_17AbstractAttributeERNS0_11InstructionEbbNS0_12function_refIFbRKNS0_13AAPointerInfo6AccessEbEEERbRNS0_2AA7RangeTyENSE_IFbSI_EEEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readnone align 8 dereferenceable(136) %1) #24 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4llvm8FunctionEEZNK12_GLOBAL__N_117AAPointerInfoImpl25forallInterferingAccessesERNS0_10AttributorERKNS0_17AbstractAttributeERNS0_11InstructionEbbNS0_12function_refIFbRKNS0_13AAPointerInfo6AccessEbEEERbRNS0_2AA7RangeTyENSE_IFbSI_EEEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(136) %1) #24 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !2821
   %3 = icmp ne ptr %.val, %1
   ret i1 %3
@@ -129770,7 +129770,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_118AAAddressSpaceImpl15getAddressS
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_122AAAddressSpaceFloatingD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_122AAAddressSpaceFloatingD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -130452,7 +130452,7 @@ define internal void @_ZNK12_GLOBAL__N_122AAAddressSpaceArgument15trackStatistic
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_122AAAddressSpaceArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_122AAAddressSpaceArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -130556,7 +130556,7 @@ define internal void @_ZNK12_GLOBAL__N_122AAAddressSpaceReturned15trackStatistic
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_122AAAddressSpaceReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_122AAAddressSpaceReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -130651,7 +130651,7 @@ define internal void @_ZNK12_GLOBAL__N_130AAAddressSpaceCallSiteReturned15trackS
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_130AAAddressSpaceCallSiteReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_130AAAddressSpaceCallSiteReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -130755,7 +130755,7 @@ define internal void @_ZNK12_GLOBAL__N_130AAAddressSpaceCallSiteArgument15trackS
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_130AAAddressSpaceCallSiteArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_130AAAddressSpaceCallSiteArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -131649,7 +131649,7 @@ define internal void @_ZNK12_GLOBAL__N_120AAAllocationInfoImpl16getAllocatedSize
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_124AAAllocationInfoFloatingD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_124AAAllocationInfoFloatingD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -131748,7 +131748,7 @@ define internal void @_ZNK12_GLOBAL__N_124AAAllocationInfoArgument15trackStatist
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_124AAAllocationInfoArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_124AAAllocationInfoArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -131853,7 +131853,7 @@ define internal void @_ZNK12_GLOBAL__N_124AAAllocationInfoReturned15trackStatist
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_124AAAllocationInfoReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_124AAAllocationInfoReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -131948,7 +131948,7 @@ define internal void @_ZNK12_GLOBAL__N_132AAAllocationInfoCallSiteReturned15trac
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_132AAAllocationInfoCallSiteReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_132AAAllocationInfoCallSiteReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -132053,7 +132053,7 @@ define internal void @_ZNK12_GLOBAL__N_132AAAllocationInfoCallSiteArgument15trac
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_132AAAllocationInfoCallSiteArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_132AAAllocationInfoCallSiteArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -132366,7 +132366,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_119AAValueSimplifyImpl27indicatePes
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_123AAValueSimplifyFunctionD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_123AAValueSimplifyFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -134540,7 +134540,7 @@ define internal void @_ZNK12_GLOBAL__N_123AAValueSimplifyCallSite15trackStatisti
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_123AAValueSimplifyCallSiteD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_123AAValueSimplifyCallSiteD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -134706,7 +134706,7 @@ _ZSteqIPN4llvm5ValueES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declval
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_123AAValueSimplifyFloatingD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_123AAValueSimplifyFloatingD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -135104,7 +135104,7 @@ _ZSteqIPN4llvm5ValueES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declval
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_123AAValueSimplifyArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_123AAValueSimplifyArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -135155,7 +135155,7 @@ _ZN12_GLOBAL__N_123AAValueSimplifyArgumentD0Ev.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZZN12_GLOBAL__N_123AAValueSimplifyArgument10updateImplERN4llvm10AttributorEENKUlNS1_16AbstractCallSiteEE_clES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly %1) unnamed_addr #2 align 2 {
+define internal fastcc noundef zeroext i1 @_ZZN12_GLOBAL__N_123AAValueSimplifyArgument10updateImplERN4llvm10AttributorEENKUlNS1_16AbstractCallSiteEE_clES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #2 align 2 {
   %3 = alloca %"class.std::optional", align 8
   %4 = alloca %"struct.llvm::IRPosition", align 8
   %5 = alloca %"class.llvm::AbstractCallSite", align 8
@@ -135474,7 +135474,7 @@ define internal { ptr, i8 } @_ZNK12_GLOBAL__N_123AAValueSimplifyReturned25getAss
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_123AAValueSimplifyReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_123AAValueSimplifyReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -135987,7 +135987,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_131AAValueSimplifyCallSiteReturned1
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_131AAValueSimplifyCallSiteReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_131AAValueSimplifyCallSiteReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -136440,7 +136440,7 @@ define internal void @_ZNK12_GLOBAL__N_131AAValueSimplifyCallSiteArgument15track
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_131AAValueSimplifyCallSiteArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_131AAValueSimplifyCallSiteArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -140938,7 +140938,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_116AAIsDeadFunction11isKnow
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_116AAIsDeadFunction13isAssumedDeadEPKN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_116AAIsDeadFunction13isAssumedDeadEPKN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %5 = load i8, ptr %4, align 1, !tbaa !953
@@ -141187,7 +141187,7 @@ _ZNK4llvm6detail12DenseSetImplISt4pairIPKNS_10BasicBlockES5_ENS_8DenseMapIS6_NS0
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_116AAIsDeadFunctionD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_116AAIsDeadFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   tail call void @_ZN12_GLOBAL__N_116AAIsDeadFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %2) #39
   ret void
@@ -144646,7 +144646,7 @@ _ZNK4llvm6detail12DenseSetImplIPKNS_11InstructionENS_8DenseMapIS4_NS0_13DenseSet
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116AAIsDeadFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8), (80, 88)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_116AAIsDeadFunctionD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(352) initializes((0, 8), (80, 88)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_116AAIsDeadFunctionE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_116AAIsDeadFunctionE, i64 208), ptr %2, align 8, !tbaa !15
@@ -144749,7 +144749,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_116AAIsDeadCallSite10updateImplERN4
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_116AAIsDeadCallSiteD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_116AAIsDeadCallSiteD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   tail call void @_ZN12_GLOBAL__N_116AAIsDeadFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %2) #39
   ret void
@@ -145424,7 +145424,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_117AAIsDeadValueImpl11isKno
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_117AAIsDeadValueImpl13isAssumedDeadEPKN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(90) %0, ptr noundef readnone %1) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_117AAIsDeadValueImpl13isAssumedDeadEPKN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(90) %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %3, align 8
   %4 = and i64 %.0.copyload.i.i.i.i.i.i, 3
@@ -145543,7 +145543,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_117AAIsDeadValueImpl13isAss
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_116AAIsDeadFloatingD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_116AAIsDeadFloatingD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_116AAIsDeadFloatingE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_116AAIsDeadFloatingE, i64 208), ptr %0, align 8, !tbaa !15
@@ -147414,7 +147414,7 @@ define internal void @_ZNK12_GLOBAL__N_116AAIsDeadArgument15trackStatisticsEv(pt
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_116AAIsDeadArgumentD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_116AAIsDeadArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_116AAIsDeadFloatingE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_116AAIsDeadFloatingE, i64 208), ptr %0, align 8, !tbaa !15
@@ -147699,7 +147699,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_116AAIsDeadReturned10updateImplERN4
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_116AAIsDeadReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_116AAIsDeadReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -147854,7 +147854,7 @@ _ZN4llvm16AbstractCallSiteD2Ev.exit:              ; preds = %_ZZN12_GLOBAL__N_11
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116AAIsDeadFloatingD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8), (80, 88)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_116AAIsDeadFloatingD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(168) initializes((0, 8), (80, 88)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_116AAIsDeadFloatingE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_116AAIsDeadFloatingE, i64 208), ptr %2, align 8, !tbaa !15
@@ -148275,7 +148275,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_124AAIsDeadCallSiteReturned
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_124AAIsDeadCallSiteReturnedD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_124AAIsDeadCallSiteReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_116AAIsDeadFloatingE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_116AAIsDeadFloatingE, i64 208), ptr %0, align 8, !tbaa !15
@@ -148583,7 +148583,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_124AAIsDeadCallSiteArgument10update
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_124AAIsDeadCallSiteArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_124AAIsDeadCallSiteArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -148854,7 +148854,7 @@ _ZN4llvm15SmallVectorImplINS_9AttributeEE12emplace_backIJS1_EEERS1_DpOT_.exit: ;
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_116AANoFreeFunctionD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_116AANoFreeFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -150066,7 +150066,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit:     ; preds = %_ZNK4llvm10IRPositi
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_116AANoFreeCallSiteD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_116AANoFreeCallSiteD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -150117,7 +150117,7 @@ _ZN12_GLOBAL__N_116AANoFreeCallSiteD0Ev.exit:     ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_8AANoFreeENS9_12AANoFreeImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE29EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_8AANoFreeENS9_12AANoFreeImplENS_12BooleanStateELb0ELNS_9Attribute8AttrKindE29EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly captures(address) %1, i64 %2) #0 align 2 {
   %4 = alloca [3 x i32], align 4
   %5 = alloca %"struct.llvm::IRPosition", align 8
   %6 = alloca %"struct.llvm::IRPosition", align 8
@@ -150380,7 +150380,7 @@ _ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE29ENS_17AbstractAttributeE
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_116AANoFreeFloatingD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_116AANoFreeFloatingD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -150620,7 +150620,7 @@ define internal void @_ZNK12_GLOBAL__N_116AANoFreeArgument15trackStatisticsEv(pt
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_116AANoFreeArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_116AANoFreeArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -150720,7 +150720,7 @@ define internal void @_ZNK12_GLOBAL__N_124AANoFreeCallSiteReturned15trackStatist
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_124AANoFreeCallSiteReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_124AANoFreeCallSiteReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -150886,7 +150886,7 @@ _ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE29ENS_17AbstractAttributeE
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_124AANoFreeCallSiteArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_124AANoFreeCallSiteArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -151365,7 +151365,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123AAUnderlyingObjectsImpl2
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_127AAUnderlyingObjectsFunctionD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_127AAUnderlyingObjectsFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 152), ptr %0, align 8, !tbaa !15
@@ -151499,7 +151499,7 @@ _ZN12_GLOBAL__N_123AAUnderlyingObjectsImplD2Ev.exit: ; preds = %_ZN4llvm9SetVect
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_123AAUnderlyingObjectsImplD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_123AAUnderlyingObjectsImplD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 152), ptr %0, align 8, !tbaa !15
@@ -152849,7 +152849,7 @@ _ZN12_GLOBAL__N_123AAUnderlyingObjectsImplD2Ev.exit: ; preds = %_ZN4llvm9SetVect
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_127AAUnderlyingObjectsCallSiteD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_127AAUnderlyingObjectsCallSiteD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 152), ptr %0, align 8, !tbaa !15
@@ -152983,7 +152983,7 @@ _ZN12_GLOBAL__N_123AAUnderlyingObjectsImplD2Ev.exit: ; preds = %_ZN4llvm9SetVect
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_127AAUnderlyingObjectsFloatingD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_127AAUnderlyingObjectsFloatingD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 152), ptr %0, align 8, !tbaa !15
@@ -153117,7 +153117,7 @@ _ZN12_GLOBAL__N_123AAUnderlyingObjectsImplD2Ev.exit: ; preds = %_ZN4llvm9SetVect
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_127AAUnderlyingObjectsArgumentD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_127AAUnderlyingObjectsArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 152), ptr %0, align 8, !tbaa !15
@@ -153251,7 +153251,7 @@ _ZN12_GLOBAL__N_123AAUnderlyingObjectsImplD2Ev.exit: ; preds = %_ZN4llvm9SetVect
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_127AAUnderlyingObjectsReturnedD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_127AAUnderlyingObjectsReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 152), ptr %0, align 8, !tbaa !15
@@ -153385,7 +153385,7 @@ _ZN12_GLOBAL__N_123AAUnderlyingObjectsImplD2Ev.exit: ; preds = %_ZN4llvm9SetVect
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_135AAUnderlyingObjectsCallSiteReturnedD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_135AAUnderlyingObjectsCallSiteReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 152), ptr %0, align 8, !tbaa !15
@@ -153455,7 +153455,7 @@ define internal void @_ZThn80_N12_GLOBAL__N_135AAUnderlyingObjectsCallSiteReturn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123AAUnderlyingObjectsImplD2Ev(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 8), (80, 88)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_123AAUnderlyingObjectsImplD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(304) initializes((0, 8), (80, 88)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 152), ptr %2, align 8, !tbaa !15
@@ -153582,7 +153582,7 @@ _ZN12_GLOBAL__N_123AAUnderlyingObjectsImplD2Ev.exit: ; preds = %_ZN4llvm9SetVect
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_135AAUnderlyingObjectsCallSiteArgumentD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_135AAUnderlyingObjectsCallSiteArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUnderlyingObjectsImplE, i64 152), ptr %0, align 8, !tbaa !15
@@ -153652,7 +153652,7 @@ define internal void @_ZThn80_N12_GLOBAL__N_135AAUnderlyingObjectsCallSiteArgume
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126AAIndirectCallInfoCallSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(265) initializes((0, 8), (80, 88)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_126AAIndirectCallInfoCallSiteD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(265) initializes((0, 8), (80, 88)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_126AAIndirectCallInfoCallSiteE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_126AAIndirectCallInfoCallSiteE, i64 152), ptr %2, align 8, !tbaa !15
@@ -156186,7 +156186,7 @@ _ZN4llvm6all_ofIRKNS_14SmallSetVectorIPNS_8FunctionELj4EEENS_12function_refIFbS3
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_126AAIndirectCallInfoCallSiteD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_126AAIndirectCallInfoCallSiteD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   tail call void @_ZN12_GLOBAL__N_126AAIndirectCallInfoCallSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(265) %2) #39
   ret void
@@ -158160,7 +158160,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE18uninitialized_copyIS2_S2_
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125AAGlobalValueInfoFloatingD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8), (80, 88)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_125AAGlobalValueInfoFloatingD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(184) initializes((0, 8), (80, 88)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_125AAGlobalValueInfoFloatingE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_125AAGlobalValueInfoFloatingE, i64 152), ptr %2, align 8, !tbaa !15
@@ -158733,7 +158733,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_3UseEE8containsES3_.exit: ; preds = %.lr.ph.i.i,
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_125AAGlobalValueInfoFloatingD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_125AAGlobalValueInfoFloatingD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_125AAGlobalValueInfoFloatingE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_125AAGlobalValueInfoFloatingE, i64 152), ptr %0, align 8, !tbaa !15
@@ -159185,7 +159185,7 @@ _ZZN12_GLOBAL__N_125AAGlobalValueInfoFloating10updateImplERN4llvm10AttributorEEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121AAHeapToStackFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121AAHeapToStackFunctionD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(176) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.val = load ptr, ptr %3, align 8, !tbaa !32
@@ -161576,7 +161576,7 @@ select.unfold:                                    ; preds = %16, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_121AAHeapToStackFunctionD1Ev(ptr noundef %0) unnamed_addr #20 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_121AAHeapToStackFunctionD1Ev(ptr noundef captures(address) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   tail call void @_ZN12_GLOBAL__N_121AAHeapToStackFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #39
   ret void
@@ -166396,7 +166396,7 @@ _ZNK4llvm6detail12DenseSetImplIPNS_8CallBaseENS_8DenseMapIS3_NS0_13DenseSetEmpty
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123AAUndefinedBehaviorImplD2Ev(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8), (80, 88)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_123AAUndefinedBehaviorImplD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(272) initializes((0, 8), (80, 88)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUndefinedBehaviorImplE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUndefinedBehaviorImplE, i64 160), ptr %2, align 8, !tbaa !15
@@ -167023,7 +167023,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit: ; preds = %.lr.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_127AAUndefinedBehaviorFunctionD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_127AAUndefinedBehaviorFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUndefinedBehaviorImplE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUndefinedBehaviorImplE, i64 160), ptr %0, align 8, !tbaa !15
@@ -167132,7 +167132,7 @@ define internal void @_ZN12_GLOBAL__N_123AAUndefinedBehaviorImplD0Ev(ptr nonnull
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_123AAUndefinedBehaviorImplD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_123AAUndefinedBehaviorImplD1Ev(ptr noundef captures(address) initializes((-80, -72), (0, 8)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUndefinedBehaviorImplE, i64 16), ptr %2, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_123AAUndefinedBehaviorImplE, i64 160), ptr %0, align 8, !tbaa !15
@@ -168500,7 +168500,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_123AANonConvergentF
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_123AANonConvergentFunctionD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_123AANonConvergentFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -178304,7 +178304,7 @@ _ZNK4llvm19DenormalFPMathState11isModeFixedEv.exit.thread: ; preds = %17, %14, %
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_124AADenormalFPMathFunctionD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_124AADenormalFPMathFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -180025,7 +180025,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9AttributeELb1EE9push_backES1_.exit14: ; pr
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_124AAMemoryBehaviorFunctionD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_124AAMemoryBehaviorFunctionD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -180861,7 +180861,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit:     ; preds = %_ZNK4llvm10IRPositi
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_124AAMemoryBehaviorCallSiteD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_124AAMemoryBehaviorCallSiteD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -180912,7 +180912,7 @@ _ZN12_GLOBAL__N_124AAMemoryBehaviorCallSiteD0Ev.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_16AAMemoryBehaviorENS9_20AAMemoryBehaviorImplENS_15BitIntegerStateIhLh3ELh0EEELb0ELNS_9Attribute8AttrKindE0EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly %1, i64 %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm12function_refIFbNS_8ArrayRefIPKNS_8FunctionEEEEE11callback_fnIZN12_GLOBAL__N_118AACalleeToCallSiteINS_16AAMemoryBehaviorENS9_20AAMemoryBehaviorImplENS_15BitIntegerStateIhLh3ELh0EEELb0ELNS_9Attribute8AttrKindE0EE10updateImplERNS_10AttributorEEUlS5_E_EEblS5_(i64 noundef %0, ptr readonly captures(address) %1, i64 %2) #0 align 2 {
   %4 = alloca %"struct.llvm::IRPosition", align 8
   %5 = alloca %"struct.llvm::IRPosition", align 8
   %6 = inttoptr i64 %0 to ptr
@@ -181211,7 +181211,7 @@ _ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE89ENS_11AANoCaptureEEEbRNS
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_124AAMemoryBehaviorFloatingD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_124AAMemoryBehaviorFloatingD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -181740,7 +181740,7 @@ define internal void @_ZNK12_GLOBAL__N_124AAMemoryBehaviorArgument15trackStatist
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_124AAMemoryBehaviorArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_124AAMemoryBehaviorArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -181844,7 +181844,7 @@ define internal void @_ZNK12_GLOBAL__N_132AAMemoryBehaviorCallSiteReturned15trac
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_132AAMemoryBehaviorCallSiteReturnedD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_132AAMemoryBehaviorCallSiteReturnedD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -182188,7 +182188,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_132AAMemoryBehavior
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N12_GLOBAL__N_132AAMemoryBehaviorCallSiteArgumentD1Ev(ptr noundef initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
+define internal void @_ZThn80_N12_GLOBAL__N_132AAMemoryBehaviorCallSiteArgumentD1Ev(ptr noundef captures(address) initializes((-80, -72)) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14AADepGraphNodeE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds i8, ptr %0, i64 -48

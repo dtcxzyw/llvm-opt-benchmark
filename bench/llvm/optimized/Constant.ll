@@ -962,7 +962,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9sandboxir10ConstantFP19isValueVali
 declare noundef zeroext i1 @_ZN4llvm10ConstantFP19isValueValidForTypeEPNS_4TypeERKNS_7APFloatE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9sandboxir13ConstantArray3getEPNS0_9ArrayTypeENS_8ArrayRefIPNS0_8ConstantEEE(ptr noundef readonly captures(none) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm9sandboxir13ConstantArray3getEPNS0_9ArrayTypeENS_8ArrayRefIPNS0_8ConstantEEE(ptr noundef readonly captures(none) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.118", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !119
@@ -1110,7 +1110,7 @@ _ZN4llvm9sandboxir7Context7getTypeEPNS_4TypeE.exit: ; preds = %1, %_ZNSt10unique
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9sandboxir14ConstantStruct3getEPNS0_10StructTypeENS_8ArrayRefIPNS0_8ConstantEEE(ptr noundef readonly captures(none) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm9sandboxir14ConstantStruct3getEPNS0_10StructTypeENS_8ArrayRefIPNS0_8ConstantEEE(ptr noundef readonly captures(none) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.118", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !119
@@ -1195,7 +1195,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit: ; pred
 declare noundef ptr @_ZN4llvm14ConstantStruct3getEPNS_10StructTypeENS_8ArrayRefIPNS_8ConstantEEE(ptr noundef, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9sandboxir14ConstantStruct18getTypeForElementsERNS0_7ContextENS_8ArrayRefIPNS0_8ConstantEEEb(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr readonly %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm9sandboxir14ConstantStruct18getTypeForElementsERNS0_7ContextENS_8ArrayRefIPNS0_8ConstantEEEb(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr readonly captures(address) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallVector.124", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16

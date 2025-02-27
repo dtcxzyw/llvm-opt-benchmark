@@ -5215,7 +5215,7 @@ _ZNSt12__shared_ptrI11DummySourceLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit58: ; pr
 declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZNK8Pipeline6reportEv(ptr noundef nonnull readnone align 8 dereferenceable(320) %0) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZNK8Pipeline6reportEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(320) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   ret ptr %2
 }

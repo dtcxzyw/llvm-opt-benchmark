@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.srp_verify_server_param = private unnamed_addr constant [24 x i8] c"srp_verify_server_param\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_ctx_srp_ctx_free_intern(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl_ctx_srp_ctx_free_intern(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %26, label %3
 
@@ -64,13 +64,13 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_CTX_SRP_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_CTX_SRP_CTX_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @ssl_ctx_srp_ctx_free_intern(ptr noundef %0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_srp_ctx_free_intern(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl_srp_ctx_free_intern(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %26, label %3
 
@@ -150,7 +150,7 @@ declare ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef) local_unnamed_addr 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_srp_ctx_init_intern(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl_srp_ctx_init_intern(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %117, label %3
 
@@ -398,7 +398,7 @@ define range(i32 0, 2) i32 @SSL_SRP_CTX_init(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @ssl_ctx_srp_ctx_init_intern(ptr noundef writeonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ssl_ctx_srp_ctx_init_intern(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -415,7 +415,7 @@ define range(i32 0, 2) i32 @ssl_ctx_srp_ctx_init_intern(ptr noundef writeonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @SSL_CTX_SRP_CTX_init(ptr noundef writeonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @SSL_CTX_SRP_CTX_init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ssl_ctx_srp_ctx_init_intern.exit, label %3
 

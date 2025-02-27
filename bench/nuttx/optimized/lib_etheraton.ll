@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ether_aton.addr = internal global %struct.ether_addr zeroinitializer, align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @ether_aton_r(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define ptr @ether_aton_r(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %40, %2

@@ -8401,7 +8401,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(1104) ptr @_ZNK5nblib15SimulationState4Impl8topologyEv(ptr noundef nonnull readnone align 8 dereferenceable(1216) %0) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 8 dereferenceable(1104) ptr @_ZNK5nblib15SimulationState4Impl8topologyEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1216) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   ret ptr %2
 }
@@ -8414,18 +8414,18 @@ define void @_ZNK5nblib15SimulationState4Impl3boxEv(ptr dead_on_unwind noalias w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5nblib15SimulationState4Impl11coordinatesEv(ptr noundef nonnull readnone returned align 8 dereferenceable(1216) %0) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5nblib15SimulationState4Impl11coordinatesEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(1216) %0) local_unnamed_addr #17 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5nblib15SimulationState4Impl10velocitiesEv(ptr noundef nonnull readnone align 8 dereferenceable(1216) %0) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5nblib15SimulationState4Impl10velocitiesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1216) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5nblib15SimulationState4Impl6forcesEv(ptr noundef nonnull readnone align 8 dereferenceable(1216) %0) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5nblib15SimulationState4Impl6forcesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1216) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }

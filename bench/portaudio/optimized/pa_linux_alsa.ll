@@ -388,7 +388,7 @@ define internal void @Terminate(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3, double noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) #2 {
+define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, double noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) #2 {
   %10 = alloca double, align 8
   %11 = alloca double, align 8
   %12 = alloca i32, align 4
@@ -717,7 +717,7 @@ PaAlsaStream_Initialize.exit:                     ; preds = %102, %97
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IsFormatSupported(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, double noundef %3) #2 {
+define internal i32 @IsFormatSupported(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, double noundef %3) #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread50, label %5
 

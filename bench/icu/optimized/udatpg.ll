@@ -381,7 +381,7 @@ define noundef i32 @udatpg_getBaseSkeleton_77(ptr noundef readnone captures(none
 declare void @_ZN6icu_7724DateTimePatternGenerator21staticGetBaseSkeletonERKNS_13UnicodeStringER10UErrorCode(ptr dead_on_unwind writable sret(%"class.icu_77::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udatpg_addPattern_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef signext %3, ptr noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @udatpg_addPattern_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef signext %3, ptr noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.icu_77::UnicodeString", align 8
   %10 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %11 = alloca %"class.icu_77::UnicodeString", align 8
@@ -522,7 +522,7 @@ define void @udatpg_setAppendItemFormat_77(ptr noundef %0, i32 noundef %1, ptr n
 declare void @_ZN6icu_7724DateTimePatternGenerator19setAppendItemFormatE21UDateTimePatternFieldRKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(4796), i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udatpg_getAppendItemFormat_77(ptr noundef nonnull %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define ptr @udatpg_getAppendItemFormat_77(ptr noundef nonnull %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7724DateTimePatternGenerator19getAppendItemFormatE21UDateTimePatternField(ptr noundef nonnull align 8 dereferenceable(4796) %0, i32 noundef %1)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %5
@@ -611,7 +611,7 @@ define void @udatpg_setAppendItemName_77(ptr noundef %0, i32 noundef %1, ptr nou
 declare void @_ZN6icu_7724DateTimePatternGenerator17setAppendItemNameE21UDateTimePatternFieldRKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(4796), i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udatpg_getAppendItemName_77(ptr noundef nonnull %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define ptr @udatpg_getAppendItemName_77(ptr noundef nonnull %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7724DateTimePatternGenerator17getAppendItemNameE21UDateTimePatternField(ptr noundef nonnull align 8 dereferenceable(4796) %0, i32 noundef %1)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %5
@@ -771,7 +771,7 @@ define void @udatpg_setDateTimeFormat_77(ptr noundef %0, ptr noundef %1, i32 nou
 declare void @_ZN6icu_7724DateTimePatternGenerator17setDateTimeFormatERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(4796), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udatpg_getDateTimeFormat_77(ptr noundef nonnull %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define ptr @udatpg_getDateTimeFormat_77(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
   store i32 0, ptr %3, align 4, !tbaa !6
@@ -819,7 +819,7 @@ udatpg_getDateTimeFormatForStyle_77.exit:         ; preds = %14, %20, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udatpg_getDateTimeFormatForStyle_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @udatpg_getDateTimeFormatForStyle_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4, !tbaa !6
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %9, label %7
@@ -980,7 +980,7 @@ define void @udatpg_setDecimal_77(ptr noundef %0, ptr noundef %1, i32 noundef %2
 declare void @_ZN6icu_7724DateTimePatternGenerator10setDecimalERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(4796), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udatpg_getDecimal_77(ptr noundef nonnull %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define ptr @udatpg_getDecimal_77(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7724DateTimePatternGenerator10getDecimalEv(ptr noundef nonnull align 8 dereferenceable(4796) %0)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %13, label %4
@@ -1172,7 +1172,7 @@ define ptr @udatpg_openBaseSkeletons_77(ptr noundef nonnull %0, ptr noundef nonn
 declare noundef ptr @_ZNK6icu_7724DateTimePatternGenerator16getBaseSkeletonsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(4796), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udatpg_getPatternForSkeleton_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define ptr @udatpg_getPatternForSkeleton_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_77::UnicodeString", align 8
   %6 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #5

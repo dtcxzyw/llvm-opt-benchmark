@@ -356,7 +356,7 @@ define hidden void @"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$6unlock17h606
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock17h840c76539a76e5abE"(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock17h840c76539a76e5abE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [16 x i8], align 8
   %5 = alloca [48 x i8], align 8
@@ -1504,7 +1504,7 @@ define hidden { i64, ptr } @_ZN3std2io4Read11read_to_end17h43d5933b49a3e6e8E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, ptr } @_ZN3std2io4Read13read_vectored17h63a56b445182da4fE(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, ptr } @_ZN3std2io4Read13read_vectored17h63a56b445182da4fE(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %1, i64 %2
   br label %5
 
@@ -5418,7 +5418,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$alloc..sync..Arc$LT$exr..met
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$image..image..ImageDecoder$GT$$GT$17h9695382a11c002beE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$image..image..ImageDecoder$GT$$GT$17h9695382a11c002beE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !5
@@ -5863,7 +5863,7 @@ define hidden void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$fo
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h9e6620cb98348eefE.llvm.13319355193731752039"(ptr noalias noundef returned align 8 dereferenceable(104) %0, i1 noundef zeroext %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h9e6620cb98348eefE.llvm.13319355193731752039"(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(104) %0, i1 noundef zeroext %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [104 x i8], align 8
   %4 = load i64, ptr %0, align 8, !range !35, !noundef !5
   %5 = icmp eq i64 %4, -9223372036854775807
@@ -5901,7 +5901,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN4core6option
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb8ffce2cb3967613E.llvm.13319355193731752039"(ptr noalias noundef returned align 8 dereferenceable(104) %0, i1 noundef zeroext %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb8ffce2cb3967613E.llvm.13319355193731752039"(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(104) %0, i1 noundef zeroext %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [104 x i8], align 8
   %4 = load i64, ptr %0, align 8, !range !35, !noundef !5
   %5 = icmp eq i64 %4, -9223372036854775807
@@ -30271,7 +30271,7 @@ define internal { i8, i8 } @_ZN5image5image12ImageDecoder19original_color_type17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5image5image14decoder_to_vec17h0850037e9346c353E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5image5image14decoder_to_vec17h0850037e9346c353E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(80) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [64 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %6 = load ptr, ptr %5, align 8, !invariant.load !5, !noalias !3906, !nonnull !5
@@ -30406,7 +30406,7 @@ common.resume:                                    ; preds = %48, %27, %25, %40, 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5image5image14decoder_to_vec17h856052ba2a905a68E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5image5image14decoder_to_vec17h856052ba2a905a68E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(80) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [64 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %6 = load ptr, ptr %5, align 8, !invariant.load !5, !noalias !3934, !nonnull !5
@@ -30541,7 +30541,7 @@ common.resume:                                    ; preds = %48, %27, %25, %40, 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5image5image14decoder_to_vec17hca82d86635cba960E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5image5image14decoder_to_vec17hca82d86635cba960E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(80) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [64 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %6 = load ptr, ptr %5, align 8, !invariant.load !5, !noalias !3962, !nonnull !5
@@ -34612,7 +34612,7 @@ define internal { i8, i8 } @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u20$base64..engine..Engine$GT$6config17h77eb17efca258ff5E.llvm.13319355193731752039"(ptr noalias noundef readonly returned align 1 dereferenceable(323) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u20$base64..engine..Engine$GT$6config17h77eb17efca258ff5E.llvm.13319355193731752039"(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(323) %0) unnamed_addr #3 {
   ret ptr %0
 }
 

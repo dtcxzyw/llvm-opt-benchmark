@@ -27808,7 +27808,7 @@ _ZZN8nanobind6detail11func_createILb1ELb1EZNS_6class_IZL26nanobind_init_test_stl
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nanobind6detail11type_casterISt7variantIJSt9monostateZL26nanobind_init_test_stl_extRNS_7module_EE8BasicID2ZL26nanobind_init_test_stl_extS5_E8BasicID1EEiE11try_variantIS6_EEbRKNS_6handleEhPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %.0.val, i8 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8nanobind6detail11type_casterISt7variantIJSt9monostateZL26nanobind_init_test_stl_extRNS_7module_EE8BasicID2ZL26nanobind_init_test_stl_extS5_E8BasicID1EEiE11try_variantIS6_EEbRKNS_6handleEhPNS0_12cleanup_listE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr %.0.val, i8 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.nanobind::detail::type_caster.1189", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
   %5 = call noundef zeroext i1 @_ZN8nanobind6detail11nb_type_getEPKSt9type_infoP7_objecthPNS0_12cleanup_listEPPv(ptr noundef nonnull @_ZTIZL26nanobind_init_test_stl_extRN8nanobind7module_EE8BasicID2, ptr noundef %.0.val, i8 noundef zeroext %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %4) #27
@@ -27857,7 +27857,7 @@ _ZNSt7variantIJSt9monostateZL26nanobind_init_test_stl_extRN8nanobind7module_EE8B
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nanobind6detail11type_casterISt7variantIJSt9monostateZL26nanobind_init_test_stl_extRNS_7module_EE8BasicID2ZL26nanobind_init_test_stl_extS5_E8BasicID1EEiE11try_variantIS7_EEbRKNS_6handleEhPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %.0.val, i8 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8nanobind6detail11type_casterISt7variantIJSt9monostateZL26nanobind_init_test_stl_extRNS_7module_EE8BasicID2ZL26nanobind_init_test_stl_extS5_E8BasicID1EEiE11try_variantIS7_EEbRKNS_6handleEhPNS0_12cleanup_listE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr %.0.val, i8 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.nanobind::detail::type_caster.1171", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
   %5 = call noundef zeroext i1 @_ZN8nanobind6detail11nb_type_getEPKSt9type_infoP7_objecthPNS0_12cleanup_listEPPv(ptr noundef nonnull @_ZTIZL26nanobind_init_test_stl_extRN8nanobind7module_EE8BasicID1, ptr noundef %.0.val, i8 noundef zeroext %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %4) #27
@@ -27906,7 +27906,7 @@ _ZNSt7variantIJSt9monostateZL26nanobind_init_test_stl_extRN8nanobind7module_EE8B
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm1EJSt9monostateZL26nanobind_init_test_stl_extRN8nanobind7module_EE8BasicID2ZL26nanobind_init_test_stl_extS3_E8BasicID1EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSA_(ptr noundef nonnull readonly returned align 8 dereferenceable(9) %0) unnamed_addr #0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm1EJSt9monostateZL26nanobind_init_test_stl_extRN8nanobind7module_EE8BasicID2ZL26nanobind_init_test_stl_extS3_E8BasicID1EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSA_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(9) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i8, ptr %2, align 8, !tbaa !737
   %.not = icmp eq i8 %.val, 1
@@ -27925,7 +27925,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getI
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm2EJSt9monostateZL26nanobind_init_test_stl_extRN8nanobind7module_EE8BasicID2ZL26nanobind_init_test_stl_extS3_E8BasicID1EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSA_(ptr noundef nonnull readonly returned align 8 dereferenceable(9) %0) unnamed_addr #0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm2EJSt9monostateZL26nanobind_init_test_stl_extRN8nanobind7module_EE8BasicID2ZL26nanobind_init_test_stl_extS3_E8BasicID1EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSA_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(9) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i8, ptr %2, align 8, !tbaa !737
   %.not = icmp eq i8 %.val, 2

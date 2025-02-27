@@ -222,7 +222,7 @@ define hidden range(i32 0, 2) i32 @rtpstream_info_cmp(ptr noundef %0, ptr nounde
 declare zeroext i1 @rtpstream_id_equal(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @rtpstream_info_is_reverse(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define hidden noundef zeroext i1 @rtpstream_info_is_reverse(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -426,7 +426,7 @@ define hidden void @remove_tap_listener_rtpstream(ptr noundef %0) local_unnamed_
 declare void @remove_tap_listener(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @register_tap_listener_rtpstream(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define hidden void @register_tap_listener_rtpstream(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %4
 

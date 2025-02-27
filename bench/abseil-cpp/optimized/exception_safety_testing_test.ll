@@ -46415,7 +46415,7 @@ _ZNSt14_Function_base13_Base_managerIZN7testing19exceptions_internal19ExceptionS
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZSt8_DestroyIPSt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEEEvT_S9_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPSt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEEEvT_S9_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt8functionIFN7testing15AssertionResultEPNS3_12_GLOBAL__N_113ExampleStructEEEEEvT_SB_.exit, label %.lr.ph.i
 
@@ -47805,7 +47805,7 @@ _ZNSt14_Function_base13_Base_managerIZN7testing19exceptions_internal19ExceptionS
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZSt8_DestroyIPSt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEEEvT_S9_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPSt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEEEvT_S9_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt8functionIFN7testing15AssertionResultEPNS3_12_GLOBAL__N_119FailsBasicGuaranteeEEEEEvT_SB_.exit, label %.lr.ph.i
 
@@ -48918,7 +48918,7 @@ _ZNSt14_Function_base13_Base_managerIZN7testing19exceptions_internal19ExceptionS
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZSt8_DestroyIPSt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEEEvT_S9_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPSt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEEEvT_S9_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt8functionIFN7testing15AssertionResultEPNS3_12_GLOBAL__N_121FollowsBasicGuaranteeEEEEEvT_SB_.exit, label %.lr.ph.i
 
@@ -51681,7 +51681,7 @@ _ZNSt14_Function_base13_Base_managerIZN7testing19exceptions_internal19ExceptionS
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZSt8_DestroyIPSt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEEEvT_S9_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPSt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEEEvT_S9_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt8functionIFN7testing15AssertionResultEPNS3_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEEEEvT_SB_.exit, label %.lr.ph.i
 
@@ -53537,7 +53537,7 @@ _ZNSt14_Function_base13_Base_managerIZN7testing19exceptions_internal19ExceptionS
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZSt8_DestroyIPSt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEEEvT_S9_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPSt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEEEvT_S9_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt8functionIFN7testing15AssertionResultEPNS3_12_GLOBAL__N_122FollowsStrongGuaranteeEEEEEvT_SB_.exit, label %.lr.ph.i
 
@@ -58810,7 +58810,7 @@ _ZNSt14_Function_base13_Base_managerIZN7testing19exceptions_internal19ExceptionS
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZSt8_DestroyIPSt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEEEvT_S9_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPSt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEEEvT_S9_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt8functionIFN7testing15AssertionResultEPNS3_12_GLOBAL__N_111NonCopyableEEEEEvT_SB_.exit, label %.lr.ph.i
 
@@ -60541,7 +60541,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN7testing15Assert
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZSt8_DestroyIPSt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121NonEqualityComparableEEEEvT_S9_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPSt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121NonEqualityComparableEEEEvT_S9_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt8functionIFN7testing15AssertionResultEPNS3_12_GLOBAL__N_121NonEqualityComparableEEEEEvT_SB_.exit, label %.lr.ph.i
 
@@ -63170,7 +63170,7 @@ _ZNSt14_Function_base13_Base_managerIZN7testing19exceptions_internal19ExceptionS
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZSt8_DestroyIPSt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEEEEEvT_SD_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPSt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEEEEEvT_SD_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt8functionIFN7testing15AssertionResultEPNS3_12_GLOBAL__N_120ExhaustivenessTesterINS3_13ThrowingValueILNS3_8TypeSpecE0EEEEEEEEEvT_SF_.exit, label %.lr.ph.i
 

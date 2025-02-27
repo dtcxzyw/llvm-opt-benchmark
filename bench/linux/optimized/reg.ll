@@ -219,7 +219,7 @@ define dso_local i32 @reg_get_dfs_region(ptr noundef %0) local_unnamed_addr #2 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @is_world_regdom(ptr noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local zeroext i1 @is_world_regdom(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -240,7 +240,7 @@ define dso_local zeroext i1 @is_world_regdom(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @reg_query_regdb_wmm(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #2 align 16 {
+define dso_local i32 @reg_query_regdb_wmm(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #2 align 16 {
   %4 = load ptr, ptr @regdb, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %6
@@ -1197,7 +1197,7 @@ declare dso_local void @rtnl_unlock() local_unnamed_addr #4
 declare dso_local void @release_firmware(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: read)
-define dso_local zeroext i1 @reg_is_valid_request(ptr noundef readonly %0) local_unnamed_addr #6 align 16 {
+define dso_local zeroext i1 @reg_is_valid_request(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 align 16 {
   %2 = load volatile ptr, ptr @last_request, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %19, label %4
@@ -1231,7 +1231,7 @@ define dso_local zeroext i1 @reg_is_valid_request(ptr noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @reg_get_max_bandwidth(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #7 align 16 {
+define dso_local i32 @reg_get_max_bandwidth(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1596,7 +1596,7 @@ define dso_local void @wiphy_apply_custom_regulatory(ptr noundef %0, ptr noundef
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @handle_band_custom(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc void @handle_band_custom(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.loopexit, label %5
 
@@ -1900,7 +1900,7 @@ define dso_local zeroext i1 @reg_dfs_domain_same(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @regulatory_hint_user(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @regulatory_hint_user(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5, !prof !39
 
@@ -2048,7 +2048,7 @@ define dso_local void @regulatory_netlink_notify(i32 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @regulatory_hint(ptr noundef %0, ptr noundef readonly %1) #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @regulatory_hint(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #2 align 16 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %5 = or i1 %4, %3
@@ -3715,7 +3715,7 @@ define internal fastcc void @update_all_wiphy_regulatory(i32 noundef %0) unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regulatory_set_wiphy_regd(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define dso_local i32 @regulatory_set_wiphy_regd(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) #2 align 16 {
   %3 = tail call fastcc i32 @__regulatory_set_wiphy_regd(ptr noundef %0, ptr noundef %1)
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %8
@@ -3730,7 +3730,7 @@ define dso_local i32 @regulatory_set_wiphy_regd(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__regulatory_set_wiphy_regd(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @__regulatory_set_wiphy_regd(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %5 = or i1 %3, %4
@@ -3865,7 +3865,7 @@ define internal fastcc i32 @__regulatory_set_wiphy_regd(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regulatory_set_wiphy_regd_sync(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define dso_local i32 @regulatory_set_wiphy_regd_sync(ptr noundef %0, ptr noundef captures(address_is_null) %1) #2 align 16 {
   %3 = tail call i32 @rtnl_is_locked() #23
   %4 = icmp ne i32 %3, 0
   %5 = load i1, ptr @regulatory_set_wiphy_regd_sync.__already_done, align 1
@@ -6554,7 +6554,7 @@ declare void @llvm.write_register.i64(metadata, i64) #19
 declare dso_local i32 @__SCT__tp_func_rdev_return_chandef(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 532480) i32 @reg_rule_to_chan_bw_flags(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 532480) i32 @reg_rule_to_chan_bw_flags(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 align 16 {
   %4 = load i32, ptr %2, align 8
   %5 = icmp eq i32 %4, 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6838,7 +6838,7 @@ define internal fastcc noundef zeroext i1 @reg_query_database(ptr noundef %0) un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @query_regdb(ptr noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc i32 @query_regdb(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr @regdb, align 8
   %3 = tail call i32 @rtnl_is_locked() #23
   %4 = icmp ne i32 %3, 0
@@ -7573,7 +7573,7 @@ define internal fastcc noundef zeroext i1 @reg_is_world_roaming(ptr noundef %0) 
 declare dso_local void @nl80211_send_beacon_hint_event(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noalias ptr @regdom_intersect(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noalias ptr @regdom_intersect(ptr noundef nonnull captures(address) %0, ptr noundef captures(address) %1) unnamed_addr #2 align 16 {
   %3 = alloca %struct.ieee80211_reg_rule, align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7930,7 +7930,7 @@ split:                                            ; preds = %41, %._crit_edge
 declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc range(i32 -22, 1) i32 @reg_rules_intersect(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef captures(none) initializes((0, 8)) %4) unnamed_addr #22 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @reg_rules_intersect(ptr noundef nonnull readonly captures(address) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address) %3, ptr noundef captures(none) initializes((0, 8)) %4) unnamed_addr #22 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 12

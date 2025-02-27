@@ -1280,7 +1280,7 @@ _ZNSt12__shared_ptrIKN11OpenImageIO6v3_1_08Filter2DELN9__gnu_cxx12_Lock_policyE2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11OpenImageIO6v3_1_0L15get_warp_filterENS0_17basic_string_viewIcSt11char_traitsIcEEEfRNS0_8ImageBufE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 16)) %0, ptr readonly %.0.val, i64 %.8.val, float noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11OpenImageIO6v3_1_0L15get_warp_filterENS0_17basic_string_viewIcSt11char_traitsIcEEEfRNS0_8ImageBufE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 16)) %0, ptr readonly captures(address_is_null) %.0.val, i64 %.8.val, float noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.OpenImageIO::v3_1_0::FilterDesc", align 8

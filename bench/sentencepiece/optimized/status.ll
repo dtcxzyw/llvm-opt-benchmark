@@ -88,7 +88,7 @@ define void @_ZN6google8protobuf4util6StatusC2Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf4util6StatusC2ENS1_5error4CodeENS0_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 4)) %0, i32 noundef %1, ptr readonly %2, i64 %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf4util6StatusC2ENS1_5error4CodeENS0_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 4)) %0, i32 noundef %1, ptr readonly captures(address_is_null) %2, i64 %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 %1, ptr %0, align 8, !tbaa !13

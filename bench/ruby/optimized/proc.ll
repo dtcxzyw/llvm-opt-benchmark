@@ -1183,7 +1183,7 @@ block_setup.exit:                                 ; preds = %22, %26, %vm_block_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_proc_get_iseq(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @rb_proc_get_iseq(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   br label %tailrecurse52
 
 tailrecurse52:                                    ; preds = %40, %2
@@ -3013,7 +3013,7 @@ define hidden ptr @rb_method_def(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_method_entry_location(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden i64 @rb_method_entry_location(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -7080,7 +7080,7 @@ block_mark_and_move.exit:                         ; preds = %1, %4, %.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 40, 73) i64 @proc_memsize(ptr noundef readonly %0) #13 {
+define internal range(i64 40, 73) i64 @proc_memsize(ptr noundef readonly captures(address) %0) #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !35
   %4 = getelementptr i8, ptr %0, i64 48
@@ -7103,7 +7103,7 @@ declare i64 @rb_proc_dup(i64 noundef) local_unnamed_addr #2
 declare i64 @rb_vm_make_proc_lambda(ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @method_def_min_max_arity(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 {
+define internal fastcc i32 @method_def_min_max_arity(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 {
   %.not48 = icmp eq ptr %0, null
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 

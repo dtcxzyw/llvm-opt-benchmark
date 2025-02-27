@@ -610,7 +610,7 @@ X509V3_EXT_get.exit.thread:                       ; preds = %1, %X509V3_EXT_get.
 declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %.not44 = icmp eq ptr %3, null
   br i1 %.not, label %5, label %9

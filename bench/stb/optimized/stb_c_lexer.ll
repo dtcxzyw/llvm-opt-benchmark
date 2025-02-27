@@ -18,7 +18,7 @@ define void @stb_c_lexer_init(ptr noundef writeonly captures(none) initializes((
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stb_c_lexer_get_location(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
+define void @stb_c_lexer_get_location(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = load i8, ptr %4, align 1, !tbaa !16
   %6 = icmp ne i8 %5, 0
@@ -120,7 +120,7 @@ define range(i32 0, 2) i32 @stb__clex_iswhite(i32 noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef ptr @stb__strchr(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define noundef ptr @stb__strchr(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = load i8, ptr %0, align 1, !tbaa !16
   %.not7 = icmp eq i8 %3, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph

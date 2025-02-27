@@ -590,7 +590,7 @@ define hidden range(i32 -10368, 1) i32 @mbedtls_x509_set_extension(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509_write_names(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_x509_write_names(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not30 = icmp eq ptr %2, null
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
@@ -743,7 +743,7 @@ define hidden i32 @mbedtls_x509_write_sig(ptr noundef %0, ptr noundef %1, ptr no
 declare i32 @mbedtls_asn1_write_algorithm_identifier_ext(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509_write_extensions(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_x509_write_extensions(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not14 = icmp eq ptr %2, null
   br i1 %.not14, label %x509_write_extension.exit.thread, label %.lr.ph
 

@@ -789,7 +789,7 @@ define void @Mpm_ManPrintDsdStats(ptr noundef readonly captures(none) %0) local_
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Mpm_ManBuildHashTable(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Mpm_ManBuildHashTable(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @Extra_FileSize(ptr noundef nonnull @.str.7) #22
   %3 = sdiv i32 %2, 12
   %4 = add nsw i32 %3, -1
@@ -1280,7 +1280,7 @@ define void @Mpm_ManPrintPerm(i32 noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Mpm_ManPrecomputePerms(ptr noundef initializes((6944, 6952), (11296, 11304)) %0) local_unnamed_addr #0 {
+define void @Mpm_ManPrecomputePerms(ptr noundef captures(address_is_null) initializes((6944, 6952), (11296, 11304)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = tail call i32 @Extra_Factorial(i32 noundef 6) #22
@@ -1900,7 +1900,7 @@ Hsh_IntManLookup.exit.thread:                     ; preds = %.lr.ph.i, %Hsh_IntM
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #9 {
   %10 = alloca [6 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, i8 -1, i64 24, i1 false)

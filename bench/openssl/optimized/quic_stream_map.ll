@@ -998,7 +998,7 @@ define range(i32 0, 2) i32 @ossl_quic_stream_map_schedule_stop_sending(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @ossl_quic_stream_map_peek_accept_queue(ptr noundef readonly %0) local_unnamed_addr #6 {
+define ptr @ossl_quic_stream_map_peek_accept_queue(ptr noundef readonly captures(address) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %3, align 8, !tbaa !38

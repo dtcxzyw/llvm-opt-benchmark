@@ -22,7 +22,7 @@ define i32 @pmix_mca_base_parse_paramfile(ptr noundef %0, ptr noundef %1) local_
 declare i32 @pmix_util_keyval_parse(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @save_value(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) #0 {
+define internal void @save_value(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = load ptr, ptr @_param_list, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 240
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 120

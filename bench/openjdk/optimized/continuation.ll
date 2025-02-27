@@ -424,7 +424,7 @@ _ZN17ContinuationEntry5unpinEv.exit:              ; preds = %8, %5, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN12Continuation39get_continuation_entry_for_continuationEP10JavaThreadP7oopDesc(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN12Continuation39get_continuation_entry_for_continuationEP10JavaThreadP7oopDesc(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -455,7 +455,7 @@ define hidden noundef ptr @_ZN12Continuation39get_continuation_entry_for_continu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN12Continuation23is_continuation_mountedEP10JavaThreadP7oopDesc(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN12Continuation23is_continuation_mountedEP10JavaThreadP7oopDesc(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -565,7 +565,7 @@ define hidden noundef zeroext i1 @_ZN13Continuations7enabledEv() local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN12Continuation23is_return_barrier_entryEPh(ptr noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN12Continuation23is_return_barrier_entryEPh(ptr noundef readnone captures(address) %0) local_unnamed_addr #4 align 2 {
   %2 = load i8, ptr @VMContinuations, align 1
   %3 = trunc i8 %2 to i1
   %4 = load ptr, ptr @_ZN12StubRoutines19_cont_returnBarrierE, align 8
@@ -605,7 +605,7 @@ define hidden noundef zeroext i1 @_ZN12Continuation28is_continuation_enterSpecia
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN12Continuation27is_continuation_entry_frameERK5framePK11RegisterMap(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN12Continuation27is_continuation_entry_frameERK5framePK11RegisterMap(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.frame, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZNK11RegisterMap7in_contEv.exit.thread, label %4
@@ -736,14 +736,14 @@ _ZN18ContinuationHelper5Frame12frame_methodERK5frame.exit: ; preds = %_ZNK5frame
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN12Continuation24is_frame_in_continuationEPK17ContinuationEntryRK5frame(ptr noundef readnone %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN12Continuation24is_frame_in_continuationEPK17ContinuationEntryRK5frame(ptr noundef readnone captures(address) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp ugt ptr %0, %3
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN12Continuation29get_continuation_entry_for_spEP10JavaThreadPl(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN12Continuation29get_continuation_entry_for_spEP10JavaThreadPl(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   br label %4
 
@@ -1037,7 +1037,7 @@ _ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12Continuation16last_java_vframeE6HandleP11RegisterMap(ptr readonly %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12Continuation16last_java_vframeE6HandleP11RegisterMap(ptr readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 _ZNK6HandleclEv.exit:
   %2 = alloca %class.frame, align 8
   %3 = icmp ne ptr %0, null
@@ -1331,7 +1331,7 @@ define hidden noundef ptr @_ZN12Continuation18continuation_scopeEP7oopDesc(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN12Continuation15is_scope_bottomEP7oopDescRK5framePK11RegisterMap(ptr noundef readnone %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN12Continuation15is_scope_bottomEP7oopDescRK5framePK11RegisterMap(ptr noundef readnone captures(address) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %31, label %5
 
@@ -1618,7 +1618,7 @@ _ZN5frameC2EPlS0_S0_PhP8CodeBlob.exit:            ; preds = %55, %61, %62
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN12Continuation30get_top_return_pc_post_barrierEP10JavaThreadPh(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN12Continuation30get_top_return_pc_post_barrierEP10JavaThreadPh(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address, ret: address, provenance) %1) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %3
 

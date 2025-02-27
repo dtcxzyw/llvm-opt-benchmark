@@ -21462,7 +21462,7 @@ declare void @_ZN4absl13cord_internal9CordzInfo18MaybeTrackCordImplERNS0_10Inlin
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4absl19functional_internal12InvokeObjectIZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKNS_6StatusEE3$_0vJSt17basic_string_viewIcSt11char_traitsIcEERKNS_4CordEEEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE"(ptr readonly captures(none) %0, i64 %1, ptr readonly %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #4 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4absl19functional_internal12InvokeObjectIZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKNS_6StatusEE3$_0vJSt17basic_string_viewIcSt11char_traitsIcEERKNS_4CordEEEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE"(ptr readonly captures(none) %0, i64 %1, ptr readonly captures(address_is_null) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.std::pair", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

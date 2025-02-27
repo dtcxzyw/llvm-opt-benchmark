@@ -173,7 +173,7 @@ define ptr @TS_CONF_load_key(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 declare ptr @PEM_read_bio_PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @TS_CONF_get_tsa_section(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define ptr @TS_CONF_get_tsa_section(ptr noundef %0, ptr noundef readnone captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %6
 

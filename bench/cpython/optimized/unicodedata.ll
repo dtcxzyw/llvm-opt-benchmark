@@ -250,7 +250,7 @@ define ptr @PyInit_unicodedata() local_unnamed_addr #0 {
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_decimal(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal ptr @unicodedata_UCD_decimal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = add i64 %2, -1
   %or.cond = icmp ult i64 %4, 2
   br i1 %or.cond, label %7, label %5
@@ -592,7 +592,7 @@ unicodedata_UCD_digit_impl.exit:                  ; preds = %59, %57, %54, %.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_numeric(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal ptr @unicodedata_UCD_numeric(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = add i64 %2, -1
   %or.cond = icmp ult i64 %4, 2
   br i1 %or.cond, label %7, label %5
@@ -780,7 +780,7 @@ unicodedata_UCD_numeric_impl.exit:                ; preds = %72, %70, %67, %65, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_category(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal ptr @unicodedata_UCD_category(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !8
   %4 = getelementptr i8, ptr %.val, i64 168
@@ -939,7 +939,7 @@ unicodedata_UCD_category_impl.exit:               ; preds = %_getrecord_ex.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_bidirectional(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal ptr @unicodedata_UCD_bidirectional(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !8
   %4 = getelementptr i8, ptr %.val, i64 168
@@ -1103,7 +1103,7 @@ unicodedata_UCD_bidirectional_impl.exit:          ; preds = %_getrecord_ex.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_combining(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal ptr @unicodedata_UCD_combining(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !8
   %4 = getelementptr i8, ptr %.val, i64 168
@@ -1259,7 +1259,7 @@ unicodedata_UCD_combining_impl.exit:              ; preds = %_getrecord_ex.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_mirrored(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal ptr @unicodedata_UCD_mirrored(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !8
   %4 = getelementptr i8, ptr %.val, i64 168
@@ -1422,7 +1422,7 @@ unicodedata_UCD_mirrored_impl.exit:               ; preds = %_getrecord_ex.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_east_asian_width(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal ptr @unicodedata_UCD_east_asian_width(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !8
   %4 = getelementptr i8, ptr %.val, i64 168
@@ -1587,7 +1587,7 @@ unicodedata_UCD_east_asian_width_impl.exit:       ; preds = %_getrecord_ex.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_decomposition(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal ptr @unicodedata_UCD_decomposition(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca [256 x i8], align 16
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !8
@@ -1794,7 +1794,7 @@ unicodedata_UCD_decomposition_impl.exit:          ; preds = %.thread.i, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_name(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal ptr @unicodedata_UCD_name(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [257 x i8], align 16
   %5 = add i64 %2, -1
   %or.cond = icmp ult i64 %5, 2
@@ -1956,7 +1956,7 @@ unicodedata_UCD_name_impl.exit:                   ; preds = %.thread24, %53, %56
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_lookup(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal ptr @unicodedata_UCD_lookup(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -2385,7 +2385,7 @@ unicodedata_UCD_is_normalized_impl.exit:          ; preds = %150, %is_normalized
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_normalize(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal ptr @unicodedata_UCD_normalize(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %or.cond = icmp eq i64 %2, 2
   br i1 %or.cond, label %6, label %4
 
@@ -2977,7 +2977,7 @@ declare i32 @PyOS_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_getucname(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_getucname(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = icmp ugt i32 %1, 1114111
   br i1 %6, label %.critedge, label %7
 
@@ -3710,7 +3710,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 declare i32 @PyUnicode_CompareWithASCIIString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @nfc_nfkc(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
+define internal ptr @nfc_nfkc(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [20 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4) #9
   %5 = tail call ptr @nfd_nfkd(ptr noundef %0, ptr noundef %1, i32 noundef %2)
@@ -4251,7 +4251,7 @@ Py_DECREF.exit:                                   ; preds = %25, %22, %.thread, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @nfd_nfkd(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
+define internal ptr @nfd_nfkd(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [20 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #9
   %5 = getelementptr i8, ptr %1, i64 16

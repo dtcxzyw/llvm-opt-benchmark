@@ -1239,7 +1239,7 @@ define noundef ptr @_ZN9grpc_core22OutlierDetectionConfig10JsonLoaderERKNS_8Json
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core22OutlierDetectionConfig12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE(ptr noundef nonnull align 8 captures(none) dereferenceable(68) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core22OutlierDetectionConfig12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE(ptr noundef nonnull align 8 captures(none) dereferenceable(68) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -2879,7 +2879,7 @@ declare void @_ZN9grpc_core19LoadBalancingPolicyC2ENS0_4ArgsEl(ptr noundef nonnu
 declare void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) unnamed_addr #20
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLbETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS9_(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr %.0.val) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLbETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS9_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr %.0.val) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #36
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9008,7 +9008,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #26
 declare double @llvm.fmuladd.f64(double, double, double) #27
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb13EndpointStateETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb13EndpointStateETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #36
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9036,7 +9036,7 @@ _ZNSolsEPKv.exit:                                 ; preds = %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb13EndpointState5EjectERKNS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(112) initializes((96, 104)) %0, i64 %.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb13EndpointState5EjectERKNS_9TimestampE(ptr noundef nonnull align 8 captures(address) dereferenceable(112) initializes((96, 104)) %0, i64 %.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::lts_20240722::Status", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.absl::lts_20240722::AlphaNum", align 8
@@ -9446,7 +9446,7 @@ define linkonce_odr void @_ZNK9grpc_core20DelegatingSubchannel7addressB5cxx11Ev(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb13EndpointState7UnejectEv(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb13EndpointState7UnejectEv(ptr noundef nonnull align 8 captures(address) dereferenceable(112) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::lts_20240722::Status", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i8, ptr %3, align 8, !tbaa !317, !range !80, !noundef !81
@@ -12395,7 +12395,7 @@ define internal void @_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb6Helper16Cr
 
 17:                                               ; preds = %5
   store ptr null, ptr %0, align 8, !tbaa !375
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit68
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit69
 
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %.val37, i64 152
@@ -12419,16 +12419,16 @@ define internal void @_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb6Helper16Cr
 
 _ZNSt8_Rb_treeI21grpc_resolved_addressSt4pairIKS0_N9grpc_core13RefCountedPtrINS3_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEEESt10_Select1stIS9_ENS3_23ResolvedAddressLessThanESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS2_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %24 = icmp eq ptr %.19.i.i.i, %21
-  br i1 %24, label %27, label %.noexc48
+  br i1 %24, label %27, label %.noexc49
 
-.noexc48:                                         ; preds = %_ZNSt8_Rb_treeI21grpc_resolved_addressSt4pairIKS0_N9grpc_core13RefCountedPtrINS3_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEEESt10_Select1stIS9_ENS3_23ResolvedAddressLessThanESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS2_.exit.i.i
+.noexc49:                                         ; preds = %_ZNSt8_Rb_treeI21grpc_resolved_addressSt4pairIKS0_N9grpc_core13RefCountedPtrINS3_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEEESt10_Select1stIS9_ENS3_23ResolvedAddressLessThanESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS2_.exit.i.i
   %25 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %26 = tail call noundef zeroext i1 @_ZNK9grpc_core23ResolvedAddressLessThanclERK21grpc_resolved_addressS3_(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 4 dereferenceable(132) %2, ptr noundef nonnull align 4 dereferenceable(132) %25)
   %spec.select.i.i = select i1 %26, ptr %21, ptr %.19.i.i.i
   br label %27
 
-27:                                               ; preds = %18, %_ZNSt8_Rb_treeI21grpc_resolved_addressSt4pairIKS0_N9grpc_core13RefCountedPtrINS3_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEEESt10_Select1stIS9_ENS3_23ResolvedAddressLessThanESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, %.noexc48
-  %.sroa.0.0.i.i = phi ptr [ %21, %_ZNSt8_Rb_treeI21grpc_resolved_addressSt4pairIKS0_N9grpc_core13RefCountedPtrINS3_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEEESt10_Select1stIS9_ENS3_23ResolvedAddressLessThanESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS2_.exit.i.i ], [ %21, %18 ], [ %spec.select.i.i, %.noexc48 ]
+27:                                               ; preds = %18, %_ZNSt8_Rb_treeI21grpc_resolved_addressSt4pairIKS0_N9grpc_core13RefCountedPtrINS3_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEEESt10_Select1stIS9_ENS3_23ResolvedAddressLessThanESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, %.noexc49
+  %.sroa.0.0.i.i = phi ptr [ %21, %_ZNSt8_Rb_treeI21grpc_resolved_addressSt4pairIKS0_N9grpc_core13RefCountedPtrINS3_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEEESt10_Select1stIS9_ENS3_23ResolvedAddressLessThanESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS2_.exit.i.i ], [ %21, %18 ], [ %spec.select.i.i, %.noexc49 ]
   %.val39 = load ptr, ptr %13, align 8, !tbaa !245
   %28 = getelementptr inbounds nuw i8, ptr %.val39, i64 160
   %.not = icmp eq ptr %.sroa.0.0.i.i, %28
@@ -12442,7 +12442,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelSt
   br label %32
 
 32:                                               ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit, %27
-  %.sroa.075.0 = phi ptr [ %.val36, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit ], [ null, %27 ]
+  %.sroa.076.0 = phi ptr [ %.val36, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit ], [ null, %27 ]
   %33 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core26outlier_detection_lb_traceE, i64 16) monotonic, align 8
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %77, !prof !99
@@ -12486,7 +12486,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi27EEERS2_RAT__Kc.exit: ; pr
           to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi20EEERS2_RAT__Kc.exit unwind label %63
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi20EEERS2_RAT__Kc.exit: ; preds = %43
-  %44 = invoke fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr %.sroa.075.0)
+  %44 = invoke fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr %.sroa.076.0)
           to label %45 unwind label %65
 
 45:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi20EEERS2_RAT__Kc.exit
@@ -12528,7 +12528,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 58:                                               ; preds = %56, %54
   %.pn = phi { ptr, i32 } [ %57, %56 ], [ %55, %54 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #36
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55
 
 59:                                               ; preds = %37
   %60 = landingpad { ptr, i32 }
@@ -12561,23 +12561,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %69 = load ptr, ptr %8, align 8, !tbaa !42
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %71 = icmp eq ptr %69, %70
-  br i1 %71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i53, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52
+  br i1 %71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i53: ; preds = %68
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54: ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !34
   %74 = icmp ult i64 %73, 16
   call void @llvm.assume(i1 %74)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52: ; preds = %68
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53: ; preds = %68
   %75 = load i64, ptr %70, align 8, !tbaa !7
   %76 = add i64 %75, 1
   call void @_ZdlPvm(ptr noundef %69, i64 noundef %76) #40
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i53, %58
-  %.pn17.pn.pn.pn = phi { ptr, i32 } [ %.pn, %58 ], [ %.pn17.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i53 ], [ %.pn17.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54, %58
+  %.pn17.pn.pn.pn = phi { ptr, i32 } [ %.pn, %58 ], [ %.pn17.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54 ], [ %.pn17.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #36
   br label %279
 
@@ -12627,22 +12627,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %98 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #37
-          to label %.noexc58 unwind label %270
+          to label %.noexc59 unwind label %270
 
-.noexc58:                                         ; preds = %97
+.noexc59:                                         ; preds = %97
   %99 = load ptr, ptr %11, align 8, !tbaa !88, !noalias !435
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %101 = load ptr, ptr %80, align 8, !tbaa !93, !noalias !435
-  %.not.i.i55 = icmp eq ptr %.sroa.075.0, null
+  %.not.i.i56 = icmp eq ptr %.sroa.076.0, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  br i1 %.not.i.i55, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEC2ERKS4_.exit.i, label %102
+  br i1 %.not.i.i56, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEC2ERKS4_.exit.i, label %102
 
-102:                                              ; preds = %.noexc58
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.075.0, i64 8
+102:                                              ; preds = %.noexc59
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 8
   %104 = atomicrmw add ptr %103, i64 1 monotonic, align 8, !noalias !435
   br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEC2ERKS4_.exit.i
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEC2ERKS4_.exit.i: ; preds = %102, %.noexc58
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEC2ERKS4_.exit.i: ; preds = %102, %.noexc59
   %105 = load ptr, ptr %12, align 8, !tbaa !375, !noalias !435
   store ptr null, ptr %12, align 8, !tbaa !375, !noalias !435
   store ptr null, ptr %7, align 8, !tbaa !375, !noalias !435
@@ -12658,16 +12658,16 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelSt
   store ptr %101, ptr %109, align 8, !tbaa !93, !noalias !435
   store ptr null, ptr %6, align 8, !tbaa !88, !noalias !435
   %110 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  store ptr %.sroa.075.0, ptr %110, align 8, !tbaa !228, !noalias !435
+  store ptr %.sroa.076.0, ptr %110, align 8, !tbaa !228, !noalias !435
   %111 = getelementptr inbounds nuw i8, ptr %98, i64 48
   store i8 0, ptr %111, align 8, !tbaa !350, !noalias !435
   %112 = getelementptr inbounds nuw i8, ptr %98, i64 56
   store ptr null, ptr %112, align 8, !tbaa !360, !noalias !435
-  br i1 %.not.i.i55, label %_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperC2ESt10shared_ptrINS_14WorkSerializerEENS_13RefCountedPtrINS1_15SubchannelStateEEENS6_INS_19SubchannelInterfaceEEE.exit.i, label %113
+  br i1 %.not.i.i56, label %_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperC2ESt10shared_ptrINS_14WorkSerializerEENS_13RefCountedPtrINS1_15SubchannelStateEEENS6_INS_19SubchannelInterfaceEEE.exit.i, label %113
 
 113:                                              ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEC2ERKS4_.exit.i
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.075.0, i64 32
-  %115 = getelementptr inbounds nuw i8, ptr %.sroa.075.0, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 24
   %.01113.i.i.i.i.i.i = load ptr, ptr %114, align 8, !tbaa !43, !noalias !435
   %.not14.i.i.i.i.i.i = icmp eq ptr %.01113.i.i.i.i.i.i, null
   br i1 %.not14.i.i.i.i.i.i, label %._crit_edge.thread.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -12688,7 +12688,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelSt
 
 ._crit_edge.thread.i.i.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i.i.i, %113
   %.010.lcssa19.i.i.i.i.i.i = phi ptr [ %.01115.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %115, %113 ]
-  %119 = getelementptr inbounds nuw i8, ptr %.sroa.075.0, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 40
   %.val7.i.i.i.i.i.i = load ptr, ptr %119, align 8, !tbaa !156, !noalias !435
   %120 = icmp eq ptr %.010.lcssa19.i.i.i.i.i.i, %.val7.i.i.i.i.i.i
   br i1 %120, label %select.unfold.i.i.i.i.i, label %121
@@ -12725,7 +12725,7 @@ _ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapper
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 32
   store ptr %98, ptr %133, align 8, !tbaa !348, !noalias !435
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %131, ptr noundef nonnull %132, ptr noundef nonnull %.sroa.4.0.i.ph.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %115) #36, !noalias !435
-  %134 = getelementptr inbounds nuw i8, ptr %.sroa.075.0, i64 56
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 56
   %135 = load i64, ptr %134, align 8, !tbaa !158, !noalias !435
   %136 = add i64 %135, 1
   store i64 %136, ptr %134, align 8, !tbaa !158, !noalias !435
@@ -12733,7 +12733,7 @@ _ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapper
   br label %_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb15SubchannelState13AddSubchannelEPNS1_17SubchannelWrapperE.exit.i.i
 
 _ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb15SubchannelState13AddSubchannelEPNS1_17SubchannelWrapperE.exit.i.i: ; preds = %.noexc.i.i, %123
-  %.val10.i.i = phi ptr [ %.val10.pre.i.i, %.noexc.i.i ], [ %.sroa.075.0, %123 ]
+  %.val10.i.i = phi ptr [ %.val10.pre.i.i, %.noexc.i.i ], [ %.sroa.076.0, %123 ]
   %137 = getelementptr inbounds nuw i8, ptr %.val10.i.i, i64 64
   invoke void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %137)
           to label %.noexc13.i.i unwind label %156, !noalias !435
@@ -12741,8 +12741,8 @@ _ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb15SubchannelState13AddSubchannelE
 .noexc13.i.i:                                     ; preds = %_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb15SubchannelState13AddSubchannelEPNS1_17SubchannelWrapperE.exit.i.i
   %138 = getelementptr inbounds nuw i8, ptr %.val10.i.i, i64 72
   %139 = load ptr, ptr %138, align 8, !tbaa !207, !noalias !440
-  %.not.i.i.i.i56 = icmp eq ptr %139, null
-  br i1 %.not.i.i.i.i56, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb13EndpointStateEEC2ERKS4_.exit.i.i.i, label %140
+  %.not.i.i.i.i57 = icmp eq ptr %139, null
+  br i1 %.not.i.i.i.i57, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb13EndpointStateEEC2ERKS4_.exit.i.i.i, label %140
 
 140:                                              ; preds = %.noexc13.i.i
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
@@ -12796,7 +12796,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb13EndpointStat
 
 158:                                              ; preds = %156, %.thread.i.i
   %.pn25.i.i = phi { ptr, i32 } [ %155, %.thread.i.i ], [ %157, %156 ]
-  %.val624.i.i = phi ptr [ %.sroa.075.0, %.thread.i.i ], [ %.val6.pre.i.i, %156 ]
+  %.val624.i.i = phi ptr [ %.sroa.076.0, %.thread.i.i ], [ %.val6.pre.i.i, %156 ]
   %159 = getelementptr inbounds nuw i8, ptr %.val624.i.i, i64 8
   %160 = atomicrmw sub ptr %159, i64 1 acq_rel, align 8, !noalias !435
   %161 = icmp eq i64 %160, 1
@@ -12855,8 +12855,8 @@ _ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperC2ESt10shared_
 
 _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit.i: ; preds = %174, %.noexc.i8.i, %_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperC2ESt10shared_ptrINS_14WorkSerializerEENS_13RefCountedPtrINS1_15SubchannelStateEEENS6_INS_19SubchannelInterfaceEEE.exit.i
   %181 = load ptr, ptr %100, align 8, !tbaa !93, !noalias !435
-  %.not.i.i.i57 = icmp eq ptr %181, null
-  br i1 %.not.i.i.i57, label %203, label %182
+  %.not.i.i.i58 = icmp eq ptr %181, null
+  br i1 %.not.i.i.i58, label %203, label %182
 
 182:                                              ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit.i
   %183 = getelementptr inbounds nuw i8, ptr %181, i64 8
@@ -12906,8 +12906,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %199, %19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %204 = load ptr, ptr %12, align 8, !tbaa !375
-  %.not.i59 = icmp eq ptr %204, null
-  br i1 %.not.i59, label %_ZN9grpc_core13RefCountedPtrINS_19SubchannelInterfaceEED2Ev.exit, label %205
+  %.not.i60 = icmp eq ptr %204, null
+  br i1 %.not.i60, label %_ZN9grpc_core13RefCountedPtrINS_19SubchannelInterfaceEED2Ev.exit, label %205
 
 205:                                              ; preds = %203
   %206 = getelementptr inbounds nuw i8, ptr %204, i64 8
@@ -12945,8 +12945,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %199, %19
 _ZN9grpc_core13RefCountedPtrINS_19SubchannelInterfaceEED2Ev.exit: ; preds = %203, %.noexc.i, %215
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #36
   %222 = load ptr, ptr %80, align 8, !tbaa !93
-  %.not.i.i60 = icmp eq ptr %222, null
-  br i1 %.not.i.i60, label %_ZNSt12__shared_ptrIN9grpc_core14WorkSerializerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %223
+  %.not.i.i61 = icmp eq ptr %222, null
+  br i1 %.not.i.i61, label %_ZNSt12__shared_ptrIN9grpc_core14WorkSerializerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %223
 
 223:                                              ; preds = %_ZN9grpc_core13RefCountedPtrINS_19SubchannelInterfaceEED2Ev.exit
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 8
@@ -12971,8 +12971,8 @@ _ZN9grpc_core13RefCountedPtrINS_19SubchannelInterfaceEED2Ev.exit: ; preds = %203
 
 236:                                              ; preds = %223
   %237 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !7
-  %.not.i.i.i61 = icmp eq i8 %237, 0
-  br i1 %.not.i.i.i61, label %240, label %238
+  %.not.i.i.i62 = icmp eq i8 %237, 0
+  br i1 %.not.i.i.i62, label %240, label %238
 
 238:                                              ; preds = %236
   %239 = add nsw i32 %227, -1
@@ -12994,11 +12994,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %240, %238
 
 _ZNSt12__shared_ptrIN9grpc_core14WorkSerializerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN9grpc_core13RefCountedPtrINS_19SubchannelInterfaceEED2Ev.exit, %228, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %243
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #36
-  br i1 %.not.i.i55, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperEED2Ev.exit, label %244
+  br i1 %.not.i.i56, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperEED2Ev.exit, label %244
 
 244:                                              ; preds = %_ZNSt12__shared_ptrIN9grpc_core14WorkSerializerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %245 = getelementptr inbounds nuw i8, ptr %.sroa.075.0, i64 32
-  %246 = getelementptr inbounds nuw i8, ptr %.sroa.075.0, i64 24
+  %245 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 32
+  %246 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 24
   %.01113.i.i.i.i = load ptr, ptr %245, align 8, !tbaa !43
   %.not14.i.i.i.i = icmp eq ptr %.01113.i.i.i.i, null
   br i1 %.not14.i.i.i.i, label %._crit_edge.thread.i.i.i.i, label %.lr.ph.i.i.i.i
@@ -13011,15 +13011,15 @@ _ZNSt12__shared_ptrIN9grpc_core14WorkSerializerELN9__gnu_cxx12_Lock_policyE2EED2
   %.in.v.i.i.i.i = select i1 %249, i64 16, i64 24
   %.in.i.i.i.i = getelementptr i8, ptr %.01115.i.i.i.i, i64 %.in.v.i.i.i.i
   %.011.i.i.i.i = load ptr, ptr %.in.i.i.i.i, align 8, !tbaa !43
-  %.not.i.i.i.i62 = icmp eq ptr %.011.i.i.i.i, null
-  br i1 %.not.i.i.i.i62, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !439
+  %.not.i.i.i.i63 = icmp eq ptr %.011.i.i.i.i, null
+  br i1 %.not.i.i.i.i63, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !439
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i
   br i1 %249, label %._crit_edge.thread.i.i.i.i, label %254
 
 ._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %244
   %.010.lcssa19.i.i.i.i = phi ptr [ %.01115.i.i.i.i, %._crit_edge.i.i.i.i ], [ %246, %244 ]
-  %250 = getelementptr inbounds nuw i8, ptr %.sroa.075.0, i64 40
+  %250 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 40
   %.val7.i.i.i.i = load ptr, ptr %250, align 8, !tbaa !156
   %251 = icmp eq ptr %.010.lcssa19.i.i.i.i, %.val7.i.i.i.i
   br i1 %251, label %select.unfold.i.i.i, label %252
@@ -13050,13 +13050,13 @@ select.unfold.i.i.i:                              ; preds = %254, %._crit_edge.t
 _ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i.i: ; preds = %258, %select.unfold.i.i.i
   %262 = phi i1 [ true, %select.unfold.i.i.i ], [ %261, %258 ]
   %263 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #37
-          to label %.noexc63 unwind label %.thread81
+          to label %.noexc64 unwind label %.thread81
 
-.noexc63:                                         ; preds = %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i.i
+.noexc64:                                         ; preds = %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i.i
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 32
   store ptr %98, ptr %264, align 8, !tbaa !348
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %262, ptr noundef nonnull %263, ptr noundef nonnull %.sroa.4.0.i.ph.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %246) #36
-  %265 = getelementptr inbounds nuw i8, ptr %.sroa.075.0, i64 56
+  %265 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 56
   %266 = load i64, ptr %265, align 8, !tbaa !158
   %267 = add i64 %266, 1
   store i64 %267, ptr %265, align 8, !tbaa !158
@@ -13092,40 +13092,40 @@ _ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapper
 
 _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperEED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN9grpc_core14WorkSerializerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   store ptr %98, ptr %0, align 8, !tbaa !375
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit68
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit69
 
-274:                                              ; preds = %254, %.noexc63
+274:                                              ; preds = %254, %.noexc64
   store ptr %98, ptr %0, align 8, !tbaa !375
-  %275 = getelementptr inbounds nuw i8, ptr %.sroa.075.0, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 8
   %276 = atomicrmw sub ptr %275, i64 1 acq_rel, align 8
   %277 = icmp eq i64 %276, 1
-  br i1 %277, label %278, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit68, !prof !99
+  br i1 %277, label %278, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit69, !prof !99
 
 278:                                              ; preds = %274
-  call fastcc void @_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.075.0)
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit68
+  call fastcc void @_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.076.0)
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit69
 
-279:                                              ; preds = %272, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54
-  %.pn25.pn = phi { ptr, i32 } [ %.pn17.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ %.pn22, %272 ]
-  %.not.i69 = icmp eq ptr %.sroa.075.0, null
-  br i1 %.not.i69, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit70, label %.thread87
+279:                                              ; preds = %272, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55
+  %.pn25.pn = phi { ptr, i32 } [ %.pn17.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55 ], [ %.pn22, %272 ]
+  %.not.i70 = icmp eq ptr %.sroa.076.0, null
+  br i1 %.not.i70, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit71, label %.thread87
 
 .thread87:                                        ; preds = %.thread81, %279
   %.pn25.pn86 = phi { ptr, i32 } [ %273, %.thread81 ], [ %.pn25.pn, %279 ]
-  %280 = getelementptr inbounds nuw i8, ptr %.sroa.075.0, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 8
   %281 = atomicrmw sub ptr %280, i64 1 acq_rel, align 8
   %282 = icmp eq i64 %281, 1
-  br i1 %282, label %283, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit70, !prof !99
+  br i1 %282, label %283, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit71, !prof !99
 
 283:                                              ; preds = %.thread87
-  call fastcc void @_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.075.0)
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit70
+  call fastcc void @_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.076.0)
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit71
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit70: ; preds = %279, %.thread87, %283
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit71: ; preds = %279, %.thread87, %283
   %.pn25.pn80 = phi { ptr, i32 } [ %.pn25.pn, %279 ], [ %.pn25.pn86, %.thread87 ], [ %.pn25.pn86, %283 ]
   resume { ptr, i32 } %.pn25.pn80
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit68: ; preds = %278, %274, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperEED2Ev.exit, %17
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit69: ; preds = %278, %274, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperEED2Ev.exit, %17
   ret void
 }
 
@@ -13858,7 +13858,7 @@ _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr %.0.val) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr %.0.val) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #36
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14930,7 +14930,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core12_GLOBAL__N_11
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapper14WatcherWrapperESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #32 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapper14WatcherWrapperESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #32 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -15650,7 +15650,7 @@ declare void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBuf
 declare void @_ZN4absl12lts_202407226Status12ToStringSlowB5cxx11EmNS0_18StatusToStringModeE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i64 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb6PickerETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr %.0.val) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb6PickerETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr %.0.val) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #36
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8

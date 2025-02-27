@@ -2896,7 +2896,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core13GrpcXdsClientC2ESt17basic_string_viewIcSt11char_traitsIcEESt10shared_ptrINS_16GrpcXdsBootstrapEERKNS_11ChannelArgsENS_13RefCountedPtrINS_19XdsTransportFactoryEEENS_25GlobalStatsPluginRegistry16StatsPluginGroupE(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0, i64 %1, ptr readonly %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5, ptr noundef captures(none) %6) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core13GrpcXdsClientC2ESt17basic_string_viewIcSt11char_traitsIcEESt10shared_ptrINS_16GrpcXdsBootstrapEERKNS_11ChannelArgsENS_13RefCountedPtrINS_19XdsTransportFactoryEEENS_25GlobalStatsPluginRegistry16StatsPluginGroupE(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0, i64 %1, ptr readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5, ptr noundef captures(none) %6) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.absl::lts_20240722::AlphaNum", align 8
   %9 = alloca %"class.absl::lts_20240722::AlphaNum", align 8
   %10 = alloca %"class.absl::lts_20240722::AlphaNum", align 8

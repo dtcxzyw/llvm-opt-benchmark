@@ -1535,7 +1535,7 @@ cleanup.cont89:                                   ; preds = %cleanup82, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3irr3gui8CGUIFont20getAreaFromCharacterEw(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, i32 noundef signext %c) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK3irr3gui8CGUIFont20getAreaFromCharacterEw(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %this, i32 noundef signext %c) local_unnamed_addr #5 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8, !tbaa !20
@@ -1670,7 +1670,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3irr3gui8CGUIFont15getKerningWidthEPKwS3_(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef readonly %thisLetter, ptr noundef readonly %previousLetter) unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK3irr3gui8CGUIFont15getKerningWidthEPKwS3_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %this, ptr noundef readonly captures(address_is_null) %thisLetter, ptr noundef readonly captures(address_is_null) %previousLetter) unnamed_addr #5 align 2 {
 entry:
   %GlobalKerningWidth = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load i32, ptr %GlobalKerningWidth, align 8, !tbaa !126
@@ -1794,7 +1794,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3irr3gui8CGUIFont19getSpriteNoFromCharEPKw(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef readonly captures(none) %c) unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK3irr3gui8CGUIFont19getSpriteNoFromCharEPKw(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %this, ptr noundef readonly captures(none) %c) unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %c, align 4, !tbaa !38
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -1973,7 +1973,7 @@ _ZN3irr4core6stringIwEaSIwEERS2_PKT_.exit:        ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK3irr3gui8CGUIFont12getDimensionEPKw(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef readonly captures(none) %text) unnamed_addr #5 align 2 {
+define i64 @_ZNK3irr3gui8CGUIFont12getDimensionEPKw(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %this, ptr noundef readonly captures(none) %text) unnamed_addr #5 align 2 {
 entry:
   %MaxHeight = getelementptr inbounds nuw i8, ptr %this, i64 116
   %0 = load i32, ptr %MaxHeight, align 4, !tbaa !47
@@ -2610,7 +2610,7 @@ cleanup.cont87:                                   ; preds = %_ZN3irr4core5arrayI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3irr3gui8CGUIFont19getCharacterFromPosEPKwi(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef readonly captures(none) %text, i32 noundef %pixel_x) unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK3irr3gui8CGUIFont19getCharacterFromPosEPKwi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %this, ptr noundef readonly captures(none) %text, i32 noundef %pixel_x) unnamed_addr #5 align 2 {
 entry:
   %Areas = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56

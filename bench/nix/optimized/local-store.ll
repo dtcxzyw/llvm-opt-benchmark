@@ -20856,7 +20856,7 @@ define noundef zeroext i1 @_ZTv0_n56_N3nix10LocalStore19isValidPathUncachedERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStore15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagE(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i1 zeroext %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagE(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2, i1 zeroext %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8
@@ -20943,7 +20943,7 @@ _ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev.exit
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n64_N3nix10LocalStore15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagE(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i1 zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZTv0_n64_N3nix10LocalStore15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagE(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %2, i1 zeroext %3) unnamed_addr #4 align 2 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -64
   %7 = load i64, ptr %6, align 8
@@ -22412,7 +22412,7 @@ define void @_ZTv0_n152_N3nix10LocalStore21queryPathFromHashPartERKNSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStore23querySubstitutablePathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore23querySubstitutablePathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %5 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %6 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
@@ -23037,7 +23037,7 @@ _ZNSt7__cxx1110_List_baseIN3nix3refINS1_5StoreEEESaIS4_EED2Ev.exit: ; preds = %_
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n160_N3nix10LocalStore23querySubstitutablePathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #4 align 2 {
+define void @_ZTv0_n160_N3nix10LocalStore23querySubstitutablePathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %2) unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -160
   %6 = load i64, ptr %5, align 8
@@ -30379,7 +30379,7 @@ _ZNSt12_Vector_baseIN3nix8DirEntryESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP
 }
 
 ; Function Attrs: uwtable
-define void @_ZN3nix10LocalStore10verifyPathERKNS_9StorePathERKSt3setIS1_St4lessIS1_ESaIS1_EERS8_SB_NS_10RepairFlagERb(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i1 noundef zeroext %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %6) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore10verifyPathERKNS_9StorePathERKSt3setIS1_St4lessIS1_ESaIS1_EERS8_SB_NS_10RepairFlagERb(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i1 noundef zeroext %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %6) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %9 = alloca %"struct.boost::io::detail::put_holder", align 8
   %10 = alloca %"class.boost::basic_format", align 8

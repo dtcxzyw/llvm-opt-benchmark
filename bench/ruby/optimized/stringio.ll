@@ -3897,7 +3897,7 @@ declare i64 @rb_enumeratorize_with_size(i64 noundef, i64 noundef, i32 noundef, p
 declare i64 @rb_frame_this_func() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef nonnull ptr @prepare_getline_args(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull returned %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @prepare_getline_args(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull returned captures(ret: address, provenance) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
 rb_scan_args_n_opt.exit:
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -4826,7 +4826,7 @@ declare i32 @rb_enc_codelen(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @rb_enc_uint_chr(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @strio_unget_bytes(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, i64 noundef range(i64 1, -9223372036854775808) %2) unnamed_addr #0 {
+define internal fastcc void @strio_unget_bytes(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef range(i64 1, -9223372036854775808) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !23
   %6 = load i64, ptr %0, align 8, !tbaa !10

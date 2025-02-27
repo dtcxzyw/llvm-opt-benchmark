@@ -14199,7 +14199,7 @@ declare noundef nonnull align 8 dereferenceable(80) ptr @_ZNK5clang10ASTContext1
 declare noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115MicrosoftCXXABI23GetVBaseOffsetFromVBPtrERN5clang7CodeGen15CodeGenFunctionENS2_7AddressEPN4llvm5ValueES8_PS8_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115MicrosoftCXXABI23GetVBaseOffsetFromVBPtrERN5clang7CodeGen15CodeGenFunctionENS2_7AddressEPN4llvm5ValueES8_PS8_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::InsertPosition", align 8
   %9 = alloca ptr, align 8
@@ -18195,7 +18195,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %.lr.ph, %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111MSRTTIClass10initializeEPKS0_PKN5clang16CXXBaseSpecifierE(ptr noundef nonnull align 8 dereferenceable(28) initializes((8, 28)) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111MSRTTIClass10initializeEPKS0_PKN5clang16CXXBaseSpecifierE(ptr noundef nonnull align 8 dereferenceable(28) initializes((8, 28)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 64, ptr %5, align 8, !tbaa !840

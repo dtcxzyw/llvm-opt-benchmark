@@ -262,7 +262,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nounwind
-define dso_local void @_ZN4mold9TarWriterD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4mold9TarWriterD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0) unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !23
   %3 = tail call i32 @fclose(ptr noundef %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

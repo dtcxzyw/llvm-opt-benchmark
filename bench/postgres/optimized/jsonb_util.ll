@@ -205,7 +205,7 @@ pushJsonbValueScalar.exit:                        ; preds = %10, %26, %27
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @pushJsonbValue(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local ptr @pushJsonbValue(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.JsonbValue, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
@@ -1591,7 +1591,7 @@ lengthCompareJsonbStringValue.exit:               ; preds = %11, %7, %6, %25, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getKeyJsonValueFromContainer(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
+define dso_local ptr @getKeyJsonValueFromContainer(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %3) local_unnamed_addr #1 {
   %5 = load i32, ptr %0, align 4
   %6 = and i32 %5, 268435455
   %7 = icmp eq i32 %6, 0
@@ -1788,7 +1788,7 @@ getJsonbOffset.exit:                              ; preds = %16, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pushJsonbValueScalar(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #1 {
+define internal fastcc ptr @pushJsonbValueScalar(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #1 {
   %4 = alloca i8, align 1
   switch i32 %1, label %190 [
     i32 4, label %5
@@ -2844,7 +2844,7 @@ declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @lengthCompareJsonbPair(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) #8 {
+define internal i32 @lengthCompareJsonbPair(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) #8 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %4, align 8
   %5 = getelementptr i8, ptr %1, i64 8

@@ -4754,7 +4754,7 @@ define dso_local noundef range(i32 -5, 1) i32 @jbd2_log_wait_commit(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_start_commit(ptr noundef %0, ptr noundef writeonly %1) #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_start_commit(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_raw_write_lock(ptr noundef nonnull %3) #20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -9311,7 +9311,7 @@ define internal noalias noundef ptr @jbd2_seq_info_next(ptr readnone captures(no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @jbd2_seq_info_show(ptr noundef %0, ptr noundef readnone %1) #1 align 16 {
+define internal noundef i32 @jbd2_seq_info_show(ptr noundef %0, ptr noundef readnone captures(address) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, inttoptr (i64 1 to ptr)

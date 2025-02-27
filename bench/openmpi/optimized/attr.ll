@@ -207,7 +207,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_class_init_epoch = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @prte_get_attribute(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define noundef zeroext i1 @prte_get_attribute(ptr noundef readonly captures(address) %0, i16 noundef zeroext %1, ptr noundef captures(address_is_null) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %.01723 = load ptr, ptr %6, align 8, !tbaa !3
@@ -273,7 +273,7 @@ declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #2
 declare ptr @PMIx_Data_type_string(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_attr_unload(ptr noundef readonly captures(none) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @prte_attr_unload(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -1147,7 +1147,7 @@ define i32 @prte_attr_load(ptr noundef initializes((152, 154)) %0, ptr noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @prte_fetch_attribute(ptr noundef readonly %0, ptr noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #4 {
+define ptr @prte_fetch_attribute(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i16 noundef zeroext %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br i1 %4, label %6, label %13
@@ -1454,7 +1454,7 @@ define range(i32 -2, 1) i32 @prte_attr_register(ptr noundef %0, i16 noundef zero
 declare void @pmix_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @prte_attr_print_list(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @prte_attr_print_list(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
   store ptr null, ptr %2, align 8, !tbaa !70

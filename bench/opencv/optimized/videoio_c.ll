@@ -638,7 +638,7 @@ define range(i32 0, 2) i32 @cvWriteFrame(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @cvReleaseVideoWriter(ptr noundef %0) local_unnamed_addr #5 {
+define void @cvReleaseVideoWriter(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -660,7 +660,7 @@ define void @cvReleaseVideoWriter(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @cvReleaseCapture(ptr noundef %0) local_unnamed_addr #5 {
+define void @cvReleaseCapture(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 

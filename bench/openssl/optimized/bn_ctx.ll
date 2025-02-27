@@ -233,7 +233,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @BN_CTX_end(ptr noundef %0) local_unnamed_addr #2 {
+define void @BN_CTX_end(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %38, label %3
 
@@ -455,7 +455,7 @@ BN_POOL_get.exit.thread:                          ; preds = %15, %BN_POOL_get.ex
 declare void @BN_zero_ex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_bn_get_libctx(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @ossl_bn_get_libctx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

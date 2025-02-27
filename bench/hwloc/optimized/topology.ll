@@ -1158,13 +1158,13 @@ hwloc___insert_object_by_cpuset.exit:             ; preds = %.critedge.i, %339, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @hwloc_topology_get_infos(ptr noundef readnone %0) local_unnamed_addr #0 {
+define nonnull ptr @hwloc_topology_get_infos(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 688
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 -1, 1) i32 @hwloc_obj_set_subtype(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #8 {
+define range(i32 -1, 1) i32 @hwloc_obj_set_subtype(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #8 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %4
 
@@ -1229,7 +1229,7 @@ define hidden void @hwloc__free_infos(ptr noundef readonly captures(none) %0) lo
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden range(i32 -1, 2) i32 @hwloc__add_info(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #8 {
+define hidden range(i32 -1, 2) i32 @hwloc__add_info(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #8 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -1300,7 +1300,7 @@ hwloc__realloc_infos.exit:                        ; preds = %15, %33, %22, %31, 
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483647, -2147483648) i32 @hwloc__replace_infos(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #5 {
+define hidden range(i32 -2147483647, -2147483648) i32 @hwloc__replace_infos(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8, !tbaa !69
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !68
@@ -1461,7 +1461,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @hwloc__replace_infos(ptr 
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @hwloc__remove_infos(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #5 {
+define hidden i32 @hwloc__remove_infos(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8, !tbaa !69
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !68
@@ -1617,7 +1617,7 @@ define hidden i32 @hwloc__remove_infos(ptr noundef captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @hwloc_modify_infos(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
+define i32 @hwloc_modify_infos(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #5 {
   switch i64 %1, label %50 [
     i64 1, label %5
     i64 2, label %7
@@ -6251,7 +6251,7 @@ define internal fastcc void @hwloc_set_group_depth(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @hwloc_topology_insert_misc_object(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #5 {
+define ptr @hwloc_topology_insert_misc_object(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %5 = load i32, ptr %4, align 4, !tbaa !31
   %6 = icmp eq i32 %5, 1
@@ -9651,7 +9651,7 @@ define i32 @hwloc_topology_get_depth(ptr noundef readonly captures(none) %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @hwloc_topology_get_support(ptr noundef readnone %0) local_unnamed_addr #0 {
+define nonnull ptr @hwloc_topology_get_support(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   ret ptr %2
 }

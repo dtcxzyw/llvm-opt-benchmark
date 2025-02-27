@@ -928,7 +928,7 @@ _ZNSt6vectorIS_ISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProvider18load_dep_info_varsENS_4SpanIKNS_11PackageSpecEEENS_7TripletE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr %1, i64 %2, ptr readnone %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProvider18load_dep_info_varsENS_4SpanIKNS_11PackageSpecEEENS_7TripletE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr %1, i64 %2, ptr readnone captures(address) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.fmt::v10::detail::iterator_buffer", align 8
   %6 = alloca %"class.fmt::v10::format_arg_store.178", align 16
   %7 = alloca %"class.fmt::v10::format_arg_store.122", align 16
@@ -1545,7 +1545,7 @@ _ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProvider13load_tag_varsERKNS_10ActionPlanENS_7TripletE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1, ptr readnone %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProvider13load_tag_varsERKNS_10ActionPlanENS_7TripletE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1, ptr readnone captures(address) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.200", align 8
   %5 = alloca %"struct.vcpkg::LineInfo", align 8
   %6 = alloca %"struct.vcpkg::Path", align 8
@@ -3611,7 +3611,7 @@ _ZNKSt4lessIN5vcpkg7TripletEEclERKS1_S4_.exit:    ; preds = %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkg9CMakeVarsL30create_extraction_file_preludeB5cxx11ERKNS_10VcpkgPathsERKSt3mapINS_7TripletEiSt4lessIS5_ESaISt4pairIKS5_iEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg9CMakeVarsL30create_extraction_file_preludeB5cxx11ERKNS_10VcpkgPathsERKSt3mapINS_7TripletEiSt4lessIS5_ESaISt4pairIKS5_iEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.fmt::v10::detail::iterator_buffer", align 8
   %5 = alloca %"class.fmt::v10::format_arg_store", align 16
   %6 = alloca %"struct.vcpkg::Path", align 8

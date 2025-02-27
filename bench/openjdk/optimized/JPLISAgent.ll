@@ -355,7 +355,7 @@ declare void @eventHandlerVMInit(ptr noundef, ptr noundef, ptr noundef) #1
 declare void @deallocate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 5) i32 @recordCommandLineData(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 5) i32 @recordCommandLineData(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.thread, label %5
 

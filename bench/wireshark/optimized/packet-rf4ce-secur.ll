@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [10 x i8] c"RF4CE GDP\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define hidden void @keypair_context_init(ptr noundef readonly %0, ptr noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define hidden void @keypair_context_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -274,7 +274,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @rf4ce_addr_table_get_addr_entry_by_ieee(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @rf4ce_addr_table_get_addr_entry_by_ieee(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.lr.ph.split
 
@@ -414,7 +414,7 @@ nwk_key_storage_get_entry_by_key.exit.thread:     ; preds = %15, %16, %nwk_key_s
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @rf4ce_addr_table_add_addrs(ptr noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #1 {
+define hidden void @rf4ce_addr_table_add_addrs(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge16, label %.preheader17
 
@@ -602,7 +602,7 @@ define hidden zeroext i1 @key_exchange_context_is_procedure_started() local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define hidden void @key_exchange_context_set_rand_a(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @key_exchange_context_set_rand_a(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -616,7 +616,7 @@ define hidden void @key_exchange_context_set_rand_a(ptr noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define hidden void @key_exchange_context_set_rand_b(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @key_exchange_context_set_rand_b(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -630,7 +630,7 @@ define hidden void @key_exchange_context_set_rand_b(ptr noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define hidden void @key_exchange_context_set_mac_a(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @key_exchange_context_set_mac_a(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -644,7 +644,7 @@ define hidden void @key_exchange_context_set_mac_a(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define hidden void @key_exchange_context_set_mac_b(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @key_exchange_context_set_mac_b(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 

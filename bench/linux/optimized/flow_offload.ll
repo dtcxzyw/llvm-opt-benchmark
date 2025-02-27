@@ -769,7 +769,7 @@ define dso_local void @flow_block_cb_free(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @flow_block_cb_lookup(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readnone %2) #5 align 16 {
+define dso_local ptr @flow_block_cb_lookup(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) #5 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, %0
   br i1 %5, label %.loopexit, label %.preheader
@@ -827,7 +827,7 @@ define dso_local i32 @flow_block_cb_decref(ptr noundef captures(none) %0) #7 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef zeroext i1 @flow_block_cb_is_busy(ptr noundef readnone %0, ptr noundef readnone %1, ptr noundef readonly %2) #5 align 16 {
+define dso_local noundef zeroext i1 @flow_block_cb_is_busy(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(address) %2) #5 align 16 {
   %4 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %4, %2
   br i1 %.not, label %.loopexit, label %.preheader
@@ -1146,7 +1146,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @tcf_action_reoffload_cb(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @flow_indr_dev_unregister(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #0 align 16 {
+define dso_local void @flow_indr_dev_unregister(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) #0 align 16 {
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
   store ptr %4, ptr %4, align 8

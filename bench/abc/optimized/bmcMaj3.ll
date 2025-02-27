@@ -3110,7 +3110,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Zyx_ManCreateSymVarPairs(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define noalias noundef ptr @Zyx_ManCreateSymVarPairs(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca [64 x i64], align 16
   %4 = alloca [64 x i64], align 16
   %5 = alloca [64 x i64], align 16
@@ -6999,7 +6999,7 @@ Zyx_ManPrintSolutionFile.exit:                    ; preds = %Abc_TtNot.exit65.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Zyx_TestGetTruthTablePars(ptr noundef readonly %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Zyx_TestGetTruthTablePars(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #3 {
 Abc_UtilStrsav.exit:
   %.not.i = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %.not.i)

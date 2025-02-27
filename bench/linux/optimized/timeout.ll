@@ -329,7 +329,7 @@ define internal fastcc void @io_fail_links(ptr noundef %0) unnamed_addr #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @__io_disarm_linked_timeout(ptr noundef captures(none) %0, ptr noundef initializes((40, 48)) %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef ptr @__io_disarm_linked_timeout(ptr noundef captures(none) %0, ptr noundef captures(ret: address, provenance) initializes((40, 48)) %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1254,7 +1254,7 @@ define internal noundef i32 @io_link_timeout_fn(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local zeroext i1 @io_kill_timeouts(ptr noundef %0, ptr noundef readnone %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @io_kill_timeouts(ptr noundef %0, ptr noundef readnone captures(address) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 832
   tail call void @_raw_spin_lock(ptr noundef nonnull %4) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 512

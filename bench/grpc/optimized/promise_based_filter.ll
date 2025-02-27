@@ -1938,7 +1938,7 @@ define void @_ZN9grpc_core21promise_filter_detail12BaseCallData13CapturedBatchC2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN9grpc_core21promise_filter_detail12BaseCallData13CapturedBatchaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN9grpc_core21promise_filter_detail12BaseCallData13CapturedBatchaSERKS2_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.grpc_core::promise_filter_detail::BaseCallData::CapturedBatch", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #41
   call void @_ZN9grpc_core21promise_filter_detail12BaseCallData13CapturedBatchC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -1960,7 +1960,7 @@ define void @_ZN9grpc_core21promise_filter_detail12BaseCallData13CapturedBatchC2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN9grpc_core21promise_filter_detail12BaseCallData13CapturedBatchaSEOS2_(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN9grpc_core21promise_filter_detail12BaseCallData13CapturedBatchaSEOS2_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !165
   %4 = load ptr, ptr %1, align 8, !tbaa !165
   store ptr %4, ptr %0, align 8, !tbaa !165

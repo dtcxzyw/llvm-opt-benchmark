@@ -362,7 +362,7 @@ define dso_local i64 @ktime_get_real_fast_ns() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ktime_get_fast_timestamps(ptr noundef writeonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ktime_get_fast_timestamps(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -1094,7 +1094,7 @@ define dso_local void @ktime_get_snapshot(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @get_device_system_crosststamp(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) #0 align 16 {
+define dso_local i32 @get_device_system_crosststamp(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) #0 align 16 {
   %5 = alloca %struct.system_counterval_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !67

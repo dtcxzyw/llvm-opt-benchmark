@@ -1825,7 +1825,7 @@ _ZL10outputCharcPcPiii.exit379:                   ; preds = %.loopexit.i372, %66
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL13outputUStringPKDsiPcPiii(ptr noundef readonly %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef nonnull captures(none) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #5 {
+define internal fastcc void @_ZL13outputUStringPKDsiPcPiii(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef nonnull captures(none) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #5 {
   %7 = icmp eq ptr %0, null
   %invariant.gep.i = getelementptr i8, ptr %2, i64 -1
   br i1 %7, label %11, label %.preheader

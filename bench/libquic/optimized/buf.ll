@@ -28,7 +28,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BUF_MEM_free(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @BUF_MEM_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -162,7 +162,7 @@ define hidden noundef i64 @BUF_MEM_grow_clean(ptr noundef captures(none) %0, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @BUF_strdup(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @BUF_strdup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %BUF_strndup.exit, label %3
 
@@ -215,7 +215,7 @@ BUF_strndup.exit:                                 ; preds = %16, %15, %11, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @BUF_strndup(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @BUF_strndup(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %18, label %4
 

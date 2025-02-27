@@ -615,7 +615,7 @@ declare noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UError
 declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @ucal_setDefaultTimeZone_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @ucal_setDefaultTimeZone_77(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = tail call fastcc noundef ptr @_ZL15_createTimeZonePKDsiP10UErrorCode(ptr noundef %0, i32 noundef -1, ptr noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -629,7 +629,7 @@ define void @ucal_setDefaultTimeZone_77(ptr noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL15_createTimeZonePKDsiP10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL15_createTimeZonePKDsiP10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.icu_77::UnicodeString", align 8
   %5 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %.not = icmp eq ptr %2, null
@@ -1127,7 +1127,7 @@ define noundef ptr @ucal_clone_77(ptr noundef %0, ptr noundef captures(none) %1)
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucal_setTimeZone_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define void @ucal_setTimeZone_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = load i32, ptr %3, align 4, !tbaa !13
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %16
@@ -1988,7 +1988,7 @@ define noundef ptr @ucal_getTZDataVersion_77(ptr noundef nonnull %0) local_unnam
 declare noundef ptr @_ZN6icu_778TimeZone16getTZDataVersionER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ucal_getCanonicalTimeZoneID_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef i32 @ucal_getCanonicalTimeZoneID_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.icu_77::UnicodeString", align 8
   %8 = alloca i8, align 1
   %9 = alloca %"class.icu_77::UnicodeString", align 8

@@ -57,7 +57,7 @@ define hidden void @BrotliWipeOutMemoryManager(ptr noundef readnone captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @BrotliBootstrapAlloc(i64 noundef %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr noundef %3) local_unnamed_addr #2 {
+define hidden ptr @BrotliBootstrapAlloc(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = icmp ne ptr %1, null
   %6 = icmp ne ptr %2, null
   %or.cond = or i1 %5, %6

@@ -845,7 +845,7 @@ hex_blamp.exit182.backedge:                       ; preds = %.lr.ph.i.i178, %210
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @hexwave_shutdown(ptr noundef readnone %0) local_unnamed_addr #9 {
+define void @hexwave_shutdown(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

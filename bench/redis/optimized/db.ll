@@ -223,7 +223,7 @@ declare ptr @kvstoreGetDictMetadata(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @kvstoreGetMetadata(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lookupKey(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local ptr @lookupKey(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = load ptr, ptr %0, align 8, !tbaa !6
@@ -562,7 +562,7 @@ define dso_local ptr @lookupKeyWrite(ptr noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lookupKeyWriteWithDictEntry(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @lookupKeyWriteWithDictEntry(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @lookupKey(ptr noundef %0, ptr noundef %1, i32 noundef 8, ptr noundef %2)
   ret ptr %4
 }
@@ -2080,7 +2080,7 @@ declare void @touchWatchedKey(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @trackingInvalidateKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @scanDatabaseForDeletedKeys(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @scanDatabaseForDeletedKeys(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !101
   %5 = tail call ptr @dictGetSafeIterator(ptr noundef %4) #20
@@ -3451,7 +3451,7 @@ define dso_local range(i64 9223372036854775807, 7) i64 @getObjectTypeByName(ptr 
 declare ptr @moduleTypeLookupModuleByNameIgnoreCase(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getObjectTypeName(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @getObjectTypeName(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %3
 
@@ -5001,7 +5001,7 @@ dbFindExpires.exit:                               ; preds = %12, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @setExpire(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local void @setExpire(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   tail call void @setExpireWithDictEntry(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef null)
   ret void
 }
@@ -5872,7 +5872,7 @@ define dso_local void @swapdbCommand(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @setExpireWithDictEntry(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @setExpireWithDictEntry(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5998,7 +5998,7 @@ define dso_local void @deleteExpiredKeyAndPropagate(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @deleteKeyAndPropagate(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 256, 513) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @deleteKeyAndPropagate(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 256, 513) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca [2 x ptr], align 16
   %6 = icmp eq i32 %2, 256
   %7 = select i1 %6, i32 2, i32 4
@@ -6176,7 +6176,7 @@ sdslen.exit:                                      ; preds = %16, %23, %26, %30, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @deleteEvictedKeyAndPropagate(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @deleteEvictedKeyAndPropagate(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   tail call fastcc void @deleteKeyAndPropagate(ptr noundef %0, ptr noundef %1, i32 noundef 512, ptr noundef %2)
   ret void
 }
@@ -7267,7 +7267,7 @@ define dso_local i32 @getKeysFromCommand(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @getKeysFreeResult(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @getKeysFreeResult(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 

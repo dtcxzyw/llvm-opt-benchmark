@@ -427,7 +427,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8internal21SwapRepeatedPtrToNullEPPNS0_16RepeatedPtrFieldINS0_7MessageEEES6_PNS0_5ArenaES8_(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readnone %2, ptr noundef %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8internal21SwapRepeatedPtrToNullEPPNS0_16RepeatedPtrFieldINS0_7MessageEEES6_PNS0_5ArenaES8_(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %_ZN6google8protobuf5Arena14InternalHelperINS0_16RepeatedPtrFieldINS0_7MessageEEEE3NewEv.exit, label %7
 

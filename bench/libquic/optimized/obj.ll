@@ -1278,7 +1278,7 @@ target triple = "x86_64-pc-linux-gnu"
 @global_next_nid_lock = internal global { { { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32, [4 x i8] } } } zeroinitializer, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @OBJ_dup(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden ptr @OBJ_dup(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %43, label %3
 

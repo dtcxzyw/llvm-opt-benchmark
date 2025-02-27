@@ -7018,7 +7018,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm22VPWidenIntrinsicRecipe16getIntrinsicNa
 declare { ptr, i64 } @_ZN4llvm9Intrinsic11getBaseNameEj(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm22VPWidenIntrinsicRecipe17onlyFirstLaneUsedEPKNS_7VPValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(179) %0, ptr noundef readnone %1) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm22VPWidenIntrinsicRecipe17onlyFirstLaneUsedEPKNS_7VPValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(179) %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load i32, ptr %3, align 8, !tbaa !328
   %5 = tail call noundef zeroext i1 @_ZN4llvm11VPIntrinsic13isVPIntrinsicEj(i32 noundef %4) #25
@@ -7042,7 +7042,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm22VPWidenIntrinsicRecipe17onlyFirs
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @_ZThn40_NK4llvm22VPWidenIntrinsicRecipe17onlyFirstLaneUsedEPKNS_7VPValueE(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZThn40_NK4llvm22VPWidenIntrinsicRecipe17onlyFirstLaneUsedEPKNS_7VPValueE(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8, !tbaa !328
   %5 = tail call noundef zeroext i1 @_ZN4llvm11VPIntrinsic13isVPIntrinsicEj(i32 noundef %4) #25

@@ -377,7 +377,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @byteArrayToRLEString(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define dso_local i32 @byteArrayToRLEString(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = alloca [2 x i8], align 2
   %7 = sext i32 %3 to i64
   %.idx = shl nsw i64 %7, 1
@@ -494,7 +494,7 @@ appendEncodedByte.exit:                           ; preds = %36, %42, %31, %30, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @encodeRunByte(ptr noundef writeonly %0, ptr noundef readnone %1, i8 noundef zeroext %2, i32 noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @encodeRunByte(ptr noundef writeonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, i8 noundef zeroext %2, i32 noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %appendEncodedByte.exit78, label %7
 
@@ -838,7 +838,7 @@ appendEncodedByte.exit78:                         ; preds = %appendEncodedByte.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rleStringToUCharArray(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define dso_local i32 @rleStringToUCharArray(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #3 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %56, label %6
 
@@ -957,7 +957,7 @@ define dso_local i32 @rleStringToUCharArray(ptr noundef %0, i32 noundef %1, ptr 
 declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rleStringToByteArray(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define dso_local i32 @rleStringToByteArray(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #3 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %69, label %6
 

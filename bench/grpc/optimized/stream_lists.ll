@@ -390,13 +390,13 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z39grpc_chttp2_list_remove_writable_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define noundef zeroext i1 @_Z39grpc_chttp2_list_remove_writable_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #3 {
   %3 = tail call fastcc noundef zeroext i1 @_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 5) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef range(i32 0, 5) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
@@ -575,7 +575,7 @@ define noundef zeroext i1 @_Z44grpc_chttp2_list_pop_waiting_for_concurrencyP21gr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z47grpc_chttp2_list_remove_waiting_for_concurrencyP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @_Z47grpc_chttp2_list_remove_waiting_for_concurrencyP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #3 {
   %3 = tail call fastcc noundef zeroext i1 @_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id(ptr noundef %0, ptr noundef %1, i32 noundef 4)
   ret void
 }
@@ -593,7 +593,7 @@ define noundef zeroext i1 @_Z41grpc_chttp2_list_pop_stalled_by_transportP21grpc_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z44grpc_chttp2_list_remove_stalled_by_transportP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @_Z44grpc_chttp2_list_remove_stalled_by_transportP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #3 {
   %3 = tail call fastcc noundef zeroext i1 @_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id(ptr noundef %0, ptr noundef %1, i32 noundef 2)
   ret void
 }
@@ -611,7 +611,7 @@ define noundef zeroext i1 @_Z38grpc_chttp2_list_pop_stalled_by_streamP21grpc_cht
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z41grpc_chttp2_list_remove_stalled_by_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define noundef zeroext i1 @_Z41grpc_chttp2_list_remove_stalled_by_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #3 {
   %3 = tail call fastcc noundef zeroext i1 @_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id(ptr noundef %0, ptr noundef %1, i32 noundef 3)
   ret i1 %3
 }

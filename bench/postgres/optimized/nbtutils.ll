@@ -243,7 +243,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 declare void @_bt_metaversion(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc ptr @BTreeTupleGetHeapTID(ptr noundef readonly %0) unnamed_addr #3 {
+define internal fastcc ptr @BTreeTupleGetHeapTID(ptr noundef readonly captures(ret: address, provenance) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %3 = load i16, ptr %2, align 2
   %4 = and i16 %3, 8192
@@ -806,7 +806,7 @@ define dso_local noundef zeroext i1 @_bt_start_prim_scan(ptr noundef %0, i32 nou
 declare void @_bt_parallel_done(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @_bt_checkkeys(ptr noundef %0, ptr noundef initializes((28, 29)) %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_bt_checkkeys(ptr noundef %0, ptr noundef captures(address_is_null) initializes((28, 29)) %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -1373,7 +1373,7 @@ select.unfold.i:                                  ; preds = %88, %51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_bt_tuple_before_array_skeys(ptr readonly captures(none) %.56.val, i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_bt_tuple_before_array_skeys(ptr readonly captures(none) %.56.val, i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %10, label %9
@@ -1517,7 +1517,7 @@ _bt_compare_array_skey.exit:                      ; preds = %47, %50, %52, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_bt_advance_array_keys(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_bt_advance_array_keys(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
@@ -3236,7 +3236,7 @@ define dso_local i32 @_bt_keep_natts_fast(ptr noundef readonly captures(none) %0
 declare zeroext i1 @datum_image_eq(i64 noundef, i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @_bt_check_natts(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #11 {
+define dso_local zeroext i1 @_bt_check_natts(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef readonly captures(address) %2, i16 noundef zeroext %3) local_unnamed_addr #11 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3387,7 +3387,7 @@ BTreeTupleIsPivot.exit69.thread:                  ; preds = %57, %.thread90, %BT
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_bt_check_third_page(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define dso_local void @_bt_check_third_page(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %4, i64 6
   %.val = load i16, ptr %6, align 2
   %7 = and i16 %.val, 8191

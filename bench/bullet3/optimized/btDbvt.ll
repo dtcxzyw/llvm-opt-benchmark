@@ -1605,7 +1605,7 @@ _Z5MergeRK12btDbvtAabbMmS1_RS_.exit:              ; preds = %155
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !21
   %4 = icmp eq ptr %1, %3
   br i1 %4, label %5, label %6
@@ -2888,7 +2888,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIN6btDbvt7sStkCLNEE
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN6btDbvt8maxdepthEPK10btDbvtNode(ptr noundef readonly %0) local_unnamed_addr #11 align 2 {
+define dso_local noundef i32 @_ZN6btDbvt8maxdepthEPK10btDbvtNode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 align 2 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #20
   store i32 0, ptr %2, align 4, !tbaa !56

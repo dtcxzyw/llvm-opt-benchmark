@@ -367,7 +367,7 @@ declare dso_local void @fput(ptr noundef) local_unnamed_addr #2
 declare dso_local void @module_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dma_buf_fd(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local i32 @dma_buf_fd(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %13, label %4
 
@@ -428,7 +428,7 @@ define dso_local ptr @dma_buf_get(i32 noundef %0) #0 align 16 {
 declare dso_local ptr @fget(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dma_buf_put(ptr noundef readonly %0) #0 align 16 {
+define dso_local void @dma_buf_put(ptr noundef readonly captures(address_is_null) %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -1127,7 +1127,7 @@ dma_buf_unmap_attachment.exit:                    ; preds = %19, %20, %24, %40, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dma_buf_move_notify(ptr noundef readonly %0) #0 align 16 {
+define dso_local void @dma_buf_move_notify(ptr noundef readonly captures(address) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2

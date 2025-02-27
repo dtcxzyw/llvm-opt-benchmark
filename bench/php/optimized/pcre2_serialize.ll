@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_pcre2_default_compile_context_8 = external local_unnamed_addr global %struct.pcre2_real_compile_context_8, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -51, -2147483648) i32 @php_pcre2_serialize_encode(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define dso_local range(i32 -51, -2147483648) i32 @php_pcre2_serialize_encode(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   %6 = select i1 %.not, ptr @_pcre2_default_compile_context_8, ptr %4
   %7 = icmp eq ptr %0, null
@@ -117,7 +117,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @php_pcre2_serialize_decode(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @php_pcre2_serialize_decode(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   %5 = select i1 %.not, ptr @_pcre2_default_compile_context_8, ptr %3
   %6 = icmp eq ptr %2, null
@@ -261,7 +261,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @php_pcre2_serialize_de
 declare ptr @_pcre2_memctl_malloc_8(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @php_pcre2_serialize_get_number_of_codes(ptr noundef readonly %0) local_unnamed_addr #4 {
+define dso_local i32 @php_pcre2_serialize_get_number_of_codes(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 

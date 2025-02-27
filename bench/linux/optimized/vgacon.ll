@@ -2280,7 +2280,7 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #7 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #7 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noundef %0, i32 noundef range(i32 0, 2) %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noundef captures(address_is_null) %0, i32 noundef range(i32 0, 2) %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = zext i1 %2 to i8
   %5 = load i16, ptr @vga_video_port_reg, align 2
   %6 = add nuw nsw i16 %5, 6

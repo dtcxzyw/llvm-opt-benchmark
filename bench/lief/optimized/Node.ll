@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK4LIEF3ELF11DataHandler4NodeeqERKS2_(ptr noundef nonnull readonly align 8 dereferenceable(17) %0, ptr noundef nonnull readonly align 8 dereferenceable(17) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK4LIEF3ELF11DataHandler4NodeeqERKS2_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(17) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(17) %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %20, label %4
 

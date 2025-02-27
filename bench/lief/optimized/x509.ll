@@ -2314,7 +2314,7 @@ define hidden range(i32 -2147483648, 2147474176) i32 @mbedtls_x509_get_key_usage
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 1) i32 @mbedtls_x509_info_subject_alt_name(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 1) i32 @mbedtls_x509_info_subject_alt_name(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.mbedtls_x509_subject_alternative_name, align 8
   %6 = load i64, ptr %1, align 8, !tbaa !16
   %7 = load ptr, ptr %0, align 8, !tbaa !3

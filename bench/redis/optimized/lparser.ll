@@ -3557,7 +3557,7 @@ str_checkname.exit:                               ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 6, 9) i32 @singlevaraux(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc range(i32 6, 9) i32 @singlevaraux(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %10
 

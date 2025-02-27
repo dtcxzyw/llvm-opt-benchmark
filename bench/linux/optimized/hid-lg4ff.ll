@@ -1043,7 +1043,7 @@ declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 256) i32 @lg4ff_led_get_brightness(ptr noundef readonly %0) #0 align 16 {
+define internal range(i32 0, 256) i32 @lg4ff_led_get_brightness(ptr noundef readonly captures(address) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -1100,7 +1100,7 @@ define internal range(i32 0, 256) i32 @lg4ff_led_get_brightness(ptr noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @lg4ff_led_set_brightness(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal void @lg4ff_led_set_brightness(ptr noundef readonly captures(address) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64

@@ -16030,7 +16030,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @dissector_try_uint_with_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 2, 258) i32 @dissect_advertisement_protocol_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef %5) unnamed_addr #2 {
+define internal fastcc range(i32 2, 258) i32 @dissect_advertisement_protocol_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) unnamed_addr #2 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -16377,7 +16377,7 @@ define internal fastcc noundef i32 @add_ff_lmr_report(ptr noundef %0, ptr nounde
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @add_ff_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #2 {
+define hidden i32 @add_ff_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -24041,7 +24041,7 @@ define internal range(i32 0, 2) i32 @sta_prop_equal_fn(ptr noundef readonly capt
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_ieee80211(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #2 {
+define internal i32 @dissect_ieee80211(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #2 {
   %5 = alloca %struct.ieee_802_11_phdr, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #24
   %6 = icmp eq ptr %3, null
@@ -24501,7 +24501,7 @@ declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @uat_wep_key_record_copy_cb(ptr noundef returned writeonly initializes((8, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
+define internal noundef ptr @uat_wep_key_record_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((8, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5)
@@ -33586,7 +33586,7 @@ define internal range(i32 1, -2147483648) i32 @dissect_ric_descriptor(ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @ieee80211_tag_mesh_peering_mgmt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #2 {
+define internal i32 @ieee80211_tag_mesh_peering_mgmt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #2 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = load i32, ptr @hf_ieee80211_mesh_peering_proto, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
@@ -36682,7 +36682,7 @@ define internal i32 @dissect_vendor_wifi_alliance_anqp(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_hs20_anqp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #2 {
+define internal i32 @dissect_hs20_anqp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #2 {
   %5 = alloca ptr, align 8
   %6 = alloca [3 x i32], align 4
   %7 = alloca ptr, align 8
@@ -47946,7 +47946,7 @@ proto_item_set_generated.exit14:                  ; preds = %proto_item_set_gene
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @get_eapol_parsed(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #2 {
+define internal fastcc void @get_eapol_parsed(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %107, label %3
 
@@ -49025,7 +49025,7 @@ declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_rsn_ie(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, -2147483648) %3, ptr noundef %4) unnamed_addr #2 {
+define internal fastcc void @dissect_rsn_ie(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, -2147483648) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #2 {
   %6 = load i32, ptr @hf_ieee80211_rsn_version, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %2, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
   %8 = icmp samesign ult i32 %3, 3
@@ -51311,7 +51311,7 @@ define internal fastcc void @dissect_future_channel_guidance(ptr noundef %0, ptr
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_owe_dh_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2147483647) %3, ptr noundef writeonly %4) unnamed_addr #2 {
+define internal fastcc void @dissect_owe_dh_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2147483647) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #2 {
   %6 = icmp samesign ult i32 %3, 2
   br i1 %6, label %7, label %9
 

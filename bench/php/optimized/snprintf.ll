@@ -339,7 +339,7 @@ define dso_local noundef nonnull ptr @ap_php_conv_p2(i64 noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ap_php_slprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...) local_unnamed_addr #2 {
+define dso_local i32 @ap_php_slprintf(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef %2, ...) local_unnamed_addr #2 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -365,7 +365,7 @@ define dso_local i32 @ap_php_slprintf(ptr noundef %0, i64 noundef %1, ptr nounde
 declare void @llvm.va_start.p0(ptr) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @strx_printv(ptr noundef writeonly %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc i64 @strx_printv(ptr noundef writeonly captures(address) %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = alloca [2048 x i8], align 16
   %7 = alloca [2 x i8], align 1
@@ -2224,7 +2224,7 @@ format_converter.exit:                            ; preds = %zend_tmp_string_rel
 declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ap_php_vslprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define dso_local i32 @ap_php_vslprintf(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = tail call fastcc i64 @strx_printv(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   %.not = icmp ult i64 %5, %1
   br i1 %.not, label %9, label %6
@@ -2242,7 +2242,7 @@ define dso_local i32 @ap_php_vslprintf(ptr noundef %0, i64 noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ap_php_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...) local_unnamed_addr #2 {
+define dso_local i32 @ap_php_snprintf(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef %2, ...) local_unnamed_addr #2 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -2254,7 +2254,7 @@ define dso_local i32 @ap_php_snprintf(ptr noundef %0, i64 noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ap_php_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define dso_local i32 @ap_php_vsnprintf(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = tail call fastcc i64 @strx_printv(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   %6 = trunc i64 %5 to i32
   ret i32 %6

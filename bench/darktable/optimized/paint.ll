@@ -4063,7 +4063,7 @@ define void @dtgtk_cairo_paint_remove(ptr noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dtgtk_cairo_paint_star(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6) local_unnamed_addr #0 {
+define void @dtgtk_cairo_paint_star(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca [10 x float], align 16
   %9 = alloca [10 x float], align 16
   %10 = alloca %struct._cairo_matrix, align 8
@@ -7663,7 +7663,7 @@ define void @dtgtk_cairo_paint_link(ptr noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dtgtk_cairo_paint_shortcut(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readnone %6) local_unnamed_addr #0 {
+define void @dtgtk_cairo_paint_shortcut(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readnone captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca %struct._cairo_matrix, align 8
   tail call void @cairo_save(ptr noundef %0) #9
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #9

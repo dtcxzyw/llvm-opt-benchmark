@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @WebPAlphaReplace = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @WebPReplaceTransparentPixels(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @WebPReplaceTransparentPixels(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -50,7 +50,7 @@ define hidden void @WebPReplaceTransparentPixels(ptr noundef readonly %0, i32 no
 declare void @WebPInitAlphaProcessing() local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @WebPCleanupTransparentArea(ptr noundef readonly %0) local_unnamed_addr #2 {
+define void @WebPCleanupTransparentArea(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.critedge, label %3
 
@@ -706,7 +706,7 @@ SmoothenBlock.exit226:                            ; preds = %._crit_edge.us72.i2
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @WebPBlendAlpha(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @WebPBlendAlpha(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = lshr i32 %1, 16
   %4 = and i32 %3, 255
   %5 = lshr i32 %1, 8

@@ -39475,7 +39475,7 @@ _ZNSt12_Vector_baseISt6vectorIfSaIfEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8LightGBM7Dataset17SetFieldFromArrowEPKcRKNS_17ArrowChunkedArrayE(ptr noundef nonnull align 8 dereferenceable(864) %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(57) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8LightGBM7Dataset17SetFieldFromArrowEPKcRKNS_17ArrowChunkedArrayE(ptr noundef nonnull align 8 dereferenceable(864) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(57) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -40074,7 +40074,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16fin
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17find_first_not_ofEPKcmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8LightGBM7Dataset13SetFloatFieldEPKcPKfi(ptr noundef nonnull align 8 dereferenceable(864) %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8LightGBM7Dataset13SetFloatFieldEPKcPKfi(ptr noundef nonnull align 8 dereferenceable(864) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -40486,7 +40486,7 @@ declare void @_ZN8LightGBM8Metadata8SetLabelEPKfi(ptr noundef nonnull align 8 de
 declare void @_ZN8LightGBM8Metadata10SetWeightsEPKfi(ptr noundef nonnull align 8 dereferenceable(300), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8LightGBM7Dataset14SetDoubleFieldEPKcPKdi(ptr noundef nonnull align 8 dereferenceable(864) %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8LightGBM7Dataset14SetDoubleFieldEPKcPKdi(ptr noundef nonnull align 8 dereferenceable(864) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -40808,7 +40808,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
 declare void @_ZN8LightGBM8Metadata12SetInitScoreEPKdi(ptr noundef nonnull align 8 dereferenceable(300), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8LightGBM7Dataset11SetIntFieldEPKcPKii(ptr noundef nonnull align 8 dereferenceable(864) %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8LightGBM7Dataset11SetIntFieldEPKcPKii(ptr noundef nonnull align 8 dereferenceable(864) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -41182,7 +41182,7 @@ declare void @_ZN8LightGBM8Metadata8SetQueryEPKii(ptr noundef nonnull align 8 de
 declare void @_ZN8LightGBM8Metadata11SetPositionEPKii(ptr noundef nonnull align 8 dereferenceable(300), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8LightGBM7Dataset13GetFloatFieldEPKcPiPPKf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(864) %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8LightGBM7Dataset13GetFloatFieldEPKcPiPPKf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(864) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -41592,7 +41592,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8LightGBM7Dataset14GetDoubleFieldEPKcPiPPKd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(864) %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8LightGBM7Dataset14GetDoubleFieldEPKcPiPPKd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(864) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -41911,7 +41911,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8LightGBM7Dataset11GetIntFieldEPKcPiPPKi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(864) %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8LightGBM7Dataset11GetIntFieldEPKcPiPPKi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(864) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

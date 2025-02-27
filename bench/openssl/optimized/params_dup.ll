@@ -30,7 +30,7 @@ define void @ossl_param_set_secure_block(ptr noundef writeonly captures(none) in
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_PARAM_dup(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @OSSL_PARAM_dup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = alloca [2 x %struct.OSSL_PARAM_BUF], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #8
   %3 = icmp eq ptr %0, null

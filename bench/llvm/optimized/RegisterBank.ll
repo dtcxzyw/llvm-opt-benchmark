@@ -37,13 +37,13 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12RegisterBank6coversERKNS_19Targe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm12RegisterBankeqERKS0_(ptr noundef nonnull readnone align 8 dereferenceable(24) %0, ptr noundef nonnull readnone align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm12RegisterBankeqERKS0_(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, %0
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12RegisterBank5printERNS_11raw_ostreamEbPKNS_18TargetRegisterInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2, ptr noundef readonly %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZNK4llvm12RegisterBank5printERNS_11raw_ostreamEbPKNS_18TargetRegisterInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %6, null

@@ -19,7 +19,7 @@ define hidden noundef i32 @_ZN4cvc58internal6theoryorENS1_13LemmaPropertyES2_(i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theoryoRERNS1_13LemmaPropertyES2_(ptr noundef nonnull returned align 4 dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theoryoRERNS1_13LemmaPropertyES2_(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %0, align 4, !tbaa !3
   %4 = or i32 %3, %1
   store i32 %4, ptr %0, align 4, !tbaa !3
@@ -33,7 +33,7 @@ define hidden noundef i32 @_ZN4cvc58internal6theoryanENS1_13LemmaPropertyES2_(i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theoryaNERNS1_13LemmaPropertyES2_(ptr noundef nonnull returned align 4 dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theoryaNERNS1_13LemmaPropertyES2_(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %0, align 4, !tbaa !3
   %4 = and i32 %3, %1
   store i32 %4, ptr %0, align 4, !tbaa !3

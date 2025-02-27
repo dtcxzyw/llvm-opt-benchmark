@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [21 x i8] c"pthread_mutex_lock()\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMIx_Data_pack(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define i32 @PMIx_Data_pack(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.pmix_buffer_t, align 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6) #13
   %7 = tail call fastcc ptr @find_peer(ptr noundef %0)
@@ -187,7 +187,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %13
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_peer(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @find_peer(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
   %2 = alloca %struct.pmix_proc, align 4
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 260, ptr nonnull %2) #13
@@ -1079,7 +1079,7 @@ declare ptr @PMIx_Data_type_string(i16 noundef zeroext) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMIx_Data_unpack(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define i32 @PMIx_Data_unpack(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.pmix_buffer_t, align 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6) #13
   %7 = tail call fastcc ptr @find_peer(ptr noundef %0)
@@ -1457,7 +1457,7 @@ declare void @PMIx_Data_buffer_destruct(ptr noundef) local_unnamed_addr #2
 declare void @PMIx_Data_buffer_construct(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -27, 1) i32 @PMIx_Data_load(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -27, 1) i32 @PMIx_Data_load(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %15, label %4
 
@@ -1490,7 +1490,7 @@ define range(i32 -27, 1) i32 @PMIx_Data_load(ptr noundef %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMIx_Data_embed(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define i32 @PMIx_Data_embed(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.pmix_data_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #13
   %4 = icmp eq ptr %0, null

@@ -27,7 +27,7 @@ $_ZTSN6Assimp6Intern22AllocateFromAssimpHeapE = comdat any
 @_ZN6Assimp15DefaultIOStreamD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6Assimp15DefaultIOStreamD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6Assimp15DefaultIOStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp15DefaultIOStreamD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN6Assimp15DefaultIOStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8

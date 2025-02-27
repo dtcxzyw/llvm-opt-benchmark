@@ -80,7 +80,7 @@ define noalias noundef ptr @_ZN3tbb6detail2r112dynamic_loadEPKcPKNS1_23dynamic_l
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define noundef zeroext i1 @_ZN3tbb6detail2r112dynamic_linkEPKcPKNS1_23dynamic_link_descriptorEmPPvi(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define noundef zeroext i1 @_ZN3tbb6detail2r112dynamic_linkEPKcPKNS1_23dynamic_link_descriptorEmPPvi(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca [20 x ptr], align 16
   %7 = and i32 %4, 1
   %.not = icmp eq i32 %7, 0

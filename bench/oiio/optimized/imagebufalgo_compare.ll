@@ -1305,7 +1305,7 @@ define void @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStats5mergeERKS2_(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsaSEOS2_(ptr noundef nonnull returned align 8 dereferenceable(216) initializes((8, 16), (32, 40), (56, 64), (80, 88), (104, 112), (128, 136), (152, 160), (176, 184), (200, 208)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(216) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN11OpenImageIO6v3_1_012ImageBufAlgo10PixelStatsaSEOS2_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(216) initializes((8, 16), (32, 40), (56, 64), (80, 88), (104, 112), (128, 136), (152, 160), (176, 184), (200, 208)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(216) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16

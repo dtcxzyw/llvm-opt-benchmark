@@ -3745,7 +3745,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb12ColumnWriter18HandleRepeatLevelsERNS_17ColumnWriterStateEPS1_mm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(65) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(112) %1, ptr noundef readonly %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define void @_ZNK6duckdb12ColumnWriter18HandleRepeatLevelsERNS_17ColumnWriterStateEPS1_mm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(65) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(112) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %.preheader
 

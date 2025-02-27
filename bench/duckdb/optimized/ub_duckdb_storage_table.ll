@@ -30566,7 +30566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11
 declare noundef zeroext i8 @_ZN6duckdb13UTinyIntValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIhEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i8 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIhEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i8 noundef zeroext %1, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.duckdb::SelectionVector", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -32258,7 +32258,7 @@ _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %_ZN6duckdb15Selecti
 declare noundef zeroext i16 @_ZN6duckdb14USmallIntValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchItEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i16 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchItEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i16 noundef zeroext %1, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.duckdb::SelectionVector", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -33950,7 +33950,7 @@ _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %_ZN6duckdb15Selecti
 declare noundef i32 @_ZN6duckdb13UIntegerValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIjEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIjEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.duckdb::SelectionVector", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -35642,7 +35642,7 @@ _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %_ZN6duckdb15Selecti
 declare noundef i64 @_ZN6duckdb12UBigIntValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchImEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchImEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i64 noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.duckdb::SelectionVector", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -37334,7 +37334,7 @@ _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %_ZN6duckdb15Selecti
 declare noundef signext i8 @_ZN6duckdb12TinyIntValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIaEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIaEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i8 noundef signext %1, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.duckdb::SelectionVector", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -39026,7 +39026,7 @@ _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %_ZN6duckdb15Selecti
 declare noundef signext i16 @_ZN6duckdb13SmallIntValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIsEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i16 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIsEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i16 noundef signext %1, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.duckdb::SelectionVector", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -40718,7 +40718,7 @@ _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %_ZN6duckdb15Selecti
 declare noundef i32 @_ZN6duckdb12IntegerValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIiEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIiEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.duckdb::SelectionVector", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -42410,7 +42410,7 @@ _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %_ZN6duckdb15Selecti
 declare noundef i64 @_ZN6duckdb11BigIntValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIlEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIlEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i64 noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.duckdb::SelectionVector", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -44102,7 +44102,7 @@ _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %_ZN6duckdb15Selecti
 declare { i64, i64 } @_ZN6duckdb12HugeIntValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchINS_9hugeint_tEEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i64 %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, i8 noundef zeroext %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchINS_9hugeint_tEEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i64 %1, i64 %2, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, i8 noundef zeroext %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.duckdb::SelectionVector", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
@@ -46050,7 +46050,7 @@ _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %_ZN6duckdb15Selecti
 declare { i64, i64 } @_ZN6duckdb13UhugeIntValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchINS_10uhugeint_tEEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i64 %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, i8 noundef zeroext %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchINS_10uhugeint_tEEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i64 %1, i64 %2, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, i8 noundef zeroext %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.duckdb::uhugeint_t", align 8
   %8 = alloca %"struct.duckdb::uhugeint_t", align 8
   %9 = alloca %"struct.duckdb::uhugeint_t", align 8
@@ -47196,7 +47196,7 @@ _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %_ZN6duckdb15Selecti
 declare noundef float @_ZN6duckdb10FloatValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIfEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, float noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIfEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, float noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca float, align 4
   %7 = alloca float, align 4
   %8 = alloca float, align 4
@@ -48316,7 +48316,7 @@ _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %_ZN6duckdb15Selecti
 declare noundef double @_ZN6duckdb11DoubleValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIdEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIdEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, double noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca double, align 8
   %7 = alloca double, align 8
   %8 = alloca double, align 8
@@ -49436,7 +49436,7 @@ _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %_ZN6duckdb15Selecti
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb11StringValue3GetB5cxx11ERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchINS_8string_tEEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i64 %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, i8 noundef zeroext %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchINS_8string_tEEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i64 %1, ptr %2, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, i8 noundef zeroext %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.duckdb::string_t", align 8
   %8 = alloca %"struct.duckdb::string_t", align 8
   %9 = alloca %"struct.duckdb::string_t", align 8
@@ -52222,7 +52222,7 @@ _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %_ZN6duckdb15Selecti
 declare noundef zeroext i1 @_ZN6duckdb12BooleanValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIbEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21FilterSelectionSwitchIbEEvRNS_19UnifiedVectorFormatET_RNS_15SelectionVectorERmNS_14ExpressionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i8 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.duckdb::SelectionVector", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -61010,7 +61010,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZN6duckdb10UpdateInfo9GetValuesEv(ptr noundef nonnull readonly align 8 dereferenceable(72) %0) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZN6duckdb10UpdateInfo9GetValuesEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(72) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4, !tbaa !1020
@@ -62890,7 +62890,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit237: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN6duckdb10UpdateInfo9GetTuplesEv(ptr noundef nonnull readnone align 8 dereferenceable(72) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZN6duckdb10UpdateInfo9GetTuplesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
@@ -64934,7 +64934,7 @@ _ZNSt6vectorIN6duckdb16MetaBlockPointerESaIS1_EED2Ev.exit22: ; preds = %_ZNSt10u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb18RowGroupCollection8GetTypesEv(ptr noundef nonnull readnone align 8 dereferenceable(144) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb18RowGroupCollection8GetTypesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(144) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }
@@ -102232,7 +102232,7 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit:            ; preds = %108, %111, %115
 declare noundef double @_ZNK6duckdb5Value8GetValueIdEET_v(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb14TableScanState12GetColumnIdsEv(ptr noundef nonnull readnone align 8 dereferenceable(464) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb14TableScanState12GetColumnIdsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(464) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   ret ptr %2
 }
@@ -102367,13 +102367,13 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %3, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN6duckdb14TableScanState13GetFilterInfoEv(ptr noundef nonnull readnone align 8 dereferenceable(464) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN6duckdb14TableScanState13GetFilterInfoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(464) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb14TableScanState15GetSamplingInfoEv(ptr noundef nonnull readnone align 8 dereferenceable(464) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb14TableScanState15GetSamplingInfoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(464) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   ret ptr %2
 }

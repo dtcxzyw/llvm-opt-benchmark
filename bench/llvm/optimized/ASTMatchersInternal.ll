@@ -1707,7 +1707,7 @@ _ZN5clang18TraversalKindScopeC2ERNS_10ASTContextESt8optionalINS_13TraversalKindE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang12ast_matchers8internal15DynTypedMatcher7tryBindEN4llvm9StringRefE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.800") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr readonly %2, i64 %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK5clang12ast_matchers8internal15DynTypedMatcher7tryBindEN4llvm9StringRefE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.800") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr readonly captures(address_is_null) %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = alloca i64, align 8
   %.sroa.09 = alloca [16 x i8], align 8
   %6 = load i8, ptr %1, align 8, !tbaa !163, !range !107, !noundef !108
@@ -1824,7 +1824,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang12ast_matchers8internal15DynTyped
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12ast_matchers8internal14hasAnyNameFuncEN4llvm8ArrayRefIPKNS2_9StringRefEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::ast_matchers::internal::Matcher.117") align 8 captures(none) %0, ptr readonly %1, i64 %2) local_unnamed_addr #1 {
+define dso_local void @_ZN5clang12ast_matchers8internal14hasAnyNameFuncEN4llvm8ArrayRefIPKNS2_9StringRefEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::ast_matchers::internal::Matcher.117") align 8 captures(none) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 {
   %4 = alloca %"class.std::vector.728", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
@@ -1924,7 +1924,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12ast_matchers8internal18hasAnySelectorFuncEN4llvm8ArrayRefIPKNS2_9StringRefEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::ast_matchers::internal::Matcher.811") align 8 captures(none) %0, ptr readonly %1, i64 %2) local_unnamed_addr #1 {
+define dso_local void @_ZN5clang12ast_matchers8internal18hasAnySelectorFuncEN4llvm8ArrayRefIPKNS2_9StringRefEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::ast_matchers::internal::Matcher.811") align 8 captures(none) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 {
   %4 = alloca %"class.std::vector.728", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
@@ -2031,7 +2031,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12ast_matchers8internal22hasAnyOperatorNameFuncB5cxx11EN4llvm8ArrayRefIPKNS2_9StringRefEEE(ptr dead_on_unwind noalias writable sret(%"class.clang::ast_matchers::internal::PolymorphicMatcher.812") align 8 %0, ptr readonly %1, i64 %2) local_unnamed_addr #1 {
+define dso_local void @_ZN5clang12ast_matchers8internal22hasAnyOperatorNameFuncB5cxx11EN4llvm8ArrayRefIPKNS2_9StringRefEEE(ptr dead_on_unwind noalias writable sret(%"class.clang::ast_matchers::internal::PolymorphicMatcher.812") align 8 %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 {
   %4 = alloca %"class.std::vector.728", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
@@ -2123,7 +2123,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12ast_matchers8internal32hasAnyOverloadedOperatorNameFuncB5cxx11EN4llvm8ArrayRefIPKNS2_9StringRefEEE(ptr dead_on_unwind noalias writable sret(%"class.clang::ast_matchers::internal::PolymorphicMatcher.816") align 8 %0, ptr readonly %1, i64 %2) local_unnamed_addr #1 {
+define dso_local void @_ZN5clang12ast_matchers8internal32hasAnyOverloadedOperatorNameFuncB5cxx11EN4llvm8ArrayRefIPKNS2_9StringRefEEE(ptr dead_on_unwind noalias writable sret(%"class.clang::ast_matchers::internal::PolymorphicMatcher.816") align 8 %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 {
   %4 = alloca %"class.std::vector.728", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
@@ -6646,7 +6646,7 @@ define internal noundef zeroext i1 @_ZNK5clang12ast_matchers8internal12_GLOBAL__
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_112IdDynMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_112IdDynMatcherD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang12ast_matchers8internal12_GLOBAL__N_112IdDynMatcherE, i64 16), ptr %0, align 8, !tbaa !114
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !168

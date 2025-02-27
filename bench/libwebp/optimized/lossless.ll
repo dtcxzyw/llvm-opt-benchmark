@@ -936,7 +936,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @VP8LConvertBGRAToRGB_C(ptr noalias noundef readonly %0, i32 noundef %1, ptr noalias noundef writeonly captures(none) %2) #2 {
+define hidden void @VP8LConvertBGRAToRGB_C(ptr noalias noundef readonly captures(address) %0, i32 noundef %1, ptr noalias noundef writeonly captures(none) %2) #2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i32, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 0
@@ -966,7 +966,7 @@ define hidden void @VP8LConvertBGRAToRGB_C(ptr noalias noundef readonly %0, i32 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @VP8LConvertBGRAToRGBA_C(ptr noalias noundef readonly %0, i32 noundef %1, ptr noalias noundef writeonly captures(none) %2) #2 {
+define hidden void @VP8LConvertBGRAToRGBA_C(ptr noalias noundef readonly captures(address) %0, i32 noundef %1, ptr noalias noundef writeonly captures(none) %2) #2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i32, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 0
@@ -1000,7 +1000,7 @@ define hidden void @VP8LConvertBGRAToRGBA_C(ptr noalias noundef readonly %0, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @VP8LConvertBGRAToRGBA4444_C(ptr noalias noundef readonly %0, i32 noundef %1, ptr noalias noundef writeonly captures(none) %2) #2 {
+define hidden void @VP8LConvertBGRAToRGBA4444_C(ptr noalias noundef readonly captures(address) %0, i32 noundef %1, ptr noalias noundef writeonly captures(none) %2) #2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i32, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 0
@@ -1033,7 +1033,7 @@ define hidden void @VP8LConvertBGRAToRGBA4444_C(ptr noalias noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @VP8LConvertBGRAToRGB565_C(ptr noalias noundef readonly %0, i32 noundef %1, ptr noalias noundef writeonly captures(none) %2) #2 {
+define hidden void @VP8LConvertBGRAToRGB565_C(ptr noalias noundef readonly captures(address) %0, i32 noundef %1, ptr noalias noundef writeonly captures(none) %2) #2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i32, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 0
@@ -1068,7 +1068,7 @@ define hidden void @VP8LConvertBGRAToRGB565_C(ptr noalias noundef readonly %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @VP8LConvertBGRAToBGR_C(ptr noalias noundef readonly %0, i32 noundef %1, ptr noalias noundef writeonly captures(none) %2) #2 {
+define hidden void @VP8LConvertBGRAToBGR_C(ptr noalias noundef readonly captures(address) %0, i32 noundef %1, ptr noalias noundef writeonly captures(none) %2) #2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i32, ptr %0, i64 %4
   %6 = icmp sgt i32 %1, 0

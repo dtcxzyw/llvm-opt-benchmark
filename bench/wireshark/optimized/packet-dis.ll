@@ -9782,7 +9782,7 @@ define internal fastcc noundef i32 @parseField_VariableParameter(ptr noundef %0,
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @dissect_DIS_FIELDS_ENTITY_TYPE_RECORD(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef writeonly %12, ptr noundef writeonly %13) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_DIS_FIELDS_ENTITY_TYPE_RECORD(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef writeonly captures(address_is_null) %12, ptr noundef writeonly captures(address_is_null) %13) unnamed_addr #0 {
   %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %17, label %16

@@ -1714,7 +1714,7 @@ pmix_obj_run_destructors.exit169:                 ; preds = %.lr.ph.i178, %.lr.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef initializes((0, 8)) %1) #0 {
+define internal noundef i32 @parse_nodes(ptr noundef readonly captures(address_is_null) %0, ptr noundef initializes((0, 8)) %1) #0 {
   store ptr null, ptr %1, align 8, !tbaa !3
   %3 = icmp eq ptr %0, null
   br i1 %3, label %156, label %4
@@ -2134,7 +2134,7 @@ pmix_regex_extract_nodes.exit.thread:             ; preds = %39, %._crit_edge176
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef readonly %0, ptr noundef initializes((0, 8)) %1) #0 {
+define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef readonly captures(address_is_null) %0, ptr noundef initializes((0, 8)) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %1, align 8, !tbaa !3
@@ -2346,7 +2346,7 @@ define internal range(i32 -1366, 1) i32 @unpack(ptr noundef captures(none) %0, p
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal range(i32 -1366, 1) i32 @release(ptr noundef %0) #3 {
+define internal range(i32 -1366, 1) i32 @release(ptr noundef captures(address_is_null) %0) #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -2436,7 +2436,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @regex_parse_value_range(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @regex_parse_value_range(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [132 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %6) #18
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19

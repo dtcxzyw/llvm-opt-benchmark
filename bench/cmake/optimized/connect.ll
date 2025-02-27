@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.25 = private unnamed_addr constant [30 x i8] c"unsupported transport type %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @Curl_timeleft(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @Curl_timeleft(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %.sroa.0 = alloca i64, align 8
   %.sroa.5 = alloca i32, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
@@ -135,7 +135,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare i64 @Curl_timediff(i64, i32, i64, i32) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_shutdown_start(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @Curl_shutdown_start(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.curltime, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   %.not = icmp eq ptr %2, null
@@ -170,7 +170,7 @@ define dso_local void @Curl_shutdown_start(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @Curl_shutdown_timeleft(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @Curl_shutdown_timeleft(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [2 x %struct.curltime], ptr %4, i64 0, i64 %5
@@ -222,7 +222,7 @@ define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @Curl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @Curl_conn_shutdown_timeleft(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @Curl_conn_shutdown_timeleft(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.curltime, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 656
@@ -417,7 +417,7 @@ declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_un
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_getconnectinfo(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i32 @Curl_getconnectinfo(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3024
   %4 = load i64, ptr %3, align 8, !tbaa !105
   %.not = icmp eq i64 %4, -1

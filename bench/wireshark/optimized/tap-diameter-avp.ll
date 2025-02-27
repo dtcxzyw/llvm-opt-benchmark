@@ -158,7 +158,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 %4) #0 {
+define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.nstime_t, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10

@@ -656,7 +656,7 @@ define noundef i32 @_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_5Slice
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorEPKNS_11InternalKeyERS4_(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorEPKNS_11InternalKeyERS4_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rocksdb::Slice", align 8
   %5 = alloca %"class.rocksdb::Slice", align 8
   %6 = icmp eq ptr %1, null
@@ -716,7 +716,7 @@ _ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyES5_.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyEPS4_(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef readonly %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN7rocksdb17sstableKeyCompareEPKNS_10ComparatorERKNS_11InternalKeyEPS4_(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rocksdb::Slice", align 8
   %5 = alloca %"class.rocksdb::Slice", align 8
   %6 = icmp eq ptr %2, null
@@ -7219,7 +7219,7 @@ _ZNSt6vectorImSaImEE2atEm.exit33:                 ; preds = %72
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef ptr @_ZNK7rocksdb10Compaction17InputLevelSummaryEPNS0_23InputLevelSummaryBufferE(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(4916) %0, ptr noundef returned writeonly %1) local_unnamed_addr #18 align 2 {
+define noundef ptr @_ZNK7rocksdb10Compaction17InputLevelSummaryEPNS0_23InputLevelSummaryBufferE(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(4916) %0, ptr noundef returned writeonly captures(ret: address, provenance) %1) local_unnamed_addr #18 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4424
   %4 = load ptr, ptr %3, align 8, !tbaa !597
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4432
@@ -8228,7 +8228,7 @@ define noundef zeroext i1 @_ZNK7rocksdb10Compaction27DoesInputReferenceBlobFiles
 }
 
 ; Function Attrs: uwtable
-define noundef i64 @_ZNK7rocksdb10Compaction25MaxInputFileNewestKeyTimeEPKNS_11InternalKeyES3_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(4916) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK7rocksdb10Compaction25MaxInputFileNewestKeyTimeEPKNS_11InternalKeyES3_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(4916) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.306", align 8
   %5 = alloca %"class.std::shared_ptr.306", align 8
   %6 = alloca %"class.rocksdb::Slice", align 8
@@ -8573,7 +8573,7 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread: 
 }
 
 ; Function Attrs: uwtable
-define noundef i64 @_ZNK7rocksdb10Compaction30MinInputFileOldestAncesterTimeEPKNS_11InternalKeyES3_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(4916) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK7rocksdb10Compaction30MinInputFileOldestAncesterTimeEPKNS_11InternalKeyES3_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(4916) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.306", align 8
   %5 = alloca %"class.std::shared_ptr.306", align 8
   %6 = alloca %"class.rocksdb::Slice", align 8

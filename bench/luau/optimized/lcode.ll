@@ -1323,7 +1323,7 @@ define internal void @__cxx_global_var_init.55() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noalias noundef ptr @_Z12luau_compilePKcmP18lua_CompileOptionsPm(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noalias noundef ptr @_Z12luau_compilePKcmP18lua_CompileOptionsPm(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.Luau::CompileOptions", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

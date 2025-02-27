@@ -1885,7 +1885,7 @@ _ZN11ring_bufferIiED2Ev.exit:                     ; preds = %69, %66, %64
 declare ptr @llama_sampler_clone(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17common_perf_printPK13llama_contextPK14common_sampler(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @_Z17common_perf_printPK13llama_contextPK14common_sampler(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -2554,7 +2554,7 @@ define noundef i32 @_Z23common_sampler_get_seedPK14common_sampler(ptr noundef re
 declare i32 @llama_sampler_get_seed(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_Z29common_sampler_get_candidatesP14common_sampler(ptr noundef readnone %0) local_unnamed_addr #11 {
+define noundef nonnull ptr @_Z29common_sampler_get_candidatesP14common_sampler(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   ret ptr %2
 }

@@ -441,14 +441,14 @@ define void @_ZN6icu_7715RBBIDataWrapper15removeReferenceEv(ptr noundef nonnull 
 declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull ptr @_ZN6icu_7715RBBIDataWrapper12addReferenceEv(ptr noundef nonnull returned align 8 dereferenceable(137) %0) local_unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZN6icu_7715RBBIDataWrapper12addReferenceEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(137) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = atomicrmw add ptr %2, i32 1 seq_cst, align 4
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7715RBBIDataWrapper19getRuleSourceStringEv(ptr noundef nonnull readnone align 8 dereferenceable(137) %0) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7715RBBIDataWrapper19getRuleSourceStringEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(137) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }

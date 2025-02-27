@@ -601,7 +601,7 @@ mbedtls_asn1_get_tag.exit.thread:                 ; preds = %.loopexit.i.i, %23,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_asn1_traverse_sequence_of(ptr noundef captures(none) %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef readonly %6, ptr noundef %7) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_asn1_traverse_sequence_of(ptr noundef captures(none) %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7) local_unnamed_addr #2 {
   %9 = load ptr, ptr %0, align 8, !tbaa !3
   %10 = ptrtoint ptr %1 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -949,7 +949,7 @@ mbedtls_asn1_get_tag.exit.thread:                 ; preds = %.loopexit.i.i, %23,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_asn1_sequence_free(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @mbedtls_asn1_sequence_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not4 = icmp eq ptr %0, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -1338,7 +1338,7 @@ define hidden void @mbedtls_asn1_free_named_data_list(ptr noundef captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_asn1_free_named_data_list_shallow(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @mbedtls_asn1_free_named_data_list_shallow(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not4 = icmp eq ptr %0, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -1355,7 +1355,7 @@ define hidden void @mbedtls_asn1_free_named_data_list_shallow(ptr noundef %0) lo
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @mbedtls_asn1_find_named_data(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #7 {
+define hidden ptr @mbedtls_asn1_find_named_data(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #7 {
   %.not8 = icmp eq ptr %0, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 

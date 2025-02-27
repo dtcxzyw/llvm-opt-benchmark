@@ -58,12 +58,12 @@ define dso_local void @zlibc_free(ptr noundef captures(none) %0) local_unnamed_a
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn allocsize(1) memory(none) uwtable
-define dso_local noundef ptr @extend_to_usable(ptr noundef readnone returned %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local noundef ptr @extend_to_usable(ptr noundef readnone returned captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #2 {
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ztrymalloc_usable(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
+define dso_local ptr @ztrymalloc_usable(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = icmp ugt i64 %0, 9223372036854775806
   br i1 %3, label %ztrymalloc_usable_internal.exit, label %4
 
@@ -191,7 +191,7 @@ ztrymalloc_usable_internal.exit:                  ; preds = %1, %3, %update_zmal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zmalloc_usable(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
+define dso_local ptr @zmalloc_usable(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = icmp ugt i64 %0, 9223372036854775806
   br i1 %3, label %.split7, label %4
 
@@ -533,7 +533,7 @@ update_zmalloc_stat_free.exit:                    ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ztrycalloc_usable(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
+define dso_local ptr @ztrycalloc_usable(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = icmp ugt i64 %0, 9223372036854775806
   br i1 %3, label %ztrycalloc_usable_internal.exit, label %4
 
@@ -711,7 +711,7 @@ ztrycalloc_usable_internal.exit:                  ; preds = %1, %3, %update_zmal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zcalloc_usable(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
+define dso_local ptr @zcalloc_usable(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = icmp ugt i64 %0, 9223372036854775806
   br i1 %3, label %.split7, label %4
 
@@ -761,7 +761,7 @@ define dso_local ptr @zcalloc_usable(i64 noundef %0, ptr noundef writeonly %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ztryrealloc_usable(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define dso_local ptr @ztryrealloc_usable(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
   store i64 0, ptr %4, align 8, !tbaa !5
@@ -780,7 +780,7 @@ define dso_local ptr @ztryrealloc_usable(ptr noundef %0, i64 noundef %1, ptr nou
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @ztryrealloc_usable_internal(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) unnamed_addr #10 {
+define internal fastcc ptr @ztryrealloc_usable_internal(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #10 {
   %4 = icmp eq i64 %1, 0
   %5 = icmp ne ptr %0, null
   %or.cond = and i1 %5, %4
@@ -948,7 +948,7 @@ define dso_local ptr @ztryrealloc(ptr noundef %0, i64 noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zrealloc_usable(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define dso_local ptr @zrealloc_usable(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
   store i64 0, ptr %4, align 8, !tbaa !5
@@ -1390,7 +1390,7 @@ define dso_local i64 @zmalloc_get_frag_smallbins() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @zmalloc_get_allocator_info(i32 noundef %0, ptr noundef initializes((0, 8)) %1, ptr noundef initializes((0, 8)) %2, ptr noundef initializes((0, 8)) %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #3 {
+define dso_local noundef i32 @zmalloc_get_allocator_info(i32 noundef %0, ptr noundef initializes((0, 8)) %1, ptr noundef initializes((0, 8)) %2, ptr noundef initializes((0, 8)) %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #3 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca [100 x i8], align 16

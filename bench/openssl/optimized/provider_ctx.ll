@@ -30,7 +30,7 @@ define void @ossl_prov_ctx_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_prov_ctx_set0_libctx(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @ossl_prov_ctx_set0_libctx(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -44,7 +44,7 @@ define void @ossl_prov_ctx_set0_libctx(ptr noundef writeonly %0, ptr noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_prov_ctx_set0_handle(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @ossl_prov_ctx_set0_handle(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %3
 
@@ -57,7 +57,7 @@ define void @ossl_prov_ctx_set0_handle(ptr noundef writeonly %0, ptr noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_prov_ctx_set0_core_bio_method(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @ossl_prov_ctx_set0_core_bio_method(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -71,7 +71,7 @@ define void @ossl_prov_ctx_set0_core_bio_method(ptr noundef writeonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_prov_ctx_set0_core_get_params(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @ossl_prov_ctx_set0_core_get_params(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -85,7 +85,7 @@ define void @ossl_prov_ctx_set0_core_get_params(ptr noundef writeonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_prov_ctx_get0_libctx(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @ossl_prov_ctx_get0_libctx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -100,7 +100,7 @@ define ptr @ossl_prov_ctx_get0_libctx(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_prov_ctx_get0_handle(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @ossl_prov_ctx_get0_handle(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -114,7 +114,7 @@ define ptr @ossl_prov_ctx_get0_handle(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_prov_ctx_get0_core_bio_method(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @ossl_prov_ctx_get0_core_bio_method(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -129,7 +129,7 @@ define ptr @ossl_prov_ctx_get0_core_bio_method(ptr noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_prov_ctx_get0_core_get_params(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @ossl_prov_ctx_get0_core_get_params(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -144,7 +144,7 @@ define ptr @ossl_prov_ctx_get0_core_get_params(ptr noundef readonly %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_prov_ctx_get_param(ptr noundef readonly %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define ptr @ossl_prov_ctx_get_param(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [2 x %struct.ossl_param_st], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
@@ -209,7 +209,7 @@ declare i32 @OSSL_PARAM_modified(ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_prov_ctx_get_bool_param(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef i32 @ossl_prov_ctx_get_bool_param(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [2 x %struct.ossl_param_st], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6

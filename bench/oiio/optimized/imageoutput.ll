@@ -2278,7 +2278,7 @@ declare void @_ZN11OpenImageIO6v3_1_010add_ditherEiiiiPflllfiijiiii(i32 noundef,
 declare noundef ptr @_ZN11OpenImageIO6v3_1_03pvt27parallel_convert_from_floatEPKfPvmNS0_8TypeDescE(ptr noundef, ptr noundef, i64 noundef, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput11write_imageENS0_8TypeDescEPKvlllPFbPvfES5_(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly %6, ptr noundef %7) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput11write_imageENS0_8TypeDescEPKvlllPFbPvfES5_(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %10 = alloca %"struct.OpenImageIO::v3_1_0::TypeDesc", align 8
   %11 = alloca %"struct.OpenImageIO::v3_1_0::TypeDesc", align 8

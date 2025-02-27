@@ -3643,7 +3643,7 @@ evbuffer_copyout_from.exit:                       ; preds = %.critedge65.i, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @evbuffer_copyout_from(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #1 {
+define i64 @evbuffer_copyout_from(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -4408,7 +4408,7 @@ define ptr @evbuffer_readline(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @evbuffer_readln(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define ptr @evbuffer_readln(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.evbuffer_ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
@@ -4484,7 +4484,7 @@ define ptr @evbuffer_readln(ptr noundef %0, ptr noundef writeonly %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @evbuffer_search_eol(ptr dead_on_unwind noalias writable sret(%struct.evbuffer_ptr) align 8 initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define void @evbuffer_search_eol(ptr dead_on_unwind noalias writable sret(%struct.evbuffer_ptr) align 8 captures(address_is_null) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca %struct.evbuffer_ptr, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %7
@@ -4951,7 +4951,7 @@ evbuffer_find_eol_char.exit.thread:               ; preds = %180, %156, %102, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define void @evbuffer_search(ptr dead_on_unwind noalias writable sret(%struct.evbuffer_ptr) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define void @evbuffer_search(ptr dead_on_unwind noalias writable sret(%struct.evbuffer_ptr) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #1 {
   tail call void @evbuffer_search_range(ptr dead_on_unwind writable sret(%struct.evbuffer_ptr) align 8 %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef null)
   ret void
 }
@@ -5879,7 +5879,7 @@ define range(i32 -1, 1) i32 @evbuffer_ptr_set(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define void @evbuffer_search_range(ptr dead_on_unwind noalias writable sret(%struct.evbuffer_ptr) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #1 {
+define void @evbuffer_search_range(ptr dead_on_unwind noalias writable sret(%struct.evbuffer_ptr) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -6072,7 +6072,7 @@ evbuffer_ptr_memcmp.exit:                         ; preds = %55, %67
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define i32 @evbuffer_peek(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
+define i32 @evbuffer_peek(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %6
 
@@ -7409,7 +7409,7 @@ define noundef i32 @evbuffer_remove_cb_entry(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @evbuffer_remove_cb(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef readnone %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @evbuffer_remove_cb(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null

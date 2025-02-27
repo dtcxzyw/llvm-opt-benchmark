@@ -1735,7 +1735,7 @@ define dso_local zeroext i1 @vu_queue_started(ptr noundef readnone captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @vu_queue_get_avail_bytes(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define dso_local void @vu_queue_get_avail_bytes(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca [1024 x %struct.vring_desc], align 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load i16, ptr %8, align 8

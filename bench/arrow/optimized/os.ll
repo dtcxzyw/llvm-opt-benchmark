@@ -335,7 +335,7 @@ define hidden void @_mi_os_free(ptr noundef %0, i64 noundef %1, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc_aligned(i64 noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #2 {
+define hidden ptr @_mi_os_alloc_aligned(i64 noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr noundef captures(address_is_null) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #2 {
   %6 = alloca i8, align 1
   %7 = icmp eq i64 %0, 0
   br i1 %7, label %129, label %8
@@ -629,13 +629,13 @@ mi_os_mem_alloc_aligned.exit:                     ; preds = %45, %_mi_align_up.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_os_commit(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @_mi_os_commit(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   %5 = tail call fastcc zeroext i1 @mi_os_commitx(ptr noundef %0, i64 noundef %1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %2)
   ret i1 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @mi_os_commitx(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef writeonly %4) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @mi_os_commitx(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #2 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %6
 
@@ -1076,7 +1076,7 @@ mi_os_mem_free.exit:                              ; preds = %mi_align_down_ptr.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #2 {
+define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %7

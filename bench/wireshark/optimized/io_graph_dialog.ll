@@ -25058,7 +25058,7 @@ declare zeroext i1 @application_flavor_is_stratoshark() local_unnamed_addr #3
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @_ZL16io_graph_copy_cbPvPKvm(ptr noundef returned writeonly initializes((0, 2), (8, 36), (40, 56)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
+define internal noundef ptr @_ZL16io_graph_copy_cbPvPKvm(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 2), (8, 36), (40, 56)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
   %4 = load i8, ptr %1, align 8, !range !12, !noundef !13
   store i8 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -31206,7 +31206,7 @@ define void @_ZN7IOGraph8tapResetEPv(ptr noundef %0) #2 align 2 {
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef range(i32 0, 2) i32 @_ZN7IOGraph9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr readnone captures(none) %3, i32 %4) #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN7IOGraph9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr readnone captures(none) %3, i32 %4) #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = icmp ne ptr %1, null
   %8 = icmp ne ptr %0, null

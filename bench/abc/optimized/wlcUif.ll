@@ -1064,7 +1064,7 @@ Vec_IntFree.exit49:                               ; preds = %175, %176
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Wlc_NtkAbstractNodes(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Wlc_NtkAbstractNodes(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %.preheader65
 
@@ -1298,7 +1298,7 @@ declare i32 @Wlc_ObjAlloc(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i3
 declare ptr @Wlc_NtkDupDfs(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Wlc_NtkUifNodePairs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Wlc_NtkUifNodePairs(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %.thread
 

@@ -1645,7 +1645,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit10: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter14getDispatchMapB5cxx11ERKN11opencv_onnx9NodeProtoE(ptr noundef nonnull readonly align 8 dereferenceable(585) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter14getDispatchMapB5cxx11ERKN11opencv_onnx9NodeProtoE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(585) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load atomic i8, ptr @_ZGVZN2cv3dnn14dnn4_v2024122312ONNXImporter14getDispatchMapB5cxx11ERKN11opencv_onnx9NodeProtoEE9empty_mapB5cxx11 acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -15010,7 +15010,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %17
 declare void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi(ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi(ptr noundef nonnull align 8 captures(address) dereferenceable(585) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.6", align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -15064,7 +15064,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24925,7 +24925,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter14setParamsDtypeERNS1_11LayerParamsERKN11opencv_onnx9NodeProtoE(ptr noundef nonnull readonly align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter14setParamsDtypeERNS1_11LayerParamsERKN11opencv_onnx9NodeProtoE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [35 x %"class.std::__cxx11::basic_string"], align 8
   %5 = alloca %"class.std::allocator.6", align 1
   %6 = alloca %"class.std::allocator.6", align 1

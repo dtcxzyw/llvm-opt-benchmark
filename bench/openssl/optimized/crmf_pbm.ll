@@ -116,7 +116,7 @@ declare void @OSSL_CRMF_PBMPARAMETER_free(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CRMF_pbm_new(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef writeonly %7, ptr noundef %8) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_pbm_new(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca [50 x i8], align 16
   %12 = alloca [50 x i8], align 16

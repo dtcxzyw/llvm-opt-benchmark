@@ -4717,7 +4717,7 @@ declare i32 @packet_write_fmt_gently(i32 noundef, ptr noundef, ...) local_unname
 declare i32 @packet_flush_gently(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @read_proc_receive_report(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @read_proc_receive_report(ptr noundef nonnull %0, ptr noundef nonnull captures(address) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.object_id, align 4
   %5 = alloca %struct.object_id, align 4
   %6 = alloca ptr, align 8
@@ -5910,7 +5910,7 @@ declare void @write_or_die(i32 noundef, ptr noundef, i64 noundef) local_unnamed_
 declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @feed_receive_hook(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @feed_receive_hook(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 {
   %.04564 = load ptr, ptr %0, align 8, !tbaa !26
   %.not65 = icmp eq ptr %.04564, null
   br i1 %.not65, label %.critedge61, label %.lr.ph

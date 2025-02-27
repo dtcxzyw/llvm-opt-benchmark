@@ -75,7 +75,7 @@ declare dso_local i32 @nfs_submount(ptr noundef, ptr noundef) #1
 declare dso_local i32 @nfs_try_get_tree(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -527, -528) i32 @nfs3_proc_getattr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_getattr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3) #0 align 16 {
   %5 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 48), ptr %5, align 8
@@ -2040,7 +2040,7 @@ declare dso_local i64 @nfs3_listxattr(ptr noundef, ptr noundef, i64 noundef) #1
 declare dso_local i32 @nfs3_set_acl(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs3_nlm_alloc_call(ptr noundef readonly %0) #0 align 16 {
+define internal void @nfs3_nlm_alloc_call(ptr noundef readonly captures(address_is_null) %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 

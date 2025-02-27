@@ -219,7 +219,7 @@ define void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef captures(none) %0, i3
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef captures(none) %3) local_unnamed_addr #1 {
+define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef captures(none) %3) local_unnamed_addr #1 {
   store double 0.000000e+00, ptr %2, align 8, !tbaa !4
   br label %5
 

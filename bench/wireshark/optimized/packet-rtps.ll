@@ -6557,7 +6557,7 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @rtps_psk_options_copy_entry(ptr noundef returned writeonly initializes((0, 72)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @rtps_psk_options_copy_entry(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 72)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4)
   store ptr %5, ptr %0, align 8
@@ -7025,7 +7025,7 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc zeroext i1 @rtps_util_add_entity_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc zeroext i1 @rtps_util_add_entity_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef writeonly captures(address_is_null) %8) unnamed_addr #0 {
   %10 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2)
   %11 = lshr i32 %10, 8
   %12 = tail call ptr @try_val_to_str(i32 noundef %10, ptr noundef nonnull @entity_id_vals)
@@ -7111,7 +7111,7 @@ define internal fastcc void @rtps_util_add_guid_prefix_v1(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_parameter_sequence(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483647) %4, i32 noundef %5, ptr noundef %6, i16 noundef zeroext %7, ptr noundef writeonly %8, i16 noundef zeroext %9, i1 noundef zeroext %10, ptr noundef %11) unnamed_addr #0 {
+define internal fastcc i32 @dissect_parameter_sequence(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483647) %4, i32 noundef %5, ptr noundef %6, i16 noundef zeroext %7, ptr noundef writeonly captures(address_is_null) %8, i16 noundef zeroext %9, i1 noundef zeroext %10, ptr noundef %11) unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
@@ -10756,7 +10756,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 6, 65542) i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483647) %4, i32 noundef %5, i32 noundef range(i32 0, 256) %6, i16 noundef zeroext %7, i32 noundef range(i32 0, 256) %8, i32 noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef readonly %12, i32 noundef range(i32 0, 2) %13) unnamed_addr #0 {
+define internal fastcc range(i32 6, 65542) i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483647) %4, i32 noundef %5, i32 noundef range(i32 0, 256) %6, i16 noundef zeroext %7, i32 noundef range(i32 0, 256) %8, i32 noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef readonly captures(address_is_null) %12, i32 noundef range(i32 0, 2) %13) unnamed_addr #0 {
   %15 = alloca [40 x i8], align 16
   %16 = alloca [10 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #17
@@ -11585,7 +11585,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @rtps_add_zlib_compressed_typeobject(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, -2147483647) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @rtps_add_zlib_compressed_typeobject(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, -2147483647) %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) unnamed_addr #0 {
   %8 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef 0, i32 noundef %5)
   %9 = tail call ptr @tvb_child_uncompress_zlib(ptr noundef %2, ptr noundef %8, i32 noundef 0, i32 noundef %4)
   %.not = icmp eq ptr %9, null
@@ -11606,7 +11606,7 @@ define internal fastcc void @rtps_add_zlib_compressed_typeobject(ptr noundef %0,
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @rtps_util_add_typeobject(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483647) %4, i32 noundef %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc void @rtps_util_add_typeobject(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483647) %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
   %9 = load i32, ptr @ett_rtps_type_object, align 4
@@ -12562,7 +12562,7 @@ rtps_util_add_type_library_element.exit:          ; preds = %473, %476
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @rtps_util_add_type_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483647) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc noundef i32 @rtps_util_add_type_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483647) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #0 {
   %9 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %1, i32 noundef %2, i32 noundef %3)
   %10 = load i32, ptr @hf_rtps_type_object_type_id_disc, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef %3)
@@ -12827,7 +12827,7 @@ define internal fastcc noundef i32 @rtps_util_add_type_annotation_usage(ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @rtps_util_add_type_member(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483647) %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @rtps_util_add_type_member(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483647) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
@@ -13444,7 +13444,7 @@ switch.lookup:                                    ; preds = %31
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @rtps_prepare_encapsulated_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly captures(none) %9) unnamed_addr #0 {
+define internal fastcc noundef i32 @rtps_prepare_encapsulated_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(none) %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %3)
   %13 = load i32, ptr @hf_rtps_param_serialize_encap_kind, align 4

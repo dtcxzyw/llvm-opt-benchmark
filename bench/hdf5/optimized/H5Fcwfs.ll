@@ -449,7 +449,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_advance_heap(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5F_cwfs_remove_heap(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5F_cwfs_remove_heap(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5F_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7

@@ -262,7 +262,7 @@ define dso_local i32 @ipv6_find_tlv(ptr noundef readonly captures(none) %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) #1 align 16 {
+define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) #1 align 16 {
   %6 = alloca %struct.ipv6hdr, align 4
   %7 = alloca %struct.ipv6_opt_hdr, align 2
   %8 = alloca %struct.ipv6_rt_hdr, align 4

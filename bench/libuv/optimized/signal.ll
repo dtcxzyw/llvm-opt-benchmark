@@ -142,7 +142,7 @@ declare void @uv__io_stop(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @uv__signal_loop_cleanup(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @uv__signal_loop_cleanup(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.017 = load ptr, ptr %2, align 8
   %.not18 = icmp eq ptr %.017, %2
@@ -192,7 +192,7 @@ define hidden void @uv__signal_loop_cleanup(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uv__signal_stop(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @uv__signal_stop(ptr noundef captures(address) %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca %struct.sigaction, align 8
   %4 = alloca %struct.sigaction, align 8
@@ -1073,7 +1073,7 @@ uv__signal_loop_once_init.exit:                   ; preds = %5, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @uv__signal_close(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @uv__signal_close(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   tail call fastcc void @uv__signal_stop(ptr noundef %0)
   ret void
 }
@@ -1766,7 +1766,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_signal_start_onesho
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_signal_stop(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local noundef i32 @uv_signal_stop(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   tail call fastcc void @uv__signal_stop(ptr noundef %0)
   ret i32 0
 }

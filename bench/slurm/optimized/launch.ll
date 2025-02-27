@@ -163,7 +163,7 @@ define dso_local noundef i32 @location_fini() local_unnamed_addr #0 {
 declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @launch_common_get_slurm_step_layout(ptr noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @launch_common_get_slurm_step_layout(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 

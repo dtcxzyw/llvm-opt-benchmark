@@ -598,7 +598,7 @@ define void @OBJ_NAME_cleanup(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @names_lh_free_doall(ptr noundef readonly %0) #0 {
+define internal void @names_lh_free_doall(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 

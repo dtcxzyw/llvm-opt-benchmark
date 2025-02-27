@@ -2199,7 +2199,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_syslog(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local zeroext i16 @printk_parse_prefix(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 align 16 {
+define dso_local zeroext i16 @printk_parse_prefix(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #8 align 16 {
   %4 = icmp eq ptr %2, null
   %5 = load i8, ptr %0, align 1
   %cond3 = icmp eq i8 %5, 1
@@ -2369,7 +2369,7 @@ define dso_local zeroext i16 @printk_parse_prefix(ptr noundef readonly captures(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 65547) i32 @vprintk_store(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 65547) i32 @vprintk_store(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.prb_reserved_entry, align 8
   %8 = alloca i32, align 4
@@ -2824,7 +2824,7 @@ declare dso_local zeroext i1 @prb_reserve(ptr noundef, ptr noundef, ptr noundef)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 65547) i32 @vprintk_emit(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
+define dso_local range(i32 0, 65547) i32 @vprintk_emit(i32 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = load i32, ptr @suppress_printk, align 4
@@ -4683,7 +4683,7 @@ define dso_local void @console_stop(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__pr_flush(ptr noundef readnone %0) unnamed_addr #1 align 16 {
+define internal fastcc void @__pr_flush(ptr noundef readnone captures(address) %0) unnamed_addr #1 align 16 {
   %2 = tail call i32 @__SCT__might_resched() #28
   %3 = load ptr, ptr @prb, align 8
   %4 = tail call i64 @prb_next_seq(ptr noundef %3) #28
@@ -6056,7 +6056,7 @@ define dso_local void @kmsg_dump(i32 noundef %0) local_unnamed_addr #1 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @kmsg_dump_get_line(ptr noundef captures(none) %0, i1 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) #1 align 16 {
+define dso_local noundef zeroext i1 @kmsg_dump_get_line(ptr noundef captures(none) %0, i1 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) #1 align 16 {
   %6 = alloca [32 x i8], align 16
   %7 = alloca %struct.printk_info, align 8
   %8 = alloca i32, align 4
@@ -6195,7 +6195,7 @@ define dso_local noundef zeroext i1 @kmsg_dump_get_line(ptr noundef captures(non
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @kmsg_dump_get_buffer(ptr noundef captures(none) %0, i1 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) #1 align 16 {
+define dso_local noundef zeroext i1 @kmsg_dump_get_buffer(ptr noundef captures(none) %0, i1 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) #1 align 16 {
   %6 = alloca %struct.printk_info, align 8
   %7 = alloca %struct.printk_record, align 8
   br label %8

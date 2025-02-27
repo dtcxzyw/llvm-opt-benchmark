@@ -1812,7 +1812,7 @@ define hidden noundef ptr @_ZN11tree_sitter6Parser10parse_with17h758373ff43f932d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal noundef nonnull ptr @_ZN11tree_sitter6Parser10parse_with4read17h91da72ea5755326eE(ptr noundef %0, i32 noundef %1, i64 %2, ptr noundef writeonly captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal noundef nonnull ptr @_ZN11tree_sitter6Parser10parse_with4read17h91da72ea5755326eE(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 %2, ptr noundef writeonly captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -1866,7 +1866,7 @@ define internal noundef nonnull ptr @_ZN11tree_sitter6Parser10parse_with4read17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal noundef nonnull ptr @_ZN11tree_sitter6Parser10parse_with4read17hbe29f867bd273463E(ptr noundef %0, i32 noundef %1, i64 %2, ptr noundef writeonly captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal noundef nonnull ptr @_ZN11tree_sitter6Parser10parse_with4read17hbe29f867bd273463E(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 %2, ptr noundef writeonly captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -1996,7 +1996,7 @@ define hidden noundef ptr @_ZN11tree_sitter6Parser16parse_utf16_with17h5c9011aea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal noundef nonnull ptr @_ZN11tree_sitter6Parser16parse_utf16_with4read17h2eccd151c1181098E(ptr noundef %0, i32 noundef %1, i64 %2, ptr noundef writeonly captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal noundef nonnull ptr @_ZN11tree_sitter6Parser16parse_utf16_with4read17h2eccd151c1181098E(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 %2, ptr noundef writeonly captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -2149,7 +2149,7 @@ _ZN11tree_sitter6Parser10parse_with17h47e013d86aec66acE.llvm.1441338998026376038
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN14regex_automata4meta5regex5Regex8is_match17h15720b8e495d26e8E(ptr readonly %.0.val, ptr %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN14regex_automata4meta5regex5Regex8is_match17h15720b8e495d26e8E(ptr readonly captures(address_is_null) %.0.val, ptr %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8

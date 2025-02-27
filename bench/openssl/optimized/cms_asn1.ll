@@ -661,7 +661,7 @@ define internal noundef nonnull ptr @CMS_AuthenticatedData_it() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @cms_cb(i32 noundef %0, ptr noundef readonly %1, ptr readnone captures(none) %2, ptr noundef %3) #1 {
+define internal range(i32 0, 2) i32 @cms_cb(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2, ptr noundef %3) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %24, label %5
 

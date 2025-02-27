@@ -156,7 +156,7 @@ insert_decoration.exit:                           ; preds = %.lr.ph.i6._crit_edg
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @lookup_decoration(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define dso_local ptr @lookup_decoration(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !12
   %.not = icmp eq i32 %4, 0
@@ -202,7 +202,7 @@ define dso_local ptr @lookup_decoration(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @clear_decoration(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @clear_decoration(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
 

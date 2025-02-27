@@ -83,7 +83,7 @@ define noundef i64 @_ZNK7rocksdb20TraceExecutionResult15GetEndTimestampEv(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb30StatusOnlyTraceExecutionResultC2ENS_6StatusEmmNS_9TraceTypeE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 9), (16, 38), (40, 48)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb30StatusOnlyTraceExecutionResultC2ENS_6StatusEmmNS_9TraceTypeE(ptr noundef nonnull align 8 captures(address) dereferenceable(48) initializes((0, 9), (16, 38), (40, 48)) %0, ptr noundef captures(address) %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %4, ptr %6, align 8, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -144,7 +144,7 @@ _ZN7rocksdb6StatusC2EOS0_.exit:                   ; preds = %5, %11, %_ZNKSt14de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7rocksdb30StatusOnlyTraceExecutionResult9GetStatusEv(ptr noundef nonnull readnone align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7rocksdb30StatusOnlyTraceExecutionResult9GetStatusEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
@@ -159,7 +159,7 @@ define void @_ZN7rocksdb30StatusOnlyTraceExecutionResult6AcceptEPNS_17TraceRecor
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb31SingleValueTraceExecutionResultC2ENS_6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmNS_9TraceTypeE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 9), (16, 38), (40, 48)) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb31SingleValueTraceExecutionResultC2ENS_6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmNS_9TraceTypeE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 9), (16, 38), (40, 48)) %0, ptr noundef captures(address) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %5, ptr %8, align 8, !tbaa !7
@@ -283,7 +283,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %50, %_ZNKSt14defaul
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb31SingleValueTraceExecutionResultC2ENS_6StatusEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmNS_9TraceTypeE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 9), (16, 38), (40, 48)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb31SingleValueTraceExecutionResultC2ENS_6StatusEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmNS_9TraceTypeE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 9), (16, 38), (40, 48)) %0, ptr noundef captures(address) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %5, ptr %7, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -375,7 +375,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb31SingleValueTraceExecutionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (56, 64)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb31SingleValueTraceExecutionResultD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(80) initializes((0, 8), (56, 64)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN7rocksdb31SingleValueTraceExecutionResultE, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -425,13 +425,13 @@ define void @_ZN7rocksdb31SingleValueTraceExecutionResultD0Ev(ptr noundef nonnul
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7rocksdb31SingleValueTraceExecutionResult9GetStatusEv(ptr noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7rocksdb31SingleValueTraceExecutionResult9GetStatusEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7rocksdb31SingleValueTraceExecutionResult8GetValueB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7rocksdb31SingleValueTraceExecutionResult8GetValueB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
@@ -647,13 +647,13 @@ define void @_ZN7rocksdb31MultiValuesTraceExecutionResultD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7rocksdb31MultiValuesTraceExecutionResult14GetMultiStatusEv(ptr noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7rocksdb31MultiValuesTraceExecutionResult14GetMultiStatusEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7rocksdb31MultiValuesTraceExecutionResult9GetValuesB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7rocksdb31MultiValuesTraceExecutionResult9GetValuesB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
@@ -668,7 +668,7 @@ define void @_ZN7rocksdb31MultiValuesTraceExecutionResult6AcceptEPNS_17TraceReco
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb28IteratorTraceExecutionResultC2EbNS_6StatusEONS_13PinnableSliceES3_mmNS_9TraceTypeE(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 9), (16, 33), (40, 46), (48, 56)) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(89) %3, ptr noundef nonnull align 8 dereferenceable(89) %4, i64 noundef %5, i64 noundef %6, i8 noundef signext %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb28IteratorTraceExecutionResultC2EbNS_6StatusEONS_13PinnableSliceES3_mmNS_9TraceTypeE(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 9), (16, 33), (40, 46), (48, 56)) %0, i1 noundef zeroext %1, ptr noundef captures(address) %2, ptr noundef nonnull align 8 dereferenceable(89) %3, ptr noundef nonnull align 8 dereferenceable(89) %4, i64 noundef %5, i64 noundef %6, i8 noundef signext %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %9 = zext i1 %1 to i8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %7, ptr %10, align 8, !tbaa !7
@@ -796,7 +796,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb28IteratorTraceExecutionResultC2EbNS_6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_mmNS_9TraceTypeE(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 9), (16, 33), (40, 46), (48, 56)) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, i64 noundef %5, i64 noundef %6, i8 noundef signext %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb28IteratorTraceExecutionResultC2EbNS_6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_mmNS_9TraceTypeE(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 9), (16, 33), (40, 46), (48, 56)) %0, i1 noundef zeroext %1, ptr noundef captures(address) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, i64 noundef %5, i64 noundef %6, i8 noundef signext %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %9 = zext i1 %1 to i8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %7, ptr %10, align 8, !tbaa !7
@@ -1064,7 +1064,7 @@ define noundef zeroext i1 @_ZNK7rocksdb28IteratorTraceExecutionResult8GetValidEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7rocksdb28IteratorTraceExecutionResult9GetStatusEv(ptr noundef nonnull readnone align 8 dereferenceable(248) %0) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7rocksdb28IteratorTraceExecutionResult9GetStatusEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(248) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }

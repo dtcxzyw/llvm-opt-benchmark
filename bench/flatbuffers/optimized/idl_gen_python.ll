@@ -126130,7 +126130,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZNK11flatbuffers6python12_GLOBAL__N_119PythonStubGenerator15GetNestedStructEPKNS_8FieldDefE(ptr noundef nonnull align 8 dereferenceable(406) %0, ptr noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZNK11flatbuffers6python12_GLOBAL__N_119PythonStubGenerator15GetNestedStructEPKNS_8FieldDefE(ptr noundef nonnull align 8 dereferenceable(406) %0, ptr noundef readonly captures(address) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8

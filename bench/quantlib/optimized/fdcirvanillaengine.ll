@@ -3728,7 +3728,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine16withQuantoHelperERKN5boost10shared_ptrINS_15FdmQuantoHelperEEE(ptr noundef nonnull returned align 8 dereferenceable(128) initializes((112, 120)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %quantoHelper) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine16withQuantoHelperERKN5boost10shared_ptrINS_15FdmQuantoHelperEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(128) initializes((112, 120)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %quantoHelper) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %quantoHelper_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %quantoHelper, align 8, !tbaa !43
@@ -3788,7 +3788,7 @@ _ZN5boost10shared_ptrIN8QuantLib15FdmQuantoHelperEEaSERKS3_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine9withTGridEm(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((64, 72)) %this, i64 noundef %tGrid) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine9withTGridEm(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(128) initializes((64, 72)) %this, i64 noundef %tGrid) local_unnamed_addr #16 align 2 {
 entry:
   %tGrid_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 %tGrid, ptr %tGrid_, align 8, !tbaa !164
@@ -3796,7 +3796,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine9withXGridEm(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((72, 80)) %this, i64 noundef %xGrid) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine9withXGridEm(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(128) initializes((72, 80)) %this, i64 noundef %xGrid) local_unnamed_addr #16 align 2 {
 entry:
   %xGrid_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i64 %xGrid, ptr %xGrid_, align 8, !tbaa !165
@@ -3804,7 +3804,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine9withRGridEm(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((80, 88)) %this, i64 noundef %rGrid) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine9withRGridEm(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(128) initializes((80, 88)) %this, i64 noundef %rGrid) local_unnamed_addr #16 align 2 {
 entry:
   %rGrid_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i64 %rGrid, ptr %rGrid_, align 8, !tbaa !166
@@ -3812,7 +3812,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine16withDampingStepsEm(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((88, 96)) %this, i64 noundef %dampingSteps) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine16withDampingStepsEm(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(128) initializes((88, 96)) %this, i64 noundef %dampingSteps) local_unnamed_addr #16 align 2 {
 entry:
   %dampingSteps_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i64 %dampingSteps, ptr %dampingSteps_, align 8, !tbaa !167
@@ -3820,7 +3820,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine17withFdmSchemeDescERKNS_13FdmSchemeDescE(ptr noundef nonnull returned align 8 dereferenceable(128) initializes((96, 104)) %this, ptr noundef nonnull align 8 dereferenceable(24) %schemeDesc) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine17withFdmSchemeDescERKNS_13FdmSchemeDescE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(128) initializes((96, 104)) %this, ptr noundef nonnull align 8 dereferenceable(24) %schemeDesc) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.81", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #25
@@ -3997,7 +3997,7 @@ _ZN5boost10shared_ptrIN8QuantLib13FdmSchemeDescEED2Ev.exit: ; preds = %cond.true
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine17withCashDividendsERKSt6vectorINS_4DateESaIS2_EERKS1_IdSaIdEE(ptr noundef nonnull returned align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(24) %dividendDates, ptr noundef nonnull align 8 dereferenceable(24) %dividendAmounts) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine17withCashDividendsERKSt6vectorINS_4DateESaIS2_EERKS1_IdSaIdEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(24) %dividendDates, ptr noundef nonnull align 8 dereferenceable(24) %dividendAmounts) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.35", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #25

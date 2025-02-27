@@ -321,7 +321,7 @@ declare double @llvm.floor.f64(double) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @php_uudecode(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @php_uudecode(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %105, label %.lr.ph73.preheader
 

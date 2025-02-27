@@ -503,7 +503,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.57 = private unnamed_addr constant [20 x i8] c"keySize=28, Default\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @wolfcrypt_test(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @wolfcrypt_test(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %2 = load ptr, ptr @stdout, align 8, !tbaa !4
   %3 = tail call i32 @fflush(ptr noundef %2)
@@ -11930,7 +11930,7 @@ define internal fastcc void @aes_cbc_oneshot_test() unnamed_addr #0 {
 declare void @wc_AesFree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -741585989, 1) i32 @aesgcm_default_test_helper(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 0, 33) %3, ptr noundef readonly %4, i32 noundef range(i32 0, 33) %5, ptr noundef %6, i32 noundef range(i32 0, 17) %7, ptr noundef nonnull readonly captures(none) %8, i32 noundef range(i32 12, 17) %9) unnamed_addr #0 {
+define internal fastcc range(i32 -741585989, 1) i32 @aesgcm_default_test_helper(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 0, 33) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef range(i32 0, 33) %5, ptr noundef %6, i32 noundef range(i32 0, 17) %7, ptr noundef nonnull readonly captures(none) %8, i32 noundef range(i32 12, 17) %9) unnamed_addr #0 {
   %11 = alloca [1 x %struct.Aes], align 16
   %12 = alloca [1 x %struct.Aes], align 16
   %13 = alloca [16 x i8], align 16
@@ -15961,7 +15961,7 @@ define internal noalias noundef ptr @my_Realloc_cb(ptr noundef captures(none) %0
 declare i32 @wc_SetTimeCb(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i64 @time_cb(ptr noundef writeonly %0) #10 {
+define internal noundef i64 @time_cb(ptr noundef writeonly captures(address_is_null) %0) #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

@@ -133,7 +133,7 @@ _mi_align_up.exit:                                ; preds = %34, %31, %mi_bin.ex
 declare i64 @_mi_os_page_size() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @_mi_page_queue_append(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
+define hidden i64 @_mi_page_queue_append(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %mi_heap_queue_first_update.exit, label %.preheader
@@ -481,7 +481,7 @@ _mi_page_thread_free_collect.exit:                ; preds = %32, %31, %14, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_page_reclaim(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden void @_mi_page_reclaim(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4, !tbaa !36
@@ -544,7 +544,7 @@ mi_page_queue.exit:                               ; preds = %mi_page_block_size.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mi_page_queue_push(ptr noundef %0, ptr noundef %1, ptr noundef initializes((56, 72)) %2) unnamed_addr #4 {
+define internal fastcc void @mi_page_queue_push(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef initializes((56, 72)) %2) unnamed_addr #4 {
   %4 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %4, align 8, !tbaa !3
   %5 = icmp eq i64 %.val, 131088
@@ -809,7 +809,7 @@ mi_heap_page_queue_of.exit:                       ; preds = %4, %17, %20, %22
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mi_page_queue_enqueue_from(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc void @mi_page_queue_enqueue_from(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load atomic i64, ptr %4 monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
@@ -1108,7 +1108,7 @@ mi_heap_queue_first_update.exit52:                ; preds = %.lr.ph.i49, %153, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_page_abandon(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden void @_mi_page_abandon(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -1121,7 +1121,7 @@ define hidden void @_mi_page_abandon(ptr noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mi_page_queue_remove(ptr noundef %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc void @mi_page_queue_remove(ptr noundef captures(address) %0, ptr noundef captures(address) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -1293,7 +1293,7 @@ mi_heap_queue_first_update.exit:                  ; preds = %.lr.ph.i, %82, %25,
 declare void @_mi_segment_page_abandon(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_page_free(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
+define hidden void @_mi_page_free(ptr noundef %0, ptr noundef captures(address) %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %5 = load i8, ptr %4, align 2
   %6 = and i8 %5, -3
@@ -1434,7 +1434,7 @@ mi_page_queue_of.exit:                            ; preds = %6, %15, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_heap_collect_retired(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
+define hidden void @_mi_heap_collect_retired(ptr noundef captures(address) %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3024
   %4 = load i64, ptr %3, align 8, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3032
@@ -2326,7 +2326,7 @@ mi_page_usable_block_size.exit:                   ; preds = %35, %40, %.thread, 
 declare i64 @_mi_os_good_alloc_size(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_page_fresh_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc ptr @mi_page_fresh_alloc(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !47

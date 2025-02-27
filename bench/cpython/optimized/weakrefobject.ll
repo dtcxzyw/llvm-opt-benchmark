@@ -1025,7 +1025,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_PyWeakref_ClearRef(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @_PyWeakref_ClearRef(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !37
   %.not.i = icmp eq ptr %3, @_Py_NoneStruct
@@ -1400,7 +1400,7 @@ define internal i32 @gc_traverse(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gc_clear(ptr noundef %0) #0 {
+define internal noundef i32 @gc_clear(ptr noundef captures(address) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !37
   %.not.i = icmp eq ptr %3, @_Py_NoneStruct
@@ -1501,7 +1501,7 @@ Py_XDECREF.exit:                                  ; preds = %clear_weakref_lock_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @weakref_richcompare(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) #0 {
+define internal ptr @weakref_richcompare(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) #0 {
   %4 = add i32 %2, -4
   %or.cond = icmp ult i32 %4, -2
   br i1 %or.cond, label %Py_DECREF.exit37, label %5
@@ -2983,7 +2983,7 @@ declare void @_PyErr_BadInternalCall(ptr noundef, i32 noundef) local_unnamed_add
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @PyWeakref_GetRef(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyWeakref_GetRef(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3051,7 +3051,7 @@ _PyWeakref_GET_REF.exit:                          ; preds = %PyObject_TypeCheck.
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyWeakref_GetObject(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @PyWeakref_GetObject(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

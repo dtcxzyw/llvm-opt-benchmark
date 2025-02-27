@@ -463,7 +463,7 @@ switch.lookup:                                    ; preds = %27
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden range(i32 0, 25) i32 @Dot11DecryptGetKCK(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 25) i32 @Dot11DecryptGetKCK(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -500,7 +500,7 @@ Dot11DecryptGetKckLen.exit:                       ; preds = %switch.lookup, %10,
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden range(i32 0, 33) i32 @Dot11DecryptGetKEK(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 33) i32 @Dot11DecryptGetKEK(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -561,7 +561,7 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup15, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden range(i32 0, 33) i32 @Dot11DecryptGetTK(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 33) i32 @Dot11DecryptGetTK(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -654,7 +654,7 @@ Dot11DecryptGetTkLen.exit:                        ; preds = %switch.lookup32, %2
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden range(i32 0, 33) i32 @Dot11DecryptGetGTK(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 33) i32 @Dot11DecryptGetGTK(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1775,7 +1775,7 @@ Dot11DecryptGroupHandshake.exit:                  ; preds = %237, %235, %20, %24
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @Dot11DecryptDecryptPacket(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden i32 @Dot11DecryptDecryptPacket(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION_ID, align 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #15
   %.not = icmp eq ptr %4, null
@@ -2941,7 +2941,7 @@ Dot11DecryptCleanSecAssoc.exit:                   ; preds = %4, %8
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @Dot11DecryptSetLastSSID(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @Dot11DecryptSetLastSSID(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond.not16 = or i1 %4, %5
@@ -3558,7 +3558,7 @@ Dot11DecryptIsFtAkm.exit:                         ; preds = %19, %25, %22, %252,
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc zeroext range(i8 0, 5) i8 @Dot11DecryptFtDerivePtk(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef range(i64 0, 256) %6, ptr noundef %7, i32 noundef range(i32 0, 256) %8, i32 noundef range(i32 0, 256) %9, ptr noundef %10, ptr noundef %11) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 5) i8 @Dot11DecryptFtDerivePtk(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef range(i64 0, 256) %6, ptr noundef %7, i32 noundef range(i32 0, 256) %8, i32 noundef range(i32 0, 256) %9, ptr noundef %10, ptr noundef captures(address_is_null) %11) unnamed_addr #0 {
   %13 = alloca [48 x i8], align 16
   %14 = alloca [48 x i8], align 16
   %15 = alloca [16 x i8], align 16
@@ -3695,7 +3695,7 @@ Dot11DecryptGetXXKeyFromMSK.exit.thread67:        ; preds = %42, %45, %50
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 -1, 5) i32 @Dot11DecryptCopyBroadcastKey(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef range(i64 0, 65536) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 5) i32 @Dot11DecryptCopyBroadcastKey(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef range(i64 0, 65536) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION, align 8
   %6 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION_ID, align 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #15
@@ -3776,7 +3776,7 @@ Dot11DecryptAddSa.exit:                           ; preds = %37, %36, %10, %4, %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %7, label %5
 

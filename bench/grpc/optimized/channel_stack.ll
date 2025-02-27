@@ -132,14 +132,14 @@ define noundef i64 @_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_Z26grpc_channel_stack_elementP18grpc_channel_stackm(ptr noundef readnone %0, i64 noundef %1) local_unnamed_addr #5 {
+define noundef nonnull ptr @_Z26grpc_channel_stack_elementP18grpc_channel_stackm(ptr noundef readnone captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = getelementptr inbounds nuw %struct.grpc_channel_element, ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_Z31grpc_channel_stack_last_elementP18grpc_channel_stack(ptr noundef readonly %0) local_unnamed_addr #6 {
+define noundef ptr @_Z31grpc_channel_stack_last_elementP18grpc_channel_stack(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8, !tbaa !16
   %4 = getelementptr i8, ptr %0, i64 112
@@ -148,7 +148,7 @@ define noundef ptr @_Z31grpc_channel_stack_last_elementP18grpc_channel_stack(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z41grpc_channel_stack_filter_instance_numberP18grpc_channel_stackP20grpc_channel_element(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define noundef i64 @_Z41grpc_channel_stack_filter_instance_numberP18grpc_channel_stackP20grpc_channel_element(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !tbaa !16
@@ -178,7 +178,7 @@ define noundef i64 @_Z41grpc_channel_stack_filter_instance_numberP18grpc_channel
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_Z23grpc_call_stack_elementP15grpc_call_stackm(ptr noundef readnone %0, i64 noundef %1) local_unnamed_addr #5 {
+define noundef nonnull ptr @_Z23grpc_call_stack_elementP15grpc_call_stackm(ptr noundef readnone captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw %struct.grpc_call_element, ptr %3, i64 %1
   ret ptr %4
@@ -1077,13 +1077,13 @@ define void @_Z20grpc_channel_next_opP20grpc_channel_elementP17grpc_transport_op
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_Z35grpc_channel_stack_from_top_elementP20grpc_channel_element(ptr noundef readnone %0) local_unnamed_addr #5 {
+define noundef nonnull ptr @_Z35grpc_channel_stack_from_top_elementP20grpc_channel_element(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -128
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_Z32grpc_call_stack_from_top_elementP17grpc_call_element(ptr noundef readnone %0) local_unnamed_addr #5 {
+define noundef nonnull ptr @_Z32grpc_call_stack_from_top_elementP17grpc_call_element(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -48
   ret ptr %2
 }

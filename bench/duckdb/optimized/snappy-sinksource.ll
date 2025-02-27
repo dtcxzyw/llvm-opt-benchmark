@@ -51,12 +51,12 @@ define void @_ZN13duckdb_snappy4SinkD0Ev(ptr nonnull readnone align 8 captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @_ZN13duckdb_snappy4Sink15GetAppendBufferEmPc(ptr nonnull readnone align 8 captures(none) %0, i64 %1, ptr noundef readnone returned %2) unnamed_addr #0 align 2 {
+define noundef ptr @_ZN13duckdb_snappy4Sink15GetAppendBufferEmPc(ptr nonnull readnone align 8 captures(none) %0, i64 %1, ptr noundef readnone returned captures(ret: address, provenance) %2) unnamed_addr #0 align 2 {
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_ZN13duckdb_snappy4Sink23GetAppendBufferVariableEmmPcmPm(ptr nonnull readnone align 8 captures(none) %0, i64 %1, i64 %2, ptr noundef readnone returned %3, i64 noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) unnamed_addr #3 align 2 {
+define noundef ptr @_ZN13duckdb_snappy4Sink23GetAppendBufferVariableEmmPcmPm(ptr nonnull readnone align 8 captures(none) %0, i64 %1, i64 %2, ptr noundef readnone returned captures(ret: address, provenance) %3, i64 noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) unnamed_addr #3 align 2 {
   store i64 %4, ptr %5, align 8, !tbaa !3
   ret ptr %3
 }
@@ -119,7 +119,7 @@ define void @_ZN13duckdb_snappy22UncheckedByteArraySinkD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN13duckdb_snappy22UncheckedByteArraySink6AppendEPKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #9 align 2 {
+define void @_ZN13duckdb_snappy22UncheckedByteArraySink6AppendEPKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   %.not = icmp eq ptr %1, %5

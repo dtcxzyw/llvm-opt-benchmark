@@ -1287,7 +1287,7 @@ define linkonce_odr void @_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel23SerializeGameParametersERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS6_ESaISt4pairIKS6_S7_EEERSB_SH_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel23SerializeGameParametersERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS6_ESaISt4pairIKS6_S7_EEERSB_SH_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"class.std::__cxx11::list", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4467,7 +4467,7 @@ _ZNK10open_spiel13GameParameter12double_valueEv.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10open_spiel13GameParameter5valueIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_v(ptr noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10open_spiel13GameParameter5valueIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(108) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
@@ -4569,7 +4569,7 @@ _ZNK10open_spiel13GameParameter10bool_valueEv.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK10open_spiel13GameParameter5valueIRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_St4lessIS8_ESaISt4pairIKS8_S0_EEEEET_v(ptr noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK10open_spiel13GameParameter5valueIRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_St4lessIS8_ESaISt4pairIKS8_S0_EEEEET_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(108) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
@@ -4706,7 +4706,7 @@ define noundef double @_ZNK10open_spiel13GameParameter18value_with_defaultIdEET_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10open_spiel13GameParameter18value_with_defaultIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_SA_(ptr noundef nonnull readonly align 8 dereferenceable(108) %0, ptr noundef nonnull readnone align 8 dereferenceable(32) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10open_spiel13GameParameter18value_with_defaultIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_SA_(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(108) %0, ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK10open_spiel13GameParameter12string_valueB5cxx11Ev.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8

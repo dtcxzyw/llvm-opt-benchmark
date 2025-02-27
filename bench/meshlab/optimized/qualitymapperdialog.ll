@@ -11538,7 +11538,7 @@ declare noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef, p
 declare noundef ptr @_ZN9QListData5eraseEPPv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog15drawChartBasicsER14QGraphicsSceneP10CHART_INFO(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef readonly %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QualityMapperDialog15drawChartBasicsER14QGraphicsSceneP10CHART_INFO(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QLineF, align 8
   %5 = alloca %class.QLineF, align 8
   %6 = alloca %class.QPen, align 8
@@ -17648,7 +17648,7 @@ define void @_ZN19QualityMapperDialog22on_resetButton_clickedEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog30on_EqHandle_crossing_histogramEP8EqHandleb(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef readnone %1, i1 noundef zeroext %2) local_unnamed_addr #10 align 2 {
+define void @_ZN19QualityMapperDialog30on_EqHandle_crossing_histogramEP8EqHandleb(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef readnone captures(address) %1, i1 noundef zeroext %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %1, %5

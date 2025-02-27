@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_readytorun = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @nxsched_set_param(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define i32 @nxsched_set_param(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %19, label %4
 
@@ -54,7 +54,7 @@ declare i32 @nxsched_reprioritize(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @sched_unlock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @sched_setparam(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @sched_setparam(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %nxsched_set_param.exit.thread, label %4
 

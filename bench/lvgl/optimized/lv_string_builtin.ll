@@ -509,7 +509,7 @@ define i64 @lv_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @lv_strncpy(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
+define noundef ptr @lv_strncpy(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %.not19 = icmp eq i64 %2, 0
   br i1 %.not19, label %.critedge, label %.lr.ph
 
@@ -543,7 +543,7 @@ define noundef ptr @lv_strncpy(ptr noundef returned writeonly %0, ptr noundef re
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @lv_strcpy(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define noundef ptr @lv_strcpy(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -674,7 +674,7 @@ lv_strlen.exit:                                   ; preds = %2
 declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @lv_strcat(ptr noundef returned %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define noundef ptr @lv_strcat(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -704,7 +704,7 @@ lv_strcpy.exit:                                   ; preds = %lv_strlen.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @lv_strncat(ptr noundef returned %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
+define noundef ptr @lv_strncat(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -741,7 +741,7 @@ define noundef ptr @lv_strncat(ptr noundef returned %0, ptr noundef readonly cap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef ptr @lv_strchr(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define noundef ptr @lv_strchr(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = load i8, ptr %0, align 1, !tbaa !3
   %4 = sext i8 %3 to i32
   %5 = icmp eq i32 %1, %4

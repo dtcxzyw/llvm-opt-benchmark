@@ -2374,7 +2374,7 @@ define internal void @gen8_ggtt_insert_entries_bind(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @guc_ggtt_invalidate(ptr noundef readonly %0) #0 align 16 {
+define internal void @guc_ggtt_invalidate(ptr noundef readonly captures(address) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -2684,7 +2684,7 @@ define internal noundef i32 @bxt_vtd_ggtt_insert_page__cb(ptr noundef readonly c
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @gen8_ggtt_bind_ptes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @gen8_ggtt_bind_ptes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.i915_sched_attr, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
   store i32 0, ptr %6, align 4

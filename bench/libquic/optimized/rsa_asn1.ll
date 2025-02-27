@@ -875,7 +875,7 @@ define hidden range(i32 0, 2) i32 @RSA_private_key_to_bytes(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_RSAPublicKey(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @d2i_RSAPublicKey(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.cbs_st, align 8
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %16, label %6
@@ -944,7 +944,7 @@ define hidden i32 @i2d_RSAPublicKey(ptr noundef readonly captures(none) %0, ptr 
 declare i32 @CBB_finish_i2d(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_RSAPrivateKey(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @d2i_RSAPrivateKey(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.cbs_st, align 8
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %16, label %6

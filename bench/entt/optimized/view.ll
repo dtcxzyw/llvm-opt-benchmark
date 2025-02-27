@@ -24109,7 +24109,7 @@ _ZNK4entt18basic_storage_viewINS_16basic_sparse_setINS_6entityESaIS2_EEELNS_15de
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNK4entt10basic_viewINS_5get_tIJNS_13basic_storageIN4test14pointer_stableENS_6entityESaIS4_EvEEEEENS_9exclude_tIJEEEvE4eachIZN33SingleStorageView_StableType_Test8TestBodyEvE3$_0EEvT_"(ptr readonly %.0.val, ptr nonnull readonly captures(none) %0, ptr nonnull %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK4entt10basic_viewINS_5get_tIJNS_13basic_storageIN4test14pointer_stableENS_6entityESaIS4_EvEEEEENS_9exclude_tIJEEEvE4eachIZN33SingleStorageView_StableType_Test8TestBodyEvE3$_0EEvT_"(ptr readonly captures(address_is_null) %.0.val, ptr nonnull readonly captures(none) %0, ptr nonnull %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca %"class.testing::AssertionResult", align 8
   %5 = alloca %"class.testing::Message", align 8
@@ -24498,7 +24498,7 @@ _ZN7testing15AssertionResultD2Ev.exit33.i.i.i.i.i: ; preds = %_ZNKSt14default_de
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNK4entt10basic_viewINS_5get_tIJNS_13basic_storageIN4test14pointer_stableENS_6entityESaIS4_EvEEEEENS_9exclude_tIJEEEvE4eachIZN33SingleStorageView_StableType_Test8TestBodyEvE3$_1EEvT_"(ptr readonly %.0.val, ptr nonnull readonly captures(none) %0, ptr nonnull readonly captures(none) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK4entt10basic_viewINS_5get_tIJNS_13basic_storageIN4test14pointer_stableENS_6entityESaIS4_EvEEEEENS_9exclude_tIJEEEvE4eachIZN33SingleStorageView_StableType_Test8TestBodyEvE3$_1EEvT_"(ptr readonly captures(address_is_null) %.0.val, ptr nonnull readonly captures(none) %0, ptr nonnull readonly captures(none) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.testing::Message", align 8
   %5 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -36540,7 +36540,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.thread: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNK4entt10basic_viewINS_5get_tIJNS_13basic_storageINS_6entityES3_SaIS3_EvEEEEENS_9exclude_tIJEEEvE4eachIZN36SingleStorageView_StorageEntity_Test8TestBodyEvE3$_0EEvT_"(ptr readonly %.0.val, ptr nonnull %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK4entt10basic_viewINS_5get_tIJNS_13basic_storageINS_6entityES3_SaIS3_EvEEEEENS_9exclude_tIJEEEvE4eachIZN36SingleStorageView_StorageEntity_Test8TestBodyEvE3$_0EEvT_"(ptr readonly captures(address_is_null) %.0.val, ptr nonnull %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.testing::Message", align 8
@@ -36705,7 +36705,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNK4entt10basic_viewINS_5get_tIJNS_13basic_storageINS_6entityES3_SaIS3_EvEEEEENS_9exclude_tIJEEEvE4eachIZN36SingleStorageView_StorageEntity_Test8TestBodyEvE3$_1EEvT_"(ptr readonly %.0.val, ptr nonnull %0, ptr nonnull readonly captures(none) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK4entt10basic_viewINS_5get_tIJNS_13basic_storageINS_6entityES3_SaIS3_EvEEEEENS_9exclude_tIJEEEvE4eachIZN36SingleStorageView_StorageEntity_Test8TestBodyEvE3$_1EEvT_"(ptr readonly captures(address_is_null) %.0.val, ptr nonnull %0, ptr nonnull readonly captures(none) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %.0.val, null
   br i1 %.not.i, label %._crit_edge, label %_ZNK4entt18basic_storage_viewINS_16basic_sparse_setINS_6entityESaIS2_EEELNS_15deletion_policyE2EE4sizeIJELS5_2EEENSt9enable_ifIXneT0_LS5_1EEmE4typeEv.exit
 

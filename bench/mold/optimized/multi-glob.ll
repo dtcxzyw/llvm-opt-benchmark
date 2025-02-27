@@ -1090,7 +1090,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none)
-define dso_local noundef range(i64 -1, -9223372036854775808) i64 @_ZN4mold9MultiGlob17find_aho_corasickESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(62) %0, i64 %1, ptr readonly %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i64 -1, -9223372036854775808) i64 @_ZN4mold9MultiGlob17find_aho_corasickESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(62) %0, i64 %1, ptr readonly captures(address) %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16

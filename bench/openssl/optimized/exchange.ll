@@ -1081,7 +1081,7 @@ define ptr @EVP_KEYEXCH_get0_description(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_KEYEXCH_is_a(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_KEYEXCH_is_a(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -1129,7 +1129,7 @@ define i32 @EVP_KEYEXCH_names_do_all(ptr noundef readonly captures(none) %0, ptr
 declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_KEYEXCH_gettable_ctx_params(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @EVP_KEYEXCH_gettable_ctx_params(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -1153,7 +1153,7 @@ define ptr @EVP_KEYEXCH_gettable_ctx_params(ptr noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_KEYEXCH_settable_ctx_params(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @EVP_KEYEXCH_settable_ctx_params(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 

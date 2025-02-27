@@ -11017,7 +11017,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_latin1_to_utf16ILNS_10endiann
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address_is_null) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp8.not.i = icmp eq i64 %and.i, 0
@@ -26336,7 +26336,7 @@ if.end:                                           ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #21 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address_is_null) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #21 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp15.not.i = icmp eq i64 %and.i, 0
@@ -26406,7 +26406,7 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #21 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address_is_null) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #21 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp18.not.i = icmp eq i64 %and.i, 0
@@ -26481,7 +26481,7 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address_is_null) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
 entry:
   %xor.i = and i64 %len, -8
   %cmp9.not.i = icmp eq i64 %xor.i, 0
@@ -39402,7 +39402,7 @@ if.end:                                           ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #27 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address_is_null) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #27 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp11.not.i = icmp eq i64 %and.i, 0
@@ -39471,7 +39471,7 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #27 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address_is_null) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #27 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp11.not.i = icmp eq i64 %and.i, 0

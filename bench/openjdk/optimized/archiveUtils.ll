@@ -712,7 +712,7 @@ declare noundef zeroext i1 @_ZN12VirtualSpace10initializeE13ReservedSpacem(ptr n
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10DumpRegion4packEPS_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((24, 32), (40, 41)) %0, ptr noundef writeonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10DumpRegion4packEPS_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((24, 32), (40, 41)) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i64 @_ZN15MetaspaceShared21core_region_alignmentEv() #10

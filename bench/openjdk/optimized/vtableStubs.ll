@@ -698,7 +698,7 @@ declare void @_ZN12Disassembler6decodeEPhS0_P12outputStream(ptr noundef, ptr nou
 declare void @_ZN11JvmtiExport47post_dynamic_code_generated_while_holding_locksEPKcPhS2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11VtableStubs11entry_pointEPh(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11VtableStubs11entry_pointEPh(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @VtableStubs_lock, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %3
@@ -755,7 +755,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %.critedge10, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11VtableStubs8containsEPh(ptr noundef readnone %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN11VtableStubs8containsEPh(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %._crit_edge.i, %1
@@ -806,7 +806,7 @@ _ZN11VtableStubs15stub_containingEPh.exit:        ; preds = %._crit_edge.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11VtableStubs15stub_containingEPh(ptr noundef readnone %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11VtableStubs15stub_containingEPh(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %._crit_edge

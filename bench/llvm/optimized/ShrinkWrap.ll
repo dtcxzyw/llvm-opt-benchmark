@@ -8514,7 +8514,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL8FindIDomIN4llvm11SmallVectorIPNS0_17MachineBasicBlockELj2EEENS0_20MachineDominatorTreeEES3_RS2_T_RT0_b(ptr readonly %.0.val, i32 %.8.val, ptr readonly captures(none) %.24.val, i32 %.32.val) unnamed_addr #15 {
+define internal fastcc noundef ptr @_ZL8FindIDomIN4llvm11SmallVectorIPNS0_17MachineBasicBlockELj2EEENS0_20MachineDominatorTreeEES3_RS2_T_RT0_b(ptr readonly captures(address) %.0.val, i32 %.8.val, ptr readonly captures(none) %.24.val, i32 %.32.val) unnamed_addr #15 {
   %1 = zext i32 %.8.val to i64
   %.idx = shl nuw nsw i64 %1, 3
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx
@@ -8654,7 +8654,7 @@ _ZN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEEaSERKS3_.exit: ; preds = %.si
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL27isSaveReachableThroughCleanPKN4llvm17MachineBasicBlockENS_8ArrayRefIPS0_EE(ptr noundef nonnull readnone %0, ptr readonly captures(none) %1, i64 %2) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZL27isSaveReachableThroughCleanPKN4llvm17MachineBasicBlockENS_8ArrayRefIPS0_EE(ptr noundef nonnull readnone captures(address) %0, ptr readonly captures(none) %1, i64 %2) unnamed_addr #1 {
   %4 = alloca %"struct.llvm::detail::DenseSetEmpty", align 1
   %5 = alloca %"struct.std::pair.516", align 8
   %6 = alloca %"class.llvm::DenseSet.503", align 8
@@ -8801,7 +8801,7 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj4EED2Ev.exit: ; preds = %.loopex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL17tryToSplitRestorePN4llvm17MachineBasicBlockENS_8ArrayRefIS1_EEPKNS_15TargetInstrInfoE(ptr noundef nonnull %0, ptr readonly %1, i64 %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL17tryToSplitRestorePN4llvm17MachineBasicBlockENS_8ArrayRefIS1_EEPKNS_15TargetInstrInfoE(ptr noundef nonnull %0, ptr readonly captures(address) %1, i64 %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca %"class.llvm::DebugLoc", align 8
   %6 = alloca %"class.llvm::SmallPtrSet.413", align 8
   %7 = alloca %"class.llvm::DebugLoc", align 8
@@ -9100,7 +9100,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_17MachineBasicBlockEEppEv.exit: ; preds = %.lr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20rollbackRestoreSplitRN4llvm15MachineFunctionEPNS_17MachineBasicBlockES3_NS_8ArrayRefIS3_EEPKNS_15TargetInstrInfoE(ptr noundef %0, ptr noundef nonnull %1, ptr readonly %2, i64 %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @_ZL20rollbackRestoreSplitRN4llvm15MachineFunctionEPNS_17MachineBasicBlockES3_NS_8ArrayRefIS3_EEPKNS_15TargetInstrInfoE(ptr noundef %0, ptr noundef nonnull %1, ptr readonly captures(address) %2, i64 %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca %"class.llvm::DebugLoc", align 8
   %7 = alloca %"class.llvm::SmallPtrSet.413", align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #20

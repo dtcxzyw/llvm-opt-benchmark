@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [5 x i8] c"noop\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @pj_noop(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @pj_noop(ptr noundef writeonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -49,7 +49,7 @@ define hidden noundef ptr @pj_noop(ptr noundef writeonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @_Z33pj_projection_specific_setup_noopP8PJconsts(ptr noundef returned writeonly initializes((136, 152), (380, 388)) %0) local_unnamed_addr #1 {
+define hidden noundef ptr @_Z33pj_projection_specific_setup_noopP8PJconsts(ptr noundef returned writeonly captures(ret: address, provenance) initializes((136, 152), (380, 388)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr @_ZL4noopR8PJ_COORDP8PJconsts, ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144

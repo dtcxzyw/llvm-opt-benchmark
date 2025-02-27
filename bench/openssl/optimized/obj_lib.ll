@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.OBJ_dup = private unnamed_addr constant [8 x i8] c"OBJ_dup\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @OBJ_dup(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @OBJ_dup(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %43, label %3
 

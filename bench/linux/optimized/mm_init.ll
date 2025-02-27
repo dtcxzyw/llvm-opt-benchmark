@@ -2027,7 +2027,7 @@ declare dso_local ptr @next_zone(ptr noundef) local_unnamed_addr #7
 declare dso_local void @page_alloc_sysctl_init() local_unnamed_addr #7
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local nonnull ptr @alloc_large_system_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6, i64 noundef %7, i64 noundef %8) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local nonnull ptr @alloc_large_system_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, i64 noundef %7, i64 noundef %8) local_unnamed_addr #0 section ".init.text" align 16 {
   %10 = icmp eq i64 %2, 0
   br i1 %10, label %11, label %37
 

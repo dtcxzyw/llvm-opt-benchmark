@@ -451,7 +451,7 @@ define void @_ZN9grpc_core23CompressionAlgorithmSetC2Ev(ptr noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core23CompressionAlgorithmSetC2ESt16initializer_listI26grpc_compression_algorithmE(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %0, ptr readonly %1, i64 %2) unnamed_addr #12 align 2 {
+define void @_ZN9grpc_core23CompressionAlgorithmSetC2ESt16initializer_listI26grpc_compression_algorithmE(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %0, ptr readonly captures(address) %1, i64 %2) unnamed_addr #12 align 2 {
   store i8 0, ptr %0, align 1, !tbaa !6
   %4 = getelementptr inbounds nuw i32, ptr %1, i64 %2
   %.not8 = icmp eq i64 %2, 0

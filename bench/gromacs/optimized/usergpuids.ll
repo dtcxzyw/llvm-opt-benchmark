@@ -2061,7 +2061,7 @@ define void @_ZN3gmx29parseUserTaskAssignmentStringERKNSt7__cxx1112basic_stringI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx10makeGpuIdsENS_8ArrayRefIKiEEm(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr readonly %1, ptr readnone %2, i64 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx10makeGpuIdsENS_8ArrayRefIKiEEm(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr readonly captures(address) %1, ptr readnone captures(address) %2, i64 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = icmp ugt i64 %3, 2305843009213693951
   br i1 %5, label %.noexc, label %6
@@ -2403,7 +2403,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4:                   ; preds = %23, %25
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx15checkUserGpuIdsENS_8ArrayRefIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS2_EEEENS0_IKiEES9_(ptr %0, ptr %1, ptr %2, ptr %3, ptr readonly %4, ptr readnone %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx15checkUserGpuIdsENS_8ArrayRefIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS2_EEEENS0_IKiEES9_(ptr %0, ptr %1, ptr %2, ptr %3, ptr readonly captures(address) %4, ptr readnone captures(address) %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

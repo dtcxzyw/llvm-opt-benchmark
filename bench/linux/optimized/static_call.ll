@@ -298,7 +298,7 @@ default.unreachable5:                             ; preds = %13
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @__static_call_fixup(ptr noundef %0, i8 noundef zeroext %1, ptr noundef readnone %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @__static_call_fixup(ptr noundef %0, i8 noundef zeroext %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 align 16 {
   %4 = alloca [6 x i8], align 1
   %5 = ptrtoint ptr %0 to i64
   %6 = add i64 %5, 7

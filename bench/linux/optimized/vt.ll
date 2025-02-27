@@ -1611,7 +1611,7 @@ define dso_local void @redraw_screen(ptr noundef %0, i32 noundef %1) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @con_is_visible(ptr noundef readonly %0) #0 align 16 {
+define dso_local zeroext i1 @con_is_visible(ptr noundef readonly captures(address) %0) #0 align 16 {
   %2 = load volatile i32, ptr @ignore_console_lock_warning, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %11
@@ -3648,7 +3648,7 @@ declare dso_local i32 @kbd_init() local_unnamed_addr #1
 declare dso_local void @console_map_init() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @con_is_bound(ptr noundef readnone %0) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @con_is_bound(ptr noundef readnone captures(address) %0) #0 align 16 {
   %2 = load volatile i32, ptr @ignore_console_lock_warning, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %.preheader
@@ -3754,7 +3754,7 @@ define dso_local i32 @con_debug_leave() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @do_unregister_con_driver(ptr noundef readnone %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @do_unregister_con_driver(ptr noundef readnone captures(address) %0) #0 align 16 {
   %2 = load volatile i32, ptr @ignore_console_lock_warning, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %.preheader11
@@ -4215,7 +4215,7 @@ define dso_local noundef range(i32 -22, 1) i32 @do_take_over_console(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @give_up_console(ptr noundef readnone %0) #0 align 16 {
+define dso_local void @give_up_console(ptr noundef readnone captures(address) %0) #0 align 16 {
   tail call void @console_lock() #25
   %2 = load volatile i32, ptr @ignore_console_lock_warning, align 4
   %3 = icmp eq i32 %2, 0
@@ -7411,7 +7411,7 @@ define internal void @con_unthrottle(ptr noundef readonly captures(none) %0) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @con_stop(ptr noundef readonly %0) #0 align 16 {
+define internal void @con_stop(ptr noundef readonly captures(address_is_null) %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -7437,7 +7437,7 @@ define internal void @con_stop(ptr noundef readonly %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @con_start(ptr noundef readonly %0) #0 align 16 {
+define internal void @con_start(ptr noundef readonly captures(address_is_null) %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 

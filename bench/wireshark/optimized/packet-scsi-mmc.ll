@@ -1240,7 +1240,7 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_mmc4_getconfiguration(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly %7) #1 {
+define internal void @dissect_mmc4_getconfiguration(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7) #1 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
@@ -1721,7 +1721,7 @@ define internal void @dissect_mmc4_geteventstatusnotification(ptr noundef %0, pt
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_mmc4_readdiscinformation(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly %7) #1 {
+define internal void @dissect_mmc4_readdiscinformation(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7) #1 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
@@ -1995,7 +1995,7 @@ define internal void @dissect_mmc4_readdiscinformation(ptr noundef %0, ptr readn
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_mmc4_readtrackinformation(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly %7) #1 {
+define internal void @dissect_mmc4_readtrackinformation(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7) #1 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4

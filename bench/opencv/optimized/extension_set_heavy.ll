@@ -4915,7 +4915,7 @@ declare { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallb
 declare { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc nonnull ptr @"_ZN6google8protobuf8internal12ExtensionSet7ForEachISt17_Rb_tree_iteratorISt4pairIKiNS2_9ExtensionEEEZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET0_T_SC_SB_"(ptr readonly %0, ptr readnone %1, ptr nonnull returned %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc nonnull ptr @"_ZN6google8protobuf8internal12ExtensionSet7ForEachISt17_Rb_tree_iteratorISt4pairIKiNS2_9ExtensionEEEZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET0_T_SC_SB_"(ptr readonly %0, ptr readnone captures(address) %1, ptr nonnull returned captures(ret: address, provenance) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.not7 = icmp eq ptr %0, %1
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 

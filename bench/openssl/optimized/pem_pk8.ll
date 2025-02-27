@@ -207,7 +207,7 @@ define i32 @i2d_PKCS8PrivateKey_nid_bio(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_PKCS8PrivateKey_bio(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @d2i_PKCS8PrivateKey_bio(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1025 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %5) #4
   %6 = tail call ptr @d2i_PKCS8_bio(ptr noundef %0, ptr noundef null) #4
@@ -385,7 +385,7 @@ do_pk8pkey_fp.exit:                               ; preds = %10, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_PKCS8PrivateKey_fp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @d2i_PKCS8PrivateKey_fp(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @BIO_new_fp(ptr noundef %0, i32 noundef 0) #4
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8

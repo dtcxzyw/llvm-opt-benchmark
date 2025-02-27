@@ -1065,7 +1065,7 @@ return:                                           ; preds = %for.cond.loopexit.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZNK7UnitSAO14getArmorGroupsB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(850) %this) unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZNK7UnitSAO14getArmorGroupsB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(850) %this) unnamed_addr #10 align 2 {
 entry:
   %m_armor_groups = getelementptr inbounds nuw i8, ptr %this, i64 216
   ret ptr %m_armor_groups
@@ -3385,7 +3385,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZNK7UnitSAO21getAttachmentChildIdsEv(ptr noundef nonnull readnone align 8 dereferenceable(850) %this) unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZNK7UnitSAO21getAttachmentChildIdsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(850) %this) unnamed_addr #10 align 2 {
 entry:
   %m_attachment_child_ids = getelementptr inbounds nuw i8, ptr %this, i64 736
   ret ptr %m_attachment_child_ids
@@ -3647,7 +3647,7 @@ declare void @_ZN15ScriptApiEntity19luaentity_on_detachEtP18ServerActiveObject(p
 declare void @_ZN15ScriptApiEntity25luaentity_on_detach_childEtP18ServerActiveObject(ptr noundef nonnull align 8 dereferenceable(64), i16 noundef zeroext, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN7UnitSAO22accessObjectPropertiesEv(ptr noundef nonnull readnone align 8 dereferenceable(850) %this) unnamed_addr #10 align 2 {
+define dso_local noundef nonnull ptr @_ZN7UnitSAO22accessObjectPropertiesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(850) %this) unnamed_addr #10 align 2 {
 entry:
   %m_prop = getelementptr inbounds nuw i8, ptr %this, i64 280
   ret ptr %m_prop

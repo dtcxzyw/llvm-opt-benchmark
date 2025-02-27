@@ -2402,7 +2402,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe9BlobShape8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe9BlobShape8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe9BlobShape9MergeFromERKS0_.exit, label %4
 
@@ -5047,7 +5047,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe9BlobProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe9BlobProto8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(128) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %40, label %4
 
@@ -5834,7 +5834,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15BlobProtoVector8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15BlobProtoVector8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe15BlobProtoVector9MergeFromERKS0_.exit, label %4
 
@@ -6607,7 +6607,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16PermuteParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16PermuteParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe16PermuteParameter9MergeFromERKS0_.exit, label %4
 
@@ -7873,7 +7873,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -10534,7 +10534,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe17PriorBoxParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull readonly align 8 dereferenceable(184) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe17PriorBoxParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(184) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %26, label %4
 
@@ -13175,7 +13175,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe24DetectionOutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe24DetectionOutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -14639,7 +14639,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe5Datum8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe5Datum8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %26, label %4
 
@@ -15714,7 +15714,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe15FillerParameter12GetClass
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15FillerParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe15FillerParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %29, label %4
 
@@ -18624,7 +18624,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12NetParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull readonly align 8 dereferenceable(160) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe12NetParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -25618,7 +25618,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15SolverParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull readonly align 8 dereferenceable(304) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe15SolverParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(304) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -27148,7 +27148,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe11SolverState8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe11SolverState8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %26, label %4
 
@@ -28139,7 +28139,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe8NetState12GetClassDataEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe8NetState8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe8NetState8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %29, label %4
 
@@ -29642,7 +29642,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12NetStateRule8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12NetStateRule8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %41, label %4
 
@@ -30700,7 +30700,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe9ParamSpec8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe9ParamSpec8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %27, label %4
 
@@ -63069,7 +63069,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe23TransformationParameter12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe23TransformationParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe23TransformationParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %27, label %4
 
@@ -63988,7 +63988,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe13LossParameter12GetClassDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13LossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13LossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe13LossParameter9MergeFromERKS0_.exit, label %4
 
@@ -64940,7 +64940,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe17AccuracyParameter12GetCla
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe17AccuracyParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe17AccuracyParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe17AccuracyParameter9MergeFromERKS0_.exit, label %4
 
@@ -65846,7 +65846,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe15ArgMaxParameter12GetClass
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15ArgMaxParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15ArgMaxParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe15ArgMaxParameter9MergeFromERKS0_.exit, label %4
 
@@ -66657,7 +66657,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe15ConcatParameter12GetClass
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15ConcatParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15ConcatParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe15ConcatParameter9MergeFromERKS0_.exit, label %4
 
@@ -67486,7 +67486,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe18BatchNormParameter12GetCl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18BatchNormParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18BatchNormParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe18BatchNormParameter9MergeFromERKS0_.exit, label %4
 
@@ -68440,7 +68440,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe13BiasParameter12GetClassDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13BiasParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe13BiasParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -69053,7 +69053,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe24ContrastiveLossParameter1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe24ContrastiveLossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe24ContrastiveLossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe24ContrastiveLossParameter9MergeFromERKS0_.exit, label %4
 
@@ -72207,7 +72207,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe20ConvolutionParameter12Get
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe20ConvolutionParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull readonly align 8 dereferenceable(152) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe20ConvolutionParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(152) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -73063,7 +73063,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe13CropParameter12GetClassDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13CropParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13CropParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe13CropParameter9MergeFromERKS0_.exit, label %4
 
@@ -74640,7 +74640,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe13DataParameter12GetClassDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13DataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13DataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %42, label %4
 
@@ -75447,7 +75447,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe30NonMaximumSuppressionPara
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe30NonMaximumSuppressionParameter9MergeFromERKS0_.exit, label %4
 
@@ -76750,7 +76750,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe19SaveOutputParameter12GetC
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19SaveOutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe19SaveOutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -77384,7 +77384,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe16DropoutParameter12GetClas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16DropoutParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16DropoutParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe16DropoutParameter9MergeFromERKS0_.exit, label %4
 
@@ -79128,7 +79128,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe18DummyDataParameter12GetCl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18DummyDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull readonly align 8 dereferenceable(136) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe18DummyDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -80060,7 +80060,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe16EltwiseParameter12GetClas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16EltwiseParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16EltwiseParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe16EltwiseParameter9MergeFromERKS0_.exit, label %4
 
@@ -80651,7 +80651,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe12ELUParameter12GetClassDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12ELUParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12ELUParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe12ELUParameter9MergeFromERKS0_.exit, label %4
 
@@ -81819,7 +81819,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe14EmbedParameter12GetClassD
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14EmbedParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe14EmbedParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -82450,7 +82450,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe12ExpParameter12GetClassDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12ExpParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12ExpParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe12ExpParameter9MergeFromERKS0_.exit, label %4
 
@@ -83270,7 +83270,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe16FlattenParameter12GetClas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16FlattenParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16FlattenParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe16FlattenParameter9MergeFromERKS0_.exit, label %4
 
@@ -84162,7 +84162,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe17HDF5DataParameter12GetCla
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe17HDF5DataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe17HDF5DataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe17HDF5DataParameter9MergeFromERKS0_.exit, label %4
 
@@ -84835,7 +84835,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe19HDF5OutputParameter12GetC
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19HDF5OutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19HDF5OutputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe19HDF5OutputParameter9MergeFromERKS0_.exit, label %4
 
@@ -85499,7 +85499,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe18HingeLossParameter12GetCl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18HingeLossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18HingeLossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe18HingeLossParameter9MergeFromERKS0_.exit, label %4
 
@@ -87234,7 +87234,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe18ImageDataParameter12GetCl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ImageDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ImageDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %54, label %4
 
@@ -87913,7 +87913,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe21InfogainLossParameter12Ge
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe21InfogainLossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe21InfogainLossParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe21InfogainLossParameter9MergeFromERKS0_.exit, label %4
 
@@ -89193,7 +89193,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe21InnerProductParameter12Ge
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe21InnerProductParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe21InnerProductParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -89822,7 +89822,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe14InputParameter12GetClassD
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14InputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14InputParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe14InputParameter9MergeFromERKS0_.exit, label %4
 
@@ -90542,7 +90542,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe12LogParameter12GetClassDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12LogParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12LogParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe12LogParameter9MergeFromERKS0_.exit, label %4
 
@@ -91727,7 +91727,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe12LRNParameter12GetClassDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12LRNParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12LRNParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe12LRNParameter9MergeFromERKS0_.exit, label %4
 
@@ -92852,7 +92852,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe19MemoryDataParameter12GetC
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19MemoryDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19MemoryDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe19MemoryDataParameter9MergeFromERKS0_.exit, label %4
 
@@ -93638,7 +93638,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe12MVNParameter12GetClassDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12MVNParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12MVNParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe12MVNParameter9MergeFromERKS0_.exit, label %4
 
@@ -94373,7 +94373,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe18ParameterParameter12GetCl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ParameterParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ParameterParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %20, label %4
 
@@ -96393,7 +96393,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe16PoolingParameter12GetClas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16PoolingParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe16PoolingParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %21, label %4
 
@@ -97078,7 +97078,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe14PowerParameter12GetClassD
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14PowerParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14PowerParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe14PowerParameter9MergeFromERKS0_.exit, label %4
 
@@ -98064,7 +98064,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe15PythonParameter12GetClass
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15PythonParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15PythonParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %44, label %4
 
@@ -99238,7 +99238,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe18RecurrentParameter12GetCl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18RecurrentParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe18RecurrentParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -100069,7 +100069,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe18ReductionParameter12GetCl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ReductionParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ReductionParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe18ReductionParameter9MergeFromERKS0_.exit, label %4
 
@@ -100834,7 +100834,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe13ReLUParameter12GetClassDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13ReLUParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13ReLUParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe13ReLUParameter9MergeFromERKS0_.exit, label %4
 
@@ -101817,7 +101817,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe16ReshapeParameter12GetClas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16ReshapeParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16ReshapeParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %25, label %4
 
@@ -103002,7 +103002,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe14ScaleParameter12GetClassD
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14ScaleParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe14ScaleParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -103608,7 +103608,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe16SigmoidParameter12GetClas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16SigmoidParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16SigmoidParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe16SigmoidParameter9MergeFromERKS0_.exit, label %4
 
@@ -104601,7 +104601,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe14SliceParameter12GetClassD
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14SliceParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14SliceParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe14SliceParameter9MergeFromERKS0_.exit, label %4
 
@@ -105469,7 +105469,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe16SoftmaxParameter12GetClas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16SoftmaxParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16SoftmaxParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe16SoftmaxParameter9MergeFromERKS0_.exit, label %4
 
@@ -106136,7 +106136,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe13TanHParameter12GetClassDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13TanHParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13TanHParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe13TanHParameter9MergeFromERKS0_.exit, label %4
 
@@ -106898,7 +106898,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe13TileParameter12GetClassDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13TileParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13TileParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe13TileParameter9MergeFromERKS0_.exit, label %4
 
@@ -107456,7 +107456,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe18ThresholdParameter12GetCl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ThresholdParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ThresholdParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe18ThresholdParameter9MergeFromERKS0_.exit, label %4
 
@@ -109151,7 +109151,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe19WindowDataParameter12GetC
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19WindowDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 dereferenceable(88) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe19WindowDataParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -110115,7 +110115,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe12SPPParameter12GetClassDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12SPPParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12SPPParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe12SPPParameter9MergeFromERKS0_.exit, label %4
 
@@ -131804,7 +131804,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe16V0LayerParameter12GetClas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16V0LayerParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull readonly align 8 dereferenceable(256) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe16V0LayerParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(256) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 
@@ -132657,7 +132657,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe14PReLUParameter12GetClassD
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14PReLUParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14PReLUParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %40, label %4
 
@@ -133777,7 +133777,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14NormalizedBBox8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe14NormalizedBBox8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %15, label %4
 
@@ -134578,7 +134578,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe19ROIPoolingParameter12GetC
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19ROIPoolingParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19ROIPoolingParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe19ROIPoolingParameter9MergeFromERKS0_.exit, label %4
 
@@ -135974,7 +135974,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe17ProposalParameter12GetCla
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe17ProposalParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12opencv_caffe17ProposalParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %22, label %4
 
@@ -136892,7 +136892,7 @@ define hidden noundef nonnull ptr @_ZNK12opencv_caffe21PSROIPoolingParameter12Ge
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe21PSROIPoolingParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe21PSROIPoolingParameter8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %_ZN12opencv_caffe21PSROIPoolingParameter9MergeFromERKS0_.exit, label %4
 

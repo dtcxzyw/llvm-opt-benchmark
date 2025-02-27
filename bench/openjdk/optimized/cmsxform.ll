@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [26 x i8] c"Mismatched alpha channels\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocAdaptationStateChunk(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocAdaptationStateChunk(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -110,7 +110,7 @@ define hidden void @cmsGetAlarmCodes(ptr noundef writeonly captures(none) initia
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocAlarmCodesChunk(ptr noundef captures(none) initializes((32, 40)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocAlarmCodesChunk(ptr noundef captures(none) initializes((32, 40)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -269,7 +269,7 @@ define hidden void @cmsDoTransformLineStride(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocTransformPluginChunk(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocTransformPluginChunk(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cmsTransformPluginChunkType, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %4
@@ -341,7 +341,7 @@ DupPluginTransformList.exit:                      ; preds = %7, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsRegisterTransformPlugin(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_cmsRegisterTransformPlugin(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 13) #11
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.sink.split, label %5
@@ -400,7 +400,7 @@ define hidden ptr @_cmsGetTransformUserData(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsGetTransformFormatters16(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define hidden void @_cmsGetTransformFormatters16(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 
@@ -425,7 +425,7 @@ define hidden void @_cmsGetTransformFormatters16(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsGetTransformFormattersFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define hidden void @_cmsGetTransformFormattersFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 
@@ -1189,7 +1189,7 @@ declare i32 @cmsPipelineInputChannels(ptr noundef) local_unnamed_addr #1
 declare i32 @cmsPipelineOutputChannels(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @SetWhitePoint(ptr noundef nonnull writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly %1) unnamed_addr #6 {
+define internal fastcc void @SetWhitePoint(ptr noundef nonnull writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #6 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %7
 
@@ -1584,7 +1584,7 @@ define hidden ptr @cmsCreateProofingTransform(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @cmsGetTransformContextID(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @cmsGetTransformContextID(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1599,7 +1599,7 @@ define hidden ptr @cmsGetTransformContextID(ptr noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @cmsGetTransformInputFormat(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @cmsGetTransformInputFormat(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -1613,7 +1613,7 @@ define hidden i32 @cmsGetTransformInputFormat(ptr noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @cmsGetTransformOutputFormat(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @cmsGetTransformOutputFormat(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1849,12 +1849,12 @@ define internal void @FloatXFORM(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @UnrollNothing(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone returned %2, i32 %3) #8 {
+define internal noundef ptr @UnrollNothing(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone returned captures(ret: address, provenance) %2, i32 %3) #8 {
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @PackNothing(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone returned %2, i32 %3) #8 {
+define internal noundef ptr @PackNothing(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone returned captures(ret: address, provenance) %2, i32 %3) #8 {
   ret ptr %2
 }
 

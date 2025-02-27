@@ -388,7 +388,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19XReferenceProcessor11is_inactiveEP7oopDescS1_13ReferenceType(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %0, ptr noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK19XReferenceProcessor11is_inactiveEP7oopDescS1_13ReferenceType(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = icmp eq i32 %3, 3
   br i1 %5, label %6, label %14
 

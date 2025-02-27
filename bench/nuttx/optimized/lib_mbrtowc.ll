@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_bittab = internal unnamed_addr constant [51 x i32] [i32 -1073741822, i32 -1073741821, i32 -1073741820, i32 -1073741819, i32 -1073741818, i32 -1073741817, i32 -1073741816, i32 -1073741815, i32 -1073741814, i32 -1073741813, i32 -1073741812, i32 -1073741811, i32 -1073741810, i32 -1073741809, i32 -1073741808, i32 -1073741807, i32 -1073741806, i32 -1073741805, i32 -1073741804, i32 -1073741803, i32 -1073741802, i32 -1073741801, i32 -1073741800, i32 -1073741799, i32 -1073741798, i32 -1073741797, i32 -1073741796, i32 -1073741795, i32 -1073741794, i32 -1073741793, i32 -1291845632, i32 -1023410175, i32 -1023410174, i32 -1023410173, i32 -1023410172, i32 -1023410171, i32 -1023410170, i32 -1023410169, i32 -1023410168, i32 -1023410167, i32 -1023410166, i32 -1023410165, i32 -1023410164, i32 -754974707, i32 -1023410162, i32 -1023410161, i32 -1156841472, i32 -1022623743, i32 -1022623742, i32 -1022623741, i32 -619970556], align 16
 
 ; Function Attrs: nounwind uwtable
-define i64 @mbrtowc(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i64 @mbrtowc(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %3, null
   %spec.store.select = select i1 %5, ptr @mbrtowc.state, ptr %3
   %6 = load i32, ptr %spec.store.select, align 4

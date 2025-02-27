@@ -285,7 +285,7 @@ define internal noundef range(i32 0, 2) i32 @ms_event(ptr noundef readonly captu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @ms_report_fixup(ptr noundef %0, ptr noundef returned %1, ptr noundef readonly captures(none) %2) #2 align 16 {
+define internal noundef ptr @ms_report_fixup(ptr noundef %0, ptr noundef returned captures(ret: address, provenance) %1, ptr noundef readonly captures(none) %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 6472
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8

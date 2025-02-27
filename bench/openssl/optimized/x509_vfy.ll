@@ -1098,7 +1098,7 @@ declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #2
 declare void @X509_OBJECT_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @X509_cmp_time(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @X509_cmp_time(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1257,7 +1257,7 @@ define range(i32 -1, 2) i32 @X509_cmp_current_time(ptr noundef %0) local_unnamed
 declare i32 @ossl_ascii_isdigit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_time_adj(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define ptr @X509_time_adj(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   %.not.i = icmp eq ptr %2, null
@@ -1416,7 +1416,7 @@ X509_time_adj.exit:                               ; preds = %13, %16, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_time_adj_ex(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define ptr @X509_time_adj_ex(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   %.not = icmp eq ptr %3, null

@@ -7613,7 +7613,7 @@ define dso_local range(i32 0, 2) i32 @snapshot_image_loaded(ptr noundef readonly
 declare dso_local ptr @memblock_alloc_try_nid(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -14, 1) i32 @memory_bm_find_bit(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @memory_bm_find_bit(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #3 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -8296,7 +8296,7 @@ define internal fastcc void @mark_free_pages(ptr noundef nonnull %0) unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone %0, i64 noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone captures(address) %0, i64 noundef %1) unnamed_addr #3 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -8755,7 +8755,7 @@ declare dso_local void @clear_page_erms(ptr noundef) #8
 declare dso_local i32 @arch_hibernation_header_restore(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @duplicate_memory_bitmap(ptr noundef %0, ptr noundef initializes((24, 60)) %1) unnamed_addr #3 align 16 {
+define internal fastcc void @duplicate_memory_bitmap(ptr noundef captures(address) %0, ptr noundef captures(address) initializes((24, 60)) %1) unnamed_addr #3 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8

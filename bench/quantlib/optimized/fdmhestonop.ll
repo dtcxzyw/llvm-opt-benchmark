@@ -2684,7 +2684,7 @@ declare double @exp(double noundef) local_unnamed_addr #10
 declare noundef double @_ZNK8QuantLib21LocalVolTermStructure8localVolEddb(ptr noundef nonnull align 8 dereferenceable(68), double noundef, double noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK8QuantLib19FdmHestonEquityPart6getMapEv(ptr noundef nonnull readnone align 8 dereferenceable(368) %this) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK8QuantLib19FdmHestonEquityPart6getMapEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(368) %this) local_unnamed_addr #11 align 2 {
 entry:
   %mapT_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   ret ptr %mapT_
@@ -3130,7 +3130,7 @@ _ZN8QuantLib5ArrayD2Ev.exit12:                    ; preds = %ehcleanup, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK8QuantLib21FdmHestonVariancePart6getMapEv(ptr noundef nonnull readnone align 8 dereferenceable(176) %this) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK8QuantLib21FdmHestonVariancePart6getMapEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(176) %this) local_unnamed_addr #11 align 2 {
 entry:
   %mapT_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   ret ptr %mapT_

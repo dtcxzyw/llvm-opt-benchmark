@@ -280,7 +280,7 @@ define noundef i64 @_ZNK7rocksdb20FileChecksumListImpl4sizeEv(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20FileChecksumListImpl19GetAllFileChecksumsEPSt6vectorImSaImEEPS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESD_(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20FileChecksumListImpl19GetAllFileChecksumsEPSt6vectorImSaImEEPS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESD_(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %"class.rocksdb::Slice", align 8

@@ -430,7 +430,7 @@ define void @_ZN6icu_7714SearchIterator7setTextERNS_17CharacterIteratorER10UErro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7714SearchIterator7getTextEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %0) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7714SearchIterator7getTextEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }

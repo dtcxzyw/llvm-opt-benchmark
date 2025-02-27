@@ -402,7 +402,7 @@ define hidden void @_ZN6anyhow5error11object_drop17h9e366fd8ff1297acE(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h11d242a165f1a71fE(ptr noundef nonnull readnone %0, i128 noundef %1) unnamed_addr #1 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h11d242a165f1a71fE(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i128 noundef %1) unnamed_addr #1 {
   %3 = icmp eq i128 %1, -3011075744290844973410273712836543551
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.0 = select i1 %3, ptr %4, ptr null
@@ -410,7 +410,7 @@ define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h11d242a165f1a71fE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17haf5afffb15c52a51E(ptr noundef nonnull readnone %0, i128 noundef %1) unnamed_addr #1 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17haf5afffb15c52a51E(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i128 noundef %1) unnamed_addr #1 {
   %3 = icmp eq i128 %1, -87383206857844601895750866616437852658
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.0 = select i1 %3, ptr %4, ptr null
@@ -418,7 +418,7 @@ define hidden noundef ptr @_ZN6anyhow5error15object_downcast17haf5afffb15c52a51E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hb8b2e261b46b0871E(ptr noundef nonnull readnone %0, i128 noundef %1) unnamed_addr #1 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hb8b2e261b46b0871E(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i128 noundef %1) unnamed_addr #1 {
   %3 = icmp eq i128 %1, 42966343538335219590177265727833432740
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.0 = select i1 %3, ptr %4, ptr null
@@ -426,7 +426,7 @@ define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hb8b2e261b46b0871E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hefe2dbb1aa9ba918E(ptr noundef nonnull readnone %0, i128 noundef %1) unnamed_addr #1 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hefe2dbb1aa9ba918E(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i128 noundef %1) unnamed_addr #1 {
   %3 = icmp eq i128 %1, 117580621213572126873268973339911732712
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.0 = select i1 %3, ptr %4, ptr null
@@ -434,7 +434,7 @@ define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hefe2dbb1aa9ba918E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error16context_downcast17h7f6a0bab197c6876E(ptr noundef nonnull readnone %0, i128 noundef %1) unnamed_addr #1 {
+define hidden noundef ptr @_ZN6anyhow5error16context_downcast17h7f6a0bab197c6876E(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i128 noundef %1) unnamed_addr #1 {
   switch i128 %1, label %7 [
     i128 42966343538335219590177265727833432740, label %3
     i128 -87383206857844601895750866616437852658, label %5
@@ -454,7 +454,7 @@ define hidden noundef ptr @_ZN6anyhow5error16context_downcast17h7f6a0bab197c6876
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error16context_downcast17hd0c6251ef700e5e7E(ptr noundef nonnull readnone %0, i128 noundef %1) unnamed_addr #1 {
+define hidden noundef ptr @_ZN6anyhow5error16context_downcast17hd0c6251ef700e5e7E(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i128 noundef %1) unnamed_addr #1 {
   switch i128 %1, label %7 [
     i128 42966343538335219590177265727833432740, label %3
     i128 117580621213572126873268973339911732712, label %5

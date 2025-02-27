@@ -500,7 +500,7 @@ define void @_ZN7Imf_3_48TimeCodeC2ERKS0_(ptr noundef nonnull writeonly align 4 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_48TimeCodeaSERKS0_(ptr noundef nonnull returned writeonly align 4 dereferenceable(8) %0, ptr noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_48TimeCodeaSERKS0_(ptr noundef nonnull returned writeonly align 4 captures(address, ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
   %.not = icmp eq ptr %1, %0
   br i1 %.not, label %8, label %3
 

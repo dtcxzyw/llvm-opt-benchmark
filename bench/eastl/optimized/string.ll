@@ -33,7 +33,7 @@ entry:
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDsS3_(ptr noundef nonnull align 8 dereferenceable(8) %pSrc, ptr noundef %pSrcEnd, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pDest, ptr noundef readnone %pDestEnd) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDsS3_(ptr noundef nonnull align 8 dereferenceable(8) %pSrc, ptr noundef %pSrcEnd, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pDest, ptr noundef readnone captures(address) %pDestEnd) local_unnamed_addr #2 {
 entry:
   %u32.i = alloca i32, align 4
   %0 = load ptr, ptr %pSrc, align 8
@@ -68,7 +68,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDiS3_(ptr noundef nonnull align 8 dereferenceable(8) %pSrc, ptr noundef %pSrcEnd, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pDest, ptr noundef readnone %pDestEnd) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPDiS3_(ptr noundef nonnull align 8 dereferenceable(8) %pSrc, ptr noundef %pSrcEnd, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pDest, ptr noundef readnone captures(address) %pDestEnd) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %pSrc, align 8
   %cmp5 = icmp ult ptr %0, %pSrcEnd
@@ -248,7 +248,7 @@ Failure.thread76:                                 ; preds = %if.else116, %lor.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKDsS1_RPcS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pSrc, ptr noundef readnone %pSrcEnd, ptr noundef nonnull align 8 dereferenceable(8) %pDest, ptr noundef readnone %pDestEnd) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKDsS1_RPcS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pSrc, ptr noundef readnone captures(address) %pSrcEnd, ptr noundef nonnull align 8 dereferenceable(8) %pDest, ptr noundef readnone captures(address) %pDestEnd) local_unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %pDestEnd, i64 -6
   br label %land.lhs.true
@@ -336,7 +336,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKDiS1_RPcS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pSrc, ptr noundef readnone %pSrcEnd, ptr noundef nonnull align 8 dereferenceable(8) %pDest, ptr noundef readnone %pDestEnd) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKDiS1_RPcS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pSrc, ptr noundef readnone captures(address) %pSrcEnd, ptr noundef nonnull align 8 dereferenceable(8) %pDest, ptr noundef readnone captures(address) %pDestEnd) local_unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %pDestEnd, i64 -6
   br label %land.lhs.true
@@ -607,7 +607,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKiS1_RPcS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pSrc, ptr noundef readnone %pSrcEnd, ptr noundef nonnull align 8 dereferenceable(8) %pDest, ptr noundef readnone %pDestEnd) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKiS1_RPcS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pSrc, ptr noundef readnone captures(address) %pSrcEnd, ptr noundef nonnull align 8 dereferenceable(8) %pDest, ptr noundef readnone captures(address) %pDestEnd) local_unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %pDestEnd, i64 -6
   br label %land.lhs.true

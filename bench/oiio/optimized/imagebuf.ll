@@ -3213,7 +3213,7 @@ _ZNSt6vectorIN11OpenImageIO6v3_1_08TypeDescESaIS2_EED2Ev.exit: ; preds = %.body,
 declare void @_ZN11OpenImageIO6v3_1_08DeepDataC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN11OpenImageIO6v3_1_012ImageBufImpl10new_pixelsEmPKv(ptr noundef nonnull align 8 dereferenceable(696) %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN11OpenImageIO6v3_1_012ImageBufImpl10new_pixelsEmPKv(ptr noundef nonnull align 8 dereferenceable(696) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -5511,7 +5511,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN11OpenImageIO6v3_1_08ImageBufaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN11OpenImageIO6v3_1_08ImageBufaSEOS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !190
   store ptr null, ptr %3, align 8, !tbaa !190
@@ -56194,7 +56194,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08ImageBuf10set_pixelsENS0_3ROIENS0_8TypeDescENS0_4spanIKSt4byteLm18446744073709551615EEEPKvlll(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef byval(%"struct.OpenImageIO::v3_1_0::ROI") align 8 %1, i64 %2, ptr readonly %3, i64 %4, ptr noundef readonly %5, i64 noundef %6, i64 noundef %7, i64 noundef %8) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08ImageBuf10set_pixelsENS0_3ROIENS0_8TypeDescENS0_4spanIKSt4byteLm18446744073709551615EEEPKvlll(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef byval(%"struct.OpenImageIO::v3_1_0::ROI") align 8 %1, i64 %2, ptr readonly %3, i64 %4, ptr noundef readonly captures(address) %5, i64 noundef %6, i64 noundef %7, i64 noundef %8) local_unnamed_addr #9 align 2 {
   %10 = alloca %"struct.OpenImageIO::v3_1_0::TypeDesc", align 8
   %11 = alloca %"struct.OpenImageIO::v3_1_0::TypeDesc", align 8
   store i64 %2, ptr %11, align 8
@@ -59622,7 +59622,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13make_writableEb.exit: ; preds = %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(126) ptr @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(126) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(126) %1) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(126) ptr @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseaSERKS2_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(126) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(126) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !375
   %.not = icmp eq ptr %4, null

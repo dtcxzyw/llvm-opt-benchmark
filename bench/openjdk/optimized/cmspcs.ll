@@ -62,7 +62,7 @@ define hidden void @cmsxyY2XYZ(ptr noundef writeonly captures(none) initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsXYZ2Lab(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
+define hidden void @cmsXYZ2Lab(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 
@@ -143,7 +143,7 @@ declare ptr @cmsD50_XYZ() local_unnamed_addr #2
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsLab2XYZ(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
+define hidden void @cmsLab2XYZ(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 
@@ -1400,7 +1400,7 @@ define hidden range(i32 0, 16) i32 @cmsChannelsOf(i32 noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @_cmsEndPointsBySpace(i32 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @_cmsEndPointsBySpace(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #8 {
   switch i32 %0, label %30 [
     i32 1196573017, label %5
     i32 1380401696, label %10

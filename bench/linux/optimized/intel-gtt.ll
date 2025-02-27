@@ -331,7 +331,7 @@ define dso_local void @intel_gmch_gtt_clear_range(i32 noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @intel_gmch_probe(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @intel_gmch_probe(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
   %4 = alloca %struct.pci_bus_region, align 8
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2

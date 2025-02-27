@@ -1062,7 +1062,7 @@ entry:
 declare void @_ZN6hermes11Instruction13removeOperandEj(ptr noundef nonnull align 8 dereferenceable(132), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes7PhiInst11removeEntryEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef readnone %BB) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes7PhiInst11removeEntryEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef readnone captures(address) %BB) local_unnamed_addr #0 align 2 {
 entry:
   %call.i58 = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %this) #15
   %cmp710.not = icmp ult i32 %call.i58, 2

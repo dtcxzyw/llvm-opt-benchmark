@@ -717,7 +717,7 @@ define hidden void @opj_stream_destroy(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @opj_stream_set_read_function(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @opj_stream_set_read_function(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -738,7 +738,7 @@ define hidden void @opj_stream_set_read_function(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @opj_stream_set_seek_function(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden void @opj_stream_set_seek_function(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -752,7 +752,7 @@ define hidden void @opj_stream_set_seek_function(ptr noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @opj_stream_set_write_function(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @opj_stream_set_write_function(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -773,7 +773,7 @@ define hidden void @opj_stream_set_write_function(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @opj_stream_set_skip_function(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden void @opj_stream_set_skip_function(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -787,7 +787,7 @@ define hidden void @opj_stream_set_skip_function(ptr noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @opj_stream_set_user_data(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden void @opj_stream_set_user_data(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %4
 
@@ -802,7 +802,7 @@ define hidden void @opj_stream_set_user_data(ptr noundef writeonly %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @opj_stream_set_user_data_length(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #4 {
+define hidden void @opj_stream_set_user_data_length(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 

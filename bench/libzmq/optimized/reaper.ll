@@ -223,7 +223,7 @@ define void @_ZThn24_N3zmq8reaper_tD0Ev(ptr noundef %0) unnamed_addr #7 align 2 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN3zmq8reaper_t11get_mailboxEv(ptr noundef nonnull readnone align 8 dereferenceable(240) %0) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZN3zmq8reaper_t11get_mailboxEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(240) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }

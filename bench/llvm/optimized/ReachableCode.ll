@@ -2157,7 +2157,7 @@ declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE9Visi
 declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE9VisitDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZZL17isInCoroutineStmtPKN5clang4StmtEPKNS_8CFGBlockEEN7Checker9VisitStmtEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(25) %0, ptr noundef readnone %1) unnamed_addr #8 align 2 {
+define internal noundef zeroext i1 @_ZZL17isInCoroutineStmtPKN5clang4StmtEPKNS_8CFGBlockEEN7Checker9VisitStmtEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(25) %0, ptr noundef readnone captures(address) %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !176
   %5 = icmp eq ptr %1, %4

@@ -8259,7 +8259,7 @@ declare void @_ZN4llvm20getBitcodeModuleListENS_15MemoryBufferRefE(ptr dead_on_u
 declare { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm3lto14initImportListERKNS_6ModuleERKNS_18ModuleSummaryIndexERNS_16FunctionImporter11ImportMapTyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(841) %0, ptr noundef nonnull readonly align 8 dereferenceable(592) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4llvm3lto14initImportListERKNS_6ModuleERKNS_18ModuleSummaryIndexERNS_16FunctionImporter11ImportMapTyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(841) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(592) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 {
   %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL19ThinLTOAssumeMerged, i64 120), align 8, !tbaa !56, !range !54, !noundef !55
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %.loopexit33, label %6

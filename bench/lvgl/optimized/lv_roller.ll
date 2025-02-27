@@ -1250,7 +1250,7 @@ define void @lv_roller_set_visible_row_count(ptr noundef %0, i32 noundef %1) loc
 declare void @lv_obj_set_height(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_roller_get_selected(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_roller_get_selected(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1393,7 +1393,7 @@ define void @lv_roller_get_selected_str(ptr noundef %0, ptr noundef writeonly ca
 declare ptr @lv_label_get_text(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_roller_get_option_count(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_roller_get_option_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

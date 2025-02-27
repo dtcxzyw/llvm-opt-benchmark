@@ -221,7 +221,7 @@ declare i32 @OSSL_PARAM_get_double(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_allocate_from_text(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_allocate_from_text(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7

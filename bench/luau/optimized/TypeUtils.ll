@@ -8194,7 +8194,7 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorIS5_EENS_8FreeTypeE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau21trackInteriorFreeTypeEPNS_5ScopeEPKNS_4TypeE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local void @_ZN4Luau21trackInteriorFreeTypeEPNS_5ScopeEPKNS_4TypeE(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not6 = icmp eq ptr %0, null
   br i1 %.not6, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit, label %.lr.ph
 

@@ -1926,7 +1926,7 @@ define dso_local i64 @pg_get_indexdef(ptr noundef captures(none) %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pg_get_indexdef_worker(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef range(i32 0, 8) %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc ptr @pg_get_indexdef_worker(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef range(i32 0, 8) %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca %struct.StringInfoData, align 8
   %11 = alloca %struct.deparse_context, align 8
   %12 = alloca %struct.StringInfoData, align 8
@@ -8855,7 +8855,7 @@ define dso_local noundef ptr @quote_identifier(ptr noundef %0) local_unnamed_add
 declare ptr @get_language_name(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @generate_function_name(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef writeonly %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc ptr @generate_function_name(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef writeonly captures(address_is_null) %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca %struct.StringInfoData, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -9452,7 +9452,7 @@ declare ptr @makeAlias(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_rtable_names(ptr noundef captures(none) initializes((8, 16)) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_rtable_names(ptr noundef captures(none) initializes((8, 16)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.HASHCTL, align 8
   %5 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #11
@@ -9844,7 +9844,7 @@ set_simple_column_names.exit:                     ; preds = %66, %71, %.preheade
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @set_deparse_context_plan(ptr noundef readonly returned %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @set_deparse_context_plan(ptr noundef readonly returned captures(ret: address, provenance) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %4, align 8
   %5 = load ptr, ptr %.val, align 8
@@ -10289,7 +10289,7 @@ quote_qualified_identifier.exit:                  ; preds = %.thread, %15, %19
 declare zeroext i1 @CollationIsVisible(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_range_partbound_string(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @get_range_partbound_string(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.deparse_context, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #11
   %3 = tail call ptr @makeStringInfo() #11
@@ -10576,7 +10576,7 @@ declare i64 @SPI_getbinval(ptr noundef, ptr noundef, i32 noundef, ptr noundef) l
 declare ptr @SPI_getvalue(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @generate_relation_name(i32 noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @generate_relation_name(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = alloca %struct.StringInfoData, align 8
   %4 = zext i32 %0 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %4) #11
@@ -10694,7 +10694,7 @@ declare ptr @getInsertSelectQuery(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @AcquireRewriteLocks(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_deparse_for_query(ptr noundef nonnull initializes((0, 160)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_deparse_for_query(ptr noundef nonnull initializes((0, 160)) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 0, i64 160, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -16521,7 +16521,7 @@ find_param_generator.exit.thread73:               ; preds = %89, %find_param_gen
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @processIndirection(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @processIndirection(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %._crit_edge.thread, label %.lr.ph
@@ -18602,7 +18602,7 @@ declare ptr @lookup_rowtype_tupdesc(i32 noundef, i32 noundef) local_unnamed_addr
 declare void @DecrTupleDescRefCount(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_rule_list_toplevel(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @get_rule_list_toplevel(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -19700,7 +19700,7 @@ define internal void @get_agg_combine_expr(ptr noundef %0, ptr noundef %1, ptr n
 declare i32 @get_aggregate_argtypes(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_rule_orderby(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @get_rule_orderby(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
@@ -20308,7 +20308,7 @@ declare ptr @get_attname(i32 noundef, i16 noundef signext, i1 noundef zeroext) l
 declare zeroext i1 @exprIsLengthCoercion(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @isSimpleNode(ptr noundef readonly %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @isSimpleNode(ptr noundef readonly captures(address) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %.not119 = icmp eq ptr %0, null
   br i1 %.not119, label %.loopexit, label %.lr.ph
 
@@ -21206,7 +21206,7 @@ define internal fastcc void @get_json_table(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_json_table_columns(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @get_json_table_columns(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = load ptr, ptr %2, align 8
@@ -21452,7 +21452,7 @@ get_json_path_spec.exit:                          ; preds = %114, %115
 declare void @get_type_category_preferred(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_json_table_nested_columns(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @get_json_table_nested_columns(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %21, %5
@@ -22735,7 +22735,7 @@ switch.lookup:                                    ; preds = %79
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_values_def(ptr noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @get_values_def(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   tail call void @appendStringInfoString(ptr noundef %3, ptr noundef nonnull @.str.473) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -22821,7 +22821,7 @@ get_rule_expr_toplevel.exit:                      ; preds = %24, %.split6.i, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_target_list(ptr noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @get_target_list(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.StringInfoData, align 8
   %4 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
@@ -24055,7 +24055,7 @@ looks_like_function.exit.thread:                  ; preds = %looks_like_function
 declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_from_clause_coldeflist(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr %.0.val) unnamed_addr #0 {
+define internal fastcc void @get_from_clause_coldeflist(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr %.0.val) unnamed_addr #0 {
   tail call void @appendStringInfoChar(ptr noundef %.0.val, i8 noundef signext 40) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -24288,7 +24288,7 @@ get_relation_name.exit:                           ; preds = %29
 declare i32 @get_typcollation(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_update_query_targetlist_def(i8 %.47.val, ptr noundef readonly %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc void @get_update_query_targetlist_def(i8 %.47.val, ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = trunc nuw i8 %.47.val to i1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4

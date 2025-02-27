@@ -27,7 +27,7 @@ declare i32 @crypto_hash_sha512_init(ptr noundef) local_unnamed_addr #1
 declare i32 @crypto_hash_sha512_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_crypto_sign_ed25519_detached(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden noundef i32 @_crypto_sign_ed25519_detached(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.crypto_hash_sha512_state, align 8
   %8 = alloca [64 x i8], align 16
   %9 = alloca [64 x i8], align 16
@@ -118,13 +118,13 @@ declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local noundef i32 @crypto_sign_ed25519_detached(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4) local_unnamed_addr #0 {
+define dso_local noundef i32 @crypto_sign_ed25519_detached(ptr noundef nonnull %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4) local_unnamed_addr #0 {
   %6 = tail call i32 @_crypto_sign_ed25519_detached(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4, i32 noundef 0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local range(i32 -1, 1) i32 @crypto_sign_ed25519(ptr noundef nonnull %0, ptr noundef writeonly %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @crypto_sign_ed25519(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
   %7 = getelementptr i8, ptr %0, i64 64

@@ -7076,7 +7076,7 @@ lpad:                                             ; preds = %cond.true.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms10receiveCmsEb(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((136, 137)) %this, i1 noundef zeroext %flag) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms10receiveCmsEb(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((136, 137)) %this, i1 noundef zeroext %flag) local_unnamed_addr #13 align 2 {
 entry:
   %lnot = xor i1 %flag, true
   %payCms_ = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -7086,7 +7086,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms11withNominalEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((144, 152)) %this, double noundef %n) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms11withNominalEd(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((144, 152)) %this, double noundef %n) local_unnamed_addr #13 align 2 {
 entry:
   %nominal_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   store double %n, ptr %nominal_, align 8, !tbaa !65
@@ -7094,7 +7094,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms17withEffectiveDateERKNS_4DateE(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((96, 104)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %effectiveDate) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms17withEffectiveDateERKNS_4DateE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((96, 104)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %effectiveDate) local_unnamed_addr #14 align 2 {
 entry:
   %effectiveDate_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i64, ptr %effectiveDate, align 8, !tbaa !30
@@ -7103,7 +7103,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms28withDiscountingTermStructureERKNS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull returned align 8 dereferenceable(296) initializes((264, 272)) %this, ptr noundef nonnull align 8 dereferenceable(16) %discountingTermStructure) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms28withDiscountingTermStructureERKNS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(296) initializes((264, 272)) %this, ptr noundef nonnull align 8 dereferenceable(16) %discountingTermStructure) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.80", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #23
@@ -7422,7 +7422,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms19withCmsCouponPricerERKN5boost10shared_ptrINS_15CmsCouponPricerEEE(ptr noundef nonnull returned align 8 dereferenceable(296) initializes((280, 288)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %couponPricer) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms19withCmsCouponPricerERKN5boost10shared_ptrINS_15CmsCouponPricerEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(296) initializes((280, 288)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %couponPricer) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %couponPricer_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %couponPricer, align 8, !tbaa !124
@@ -7482,7 +7482,7 @@ _ZN5boost10shared_ptrIN8QuantLib15CmsCouponPricerEEaSERKS3_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms15withCmsLegTenorERKNS_6PeriodE(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((152, 160)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %t) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms15withCmsLegTenorERKNS_6PeriodE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((152, 160)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %t) local_unnamed_addr #14 align 2 {
 entry:
   %cmsTenor_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load i64, ptr %t, align 4
@@ -7491,7 +7491,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms18withCmsLegCalendarERKNS_8CalendarE(ptr noundef nonnull returned align 8 dereferenceable(296) initializes((104, 112)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %cal) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms18withCmsLegCalendarERKNS_8CalendarE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(296) initializes((104, 112)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %cal) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmsCalendar_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %cal, align 8, !tbaa !108
@@ -7551,7 +7551,7 @@ _ZN8QuantLib8CalendaraSERKS0_.exit:               ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms20withCmsLegConventionENS_21BusinessDayConventionE(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((168, 172)) %this, i32 noundef %bdc) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms20withCmsLegConventionENS_21BusinessDayConventionE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((168, 172)) %this, i32 noundef %bdc) local_unnamed_addr #13 align 2 {
 entry:
   %cmsConvention_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   store i32 %bdc, ptr %cmsConvention_, align 8, !tbaa !66
@@ -7559,7 +7559,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms35withCmsLegTerminationDateConventionENS_21BusinessDayConventionE(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((172, 176)) %this, i32 noundef %bdc) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms35withCmsLegTerminationDateConventionENS_21BusinessDayConventionE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((172, 176)) %this, i32 noundef %bdc) local_unnamed_addr #13 align 2 {
 entry:
   %cmsTerminationDateConvention_ = getelementptr inbounds nuw i8, ptr %this, i64 172
   store i32 %bdc, ptr %cmsTerminationDateConvention_, align 4, !tbaa !67
@@ -7567,7 +7567,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms14withCmsLegRuleENS_14DateGeneration4RuleE(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((184, 188)) %this, i32 noundef %r) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms14withCmsLegRuleENS_14DateGeneration4RuleE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((184, 188)) %this, i32 noundef %r) local_unnamed_addr #13 align 2 {
 entry:
   %cmsRule_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   store i32 %r, ptr %cmsRule_, align 8, !tbaa !109
@@ -7575,7 +7575,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms20withCmsLegEndOfMonthEb(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((192, 193)) %this, i1 noundef zeroext %flag) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms20withCmsLegEndOfMonthEb(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((192, 193)) %this, i1 noundef zeroext %flag) local_unnamed_addr #13 align 2 {
 entry:
   %storedv = zext i1 %flag to i8
   %cmsEndOfMonth_ = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -7584,7 +7584,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms19withCmsLegFirstDateERKNS_4DateE(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((200, 208)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %d) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms19withCmsLegFirstDateERKNS_4DateE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((200, 208)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %d) local_unnamed_addr #14 align 2 {
 entry:
   %cmsFirstDate_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load i64, ptr %d, align 8, !tbaa !30
@@ -7593,7 +7593,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms24withCmsLegNextToLastDateERKNS_4DateE(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((208, 216)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %d) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms24withCmsLegNextToLastDateERKNS_4DateE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((208, 216)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %d) local_unnamed_addr #14 align 2 {
 entry:
   %cmsNextToLastDate_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load i64, ptr %d, align 8, !tbaa !30
@@ -7602,7 +7602,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms18withCmsLegDayCountERKNS_10DayCounterE(ptr noundef nonnull returned align 8 dereferenceable(296) initializes((232, 240)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dc) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms18withCmsLegDayCountERKNS_10DayCounterE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(296) initializes((232, 240)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dc) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmsDayCount_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load ptr, ptr %dc, align 8, !tbaa !85
@@ -7662,7 +7662,7 @@ _ZN8QuantLib10DayCounteraSERKS0_.exit:            ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms20withFloatingLegTenorERKNS_6PeriodE(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((160, 168)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %t) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms20withFloatingLegTenorERKNS_6PeriodE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((160, 168)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %t) local_unnamed_addr #14 align 2 {
 entry:
   %floatTenor_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load i64, ptr %t, align 4
@@ -7671,7 +7671,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms23withFloatingLegCalendarERKNS_8CalendarE(ptr noundef nonnull returned align 8 dereferenceable(296) initializes((120, 128)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %cal) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms23withFloatingLegCalendarERKNS_8CalendarE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(296) initializes((120, 128)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %cal) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %floatCalendar_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %cal, align 8, !tbaa !108
@@ -7731,7 +7731,7 @@ _ZN8QuantLib8CalendaraSERKS0_.exit:               ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms25withFloatingLegConventionENS_21BusinessDayConventionE(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((176, 180)) %this, i32 noundef %bdc) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms25withFloatingLegConventionENS_21BusinessDayConventionE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((176, 180)) %this, i32 noundef %bdc) local_unnamed_addr #13 align 2 {
 entry:
   %floatConvention_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   store i32 %bdc, ptr %floatConvention_, align 8, !tbaa !83
@@ -7739,7 +7739,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms40withFloatingLegTerminationDateConventionENS_21BusinessDayConventionE(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((180, 184)) %this, i32 noundef %bdc) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms40withFloatingLegTerminationDateConventionENS_21BusinessDayConventionE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((180, 184)) %this, i32 noundef %bdc) local_unnamed_addr #13 align 2 {
 entry:
   %floatTerminationDateConvention_ = getelementptr inbounds nuw i8, ptr %this, i64 180
   store i32 %bdc, ptr %floatTerminationDateConvention_, align 4, !tbaa !84
@@ -7747,7 +7747,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms19withFloatingLegRuleENS_14DateGeneration4RuleE(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((188, 192)) %this, i32 noundef %r) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms19withFloatingLegRuleENS_14DateGeneration4RuleE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((188, 192)) %this, i32 noundef %r) local_unnamed_addr #13 align 2 {
 entry:
   %floatRule_ = getelementptr inbounds nuw i8, ptr %this, i64 188
   store i32 %r, ptr %floatRule_, align 4, !tbaa !111
@@ -7755,7 +7755,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms25withFloatingLegEndOfMonthEb(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((193, 194)) %this, i1 noundef zeroext %flag) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms25withFloatingLegEndOfMonthEb(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((193, 194)) %this, i1 noundef zeroext %flag) local_unnamed_addr #13 align 2 {
 entry:
   %storedv = zext i1 %flag to i8
   %floatEndOfMonth_ = getelementptr inbounds nuw i8, ptr %this, i64 193
@@ -7764,7 +7764,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms24withFloatingLegFirstDateERKNS_4DateE(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((216, 224)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %d) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms24withFloatingLegFirstDateERKNS_4DateE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((216, 224)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %d) local_unnamed_addr #14 align 2 {
 entry:
   %floatFirstDate_ = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load i64, ptr %d, align 8, !tbaa !30
@@ -7773,7 +7773,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms29withFloatingLegNextToLastDateERKNS_4DateE(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((224, 232)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %d) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms29withFloatingLegNextToLastDateERKNS_4DateE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((224, 232)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %d) local_unnamed_addr #14 align 2 {
 entry:
   %floatNextToLastDate_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load i64, ptr %d, align 8, !tbaa !30
@@ -7782,7 +7782,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms23withFloatingLegDayCountERKNS_10DayCounterE(ptr noundef nonnull returned align 8 dereferenceable(296) initializes((248, 256)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dc) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms23withFloatingLegDayCountERKNS_10DayCounterE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(296) initializes((248, 256)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dc) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %floatDayCount_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %dc, align 8, !tbaa !85
@@ -7842,7 +7842,7 @@ _ZN8QuantLib10DayCounteraSERKS0_.exit:            ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms13withAtmSpreadEb(ptr noundef nonnull returned writeonly align 8 dereferenceable(296) initializes((48, 49)) %this, i1 noundef zeroext %flag) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(296) ptr @_ZN8QuantLib7MakeCms13withAtmSpreadEb(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(296) initializes((48, 49)) %this, i1 noundef zeroext %flag) local_unnamed_addr #13 align 2 {
 entry:
   %storedv = zext i1 %flag to i8
   %useAtmSpread_ = getelementptr inbounds nuw i8, ptr %this, i64 48

@@ -342,7 +342,7 @@ declare i32 @H5E_clear_stack() local_unnamed_addr #3
 declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @H5T__get_native_type(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
+define internal fastcc ptr @H5T__get_native_type(ptr noundef nonnull %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -1884,7 +1884,7 @@ declare i64 @H5T_get_size(ptr noundef) local_unnamed_addr #3
 declare i32 @H5T_get_sign(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @H5T__get_native_integer(i64 noundef %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
+define internal fastcc ptr @H5T__get_native_integer(i64 noundef %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
   %7 = load i8, ptr @H5T_init_g, align 1, !tbaa !7, !range !9, !noundef !10
   %8 = trunc nuw i8 %7 to i1
   %9 = load i8, ptr @H5_libterm_g, align 1, !range !9
@@ -2086,7 +2086,7 @@ H5T__cmp_offset.exit:                             ; preds = %110, %107, %106, %8
 declare ptr @H5T_copy(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5T__cmp_offset(ptr noundef nonnull captures(none) %0, ptr noundef writeonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #5 {
+define internal fastcc void @H5T__cmp_offset(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #5 {
   %7 = load i8, ptr @H5T_init_g, align 1, !tbaa !7, !range !9, !noundef !10
   %8 = trunc nuw i8 %7 to i1
   %9 = load i8, ptr @H5_libterm_g, align 1, !range !9

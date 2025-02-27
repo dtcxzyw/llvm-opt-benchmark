@@ -355,7 +355,7 @@ define internal i32 @dissect_spnego_wrap(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_spnego_krb5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @dissect_spnego_krb5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -511,7 +511,7 @@ define internal i32 @dissect_spnego_krb5(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @dissect_spnego_krb5_wrap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal noundef i32 @dissect_spnego_krb5_wrap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
   %5 = load i32, ptr @hf_spnego_krb5, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %7 = load i32, ptr @ett_spnego_krb5, align 4
@@ -1023,7 +1023,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_getmic_base(ptr noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @dissect_spnego_krb5_wrap_base(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_spnego_krb5_wrap_base(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
   %8 = alloca [4 x i8], align 4
   %9 = alloca [14 x i8], align 1
@@ -1407,7 +1407,7 @@ decrypt_arcfour.exit.i:                           ; preds = %.thread66.i.i, %154
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca i32, align 4
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1)

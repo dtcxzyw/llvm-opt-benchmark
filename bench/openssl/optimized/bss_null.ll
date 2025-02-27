@@ -27,7 +27,7 @@ define internal noundef i32 @null_read(ptr readnone captures(none) %0, ptr readn
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @null_puts(ptr readnone captures(none) %0, ptr noundef readonly %1) #2 {
+define internal i32 @null_puts(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %7, label %4
 

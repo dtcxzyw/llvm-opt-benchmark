@@ -198,7 +198,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN9grpc_core11ChannelArgs5Value3$_08__invokeEPv"(ptr noundef readnone returned %0) #3 align 2 {
+define internal noundef ptr @"_ZN9grpc_core11ChannelArgs5Value3$_08__invokeEPv"(ptr noundef readnone returned captures(ret: address, provenance) %0) #3 align 2 {
   ret ptr %0
 }
 
@@ -216,7 +216,7 @@ define internal noundef i32 @"_ZN9grpc_core11ChannelArgs5Value3$_28__invokeEPvS3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @"_ZN9grpc_core11ChannelArgs5Value3$_38__invokeEPv"(ptr noundef returned %0) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN9grpc_core11ChannelArgs5Value3$_38__invokeEPv"(ptr noundef returned captures(ret: address, provenance) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = atomicrmw add ptr %0, i64 1 monotonic, align 8, !noalias !3
   ret ptr %0
 }
@@ -321,7 +321,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZZN9grpc_core11ChannelArgs7Pointer11EmptyVTableEvEN3$_08__invokeEPv"(ptr noundef readnone returned %0) #3 align 2 {
+define internal noundef ptr @"_ZZN9grpc_core11ChannelArgs7Pointer11EmptyVTableEvEN3$_08__invokeEPv"(ptr noundef readnone returned captures(ret: address, provenance) %0) #3 align 2 {
   ret ptr %0
 }
 
@@ -331,7 +331,7 @@ define internal void @"_ZZN9grpc_core11ChannelArgs7Pointer11EmptyVTableEvEN3$_18
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @"_ZZN9grpc_core11ChannelArgs7Pointer11EmptyVTableEvEN3$_28__invokeEPvS3_"(ptr noundef readnone %0, ptr noundef readnone %1) #3 align 2 {
+define internal noundef range(i32 -1, 2) i32 @"_ZZN9grpc_core11ChannelArgs7Pointer11EmptyVTableEvEN3$_28__invokeEPvS3_"(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #3 align 2 {
   %3 = icmp ult ptr %0, %1
   %4 = icmp ult ptr %1, %0
   %..i.i = zext i1 %4 to i32
@@ -383,7 +383,7 @@ _ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEEC2ERKS4_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN9grpc_core11ChannelArgsaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN9grpc_core11ChannelArgsaSERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !21
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %6, label %4
@@ -423,7 +423,7 @@ define void @_ZN9grpc_core11ChannelArgsC2EOS0_(ptr noundef nonnull writeonly ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN9grpc_core11ChannelArgsaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN9grpc_core11ChannelArgsaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !25
   store ptr null, ptr %1, align 8, !tbaa !25
   %4 = load ptr, ptr %0, align 8, !tbaa !25
@@ -914,7 +914,7 @@ _ZN9grpc_core11ChannelArgs5ValueD2Ev.exit5:       ; preds = %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEEPKc(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::ChannelArgs") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 %2, ptr %3, ptr noundef readonly %4) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEEPKc(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::ChannelArgs") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 %2, ptr %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1096,7 +1096,7 @@ _ZN9grpc_core11ChannelArgs7PointerD2Ev.exit5:     ; preds = %_ZN9grpc_core11Chan
 declare void @gpr_unreachable_code(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11ChannelArgs5FromCEPK17grpc_channel_args(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::ChannelArgs") align 8 %0, ptr noundef readonly %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11ChannelArgs5FromCEPK17grpc_channel_args(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::ChannelArgs") align 8 %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.grpc_core::ChannelArgs", align 8
   tail call void @_ZN9grpc_core11ChannelArgsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not = icmp eq ptr %1, null
@@ -1308,7 +1308,7 @@ _ZNSt6vectorI8grpc_argSaIS0_EED2Ev.exit5:         ; preds = %24, %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z30grpc_channel_args_copy_and_addPK17grpc_channel_argsPK8grpc_argm(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
+define noundef ptr @_Z30grpc_channel_args_copy_and_addPK17grpc_channel_argsPK8grpc_argm(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef %0, ptr noundef null, i64 noundef 0, ptr noundef %1, i64 noundef %2)
   ret ptr %4
 }
@@ -1565,7 +1565,7 @@ _ZN9grpc_core13RefCountedPtrINS_16RefCountedStringEED2Ev.exit: ; preds = %1, %3,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEES4_(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::ChannelArgs") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 %2, ptr %3, i64 %4, ptr readonly %5) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEES4_(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::ChannelArgs") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 %2, ptr %3, i64 %4, ptr readonly captures(address_is_null) %5) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -3161,7 +3161,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit74, label %.preheader73
@@ -3404,7 +3404,7 @@ _ZL8copy_argPK8grpc_arg.exit60:                   ; preds = %.lr.ph88, %71, %75,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z33grpc_channel_args_copy_and_removePK17grpc_channel_argsPPKcm(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
+define noundef ptr @_Z33grpc_channel_args_copy_and_removePK17grpc_channel_argsPPKcm(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0)
   ret ptr %4
 }
@@ -3418,13 +3418,13 @@ declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17ba
 declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z22grpc_channel_args_copyPK17grpc_channel_args(ptr noundef %0) local_unnamed_addr #9 {
+define noundef ptr @_Z22grpc_channel_args_copyPK17grpc_channel_args(ptr noundef captures(address_is_null) %0) local_unnamed_addr #9 {
   %2 = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef %0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z23grpc_channel_args_unionPK17grpc_channel_argsS1_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #9 {
+define noundef ptr @_Z23grpc_channel_args_unionPK17grpc_channel_argsS1_(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #9 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -3531,7 +3531,7 @@ _Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit: ; preds = %37, %.loopex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_Z22grpc_channel_args_findPK17grpc_channel_argsPKc(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #22 {
+define noundef ptr @_Z22grpc_channel_args_findPK17grpc_channel_argsPKc(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #22 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %.preheader
 
@@ -3755,7 +3755,7 @@ define void @_Z25grpc_channel_args_destroyP17grpc_channel_args(ptr noundef %0) l
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z25grpc_channel_args_comparePK17grpc_channel_argsS1_(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #9 {
+define noundef i32 @_Z25grpc_channel_args_comparePK17grpc_channel_argsS1_(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = and i1 %3, %4
@@ -4035,7 +4035,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z30grpc_channel_args_find_integerPK17grpc_channel_argsPKc20grpc_integer_options(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 %2, i32 %3) local_unnamed_addr #9 {
+define noundef i32 @_Z30grpc_channel_args_find_integerPK17grpc_channel_argsPKc20grpc_integer_options(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 %2, i32 %3) local_unnamed_addr #9 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit, label %.preheader.i
 
@@ -4114,7 +4114,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi31EEERS2_RAT__Kc.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z29grpc_channel_args_find_stringPK17grpc_channel_argsPKc(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_Z29grpc_channel_args_find_stringPK17grpc_channel_argsPKc(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_Z27grpc_channel_arg_get_stringPK8grpc_arg.exit, label %.preheader.i
@@ -4273,7 +4273,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z27grpc_channel_args_find_boolPK17grpc_channel_argsPKcb(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #9 {
+define noundef zeroext i1 @_Z27grpc_channel_args_find_boolPK17grpc_channel_argsPKcb(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #9 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit, label %.preheader.i
 
@@ -4308,7 +4308,7 @@ _Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit: ; preds = %7, %9, %3, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z36grpc_channel_args_want_minimal_stackPK17grpc_channel_args(ptr noundef readonly %0) local_unnamed_addr #9 {
+define noundef zeroext i1 @_Z36grpc_channel_args_want_minimal_stackPK17grpc_channel_args(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit, label %.preheader.i
 
@@ -4343,7 +4343,7 @@ _Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit: ; preds = %5, %7, %1, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z24grpc_channel_args_stringB5cxx11PK17grpc_channel_args(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_Z24grpc_channel_args_stringB5cxx11PK17grpc_channel_args(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.grpc_core::ChannelArgs", align 8
   %4 = alloca %"class.grpc_core::ChannelArgs", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #37
@@ -4423,7 +4423,7 @@ _ZN9grpc_core11ChannelArgs5FromCEPK17grpc_channel_args.exit: ; preds = %_ZN9grpc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core30ChannelArgsBuiltinPreconditionEPK17grpc_channel_args(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::ChannelArgs") align 8 %0, ptr noundef readonly %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core30ChannelArgsBuiltinPreconditionEPK17grpc_channel_args(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::ChannelArgs") align 8 %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::basic_string_view", align 8
   %4 = alloca %"class.std::map", align 8
   %5 = alloca %"class.std::basic_string_view", align 8
@@ -5481,7 +5481,7 @@ _ZN9grpc_core12QsortCompareINS_11ChannelArgs5ValueEEEiRKT_S5_.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE11ForEachImplIZNKS2_3ToCEvE3$_0EEvPKNS4_4NodeEOT_"(ptr noundef readonly %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #9 align 2 {
+define internal fastcc void @"_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE11ForEachImplIZNKS2_3ToCEvE3$_0EEvPKNS4_4NodeEOT_"(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #9 align 2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %tailrecurse._crit_edge, label %.lr.ph
 
@@ -10226,7 +10226,7 @@ declare void @_ZN4absl12lts_2024072219str_format_internal10FormatPackB5cxx11ENS1
 declare noundef zeroext i1 @_ZN4absl12lts_2024072219str_format_internal13FormatArgImpl8DispatchINS1_7VoidPtrEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #9 align 2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE11ForEachImplIZNKS2_8ToStringB5cxx11EvE3$_0EEvPKNS4_4NodeEOT_"(ptr noundef readonly %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE11ForEachImplIZNKS2_8ToStringB5cxx11EvE3$_0EEvPKNS4_4NodeEOT_"(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %tailrecurse._crit_edge, label %.lr.ph
 

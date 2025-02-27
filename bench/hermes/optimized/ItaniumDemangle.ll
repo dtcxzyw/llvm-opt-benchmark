@@ -1005,7 +1005,7 @@ $_ZTVN4llvh16itanium_demangle20PostfixQualifiedTypeE = comdat any
 @_ZN4llvh23ItaniumPartialDemanglerC1EOS0_ = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvh23ItaniumPartialDemanglerC2EOS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN4llvh16itanium_demangle19parse_discriminatorEPKcS2_(ptr noundef readonly %first, ptr noundef readnone %last) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN4llvh16itanium_demangle19parse_discriminatorEPKcS2_(ptr noundef readonly captures(address, ret: address, provenance) %first, ptr noundef readnone captures(address, ret: address, provenance) %last) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %first, %last
   br i1 %cmp.not, label %if.end47, label %if.then
@@ -1082,7 +1082,7 @@ if.end47:                                         ; preds = %land.rhs33, %for.co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN4llvh15itaniumDemangleEPKcPcPmPi(ptr noundef %MangledName, ptr noundef %Buf, ptr noundef %N, ptr noundef writeonly %Status) local_unnamed_addr #1 {
+define hidden noundef ptr @_ZN4llvh15itaniumDemangleEPKcPcPmPi(ptr noundef %MangledName, ptr noundef %Buf, ptr noundef captures(address_is_null) %N, ptr noundef writeonly captures(address_is_null) %Status) local_unnamed_addr #1 {
 entry:
   %Parser = alloca %"struct.llvh::itanium_demangle::Db", align 16
   %S = alloca %class.OutputStream, align 8
@@ -1794,7 +1794,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh23ItaniumPartialDemangleraSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %Other) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh23ItaniumPartialDemangleraSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %Other) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %Other, align 8
@@ -1870,7 +1870,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE5resetEPKcS6_.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler19getFunctionBaseNameEPcPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %Buf, ptr noundef %N) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler19getFunctionBaseNameEPcPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %Buf, ptr noundef captures(address_is_null) %N) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %K.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1923,7 +1923,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL9printNodePKN4llvh16itanium_demangle4NodeEPcPm(ptr noundef %RootNode, ptr noundef %Buf, ptr noundef %N) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL9printNodePKN4llvh16itanium_demangle4NodeEPcPm(ptr noundef %RootNode, ptr noundef %Buf, ptr noundef captures(address_is_null) %N) unnamed_addr #1 {
 entry:
   %S = alloca %class.OutputStream, align 8
   %CurrentPackIndex.i = getelementptr inbounds nuw i8, ptr %S, i64 24
@@ -2017,7 +2017,7 @@ return:                                           ; preds = %if.then.i, %if.end4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler26getFunctionDeclContextNameEPcPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %Buf, ptr noundef %N) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler26getFunctionDeclContextNameEPcPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %Buf, ptr noundef captures(address_is_null) %N) local_unnamed_addr #1 align 2 {
 entry:
   %S = alloca %class.OutputStream, align 8
   %0 = load ptr, ptr %this, align 8
@@ -2237,7 +2237,7 @@ return:                                           ; preds = %if.then.i, %entry, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler15getFunctionNameEPcPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %Buf, ptr noundef %N) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler15getFunctionNameEPcPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %Buf, ptr noundef captures(address_is_null) %N) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %K.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2257,7 +2257,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler21getFunctionParametersEPcPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %Buf, ptr noundef %N) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler21getFunctionParametersEPcPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %Buf, ptr noundef captures(address_is_null) %N) local_unnamed_addr #1 align 2 {
 entry:
   %S = alloca %class.OutputStream, align 8
   %0 = load ptr, ptr %this, align 8
@@ -2576,7 +2576,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler21getFunctionReturnTypeEPcPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %Buf, ptr noundef %N) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler21getFunctionReturnTypeEPcPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %Buf, ptr noundef captures(address_is_null) %N) local_unnamed_addr #1 align 2 {
 entry:
   %S = alloca %class.OutputStream, align 8
   %0 = load ptr, ptr %this, align 8
@@ -2683,7 +2683,7 @@ return:                                           ; preds = %if.then.i, %entry, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler14finishDemangleEPcPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %Buf, ptr noundef %N) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler14finishDemangleEPcPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %Buf, ptr noundef captures(address_is_null) %N) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call fastcc noundef ptr @_ZL9printNodePKN4llvh16itanium_demangle4NodeEPcPm(ptr noundef %0, ptr noundef %Buf, ptr noundef %N)
@@ -8496,7 +8496,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseSubstitutionEv(ptr noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
+define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseSubstitutionEv(ptr noundef nonnull align 16 captures(address) dereferenceable(4864) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
   %Last.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -9458,7 +9458,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20NameWithT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE18parseTemplateParamEv(ptr noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
+define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE18parseTemplateParamEv(ptr noundef nonnull align 16 captures(address) dereferenceable(4864) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
   %Last.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -20541,7 +20541,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseOperatorNameEPNS4_9NameStateE(ptr noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef writeonly %State) unnamed_addr #1 align 2 {
+define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseOperatorNameEPNS4_9NameStateE(ptr noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef writeonly captures(address_is_null) %State) unnamed_addr #1 align 2 {
 entry:
   %this.val34 = load ptr, ptr %this, align 16
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8

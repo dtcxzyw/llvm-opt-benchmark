@@ -680,7 +680,7 @@ define void @EVP_DecodeInit(ptr noundef writeonly captures(none) initializes((0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 2) i32 @EVP_DecodeUpdate(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #7 {
+define range(i32 -1, 2) i32 @EVP_DecodeUpdate(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = load i32, ptr %0, align 4, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = icmp sgt i32 %6, 0
@@ -858,7 +858,7 @@ conv_ascii2bin.exit.thread:                       ; preds = %.lr.ph, %55, %47, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 3, 1) i32 @evp_decodeblock_int(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #7 {
+define internal fastcc range(i32 3, 1) i32 @evp_decodeblock_int(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %5
 
@@ -1035,7 +1035,7 @@ define range(i32 3, 1) i32 @EVP_DecodeBlock(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 2) i32 @EVP_DecodeFinal(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #7 {
+define range(i32 -1, 2) i32 @EVP_DecodeFinal(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #7 {
   store i32 0, ptr %2, align 4, !tbaa !11
   %4 = load i32, ptr %0, align 4, !tbaa !3
   %.not = icmp eq i32 %4, 0

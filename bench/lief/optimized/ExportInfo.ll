@@ -566,7 +566,7 @@ $_ZN3fmt3v106detail14string_literalIcJLc93EEE5valueE = comdat any
 @_ZN4LIEF5MachO10ExportInfoC1ERKS1_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN4LIEF5MachO10ExportInfoC2ERKS1_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN4LIEF5MachO10ExportInfoaSES1_(ptr noundef nonnull returned align 8 dereferenceable(64) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN4LIEF5MachO10ExportInfoaSES1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(64) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8, !tbaa !3

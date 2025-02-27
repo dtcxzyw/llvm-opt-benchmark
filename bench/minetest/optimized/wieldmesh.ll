@@ -2153,7 +2153,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare noundef ptr @_Z9cloneMeshPN3irr5scene5IMeshE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z19postProcessNodeMeshPN3irr5scene5SMeshERK15ContentFeaturesbbPKNS_5video15E_MATERIAL_TYPEEPSt6vectorI13ItemPartColorSaISB_EEb(ptr noundef %mesh, ptr noundef nonnull align 8 dereferenceable(3706) %f, i1 noundef zeroext %use_shaders, i1 noundef zeroext %set_material, ptr noundef readonly %mattype, ptr noundef %colors, i1 noundef zeroext %apply_scale) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z19postProcessNodeMeshPN3irr5scene5SMeshERK15ContentFeaturesbbPKNS_5video15E_MATERIAL_TYPEEPSt6vectorI13ItemPartColorSaISB_EEb(ptr noundef %mesh, ptr noundef nonnull align 8 dereferenceable(3706) %f, i1 noundef zeroext %use_shaders, i1 noundef zeroext %set_material, ptr noundef readonly captures(address_is_null) %mattype, ptr noundef %colors, i1 noundef zeroext %apply_scale) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %mesh, align 8, !tbaa !15
   %0 = load ptr, ptr %vtable, align 8

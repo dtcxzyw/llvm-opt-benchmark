@@ -262,7 +262,7 @@ declare i32 @log_alter(ptr noundef byval(%struct.log_options_t) align 8, i32 nou
 declare void @print_date() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_get_info(i1 noundef zeroext %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #5 {
+define internal fastcc i32 @_get_info(i1 noundef zeroext %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #5 {
   %6 = alloca ptr, align 8
   %7 = alloca %union.pthread_attr_t, align 8
   %8 = alloca %struct.openapi_resp_single_t, align 8
@@ -988,7 +988,7 @@ declare void @fatal_abort(ptr noundef, ...) local_unnamed_addr #10
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #5 {
+define internal fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #5 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1772,7 +1772,7 @@ declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #3
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @_list_find_func(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #11 {
+define internal range(i32 0, 2) i32 @_list_find_func(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #11 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, %1
   %. = zext i1 %4 to i32

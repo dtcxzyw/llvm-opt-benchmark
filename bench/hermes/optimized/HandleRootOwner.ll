@@ -125,7 +125,7 @@ for.end10:                                        ; preds = %for.inc8, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7GCScopeD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(212) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm7GCScopeD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(212) %this) unnamed_addr #0 align 2 {
 entry:
   %prevScope_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %prevScope_, align 8

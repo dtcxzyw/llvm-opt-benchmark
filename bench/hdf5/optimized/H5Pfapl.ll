@@ -3286,7 +3286,7 @@ define range(i32 -1, 1) i32 @H5Pset_cache(i64 noundef %0, i32 noundef %1, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_cache(i64 noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_cache(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %6) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %6, i8 0, i64 480, i1 false)
@@ -5739,7 +5739,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @H5P_poke(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_file_image(i64 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_file_image(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5FD_file_image_info_t, align 8
   %5 = alloca %struct.H5CX_node_t, align 8
   %6 = alloca %struct.H5_user_cb_state_t, align 8
@@ -5977,7 +5977,7 @@ define range(i32 -1, 1) i32 @H5Pget_file_image(i64 noundef %0, ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5FD_file_image_info_t, align 8
   %4 = alloca %struct.H5CX_node_t, align 8
   %5 = alloca %struct.H5_user_cb_state_t, align 8
@@ -6276,7 +6276,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_file_image_callbacks(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_file_image_callbacks(i64 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5FD_file_image_info_t, align 8
   %4 = alloca %struct.H5CX_node_t, align 8
   %5 = alloca %struct.H5_user_cb_state_t, align 8
@@ -6783,7 +6783,7 @@ define range(i32 -1, 1) i32 @H5Pset_object_flush_cb(i64 noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_object_flush_cb(i64 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_object_flush_cb(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5F_object_flush_t, align 8
   %5 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
@@ -7072,7 +7072,7 @@ define range(i32 -1, 1) i32 @H5Pset_mdc_log_options(i64 noundef %0, i1 noundef z
 declare noalias ptr @H5MM_xstrdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_mdc_log_options(i64 noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_mdc_log_options(i64 noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
@@ -11326,7 +11326,7 @@ define internal range(i32 -1, 1) i32 @H5P__facc_cache_config_dec(ptr noundef cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @H5P__facc_cache_config_cmp(ptr noundef readonly %0, ptr noundef readonly %1, i64 %2) #10 {
+define internal range(i32 -1, 2) i32 @H5P__facc_cache_config_cmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 %2) #10 {
   %4 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -11692,7 +11692,7 @@ declare i32 @H5P__encode_unsigned(ptr noundef, ptr noundef, ptr noundef) #3
 declare i32 @H5P__decode_unsigned(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_create(ptr readnone captures(none) %0, i64 %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_create(ptr readnone captures(none) %0, i64 %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -11718,7 +11718,7 @@ define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_create(ptr readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_set(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_set(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef captures(address_is_null) %3) #0 {
   %5 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -11744,7 +11744,7 @@ define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_set(i64 %0, ptr read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_get(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_get(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef captures(address_is_null) %3) #0 {
   %5 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -11770,7 +11770,7 @@ define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_get(i64 %0, ptr read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_del(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_del(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef captures(address_is_null) %3) #0 {
   %5 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -11796,7 +11796,7 @@ define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_del(i64 %0, ptr read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_copy(ptr readnone captures(none) %0, i64 %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_copy(ptr readnone captures(none) %0, i64 %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -11919,7 +11919,7 @@ define internal i32 @H5P__facc_file_driver_cmp(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_close(ptr readnone captures(none) %0, i64 %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_close(ptr readnone captures(none) %0, i64 %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -12113,7 +12113,7 @@ define internal noundef i32 @H5P__facc_libver_type_dec(ptr noundef captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_set(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_set(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef captures(address_is_null) %3) #0 {
   %5 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -12139,7 +12139,7 @@ define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_set(i64 %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_get(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_get(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef captures(address_is_null) %3) #0 {
   %5 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -12165,7 +12165,7 @@ define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_get(i64 %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_del(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_del(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef captures(address_is_null) %3) #0 {
   %5 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -12191,7 +12191,7 @@ define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_del(i64 %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_copy(ptr readnone captures(none) %0, i64 %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_copy(ptr readnone captures(none) %0, i64 %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -12323,7 +12323,7 @@ define internal i32 @H5P__facc_file_image_info_cmp(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_close(ptr readnone captures(none) %0, i64 %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_close(ptr readnone captures(none) %0, i64 %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -12990,7 +12990,7 @@ define internal range(i32 -1, 1) i32 @H5P__facc_cache_image_config_dec(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @H5P__facc_cache_image_config_cmp(ptr noundef readonly %0, ptr noundef readonly %1, i64 %2) #10 {
+define internal range(i32 -1, 2) i32 @H5P__facc_cache_image_config_cmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 %2) #10 {
   %4 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -13251,7 +13251,7 @@ declare i32 @H5P__decode_uint64_t(ptr noundef, ptr noundef) #3
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5P__file_driver_copy(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5P__file_driver_copy(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
   %2 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %3 = trunc nuw i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -13376,7 +13376,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__file_driver_copy(ptr noundef %
 declare noalias ptr @H5MM_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5P__file_driver_free(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5P__file_driver_free(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
   %2 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %3 = trunc nuw i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -13444,7 +13444,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5P__file_image_info_copy(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5P__file_image_info_copy(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
   %2 = alloca %struct.H5_user_cb_state_t, align 8
   %3 = alloca %struct.H5_user_cb_state_t, align 8
   %4 = alloca %struct.H5_user_cb_state_t, align 8
@@ -13626,7 +13626,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__file_image_info_copy(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @H5P__file_image_info_free(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @H5P__file_image_info_free(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
   %2 = alloca %struct.H5_user_cb_state_t, align 8
   %3 = alloca %struct.H5_user_cb_state_t, align 8
   %4 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19

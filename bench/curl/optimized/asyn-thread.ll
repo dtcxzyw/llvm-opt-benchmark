@@ -177,7 +177,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_resolver_wait_resolv(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define hidden i32 @Curl_resolver_wait_resolv(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3448
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3464
   %5 = load ptr, ptr %4, align 8, !tbaa !34

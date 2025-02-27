@@ -210,7 +210,7 @@ define { i64, i64 } @grpc_max_auth_token_lifetime() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_Z27grpc_auth_json_key_is_validPK18grpc_auth_json_key(ptr noundef readonly %0) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @_Z27grpc_auth_json_key_is_validPK18grpc_auth_json_key(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -748,7 +748,7 @@ declare ptr @PEM_read_bio_RSAPrivateKey(ptr noundef, ptr noundef, ptr noundef, p
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z27grpc_auth_json_key_destructP18grpc_auth_json_key(ptr noundef %0) local_unnamed_addr #6 {
+define void @_Z27grpc_auth_json_key_destructP18grpc_auth_json_key(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %3
 

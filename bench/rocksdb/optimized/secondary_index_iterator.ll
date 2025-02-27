@@ -167,7 +167,7 @@ _ZN7rocksdb6StatusC2ERKS0_.exit:                  ; preds = %7, %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22SecondaryIndexIterator4SeekERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(64) initializes((16, 22)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22SecondaryIndexIterator4SeekERKNS_5SliceE(ptr noundef nonnull align 8 captures(address) dereferenceable(64) initializes((16, 22)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::unique_ptr.2", align 8
   %5 = alloca %"class.std::variant", align 8

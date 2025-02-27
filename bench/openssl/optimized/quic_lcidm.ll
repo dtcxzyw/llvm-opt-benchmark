@@ -203,7 +203,7 @@ define i64 @ossl_quic_lcidm_get_num_active_lcid(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_lcidm_enrol_odcid(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_enrol_odcid(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.quic_lcid_st, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #11
   %5 = icmp eq ptr %2, null
@@ -373,7 +373,7 @@ define range(i32 0, 2) i32 @ossl_quic_lcidm_generate_initial(ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @lcidm_generate(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 1, 3) %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @lcidm_generate(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 1, 3) %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca %struct.quic_lcid_st, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #11
   %7 = tail call fastcc ptr @lcidm_upsert_conn(ptr noundef %0, ptr noundef %1)
@@ -455,7 +455,7 @@ define internal fastcc range(i32 0, 2) i32 @lcidm_generate(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_lcidm_bind_channel(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_bind_channel(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.quic_lcid_st, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %13, label %6
@@ -524,7 +524,7 @@ ossl_quic_lcidm_lookup.exit:                      ; preds = %lcidm_get0_lcid.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_lcidm_lookup(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_lookup(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.quic_lcid_st, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %24, label %7
@@ -618,7 +618,7 @@ define range(i32 0, 2) i32 @ossl_quic_lcidm_retire_odcid(ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_lcidm_retire(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_retire(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca %struct.quic_lcidm_conn_st, align 8
   %9 = alloca %struct.retire_args, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #11
@@ -809,7 +809,7 @@ define range(i32 0, 2) i32 @ossl_quic_lcidm_debug_remove(ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_lcidm_debug_add(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_debug_add(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.quic_lcid_st, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #11
   %6 = icmp eq ptr %2, null

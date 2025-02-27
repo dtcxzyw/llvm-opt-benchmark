@@ -825,7 +825,7 @@ define dso_local void @tcp_init_metrics(ptr noundef %0) local_unnamed_addr #0 al
 declare dso_local i32 @jiffies_to_usecs(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @tcp_peer_is_proven(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @tcp_peer_is_proven(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.inetpeer_addr, align 4
   %4 = alloca %struct.inetpeer_addr, align 4
   %5 = icmp eq ptr %1, null
@@ -1067,7 +1067,7 @@ define dso_local void @tcp_fastopen_cache_get(ptr noundef %0, ptr noundef writeo
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_fastopen_cache_set(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly %2, i1 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #0 align 16 {
+define dso_local void @tcp_fastopen_cache_set(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null

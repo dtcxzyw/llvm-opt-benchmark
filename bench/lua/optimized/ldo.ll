@@ -1952,7 +1952,7 @@ ccall.exit:                                       ; preds = %28, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lua_resume(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
+define dso_local i32 @lua_resume(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 %2, ptr %5, align 4, !tbaa !74
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 10

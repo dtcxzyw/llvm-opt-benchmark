@@ -157,7 +157,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare ptr @g_regex_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_cleanup(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @col_cleanup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %42, label %.preheader
 
@@ -251,7 +251,7 @@ declare void @dfilter_free(ptr noundef) local_unnamed_addr #5
 declare void @g_regex_unref(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @col_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+define hidden void @col_init(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %27, label %.preheader
 
@@ -305,7 +305,7 @@ define hidden void @col_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @col_get_writable(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define zeroext i1 @col_get_writable(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -373,7 +373,7 @@ define zeroext i1 @col_get_writable(ptr noundef readonly %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define void @col_set_writable(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #6 {
+define void @col_set_writable(ptr noundef captures(address_is_null) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #6 {
   %4 = zext i1 %2 to i8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %5
@@ -440,7 +440,7 @@ define void @col_set_writable(ptr noundef %0, i32 noundef %1, i1 noundef zeroext
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define void @col_set_fence(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @col_set_fence(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %col_get_writable.exit.thread, label %4
 
@@ -566,7 +566,7 @@ col_get_writable.exit.thread:                     ; preds = %21, %60, %.preheade
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define void @col_clear_fence(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @col_clear_fence(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %col_get_writable.exit.thread, label %4
 
@@ -685,7 +685,7 @@ col_get_writable.exit.thread:                     ; preds = %21, %56, %.preheade
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define ptr @col_get_text(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define ptr @col_get_text(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -740,7 +740,7 @@ define ptr @col_get_text(ptr noundef readonly %0, i32 noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define void @col_clear(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @col_clear(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %col_get_writable.exit.thread, label %4
 
@@ -892,7 +892,7 @@ col_get_writable.exit.thread:                     ; preds = %21, %75, %.preheade
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @have_custom_cols(ptr noundef readonly %0) local_unnamed_addr #10 {
+define zeroext i1 @have_custom_cols(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -915,7 +915,7 @@ define noundef zeroext i1 @have_field_extractors() local_unnamed_addr #11 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @col_custom_set_edt(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @col_custom_set_edt(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -1005,7 +1005,7 @@ declare ptr @epan_custom_set(ptr noundef, ptr noundef, i32 noundef, i1 noundef z
 declare signext i8 @get_column_display_format(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_custom_prime_edt(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @col_custom_prime_edt(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -1119,7 +1119,7 @@ define ptr @col_custom_get_filter(ptr noundef %0, ptr noundef readonly captures(
 declare ptr @proto_custom_get_filter(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_append_lstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define void @col_append_lstr(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
   %5 = icmp eq ptr %0, null
@@ -1321,7 +1321,7 @@ declare i64 @ws_label_strcpy(ptr noundef, i64 noundef, i64 noundef, ptr noundef,
 declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_append_str_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @col_append_str_uint(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
   %7 = icmp eq ptr %0, null
@@ -1413,7 +1413,7 @@ col_get_writable.exit.thread:                     ; preds = %25, %10, %.preheade
 declare void @uint32_to_str_buf(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_append_ports(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define void @col_append_ports(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
@@ -1561,7 +1561,7 @@ define void @col_append_frame_number(ptr noundef readonly captures(none) %0, i32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_append_fstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define void @col_append_fstr(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
   %5 = icmp eq ptr %0, null
@@ -1758,7 +1758,7 @@ define internal fastcc void @col_do_append_fstr(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_append_sep_fstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ...) local_unnamed_addr #0 {
+define void @col_append_sep_fstr(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ...) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17
   %6 = icmp eq ptr %0, null
@@ -1848,7 +1848,7 @@ col_get_writable.exit.thread:                     ; preds = %24, %9, %.preheader
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_prepend_fstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define void @col_prepend_fstr(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [4096 x i8], align 16
@@ -2024,7 +2024,7 @@ col_get_writable.exit.thread:                     ; preds = %25, %86, %43, %10, 
 declare ptr @ws_utf8_truncate(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_prepend_fence_fstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define void @col_prepend_fence_fstr(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [4096 x i8], align 16
@@ -2191,7 +2191,7 @@ col_get_writable.exit.thread:                     ; preds = %25, %84, %43, %10, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_add_str(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @col_add_str(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %col_get_writable.exit.thread, label %5
 
@@ -2342,7 +2342,7 @@ col_get_writable.exit.thread:                     ; preds = %22, %77, %40, %7, %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_set_str(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @col_set_str(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %5
 
@@ -2501,7 +2501,7 @@ col_get_writable.exit.thread:                     ; preds = %24, %77, %42, %9, %
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_add_lstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define void @col_add_lstr(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
   %5 = icmp eq ptr %0, null
@@ -2700,7 +2700,7 @@ col_get_writable.exit.thread:                     ; preds = %23, %98, %41, %8, %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_add_fstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define void @col_add_fstr(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
@@ -2871,7 +2871,7 @@ col_get_writable.exit.thread:                     ; preds = %24, %87, %42, %9, %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_append_str(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @col_append_str(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %col_do_append_str.exit, label %5
 
@@ -3006,7 +3006,7 @@ col_do_append_str.exit:                           ; preds = %22, %67, %7, %.preh
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_append_sep_str(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @col_append_sep_str(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %col_do_append_str.exit, label %6
 
@@ -3922,7 +3922,7 @@ get_frame_timestamp_precision.exit:               ; preds = %37, %43
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_set_time(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @col_set_time(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %col_get_writable.exit.thread, label %6
 
@@ -5075,7 +5075,7 @@ define internal fastcc void @col_set_port(ptr noundef readonly captures(none) %0
 declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_fill_in_error(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define void @col_fill_in_error(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 

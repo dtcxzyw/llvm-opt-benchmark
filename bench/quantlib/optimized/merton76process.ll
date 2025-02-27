@@ -1787,21 +1787,21 @@ _ZNK5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEptEv.exit: ; 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib30GeneralizedBlackScholesProcess15blackVolatilityEv(ptr noundef nonnull align 8 dereferenceable(250)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib15Merton76Process13jumpIntensityEv(ptr noundef nonnull readnone align 8 dereferenceable(208) %this) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib15Merton76Process13jumpIntensityEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(208) %this) local_unnamed_addr #11 align 2 {
 entry:
   %jumpIntensity_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   ret ptr %jumpIntensity_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib15Merton76Process11logMeanJumpEv(ptr noundef nonnull readnone align 8 dereferenceable(208) %this) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib15Merton76Process11logMeanJumpEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(208) %this) local_unnamed_addr #11 align 2 {
 entry:
   %logMeanJump_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   ret ptr %logMeanJump_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib15Merton76Process17logJumpVolatilityEv(ptr noundef nonnull readnone align 8 dereferenceable(208) %this) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib15Merton76Process17logJumpVolatilityEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(208) %this) local_unnamed_addr #11 align 2 {
 entry:
   %logJumpVolatility_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   ret ptr %logJumpVolatility_

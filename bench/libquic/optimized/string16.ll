@@ -442,7 +442,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN4base9c16memchrEPKttm(ptr noundef readonly %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @_ZN4base9c16memchrEPKttm(ptr noundef readonly captures(ret: address, provenance) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not7 = icmp eq i64 %2, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -465,7 +465,7 @@ define noundef ptr @_ZN4base9c16memchrEPKttm(ptr noundef readonly %0, i16 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN4base10c16memmoveEPtPKtm(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
+define noundef ptr @_ZN4base10c16memmoveEPtPKtm(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = shl i64 %2, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %0, ptr align 2 %1, i64 %4, i1 false)
   ret ptr %0
@@ -475,7 +475,7 @@ define noundef ptr @_ZN4base10c16memmoveEPtPKtm(ptr noundef returned writeonly %
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN4base9c16memcpyEPtPKtm(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
+define noundef ptr @_ZN4base9c16memcpyEPtPKtm(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = shl i64 %2, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %0, ptr align 2 %1, i64 %4, i1 false)
   ret ptr %0
@@ -485,7 +485,7 @@ define noundef ptr @_ZN4base9c16memcpyEPtPKtm(ptr noundef returned writeonly %0,
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef ptr @_ZN4base9c16memsetEPttm(ptr noundef returned writeonly %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @_ZN4base9c16memsetEPttm(ptr noundef returned writeonly captures(ret: address, provenance) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #4 {
   %.not6 = icmp eq i64 %2, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 

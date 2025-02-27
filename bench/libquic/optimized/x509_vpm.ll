@@ -124,7 +124,7 @@ define internal fastcc void @x509_verify_param_zero(ptr noundef nonnull captures
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_VERIFY_PARAM_free(ptr noundef %0) #0 {
+define hidden void @X509_VERIFY_PARAM_free(ptr noundef captures(address_is_null) %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -141,7 +141,7 @@ define hidden void @X509_VERIFY_PARAM_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_inherit(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_inherit(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %X509_VERIFY_PARAM_set1_email.exit.thread, label %3
 
@@ -542,7 +542,7 @@ X509_VERIFY_PARAM_set1_email.exit.thread:         ; preds = %169, %152, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -732,7 +732,7 @@ int_x509_param_set1.exit:                         ; preds = %20, %16, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !25
   %5 = or i64 %4, 1

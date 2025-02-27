@@ -1125,7 +1125,7 @@ _Py_XNewRef.exit33:                               ; preds = %_Py_XNewRef.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cfunction_vectorcall_FASTCALL(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) #0 {
+define internal ptr @cfunction_vectorcall_FASTCALL(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8, !tbaa !26
   %.not.i = icmp eq ptr %3, null
@@ -1257,7 +1257,7 @@ cfunction_enter_call.exit.thread:                 ; preds = %_Py_EnterRecursiveC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cfunction_vectorcall_NOARGS(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, ptr noundef readonly %3) #0 {
+define internal ptr @cfunction_vectorcall_NOARGS(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8, !tbaa !26
   %.not.i23 = icmp eq ptr %3, null
@@ -1365,7 +1365,7 @@ Py_DECREF.exit:                                   ; preds = %_Py_EnterRecursiveC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cfunction_vectorcall_O(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly %3) #0 {
+define internal ptr @cfunction_vectorcall_O(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8, !tbaa !26
   %.not.i24 = icmp eq ptr %3, null

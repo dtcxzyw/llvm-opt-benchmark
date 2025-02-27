@@ -1005,7 +1005,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @ascii_strdown_inplace(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef ptr @nettrace_parse_address(ptr noundef nonnull %0, ptr noundef returned %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @nettrace_parse_address(ptr noundef nonnull %0, ptr noundef returned captures(ret: address, provenance) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.e_in6_addr, align 1
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8

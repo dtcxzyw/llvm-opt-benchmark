@@ -64,7 +64,7 @@ define i32 @i2d_int_dhx(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_DHxparams(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define ptr @d2i_DHxparams(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @DH_new() #5
   %5 = icmp eq ptr %4, null
   br i1 %5, label %44, label %6

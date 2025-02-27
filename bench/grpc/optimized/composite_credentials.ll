@@ -2585,7 +2585,7 @@ _ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit28: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef nonnull ptr @grpc_composite_channel_credentials_create(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull ptr @grpc_composite_channel_credentials_create(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

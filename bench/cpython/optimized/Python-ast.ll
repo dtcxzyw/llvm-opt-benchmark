@@ -10519,7 +10519,7 @@ define dso_local ptr @PyInit__ast() local_unnamed_addr #0 {
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PyAST_mod2obj(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden ptr @PyAST_mod2obj(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.validator, align 4
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %4 = load ptr, ptr %3, align 8, !tbaa !97
@@ -34554,7 +34554,7 @@ declare ptr @_Py_union_type_or(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ast2obj_list(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc ptr @ast2obj_list(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %.thread, label %6
 
@@ -37289,7 +37289,7 @@ Py_XDECREF.exit1361:                              ; preds = %1319, %1316, %1314,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ast2obj_type_ignore(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2) #0 {
+define internal ptr @ast2obj_type_ignore(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %Py_XDECREF.exit47, label %4
 
@@ -39620,7 +39620,7 @@ Py_XDECREF.exit1071:                              ; preds = %1094, %1091, %1089,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @ast2obj_object(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #6 {
+define internal noundef nonnull ptr @ast2obj_object(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address_is_null, ret: address, provenance) %2) #6 {
   %.not = icmp eq ptr %2, null
   %spec.store.select = select i1 %.not, ptr @_Py_NoneStruct, ptr %2
   %4 = load i32, ptr %spec.store.select, align 8, !tbaa !9
@@ -39637,7 +39637,7 @@ _Py_NewRef.exit:                                  ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ast2obj_arguments(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @ast2obj_arguments(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %Py_XDECREF.exit127, label %4
 
@@ -40017,7 +40017,7 @@ Py_XDECREF.exit127:                               ; preds = %168, %165, %Py_XDEC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ast2obj_type_param(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define internal ptr @ast2obj_type_param(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %Py_XDECREF.exit193, label %4
 
@@ -40462,7 +40462,7 @@ Py_XDECREF.exit193:                               ; preds = %207, %204, %202, %P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ast2obj_keyword(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define internal ptr @ast2obj_keyword(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %Py_XDECREF.exit101, label %4
 
@@ -40847,7 +40847,7 @@ _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ast2obj_withitem(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define internal ptr @ast2obj_withitem(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %Py_XDECREF.exit44, label %4
 
@@ -40981,7 +40981,7 @@ Py_XDECREF.exit44:                                ; preds = %60, %57, %Py_XDECRE
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ast2obj_match_case(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define internal ptr @ast2obj_match_case(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %Py_XDECREF.exit60, label %4
 
@@ -41196,7 +41196,7 @@ Py_XDECREF.exit60:                                ; preds = %94, %91, %Py_XDECRE
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ast2obj_excepthandler(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define internal ptr @ast2obj_excepthandler(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %Py_XDECREF.exit119, label %4
 
@@ -41500,7 +41500,7 @@ Py_XDECREF.exit119:                               ; preds = %140, %137, %135, %P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ast2obj_alias(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2) #0 {
+define internal ptr @ast2obj_alias(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %Py_XDECREF.exit104, label %4
 
@@ -41768,7 +41768,7 @@ Py_XDECREF.exit104:                               ; preds = %125, %122, %Py_XDEC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ast2obj_arg(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define internal ptr @ast2obj_arg(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %Py_XDECREF.exit118, label %4
 
@@ -42067,7 +42067,7 @@ Py_XDECREF.exit118:                               ; preds = %139, %136, %Py_XDEC
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ast2obj_pattern(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define internal ptr @ast2obj_pattern(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %Py_XDECREF.exit348, label %4
 
@@ -42944,7 +42944,7 @@ _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ast2obj_comprehension(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define internal ptr @ast2obj_comprehension(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %Py_XDECREF.exit74, label %4
 

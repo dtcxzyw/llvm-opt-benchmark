@@ -447,7 +447,7 @@ define hidden void @"_ZN13wasmtime_slab13Slab$LT$T$GT$9try_alloc17h02cc826baaa1d
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN3std4sync5mutex14Mutex$LT$T$GT$7get_mut28_$u7b$$u7b$closure$u7d$$u7d$17h9ddcd3f618796659E.llvm.13870219068130913800"(ptr noalias noundef readnone returned align 8 dereferenceable(40) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN3std4sync5mutex14Mutex$LT$T$GT$7get_mut28_$u7b$$u7b$closure$u7d$$u7d$17h9ddcd3f618796659E.llvm.13870219068130913800"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #1 {
   ret ptr %0
 }
 
@@ -1123,7 +1123,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h70dc59a0fc48b791E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h70dc59a0fc48b791E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !4, !nonnull !4
@@ -3724,7 +3724,7 @@ _ZN16wasmtime_runtime8instance8Instance11table_index17hb4f8b7d92d350a9fE.exit: ;
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN16wasmtime_runtime12traphandlers9backtrace9Backtrace21trace_with_trap_state17h28939623c090f90eE(ptr noundef readonly %0, ptr noundef nonnull readonly align 8 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef align 8 dereferenceable(24) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @_ZN16wasmtime_runtime12traphandlers9backtrace9Backtrace21trace_with_trap_state17h28939623c090f90eE(ptr noundef readonly captures(address) %0, ptr noundef nonnull readonly align 8 captures(address) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef align 8 dereferenceable(24) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, [5 x i64] }, align 8
   %6 = alloca i64, align 8
   %7 = alloca { ptr, [5 x i64] }, align 8
@@ -4395,7 +4395,7 @@ define void @"_ZN75_$LT$$LP$$RP$$u20$as$u20$wasmtime_runtime..libcalls..raw..Lib
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef ptr @"_ZN81_$LT$$BP$mut$u20$u8$u20$as$u20$wasmtime_runtime..libcalls..raw..LibcallResult$GT$7convert17h7f32ef0f3e5165a3E"(ptr noundef readnone returned %0) unnamed_addr #3 {
+define noundef ptr @"_ZN81_$LT$$BP$mut$u20$u8$u20$as$u20$wasmtime_runtime..libcalls..raw..LibcallResult$GT$7convert17h7f32ef0f3e5165a3E"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
   ret ptr %0
 }
 

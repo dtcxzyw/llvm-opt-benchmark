@@ -48,7 +48,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_scsi_templat
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_scsi_template_proc_dir422], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @scsi_template_proc_dir(ptr noundef readnone %0) #0 align 16 {
+define dso_local ptr @scsi_template_proc_dir(ptr noundef readnone captures(address) %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @global_host_template_mutex) #10
   br label %2
 
@@ -185,7 +185,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @scsi_proc_hostdir_rm(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @scsi_proc_hostdir_rm(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

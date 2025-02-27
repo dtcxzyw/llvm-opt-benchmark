@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @the_repository = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @unique_tracking_name(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local ptr @unique_tracking_name(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.tracking_name_data, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #7

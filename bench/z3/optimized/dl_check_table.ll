@@ -393,13 +393,13 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN7datalog18check_table_plugin3getERNS_10table_baseE(ptr noundef nonnull readnone returned align 8 dereferenceable(36) %r) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN7datalog18check_table_plugin3getERNS_10table_baseE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(36) %r) local_unnamed_addr #4 align 2 {
 entry:
   ret ptr %r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN7datalog18check_table_plugin3getERKNS_10table_baseE(ptr noundef nonnull readnone returned align 8 dereferenceable(36) %r) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN7datalog18check_table_plugin3getERKNS_10table_baseE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(36) %r) local_unnamed_addr #4 align 2 {
 entry:
   ret ptr %r
 }
@@ -421,7 +421,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN7datalog18check_table_plugin7checkerEPNS_10table_baseE(ptr noundef readonly %r) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN7datalog18check_table_plugin7checkerEPNS_10table_baseE(ptr noundef readonly captures(address_is_null) %r) local_unnamed_addr #5 align 2 {
 entry:
   %tobool.not = icmp eq ptr %r, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -437,7 +437,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN7datalog18check_table_plugin7checkerEPKNS_10table_baseE(ptr noundef readonly %r) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN7datalog18check_table_plugin7checkerEPKNS_10table_baseE(ptr noundef readonly captures(address_is_null) %r) local_unnamed_addr #5 align 2 {
 entry:
   %tobool.not = icmp eq ptr %r, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -469,7 +469,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN7datalog18check_table_plugin7tocheckEPNS_10table_baseE(ptr noundef readonly %r) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN7datalog18check_table_plugin7tocheckEPNS_10table_baseE(ptr noundef readonly captures(address_is_null) %r) local_unnamed_addr #5 align 2 {
 entry:
   %tobool.not = icmp eq ptr %r, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -485,7 +485,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN7datalog18check_table_plugin7tocheckEPKNS_10table_baseE(ptr noundef readonly %r) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN7datalog18check_table_plugin7tocheckEPKNS_10table_baseE(ptr noundef readonly captures(address_is_null) %r) local_unnamed_addr #5 align 2 {
 entry:
   %tobool.not = icmp eq ptr %r, null
   br i1 %tobool.not, label %cond.end, label %cond.true

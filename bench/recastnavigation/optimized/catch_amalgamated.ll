@@ -7792,31 +7792,31 @@ define dso_local noundef zeroext i1 @_ZNK5Catch6Config13listListenersEv(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch6Config14getTestsOrTagsB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(353) %0) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch6Config14getTestsOrTagsB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(353) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch6Config16getSectionsToRunB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(353) %0) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch6Config16getSectionsToRunB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(353) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch6Config16getReporterSpecsEv(ptr noundef nonnull readnone align 8 dereferenceable(353) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch6Config16getReporterSpecsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(353) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch6Config25getProcessedReporterSpecsEv(ptr noundef nonnull readnone align 8 dereferenceable(353) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch6Config25getProcessedReporterSpecsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(353) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5Catch6Config8testSpecEv(ptr noundef nonnull readnone align 8 dereferenceable(353) %0) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5Catch6Config8testSpecEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(353) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   ret ptr %2
 }
@@ -9759,7 +9759,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch24StartupExceptionRegistry13getExceptionsEv(ptr noundef nonnull readnone returned align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch24StartupExceptionRegistry13getExceptionsEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -21833,7 +21833,7 @@ _ZN5Catch6Detail10unique_ptrINS_14IEventListenerEED2Ev.exit: ; preds = %389, %.l
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5Catch7Session3cliEv(ptr noundef nonnull readnone returned align 8 dereferenceable(377) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5Catch7Session3cliEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(377) %0) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -21852,7 +21852,7 @@ define dso_local void @_ZN5Catch7Session3cliERKNS_5Clara6ParserE(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(272) ptr @_ZN5Catch7Session10configDataEv(ptr noundef nonnull readnone align 8 dereferenceable(377) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(272) ptr @_ZN5Catch7Session10configDataEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(377) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   ret ptr %2
 }
@@ -21893,7 +21893,7 @@ _ZN5Catch9sharedRngEv.exit:                       ; preds = %1, %4, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch8TestSpec15getInvalidSpecsB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch8TestSpec15getInvalidSpecsB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
@@ -23804,7 +23804,7 @@ _ZNK5Catch6Detail19CaseInsensitiveLessclENS_9StringRefES2_.exit: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5Catch6Detail19CaseInsensitiveLessclENS_9StringRefES2_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr readonly %1, i64 %2, ptr readonly %3, i64 %4) local_unnamed_addr #20 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5Catch6Detail19CaseInsensitiveLessclENS_9StringRefES2_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr readonly captures(address) %1, i64 %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #20 align 2 {
   %6 = getelementptr inbounds i8, ptr %3, i64 %4
   %.v = tail call i64 @llvm.smin.i64(i64 %4, i64 %2)
   %7 = getelementptr inbounds i8, ptr %1, i64 %.v
@@ -23892,7 +23892,7 @@ _ZNK5Catch6Detail22CaseInsensitiveEqualToclENS_9StringRefES2_.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5Catch6Detail22CaseInsensitiveEqualToclENS_9StringRefES2_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr readonly %1, i64 %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #20 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5Catch6Detail22CaseInsensitiveEqualToclENS_9StringRefES2_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr readonly captures(address) %1, i64 %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #20 align 2 {
   %6 = getelementptr inbounds i8, ptr %1, i64 %2
   %.not.i.i = icmp eq i64 %2, %4
   br i1 %.not.i.i, label %7, label %"_ZSt5equalIPKcS1_ZNK5Catch6Detail22CaseInsensitiveEqualToclENS2_9StringRefES5_E3$_0EbT_S7_T0_S8_T1_.exit"
@@ -24959,7 +24959,7 @@ define dso_local void @_ZN5Catch8TestSpec7PatternD0Ev(ptr nonnull readnone align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Catch8TestSpec7Pattern4nameB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Catch8TestSpec7Pattern4nameB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -27778,7 +27778,7 @@ define dso_local void @_ZNK5Catch6CountsmiERKS0_(ptr dead_on_unwind noalias writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Catch6CountspLERKS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Catch6CountspLERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #16 align 2 {
   %3 = load i64, ptr %1, align 8
   %4 = load i64, ptr %0, align 8
   %5 = add i64 %4, %3
@@ -27893,7 +27893,7 @@ define dso_local void @_ZNK5Catch6TotalsmiERKS0_(ptr dead_on_unwind noalias writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5Catch6TotalspLERKS0_(ptr noundef nonnull returned align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN5Catch6TotalspLERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #16 align 2 {
   %3 = load i64, ptr %1, align 8
   %4 = load i64, ptr %0, align 8
   %5 = add i64 %4, %3
@@ -28404,7 +28404,7 @@ define dso_local noundef zeroext i8 @_ZNK5Catch14ReporterConfig10colourModeEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5Catch14ReporterConfig13customOptionsB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5Catch14ReporterConfig13customOptionsB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
@@ -34635,7 +34635,7 @@ define dso_local void @_ZN5Catch10ColourImpl11ColourGuardC2EOS1_(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(13) ptr @_ZN5Catch10ColourImpl11ColourGuardaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(13) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(13) %1) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(13) ptr @_ZN5Catch10ColourImpl11ColourGuardaSEOS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(13) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(13) %1) local_unnamed_addr #16 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
@@ -34684,7 +34684,7 @@ define dso_local void @_ZN5Catch10ColourImpl11ColourGuardD2Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(13) ptr @_ZNR5Catch10ColourImpl11ColourGuard6engageERSo(ptr noundef nonnull returned align 8 dereferenceable(13) initializes((12, 13)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(13) ptr @_ZNR5Catch10ColourImpl11ColourGuard6engageERSo(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(13) initializes((12, 13)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 1, ptr %3, align 4
   %4 = load ptr, ptr %0, align 8
@@ -34698,7 +34698,7 @@ define dso_local noundef nonnull align 8 dereferenceable(13) ptr @_ZNR5Catch10Co
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(13) ptr @_ZNO5Catch10ColourImpl11ColourGuard6engageERSo(ptr noundef nonnull returned align 8 dereferenceable(13) initializes((12, 13)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(13) ptr @_ZNO5Catch10ColourImpl11ColourGuard6engageERSo(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(13) initializes((12, 13)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 1, ptr %3, align 4
   %4 = load ptr, ptr %0, align 8
@@ -36670,7 +36670,7 @@ define dso_local void @_ZN5Catch7TagInfo3addENS_9StringRefE(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5Catch7TagInfo3allB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK5Catch7TagInfo3allB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = shl i64 %4, 1
@@ -45328,7 +45328,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Catch8TagAliasE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5Catch16TagAliasRegistry13expandAliasesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK5Catch16TagAliasRegistry13expandAliasesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -47313,19 +47313,19 @@ _ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_12ITestInvokerEEESaIS4_EE9push_backE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch12TestRegistry11getAllInfosEv(ptr noundef nonnull readnone align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch12TestRegistry11getAllInfosEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(136) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch12TestRegistry11getAllTestsEv(ptr noundef nonnull readnone align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch12TestRegistry11getAllTestsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(136) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch12TestRegistry17getAllTestsSortedERKNS_7IConfigE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch12TestRegistry17getAllTestsSortedERKNS_7IConfigE(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.anon.549, align 1
   %4 = alloca %"class.std::set.551", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -48413,7 +48413,7 @@ define dso_local void @_ZN5Catch16TestCaseTracking11TrackerBase10moveToThisEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5Catch16TestCaseTracking11TrackerBase5closeEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5Catch16TestCaseTracking11TrackerBase5closeEv(ptr noundef nonnull align 8 captures(address) dereferenceable(104) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.Catch::ReusableStringStream", align 8
   %4 = alloca %"struct.Catch::SourceLineInfo", align 8
@@ -51464,7 +51464,7 @@ define dso_local void @_ZNK5Catch8TextFlow6Column14const_iteratordeB5cxx11Ev(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(33) ptr @_ZN5Catch8TextFlow6Column14const_iteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(33) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(33) ptr @_ZN5Catch8TextFlow6Column14const_iteratorppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(33) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -51529,7 +51529,7 @@ define dso_local noundef nonnull align 8 dereferenceable(33) ptr @_ZN5Catch8Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5Catch8TextFlow6Column14const_iteratorppEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.Catch::TextFlow::Column::const_iterator") align 8 captures(none) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN5Catch8TextFlow6Column14const_iteratorppEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.Catch::TextFlow::Column::const_iterator") align 8 captures(none) initializes((0, 40)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(33) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   %4 = tail call noundef nonnull align 8 dereferenceable(33) ptr @_ZN5Catch8TextFlow6Column14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(33) %1)
   ret void
@@ -51984,7 +51984,7 @@ _ZNK5Catch8TextFlow6Column14const_iteratordeB5cxx11Ev.exit: ; preds = %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5Catch8TextFlow7Columns8iteratorppEv(ptr noundef nonnull readonly returned align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5Catch8TextFlow7Columns8iteratorppEv(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -52600,7 +52600,7 @@ define dso_local void @_ZN5Catch9XmlWriter13ScopedElementC2EOS1_(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN5Catch9XmlWriter13ScopedElementaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN5Catch9XmlWriter13ScopedElementaSEOS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(12) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -52725,7 +52725,7 @@ define dso_local void @_ZN5Catch9XmlWriter13ScopedElementD2Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN5Catch9XmlWriter13ScopedElement9writeTextENS_9StringRefENS_13XmlFormattingE(ptr noundef nonnull readonly returned align 8 dereferenceable(12) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN5Catch9XmlWriter13ScopedElement9writeTextENS_9StringRefENS_13XmlFormattingE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(12) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = load ptr, ptr %0, align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlWriter9writeTextENS_9StringRefENS_13XmlFormattingE(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr %1, i64 %2, i32 noundef %3)
   ret ptr %0
@@ -52836,7 +52836,7 @@ _ZN5Catch9XmlWriter15ensureTagClosedEv.exit:      ; preds = %25, %42, %40
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN5Catch9XmlWriter13ScopedElement14writeAttributeENS_9StringRefES2_(ptr noundef nonnull readonly returned align 8 dereferenceable(12) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN5Catch9XmlWriter13ScopedElement14writeAttributeENS_9StringRefES2_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(12) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #6 align 2 {
   %6 = alloca %"class.Catch::XmlEncode", align 8
   %7 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -52866,7 +52866,7 @@ _ZN5Catch9XmlWriter14writeAttributeENS_9StringRefES1_.exit: ; preds = %5, %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlWriter14writeAttributeENS_9StringRefES1_(ptr noundef nonnull readonly returned align 8 dereferenceable(72) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlWriter14writeAttributeENS_9StringRefES1_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(72) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #6 align 2 {
   %6 = alloca %"class.Catch::XmlEncode", align 8
   %7 = icmp eq i64 %2, 0
   %8 = icmp eq i64 %4, 0
@@ -53186,7 +53186,7 @@ define dso_local void @_ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlWriter14writeAttributeENS_9StringRefEb(ptr noundef nonnull readonly returned align 8 dereferenceable(72) %0, ptr %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlWriter14writeAttributeENS_9StringRefEb(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(72) %0, ptr %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #6 align 2 {
   %5 = alloca %"class.Catch::XmlEncode", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %6 = icmp eq i64 %2, 0
@@ -53215,7 +53215,7 @@ _ZN5Catch9XmlWriter14writeAttributeENS_9StringRefES1_.exit: ; preds = %4, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlWriter14writeAttributeENS_9StringRefEPKc(ptr noundef nonnull readonly returned align 8 dereferenceable(72) %0, ptr %1, i64 %2, ptr noundef %3) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlWriter14writeAttributeENS_9StringRefEPKc(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(72) %0, ptr %1, i64 %2, ptr noundef %3) local_unnamed_addr #6 align 2 {
   %5 = alloca %"class.Catch::XmlEncode", align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #59
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -61367,7 +61367,7 @@ _ZN5Catch12_GLOBAL__N_18DurationC2EdNS1_4UnitE.exit: ; preds = %22, %27, %29, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_(ptr noundef nonnull readonly returned align 8 dereferenceable(53) %0, double %.0.val, i32 %.8.val) unnamed_addr #6 {
+define internal fastcc noundef nonnull align 8 dereferenceable(53) ptr @_ZN5CatchlsINS_12_GLOBAL__N_18DurationEEERNS_12TablePrinterES4_RKT_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(53) %0, double %.0.val, i32 %.8.val) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   switch i32 %.8.val, label %_ZNK5Catch12_GLOBAL__N_18Duration5valueEv.exit.i.i [
@@ -64911,7 +64911,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Catch12_GLOBAL__N_115printSummaryRowERSoRNS_10ColourImplENS_9StringRefERKSt6vectorINS0_13SummaryColumnESaIS6_EEm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %2, i64 %3, ptr %.0.val, ptr readnone %.8.val, i64 noundef range(i64 0, 2) %4) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Catch12_GLOBAL__N_115printSummaryRowERSoRNS_10ColourImplENS_9StringRefERKSt6vectorINS0_13SummaryColumnESaIS6_EEm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %2, i64 %3, ptr %.0.val, ptr readnone captures(address) %.8.val, i64 noundef range(i64 0, 2) %4) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %.not20 = icmp eq ptr %.0.val, %.8.val
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -89951,31 +89951,31 @@ define internal void @_ZN5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Catch12_GLOBAL__N_111RegistryHub19getReporterRegistryEv(ptr noundef nonnull readnone align 8 dereferenceable(304) %0) unnamed_addr #0 align 2 {
+define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Catch12_GLOBAL__N_111RegistryHub19getReporterRegistryEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(304) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Catch12_GLOBAL__N_111RegistryHub19getTestCaseRegistryEv(ptr noundef nonnull readnone align 8 dereferenceable(304) %0) unnamed_addr #0 align 2 {
+define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Catch12_GLOBAL__N_111RegistryHub19getTestCaseRegistryEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(304) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Catch12_GLOBAL__N_111RegistryHub19getTagAliasRegistryEv(ptr noundef nonnull readnone align 8 dereferenceable(304) %0) unnamed_addr #0 align 2 {
+define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Catch12_GLOBAL__N_111RegistryHub19getTagAliasRegistryEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(304) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Catch12_GLOBAL__N_111RegistryHub30getExceptionTranslatorRegistryEv(ptr noundef nonnull readnone align 8 dereferenceable(304) %0) unnamed_addr #0 align 2 {
+define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Catch12_GLOBAL__N_111RegistryHub30getExceptionTranslatorRegistryEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(304) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch12_GLOBAL__N_111RegistryHub27getStartupExceptionRegistryEv(ptr noundef nonnull readnone align 8 dereferenceable(304) %0) unnamed_addr #0 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Catch12_GLOBAL__N_111RegistryHub27getStartupExceptionRegistryEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(304) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   ret ptr %2
 }
@@ -90265,7 +90265,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %_ZN5Catch24StartupE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch12_GLOBAL__N_111RegistryHub28getMutableEnumValuesRegistryEv(ptr noundef nonnull readnone align 8 dereferenceable(304) %0) unnamed_addr #0 align 2 {
+define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch12_GLOBAL__N_111RegistryHub28getMutableEnumValuesRegistryEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(304) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   ret ptr %2
 }
@@ -90366,7 +90366,7 @@ define internal void @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub24registerStartup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub28getMutableEnumValuesRegistryEv(ptr noundef readnone %0) unnamed_addr #0 align 2 {
+define internal noundef nonnull ptr @_ZThn8_N5Catch12_GLOBAL__N_111RegistryHub28getMutableEnumValuesRegistryEv(ptr noundef readnone captures(ret: address, provenance) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   ret ptr %2
 }
@@ -94547,7 +94547,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15Boun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS1_4HelpC1ERbE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #26 align 2 {
+define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS1_4HelpC1ERbE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #26 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -95380,7 +95380,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15Boun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #26 align 2 {
+define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #26 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -95857,7 +95857,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15Boun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_1EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #26 align 2 {
+define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_1EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #26 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -95943,7 +95943,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #26 align 2 {
+define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #26 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -96144,7 +96144,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15Boun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #26 align 2 {
+define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #26 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -96364,7 +96364,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #26 align 2 {
+define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #26 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -96640,7 +96640,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #26 align 2 {
+define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #26 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -97255,7 +97255,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #26 align 2 {
+define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #26 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -97494,7 +97494,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #26 align 2 {
+define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #26 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -97946,7 +97946,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #26 align 2 {
+define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #26 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -98220,7 +98220,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #26 align 2 {
+define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #26 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -98522,7 +98522,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #26 align 2 {
+define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #26 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -99064,7 +99064,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #26 align 2 {
+define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #26 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -99314,7 +99314,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #26 align 2 {
+define internal noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #26 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -100006,7 +100006,7 @@ define internal void @_ZN5Catch6Detail12_GLOBAL__N_110CoutStreamD0Ev(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch6Detail12_GLOBAL__N_110CoutStream6streamEv(ptr noundef nonnull readnone align 8 dereferenceable(280) %0) unnamed_addr #0 align 2 {
+define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch6Detail12_GLOBAL__N_110CoutStream6streamEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(280) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -100104,7 +100104,7 @@ _ZN5Catch6Detail12_GLOBAL__N_114DebugOutStreamD2Ev.exit: ; preds = %1, %_ZN5Catc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch6Detail12_GLOBAL__N_114DebugOutStream6streamEv(ptr noundef nonnull readnone align 8 dereferenceable(288) %0) unnamed_addr #0 align 2 {
+define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch6Detail12_GLOBAL__N_114DebugOutStream6streamEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(288) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -100324,7 +100324,7 @@ define internal void @_ZN5Catch6Detail12_GLOBAL__N_110CerrStreamD0Ev(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch6Detail12_GLOBAL__N_110CerrStream6streamEv(ptr noundef nonnull readnone align 8 dereferenceable(280) %0) unnamed_addr #0 align 2 {
+define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch6Detail12_GLOBAL__N_110CerrStream6streamEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(280) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -100363,7 +100363,7 @@ define internal void @_ZN5Catch6Detail12_GLOBAL__N_110FileStreamD0Ev(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch6Detail12_GLOBAL__N_110FileStream6streamEv(ptr noundef nonnull readnone align 8 dereferenceable(520) %0) unnamed_addr #0 align 2 {
+define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch6Detail12_GLOBAL__N_110FileStream6streamEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(520) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -102944,7 +102944,7 @@ _ZN5Catch10Generators12_GLOBAL__N_116GeneratorTrackerD2Ev.exit: ; preds = %_ZSt8
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5Catch10Generators12_GLOBAL__N_116GeneratorTracker5closeEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5Catch10Generators12_GLOBAL__N_116GeneratorTracker5closeEv(ptr noundef nonnull align 8 captures(address) dereferenceable(120) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Catch::StringRef", align 8
   tail call void @_ZN5Catch16TestCaseTracking11TrackerBase5closeEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -103210,7 +103210,7 @@ define internal noundef zeroext i1 @_ZNK5Catch10Generators12_GLOBAL__N_116Genera
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Catch10Generators12_GLOBAL__N_116GeneratorTracker12getGeneratorEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 {
+define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Catch10Generators12_GLOBAL__N_116GeneratorTracker12getGeneratorEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(120) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   ret ptr %2
 }
@@ -103347,7 +103347,7 @@ define internal noundef zeroext i1 @_ZThn104_NK5Catch10Generators12_GLOBAL__N_11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZThn104_NK5Catch10Generators12_GLOBAL__N_116GeneratorTracker12getGeneratorEv(ptr noundef readnone %0) unnamed_addr #0 align 2 {
+define internal noundef nonnull ptr @_ZThn104_NK5Catch10Generators12_GLOBAL__N_116GeneratorTracker12getGeneratorEv(ptr noundef readnone captures(ret: address, provenance) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -105224,7 +105224,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5Catch14TestCaseHandleESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9sortTestsERKNS2_7IConfigERKS7_E3$_0EEEvT_SI_T0_"(ptr %0, ptr readnone %1) unnamed_addr #6 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5Catch14TestCaseHandleESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9sortTestsERKNS2_7IConfigERKS7_E3$_0EEEvT_SI_T0_"(ptr %0, ptr readnone captures(address) %1) unnamed_addr #6 {
   %3 = alloca %"class.Catch::TestCaseHandle", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
@@ -106337,7 +106337,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5Catch14TestCaseHandleEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_9sortTestsERKNS3_7IConfigERKS7_IS4_SaIS4_EEE3$_1EEEvT_SM_T0_"(ptr %0, ptr readnone %1) unnamed_addr #6 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5Catch14TestCaseHandleEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_9sortTestsERKNS3_7IConfigERKS7_IS4_SaIS4_EEE3$_1EEEvT_SM_T0_"(ptr %0, ptr readnone captures(address) %1) unnamed_addr #6 {
   %.sroa.2 = alloca %"class.Catch::TestCaseHandle", align 8
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %.preheader

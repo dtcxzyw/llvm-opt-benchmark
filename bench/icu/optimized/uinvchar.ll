@@ -182,7 +182,7 @@ define signext range(i8 0, 2) i8 @uprv_isInvariantUString_77(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, -2147483648) i32 @uprv_ebcdicFromAscii_77(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @uprv_ebcdicFromAscii_77(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %.loopexit, label %7
 
@@ -258,7 +258,7 @@ define range(i32 0, -2147483648) i32 @uprv_ebcdicFromAscii_77(ptr noundef %0, pt
 declare void @udata_printError_77(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, -2147483648) i32 @uprv_copyAscii_77(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @uprv_copyAscii_77(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef writeonly captures(address) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %._crit_edge.thread, label %7
 
@@ -339,7 +339,7 @@ define range(i32 0, -2147483648) i32 @uprv_copyAscii_77(ptr noundef %0, ptr noun
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, -2147483648) i32 @uprv_asciiFromEbcdic_77(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @uprv_asciiFromEbcdic_77(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %.loopexit, label %7
 
@@ -418,7 +418,7 @@ define range(i32 0, -2147483648) i32 @uprv_asciiFromEbcdic_77(ptr noundef %0, pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, -2147483648) i32 @uprv_copyEbcdic_77(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @uprv_copyEbcdic_77(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef writeonly captures(address) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %._crit_edge.thread, label %7
 
@@ -520,7 +520,7 @@ define signext range(i8 0, 2) i8 @uprv_isEbcdicAtSign_77(i8 noundef signext %0) 
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uprv_compareInvAscii_77(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define i32 @uprv_compareInvAscii_77(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %1, null
   %7 = icmp slt i32 %2, -1
   %or.cond = or i1 %6, %7
@@ -626,7 +626,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uprv_compareInvEbcdic_77(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define i32 @uprv_compareInvEbcdic_77(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %1, null
   %7 = icmp slt i32 %2, -1
   %or.cond = or i1 %6, %7
@@ -841,7 +841,7 @@ define signext i8 @uprv_ebcdicToLowercaseAscii_77(i8 noundef signext %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @uprv_aestrncpy_77(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #8 {
+define noundef ptr @uprv_aestrncpy_77(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = icmp eq i32 %2, -1
   br i1 %4, label %5, label %9
 
@@ -893,7 +893,7 @@ define noundef ptr @uprv_aestrncpy_77(ptr noundef returned writeonly %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @uprv_eastrncpy_77(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #8 {
+define noundef ptr @uprv_eastrncpy_77(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = icmp eq i32 %2, -1
   br i1 %4, label %5, label %9
 

@@ -25,7 +25,7 @@ $_ZN6hermes3hbc18OptEnvironmentInitD0Ev = comdat any
 @_ZTVN6hermes3hbc18OptEnvironmentInitE = hidden unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr null, ptr @_ZN6hermes3hbc18OptEnvironmentInitD2Ev, ptr @_ZN6hermes3hbc18OptEnvironmentInitD0Ev, ptr @_ZN6hermes3hbc18OptEnvironmentInit13runOnFunctionEPNS_8FunctionE] }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes3hbc18OptEnvironmentInit13runOnFunctionEPNS_8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %F) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes3hbc18OptEnvironmentInit13runOnFunctionEPNS_8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address) %F) unnamed_addr #0 align 2 {
 entry:
   %destroyer = alloca %"class.hermes::IRBuilder::InstructionDestroyer", align 8
   %createdEnvs = alloca %"class.llvh::SmallPtrSet", align 8

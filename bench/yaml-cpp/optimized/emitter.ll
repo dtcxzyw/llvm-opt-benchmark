@@ -1008,7 +1008,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @_ZN4YAML12EmitterState13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(224), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter14SetLocalIndentERKNS_7_IndentE(ptr noundef nonnull readonly returned align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %indent) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter14SetLocalIndentERKNS_7_IndentE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(72) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %indent) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %indent, align 4
@@ -1018,7 +1018,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter17SetLocalPrecisionERKNS_10_PrecisionE(ptr noundef nonnull readonly returned align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %precision) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter17SetLocalPrecisionERKNS_10_PrecisionE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(72) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %precision) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %precision, align 4
   %cmp = icmp sgt i32 %0, -1

@@ -110,7 +110,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.78 = private unnamed_addr constant [7 x i8] c"GROUPS\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @transformFromClause(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @transformFromClause(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2525,7 +2525,7 @@ checkExprIsVarFree.exit:                          ; preds = %7
 declare ptr @coerce_to_specific_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformGroupClause(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef captures(none) %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define dso_local ptr @transformGroupClause(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
@@ -2632,7 +2632,7 @@ define dso_local ptr @transformGroupClause(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @flatten_grouping_sets(ptr noundef readonly %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @flatten_grouping_sets(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i1 noundef zeroext %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
   tail call void @check_stack_depth() #9
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread, label %.lr.ph
@@ -2791,7 +2791,7 @@ declare ptr @makeGroupingSet(i32 noundef, ptr noundef, i32 noundef) local_unname
 declare i32 @exprLocation(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformGroupingSet(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc ptr @transformGroupingSet(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -3062,7 +3062,7 @@ list_length.exit.thread:                          ; preds = %._crit_edge.thread,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @transformGroupClauseExpr(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readonly %5, i32 noundef %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc i32 @transformGroupClauseExpr(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
   br i1 %7, label %10, label %12
 
 10:                                               ; preds = %9
@@ -3187,7 +3187,7 @@ targetIsInSortList.exit:                          ; preds = %28, %19, %.lr.ph.i
 declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformSortClause(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local ptr @transformSortClause(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3498,7 +3498,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %26, %24, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @addTargetToSortList(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
+define dso_local ptr @addTargetToSortList(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
@@ -3778,7 +3778,7 @@ targetIsInSortList.exit:                          ; preds = %85, %81, %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformWindowDefinitions(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
+define dso_local ptr @transformWindowDefinitions(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i16, align 2
@@ -4438,7 +4438,7 @@ checkExprIsVarFree.exit:                          ; preds = %88, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @transformDistinctClause(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local nonnull ptr @transformDistinctClause(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -4547,7 +4547,7 @@ define dso_local nonnull ptr @transformDistinctClause(ptr noundef %0, ptr nounde
 declare ptr @get_sortgroupclause_tle(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @addTargetToGroupList(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @addTargetToGroupList(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
@@ -4680,7 +4680,7 @@ targetIsInSortList.exit:                          ; preds = %.critedge.us.i, %as
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformDistinctOnClause(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define dso_local ptr @transformDistinctOnClause(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge95, label %.lr.ph
@@ -4916,7 +4916,7 @@ targetIsInSortList.exit:                          ; preds = %.critedge.us.i, %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @assignSortGroupRef(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define dso_local i32 @assignSortGroupRef(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -4969,7 +4969,7 @@ declare ptr @lappend_int(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare zeroext i1 @list_member_int(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_matching_location(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @get_matching_location(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %.not21 = icmp eq ptr %2, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5036,7 +5036,7 @@ define internal fastcc i32 @get_matching_location(i32 noundef %0, ptr noundef re
 declare ptr @get_sortgroupref_tle(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @targetIsInSortList(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @targetIsInSortList(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
@@ -5461,7 +5461,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @exprTypmod(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extractRemainingColumns(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5, ptr noundef writeonly captures(none) %6) unnamed_addr #0 {
+define internal fastcc i32 @extractRemainingColumns(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5, ptr noundef writeonly captures(none) %6) unnamed_addr #0 {
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.not = icmp eq ptr %8, null

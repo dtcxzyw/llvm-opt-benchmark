@@ -2113,7 +2113,7 @@ define { ptr, i64 } @_ZN8markdown8Markdown6source17h24322ab91a8a4798E(ptr noalia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN8markdown8Markdown15parsed_markdown17he686d018c6ca0388E(ptr noalias noundef readonly align 8 dereferenceable(2608) %0) unnamed_addr #8 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN8markdown8Markdown15parsed_markdown17he686d018c6ca0388E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(2608) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   ret ptr %2
 }
@@ -3675,12 +3675,12 @@ define hidden noundef i64 @_ZN8markdown9Selection4tail17he0e88c9f5ae0eb25E.llvm.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN8markdown14ParsedMarkdown6source17hc30b3494b0047ca3E(ptr noalias noundef readonly returned align 8 dereferenceable(40) %0) unnamed_addr #8 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN8markdown14ParsedMarkdown6source17hc30b3494b0047ca3E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN8markdown14ParsedMarkdown6events17h668dcd477d816863E(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #8 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN8markdown14ParsedMarkdown6events17h668dcd477d816863E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }

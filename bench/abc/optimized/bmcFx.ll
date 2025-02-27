@@ -1312,7 +1312,7 @@ Tab_TabEntry.exit45:                              ; preds = %.lr.ph, %90, %95
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Bmc_FxSolve(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef %7) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @Bmc_FxSolve(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #2 {
   %9 = alloca [2 x i32], align 4
   %10 = getelementptr i8, ptr %3, i64 4
   %.val252 = load i32, ptr %10, align 4, !tbaa !10

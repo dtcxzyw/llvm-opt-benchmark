@@ -4411,7 +4411,7 @@ define zeroext i1 @CheckCollisionCircleRec(<2 x float> %0, float noundef %1, <2 
 declare float @llvm.fabs.f32(float) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, ptr noundef writeonly %4) local_unnamed_addr #14 {
+define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #14 {
   %.sroa.0.4.vec.extract = extractelement <2 x float> %3, i64 1
   %.sroa.042.4.vec.extract = extractelement <2 x float> %2, i64 1
   %6 = fsub float %.sroa.0.4.vec.extract, %.sroa.042.4.vec.extract

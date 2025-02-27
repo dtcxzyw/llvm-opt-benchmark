@@ -677,7 +677,7 @@ select.unfold:                                    ; preds = %61, %61, %61, %61, 
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @ata_scsi_find_dev(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 16 {
+define dso_local ptr @ata_scsi_find_dev(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 14728
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0

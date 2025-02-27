@@ -303,7 +303,7 @@ _ZN28StackWatermarkProcessingMarkD2Ev.exit:       ; preds = %87, %91
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN28StackWatermarkFramesIterator7currentEv(ptr noundef nonnull readnone align 8 dereferenceable(5081) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN28StackWatermarkFramesIterator7currentEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(5081) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
@@ -312,7 +312,7 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN28StackWaterma
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(4983) ptr @_ZN28StackWatermarkFramesIterator12register_mapEv(ptr noundef nonnull readnone align 8 dereferenceable(5081) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(4983) ptr @_ZN28StackWatermarkFramesIterator12register_mapEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(5081) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   ret ptr %2
 }

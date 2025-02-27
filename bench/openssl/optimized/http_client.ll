@@ -203,7 +203,7 @@ declare void @BIO_free_all(ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_HTTP_REQ_CTX_get0_mem_bio(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @OSSL_HTTP_REQ_CTX_get0_mem_bio(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -224,7 +224,7 @@ define ptr @OSSL_HTTP_REQ_CTX_get0_mem_bio(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @OSSL_HTTP_REQ_CTX_get_resp_len(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i64 @OSSL_HTTP_REQ_CTX_get_resp_len(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -245,7 +245,7 @@ define i64 @OSSL_HTTP_REQ_CTX_get_resp_len(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define void @OSSL_HTTP_REQ_CTX_set_max_response_length(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @OSSL_HTTP_REQ_CTX_set_max_response_length(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -267,7 +267,7 @@ define void @OSSL_HTTP_REQ_CTX_set_max_response_length(ptr noundef writeonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HTTP_REQ_CTX_set_request_line(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HTTP_REQ_CTX_set_request_line(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -374,7 +374,7 @@ declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -436,7 +436,7 @@ declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HTTP_REQ_CTX_set_expected(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HTTP_REQ_CTX_set_expected(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -516,7 +516,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 declare i64 @time(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HTTP_REQ_CTX_set1_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HTTP_REQ_CTX_set1_req(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %5
 
@@ -540,7 +540,7 @@ define range(i32 0, 2) i32 @OSSL_HTTP_REQ_CTX_set1_req(ptr noundef %0, ptr nound
 declare ptr @ASN1_item_i2d_mem_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @set1_content(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @set1_content(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   store ptr null, ptr %4, align 8, !tbaa !32
@@ -678,7 +678,7 @@ define internal fastcc range(i32 0, 2) i32 @set1_content(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define void @OSSL_HTTP_REQ_CTX_set_max_response_hdr_lines(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @OSSL_HTTP_REQ_CTX_set_max_response_hdr_lines(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1839,7 +1839,7 @@ define ptr @OSSL_HTTP_REQ_CTX_exchange(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @BIO_wait(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @OSSL_HTTP_is_alive(ptr noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @OSSL_HTTP_is_alive(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -2144,7 +2144,7 @@ define internal fastcc ptr @http_req_ctx_new(i32 noundef range(i32 0, 2) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HTTP_set1_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HTTP_set1_request(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = icmp eq ptr %0, null
   br i1 %11, label %12, label %13
 
@@ -2264,7 +2264,7 @@ add1_headers.exit.thread:                         ; preds = %51, %57, %.thread29
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_HTTP_exchange(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define ptr @OSSL_HTTP_exchange(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [200 x i8], align 16
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
@@ -2719,7 +2719,7 @@ define range(i32 0, 2) i32 @OSSL_HTTP_close(ptr noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_HTTP_transfer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, i32 noundef %16, i64 noundef %17, i32 noundef %18, i32 noundef %19) local_unnamed_addr #0 {
+define ptr @OSSL_HTTP_transfer(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, i32 noundef %16, i64 noundef %17, i32 noundef %18, i32 noundef %19) local_unnamed_addr #0 {
   %21 = icmp eq ptr %0, null
   br i1 %21, label %.thread, label %22
 

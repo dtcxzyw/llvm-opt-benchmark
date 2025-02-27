@@ -3146,7 +3146,7 @@ Vec_IntMemory.exit50:                             ; preds = %Vec_IntMemory.exit4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Supp_ArrayWeight(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define i32 @Supp_ArrayWeight(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr i8, ptr %0, i64 4
   %.val14 = load i32, ptr %3, align 4, !tbaa !30
@@ -3329,7 +3329,7 @@ define void @Supp_SetConvert(ptr noundef readonly captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Supp_PrintNodes(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #12 {
+define void @Supp_PrintNodes(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #12 {
   %5 = getelementptr i8, ptr %1, i64 4
   %.val39 = load i32, ptr %5, align 4, !tbaa !30
   %6 = icmp slt i32 %2, %.val39
@@ -8919,7 +8919,7 @@ define void @Supp_DeriveDumpProb2(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Supp_ManFindBestSolution(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #3 {
+define ptr @Supp_ManFindBestSolution(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #3 {
   %5 = getelementptr i8, ptr %1, i64 4
   %.val90120 = load i32, ptr %5, align 4, !tbaa !84
   %6 = icmp sgt i32 %.val90120, 0
@@ -9492,7 +9492,7 @@ Vec_IntFree.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Supp_ManCompute(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #3 {
+define ptr @Supp_ManCompute(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #3 {
   %12 = alloca %struct.timespec, align 8
   %13 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #32

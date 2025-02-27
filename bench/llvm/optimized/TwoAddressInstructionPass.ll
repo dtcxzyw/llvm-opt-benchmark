@@ -15284,7 +15284,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl14regOverlapsSetERKN4llvm15SmallVectorImplINS1_8RegisterEEES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %0, ptr readonly %.0.val, i32 %.8.val, i32 %1) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl14regOverlapsSetERKN4llvm15SmallVectorImplINS1_8RegisterEEES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %0, ptr readonly captures(address) %.0.val, i32 %.8.val, i32 %1) unnamed_addr #1 align 2 {
   %.fr = freeze i32 %1
   %3 = zext i32 %.8.val to i64
   %4 = getelementptr inbounds nuw %"class.llvm::Register", ptr %.0.val, i64 %3
@@ -15735,7 +15735,7 @@ declare void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE10deleteNodeEPS1_(ptr no
 declare void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_125TwoAddressInstructionImpl13isDefTooCloseEN4llvm8RegisterEjPNS1_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %0, i32 %1, i32 noundef %2, ptr noundef nonnull readnone %3) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_125TwoAddressInstructionImpl13isDefTooCloseEN4llvm8RegisterEjPNS1_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %0, i32 %1, i32 noundef %2, ptr noundef nonnull readnone captures(address) %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !203
   %7 = icmp slt i32 %1, 0

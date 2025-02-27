@@ -112,7 +112,7 @@ declare i32 @SCT_set1_signature(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @o2i_SCT(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @o2i_SCT(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %5 = add i64 %2, -65536
@@ -287,7 +287,7 @@ declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 no
 declare void @SCT_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2o_SCT_signature(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @i2o_SCT_signature(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @SCT_signature_is_complete(ptr noundef %0) #4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.sink.split, label %4
@@ -376,7 +376,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2o_SCT(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @i2o_SCT(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
   store ptr null, ptr %3, align 8, !tbaa !11
@@ -546,7 +546,7 @@ define i32 @i2o_SCT(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 declare i32 @SCT_is_complete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @o2i_SCT_LIST(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @o2i_SCT_LIST(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = add i64 %2, -65536
   %or.cond = icmp ult i64 %4, -65534
   br i1 %or.cond, label %5, label %6
@@ -696,7 +696,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @SCT_LIST_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 65536) i32 @i2o_SCT_LIST(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 65536) i32 @i2o_SCT_LIST(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
   store ptr null, ptr %3, align 8, !tbaa !11
@@ -925,7 +925,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_SCT_LIST(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @d2i_SCT_LIST(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4

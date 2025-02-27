@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.ossl_c2i_ASN1_OBJECT = private unnamed_addr constant [21 x i8] c"ossl_c2i_ASN1_OBJECT\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2d_ASN1_OBJECT(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @i2d_ASN1_OBJECT(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   %4 = icmp eq ptr %0, null
@@ -97,7 +97,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [24 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #6
   switch i32 %3, label %9 [
@@ -542,7 +542,7 @@ declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @BIO_dump(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_ASN1_OBJECT(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @d2i_ASN1_OBJECT(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -593,7 +593,7 @@ define ptr @d2i_ASN1_OBJECT(ptr noundef %0, ptr noundef captures(none) %1, i64 n
 declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_c2i_ASN1_OBJECT(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @ossl_c2i_ASN1_OBJECT(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.asn1_object_st, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   %5 = add i64 %2, -2147483648

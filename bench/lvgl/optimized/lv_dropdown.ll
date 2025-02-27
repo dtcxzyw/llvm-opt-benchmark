@@ -1230,7 +1230,7 @@ define void @lv_dropdown_set_symbol(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_dropdown_set_selected_highlight(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define void @lv_dropdown_set_selected_highlight(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1258,7 +1258,7 @@ define void @lv_dropdown_set_selected_highlight(ptr noundef %0, i1 noundef zeroe
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_dropdown_get_list(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_dropdown_get_list(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1272,7 +1272,7 @@ define ptr @lv_dropdown_get_list(ptr noundef readonly %0) local_unnamed_addr #4 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_dropdown_get_text(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_dropdown_get_text(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1286,7 +1286,7 @@ define ptr @lv_dropdown_get_text(ptr noundef readonly %0) local_unnamed_addr #4 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define nonnull ptr @lv_dropdown_get_options(ptr noundef readonly %0) local_unnamed_addr #4 {
+define nonnull ptr @lv_dropdown_get_options(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1302,7 +1302,7 @@ define nonnull ptr @lv_dropdown_get_options(ptr noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_dropdown_get_selected(ptr noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_dropdown_get_selected(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1316,7 +1316,7 @@ define i32 @lv_dropdown_get_selected(ptr noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_dropdown_get_option_count(ptr noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_dropdown_get_option_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1330,7 +1330,7 @@ define i32 @lv_dropdown_get_option_count(ptr noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_dropdown_get_selected_str(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_dropdown_get_selected_str(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 
@@ -1449,7 +1449,7 @@ define void @lv_dropdown_get_selected_str(ptr noundef readonly %0, ptr noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_dropdown_get_option_index(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @lv_dropdown_get_option_index(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.preheader.i, label %lv_dropdown_get_options.exit
 
@@ -1520,7 +1520,7 @@ lv_dropdown_get_options.exit:                     ; preds = %2
 declare i32 @lv_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_dropdown_get_symbol(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_dropdown_get_symbol(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1534,7 +1534,7 @@ define ptr @lv_dropdown_get_symbol(ptr noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_dropdown_get_selected_highlight(ptr noundef readonly %0) local_unnamed_addr #4 {
+define zeroext i1 @lv_dropdown_get_selected_highlight(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1550,7 +1550,7 @@ define zeroext i1 @lv_dropdown_get_selected_highlight(ptr noundef readonly %0) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 16) i32 @lv_dropdown_get_dir(ptr noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 16) i32 @lv_dropdown_get_dir(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1843,7 +1843,7 @@ declare void @lv_obj_remove_state(ptr noundef, i16 noundef zeroext) local_unname
 declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @lv_dropdown_is_open(ptr noundef readonly %0) local_unnamed_addr #0 {
+define zeroext i1 @lv_dropdown_is_open(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

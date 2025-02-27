@@ -14845,7 +14845,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -100, 1) i32 @_ZN11NetQuantize20quantize_convolutionEv(ptr noundef nonnull readonly align 8 dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -100, 1) i32 @_ZN11NetQuantize20quantize_convolutionEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca [256 x i8], align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15942,7 +15942,7 @@ declare void @_ZN4ncnn16quantize_to_int8ERKNS_3MatERS0_S2_RKNS_6OptionE(ptr noun
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -100, 1) i32 @_ZN11NetQuantize29quantize_convolutiondepthwiseEv(ptr noundef nonnull readonly align 8 dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -100, 1) i32 @_ZN11NetQuantize29quantize_convolutiondepthwiseEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca [256 x i8], align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17129,7 +17129,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %522, %_ZN4ncnn3MatD
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -100, 1) i32 @_ZN11NetQuantize21quantize_innerproductEv(ptr noundef nonnull readonly align 8 dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -100, 1) i32 @_ZN11NetQuantize21quantize_innerproductEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca [256 x i8], align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

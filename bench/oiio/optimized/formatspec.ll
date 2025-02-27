@@ -6836,7 +6836,7 @@ _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11OpenImageIO6v3_1_03pvt17explain_justprintB5cxx11ERKNS0_10ParamValueEPKv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(39) %1, ptr noundef readonly %2) #15 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11OpenImageIO6v3_1_03pvt17explain_justprintB5cxx11ERKNS0_10ParamValueEPKv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(39) %1, ptr noundef readonly captures(address_is_null) %2) #15 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

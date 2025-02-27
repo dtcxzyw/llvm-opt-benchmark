@@ -23808,7 +23808,7 @@ define internal fastcc void @mast_fill_bnode(ptr noundef readonly captures(none)
 declare dso_local void @kmem_cache_free_bulk(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @mas_next_node(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @mas_next_node(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, %2

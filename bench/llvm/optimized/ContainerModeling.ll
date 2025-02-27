@@ -8440,7 +8440,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_130invalidateAllIteratorPositionsEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_9MemRegionE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr %.0.val, ptr noundef nonnull readnone %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_130invalidateAllIteratorPositionsEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_9MemRegionE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr %.0.val, ptr noundef nonnull readnone captures(address) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::IntrusiveRefCntPtr.552", align 8
   %4 = alloca %"class.llvm::ImmutableMap.640", align 8
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.552", align 8
@@ -22773,7 +22773,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit60: ; preds =
 declare void @_ZN5clang4ento8iterator16assumeNoOverflowEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprEl(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.552") align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_128reassignAllIteratorPositionsEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_9MemRegionES9_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr %.0.val, ptr noundef nonnull readnone %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_128reassignAllIteratorPositionsEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_9MemRegionES9_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr %.0.val, ptr noundef nonnull readnone captures(address) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr.552", align 8
   %5 = alloca %"class.llvm::ImmutableMap.640", align 8
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr.552", align 8

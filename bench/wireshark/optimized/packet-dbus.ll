@@ -3046,7 +3046,7 @@ define internal fastcc ptr @add_dbus_string(ptr noundef captures(none) initializ
 declare i32 @g_utf8_validate(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc zeroext i1 @is_dbus_signature_valid(ptr noundef nonnull readonly %0, ptr %.8.val.408.val) unnamed_addr #0 {
+define internal fastcc zeroext i1 @is_dbus_signature_valid(ptr noundef nonnull readonly captures(address) %0, ptr %.8.val.408.val) unnamed_addr #0 {
   %2 = tail call noalias ptr @wmem_list_new(ptr noundef %.8.val.408.val)
   %3 = load i8, ptr %0, align 1
   %.not2 = icmp eq i8 %3, 0
@@ -3171,7 +3171,7 @@ is_basic_type.exit:                               ; preds = %15, %8, %22, %25, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
-define internal fastcc ptr @skip_single_complete_type(ptr noundef readonly %0) unnamed_addr #6 {
+define internal fastcc ptr @skip_single_complete_type(ptr noundef readonly captures(ret: address, provenance) %0) unnamed_addr #6 {
   br label %2
 
 2:                                                ; preds = %2, %1

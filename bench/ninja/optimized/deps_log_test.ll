@@ -33196,7 +33196,7 @@ declare noundef i32 @_ZN17RealDiskInterface8ReadFileERKNSt7__cxx1112basic_string
 declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #4 align 2
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_133DepsLogTest_MalformedDepsLog_Test8TestBodyEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr %.0.val, ptr readonly %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_133DepsLogTest_MalformedDepsLog_Test8TestBodyEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

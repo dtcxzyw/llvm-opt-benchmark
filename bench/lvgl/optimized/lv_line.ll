@@ -411,7 +411,7 @@ define void @lv_line_set_y_invert(ptr noundef %0, i1 noundef zeroext %1) local_u
 declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_line_get_points(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_line_get_points(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -425,7 +425,7 @@ define ptr @lv_line_get_points(ptr noundef readonly %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_line_get_point_count(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_line_get_point_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -439,7 +439,7 @@ define i32 @lv_line_get_point_count(ptr noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_line_is_point_array_mutable(ptr noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_line_is_point_array_mutable(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -455,7 +455,7 @@ define zeroext i1 @lv_line_is_point_array_mutable(ptr noundef readonly %0) local
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_line_get_points_mutable(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_line_get_points_mutable(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -480,7 +480,7 @@ define ptr @lv_line_get_points_mutable(ptr noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_line_get_y_invert(ptr noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_line_get_y_invert(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

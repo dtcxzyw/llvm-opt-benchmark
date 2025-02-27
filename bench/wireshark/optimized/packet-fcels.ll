@@ -973,7 +973,7 @@ define internal range(i32 0, 2) i32 @fcels_equal(ptr noundef readonly captures(n
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #1 {
+define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 {
   %5 = alloca %struct._fcels_conv_key, align 4
   %6 = alloca %struct._address, align 8
   %7 = alloca [3 x i8], align 1
@@ -1488,7 +1488,7 @@ declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_lsrjt(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_lsrjt(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %4
 
@@ -1510,7 +1510,7 @@ define internal fastcc void @dissect_fcels_lsrjt(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_logout(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_logout(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %5
 
@@ -1534,7 +1534,7 @@ define internal fastcc void @dissect_fcels_logout(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_abtx(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_abtx(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %19, label %5
 
@@ -1562,7 +1562,7 @@ define internal fastcc void @dissect_fcels_abtx(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_rsi(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rsi(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %19, label %5
 
@@ -1590,7 +1590,7 @@ define internal fastcc void @dissect_fcels_rsi(ptr noundef %0, ptr noundef readn
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_rrq(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rrq(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %5
 
@@ -1616,7 +1616,7 @@ define internal fastcc void @dissect_fcels_rrq(ptr noundef %0, ptr noundef readn
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_rec(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rec(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %31, label %5
 
@@ -1658,7 +1658,7 @@ define internal fastcc void @dissect_fcels_rec(ptr noundef %0, ptr noundef readn
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_adisc(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_adisc(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %4
 
@@ -1682,7 +1682,7 @@ define internal fastcc void @dissect_fcels_adisc(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_rps(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rps(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %57, label %6
@@ -1761,7 +1761,7 @@ define internal fastcc void @dissect_fcels_rps(ptr noundef %0, ptr noundef readn
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_rpl(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rpl(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -1815,7 +1815,7 @@ define internal fastcc void @dissect_fcels_rpl(ptr noundef %0, ptr noundef readn
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_fan(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_fan(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %4
 
@@ -1837,7 +1837,7 @@ define internal fastcc void @dissect_fcels_fan(ptr noundef %0, ptr noundef readn
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_rscn(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rscn(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -1892,7 +1892,7 @@ define internal fastcc void @dissect_fcels_rscn(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_scr(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_scr(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %13, label %5
 
@@ -1914,7 +1914,7 @@ define internal fastcc void @dissect_fcels_scr(ptr noundef %0, ptr noundef readn
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_rnft(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rnft(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -1968,7 +1968,7 @@ define internal fastcc void @dissect_fcels_rnft(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_lsts(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_lsts(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %5
 
@@ -2000,7 +2000,7 @@ define internal fastcc void @dissect_fcels_lsts(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_rnid(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rnid(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %45, label %5
 
@@ -2061,7 +2061,7 @@ define internal fastcc void @dissect_fcels_rnid(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_lirr(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_lirr(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %4
 
@@ -2090,7 +2090,7 @@ define internal fastcc void @dissect_fcels_lirr(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_srl(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_srl(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %5
 
@@ -2114,7 +2114,7 @@ define internal fastcc void @dissect_fcels_srl(ptr noundef %0, ptr noundef readn
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_rpsc(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rpsc(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -2160,7 +2160,7 @@ define internal fastcc void @dissect_fcels_rpsc(ptr noundef %0, ptr noundef read
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_cbind(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_cbind(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %5
 
@@ -2213,7 +2213,7 @@ define internal fastcc void @dissect_fcels_cbind(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_unbind(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_unbind(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %5
 
@@ -2265,7 +2265,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #0
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2, i8 noundef zeroext range(i8 3, 82) %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef %2, i8 noundef zeroext range(i8 3, 82) %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %80, label %5
 
@@ -2497,7 +2497,7 @@ dissect_prlilo_flags.exit:                        ; preds = %21, %34
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_fcels_farp(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_farp(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %29, label %4
 

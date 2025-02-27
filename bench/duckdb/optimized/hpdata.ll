@@ -913,7 +913,7 @@ ph_remove_first.exit:                             ; preds = %1, %ph_merge_childr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @duckdb_je_hpdata_age_heap_remove(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define void @duckdb_je_hpdata_age_heap_remove(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %5, label %171

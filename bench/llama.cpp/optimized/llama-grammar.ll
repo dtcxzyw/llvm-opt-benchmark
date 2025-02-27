@@ -231,7 +231,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.62 = private unnamed_addr constant [21 x i8] c"basic_string::substr\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN20llama_grammar_parser13get_symbol_idEPKcm(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN20llama_grammar_parser13get_symbol_idEPKcm(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6585,7 +6585,7 @@ _ZNSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EE15_M_erase_at_endEPS2_.ex
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20llama_grammar_parser5printEP8_IO_FILE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN20llama_grammar_parser5printEP8_IO_FILE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7752,13 +7752,13 @@ _ZNSt6vectorIPK21llama_grammar_elementSaIS2_EED2Ev.exit: ; preds = %49, %50
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_Z23llama_grammar_get_rulesPK13llama_grammar(ptr noundef readnone %0) local_unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_Z23llama_grammar_get_rulesPK13llama_grammar(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_Z24llama_grammar_get_stacksP13llama_grammar(ptr noundef readnone %0) local_unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_Z24llama_grammar_get_stacksP13llama_grammar(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
@@ -10946,7 +10946,7 @@ _ZNSt12_Vector_baseISt6vectorI21llama_grammar_elementSaIS1_EESaIS3_EED2Ev.exit: 
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z23llama_grammar_init_implPK11llama_vocabPKcS3_bPS3_mPKim(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3, ptr noundef readonly %4, i64 noundef %5, ptr noundef readonly %6, i64 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_Z23llama_grammar_init_implPK11llama_vocabPKcS3_bPS3_mPKim(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5, ptr noundef readonly captures(address_is_null) %6, i64 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca %struct.llama_grammar_parser, align 8

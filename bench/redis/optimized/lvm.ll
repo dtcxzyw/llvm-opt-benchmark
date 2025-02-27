@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [28 x i8] c"'for' step must be a number\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @luaV_tonumber(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden noundef ptr @luaV_tonumber(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

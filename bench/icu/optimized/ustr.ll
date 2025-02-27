@@ -216,7 +216,7 @@ ustr_resize.exit._crit_edge:                      ; preds = %ustr_resize.exit
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ustr_deinit(ptr noundef %0) local_unnamed_addr #1 {
+define dso_local void @ustr_deinit(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -233,7 +233,7 @@ define dso_local void @ustr_deinit(ptr noundef %0) local_unnamed_addr #1 {
 declare void @uprv_free_77(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ustr_cpy(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
+define dso_local void @ustr_cpy(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %2, align 4, !tbaa !4
   %5 = icmp sgt i32 %4, 0
   %6 = icmp eq ptr %0, %1
@@ -358,7 +358,7 @@ ustr_resize.exit:                                 ; preds = %9, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ustr_cat(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
+define dso_local void @ustr_cat(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !12
   %6 = load i32, ptr %2, align 4, !tbaa !4
@@ -432,7 +432,7 @@ ustr_ncat.exit:                                   ; preds = %3, %ustr_resize.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ustr_ncat(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #1 {
+define dso_local void @ustr_ncat(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #1 {
   %5 = load i32, ptr %3, align 4, !tbaa !4
   %6 = icmp sgt i32 %5, 0
   %7 = icmp eq ptr %0, %1

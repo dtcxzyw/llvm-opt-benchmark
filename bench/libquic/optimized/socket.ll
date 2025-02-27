@@ -55,7 +55,7 @@ define internal noundef i32 @sock_write(ptr noundef %0, ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sock_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal noundef i32 @sock_read(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %15, label %5
 
@@ -112,7 +112,7 @@ sock_write.exit:                                  ; preds = %2, %10, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @sock_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) #1 {
+define internal range(i64 -2147483648, 2147483648) i64 @sock_ctrl(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #1 {
   switch i32 %1, label %37 [
     i32 104, label %5
     i32 105, label %24
@@ -214,7 +214,7 @@ define internal noundef i32 @sock_new(ptr noundef writeonly captures(none) initi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_free(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @sock_free(ptr noundef captures(address_is_null) %0) #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 

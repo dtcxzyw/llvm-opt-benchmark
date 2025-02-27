@@ -140,7 +140,7 @@ _ZL16ucnv_extWriteToUP10UConverterPKijPPDsPKDsPPiiP10UErrorCode.exit: ; preds = 
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr noundef readonly %0, i8 noundef signext %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull writeonly captures(none) %6, i8 noundef signext %7) unnamed_addr #2 {
+define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr noundef readonly captures(address_is_null) %0, i8 noundef signext %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull writeonly captures(none) %6, i8 noundef signext %7) unnamed_addr #2 {
   %9 = icmp eq ptr %0, null
   br i1 %9, label %121, label %10
 
@@ -377,7 +377,7 @@ _ZL15ucnv_extFindToUPKjih.exit.thread:            ; preds = %105, %.loopexit.i, 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2031616, 1114112) i32 @ucnv_extSimpleMatchToU_77(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i8 noundef signext %3) local_unnamed_addr #3 {
+define range(i32 -2031616, 1114112) i32 @ucnv_extSimpleMatchToU_77(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i8 noundef signext %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   store i32 0, ptr %5, align 4, !tbaa !3
@@ -748,7 +748,7 @@ _ZL18ucnv_extWriteFromUP10UConverterPKijPPcPKcPPiiP10UErrorCode.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -128, 128) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull writeonly captures(none) %6, i8 noundef signext %7, i8 noundef signext %8) unnamed_addr #2 {
+define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -128, 128) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull writeonly captures(none) %6, i8 noundef signext %7, i8 noundef signext %8) unnamed_addr #2 {
   %10 = icmp eq ptr %0, null
   br i1 %10, label %160, label %11
 
@@ -1014,7 +1014,7 @@ _ZL17ucnv_extFindFromUPKDsiDs.exit.thread:        ; preds = %129, %.loopexit.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -3, 4) i32 @ucnv_extSimpleMatchFromU_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i8 noundef signext %3) local_unnamed_addr #3 {
+define range(i32 -3, 4) i32 @ucnv_extSimpleMatchFromU_77(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i8 noundef signext %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %6 = call fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr noundef %0, i32 noundef %1, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef %5, i8 noundef signext %3, i8 noundef signext 1)

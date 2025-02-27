@@ -61,7 +61,7 @@ define range(i32 0, 2) i32 @X509_trusted(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_alias_set1(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @X509_alias_set1(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %.not17 = icmp eq ptr %0, null
   br i1 %.not, label %4, label %14
@@ -133,7 +133,7 @@ declare ptr @ASN1_UTF8STRING_new() local_unnamed_addr #2
 declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_keyid_set1(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @X509_keyid_set1(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %.not17 = icmp eq ptr %0, null
   br i1 %.not, label %4, label %14
@@ -203,7 +203,7 @@ declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #2
 declare ptr @ASN1_OCTET_STRING_new() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @X509_alias_get0(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define ptr @X509_alias_get0(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %.not = icmp eq ptr %4, null
@@ -235,7 +235,7 @@ define ptr @X509_alias_get0(ptr noundef readonly captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @X509_keyid_get0(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define ptr @X509_keyid_get0(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %.not = icmp eq ptr %4, null
@@ -267,7 +267,7 @@ define ptr @X509_keyid_get0(ptr noundef readonly captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_add1_trust_object(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509_add1_trust_object(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -333,7 +333,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @ASN1_OBJECT_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_add1_reject_object(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509_add1_reject_object(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @OBJ_dup(ptr noundef %1) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %23, label %5

@@ -2379,7 +2379,7 @@ define range(i32 -2147483600, -2147483648) i32 @u_forDigit_77(i32 noundef %0, i8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @u_getUnicodeVersion_77(ptr noundef writeonly %0) local_unnamed_addr #4 {
+define void @u_getUnicodeVersion_77(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -2470,7 +2470,7 @@ define range(i32 0, 49764914) i32 @uprv_getMaxValues_77(i32 noundef %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @u_charAge_77(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define void @u_charAge_77(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %48, label %3
 
@@ -2547,7 +2547,7 @@ u_getUnicodeProperties_77.exit:                   ; preds = %14, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 65536) i32 @uscript_getScript_77(i32 noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define range(i32 -1, 65536) i32 @uscript_getScript_77(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %56, label %4
 
@@ -2737,7 +2737,7 @@ u_getUnicodeProperties_77.exit:                   ; preds = %13, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @uscript_getScriptExtensions_77(i32 noundef %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define i32 @uscript_getScriptExtensions_77(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #6 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %.loopexit, label %6
 

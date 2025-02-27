@@ -1408,7 +1408,7 @@ listapp.exit:                                     ; preds = %53, %56
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @attrstmt(i32 noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc void @attrstmt(i32 noundef %0, ptr noundef readnone captures(address_is_null) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -1699,7 +1699,7 @@ declare i32 @agstrfree(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnam
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @delete_items(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @delete_items(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
   %.not10 = icmp eq ptr %0, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 

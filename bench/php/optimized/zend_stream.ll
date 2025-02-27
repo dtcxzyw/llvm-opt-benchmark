@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdin = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_stream_init_fp(ptr noundef writeonly captures(none) initializes((0, 80)) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @zend_stream_init_fp(ptr noundef writeonly captures(none) initializes((0, 80)) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -64,7 +64,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_stream_init_filename(ptr noundef writeonly captures(none) initializes((0, 80)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @zend_stream_init_filename(ptr noundef writeonly captures(none) initializes((0, 80)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   br i1 %.not, label %12, label %zend_string_alloc.exit
@@ -499,7 +499,7 @@ define internal noundef i64 @zend_stream_stdio_reader(ptr noundef captures(none)
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @zend_stream_stdio_closer(ptr noundef %0) #8 {
+define internal void @zend_stream_stdio_closer(ptr noundef captures(address) %0) #8 {
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @stdin, align 8
   %.not3 = icmp eq ptr %0, %2
@@ -515,7 +515,7 @@ define internal void @zend_stream_stdio_closer(ptr noundef %0) #8 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i64 @zend_stream_stdio_fsizer(ptr noundef %0) #8 {
+define internal i64 @zend_stream_stdio_fsizer(ptr noundef captures(address_is_null) %0) #8 {
   %2 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)

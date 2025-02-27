@@ -945,7 +945,7 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit52: ; preds = %136, %138
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L22checkEmbeddedEndAnchorERKNS_12PositionInfoERKSt6vectorIS0_SaIS0_EE(i32 %.4.val, ptr readonly %.0.val, ptr readnone %.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L22checkEmbeddedEndAnchorERKNS_12PositionInfoERKSt6vectorIS0_SaIS0_EE(i32 %.4.val, ptr readonly captures(address) %.0.val, ptr readnone captures(address) %.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator.21", align 1
   %3 = and i32 %.4.val, 8388608
@@ -2171,7 +2171,7 @@ _ZN3ue28flat_setINS_12PositionInfoESt4lessIS1_ESaIS1_EE6insertERKS1_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3ue212_GLOBAL__N_122GlushkovBuildStateImpl10buildEdgesEv(ptr noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ue212_GLOBAL__N_122GlushkovBuildStateImpl10buildEdgesEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.21", align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72

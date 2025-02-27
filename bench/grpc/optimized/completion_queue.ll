@@ -1408,7 +1408,7 @@ _ZN9grpc_core7ExecCtxD2Ev.exit:                   ; preds = %_ZN9grpc_core4Fork1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_Z15grpc_cq_pollsetP21grpc_completion_queue(ptr noundef readonly %0) local_unnamed_addr #12 {
+define noundef ptr @_Z15grpc_cq_pollsetP21grpc_completion_queue(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8, !tbaa !52
   %4 = load i8, ptr %3, align 8, !tbaa !100, !range !56, !noundef !57
@@ -1852,7 +1852,7 @@ _Z22grpc_cq_internal_unrefP21grpc_completion_queue.exit: ; preds = %_Z22grpc_cq_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL15cq_destroy_nextPv(ptr noundef readonly %0) #18 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL15cq_destroy_nextPv(ptr noundef readonly captures(address) %0) #18 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
@@ -5808,7 +5808,7 @@ declare void @_ZN4absl12lts_202407226Status12ToStringSlowB5cxx11EmNS0_18StatusTo
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11del_pluckerP21grpc_completion_queuePvPP19grpc_pollset_worker(ptr noundef captures(none) %0, ptr noundef readnone %1, ptr noundef nonnull readnone %2) unnamed_addr #8 {
+define internal fastcc void @_ZL11del_pluckerP21grpc_completion_queuePvPP19grpc_pollset_worker(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull readnone captures(address) %2) unnamed_addr #8 {
   %4 = alloca %"struct.(anonymous namespace)::plucker", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %6 = load i32, ptr %5, align 4, !tbaa !152
@@ -6809,7 +6809,7 @@ define internal void @_ZN12_GLOBAL__N_123non_polling_poller_kickEP12grpc_pollset
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZN12_GLOBAL__N_123non_polling_poller_workEP12grpc_pollsetPP19grpc_pollset_workerN9grpc_core9TimestampE(ptr dead_on_unwind noalias writable writeonly sret(%"class.absl::lts_20240722::Status") align 8 captures(none) %0, ptr noundef %1, ptr noundef writeonly %2, i64 %3) #5 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123non_polling_poller_workEP12grpc_pollsetPP19grpc_pollset_workerN9grpc_core9TimestampE(ptr dead_on_unwind noalias writable writeonly sret(%"class.absl::lts_20240722::Status") align 8 captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 %3) #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.grpc_core::Timestamp", align 8
   %6 = alloca %"struct.(anonymous namespace)::non_polling_worker", align 8
   %7 = alloca %"class.grpc_core::DebugLocation", align 1

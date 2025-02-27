@@ -2549,7 +2549,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 declare void @_ZN9grpc_core10Subchannel22WatchConnectivityStateENS_13RefCountedPtrINS0_33ConnectivityStateWatcherInterfaceEEE(ptr noundef nonnull align 8 dereferenceable(912), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core13ClientChannel17SubchannelWrapper28CancelConnectivityStateWatchEPNS_19SubchannelInterface33ConnectivityStateWatcherInterfaceE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readnone %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core13ClientChannel17SubchannelWrapper28CancelConnectivityStateWatchEPNS_19SubchannelInterface33ConnectivityStateWatcherInterfaceE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readnone captures(address) %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !22
@@ -2697,7 +2697,7 @@ select.unfold.i.i:                                ; preds = %22, %._crit_edge.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core13ClientChannel17SubchannelWrapper17CancelDataWatcherEPNS_19SubchannelInterface20DataWatcherInterfaceE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readnone %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core13ClientChannel17SubchannelWrapper17CancelDataWatcherEPNS_19SubchannelInterface20DataWatcherInterfaceE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readnone captures(address) %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.0810.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !134

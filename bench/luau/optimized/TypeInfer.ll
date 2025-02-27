@@ -3275,7 +3275,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8hasBreakEPNS_7AstStatE(ptr noundef readonly %0) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @_ZN4Luau8hasBreakEPNS_7AstStatE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !26
   %4 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstStatBlockEE5valueE, align 4, !tbaa !4
@@ -3341,7 +3341,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau8hasBreakEPNS_7AstStatE(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN4Luau14getFallthroughEPKNS_7AstStatE(ptr noundef readonly %0) local_unnamed_addr #4 {
+define dso_local noundef ptr @_ZN4Luau14getFallthroughEPKNS_7AstStatE(ptr noundef readonly captures(address, ret: address, provenance) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstStatBlockEE5valueE, align 4, !tbaa !4
   %3 = load i32, ptr @_ZN4Luau7AstRttiINS_9AstStatIfEE5valueE, align 4
   br label %tailrecurse
@@ -35889,7 +35889,7 @@ _ZNSt12_Vector_baseISt4pairIPN4Luau8AstLocalENS1_7BindingEESaIS5_EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK4Luau11TypeChecker14anyIfNonstrictEPKNS_4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2024) %0, ptr noundef readnone %1) local_unnamed_addr #20 align 2 {
+define dso_local noundef ptr @_ZNK4Luau11TypeChecker14anyIfNonstrictEPKNS_4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2024) %0, ptr noundef readnone captures(ret: address, provenance) %1) local_unnamed_addr #20 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !301
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1160
@@ -67764,7 +67764,7 @@ declare void @_ZN4Luau8toStringB5cxx11ENS_13AstExprBinary2OpE(ptr dead_on_unwind
 declare { ptr, i8 } @_ZN4Luau12getMetatableEPKNS_4TypeENS_7NotNullINS_12BuiltinTypesEEE(ptr noundef, ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL22getIdentifierOfBaseVarB5cxx11EPNS_7AstExprE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL22getIdentifierOfBaseVarB5cxx11EPNS_7AstExprE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprGlobalEE5valueE, align 4, !tbaa !4
@@ -99495,7 +99495,7 @@ declare noundef ptr @_ZN4Luau6baseofERKNS_7VariantIJNS_6SymbolENS_5FieldEEEE(ptr
 declare void @_ZN4Luau13addRefinementERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIKS4_S7_EEERSC_S7_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc { ptr, i8 } @"_ZZN4Luau11TypeChecker12refineLValueERKNS_7VariantIJNS_6SymbolENS_5FieldEEEERSt13unordered_mapIS4_PKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIS5_SA_EEERKSt10shared_ptrINS_5ScopeEESt8functionIFSt8optionalISA_ESA_EEENK3$_0clERKSt13unordered_setISA_St4hashISA_ESC_ISA_ESaISA_EE"(ptr %.0.val, ptr readonly %.16.val, i64 %.24.val) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i8 } @"_ZZN4Luau11TypeChecker12refineLValueERKNS_7VariantIJNS_6SymbolENS_5FieldEEEERSt13unordered_mapIS4_PKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIS5_SA_EEERKSt10shared_ptrINS_5ScopeEESt8functionIFSt8optionalISA_ESA_EEENK3$_0clERKSt13unordered_setISA_St4hashISA_ESC_ISA_ESaISA_EE"(ptr %.0.val, ptr readonly captures(address_is_null) %.16.val, i64 %.24.val) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.Luau::UnionType", align 8
   %2 = icmp eq i64 %.24.val, 0
   br i1 %2, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit15, label %3
@@ -111381,7 +111381,7 @@ define internal noundef zeroext i1 @"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeG
 declare noundef zeroext i1 @_ZN4Luau20isOverloadedFunctionEPKNS_4TypeE(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbEN3$_38__invokeESB_"(ptr noundef readonly %0) #28 align 2 {
+define internal noundef zeroext i1 @"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbEN3$_38__invokeESB_"(ptr noundef readonly captures(address_is_null) %0) #28 align 2 {
   %.not.i.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i.i, label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_3clESB_.exit", label %2
 

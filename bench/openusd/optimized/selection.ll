@@ -1314,7 +1314,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11HdSelection29_GetSelectionPrimPathsForMo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__11HdSelection22GetSelectedPointColorsEv(ptr noundef nonnull readnone align 8 dereferenceable(144) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__11HdSelection22GetSelectedPointColorsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(144) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   ret ptr %2
 }

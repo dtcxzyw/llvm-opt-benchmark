@@ -792,7 +792,7 @@ _ZNSt6vectorI16common_log_entrySaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP16co
 declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z19common_log_set_fileP10common_logPKc(ptr noundef nonnull %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define void @_Z19common_log_set_fileP10common_logPKc(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   tail call void @_ZN10common_log5pauseEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8, !tbaa !14

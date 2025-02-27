@@ -1511,7 +1511,7 @@ define void @_ZN4LIEF2PE16FunctionOverrideC2EOS1_(ptr noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN4LIEF2PE16FunctionOverrideaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(64) initializes((8, 12)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN4LIEF2PE16FunctionOverrideaSEOS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(64) initializes((8, 12)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

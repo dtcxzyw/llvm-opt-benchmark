@@ -3634,7 +3634,7 @@ define internal ptr @sel_avc_stats_seq_next(ptr readnone captures(none) %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sel_avc_stats_seq_show(ptr noundef %0, ptr noundef readonly %1) #5 align 16 {
+define internal noundef i32 @sel_avc_stats_seq_show(ptr noundef %0, ptr noundef readonly captures(address) %1) #5 align 16 {
   %3 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
   br i1 %3, label %4, label %5
 

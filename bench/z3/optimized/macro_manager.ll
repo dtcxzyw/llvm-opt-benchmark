@@ -3764,7 +3764,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 declare void @_ZN15ast_translationD1Ev(ptr noundef nonnull align 8 dereferenceable(84)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK13macro_manager12get_head_defEP10quantifierP9func_declRP3appR7obj_refI4expr11ast_managerERb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(568) %this, ptr noundef readonly captures(none) %q, ptr noundef readnone %d, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %head, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %def, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %revert) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK13macro_manager12get_head_defEP10quantifierP9func_declRP3appR7obj_refI4expr11ast_managerERb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(568) %this, ptr noundef readonly captures(none) %q, ptr noundef readnone captures(address) %d, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %head, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %def, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %revert) local_unnamed_addr #3 align 2 {
 entry:
   %m_expr.i = getelementptr inbounds nuw i8, ptr %q, i64 24
   %0 = load ptr, ptr %m_expr.i, align 8

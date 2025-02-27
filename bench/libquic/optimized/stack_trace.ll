@@ -68,7 +68,7 @@ define void @_ZNK4base5debug10StackTrace14OutputToStreamEPSo(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK4base5debug10StackTrace9AddressesEPm(ptr noundef nonnull readonly align 8 dereferenceable(504) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK4base5debug10StackTrace9AddressesEPm(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(504) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load i64, ptr %3, align 8, !tbaa !3
   store i64 %4, ptr %1, align 8, !tbaa !8

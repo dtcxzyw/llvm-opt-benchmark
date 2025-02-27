@@ -235,7 +235,7 @@ define void @ossl_quic_port_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @port_cleanup(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @port_cleanup(ptr noundef nonnull captures(address) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !34
   tail call void @ossl_quic_demux_free(ptr noundef %3) #11

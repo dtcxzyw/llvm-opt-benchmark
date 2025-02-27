@@ -34,7 +34,7 @@ define hidden void @mbedtls_debug_set_threshold(i32 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_debug_print_msg(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ...) local_unnamed_addr #1 {
+define hidden void @mbedtls_debug_print_msg(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ...) local_unnamed_addr #1 {
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   %7 = alloca [512 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #9
@@ -100,7 +100,7 @@ declare void @llvm.va_end.p0(ptr) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_debug_print_ret(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define hidden void @mbedtls_debug_print_ret(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca [512 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #9
   %8 = icmp eq ptr %0, null
@@ -142,7 +142,7 @@ define hidden void @mbedtls_debug_print_ret(ptr noundef readonly %0, i32 noundef
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_debug_print_buf(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i64 noundef %6) local_unnamed_addr #1 {
+define hidden void @mbedtls_debug_print_buf(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i64 noundef %6) local_unnamed_addr #1 {
   %8 = alloca [512 x i8], align 16
   %9 = alloca [17 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8) #9
@@ -278,7 +278,7 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly %0, i32 noundef
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_debug_print_ecp(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define hidden void @mbedtls_debug_print_ecp(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca [512 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #9
   %8 = icmp eq ptr %0, null
@@ -312,7 +312,7 @@ define hidden void @mbedtls_debug_print_ecp(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca [512 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #9
   %8 = icmp eq ptr %0, null
@@ -428,7 +428,7 @@ define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly %0, i32 noundef
 declare i64 @mbedtls_mpi_bitlen(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_debug_print_crt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define hidden void @mbedtls_debug_print_crt(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca [512 x i8], align 16
   %8 = alloca [3 x %struct.mbedtls_pk_debug_item], align 16
   %9 = alloca [16 x i8], align 16
@@ -610,7 +610,7 @@ debug_print_pk.exit:                              ; preds = %.preheader.i, %78, 
 declare i32 @mbedtls_x509_crt_info(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_debug_printf_ecdh(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define hidden void @mbedtls_debug_printf_ecdh(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca [512 x i8], align 16
   %8 = alloca [512 x i8], align 16
   switch i32 %5, label %mbedtls_debug_printf_ecdh_internal.exit [

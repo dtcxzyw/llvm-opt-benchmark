@@ -3195,7 +3195,7 @@ define internal fastcc ptr @H5HF__sect_indirect_new(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef range(i32 1, 5) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef captures(address) %3, i32 noundef range(i32 1, 5) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = alloca i64, align 8
   %12 = zext i1 %2 to i8

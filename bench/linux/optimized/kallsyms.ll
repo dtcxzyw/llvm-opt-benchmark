@@ -140,7 +140,7 @@ define dso_local i64 @kallsyms_lookup_name(ptr noundef %0) local_unnamed_addr #1
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #3 align 16 {
   %4 = alloca [512 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %4, i8 0, i64 512, i1 false), !annotation !5
@@ -939,7 +939,7 @@ define dso_local range(i32 0, 2) i32 @kallsyms_lookup_size_offset(i64 noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #1 align 16 {
+define internal fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #1 align 16 {
   %4 = icmp eq ptr @kallsyms_offsets, null
   br i1 %4, label %5, label %6, !prof !18
 
@@ -1684,7 +1684,7 @@ define internal void @s_stop(ptr readnone captures(none) %0, ptr readnone captur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @s_next(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef captures(none) %2) #1 align 16 {
+define internal ptr @s_next(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(ret: address, provenance) %1, ptr noundef captures(none) %2) #1 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8

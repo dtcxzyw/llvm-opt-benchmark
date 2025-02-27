@@ -271,8 +271,8 @@ $_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag = comdat any
 @_ZN10TestObject12sTODtorCountE = external local_unnamed_addr global i64, align 8
 @_ZN10TestObject16sTOMoveCtorCountE = external local_unnamed_addr global i64, align 8
 @_ZN10TestObject16sTOCopyCtorCountE = external local_unnamed_addr global i64, align 8
-@switch.table._ZL32CompareSmallInputSortPerformancev.280 = private unnamed_addr constant [15 x ptr] [ptr @.str.38, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.39, ptr @.str.40, ptr @.str.37], align 8
-@switch.table._ZL32CompareSmallInputSortPerformancev.281 = private unnamed_addr constant [4 x ptr] [ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45], align 8
+@switch.table._ZL32CompareSmallInputSortPerformancev.282 = private unnamed_addr constant [15 x ptr] [ptr @.str.38, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.39, ptr @.str.40, ptr @.str.37], align 8
+@switch.table._ZL32CompareSmallInputSortPerformancev.283 = private unnamed_addr constant [4 x ptr] [ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_Z10VPCompareCPKvS0_(ptr noundef readonly captures(none) %elem1, ptr noundef readonly captures(none) %elem2) local_unnamed_addr #0 {
@@ -2087,7 +2087,7 @@ delete.notnull:                                   ; preds = %invoke.cont182
 for.cond190.preheader:                            ; preds = %delete.notnull, %for.inc231
   %indvars.iv2301 = phi i64 [ 0, %delete.notnull ], [ %indvars.iv.next2302, %for.inc231 ]
   %156 = icmp samesign ult i64 %indvars.iv2301, 4
-  %switch.gep2495 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.281, i64 0, i64 %indvars.iv2301
+  %switch.gep2495 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 0, i64 %indvars.iv2301
   br label %for.body192
 
 for.body192:                                      ; preds = %for.cond190.preheader, %for.inc228
@@ -2109,7 +2109,7 @@ for.body199:                                      ; preds = %for.body199.lr.ph, 
 
 switch.lookup:                                    ; preds = %for.body199
   %160 = zext nneg i32 %158 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.280, i64 0, i64 %160
+  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 0, i64 %160
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit
 
@@ -4574,7 +4574,7 @@ lpad250.loopexit.split-lp.loopexit.split.us.split.us: ; preds = %for.body451.us.
 for.cond449.preheader:                            ; preds = %delete.notnull442, %for.inc490.split
   %indvars.iv2313 = phi i64 [ %indvars.iv.next2314, %for.inc490.split ], [ 0, %delete.notnull442 ]
   %520 = icmp samesign ult i64 %indvars.iv2313, 4
-  %switch.gep2501 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.281, i64 0, i64 %indvars.iv2313
+  %switch.gep2501 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 0, i64 %indvars.iv2313
   br label %for.body451
 
 for.body451:                                      ; preds = %for.cond449.preheader, %for.inc487
@@ -4592,7 +4592,7 @@ for.body461:                                      ; preds = %for.body451, %for.i
 
 switch.lookup2497:                                ; preds = %for.body461
   %524 = zext nneg i32 %522 to i64
-  %switch.gep2498 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.280, i64 0, i64 %524
+  %switch.gep2498 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 0, i64 %524
   %switch.load2499 = load ptr, ptr %switch.gep2498, align 8
   br label %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit1129
 
@@ -5358,12 +5358,12 @@ if.then.i.i1428:                                  ; preds = %if.then2.i.i1392, %
   br label %do.body.i.i1432
 
 do.body.i.i1432:                                  ; preds = %_ZN5eastl11adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS3_NS_4lessIS3_EEEEvT_T0_S8_S8_OT1_T2_.exit.i.i, %if.then.i.i1428
-  %inc.i11.i.i.i.i10.i.i = phi i32 [ %_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE.promoted.i.i, %if.then.i.i1428 ], [ %inc.i11.i.i.i.i.i.i, %_ZN5eastl11adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS3_NS_4lessIS3_EEEEvT_T0_S8_S8_OT1_T2_.exit.i.i ]
+  %inc.i11.i.i.i.i9.i.i = phi i32 [ %_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE.promoted.i.i, %if.then.i.i1428 ], [ %inc.i11.i.i.i.i.i.i, %_ZN5eastl11adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS3_NS_4lessIS3_EEEEvT_T0_S8_S8_OT1_T2_.exit.i.i ]
   %parentPosition.0.i.i1433 = phi i64 [ %add.i.i1431, %if.then.i.i1428 ], [ %dec.i.i1434, %_ZN5eastl11adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS3_NS_4lessIS3_EEEEvT_T0_S8_S8_OT1_T2_.exit.i.i ]
   %dec.i.i1434 = add nsw i64 %parentPosition.0.i.i1433, -1
   %add.ptr.i.i1435 = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %call.i.i.i.i.i1211, i64 %dec.i.i1434
   %call.val.i.i1436 = load i32, ptr %add.ptr.i.i1435, align 4
-  %inc.i.i.i1437 = add nsw i32 %inc.i11.i.i.i.i10.i.i, 1
+  %inc.i.i.i1437 = add nsw i32 %inc.i11.i.i.i.i9.i.i, 1
   %childPosition.0.in23.i.i.i.i = shl nsw i64 %dec.i.i1434, 1
   %childPosition.024.i.i.i.i = add nsw i64 %childPosition.0.in23.i.i.i.i, 2
   %cmp25.i.i.i.i = icmp slt i64 %childPosition.024.i.i.i.i, %541
@@ -6655,7 +6655,7 @@ lpad511.loopexit.split-lp.loopexit.split.us.split.us: ; preds = %for.body716.us.
 for.cond714.preheader:                            ; preds = %delete.notnull707, %for.inc755.split
   %indvars.iv2332 = phi i64 [ %indvars.iv.next2333, %for.inc755.split ], [ 0, %delete.notnull707 ]
   %653 = icmp samesign ult i64 %indvars.iv2332, 4
-  %switch.gep2507 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.281, i64 0, i64 %indvars.iv2332
+  %switch.gep2507 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 0, i64 %indvars.iv2332
   br label %for.body716
 
 for.body716:                                      ; preds = %for.cond714.preheader, %for.inc752
@@ -6673,7 +6673,7 @@ for.body726:                                      ; preds = %for.body716, %for.i
 
 switch.lookup2503:                                ; preds = %for.body726
   %657 = zext nneg i32 %655 to i64
-  %switch.gep2504 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.280, i64 0, i64 %657
+  %switch.gep2504 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 0, i64 %657
   %switch.load2505 = load ptr, ptr %switch.gep2504, align 8
   br label %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit1844
 
@@ -9703,7 +9703,7 @@ for.body.i:                                       ; preds = %_ZN2EA4StdC9Stopwat
   %i.0518.i = phi i32 [ %inc266.i, %for.inc265.i ], [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i ]
   %12 = icmp samesign ult i32 %i.0518.i, 4
   %13 = zext nneg i32 %i.0518.i to i64
-  %switch.gep43 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.281, i64 0, i64 %13
+  %switch.gep43 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 0, i64 %13
   br label %for.body23.lr.ph.i
 
 for.body23.lr.ph.i:                               ; preds = %for.inc262.i, %for.body.i
@@ -11299,7 +11299,7 @@ for.end254.i:                                     ; preds = %_ZN5eastl6vectorIjN
 
 switch.lookup:                                    ; preds = %for.end254.i
   %163 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.280, i64 0, i64 %163
+  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 0, i64 %163
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit425.i
 
@@ -11560,7 +11560,7 @@ for.body.i97:                                     ; preds = %_ZN2EA4StdC9Stopwat
   %i.0713.i = phi i32 [ %inc263.i, %for.inc262.i134 ], [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i91 ]
   %191 = icmp samesign ult i32 %i.0713.i, 4
   %192 = zext nneg i32 %i.0713.i to i64
-  %switch.gep49 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.281, i64 0, i64 %192
+  %switch.gep49 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 0, i64 %192
   br label %for.body20.lr.ph.i
 
 for.body20.lr.ph.i:                               ; preds = %for.inc259.i, %for.body.i97
@@ -13917,7 +13917,7 @@ for.end251.i:                                     ; preds = %_ZN5eastl6vectorIiN
 
 switch.lookup45:                                  ; preds = %for.end251.i
   %503 = zext nneg i32 %211 to i64
-  %switch.gep46 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.280, i64 0, i64 %503
+  %switch.gep46 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 0, i64 %503
   %switch.load47 = load ptr, ptr %switch.gep46, align 8
   br label %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit430.i
 
@@ -14193,7 +14193,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i327:        ; preds = %_ZN2EA4StdC9Stopwat
 for.body17.lr.ph.i:                               ; preds = %for.inc264.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i327
   %i.070.i = phi i32 [ %inc265.i, %for.inc264.i ], [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i327 ]
   %531 = zext nneg i32 %i.070.i to i64
-  %switch.gep55 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.281, i64 0, i64 %531
+  %switch.gep55 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 0, i64 %531
   br label %for.body17.i
 
 for.body17.i:                                     ; preds = %for.body17.lr.ph.i, %for.inc261.i
@@ -14850,12 +14850,12 @@ for.body96.i:                                     ; preds = %_ZN5eastl9heap_sort
   br i1 %cmp25.i.i, label %_ZN5eastl9heap_sortIPN12_GLOBAL__N_110SlowAssignIjEENS_4lessIS3_EEEEvT_S7_T0_.exit.i, label %do.body.i.i.i442
 
 do.body.i.i.i442:                                 ; preds = %for.body96.i, %_ZN5eastl11adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS3_NS_4lessIS3_EEEEvT_T0_S8_S8_OT1_T2_.exit.i.i.i
-  %inc.i11.i.i.i.i10.i.i.i = phi i32 [ %inc.i11.i.i.i.i.i.i.i, %_ZN5eastl11adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS3_NS_4lessIS3_EEEEvT_T0_S8_S8_OT1_T2_.exit.i.i.i ], [ %inc.i11.i.i.i.i.i.i.lcssa146.i, %for.body96.i ]
+  %inc.i11.i.i.i.i9.i.i.i = phi i32 [ %inc.i11.i.i.i.i.i.i.i, %_ZN5eastl11adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS3_NS_4lessIS3_EEEEvT_T0_S8_S8_OT1_T2_.exit.i.i.i ], [ %inc.i11.i.i.i.i.i.i.lcssa146.i, %for.body96.i ]
   %parentPosition.0.i.i.i443 = phi i64 [ %dec.i.i228.i, %_ZN5eastl11adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS3_NS_4lessIS3_EEEEvT_T0_S8_S8_OT1_T2_.exit.i.i.i ], [ %add.i.i.i339, %for.body96.i ]
   %dec.i.i228.i = add nsw i64 %parentPosition.0.i.i.i443, -1
   %add.ptr.i.i229.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %begin91.041.i, i64 %dec.i.i228.i
   %call.val.i.i230.i = load i32, ptr %add.ptr.i.i229.i, align 4
-  %inc.i.i.i231.i = add nsw i32 %inc.i11.i.i.i.i10.i.i.i, 1
+  %inc.i.i.i231.i = add nsw i32 %inc.i11.i.i.i.i9.i.i.i, 1
   %childPosition.0.in23.i.i.i.i.i = shl nsw i64 %dec.i.i228.i, 1
   %childPosition.024.i.i.i.i.i = add nsw i64 %childPosition.0.in23.i.i.i.i.i, 2
   %cmp25.i.i.i.i.i = icmp slt i64 %childPosition.024.i.i.i.i.i, %532
@@ -16039,7 +16039,7 @@ for.end253.i:                                     ; preds = %_ZN5eastl6vectorIN1
 
 switch.lookup51:                                  ; preds = %for.end253.i
   %627 = zext nneg i32 %539 to i64
-  %switch.gep52 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.280, i64 0, i64 %627
+  %switch.gep52 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 0, i64 %627
   %switch.load53 = load ptr, ptr %switch.gep52, align 8
   br label %switch.lookup54
 
@@ -18672,7 +18672,7 @@ if.end27:                                         ; preds = %if.else14.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_0vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_0vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef readnone captures(ret: address, provenance) %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -18697,7 +18697,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_1vJR15BenchmarkResultEE7ManagerEPvS8_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_1vJR15BenchmarkResultEE7ManagerEPvS8_NS2_17ManagerOperationsE"(ptr noundef readnone captures(ret: address, provenance) %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -18722,7 +18722,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_2vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7ManagerEPvSF_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_2vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7ManagerEPvSF_NS2_17ManagerOperationsE"(ptr noundef readnone captures(ret: address, provenance) %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -18758,7 +18758,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_3vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_3vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef readnone captures(ret: address, provenance) %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -18784,7 +18784,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_4vJR15BenchmarkResultEE7ManagerEPvS8_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_4vJR15BenchmarkResultEE7ManagerEPvS8_NS2_17ManagerOperationsE"(ptr noundef readnone captures(ret: address, provenance) %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -18813,7 +18813,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_5vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7ManagerEPvSF_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_5vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7ManagerEPvSF_NS2_17ManagerOperationsE"(ptr noundef readnone captures(ret: address, provenance) %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -20590,7 +20590,7 @@ return:                                           ; preds = %for.cond.for.end_cr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_6vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_6vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef readnone captures(ret: address, provenance) %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -20616,7 +20616,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_7vJR15BenchmarkResultEE7ManagerEPvS8_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_7vJR15BenchmarkResultEE7ManagerEPvS8_NS2_17ManagerOperationsE"(ptr noundef readnone captures(ret: address, provenance) %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -20649,7 +20649,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_8vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7ManagerEPvSF_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_8vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7ManagerEPvSF_NS2_17ManagerOperationsE"(ptr noundef readnone captures(ret: address, provenance) %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -28078,7 +28078,7 @@ _ZN5eastl16adjust_heap_implIPilOiN12_GLOBAL__N_111SlowCompareIiEEiEEvT_T0_S7_S7_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5eastl8Internal16tim_sort_add_runIPiiN12_GLOBAL__N_111SlowCompareIiEEEEbPNS0_12tim_sort_runET_PT0_llRlSB_SB_SB_T1_(ptr noundef nonnull captures(none) %run_stack, ptr noundef %first, ptr noundef nonnull captures(none) %pBuffer, i64 noundef range(i64 64, 2305843009213693952) %size, i64 noundef range(i64 0, 1152921504606846977) %minrun, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %len, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %run, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %curr, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %stack_curr) unnamed_addr #9 {
+define internal fastcc noundef zeroext i1 @_ZN5eastl8Internal16tim_sort_add_runIPiiN12_GLOBAL__N_111SlowCompareIiEEEEbPNS0_12tim_sort_runET_PT0_llRlSB_SB_SB_T1_(ptr noundef nonnull captures(none) %run_stack, ptr noundef captures(address) %first, ptr noundef nonnull captures(none) %pBuffer, i64 noundef range(i64 64, 2305843009213693952) %size, i64 noundef range(i64 0, 1152921504606846977) %minrun, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %len, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %run, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %curr, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %stack_curr) unnamed_addr #9 {
 entry:
   %0 = load i64, ptr %curr, align 8
   %sub.i = sub nsw i64 %size, %0
@@ -29582,7 +29582,7 @@ _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_111SlowCom
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEEEvT_S8_T0_(ptr noundef %__first, ptr noundef readnone %__last) unnamed_addr #9 {
+define internal fastcc void @_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEEEvT_S8_T0_(ptr noundef %__first, ptr noundef readnone captures(address) %__last) unnamed_addr #9 {
 entry:
   %__first81 = ptrtoint ptr %__first to i64
   %__last80 = ptrtoint ptr %__last to i64
@@ -31027,12 +31027,12 @@ if.then.i.i17:                                    ; preds = %if.then
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %_ZN5eastl11adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS3_EEvT_T0_S6_S6_OT1_.exit.i.i, %if.then.i.i17
-  %inc.i11.i.i.i.i10.i.i = phi i32 [ %_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE.promoted.i.i, %if.then.i.i17 ], [ %inc.i11.i.i.i.i.i.i, %_ZN5eastl11adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS3_EEvT_T0_S6_S6_OT1_.exit.i.i ]
+  %inc.i11.i.i.i.i9.i.i = phi i32 [ %_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE.promoted.i.i, %if.then.i.i17 ], [ %inc.i11.i.i.i.i.i.i, %_ZN5eastl11adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS3_EEvT_T0_S6_S6_OT1_.exit.i.i ]
   %parentPosition.0.i.i = phi i64 [ %add.i.i, %if.then.i.i17 ], [ %dec.i.i, %_ZN5eastl11adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS3_EEvT_T0_S6_S6_OT1_.exit.i.i ]
   %dec.i.i = add nsw i64 %parentPosition.0.i.i, -1
   %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %first, i64 %dec.i.i
   %call.val.i.i = load i32, ptr %add.ptr.i.i, align 4
-  %inc.i.i.i = add nsw i32 %inc.i11.i.i.i.i10.i.i, 1
+  %inc.i.i.i = add nsw i32 %inc.i11.i.i.i.i9.i.i, 1
   %childPosition.0.in22.i.i.i.i = shl nsw i64 %dec.i.i, 1
   %childPosition.023.i.i.i.i = add nsw i64 %childPosition.0.in22.i.i.i.i, 2
   %cmp24.i.i.i.i = icmp slt i64 %childPosition.023.i.i.i.i, %sub.ptr.div.lcssa
@@ -31336,12 +31336,12 @@ if.then.i.i17:                                    ; preds = %if.then
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %_ZN5eastl11adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS3_NS_4lessIS3_EEEEvT_T0_S8_S8_OT1_T2_.exit.i.i, %if.then.i.i17
-  %inc.i11.i.i.i.i10.i.i = phi i32 [ %_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE.promoted.i.i, %if.then.i.i17 ], [ %inc.i11.i.i.i.i.i.i, %_ZN5eastl11adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS3_NS_4lessIS3_EEEEvT_T0_S8_S8_OT1_T2_.exit.i.i ]
+  %inc.i11.i.i.i.i9.i.i = phi i32 [ %_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE.promoted.i.i, %if.then.i.i17 ], [ %inc.i11.i.i.i.i.i.i, %_ZN5eastl11adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS3_NS_4lessIS3_EEEEvT_T0_S8_S8_OT1_T2_.exit.i.i ]
   %parentPosition.0.i.i = phi i64 [ %add.i.i, %if.then.i.i17 ], [ %dec.i.i, %_ZN5eastl11adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS3_NS_4lessIS3_EEEEvT_T0_S8_S8_OT1_T2_.exit.i.i ]
   %dec.i.i = add nsw i64 %parentPosition.0.i.i, -1
   %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %first, i64 %dec.i.i
   %call.val.i.i = load i32, ptr %add.ptr.i.i, align 4
-  %inc.i.i.i = add nsw i32 %inc.i11.i.i.i.i10.i.i, 1
+  %inc.i.i.i = add nsw i32 %inc.i11.i.i.i.i9.i.i, 1
   %childPosition.0.in23.i.i.i.i = shl nsw i64 %dec.i.i, 1
   %childPosition.024.i.i.i.i = add nsw i64 %childPosition.0.in23.i.i.i.i, 2
   %cmp25.i.i.i.i = icmp slt i64 %childPosition.024.i.i.i.i, %sub.ptr.div.lcssa
@@ -31531,7 +31531,7 @@ if.end:                                           ; preds = %for.cond.for.end_cr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5eastl8Internal16tim_sort_add_runIPN12_GLOBAL__N_110SlowAssignIjEES4_NS_4lessIS4_EEEEbPNS0_12tim_sort_runET_PT0_llRlSD_SD_SD_T1_(ptr noundef nonnull captures(none) %run_stack, ptr noundef %first, ptr noundef nonnull captures(none) %pBuffer, i64 noundef range(i64 64, 2305843009213693952) %size, i64 noundef range(i64 0, 1152921504606846977) %minrun, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %len, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %run, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %curr, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %stack_curr) unnamed_addr #9 {
+define internal fastcc noundef zeroext i1 @_ZN5eastl8Internal16tim_sort_add_runIPN12_GLOBAL__N_110SlowAssignIjEES4_NS_4lessIS4_EEEEbPNS0_12tim_sort_runET_PT0_llRlSD_SD_SD_T1_(ptr noundef nonnull captures(none) %run_stack, ptr noundef captures(address) %first, ptr noundef nonnull captures(none) %pBuffer, i64 noundef range(i64 64, 2305843009213693952) %size, i64 noundef range(i64 0, 1152921504606846977) %minrun, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %len, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %run, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %curr, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %stack_curr) unnamed_addr #9 {
 entry:
   %0 = load i64, ptr %curr, align 8
   %sub.i = sub nsw i64 %size, %0

@@ -8413,7 +8413,7 @@ zend_ast_is_decl.exit:                            ; preds = %45
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_file_cache_serialize_type(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @zend_file_cache_serialize_type(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(address) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !288
   %7 = and i32 %6, 4194304

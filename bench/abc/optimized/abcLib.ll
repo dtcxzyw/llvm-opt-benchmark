@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [68 x i8] c"The design includes more than one module and is currently not used.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_DesCreate(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Abc_DesCreate(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %2
@@ -74,7 +74,7 @@ declare ptr @Hop_ManStart(...) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_DesCleanManPointer(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #5 {
+define void @Abc_DesCleanManPointer(ptr noundef captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge, label %4
 
@@ -125,7 +125,7 @@ define void @Abc_DesCleanManPointer(ptr noundef %0, ptr noundef readnone %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_DesFree(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @Abc_DesFree(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4

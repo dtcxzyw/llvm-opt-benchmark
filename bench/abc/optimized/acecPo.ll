@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [36 x i8] c"Canont parse the output signatures.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Acec_ParseSignatureMono(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
+define void @Acec_ParseSignatureMono(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %0, align 1, !tbaa !3
   %5 = icmp eq i8 %4, 45
   %6 = icmp eq i8 %4, 43
@@ -303,7 +303,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Acec_ParseSignatureOne(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Acec_ParseSignatureOne(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4, !tbaa !17
@@ -4666,7 +4666,7 @@ Vec_IntPushUniqueOrder.exit:                      ; preds = %213, %113, %Vec_Int
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_PolynBuildNew(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 %7, i32 noundef %8) local_unnamed_addr #0 {
+define noalias noundef ptr @Gia_PolynBuildNew(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.timespec, align 8
   %11 = alloca %struct.timespec, align 8
   %12 = alloca [4 x ptr], align 16

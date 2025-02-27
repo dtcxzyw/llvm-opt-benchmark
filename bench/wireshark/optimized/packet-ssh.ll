@@ -895,7 +895,7 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ssh_hash(ptr noundef readonly %0) #3 {
+define internal i32 @ssh_hash(ptr noundef readonly captures(address_is_null) %0) #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -926,7 +926,7 @@ define internal i32 @ssh_hash(ptr noundef readonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @ssh_equal(ptr noundef readonly %0, ptr noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @ssh_equal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #4 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -2496,7 +2496,7 @@ define hidden void @proto_reg_handoff_ssh() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @ssh_set_debug(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @ssh_set_debug(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.tail, label %sub_0
 
@@ -2893,7 +2893,7 @@ declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #2
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @ssh_dissect_kex_dh(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) initializes((0, 4)) %6) #0 {
+define internal noundef i32 @ssh_dissect_kex_dh(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef writeonly captures(none) initializes((0, 4)) %6) #0 {
   store i32 0, ptr %6, align 4
   %8 = load i32, ptr @hf_ssh2_kex_dh_msg_code, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %8, ptr noundef %1, i32 noundef %3, i32 noundef 1, i32 noundef 0)
@@ -4533,7 +4533,7 @@ ssh_hash_buffer_put_string.exit:                  ; preds = %5, %23
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @ssh_choose_enc_mac(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @ssh_choose_enc_mac(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -5822,7 +5822,7 @@ declare void @wmem_array_append(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @ssh_choose_algo(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @ssh_choose_algo(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -6029,7 +6029,7 @@ declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @g_slist_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @ssh_gslist_compare_strings(ptr noundef readonly %0, ptr noundef readonly %1) #12 {
+define internal i32 @ssh_gslist_compare_strings(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #12 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = and i1 %3, %4
@@ -6067,7 +6067,7 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noalias noundef ptr @ssh_kex_shared_secret(i32 noundef range(i32 0, 196633) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @ssh_kex_shared_secret(i32 noundef range(i32 0, 196633) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -6655,7 +6655,7 @@ define internal fastcc i32 @ssh_dissect_connection_generic(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @ssh_dissect_connection_specific(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 90, 128) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
+define internal fastcc i32 @ssh_dissect_connection_specific(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef %3, i32 noundef range(i32 90, 128) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -8173,7 +8173,7 @@ declare ptr @g_compute_checksum_for_string(i32 noundef, ptr noundef, i64 noundef
 declare i64 @wmem_strbuf_get_len(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @ssh_dissect_kex_dh_gex(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) initializes((0, 4)) %6) #0 {
+define internal noundef i32 @ssh_dissect_kex_dh_gex(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef writeonly captures(none) initializes((0, 4)) %6) #0 {
   %8 = alloca [4 x i8], align 1
   %9 = alloca [4 x i8], align 1
   %10 = alloca [4 x i8], align 1
@@ -8571,7 +8571,7 @@ ssh_hash_buffer_put_uint32.exit131:               ; preds = %199, %195, %ssh_has
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @ssh_dissect_kex_ecdh(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) %6) #0 {
+define internal noundef i32 @ssh_dissect_kex_ecdh(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef writeonly captures(none) %6) #0 {
   %8 = load i32, ptr @hf_ssh2_kex_ecdh_msg_code, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %8, ptr noundef %1, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %10 = add i32 %3, 1

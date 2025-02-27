@@ -38,7 +38,7 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @free_chunkfile(ptr noundef %0) local_unnamed_addr #3 {
+define dso_local void @free_chunkfile(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -642,7 +642,7 @@ define dso_local i32 @read_chunk(ptr noundef readonly captures(none) %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext range(i8 1, 3) i8 @oid_version(ptr noundef readnone %0) local_unnamed_addr #0 {
+define dso_local zeroext range(i8 1, 3) i8 @oid_version(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %4, %1

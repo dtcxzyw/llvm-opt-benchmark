@@ -922,7 +922,7 @@ define dso_local ptr @nf_ct_expect_alloc(ptr noundef %0) #0 align 16 {
 declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @nf_ct_expect_init(ptr noundef writeonly captures(none) initializes((48, 52), (68, 71), (72, 90), (96, 120), (168, 186)) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4, i8 noundef zeroext %5, ptr noundef readonly %6, ptr noundef readonly captures(none) %7) #3 align 16 {
+define dso_local void @nf_ct_expect_init(ptr noundef writeonly captures(none) initializes((48, 52), (68, 71), (72, 90), (96, 120), (168, 186)) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, i8 noundef zeroext %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef readonly captures(none) %7) #3 align 16 {
   %9 = icmp eq i8 %2, 2
   %10 = select i1 %9, i64 4, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1901,7 +1901,7 @@ nf_ct_unlink_expect_report.exit:                  ; preds = %91, %93, %94
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nf_ct_expect_iterate_net(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 %3, i32 %4) #0 align 16 {
+define dso_local void @nf_ct_expect_iterate_net(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 %3, i32 %4) #0 align 16 {
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @nf_conntrack_expect_lock) #10
   %6 = load i32, ptr @nf_ct_expect_hsize, align 4
   %7 = icmp eq i32 %6, 0

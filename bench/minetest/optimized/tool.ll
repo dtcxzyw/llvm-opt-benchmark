@@ -2618,7 +2618,7 @@ declare void @_ZNK4Json17ValueIteratorBase3keyEv(ptr dead_on_unwind writable sre
 declare void @_ZNK4Json5Value8asStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK13WearBarParams9serializeERSo(ptr noundef nonnull readonly align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK13WearBarParams9serializeERSo(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf.i21 = alloca [4 x i8], align 4
   %buf.i19 = alloca [4 x i8], align 1
@@ -3163,7 +3163,7 @@ _ZNSt8_Rb_treeIfSt4pairIKfN3irr5video6SColorEESt10_Select1stIS5_ESt4lessIfESaIS5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK13WearBarParams13serializeJsonERSo(ptr noundef nonnull readonly align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK13WearBarParams13serializeJsonERSo(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %root = alloca %"class.Json::Value", align 8
   %color_stops = alloca %"class.Json::Value", align 8
@@ -4980,7 +4980,7 @@ _Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { i64, i32 } @_Z14getPunchDamageRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesPK9ItemStackft(ptr noundef nonnull align 8 dereferenceable(56) %armor_groups, ptr noundef readonly %toolcap, ptr noundef readonly %punchitem, float noundef %time_from_last_punch, i16 noundef zeroext %initial_wear) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local { i64, i32 } @_Z14getPunchDamageRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesPK9ItemStackft(ptr noundef nonnull align 8 dereferenceable(56) %armor_groups, ptr noundef readonly captures(address_is_null) %toolcap, ptr noundef readonly captures(address_is_null) %punchitem, float noundef %time_from_last_punch, i16 noundef zeroext %initial_wear) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp13 = alloca %"class.std::__cxx11::basic_string", align 8

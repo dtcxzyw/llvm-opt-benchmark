@@ -488,7 +488,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers7fmcheck18FirstOrderMod
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers7fmcheck18FirstOrderModelFmc17processInitializeEb(ptr noundef nonnull readonly align 8 dereferenceable(760) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers7fmcheck18FirstOrderModelFmc17processInitializeEb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(760) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
   br i1 %1, label %3, label %.loopexit
 
 3:                                                ; preds = %2

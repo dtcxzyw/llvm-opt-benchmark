@@ -89,13 +89,13 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7rocksdb16BytesXOROperator5MergeERKNS_5SliceEPS2_S3_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6LoggerE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef initializes((8, 16)) %4, ptr readnone captures(none) %5) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK7rocksdb16BytesXOROperator5MergeERKNS_5SliceEPS2_S3_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6LoggerE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef initializes((8, 16)) %4, ptr readnone captures(none) %5) unnamed_addr #0 align 2 {
   tail call void @_ZNK7rocksdb16BytesXOROperator3XOREPKNS_5SliceERS2_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull align 8 poison, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %4)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb16BytesXOROperator3XOREPKNS_5SliceERS2_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef initializes((8, 16)) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb16BytesXOROperator3XOREPKNS_5SliceERS2_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef initializes((8, 16)) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %13
 

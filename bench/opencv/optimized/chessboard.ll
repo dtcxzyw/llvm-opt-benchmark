@@ -3439,7 +3439,7 @@ define hidden void @_ZN2cv7details7EllipseC2ERKNS_6Point_IfEERKNS_5Size_IfEEf(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK2cv7details7Ellipse7getAxesEv(ptr noundef nonnull readnone align 4 dereferenceable(28) %0) local_unnamed_addr #16 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK2cv7details7Ellipse7getAxesEv(ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(28) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -6515,7 +6515,7 @@ define hidden void @_ZN2cv7details10Chessboard5BoardC2Eff(ptr noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv7details10Chessboard5BoardC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 72)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv7details10Chessboard5BoardC2ERKS2_(ptr noundef nonnull align 8 captures(address) dereferenceable(80) initializes((0, 72)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv7details10Chessboard5BoardE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
@@ -6551,7 +6551,7 @@ _ZNSt6vectorIPN2cv7details10Chessboard5Board4CellESaIS5_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv7details10Chessboard5BoardaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv7details10Chessboard5BoardaSERKS2_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::map", align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::map.54", align 8
@@ -19356,7 +19356,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit191:              ; preds = %710
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv7details10Chessboard5Board18estimateSearchAreaERKNS_6Point_IfEES6_S6_fRNS0_7EllipseEPS5_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, float noundef %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(28) %4, ptr noundef readonly %5) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv7details10Chessboard5Board18estimateSearchAreaERKNS_6Point_IfEES6_S6_fRNS0_7EllipseEPS5_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, float noundef %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(28) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %"class.cv::Point_", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #37
   store float 0.000000e+00, ptr %7, align 8, !tbaa !168
@@ -33109,7 +33109,7 @@ _ZN2cv7details10Chessboard5BoardD2Ev.exit:        ; preds = %_ZNSt6vectorIPN2cv6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv7details10Chessboard10detectImplERKNS_3MatERSt6vectorIS2_SaIS2_EES4_(ptr dead_on_unwind noalias writable sret(%"class.cv::details::Chessboard::Board") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(96) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv7details10Chessboard10detectImplERKNS_3MatERSt6vectorIS2_SaIS2_EES4_(ptr dead_on_unwind noalias writable sret(%"class.cv::details::Chessboard::Board") align 8 captures(address) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(96) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::Size_", align 4
   %7 = alloca %"class.std::vector.9", align 8
   %8 = alloca %"class.std::vector", align 8

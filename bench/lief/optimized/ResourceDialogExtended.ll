@@ -1337,7 +1337,7 @@ _ZN4LIEF2PE14ResourceDialog16ordinal_or_str_tD2Ev.exit3: ; preds = %_ZNKSt7__cxx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i64 0, 8589934592) i64 @_ZN4LIEF2PE14parse_typefaceERNS0_22ResourceDialogExtendedERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 {
+define hidden range(i64 0, 8589934592) i64 @_ZN4LIEF2PE14parse_typefaceERNS0_22ResourceDialogExtendedERNS_12BinaryStreamE(ptr noundef nonnull align 8 captures(address) dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2

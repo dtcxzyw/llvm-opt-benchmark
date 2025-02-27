@@ -590,7 +590,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [64 x ptr] [ptr @__UNIQUE_ID___addressable_md_account_bio841, ptr @__UNIQUE_ID___addressable_md_allow_write842, ptr @__UNIQUE_ID___addressable_md_check_no_bitmap762, ptr @__UNIQUE_ID___addressable_md_check_recovery854, ptr @__UNIQUE_ID___addressable_md_cluster_ops732, ptr @__UNIQUE_ID___addressable_md_do_sync848, ptr @__UNIQUE_ID___addressable_md_done_sync833, ptr @__UNIQUE_ID___addressable_md_error822, ptr @__UNIQUE_ID___addressable_md_find_rdev_nr_rcu756, ptr @__UNIQUE_ID___addressable_md_find_rdev_rcu759, ptr @__UNIQUE_ID___addressable_md_finish_reshape857, ptr @__UNIQUE_ID___addressable_md_flush_request750, ptr @__UNIQUE_ID___addressable_md_handle_request738, ptr @__UNIQUE_ID___addressable_md_init867, ptr @__UNIQUE_ID___addressable_md_integrity_add_rdev775, ptr @__UNIQUE_ID___addressable_md_integrity_register774, ptr @__UNIQUE_ID___addressable_md_new_event733, ptr @__UNIQUE_ID___addressable_md_rdev_clear760, ptr @__UNIQUE_ID___addressable_md_rdev_init784, ptr @__UNIQUE_ID___addressable_md_reap_sync_thread855, ptr @__UNIQUE_ID___addressable_md_register_thread817, ptr @__UNIQUE_ID___addressable_md_reload_sb865, ptr @__UNIQUE_ID___addressable_md_run795, ptr @__UNIQUE_ID___addressable_md_set_array_sectors809, ptr @__UNIQUE_ID___addressable_md_start796, ptr @__UNIQUE_ID___addressable_md_stop800, ptr @__UNIQUE_ID___addressable_md_stop_writes799, ptr @__UNIQUE_ID___addressable_md_submit_discard_bio840, ptr @__UNIQUE_ID___addressable_md_unregister_thread821, ptr @__UNIQUE_ID___addressable_md_update_sb782, ptr @__UNIQUE_ID___addressable_md_wait_for_blocked_rdev856, ptr @__UNIQUE_ID___addressable_md_wakeup_thread816, ptr @__UNIQUE_ID___addressable_md_write_end839, ptr @__UNIQUE_ID___addressable_md_write_inc838, ptr @__UNIQUE_ID___addressable_md_write_start835, ptr @__UNIQUE_ID___addressable_mddev_destroy752, ptr @__UNIQUE_ID___addressable_mddev_init751, ptr @__UNIQUE_ID___addressable_mddev_resume743, ptr @__UNIQUE_ID___addressable_mddev_suspend741, ptr @__UNIQUE_ID___addressable_mddev_unlock753, ptr @__UNIQUE_ID___addressable_rdev_clear_badblocks860, ptr @__UNIQUE_ID___addressable_rdev_set_badblocks859, ptr @__UNIQUE_ID___addressable_register_md_cluster_operations829, ptr @__UNIQUE_ID___addressable_register_md_personality827, ptr @__UNIQUE_ID___addressable_sync_page_io761, ptr @__UNIQUE_ID___addressable_unregister_md_cluster_operations830, ptr @__UNIQUE_ID___addressable_unregister_md_personality828, ptr @__UNIQUE_ID_alias873, ptr @__UNIQUE_ID_alias874, ptr @__UNIQUE_ID_create_on_opentype869, ptr @__UNIQUE_ID_description872, ptr @__UNIQUE_ID_file870, ptr @__UNIQUE_ID_license871, ptr @__UNIQUE_ID_start_dirty_degradedtype868, ptr @__exitcall_md_exit, ptr @__param_create_on_open, ptr @__param_new_array, ptr @__param_start_dirty_degraded, ptr @__param_start_ro, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched21, ptr @md_exit, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_block_bio_remap.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace709, ptr @trace_block_bio_remap.__UNIQUE_ID___addressable___SCK__tp_func_block_bio_remap708], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mddev_create_serial_pool(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @mddev_create_serial_pool(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %30, label %4
 
@@ -755,7 +755,7 @@ define dso_local void @mddev_create_serial_pool(ptr noundef %0, ptr noundef %1) 
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rdevs_uninit_serial(ptr noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @rdevs_uninit_serial(ptr noundef readonly captures(address) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -793,7 +793,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mddev_destroy_serial_pool(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @mddev_destroy_serial_pool(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -4104,7 +4104,7 @@ define dso_local noundef range(i32 -22, 1) i32 @strict_strtoul_scaled(ptr nounde
 declare dso_local i64 @int_pow(i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @md_alloc(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @md_alloc(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr @md_misc_wq, align 8
   tail call void @__flush_workqueue(ptr noundef %3) #32
   tail call void @mutex_lock(ptr noundef nonnull @md_alloc.disks_mutex) #32
@@ -12060,7 +12060,7 @@ define dso_local void @md_wait_for_blocked_rdev(ptr noundef %0, ptr noundef %1) 
 declare dso_local i64 @schedule_timeout(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @md_finish_reshape(ptr noundef readonly %0) #17 align 16 {
+define dso_local void @md_finish_reshape(ptr noundef readonly captures(address) %0) #17 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -18015,7 +18015,7 @@ define internal fastcc range(i32 -30, 1) i32 @restart_array(ptr noundef %0) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -16, 1) i32 @do_md_stop(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef readnone %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @do_md_stop(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef readnone captures(address_is_null) %2) unnamed_addr #0 align 16 {
   %4 = alloca [20 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -18335,7 +18335,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @do_md_stop(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -16, 1) i32 @md_set_readonly(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @md_set_readonly(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1) unnamed_addr #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.wait_queue_entry, align 8
@@ -20440,7 +20440,7 @@ declare dso_local ptr @sysfs_break_active_protection(ptr noundef, ptr noundef) l
 declare dso_local void @sysfs_unbreak_active_protection(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @remove_and_add_spares(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @remove_and_add_spares(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 align 16 {
   %3 = alloca [20 x i8], align 16
   %4 = alloca [20 x i8], align 16
   %5 = icmp ne ptr %1, null
@@ -21534,7 +21534,7 @@ define internal noundef i64 @rdev_size_store(ptr noundef %0, ptr noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @md_rdev_overlaps(ptr noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @md_rdev_overlaps(ptr noundef readonly captures(address) %0) unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @all_mddevs_lock) #32
   %2 = load ptr, ptr @all_mddevs, align 8
   %.not = icmp eq ptr %2, @all_mddevs
@@ -21943,7 +21943,7 @@ define internal noundef i64 @ppl_size_store(ptr noundef captures(none) %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -22, 2) i32 @super_90_load(ptr noundef captures(none) initializes((112, 120)) %0, ptr noundef readonly %1, i32 %2) #0 align 16 {
+define internal range(i32 -22, 2) i32 @super_90_load(ptr noundef captures(none) initializes((112, 120)) %0, ptr noundef readonly captures(address_is_null) %1, i32 %2) #0 align 16 {
   %4 = alloca %struct.bio, align 8
   %5 = alloca %struct.bio_vec, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -22576,7 +22576,7 @@ define internal noundef range(i32 -22, 1) i32 @super_90_validate(ptr noundef cap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal void @super_90_sync(ptr noundef initializes((200, 204)) %0, ptr noundef captures(none) initializes((120, 124)) %1) #7 align 16 {
+define internal void @super_90_sync(ptr noundef captures(address) initializes((200, 204)) %0, ptr noundef captures(none) initializes((120, 124)) %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -23067,7 +23067,7 @@ define internal noundef range(i32 0, 2) i32 @super_90_allow_new_offset(ptr readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -22, 2) i32 @super_1_load(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) #0 align 16 {
+define internal range(i32 -22, 2) i32 @super_1_load(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.bio, align 8
   %5 = alloca %struct.bio_vec, align 8
   switch i32 %2, label %.thread10 [
@@ -23565,7 +23565,7 @@ read_disk_sb.exit:                                ; preds = %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -117, 1) i32 @super_1_validate(ptr noundef %0, ptr noundef readonly %1, ptr noundef initializes((228, 232)) %2) #0 align 16 {
+define internal noundef range(i32 -117, 1) i32 @super_1_validate(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef initializes((228, 232)) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr @vmemmap_base, align 8

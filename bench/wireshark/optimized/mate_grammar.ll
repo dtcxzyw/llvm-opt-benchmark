@@ -81,7 +81,7 @@ define hidden ptr @MateParserAlloc(ptr noundef readonly captures(none) %0) local
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @MateParserFinalize(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @MateParserFinalize(ptr noundef captures(address) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %0, align 8
   %4 = icmp ugt ptr %3, %2
@@ -155,7 +155,7 @@ MateParserFinalize.exit:                          ; preds = %yy_pop_parser_stack
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @MateParser(ptr noundef initializes((16, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define hidden void @MateParser(ptr noundef captures(address) initializes((16, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %5, align 8
   %6 = icmp eq i32 %1, 0

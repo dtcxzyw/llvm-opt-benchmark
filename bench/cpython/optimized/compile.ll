@@ -1135,7 +1135,7 @@ Py_DECREF.exit:                                   ; preds = %17, %14, %7, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyCompile_EnterScope(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readonly %6) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyCompile_EnterScope(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = tail call ptr @PyMem_Calloc(i64 noundef 1, i64 noundef 992) #11
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %11
@@ -4016,7 +4016,7 @@ optimize_and_assemble_code_unit.exit:             ; preds = %34, %66, %68, %71
 declare i32 @_PyCodegen_AddReturnAtEnd(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_PyAST_Compile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @_PyAST_Compile(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc ptr @new_compiler(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %16, label %8
@@ -4045,7 +4045,7 @@ compiler_mod.exit:                                ; preds = %8, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @new_compiler(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @new_compiler(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.PyCompilerFlags, align 8
   %7 = tail call ptr @PyMem_Calloc(i64 noundef 1, i64 noundef 88) #11
   %8 = icmp eq ptr %7, null
@@ -4531,7 +4531,7 @@ declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_PyCompile_CodeGen(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @_PyCompile_CodeGen(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @PyAST_Check(ptr noundef %0) #11
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %9
@@ -5020,7 +5020,7 @@ declare void @_PyCfgBuilder_Free(ptr noundef) local_unnamed_addr #2
 declare void @PyInstructionSequence_Fini(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @PyCode_Optimize(ptr noundef returned %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #9 {
+define dso_local noundef ptr @PyCode_Optimize(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #9 {
   %5 = load i32, ptr %0, align 8, !tbaa !4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %_Py_NewRef.exit, label %7

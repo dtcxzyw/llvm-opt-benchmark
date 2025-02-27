@@ -553,7 +553,7 @@ define dso_local i64 @__x64_sys_rt_sigreturn(ptr readnone captures(none) %0) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @sigaction_compat_abi(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 align 16 {
+define dso_local void @sigaction_compat_abi(ptr noundef captures(address_is_null) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %15, label %4
 

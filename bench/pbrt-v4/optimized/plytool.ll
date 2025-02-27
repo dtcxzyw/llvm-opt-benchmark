@@ -461,7 +461,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
-define internal void @_ZL5usagePKcz(ptr noundef readonly %0, ...) unnamed_addr #3 {
+define internal void @_ZL5usagePKcz(ptr noundef readonly captures(address_is_null) %0, ...) unnamed_addr #3 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3

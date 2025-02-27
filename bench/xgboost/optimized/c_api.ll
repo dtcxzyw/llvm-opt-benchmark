@@ -2141,7 +2141,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @XGBoostVersion(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define void @XGBoostVersion(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4
 
@@ -2555,7 +2555,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBuildInfo(ptr noundef writeonly %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBuildInfo(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct._Guard, align 8
   %3 = alloca %struct._Guard, align 8
   %4 = alloca %struct._Guard, align 8
@@ -5349,7 +5349,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBGetGlobalConfig(ptr noundef writeonly %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBGetGlobalConfig(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.xgboost::JsonObject", align 8
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca float, align 4
@@ -6171,7 +6171,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixCreateFromFile(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixCreateFromFile(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   %6 = alloca %"class.xgboost::JsonObject", align 8
@@ -6641,7 +6641,7 @@ _ZN7xgboost4JsonD2Ev.exit49:                      ; preds = %169, %166, %47, %30
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixCreateFromURI(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixCreateFromURI(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
   %5 = alloca %"class.xgboost::Json", align 8
@@ -7437,7 +7437,7 @@ declare noundef ptr @_ZN7xgboost7DMatrix4LoadERKNSt7__cxx1112basic_stringIcSt11c
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixCreateFromDataIter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixCreateFromDataIter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.xgboost::data::IteratorAdapter", align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -8104,7 +8104,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit16:  ; preds = %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixCreateFromCallback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixCreateFromCallback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %8 = alloca %"class.xgboost::Json", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9358,7 +9358,7 @@ _ZNSt12__shared_ptrIN7xgboost7DMatrixELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGQuantileDMatrixCreateFromCallback(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGQuantileDMatrixCreateFromCallback(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::shared_ptr", align 8
   %9 = alloca %"class.dmlc::LogMessageFatal", align 1
   %10 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -10218,7 +10218,7 @@ _ZNSt10shared_ptrIN7xgboost7DMatrixEED2Ev.exit92: ; preds = %_ZNSt16_Sp_counted_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGProxyDMatrixCreate(ptr noundef writeonly %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGProxyDMatrixCreate(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.dmlc::LogMessageFatal", align 1
   %3 = alloca %"struct.dmlc::Error", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10493,7 +10493,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit30:  ; preds = %77
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGProxyDMatrixSetDataCudaArrayInterface(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGProxyDMatrixSetDataCudaArrayInterface(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -10915,7 +10915,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGProxyDMatrixSetDataCudaColumnar(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGProxyDMatrixSetDataCudaColumnar(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -11217,7 +11217,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit48:  ; preds = %87
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGProxyDMatrixSetDataColumnar(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGProxyDMatrixSetDataColumnar(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -11529,7 +11529,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit48:  ; preds = %90
 declare void @_ZN7xgboost4data12DMatrixProxy15SetColumnarDataENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(352), ptr, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGProxyDMatrixSetDataDense(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGProxyDMatrixSetDataDense(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -11841,7 +11841,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit48:  ; preds = %90
 declare void @_ZN7xgboost4data12DMatrixProxy12SetArrayDataENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(352), ptr, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGProxyDMatrixSetDataCSR(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGProxyDMatrixSetDataCSR(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %8 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -13603,7 +13603,7 @@ _ZNSt6vectorIN7xgboost14ArrayInterfaceILi1ELb0EEESaIS2_EED2Ev.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixCreateFromCSR(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixCreateFromCSR(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %struct._Guard, align 8
   %8 = alloca %"class.dmlc::LogMessageFatal", align 1
   %9 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -14435,7 +14435,7 @@ define linkonce_odr void @_ZN7xgboost4data15CSRArrayAdapterD2Ev(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixCreateFromDense(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixCreateFromDense(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct._Guard, align 8
   %5 = alloca %"class.xgboost::Json", align 8
   %6 = alloca %"class.xgboost::ArrayInterface.89", align 8
@@ -15029,7 +15029,7 @@ define linkonce_odr void @_ZN7xgboost4data12ArrayAdapterD2Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixCreateFromCSC(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixCreateFromCSC(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %struct._Guard, align 8
   %8 = alloca %"class.dmlc::LogMessageFatal", align 1
   %9 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -15852,7 +15852,7 @@ define linkonce_odr void @_ZN7xgboost4data15CSCArrayAdapterD2Ev(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixCreateFromCSCEx(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixCreateFromCSCEx(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %struct._Guard, align 8
   %9 = alloca %"class.xgboost::ConsoleLogger", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16289,7 +16289,7 @@ define linkonce_odr void @_ZN7xgboost4data10CSCAdapterD2Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixCreateFromMat(ptr noundef %0, i64 noundef %1, i64 noundef %2, float noundef %3, ptr noundef writeonly %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixCreateFromMat(ptr noundef %0, i64 noundef %1, i64 noundef %2, float noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct._Guard, align 8
   %7 = alloca %"class.xgboost::data::DenseAdapter", align 8
   %8 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -16617,7 +16617,7 @@ define linkonce_odr void @_ZN7xgboost4data12DenseAdapterD2Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixCreateFromMat_omp(ptr noundef %0, i64 noundef %1, i64 noundef %2, float noundef %3, ptr noundef writeonly %4, i32 noundef %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixCreateFromMat_omp(ptr noundef %0, i64 noundef %1, i64 noundef %2, float noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %struct._Guard, align 8
   %8 = alloca %"class.xgboost::data::DenseAdapter", align 8
   %9 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -16938,7 +16938,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit40:  ; preds = %98
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixCreateFromDT(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly %4, i32 noundef %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixCreateFromDT(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %struct._Guard, align 8
   %8 = alloca %class.anon.317, align 1
   %9 = alloca %"class.xgboost::data::DataTableAdapter", align 8
@@ -17432,7 +17432,7 @@ _ZN7xgboost4data21DataTableAdapterBatchD2Ev.exit: ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixSliceDMatrix(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixSliceDMatrix(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %22
@@ -17498,7 +17498,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixSliceDMatrixEx(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixSliceDMatrixEx(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
@@ -18038,7 +18038,7 @@ _ZNSt10shared_ptrIN7xgboost7DMatrixEED2Ev.exit:   ; preds = %.critedge, %47, %60
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixSaveBinary(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixSaveBinary(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -18343,7 +18343,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit45:  ; preds = %83
 declare void @_ZN7xgboost4data13SimpleDMatrix15SaveToLocalFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(456), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixSetFloatInfo(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixSetFloatInfo(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"struct.dmlc::Error", align 8
@@ -18670,7 +18670,7 @@ _ZN7xgboost7ContextD2Ev.exit:                     ; preds = %19, %38, %51, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixSetInfoFromInterface(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixSetInfoFromInterface(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -18918,7 +18918,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit34:  ; preds = %69
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixSetUIntInfo(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixSetUIntInfo(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   %6 = alloca %"class.xgboost::ConsoleLogger", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19344,7 +19344,7 @@ _ZN7xgboost7ContextD2Ev.exit:                     ; preds = %19, %38, %51, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixSetStrFeatureInfo(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixSetStrFeatureInfo(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   %6 = alloca %"struct.dmlc::Error", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19535,7 +19535,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit31:  ; preds = %55
 declare void @_ZN7xgboost8MetaInfo14SetFeatureInfoEPKcPS2_m(ptr noundef nonnull align 8 dereferenceable(233), ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixGetStrFeatureInfo(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixGetStrFeatureInfo(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -20040,7 +20040,7 @@ declare noundef nonnull align 8 dereferenceable(216) ptr @_ZNK7xgboost7DMatrix14
 declare void @_ZNK7xgboost8MetaInfo14GetFeatureInfoEPKcPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(233), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixSetDenseInfo(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixSetDenseInfo(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.xgboost::Json", align 8
   %7 = alloca %"class.xgboost::linalg::TensorView.334", align 8
   %8 = alloca %"class.xgboost::Json", align 8
@@ -21816,7 +21816,7 @@ _ZNSt10shared_ptrIN7xgboost11CUDAContextEED2Ev.exit: ; preds = %1, %20, %33, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixGetFloatInfo(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixGetFloatInfo(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -22123,7 +22123,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit49:  ; preds = %91
 declare void @_ZNK7xgboost8MetaInfo7GetInfoEPKcPmNS_8DataTypeEPPKv(ptr noundef nonnull align 8 dereferenceable(233), ptr noundef, ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixGetUIntInfo(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixGetUIntInfo(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -22428,7 +22428,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit49:  ; preds = %91
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixNumRow(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixNumRow(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
   %5 = alloca %"struct.dmlc::Error", align 8
@@ -22909,7 +22909,7 @@ _ZN7xgboostlsERSoNS_10StringViewE.exit23:         ; preds = %.noexc22
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixNumCol(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixNumCol(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
   %5 = alloca %"struct.dmlc::Error", align 8
@@ -23189,7 +23189,7 @@ _ZNSt10shared_ptrIN7xgboost7DMatrixEED2Ev.exit:   ; preds = %_ZNSt16_Sp_counted_
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixNumNonMissing(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixNumNonMissing(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
   %5 = alloca %"struct.dmlc::Error", align 8
@@ -23469,7 +23469,7 @@ _ZNSt10shared_ptrIN7xgboost7DMatrixEED2Ev.exit:   ; preds = %_ZNSt16_Sp_counted_
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixDataSplitMode(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixDataSplitMode(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
   %5 = alloca %"struct.dmlc::Error", align 8
@@ -23750,7 +23750,7 @@ _ZNSt10shared_ptrIN7xgboost7DMatrixEED2Ev.exit:   ; preds = %_ZNSt16_Sp_counted_
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixGetDataAsCSR(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixGetDataAsCSR(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %"class.std::unique_ptr", align 8
@@ -25267,7 +25267,7 @@ _ZN7xgboost13BatchIteratorINS_13ExtSparsePageEED2Ev.exit: ; preds = %1, %20, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGDMatrixGetQuantileCut(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGDMatrixGetQuantileCut(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.xgboost::BatchSet.243", align 8
   %6 = alloca %"struct.xgboost::BatchParam", align 8
   %7 = alloca %"class.xgboost::BatchIterator.244", align 8
@@ -29277,7 +29277,7 @@ _ZN7xgboost4JsonD2Ev.exit5:                       ; preds = %25, %21, %18, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterCreate(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterCreate(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.144", align 8
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -30168,7 +30168,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit35:  ; preds = %63
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterGetNumFeature(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterGetNumFeature(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"struct.dmlc::Error", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -30366,7 +30366,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit29:  ; preds = %58
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterBoostedRounds(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterBoostedRounds(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"struct.dmlc::Error", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -30802,7 +30802,7 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %43, %39, %37, %_Z21
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterSaveJsonConfig(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterSaveJsonConfig(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.xgboost::Json", align 8
   %5 = alloca %"class.xgboost::JsonObject", align 8
   %6 = alloca %"class.xgboost::Json", align 8
@@ -31219,7 +31219,7 @@ _ZN7xgboost4JsonD2Ev.exit47:                      ; preds = %117, %113, %109, %_
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterUpdateOneIter(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterUpdateOneIter(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   %6 = alloca %"class.std::shared_ptr", align 8
@@ -33353,7 +33353,7 @@ define void @_ZN7xgboost26CopyGradientFromCUDAArraysEPKNS_7ContextERKNS_14ArrayI
 declare noundef zeroext i1 @_ZN7xgboost21ArrayInterfaceHandler9IsCudaPtrEPKv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterEvalOneIter(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterEvalOneIter(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::vector.144", align 8
   %8 = alloca %"class.std::vector.8", align 8
   %9 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -33949,7 +33949,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterPredict(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterPredict(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::shared_ptr", align 8
   %9 = alloca %"class.dmlc::LogMessageFatal", align 1
   %10 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -35286,7 +35286,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDevic
 declare noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterPredictFromDMatrix(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef %4, ptr noundef writeonly %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterPredictFromDMatrix(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %8 = alloca %"class.dmlc::LogMessageFatal", align 1
   %9 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -37569,7 +37569,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z18InplacePredictImplSt10shared_ptrIN7xgboost7DMatrixEEPKcPNS0_7LearnerEPPKmPmPPKf(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef %4, ptr noundef writeonly %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_Z18InplacePredictImplSt10shared_ptrIN7xgboost7DMatrixEEPKcPNS0_7LearnerEPPKmPmPPKf(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %8 = alloca %"class.xgboost::Json", align 8
   %9 = alloca ptr, align 8
@@ -38233,7 +38233,7 @@ _ZN7xgboost4JsonD2Ev.exit78:                      ; preds = %275, %271, %269, %3
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16HostDeviceVectorIfE10HostVectorEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterPredictFromDense(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterPredictFromDense(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::shared_ptr", align 8
   %9 = alloca %"class.dmlc::LogMessageFatal", align 1
   %10 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -38972,7 +38972,7 @@ _ZNSt12__shared_ptrIN7xgboost7DMatrixELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterPredictFromColumnar(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterPredictFromColumnar(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::shared_ptr", align 8
   %9 = alloca %"class.dmlc::LogMessageFatal", align 1
   %10 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -39581,7 +39581,7 @@ _ZNSt10shared_ptrIN7xgboost7DMatrixEED2Ev.exit61: ; preds = %_ZNSt16_Sp_counted_
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterPredictFromCSR(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef readonly %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterPredictFromCSR(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef captures(address_is_null) %7, ptr noundef %8, ptr noundef captures(address_is_null) %9) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.std::shared_ptr", align 8
   %12 = alloca %"class.dmlc::LogMessageFatal", align 1
   %13 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -40186,7 +40186,7 @@ _ZNSt10shared_ptrIN7xgboost7DMatrixEED2Ev.exit64: ; preds = %_ZNSt16_Sp_counted_
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterPredictFromCUDAArray(ptr noundef readnone %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef readnone captures(none) %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterPredictFromCUDAArray(ptr noundef readnone captures(address_is_null) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef readnone captures(none) %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.dmlc::Error", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
@@ -40307,7 +40307,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit17:  ; preds = %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterPredictFromCUDAColumnar(ptr noundef readnone %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef readnone captures(none) %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterPredictFromCUDAColumnar(ptr noundef readnone captures(address_is_null) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef readnone captures(none) %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.dmlc::Error", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
@@ -42252,7 +42252,7 @@ define linkonce_odr void @_ZN7xgboost6common19MemoryFixSizeBufferD2Ev(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterSaveModelToBuffer(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterSaveModelToBuffer(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.xgboost::Json", align 8
   %6 = alloca %"class.xgboost::JsonObject", align 8
   %7 = alloca %"class.xgboost::Json", align 8
@@ -43031,7 +43031,7 @@ define linkonce_odr void @_ZN7xgboost6common18MemoryBufferStreamD2Ev(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterSerializeToBuffer(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterSerializeToBuffer(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.xgboost::common::MemoryBufferStream", align 8
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -43526,7 +43526,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit29:  ; preds = %59
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -2, 1) i32 @XGBoosterSlice(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -2, 1) i32 @XGBoosterSlice(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = alloca i8, align 1
   %8 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -44752,13 +44752,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterDumpModelWithFeatures(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @XGBoosterDumpModelWithFeatures(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 {
   %8 = tail call i32 @XGBoosterDumpModelExWithFeatures(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull @.str.118, ptr noundef %5, ptr noundef %6)
   ret i32 %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterDumpModelExWithFeatures(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterDumpModelExWithFeatures(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.xgboost::FeatureMap", align 8
   %10 = alloca %"class.dmlc::LogMessageFatal", align 1
   %11 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -45366,7 +45366,7 @@ _ZNSt6vectorIN7xgboost10FeatureMap4TypeESaIS2_EE9push_backEOS2_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterGetAttr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterGetAttr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -46035,7 +46035,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit54:  ; preds = %98
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterGetAttrNames(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterGetAttrNames(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.8", align 8
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -46839,7 +46839,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterGetStrFeatureInfo(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterGetStrFeatureInfo(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -47239,7 +47239,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit69:  ; preds = %150
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGBoosterFeatureScore(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGBoosterFeatureScore(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %struct._Guard, align 8
   %9 = alloca %struct._Guard, align 8
   %10 = alloca %struct._Guard, align 8

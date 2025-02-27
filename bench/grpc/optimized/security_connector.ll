@@ -405,7 +405,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12l
 declare void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z36grpc_security_connector_find_in_argsPK17grpc_channel_args(ptr noundef readonly %0) local_unnamed_addr #4 {
+define noundef ptr @_Z36grpc_security_connector_find_in_argsPK17grpc_channel_args(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -694,7 +694,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #19
 declare noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIPKvS4_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL18connector_arg_copyPv(ptr noundef returned %0) #20 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZL18connector_arg_copyPv(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) #20 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %_ZN9grpc_core13RefCountedPtrI23grpc_security_connectorED2Ev.exit
 

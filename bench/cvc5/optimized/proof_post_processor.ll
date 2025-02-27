@@ -1188,7 +1188,7 @@ define hidden void @_ZN4cvc58internal3smt24ProofPostprocessCallback25setCollectA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal3smt24ProofPostprocessCallback16getTrustedProofsEv(ptr noundef nonnull readnone align 8 dereferenceable(1784) %0) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal3smt24ProofPostprocessCallback16getTrustedProofsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1784) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   ret ptr %2
 }

@@ -192,7 +192,7 @@ define void @_ZN10open_spiel2go11Neighbours4C2Et(ptr noundef nonnull writeonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 2 dereferenceable(4) ptr @_ZN10open_spiel2go11Neighbours4ppEv(ptr noundef nonnull returned align 2 dereferenceable(4) %0) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 2 dereferenceable(4) ptr @_ZN10open_spiel2go11Neighbours4ppEv(ptr noundef nonnull returned align 2 captures(ret: address, provenance) dereferenceable(4) %0) local_unnamed_addr #4 align 2 {
   %2 = load i16, ptr %0, align 2
   %3 = add i16 %2, 1
   store i16 %3, ptr %0, align 2

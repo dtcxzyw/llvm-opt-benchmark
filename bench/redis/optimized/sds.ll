@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.sdstemplate.7 = private unnamed_addr constant [5 x i64] [i64 -1, i64 -3, i64 -5, i64 -9, i64 -17], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_sdsnewlen(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @_sdsnewlen(ptr noundef readonly captures(address) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = icmp ult i64 %1, 32
   br i1 %5, label %sdsReqType.exit, label %6
@@ -214,13 +214,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdsnewlen(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @sdsnewlen(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_sdsnewlen(ptr noundef %0, i64 noundef %1, i32 noundef 0)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdstrynewlen(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @sdstrynewlen(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_sdsnewlen(ptr noundef %0, i64 noundef %1, i32 noundef 1)
   ret ptr %3
 }
@@ -256,7 +256,7 @@ _sdsnewlen.exit:                                  ; preds = %0, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdsnew(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @sdsnew(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.split3, label %.split
@@ -311,7 +311,7 @@ _sdsnewlen.exit:                                  ; preds = %.split3, %10
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdsdup(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @sdsdup(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1, !tbaa !13
   %4 = zext i8 %3 to i32
@@ -1201,7 +1201,7 @@ sdsHdrSize.exit:                                  ; preds = %sdsalloc.exit, %swi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @sdsAllocPtr(ptr noundef readonly %0) local_unnamed_addr #13 {
+define dso_local ptr @sdsAllocPtr(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1, !tbaa !13
   %4 = and i8 %3, 7
@@ -3595,7 +3595,7 @@ sdslen.exit17:                                    ; preds = %sdslen.exit, %29, %
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdssplitlen(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define dso_local ptr @sdssplitlen(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %3, 1
   %7 = icmp slt i64 %1, 1
   %or.cond = or i1 %7, %6
@@ -5735,7 +5735,7 @@ sdsfree.exit127:                                  ; preds = %385, %switch.lookup
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @sdsmapchars(ptr noundef returned %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #22 {
+define dso_local noundef ptr @sdsmapchars(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #22 {
   %5 = getelementptr inbounds i8, ptr %0, i64 -1
   %6 = load i8, ptr %5, align 1, !tbaa !13
   %7 = zext i8 %6 to i32

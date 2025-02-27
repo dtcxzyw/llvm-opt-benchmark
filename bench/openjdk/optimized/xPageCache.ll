@@ -296,7 +296,7 @@ _ZN5XListI5XPageE12remove_firstEv.exit.thread:    ; preds = %1, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10XPageCache16alloc_large_pageEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN10XPageCache16alloc_large_pageEm(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
 select.unfold.preheader:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -393,7 +393,7 @@ _ZN5XListI5XPageE12remove_firstEv.exit:           ; preds = %12, %4, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN10XPageCache26alloc_oversized_large_pageEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN10XPageCache26alloc_oversized_large_pageEm(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
 select.unfold.preheader:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -448,7 +448,7 @@ _ZN17XListIteratorImplI5XPageLb1EE4nextEPPS0_.exit: ; preds = %select.unfold, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10XPageCache20alloc_oversized_pageEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN10XPageCache20alloc_oversized_pageEm(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
 select.unfold.i.preheader:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1495,7 +1495,7 @@ define hidden void @_ZN10XPageCache15set_last_commitEv(ptr noundef nonnull write
 declare double @llvm.ceil.f64(double) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK10XPageCache8pages_doEP12XPageClosure(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK10XPageCache8pages_doEP12XPageClosure(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef i32 @_ZN5XNUMA5countEv() #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %_ZN19XValueConstIteratorI15XPerNUMAStorage5XListI5XPageEE4nextEPPKS3_.exit, label %.lr.ph56

@@ -4018,7 +4018,7 @@ _ZN4cvc56parser3CmdD2Ev.exit:                     ; preds = %44, %47
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser23CheckSatAssumingCommand8getTermsEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser23CheckSatAssumingCommand8getTermsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -5467,7 +5467,7 @@ _ZN4cvc54SortC2ERKS0_.exit:                       ; preds = %.loopexit, %77, %80
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser15SynthFunCommand7getVarsEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser15SynthFunCommand7getVarsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(104) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
@@ -7079,7 +7079,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
 declare void @_ZNK4cvc56Solver21addSygusInvConstraintERKNS_4TermES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser25SygusInvConstraintCommand13getPredicatesEv(ptr noundef nonnull readnone align 8 dereferenceable(40) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser25SygusInvConstraintCommand13getPredicatesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(40) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -11747,7 +11747,7 @@ _ZN4cvc54SortC2ERKS0_.exit:                       ; preds = %2, %14, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser18DeclarePoolCommand15getInitialValueEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser18DeclarePoolCommand15getInitialValueEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
@@ -12510,7 +12510,7 @@ _ZN4cvc56parser3CmdD2Ev.exit:                     ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser23DeclareOracleFunCommand13getIdentifierB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(128) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser23DeclareOracleFunCommand13getIdentifierB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(128) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -12552,7 +12552,7 @@ _ZN4cvc54SortC2ERKS0_.exit:                       ; preds = %2, %14, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser23DeclareOracleFunCommand13getBinaryNameB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(128) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser23DeclareOracleFunCommand13getBinaryNameB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(128) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   ret ptr %2
 }
@@ -13973,7 +13973,7 @@ _ZN4cvc54SortC2ERKS0_.exit:                       ; preds = %.loopexit, %76, %79
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser17DefineSortCommand13getParametersEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser17DefineSortCommand13getParametersEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
@@ -14841,7 +14841,7 @@ _ZN4cvc54TermC2ERKS0_.exit:                       ; preds = %_ZN4cvc54SortC2ERKS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser21DefineFunctionCommand10getFormalsEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser21DefineFunctionCommand10getFormalsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(120) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
@@ -15897,19 +15897,19 @@ _ZN4cvc56parser3CmdD2Ev.exit:                     ; preds = %107, %110
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser24DefineFunctionRecCommand12getFunctionsEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser24DefineFunctionRecCommand12getFunctionsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser24DefineFunctionRecCommand10getFormalsEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser24DefineFunctionRecCommand10getFormalsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser24DefineFunctionRecCommand11getFormulasEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser24DefineFunctionRecCommand11getFormulasEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }
@@ -17917,7 +17917,7 @@ _ZN4cvc56parser3CmdD2Ev.exit:                     ; preds = %39, %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser15GetValueCommand8getTermsEv(ptr noundef nonnull readnone align 8 dereferenceable(64) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser15GetValueCommand8getTermsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(64) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -18267,7 +18267,7 @@ define linkonce_odr hidden void @_ZN4cvc56parser25CommandRecoverableFailureC2ENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser15GetValueCommand9getResultEv(ptr noundef nonnull readnone align 8 dereferenceable(64) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser15GetValueCommand9getResultEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(64) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }
@@ -19808,7 +19808,7 @@ define void @_ZN4cvc56parser15GetModelCommandC2Ev(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc56parser15GetModelCommand6invokeEPNS_6SolverEPNS0_10SymManagerE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc56parser15GetModelCommand6invokeEPNS_6SolverEPNS0_10SymManagerE(ptr noundef nonnull align 8 captures(address) dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.258", align 8
   %5 = alloca %"class.std::vector.245", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20655,7 +20655,7 @@ _ZN4cvc56parser3CmdD2Ev.exit:                     ; preds = %38, %42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser23BlockModelValuesCommand8getTermsEv(ptr noundef nonnull readnone align 8 dereferenceable(40) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser23BlockModelValuesCommand8getTermsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(40) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -21005,7 +21005,7 @@ define void @_ZN4cvc56parser15GetProofCommandC2ENS_5modes14ProofComponentE(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc56parser15GetProofCommand6invokeEPNS_6SolverEPNS0_10SymManagerE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc56parser15GetProofCommand6invokeEPNS_6SolverEPNS0_10SymManagerE(ptr noundef nonnull align 8 captures(address) dereferenceable(52) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %5 = alloca %"class.std::vector.302", align 8
   %6 = alloca %"class.cvc5::Proof", align 8
@@ -27013,7 +27013,7 @@ declare void @_ZNK4cvc56parser10SymManager18getExpressionNamesERKSt6vectorINS_4T
 declare void @_ZN4cvc58internal9UnsatCoreC1ERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser19GetUnsatCoreCommand12getUnsatCoreEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser19GetUnsatCoreCommand12getUnsatCoreEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
@@ -27788,7 +27788,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %_ZN
 declare void @_ZNK4cvc56Solver13getDifficultyEv(ptr dead_on_unwind writable sret(%"class.std::map.311") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4cvc56parser20GetDifficultyCommand11printResultEPNS_6SolverERSo(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4cvc56parser20GetDifficultyCommand11printResultEPNS_6SolverERSo(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %0, ptr readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.cvc5::Term", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.28, i64 noundef 1)
@@ -28062,7 +28062,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18: ; preds = %_ZN
 declare noundef zeroext i1 @_ZNK4cvc56parser10SymManager17getExpressionNameENS_4TermERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4cvc56parser20GetDifficultyCommand16getDifficultyMapEv(ptr noundef nonnull readnone align 8 dereferenceable(72) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4cvc56parser20GetDifficultyCommand16getDifficultyMapEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
@@ -29309,7 +29309,7 @@ _ZN4cvc56ResultC2ERKS0_.exit:                     ; preds = %2, %11, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser21GetTimeoutCoreCommand14getTimeoutCoreEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser21GetTimeoutCoreCommand14getTimeoutCoreEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
@@ -29883,7 +29883,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit16: ; preds = %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser25GetLearnedLiteralsCommand18getLearnedLiteralsEv(ptr noundef nonnull readnone align 8 dereferenceable(44) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser25GetLearnedLiteralsCommand18getLearnedLiteralsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(44) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -29937,7 +29937,7 @@ define void @_ZN4cvc56parser20GetAssertionsCommandC2Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc56parser20GetAssertionsCommand6invokeEPNS_6SolverEPNS0_10SymManagerE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr readnone captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc56parser20GetAssertionsCommand6invokeEPNS_6SolverEPNS0_10SymManagerE(ptr noundef nonnull align 8 captures(address) dereferenceable(48) %0, ptr noundef %1, ptr readnone captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %5 = alloca %"class.std::vector.245", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -30894,13 +30894,13 @@ _ZN4cvc56parser3CmdD2Ev.exit:                     ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser14SetInfoCommand7getFlagB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(80) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser14SetInfoCommand7getFlagB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser14SetInfoCommand8getValueB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(80) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser14SetInfoCommand8getValueB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
@@ -32508,13 +32508,13 @@ _ZN4cvc56parser3CmdD2Ev.exit:                     ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser16SetOptionCommand7getFlagB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(80) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser16SetOptionCommand7getFlagB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser16SetOptionCommand8getValueB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(80) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser16SetOptionCommand8getValueB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
@@ -33453,7 +33453,7 @@ _ZN4cvc56parser3CmdD2Ev.exit:                     ; preds = %38, %42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser26DatatypeDeclarationCommand12getDatatypesEv(ptr noundef nonnull readnone align 8 dereferenceable(40) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser26DatatypeDeclarationCommand12getDatatypesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(40) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }

@@ -139,7 +139,7 @@ julian_adj.exit.thread:                           ; preds = %28, %julian_adj.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @OPENSSL_gmtime_diff(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @OPENSSL_gmtime_diff(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !3
   %7 = mul nsw i32 %6, 3600

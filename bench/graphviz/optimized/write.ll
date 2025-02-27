@@ -52,7 +52,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.34 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @agstrcanon(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @agstrcanon(ptr noundef %0, ptr noundef captures(ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @aghtmlstr(ptr noundef %0) #15
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -73,7 +73,7 @@ define noundef ptr @agstrcanon(ptr noundef %0, ptr noundef %1) local_unnamed_add
 declare i32 @aghtmlstr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_agstrcanon(ptr noundef readonly %0, ptr noundef writeonly %1) unnamed_addr #2 {
+define internal fastcc noundef ptr @_agstrcanon(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, ptr noundef writeonly captures(ret: address, provenance) %1) unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 

@@ -292,7 +292,7 @@ define range(i32 0, 65536) i32 @udata_swapDataHeader_77(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @udata_openSwapper_77(i8 noundef signext %0, i8 noundef zeroext %1, i8 noundef signext %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
+define noalias noundef ptr @udata_openSwapper_77(i8 noundef signext %0, i8 noundef zeroext %1, i8 noundef signext %2, i8 noundef zeroext %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %43, label %7
 
@@ -436,7 +436,7 @@ declare i32 @uprv_compareInvAscii_77(ptr noundef, ptr noundef, i32 noundef, ptr 
 declare i32 @uprv_compareInvEbcdic_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_copyArray16PK12UDataSwapperPKviPvP10UErrorCode(ptr noundef readnone %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) #9 {
+define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_copyArray16PK12UDataSwapperPKviPvP10UErrorCode(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef writeonly captures(address) %3, ptr noundef captures(address_is_null) %4) #9 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %23, label %7
 
@@ -481,7 +481,7 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_copyArray16PK12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_copyArray32PK12UDataSwapperPKviPvP10UErrorCode(ptr noundef readnone %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) #9 {
+define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_copyArray32PK12UDataSwapperPKviPvP10UErrorCode(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef writeonly captures(address) %3, ptr noundef captures(address_is_null) %4) #9 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %23, label %7
 
@@ -526,7 +526,7 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_copyArray32PK12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_copyArray64PK12UDataSwapperPKviPvP10UErrorCode(ptr noundef readnone %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) #9 {
+define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_copyArray64PK12UDataSwapperPKviPvP10UErrorCode(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef writeonly captures(address) %3, ptr noundef captures(address_is_null) %4) #9 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %23, label %7
 
@@ -571,7 +571,7 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_copyArray64PK12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_swapArray16PK12UDataSwapperPKviPvP10UErrorCode(ptr noundef readnone %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) #10 {
+define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_swapArray16PK12UDataSwapperPKviPvP10UErrorCode(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) #10 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %.loopexit, label %7
 
@@ -626,7 +626,7 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_swapArray16PK12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_swapArray32PK12UDataSwapperPKviPvP10UErrorCode(ptr noundef readnone %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) #10 {
+define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_swapArray32PK12UDataSwapperPKviPvP10UErrorCode(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) #10 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %.loopexit, label %7
 
@@ -681,7 +681,7 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_swapArray32PK12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_swapArray64PK12UDataSwapperPKviPvP10UErrorCode(ptr noundef readnone %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) #10 {
+define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_swapArray64PK12UDataSwapperPKviPvP10UErrorCode(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) #10 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %.loopexit, label %7
 
@@ -744,7 +744,7 @@ declare i32 @uprv_copyEbcdic_77(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare i32 @uprv_asciiFromEbcdic_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #8
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @udata_openSwapperForInputData_77(ptr noundef readonly %0, i32 noundef %1, i8 noundef signext %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
+define noalias noundef ptr @udata_openSwapperForInputData_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i8 noundef signext %2, i8 noundef zeroext %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %51, label %7
 

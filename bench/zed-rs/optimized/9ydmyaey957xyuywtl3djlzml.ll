@@ -2435,7 +2435,7 @@ define internal fastcc void @"_ZN4core3ptr265drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden void @"_ZN4core3ptr8non_null16NonNull$LT$T$GT$13new_unchecked18precondition_check17hd08982d9a068b7a1E.llvm.4872724473563907510"(ptr noundef readnone %0) unnamed_addr #7 {
+define hidden void @"_ZN4core3ptr8non_null16NonNull$LT$T$GT$13new_unchecked18precondition_check17hd08982d9a068b7a1E.llvm.4872724473563907510"(ptr noundef readnone captures(address_is_null) %0) unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -3333,7 +3333,7 @@ define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1c9ac
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hdbf95edc69256909E.llvm.4872724473563907510"(ptr noalias noundef readonly returned align 8 dereferenceable(16) %0) unnamed_addr #14 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hdbf95edc69256909E.llvm.4872724473563907510"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #14 {
   ret ptr %0
 }
 

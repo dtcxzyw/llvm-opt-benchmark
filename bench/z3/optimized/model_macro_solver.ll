@@ -314,7 +314,7 @@ declare void @_ZN10model_core13register_declEP9func_declP11func_interp(ptr nound
 declare void @_ZN11func_interp8set_elseEP4expr(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17base_macro_solverclER10model_coreR10ptr_vectorI10quantifierES5_(ptr noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %this, ptr noundef nonnull align 8 dereferenceable(96) %m, ptr noundef nonnull align 8 dereferenceable(8) %qs, ptr noundef nonnull align 8 dereferenceable(8) %residue) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17base_macro_solverclER10model_coreR10ptr_vectorI10quantifierES5_(ptr noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %this, ptr noundef nonnull align 8 dereferenceable(96) %m, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %qs, ptr noundef nonnull align 8 dereferenceable(8) %residue) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %curr_qs = alloca %class.ptr_vector.40, align 8
   %new_qs = alloca %class.ptr_vector.40, align 8
@@ -482,7 +482,7 @@ _ZN6vectorIP10quantifierLb0EjED2Ev.exit:          ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN19simple_macro_solver8containsEP9func_declRK10ptr_vectorI10quantifierEPS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly %f, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %qs, ptr noundef readnone %q) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN19simple_macro_solver8containsEP9func_declRK10ptr_vectorI10quantifierEPS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(address) %f, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %qs, ptr noundef readnone captures(address) %q) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %qs, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -1265,7 +1265,7 @@ if.end:                                           ; preds = %_ZNK12obj_pair_mapI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN17hint_macro_solver11get_q_f_defEP9func_declP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %this, ptr noundef readonly %f, ptr noundef readonly %def) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN17hint_macro_solver11get_q_f_defEP9func_declP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %this, ptr noundef readonly captures(address) %f, ptr noundef readonly captures(address) %def) local_unnamed_addr #5 align 2 {
 entry:
   %m_q_f_def = getelementptr inbounds nuw i8, ptr %this, i64 56
   %m_hash.i.i.i.i = getelementptr inbounds nuw i8, ptr %f, i64 12
@@ -4551,7 +4551,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN17hint_macro_solver24update_satisfied_residueEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef %f, ptr noundef readonly %def) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN17hint_macro_solver24update_satisfied_residueEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef %f, ptr noundef readonly captures(address) %def) local_unnamed_addr #3 align 2 {
 entry:
   %q = alloca ptr, align 8
   %q21 = alloca ptr, align 8
@@ -8089,7 +8089,7 @@ declare void @_ZN22func_decl_dependencies21collect_ng_func_declsEP4exprP13obj_ha
 declare noundef zeroext i1 @_ZN22func_decl_dependencies6insertEP9func_declP13obj_hashtableIS0_E(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN20non_auf_macro_solver15is_better_macroEP10cond_macroS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(44) %this, ptr noundef readonly captures(none) %r1, ptr noundef readonly %r2) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN20non_auf_macro_solver15is_better_macroEP10cond_macroS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(44) %this, ptr noundef readonly captures(none) %r1, ptr noundef readonly captures(address_is_null) %r2) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp eq ptr %r2, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -8159,7 +8159,7 @@ return:                                           ; preds = %land.lhs.true, %_Z9
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN20non_auf_macro_solver13get_macro_forEP9func_declP10quantifier(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %this, ptr noundef readnone %f, ptr noundef %q) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN20non_auf_macro_solver13get_macro_forEP9func_declP10quantifier(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %this, ptr noundef readnone captures(address) %f, ptr noundef %q) local_unnamed_addr #3 align 2 {
 entry:
   %m_q2info.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_q2info.i, align 8

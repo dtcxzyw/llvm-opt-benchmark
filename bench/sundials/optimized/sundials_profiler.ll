@@ -161,7 +161,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 declare i32 @SUNHashMap_New(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @sunTimerStructFree(ptr noundef %0) #6 {
+define internal void @sunTimerStructFree(ptr noundef captures(address_is_null) %0) #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -202,7 +202,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNProfiler_Free(ptr noundef %0) local_unnamed_addr #0 {
+define noundef i32 @SUNProfiler_Free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %2
 
@@ -261,7 +261,7 @@ sunTimerStructFree.exit:                          ; preds = %4, %17
 declare i32 @SUNHashMap_Destroy(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -9999, 1) i32 @SUNProfiler_Begin(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -9999, 1) i32 @SUNProfiler_Begin(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
   store ptr null, ptr %3, align 8, !tbaa !29
@@ -414,7 +414,7 @@ declare i32 @SUNHashMap_GetValue(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @SUNHashMap_Insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
   %.not = icmp eq ptr %0, null
@@ -543,7 +543,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -9999, 1) i32 @SUNProfiler_GetTimerResolution(ptr noundef readnone %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define range(i32 -9999, 1) i32 @SUNProfiler_GetTimerResolution(ptr noundef readnone captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %4
@@ -568,7 +568,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_GetTimerResolution(ptr noundef readn
 declare i32 @clock_getres(i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -9999, 1) i32 @SUNProfiler_GetElapsedTime(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -9999, 1) i32 @SUNProfiler_GetElapsedTime(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
   %.not = icmp eq ptr %0, null
@@ -595,7 +595,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_GetElapsedTime(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -9999, 1) i32 @SUNProfiler_Reset(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -9999, 1) i32 @SUNProfiler_Reset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %61, label %2
 
@@ -697,7 +697,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Reset(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -9999, 1) i32 @SUNProfiler_Print(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define range(i32 -9999, 1) i32 @SUNProfiler_Print(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

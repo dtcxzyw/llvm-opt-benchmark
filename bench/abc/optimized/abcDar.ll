@@ -376,7 +376,7 @@ Vec_PtrUniqify.exit:                              ; preds = %._crit_edge.i, %6, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkToDarBmc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define ptr @Abc_NtkToDarBmc(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !38
   %5 = getelementptr i8, ptr %4, i64 4
@@ -9235,7 +9235,7 @@ Vec_IntFreeP.exit:                                ; preds = %214, %208, %41
 declare i32 @Saig_ManBmcScalable(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkDarBmcInter_int(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define noundef i32 @Abc_NtkDarBmcInter_int(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca i32, align 4
@@ -9526,7 +9526,7 @@ declare void @Aig_ObjPatchFanin0(ptr noundef, ptr noundef, ptr noundef) local_un
 declare ptr @Aig_ManDupUnsolvedOutputs(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkDarBmcInter(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define noundef i32 @Abc_NtkDarBmcInter(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = icmp ne ptr %2, null
   br i1 %5, label %6, label %7

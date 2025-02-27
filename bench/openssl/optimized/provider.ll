@@ -329,7 +329,7 @@ read_uint.exit.thread:                            ; preds = %read_uint.exit.thre
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @fuzz_params(ptr noundef readonly %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
+define internal fastcc noalias ptr @fuzz_params(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %.not166 = icmp eq ptr %0, null
   br i1 %.not166, label %.critedge.thread, label %.lr.ph.preheader
 
@@ -904,7 +904,7 @@ define internal fastcc void @do_evp_md(ptr noundef nonnull %0, ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_params(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @free_params(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
   %.not9 = icmp eq ptr %0, null
   br i1 %.not9, label %.critedge, label %.lr.ph.preheader
 

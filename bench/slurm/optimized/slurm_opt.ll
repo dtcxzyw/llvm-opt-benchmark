@@ -1304,7 +1304,7 @@ declare i32 @get_log_level() local_unnamed_addr #2
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @slurm_option_set_by_cli(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @slurm_option_set_by_cli(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %9, %2
@@ -1365,7 +1365,7 @@ _option_index_set_by_cli.exit:                    ; preds = %11, %14, %15, %18, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @slurm_option_set_by_env(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @slurm_option_set_by_env(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %9, %2
@@ -6055,7 +6055,7 @@ _validate_gres_flags.exit:                        ; preds = %1359, %1360, %1362,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @slurm_option_get_argv_str(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @slurm_option_get_argv_str(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
   %.not = icmp eq ptr %1, null
@@ -7284,7 +7284,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #2
 declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @suggest_completion(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @suggest_completion(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
@@ -11566,7 +11566,7 @@ define internal void @arg_reset_network(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @arg_set_nice(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_nice(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -12156,7 +12156,7 @@ define internal void @arg_reset_oom_kill_step(ptr noundef nonnull writeonly capt
 declare i32 @parse_uint16(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @arg_set_open_mode(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_open_mode(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %3
 
@@ -14970,7 +14970,7 @@ _get_gpu_cnt_and_str.exit:                        ; preds = %.thread.i, %.sink.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_tres_per_task_from_sibling_opt_internal(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 99, 301) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_set_tres_per_task_from_sibling_opt_internal(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 99, 301) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @xstrcasestr(ptr noundef %8, ptr noundef %5) #22

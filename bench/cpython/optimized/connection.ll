@@ -1845,7 +1845,7 @@ declare i32 @PyObject_CallFinalizerFromDealloc(ptr noundef) local_unnamed_addr #
 declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_connection_backup(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal noundef ptr @pysqlite_connection_backup(ptr noundef readonly captures(address) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [5 x ptr], align 16
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #7
@@ -2880,7 +2880,7 @@ define internal ptr @pysqlite_connection_cursor(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_connection_enter(ptr noundef %0, ptr readnone captures(none) %1) #0 {
+define internal noundef ptr @pysqlite_connection_enter(ptr noundef captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %.not.i.i = icmp eq i32 %4, 0

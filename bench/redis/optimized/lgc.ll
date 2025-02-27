@@ -246,7 +246,7 @@ define hidden void @luaC_freeall(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @sweeplist(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 -3, 41) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @sweeplist(ptr noundef %0, ptr noundef captures(ret: address, provenance) %1, i64 noundef range(i64 -3, 41) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32

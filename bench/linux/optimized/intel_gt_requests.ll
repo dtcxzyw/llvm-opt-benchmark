@@ -170,7 +170,7 @@ define dso_local void @intel_engine_fini_retire(ptr noundef %0) local_unnamed_ad
 declare dso_local zeroext i1 @flush_work(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.list_head, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3144
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6

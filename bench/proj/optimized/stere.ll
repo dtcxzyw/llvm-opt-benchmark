@@ -132,7 +132,7 @@ declare i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef, ptr noundef, ptr noun
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL11stere_setupP8PJconsts(ptr noundef returned %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL11stere_setupP8PJconsts(ptr noundef returned captures(ret: address, provenance) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448

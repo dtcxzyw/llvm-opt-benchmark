@@ -59,7 +59,7 @@ $_ZGVZZN5folly8LoggerDB3getEvEN9SingletonC1EvE5guard = comdat any
 @llvm.compiler.used = appending global [2 x ptr] [ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj, ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj], section "llvm.metadata"
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr readonly %0, i64 %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr readonly captures(address) %0, i64 %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.folly::LogConfig", align 8
   %4 = alloca %"class.folly::LogConfig", align 8
   %5 = alloca %"class.folly::LogConfig", align 8
@@ -1260,7 +1260,7 @@ define void @_ZN5folly11initLoggingENS_5RangeIPKcEE(ptr %0, ptr %1) local_unname
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly16initLoggingOrDieESt16initializer_listINS_5RangeIPKcEEE(ptr %0, i64 %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly16initLoggingOrDieESt16initializer_listINS_5RangeIPKcEEE(ptr captures(address) %0, i64 %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr %0, i64 %1)
           to label %17 unwind label %3
 

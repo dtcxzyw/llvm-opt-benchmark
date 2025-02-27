@@ -710,7 +710,7 @@ define ptr @EVP_KEYMGMT_get0_name(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_KEYMGMT_is_a(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_KEYMGMT_is_a(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %3
 
@@ -925,7 +925,7 @@ define void @evp_keymgmt_gen_cleanup(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @evp_keymgmt_has_load(ptr noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @evp_keymgmt_has_load(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -942,7 +942,7 @@ define range(i32 0, 2) i32 @evp_keymgmt_has_load(ptr noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @evp_keymgmt_load(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @evp_keymgmt_load(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %evp_keymgmt_has_load.exit.thread, label %evp_keymgmt_has_load.exit
 

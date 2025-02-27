@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @utf8_replacement_char = internal unnamed_addr constant [3 x i8] c"\EF\BF\BD", align 1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local noundef ptr @archive_array_append(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @archive_array_append(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !4
   %6 = add i64 %2, 1
@@ -62,7 +62,7 @@ archive_string_append.exit:                       ; preds = %3, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @archive_string_concat(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
+define dso_local void @archive_string_concat(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8, !tbaa !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !4
@@ -103,7 +103,7 @@ define dso_local void @archive_string_concat(ptr noundef %0, ptr noundef readonl
 declare void @__archive_errx(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @archive_wstring_concat(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
+define dso_local void @archive_wstring_concat(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8, !tbaa !13
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !16
@@ -165,14 +165,14 @@ define dso_local void @archive_wstring_free(ptr noundef captures(none) initializ
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local noundef ptr @archive_wstring_ensure(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @archive_wstring_ensure(ptr noundef captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = shl i64 %1, 2
   %4 = tail call ptr @archive_string_ensure(ptr noundef %0, i64 noundef %3)
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local noundef ptr @archive_string_ensure(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @archive_string_ensure(ptr noundef captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !11
   %.not = icmp eq ptr %3, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -249,7 +249,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @archive_strncat(ptr noundef returned %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local nonnull ptr @archive_strncat(ptr noundef returned captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %.not17 = icmp eq i64 %2, 0
   br i1 %.not17, label %.critedge, label %.lr.ph
 
@@ -302,7 +302,7 @@ define dso_local nonnull ptr @archive_strncat(ptr noundef returned %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @archive_wstrncat(ptr noundef returned %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local nonnull ptr @archive_wstrncat(ptr noundef returned captures(address, ret: address, provenance) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %.not16 = icmp eq i64 %2, 0
   br i1 %.not16, label %.critedge, label %.lr.ph
 
@@ -356,7 +356,7 @@ define dso_local nonnull ptr @archive_wstrncat(ptr noundef returned %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @archive_strcat(ptr noundef returned %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
+define dso_local nonnull ptr @archive_strcat(ptr noundef returned captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %2
@@ -408,7 +408,7 @@ archive_strncat.exit:                             ; preds = %13, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @archive_wstrcat(ptr noundef returned %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local nonnull ptr @archive_wstrcat(ptr noundef returned captures(address, ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #1 {
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %2
@@ -461,7 +461,7 @@ archive_wstrncat.exit:                            ; preds = %14, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @archive_strappend_char(ptr noundef returned %0, i8 noundef signext %1) local_unnamed_addr #1 {
+define dso_local nonnull ptr @archive_strappend_char(ptr noundef returned captures(address, ret: address, provenance) %0, i8 noundef signext %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !4
   %5 = add i64 %4, 2
@@ -488,7 +488,7 @@ define dso_local nonnull ptr @archive_strappend_char(ptr noundef returned %0, i8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @archive_wstrappend_wchar(ptr noundef returned %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local nonnull ptr @archive_wstrappend_wchar(ptr noundef returned captures(address, ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -518,7 +518,7 @@ define dso_local nonnull ptr @archive_wstrappend_wchar(ptr noundef returned %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @archive_wstring_append_from_mbs(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @archive_wstring_append_from_mbs(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.__mbstate_t, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
   store i64 0, ptr %4, align 8
@@ -597,7 +597,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @mbrtowc(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @archive_string_append_from_wcs(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @archive_string_append_from_wcs(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.__mbstate_t, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
   store i64 0, ptr %4, align 8
@@ -740,7 +740,7 @@ declare i64 @__ctype_get_mb_cur_max() local_unnamed_addr #8
 declare i64 @wcrtomb(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @archive_string_conversion_to_charset(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local ptr @archive_string_conversion_to_charset(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 
@@ -783,7 +783,7 @@ get_current_charset.exit:                         ; preds = %5, %10, %default_ic
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #1 {
+define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #1 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.thread, label %6
 
@@ -1006,7 +1006,7 @@ find_sconv_object.exit:                           ; preds = %12, %95, %add_sconv
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @archive_string_conversion_from_charset(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local ptr @archive_string_conversion_from_charset(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 
@@ -1565,7 +1565,7 @@ define dso_local void @archive_mstring_clean(ptr noundef captures(none) initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @archive_mstring_copy(ptr noundef initializes((8, 16), (96, 100)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
+define dso_local void @archive_mstring_copy(ptr noundef captures(address) initializes((8, 16), (96, 100)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load i32, ptr %3, align 8, !tbaa !51
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2043,7 +2043,7 @@ archive_wstring_append_from_mbs.exit:             ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_mstring_get_mbs_l(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #1 {
+define dso_local i32 @archive_mstring_get_mbs_l(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %8 = load i32, ptr %7, align 8, !tbaa !51
@@ -2113,7 +2113,7 @@ define dso_local i32 @archive_mstring_get_mbs_l(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_mstring_copy_mbs(ptr noundef initializes((96, 100)) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define dso_local noundef i32 @archive_mstring_copy_mbs(ptr noundef captures(address) initializes((96, 100)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -2184,7 +2184,7 @@ archive_mstring_copy_mbs_len.exit:                ; preds = %17, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_mstring_copy_mbs_len(ptr noundef initializes((96, 100)) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local noundef i32 @archive_mstring_copy_mbs_len(ptr noundef captures(address) initializes((96, 100)) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br i1 %4, label %6, label %7
@@ -2256,7 +2256,7 @@ archive_strncat.exit:                             ; preds = %16, %17
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_mstring_copy_wcs(ptr noundef initializes((96, 100)) %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local noundef i32 @archive_mstring_copy_wcs(ptr noundef captures(address) initializes((96, 100)) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.split4, label %5
 
@@ -2329,7 +2329,7 @@ archive_mstring_copy_wcs_len.exit:                ; preds = %20, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_mstring_copy_wcs_len(ptr noundef initializes((96, 100)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local noundef i32 @archive_mstring_copy_wcs_len(ptr noundef captures(address) initializes((96, 100)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br i1 %4, label %6, label %7
@@ -2403,7 +2403,7 @@ archive_wstrncat.exit:                            ; preds = %20, %21
 declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_mstring_copy_utf8(ptr noundef initializes((96, 100)) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define dso_local i32 @archive_mstring_copy_utf8(ptr noundef captures(address) initializes((96, 100)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br i1 %3, label %5, label %6
@@ -2740,7 +2740,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare ptr @wmemmove(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define internal fastcc ptr @canonical_charset_name(ptr noundef readonly %0) unnamed_addr #14 {
+define internal fastcc ptr @canonical_charset_name(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) unnamed_addr #14 {
   %2 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #23
   %3 = icmp eq ptr %0, null
@@ -2824,7 +2824,7 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 declare ptr @nl_langinfo(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @strncat_from_utf8_libarchive2(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
+define internal range(i32 -1, 1) i32 @strncat_from_utf8_libarchive2(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.__mbstate_t, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #23
@@ -2942,7 +2942,7 @@ define internal range(i32 -1, 1) i32 @strncat_from_utf8_libarchive2(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @archive_string_append_unicode(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 -1, 1) i32 @archive_string_append_unicode(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #23
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 36
@@ -3100,7 +3100,7 @@ define internal range(i32 -1, 1) i32 @archive_string_append_unicode(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @best_effort_strncat_to_utf16be(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
+define internal range(i32 -1, 1) i32 @best_effort_strncat_to_utf16be(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = shl i64 %2, 1
@@ -3166,7 +3166,7 @@ best_effort_strncat_to_utf16.exit:                ; preds = %4, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @best_effort_strncat_to_utf16le(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
+define internal range(i32 -1, 1) i32 @best_effort_strncat_to_utf16le(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = shl i64 %2, 1
@@ -3232,7 +3232,7 @@ best_effort_strncat_to_utf16.exit:                ; preds = %4, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [10 x %struct.anon], align 16
@@ -6068,7 +6068,7 @@ get_nfc.exit828.thread:                           ; preds = %534, %get_nfc.exit8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16be(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
+define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16be(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = add i64 %2, 1
@@ -6186,7 +6186,7 @@ best_effort_strncat_from_utf16.exit:              ; preds = %4, %utf16_to_unicod
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16le(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
+define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16le(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = add i64 %2, 1
@@ -6292,7 +6292,7 @@ best_effort_strncat_from_utf16.exit:              ; preds = %4, %utf16_to_unicod
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @strncat_from_utf8_to_utf8(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
+define internal range(i32 -1, 1) i32 @strncat_from_utf8_to_utf8(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [4 x i8], align 1
@@ -6742,7 +6742,7 @@ unicode_to_utf8.exit:                             ; preds = %171, %175, %184, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @best_effort_strncat_in_locale(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 -1, 1) i32 @best_effort_strncat_in_locale(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca %struct.__mbstate_t, align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32

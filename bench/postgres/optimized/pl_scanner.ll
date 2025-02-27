@@ -658,7 +658,7 @@ push_back_token.exit:                             ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @plpgsql_peek2(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden void @plpgsql_peek2(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.TokenAuxData, align 8
   %7 = alloca %struct.TokenAuxData, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12

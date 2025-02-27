@@ -434,7 +434,7 @@ define noundef nonnull ptr @nghttp2_strerror(i32 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.loopexit, label %4
 
@@ -478,7 +478,7 @@ define range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef readonly %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %.not8 = icmp samesign eq i64 %1, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -503,7 +503,7 @@ define range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nghttp2_check_header_value_rfc9113(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @nghttp2_check_header_value_rfc9113(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %nghttp2_check_header_value.exit, label %4
 
@@ -543,7 +543,7 @@ nghttp2_check_header_value.exit:                  ; preds = %.lr.ph.i, %10, %4, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.loopexit, label %.lr.ph.preheader
 
@@ -571,7 +571,7 @@ define range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly %0, i64 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %.not8 = icmp samesign eq i64 %1, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -596,7 +596,7 @@ define range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly %0, i64 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nghttp2_check_authority(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @nghttp2_check_authority(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %.not8 = icmp samesign eq i64 %1, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -621,7 +621,7 @@ define range(i32 0, 2) i32 @nghttp2_check_authority(ptr noundef readonly %0, i64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @nghttp2_cpymem(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden ptr @nghttp2_cpymem(ptr noundef writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %7, label %5
 

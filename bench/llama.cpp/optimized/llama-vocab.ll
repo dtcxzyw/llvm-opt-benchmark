@@ -9455,7 +9455,7 @@ define noundef zeroext i1 @_ZNK11llama_vocab4impl9is_unusedEi(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK11llama_vocab4impl6is_eogEi(ptr noundef nonnull readonly align 8 dereferenceable(360) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
+define noundef zeroext i1 @_ZNK11llama_vocab4impl6is_eogEi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(360) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
   %.not = icmp eq i32 %1, -1
   br i1 %.not, label %16, label %3
 
@@ -15891,7 +15891,7 @@ define noundef i32 @_ZNK11llama_vocab4impl10detokenizeEPKiiPcibb(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11llama_vocab4impl10print_infoEv(ptr noundef nonnull readonly align 8 dereferenceable(360) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK11llama_vocab4impl10print_infoEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(360) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
@@ -17110,7 +17110,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK11llama_vocab8tokenizeEPKciPiibb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK11llama_vocab8tokenizeEPKciPiibb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca i64, align 8
   %9 = alloca %"class.std::vector.47", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18056,7 +18056,7 @@ define i32 @llama_token_fim_sep(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @llama_tokenize(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define noundef i32 @llama_tokenize(ptr noundef nonnull readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = tail call noundef i32 @_ZNK11llama_vocab8tokenizeEPKciPiibb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6)
   ret i32 %8
 }

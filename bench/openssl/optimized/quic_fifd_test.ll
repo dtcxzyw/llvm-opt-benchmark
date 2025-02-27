@@ -867,7 +867,7 @@ declare i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef, ptr noundef) local_un
 declare ptr @ossl_quic_cfq_add_frame(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @cfq_free_cb_(ptr noundef readnone %0, i64 noundef %1, ptr readnone captures(none) %2) #9 {
+define internal void @cfq_free_cb_(ptr noundef readnone captures(address) %0, i64 noundef %1, ptr readnone captures(none) %2) #9 {
   %4 = icmp eq ptr %0, @placeholder_data
   %5 = icmp eq i64 %1, 12
   %or.cond = and i1 %4, %5

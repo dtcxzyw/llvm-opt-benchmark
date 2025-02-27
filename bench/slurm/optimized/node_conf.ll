@@ -385,7 +385,7 @@ bitmap2node_name_sortable.exit:                   ; preds = %4, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 23) i32 @node_name2bitmap(ptr noundef %0, i1 noundef zeroext %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef %3) #0 {
+define dso_local range(i32 0, 23) i32 @node_name2bitmap(ptr noundef %0, i1 noundef zeroext %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef captures(address_is_null) %3) #0 {
   %5 = load i32, ptr @node_record_count, align 4
   %6 = sext i32 %5 to i64
   %7 = tail call ptr @bit_alloc(i64 noundef %6) #15
@@ -2016,7 +2016,7 @@ define dso_local void @insert_node_record_at(ptr noundef %0, i32 noundef %1) loc
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @_find_config_ptr(ptr noundef readnone %0, ptr noundef readnone %1) #7 {
+define internal range(i32 0, 2) i32 @_find_config_ptr(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #7 {
   %3 = icmp eq ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4
@@ -2895,7 +2895,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_hostlist_function(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 23) i32 @_single_node_name2bitmap(ptr noundef nonnull %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 23) i32 @_single_node_name2bitmap(ptr noundef nonnull %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
   %5 = tail call ptr @xstrchr(ptr noundef nonnull %0, i32 noundef 123) #15
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11

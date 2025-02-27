@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.X509_POLICY_LEVEL_st = type { ptr, ptr, ptr, i32 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_policy_tree_free(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @X509_policy_tree_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %2
 

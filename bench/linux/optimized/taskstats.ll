@@ -607,7 +607,7 @@ declare dso_local ptr @genlmsg_put(ptr noundef, i32 noundef, i32 noundef, ptr no
 declare dso_local ptr @__alloc_skb(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @taskstats_user_cmd(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @taskstats_user_cmd(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca [1 x %struct.cpumask], align 8
   %5 = alloca [1 x %struct.cpumask], align 8
@@ -990,7 +990,7 @@ define internal range(i32 -2147483648, 1) i32 @taskstats_user_cmd(ptr readnone c
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @cgroupstats_user_cmd(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @cgroupstats_user_cmd(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8

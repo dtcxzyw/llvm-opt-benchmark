@@ -681,7 +681,7 @@ AndersonAccelerate.exit:                          ; preds = %.loopexit.i, %71, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNNonlinSolFree_FixedPoint(ptr noundef %0) #0 {
+define noundef i32 @SUNNonlinSolFree_FixedPoint(ptr noundef captures(address_is_null) %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %107, label %3
 

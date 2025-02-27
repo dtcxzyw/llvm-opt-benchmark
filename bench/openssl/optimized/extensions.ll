@@ -219,7 +219,7 @@ define range(i32 0, 2) i32 @extension_is_relevant(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_collect_extensions(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly %4, i32 noundef %5) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls_collect_extensions(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca i64, align 8
   %.sroa.0100.0.copyload = load ptr, ptr %1, align 8, !tbaa !93
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8

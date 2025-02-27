@@ -712,7 +712,7 @@ declare i32 @CVodeSetProjErrEst(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @CVodeSetMaxNumSteps(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @PrintUserData(ptr noundef readonly %0) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @PrintUserData(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %27, label %3
 
@@ -755,7 +755,7 @@ define internal fastcc range(i32 -1, 1) i32 @PrintUserData(ptr noundef readonly 
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @WriteOutput(double noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @WriteOutput(double noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) unnamed_addr #0 {
   %8 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #13
   %9 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #13
   %10 = icmp eq i32 %4, 0

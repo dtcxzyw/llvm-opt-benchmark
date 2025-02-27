@@ -329,7 +329,7 @@ define ptr @wmem_array_get_raw(ptr noundef readonly captures(none) %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define i32 @wmem_array_get_count(ptr noundef readonly %0) local_unnamed_addr #7 {
+define i32 @wmem_array_get_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

@@ -233,7 +233,7 @@ define hidden void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull a
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK10MemoryPool7is_poolE14instanceHandle(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK10MemoryPool7is_poolE14instanceHandle(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load volatile i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -523,7 +523,7 @@ define hidden void @_ZN10MemoryPool24record_peak_memory_usageEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10MemoryPool20set_usage_sensor_objE14instanceHandle(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(201) initializes((176, 184)) %0, ptr readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10MemoryPool20set_usage_sensor_objE14instanceHandle(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(201) initializes((176, 184)) %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 64, i8 noundef zeroext 9, i32 noundef 0) #10
   tail call void @_ZN10SensorInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #10
   %4 = icmp eq ptr %1, null
@@ -542,7 +542,7 @@ _ZL17set_sensor_obj_atPP10SensorInfo14instanceHandle.exit: ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10MemoryPool23set_gc_usage_sensor_objE14instanceHandle(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(201) initializes((184, 192)) %0, ptr readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10MemoryPool23set_gc_usage_sensor_objE14instanceHandle(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(201) initializes((184, 192)) %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 64, i8 noundef zeroext 9, i32 noundef 0) #10
   tail call void @_ZN10SensorInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #10
   %4 = icmp eq ptr %1, null

@@ -7549,7 +7549,7 @@ define internal ptr @igmp_mc_seq_next(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @igmp_mc_seq_show(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
+define internal noundef i32 @igmp_mc_seq_show(ptr noundef %0, ptr noundef readonly captures(address) %1) #0 align 16 {
   %3 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
   br i1 %3, label %4, label %5
 
@@ -7851,7 +7851,7 @@ define internal void @igmp_mcf_seq_stop(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @igmp_mcf_seq_next(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2) #0 align 16 {
+define internal ptr @igmp_mcf_seq_next(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
   br i1 %4, label %5, label %38
 
@@ -7995,7 +7995,7 @@ define internal ptr @igmp_mcf_seq_next(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @igmp_mcf_seq_show(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
+define internal noundef i32 @igmp_mcf_seq_show(ptr noundef %0, ptr noundef readonly captures(address) %1) #0 align 16 {
   %3 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
   br i1 %3, label %4, label %5
 

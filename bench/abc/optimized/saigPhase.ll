@@ -1032,7 +1032,7 @@ define void @Saig_TsiStateOrAll(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Saig_ManReachableTernary(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Saig_ManReachableTernary(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Saig_TsiStart(ptr noundef %0)
   %5 = getelementptr i8, ptr %0, i64 48
   %.val114 = load ptr, ptr %5, align 8, !tbaa !61
@@ -2437,7 +2437,7 @@ declare ptr @Aig_ObjCreateCo(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @Aig_ManSeqCleanup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Saig_ManPhaseFrameNum(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @Saig_ManPhaseFrameNum(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Saig_ManReachableTernary(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %45, label %5
@@ -2543,7 +2543,7 @@ Saig_TsiComputePrefix.exit:                       ; preds = %40, %39, %Saig_TsiS
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Saig_ManPhasePrefixLength(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define noundef i32 @Saig_ManPhasePrefixLength(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @Saig_ManReachableTernary(ptr noundef %0, ptr noundef null, i32 noundef 0)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %58, label %7
@@ -2677,7 +2677,7 @@ Saig_TsiComputePrefix.exit:                       ; preds = %42, %41, %Saig_TsiS
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Saig_ManPhaseAbstract(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define ptr @Saig_ManPhaseAbstract(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call ptr @Saig_ManReachableTernary(ptr noundef %0, ptr noundef %1, i32 noundef %6)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %93, label %10

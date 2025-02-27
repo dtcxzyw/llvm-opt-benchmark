@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local noundef nonnull ptr @sodium_bin2hex(ptr noundef nonnull returned writeonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @sodium_bin2hex(ptr noundef nonnull returned writeonly captures(ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ult i64 %3, 9223372036854775807
   %6 = shl nuw i64 %3, 1
   %.not = icmp ugt i64 %1, %6
@@ -64,7 +64,7 @@ define dso_local noundef nonnull ptr @sodium_bin2hex(ptr noundef nonnull returne
 declare void @sodium_misuse() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind ssp memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 1) i32 @sodium_hex2bin(ptr noundef nonnull writeonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @sodium_hex2bin(ptr noundef nonnull writeonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #2 {
   %.not145 = icmp eq i64 %3, 0
   br i1 %.not145, label %.thread63.thread, label %.lr.ph.lr.ph
 
@@ -312,7 +312,7 @@ sodium_base64_check_variant.exit:                 ; preds = %2
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local noundef nonnull ptr @sodium_bin2base64(ptr noundef nonnull returned writeonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @sodium_bin2base64(ptr noundef nonnull returned writeonly captures(ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = and i32 %4, -7
   %.not.i = icmp eq i32 %6, 1
   br i1 %.not.i, label %sodium_base64_check_variant.exit, label %7
@@ -562,7 +562,7 @@ sodium_base64_check_variant.exit:                 ; preds = %5
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local range(i32 -1, 1) i32 @sodium_base642bin(ptr noundef nonnull writeonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, i32 noundef %7) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sodium_base642bin(ptr noundef nonnull writeonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = and i32 %7, -7
   %.not.i = icmp eq i32 %9, 1
   br i1 %.not.i, label %sodium_base64_check_variant.exit.preheader, label %83

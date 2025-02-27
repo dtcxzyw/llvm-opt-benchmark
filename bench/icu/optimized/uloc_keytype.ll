@@ -2251,7 +2251,7 @@ switch.early.test.i:                              ; preds = %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_124isSpecialTypeReorderCodeESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr readonly %1) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_124isSpecialTypeReorderCodeESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr readonly captures(address) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 %0
   %.not30 = icmp samesign eq i64 %0, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
@@ -2295,7 +2295,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_124isSpecialTypeReord
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123isSpecialTypeRgKeyValueESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr readonly %1) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123isSpecialTypeRgKeyValueESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr readonly captures(address) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 %0
   %.not32 = icmp samesign eq i64 %0, 0
   br i1 %.not32, label %.thread29, label %.lr.ph.preheader

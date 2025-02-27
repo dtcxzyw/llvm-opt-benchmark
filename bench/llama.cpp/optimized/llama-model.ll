@@ -47598,7 +47598,7 @@ define void @llama_model_default_params(ptr dead_on_unwind noalias writable writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @llama_model_get_vocab(ptr noundef readnone %0) local_unnamed_addr #0 {
+define nonnull ptr @llama_model_get_vocab(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6432
   ret ptr %2
 }
@@ -47695,7 +47695,7 @@ define float @llama_model_rope_freq_scale_train(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @llama_model_meta_val_str(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i32 @llama_model_meta_val_str(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 6656

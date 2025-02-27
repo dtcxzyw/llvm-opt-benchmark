@@ -266,7 +266,7 @@ define internal fastcc range(i32 0, 2) i32 @output_pass_setup(ptr noundef %0) un
 }
 
 ; Function Attrs: nounwind uwtable
-define void @jpeg_crop_scanline(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @jpeg_crop_scanline(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %5 = load ptr, ptr %4, align 8, !tbaa !49
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296

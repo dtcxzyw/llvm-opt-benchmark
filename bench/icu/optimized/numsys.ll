@@ -285,7 +285,7 @@ define void @_ZN6icu_7715NumberingSystem14setAlgorithmicEa(ptr noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7715NumberingSystem7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(86) %0, ptr noundef readonly %1) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7715NumberingSystem7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(86) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 77
   br i1 %3, label %5, label %6
@@ -878,7 +878,7 @@ define void @_ZNK6icu_7715NumberingSystem14getDescriptionEv(ptr dead_on_unwind n
 declare void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7715NumberingSystem7getNameEv(ptr noundef nonnull readnone align 8 dereferenceable(86) %0) local_unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7715NumberingSystem7getNameEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(86) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 77
   ret ptr %2
 }

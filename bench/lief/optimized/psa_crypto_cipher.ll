@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.mbedtls_cipher_values_from_psa = private unnamed_addr constant [7 x i32] [i32 0, i32 -134, i32 -134, i32 0, i32 -134, i32 -134, i32 0], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -134, 1) i32 @mbedtls_cipher_values_from_psa(i32 noundef %0, i16 noundef zeroext %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define hidden range(i32 -134, 1) i32 @mbedtls_cipher_values_from_psa(i32 noundef %0, i16 noundef zeroext %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = and i32 %0, 2130706432
   %7 = icmp eq i32 %6, 83886080
   %8 = and i32 %0, -2050981889
@@ -165,7 +165,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mbedtls_cipher_info_from_psa(i32 noundef %0, i16 noundef zeroext %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
+define hidden ptr @mbedtls_cipher_info_from_psa(i32 noundef %0, i16 noundef zeroext %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

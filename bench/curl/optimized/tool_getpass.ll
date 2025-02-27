@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ttyecho.noecho = internal global %struct.termios zeroinitializer, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @getpass_r(ptr noundef readonly captures(none) %0, ptr noundef returned %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @getpass_r(ptr noundef readonly captures(none) %0, ptr noundef returned captures(ret: address, provenance) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str, i32 noundef 0) #7
   %5 = icmp eq i32 %4, -1
   %spec.store.select = select i1 %5, i32 0, i32 %4

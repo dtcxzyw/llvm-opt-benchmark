@@ -1185,7 +1185,7 @@ compile_trampoline.exit:                          ; preds = %14, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_PyPerfTrampoline_GetCallbacks(ptr noundef writeonly %0) local_unnamed_addr #3 {
+define hidden void @_PyPerfTrampoline_GetCallbacks(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -1205,7 +1205,7 @@ define hidden void @_PyPerfTrampoline_GetCallbacks(ptr noundef writeonly %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyPerfTrampoline_SetCallbacks(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyPerfTrampoline_SetCallbacks(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %25, label %3
 

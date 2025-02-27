@@ -4203,7 +4203,7 @@ Py_DECREF.exit:                                   ; preds = %TaskStepMethWrapper
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @TaskStepMethWrapper_call(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) #0 {
+define internal ptr @TaskStepMethWrapper_call(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %4
 
@@ -8017,7 +8017,7 @@ define internal ptr @_asyncio_Future_result(ptr noundef captures(none) %0, ptr r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_asyncio_Future_exception(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
+define internal ptr @_asyncio_Future_exception(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 
@@ -8910,7 +8910,7 @@ _asyncio_Future_done_impl.exit:                   ; preds = %2, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_asyncio_Future_get_loop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
+define internal ptr @_asyncio_Future_get_loop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 

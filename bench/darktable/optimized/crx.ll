@@ -16322,7 +16322,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit124:  ; preds = %.loopexit, %_ZL13cr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_Z13crxDecodeLineP12CrxBandParamPh(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define noundef range(i32 -1, 1) i32 @_Z13crxDecodeLineP12CrxBandParamPh(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -17149,7 +17149,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit25:   ; preds = %.loopexit, %_ZL13cr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_Z30crxDecodeLineWithIQuantizationP10CrxSubbandP8CrxQStep(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noundef range(i32 -1, 1) i32 @_Z30crxDecodeLineWithIQuantizationP10CrxSubbandP8CrxQStep(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i64, ptr %3, align 8, !tbaa !72
   %.not82 = icmp eq i64 %4, 0
@@ -18938,7 +18938,7 @@ define void @_Z18crxFreeSubbandDataP8CrxImageP12CrxPlaneComp(ptr noundef readonl
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z19crxConvertPlaneLineP8CrxImageiiiPii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #9 {
+define void @_Z19crxConvertPlaneLineP8CrxImageiiiPii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #9 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %100, label %7
 
@@ -23354,7 +23354,7 @@ _ZN13libraw_memmgrD2Ev.exit:                      ; preds = %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 -1, 1) i32 @_ZN6LibRaw19crxParseImageHeaderEPhii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(767680) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #13 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN6LibRaw19crxParseImageHeaderEPhii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(767680) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #13 align 2 {
   %or.cond = icmp ugt i32 %2, 15
   %.not = icmp eq ptr %1, null
   %or.cond92 = or i1 %.not, %or.cond

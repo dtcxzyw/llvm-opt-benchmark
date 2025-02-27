@@ -5294,7 +5294,7 @@ declare void @_ZN17IOPluginContainer13eraseIOPluginEP8IOPlugin(ptr noundef nonnu
 declare void @_ZN21RenderPluginContainer17eraseRenderPluginEP12RenderPlugin(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN13PluginManager12enablePluginEP13MeshLabPlugin(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0, ptr noundef %1) local_unnamed_addr #15 align 2 {
+define void @_ZN13PluginManager12enablePluginEP13MeshLabPlugin(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0, ptr noundef captures(address) %1) local_unnamed_addr #15 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -5414,7 +5414,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPP13MeshLabPluginSt6vectorIS3_SaIS3_EEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN13PluginManager13disablePluginEP13MeshLabPlugin(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0, ptr noundef %1) local_unnamed_addr #15 align 2 {
+define void @_ZN13PluginManager13disablePluginEP13MeshLabPlugin(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0, ptr noundef captures(address) %1) local_unnamed_addr #15 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8

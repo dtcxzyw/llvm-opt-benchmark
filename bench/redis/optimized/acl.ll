@@ -3993,7 +3993,7 @@ define dso_local ptr @ACLGetUserByName(ptr noundef %0, i64 noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addAuthErrReply(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @addAuthErrReply(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @clientHasPendingReplies(ptr noundef %0) #25
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %8
@@ -4548,7 +4548,7 @@ define dso_local void @cleanupACLKeyResultCache(ptr noundef %0) local_unnamed_ad
 declare void @getKeysFreeResult(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 3) i32 @ACLUserCheckKeyPerm(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @ACLUserCheckKeyPerm(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.listIter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
   %6 = icmp eq ptr %0, null
@@ -4747,7 +4747,7 @@ sdslen.exit:                                      ; preds = %57, %64, %67, %71, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @ACLUserCheckCmdWithUnrestrictedKeyAccess(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ACLUserCheckCmdWithUnrestrictedKeyAccess(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.listIter, align 8
   %7 = alloca %struct.listIter, align 8
   %8 = alloca i32, align 4
@@ -5168,7 +5168,7 @@ sdslen.exit118._crit_edge:                        ; preds = %sdslen.exit118
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @ACLUserCheckChannelPerm(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @ACLUserCheckChannelPerm(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.listIter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
   %5 = icmp eq ptr %0, null
@@ -5338,7 +5338,7 @@ sdslen.exit.us:                                   ; preds = %29, %25, %21, %17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @ACLCheckAllUserCommandPerm(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @ACLCheckAllUserCommandPerm(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.listIter, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct.aclKeyResultCache, align 8
@@ -5877,7 +5877,7 @@ declare i32 @getClientType(ptr noundef) local_unnamed_addr #1
 declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ACLKillPubsubClientsIfNeeded(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ACLKillPubsubClientsIfNeeded(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.listIter, align 8
   %4 = tail call i32 @pubsubTotalSubscriptions() #25
   %5 = icmp eq i32 %4, 0
@@ -5931,7 +5931,7 @@ define dso_local void @ACLKillPubsubClientsIfNeeded(ptr noundef readonly capture
 declare i32 @pubsubTotalSubscriptions() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ACLMergeSelectorArguments(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local ptr @ACLMergeSelectorArguments(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4, !tbaa !102
   %5 = sext i32 %1 to i64
   %6 = shl nsw i64 %5, 3
@@ -6123,7 +6123,7 @@ sdslen.exit50:                                    ; preds = %45, %51, %54, %58, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ACLStringSetUser(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @ACLStringSetUser(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = icmp ne ptr %0, null
@@ -6454,7 +6454,7 @@ ACLFreeUser.exit:                                 ; preds = %ACLCopyUser.exit51,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @ACLAppendUserForLoading(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ACLAppendUserForLoading(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = icmp slt i32 %1, 2
   br i1 %5, label %9, label %6

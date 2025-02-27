@@ -2337,7 +2337,7 @@ define internal fastcc void @raise_parse_error(ptr noundef %0, ptr noundef %1) u
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @rvalue_stack_push(ptr noundef %0, i64 noundef returned %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @rvalue_stack_push(ptr noundef captures(none) %0, i64 noundef returned %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !46
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3197,7 +3197,7 @@ declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef rea
 declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rvalue_stack_grow(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rvalue_stack_grow(ptr noundef captures(ret: address, provenance) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8, !tbaa !42
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %30

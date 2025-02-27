@@ -12952,7 +12952,7 @@ define linkonce_odr dso_local void @_ZN15btMultibodyLink32updateInterpolationCac
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11btMultiBody21stepPositionsMultiDofEfPfS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(640) %0, float noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN11btMultiBody21stepPositionsMultiDofEfPfS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(640) %0, float noundef %1, ptr noundef %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #6 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %6 = load i32, ptr %5, align 4, !tbaa !37
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8

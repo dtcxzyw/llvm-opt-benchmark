@@ -73,7 +73,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.41 = private unnamed_addr constant [26 x i8] c"%s: parser=%s WARNING: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @data_parser_g_parse(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @data_parser_g_parse(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.timeval, align 8
   %8 = alloca %struct.timeval, align 8
   %9 = alloca [20 x i8], align 16
@@ -139,7 +139,7 @@ declare void @slurm_diff_tv_str(ptr noundef, ptr noundef, ptr noundef, i32 nound
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @data_parser_g_dump(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local i32 @data_parser_g_dump(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.timeval, align 8
   %7 = alloca %struct.timeval, align 8
   %8 = alloca [20 x i8], align 16
@@ -453,7 +453,7 @@ define internal fastcc ptr @_parse_plugin_type(ptr noundef %0) unnamed_addr #0 {
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_load_plugins(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc i32 @_load_plugins(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   br i1 %2, label %22, label %4
 
 4:                                                ; preds = %3
@@ -955,7 +955,7 @@ define dso_local ptr @data_parser_get_plugin(ptr noundef %0) local_unnamed_addr 
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @data_parser_get_plugin_version(ptr noundef readonly %0) local_unnamed_addr #5 {
+define dso_local ptr @data_parser_get_plugin_version(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -971,7 +971,7 @@ define dso_local ptr @data_parser_get_plugin_version(ptr noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @data_parser_get_plugin_params(ptr noundef readonly %0) local_unnamed_addr #5 {
+define dso_local ptr @data_parser_get_plugin_params(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1030,7 +1030,7 @@ define dso_local void @data_parser_g_array_free(ptr noundef %0, i1 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @data_parser_g_assign(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @data_parser_g_assign(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca %struct.timeval, align 8
   %6 = alloca [20 x i8], align 16
@@ -1362,7 +1362,7 @@ define dso_local noundef ptr @data_parser_cli_parser(ptr noundef %0, ptr noundef
 declare ptr @data_new() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @data_parser_g_is_complex(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @data_parser_g_is_complex(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -1394,7 +1394,7 @@ declare i32 @get_log_level() local_unnamed_addr #3
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @data_parser_g_specify(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @data_parser_g_specify(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.timeval, align 8
   %5 = alloca [20 x i8], align 16
@@ -1436,7 +1436,7 @@ define dso_local i32 @data_parser_g_specify(ptr noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @_on_error(ptr noundef %0, i32 %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ...) #0 {
+define internal noundef zeroext i1 @_on_error(ptr noundef captures(address_is_null) %0, i32 %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ...) #0 {
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #13
@@ -1544,7 +1544,7 @@ define internal noundef zeroext i1 @_on_error(ptr noundef %0, i32 %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_on_warn(ptr noundef readonly %0, i32 %1, ptr noundef %2, ptr noundef %3, ...) #0 {
+define internal void @_on_warn(ptr noundef readonly captures(address_is_null) %0, i32 %1, ptr noundef %2, ptr noundef %3, ...) #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #13
@@ -1630,7 +1630,7 @@ define internal void @_on_warn(ptr noundef readonly %0, i32 %1, ptr noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @data_parser_g_resolve_openapi_type(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @data_parser_g_resolve_openapi_type(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %4
 
@@ -1656,7 +1656,7 @@ define dso_local i32 @data_parser_g_resolve_openapi_type(ptr noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @data_parser_g_resolve_type_string(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @data_parser_g_resolve_type_string(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %3
 
@@ -1682,7 +1682,7 @@ define dso_local ptr @data_parser_g_resolve_type_string(ptr noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @data_parser_g_increment_reference(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @data_parser_g_increment_reference(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %4
 
@@ -1708,7 +1708,7 @@ define dso_local i32 @data_parser_g_increment_reference(ptr noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @data_parser_g_populate_schema(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local i32 @data_parser_g_populate_schema(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %6
 
@@ -1734,7 +1734,7 @@ define dso_local i32 @data_parser_g_populate_schema(ptr noundef readonly %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @data_parser_g_populate_parameters(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @data_parser_g_populate_parameters(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %7
 
@@ -1760,7 +1760,7 @@ define dso_local i32 @data_parser_g_populate_parameters(ptr noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @data_parser_g_release_references(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @data_parser_g_release_references(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %3
 

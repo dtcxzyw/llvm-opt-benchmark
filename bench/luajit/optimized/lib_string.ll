@@ -1834,7 +1834,7 @@ start_capture.exit:                               ; preds = %314, %360, %258, %c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 256) i32 @singlematch(i32 noundef range(i32 0, 256) %0, ptr noundef readonly %1, ptr noundef readnone %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 256) i32 @singlematch(i32 noundef range(i32 0, 256) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #4 {
   %4 = load i8, ptr %1, align 1, !tbaa !16
   switch i8 %4, label %126 [
     i8 46, label %match_class.exit

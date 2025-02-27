@@ -7275,7 +7275,7 @@ _ZN11StreamProxylsIRA34_KcEERS_OT_.exit:          ; preds = %if.then.i, %entry
 declare void @_Z14fatal_error_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, float } @_ZNK18ServerPlayingSound6getPosEP17ServerEnvironmentPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef readonly %env, ptr noundef writeonly %pos_exists) local_unnamed_addr #12 align 2 {
+define dso_local { <2 x float>, float } @_ZNK18ServerPlayingSound6getPosEP17ServerEnvironmentPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef readonly captures(address) %env, ptr noundef writeonly captures(address_is_null) %pos_exists) local_unnamed_addr #12 align 2 {
 entry:
   %tobool.not = icmp eq ptr %pos_exists, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -41110,7 +41110,7 @@ cleanup14:                                        ; preds = %_ZN15ClientInterfac
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN6Server12addMediaFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PS5_S8_(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %filepath, ptr noundef %filedata_to, ptr noundef %digest_to) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN6Server12addMediaFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PS5_S8_(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %filepath, ptr noundef captures(address) %filedata_to, ptr noundef %digest_to) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf2.i.i = alloca [3 x i8], align 1
   %filedata = alloca %"class.std::__cxx11::basic_string", align 8
@@ -44568,7 +44568,7 @@ ehcleanup175:                                     ; preds = %ehcleanup167, %_ZNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIS_IN12_GLOBAL__N_113SendableMediaESaIS1_EESaIS3_EED2Ev(ptr %this.0.val, ptr readnone %this.8.val) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIS_IN12_GLOBAL__N_113SendableMediaESaIS1_EESaIS3_EED2Ev(ptr %this.0.val, ptr readnone captures(address) %this.8.val) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not3.i.i.i = icmp eq ptr %this.0.val, %this.8.val
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -50893,7 +50893,7 @@ return:                                           ; preds = %_ZN10HudElementD2Ev
 declare noundef ptr @_ZN6Player9removeHudEj(ptr noundef nonnull align 8 dereferenceable(432), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN6Server9hudChangeEP12RemotePlayerj14HudElementStatPv(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef readonly %player, i32 noundef %id, i8 noundef zeroext %stat, ptr noundef readonly captures(none) %data) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN6Server9hudChangeEP12RemotePlayerj14HudElementStatPv(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef readonly captures(address_is_null) %player, i32 noundef %id, i8 noundef zeroext %stat, ptr noundef readonly captures(none) %data) local_unnamed_addr #4 align 2 {
 entry:
   %tobool.not = icmp ne ptr %player, null
   br i1 %tobool.not, label %if.end, label %return
@@ -50909,7 +50909,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN6Server11hudSetFlagsEP12RemotePlayerjj(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef %player, i32 noundef %flags, i32 noundef %mask) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN6Server11hudSetFlagsEP12RemotePlayerjj(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef captures(address_is_null) %player, i32 noundef %flags, i32 noundef %mask) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %tobool.not = icmp eq ptr %player, null
@@ -50995,7 +50995,7 @@ return:                                           ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN6Server21hudSetHotbarItemcountEP12RemotePlayeri(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef %player, i32 noundef %hotbar_itemcount) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN6Server21hudSetHotbarItemcountEP12RemotePlayeri(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef captures(address_is_null) %player, i32 noundef %hotbar_itemcount) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf.i = alloca [4 x i8], align 4
   %os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -51250,7 +51250,7 @@ return:                                           ; preds = %if.end4, %_ZSteqIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6Server24setLocalPlayerAnimationsEP12RemotePlayerPN3irr4core8vector2dIiEEf(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef %player, ptr noundef readonly captures(none) %animation_frames, float noundef %frame_speed) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN6Server24setLocalPlayerAnimationsEP12RemotePlayerPN3irr4core8vector2dIiEEf(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef captures(address_is_null) %player, ptr noundef readonly captures(none) %animation_frames, float noundef %frame_speed) local_unnamed_addr #4 align 2 {
 entry:
   %tobool.not = icmp eq ptr %player, null
   br i1 %tobool.not, label %cond.false, label %cond.end
@@ -51284,7 +51284,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6Server18setPlayerEyeOffsetEP12RemotePlayerN3irr4core8vector3dIfEES5_S5_(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef %player, <2 x float> %first.coerce0, float %first.coerce1, <2 x float> %third.coerce0, float %third.coerce1, <2 x float> %third_front.coerce0, float %third_front.coerce1) local_unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6Server18setPlayerEyeOffsetEP12RemotePlayerN3irr4core8vector3dIfEES5_S5_(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef captures(address_is_null) %player, <2 x float> %first.coerce0, float %first.coerce1, <2 x float> %third.coerce0, float %third.coerce1, <2 x float> %third_front.coerce0, float %third_front.coerce1) local_unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %player, null
   br i1 %tobool.not, label %cond.false, label %cond.end
@@ -51471,7 +51471,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6Server8setStarsEP12RemotePlayerRK10StarParams(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef %player, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %params) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN6Server8setStarsEP12RemotePlayerRK10StarParams(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef captures(address_is_null) %player, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %params) local_unnamed_addr #4 align 2 {
 entry:
   %tobool.not = icmp eq ptr %player, null
   br i1 %tobool.not, label %cond.false, label %cond.end
@@ -51490,7 +51490,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6Server9setCloudsEP12RemotePlayerRK11CloudParams(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef %player, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %params) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN6Server9setCloudsEP12RemotePlayerRK11CloudParams(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef captures(address_is_null) %player, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %params) local_unnamed_addr #4 align 2 {
 entry:
   %tobool.not = icmp eq ptr %player, null
   br i1 %tobool.not, label %cond.false, label %cond.end
@@ -51509,7 +51509,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6Server21overrideDayNightRatioEP12RemotePlayerbf(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef %player, i1 noundef zeroext %do_override, float noundef %ratio) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN6Server21overrideDayNightRatioEP12RemotePlayerbf(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef captures(address_is_null) %player, i1 noundef zeroext %do_override, float noundef %ratio) local_unnamed_addr #4 align 2 {
 entry:
   %tobool.not = icmp eq ptr %player, null
   br i1 %tobool.not, label %cond.false, label %cond.end
@@ -51531,7 +51531,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6Server11setLightingEP12RemotePlayerRK8Lighting(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef %player, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(36) %lighting) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN6Server11setLightingEP12RemotePlayerRK8Lighting(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef captures(address_is_null) %player, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(36) %lighting) local_unnamed_addr #4 align 2 {
 entry:
   %tobool.not = icmp eq ptr %player, null
   br i1 %tobool.not, label %cond.false, label %cond.end
@@ -51696,7 +51696,7 @@ cleanup.cont14:                                   ; preds = %if.end10, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6Server18addParticleSpawnerERK25ParticleSpawnerParametersP18ServerActiveObjectRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull align 8 dereferenceable(1400) %p, ptr noundef readonly %attached, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %playername) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZN6Server18addParticleSpawnerERK25ParticleSpawnerParametersP18ServerActiveObjectRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull align 8 dereferenceable(1400) %p, ptr noundef readonly captures(address_is_null) %attached, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %playername) local_unnamed_addr #4 align 2 {
 entry:
   %m_env = getelementptr inbounds nuw i8, ptr %this, i64 624
   %0 = load ptr, ptr %m_env, align 8, !tbaa !36
@@ -53837,7 +53837,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %if.
 declare void @_ZN15ScriptApiServer22on_dynamic_media_addedEjPKc(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN6Server21rollbackRevertActionsERKNSt7__cxx114listI14RollbackActionSaIS2_EEEPNS1_INS0_12basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEE(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %actions, ptr noundef %log) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN6Server21rollbackRevertActionsERKNSt7__cxx114listI14RollbackActionSaIS2_EEEPNS1_INS0_12basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEE(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %actions, ptr noundef %log) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %os = alloca %"class.std::__cxx11::basic_ostringstream", align 8

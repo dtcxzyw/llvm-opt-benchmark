@@ -134,7 +134,7 @@ define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_wit
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h886a0d55f47bd255E"(ptr returned align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h886a0d55f47bd255E"(ptr returned align 8 captures(ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !8, !noundef !3
   %4 = icmp eq i64 %3, 2
   br i1 %4, label %5, label %11
@@ -156,7 +156,7 @@ define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_wit
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5c1c1949e166583E"(ptr returned align 2 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5c1c1949e166583E"(ptr returned align 2 captures(ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %0, align 2, !range !9, !noundef !3
   %4 = icmp eq i16 %3, 2
   br i1 %4, label %5, label %11
@@ -178,7 +178,7 @@ define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_wit
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hfcb39d7d7dff5a3fE"(ptr returned align 2 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hfcb39d7d7dff5a3fE"(ptr returned align 2 captures(ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %0, align 2, !range !9, !noundef !3
   %4 = icmp eq i16 %3, 2
   br i1 %4, label %5, label %11
@@ -217,7 +217,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$6map_or17h6f5f62f710b676a9E"(ptr s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h6822b2ba40c325e2E"(ptr readonly align 8 %0) unnamed_addr #2 {
+define { ptr, i64 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h6822b2ba40c325e2E"(ptr readonly align 8 captures(address_is_null) %0) unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

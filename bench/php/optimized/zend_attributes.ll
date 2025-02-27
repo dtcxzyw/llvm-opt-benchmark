@@ -629,7 +629,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %21
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_get_attribute(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @zend_get_attribute(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %get_attribute.exit, label %3
 
@@ -694,7 +694,7 @@ get_attribute.exit:                               ; preds = %24, %zend_string_eq
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local ptr @zend_get_attribute_str(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define dso_local ptr @zend_get_attribute_str(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %get_attribute_str.exit, label %4
 
@@ -752,7 +752,7 @@ get_attribute_str.exit:                           ; preds = %zend_string_equals_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_get_parameter_attribute(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @zend_get_parameter_attribute(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %2, 1
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %get_attribute.exit, label %5
@@ -818,7 +818,7 @@ get_attribute.exit:                               ; preds = %26, %zend_string_eq
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local ptr @zend_get_parameter_attribute_str(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define dso_local ptr @zend_get_parameter_attribute_str(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = add i32 %3, 1
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %get_attribute_str.exit, label %6
@@ -1342,7 +1342,7 @@ smart_str_alloc.exit12:                           ; preds = %69, %77
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @zend_is_attribute_repeated(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @zend_is_attribute_repeated(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24

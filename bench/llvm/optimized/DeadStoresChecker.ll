@@ -1892,7 +1892,7 @@ declare i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 derefere
 declare noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(23216), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112DeadStoreObs11isIncrementEPN5clang7VarDeclEPKNS1_14BinaryOperatorE(ptr noundef nonnull readnone %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #13 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112DeadStoreObs11isIncrementEPN5clang7VarDeclEPKNS1_14BinaryOperatorE(ptr noundef nonnull readnone captures(address) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #13 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = lshr i32 %3, 19
   %5 = and i32 %4, 62

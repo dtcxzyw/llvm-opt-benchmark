@@ -189,7 +189,7 @@ define hidden i32 @mbedtls_hmac_drbg_seed_buf(ptr noundef %0, ptr noundef %1, pt
 declare i32 @mbedtls_md_setup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_hmac_drbg_reseed(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_hmac_drbg_reseed(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [384 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -245,7 +245,7 @@ hmac_drbg_reseed_core.exit:                       ; preds = %3, %.critedge.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_hmac_drbg_seed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i64 noundef %5) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_hmac_drbg_seed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5) local_unnamed_addr #2 {
   %7 = alloca [384 x i8], align 16
   %8 = tail call i32 @mbedtls_md_setup(ptr noundef %0, ptr noundef %1, i32 noundef 1) #12
   %.not = icmp eq i32 %8, 0

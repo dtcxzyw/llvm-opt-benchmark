@@ -3844,7 +3844,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_Z22convertNodeboxesToMeshRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPKff(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %boxes, ptr noundef readonly %uv_coords, float noundef %expand) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_Z22convertNodeboxesToMeshRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPKff(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %boxes, ptr noundef readonly captures(address_is_null) %uv_coords, float noundef %expand) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
 entry:
   %vertices = alloca [24 x %"struct.irr::video::S3DVertex"], align 16
   %indices = alloca [6 x i16], align 2

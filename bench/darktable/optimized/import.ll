@@ -711,7 +711,7 @@ declare ptr @gtk_box_new(i32 noundef, i32 noundef) local_unnamed_addr #4
 declare ptr @dt_action_button_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_import_from_callback(ptr noundef readnone %0, ptr noundef %1) #1 {
+define internal void @_lib_import_from_callback(ptr noundef readnone captures(address) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4477,7 +4477,7 @@ define internal void @_folder_order_clicked(ptr readnone captures(none) %0, ptr 
 declare void @gtk_scrolled_window_set_min_content_width(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_get_folders_list(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @_get_folders_list(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct._GtkTreeIter, align 8

@@ -4053,7 +4053,7 @@ define internal fastcc void @zend_hash_persist(ptr noundef captures(none) initia
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @zend_persist_class_method(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @zend_persist_class_method(ptr noundef %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 8, !tbaa !156
   %.not = icmp eq i8 %3, 2
   br i1 %.not, label %33, label %4
@@ -7145,7 +7145,7 @@ define internal fastcc void @zend_persist_op_array(ptr noundef captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_persist_op_array_ex(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @zend_persist_op_array_ex(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = alloca %struct._zend_execute_data, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -8657,7 +8657,7 @@ zend_ast_is_decl.exit:                            ; preds = %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_persist_type(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @zend_persist_type(ptr noundef captures(address) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !274
   %4 = and i32 %3, 4194304

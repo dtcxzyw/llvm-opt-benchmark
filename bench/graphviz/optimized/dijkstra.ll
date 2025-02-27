@@ -619,7 +619,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @cmpf(ptr noundef readonly %0, ptr noundef readonly %1) #9 {
+define internal range(i32 -1, 2) i32 @cmpf(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) #9 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !27
   %4 = getelementptr i8, ptr %.val, i64 16

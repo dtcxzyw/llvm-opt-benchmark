@@ -15,7 +15,7 @@ define hidden void @mbedtls_pem_init(ptr noundef writeonly captures(none) initia
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 -2147483648, 2147479296) i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readnone captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #2 {
+define hidden range(i32 -2147483648, 2147479296) i32 @mbedtls_pem_read_buffer(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readnone captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #2 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
   %9 = icmp eq ptr %0, null

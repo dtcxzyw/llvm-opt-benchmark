@@ -2309,7 +2309,7 @@ entry:
   call fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_119getBatchIteratorPtrERKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS9_EERKSt10shared_ptrIKNS0_4TypeEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(16) %type)
   %dataIterator.val.i = load ptr, ptr %ref.tmp, align 8, !noalias !24
   %type_.i = getelementptr inbounds nuw i8, ptr %dataIterator.val.i, i64 24
-  %2 = load ptr, ptr %type_.i, align 8, !noalias !24
+  %2 = load ptr, ptr %type_.i, align 8
   %vtable.i = load ptr, ptr %2, align 8, !noalias !24
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
   %3 = load ptr, ptr %vfn.i, align 8, !noalias !24
@@ -6070,7 +6070,7 @@ return.sink.split.i.i.i:                          ; preds = %return.sink.split.s
   br label %invoke.cont
 
 if.else.i:                                        ; preds = %call3.i.noexc
-  %487 = load ptr, ptr %type_.i, align 8, !noalias !24
+  %487 = load ptr, ptr %type_.i, align 8
   %kind_.i.i142 = getelementptr inbounds nuw i8, ptr %487, i64 16
   %488 = load i8, ptr %kind_.i.i142, align 8, !noalias !24
   switch i8 %488, label %if.else15.i [
@@ -7001,7 +7001,7 @@ if.end.i:                                         ; preds = %.noexc62
   %call16.i = tail call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIterator15nextColumnBatchEv(ptr noundef nonnull align 8 dereferenceable(104) %dataIterator.val.i), !noalias !211
   %610 = load ptr, ptr %pool.addr.i12, align 8, !noalias !211
   invoke void @_ZN8facebook5velox3row21UnsafeRowDeserializer11deserializeERKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS9_EERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp14.i, ptr noundef nonnull align 8 dereferenceable(24) %call16.i, ptr noundef nonnull align 8 dereferenceable(16) %elementType_.i.i, ptr noundef %610)
-          to label %invoke.cont17.i unwind label %lpad.i20, !noalias !211
+          to label %invoke.cont17.i unwind label %lpad.i20
 
 invoke.cont17.i:                                  ; preds = %if.end.i
   %call5.i.i.i3.i.i.i.i25.i = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #35
@@ -7156,7 +7156,7 @@ if.then14.i:                                      ; preds = %if.else.i
 invoke.cont16.i:                                  ; preds = %.noexc11
   %627 = load ptr, ptr %pool.addr.i, align 8, !noalias !220
   invoke void @_ZN8facebook5velox3row21UnsafeRowDeserializer11deserializeERKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS9_EERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp11.i, ptr noundef nonnull align 8 dereferenceable(24) %call14.i, ptr noundef nonnull align 8 dereferenceable(16) %call17.i, ptr noundef %627)
-          to label %invoke.cont18.i unwind label %lpad.i, !noalias !220
+          to label %invoke.cont18.i unwind label %lpad.i
 
 invoke.cont18.i:                                  ; preds = %invoke.cont16.i
   %call10.val.i = load ptr, ptr %valuesIteratorWrapper_.i.i, align 8, !noalias !220
@@ -7171,7 +7171,7 @@ invoke.cont18.i:                                  ; preds = %invoke.cont16.i
 invoke.cont27.i:                                  ; preds = %invoke.cont18.i
   %630 = load ptr, ptr %pool.addr.i, align 8, !noalias !220
   invoke void @_ZN8facebook5velox3row21UnsafeRowDeserializer11deserializeERKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS9_EERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(24) %call23.i, ptr noundef nonnull align 8 dereferenceable(16) %call28.i, ptr noundef %630)
-          to label %invoke.cont29.i unwind label %lpad21.i, !noalias !220
+          to label %invoke.cont29.i unwind label %lpad21.i
 
 invoke.cont29.i:                                  ; preds = %invoke.cont27.i
   %call5.i.i.i3.i.i.i.i12.i = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #35
@@ -42575,7 +42575,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad.i.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIterator15nextColumnBatchEv(ptr noundef nonnull readonly align 8 dereferenceable(104) %this) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIterator15nextColumnBatchEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(104) %this) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %isFixedLength_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i8, ptr %isFixedLength_, align 8
@@ -45514,7 +45514,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLO
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #27 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #27 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
@@ -46003,7 +46003,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLO
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_119StructBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(104) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #27 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_119StructBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(104) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #27 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
@@ -46523,7 +46523,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLO
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(120) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #27 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(120) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #27 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
@@ -46857,7 +46857,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLO
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(160) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #27 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(160) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #27 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag

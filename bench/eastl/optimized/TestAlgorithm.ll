@@ -21885,7 +21885,7 @@ _ZN5eastl8ListBaseI10TestObjectNS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl9al
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @"_ZN5eastl16apply_and_removeIPiZ13TestAlgorithmvE4$_24iEET_S3_S3_T0_RKT1_"(ptr noundef nonnull %first, ptr noundef nonnull readnone %last, ptr nonnull captures(none) %function.coerce, i32 %value.0.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @"_ZN5eastl16apply_and_removeIPiZ13TestAlgorithmvE4$_24iEET_S3_S3_T0_RKT1_"(ptr noundef nonnull captures(address, ret: address, provenance) %first, ptr noundef nonnull readnone captures(address) %last, ptr nonnull captures(none) %function.coerce, i32 %value.0.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not4.i = icmp eq ptr %first, %last
   br i1 %cmp.not4.i, label %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit, label %land.rhs.i
@@ -22066,7 +22066,7 @@ if.end7:                                          ; preds = %for.inc, %"_ZZ13Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @"_ZN5eastl16apply_and_removeIPiZ13TestAlgorithmvE4$_25iEET_S3_S3_T0_RKT1_"(ptr noundef nonnull %first, ptr noundef nonnull readnone %last, ptr nonnull captures(none) %function.coerce, i32 %value.0.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @"_ZN5eastl16apply_and_removeIPiZ13TestAlgorithmvE4$_25iEET_S3_S3_T0_RKT1_"(ptr noundef nonnull captures(address, ret: address, provenance) %first, ptr noundef nonnull readnone captures(address) %last, ptr nonnull captures(none) %function.coerce, i32 %value.0.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not4.i = icmp eq ptr %first, %last
   br i1 %cmp.not4.i, label %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit, label %land.rhs.i
@@ -23283,7 +23283,7 @@ if.end:                                           ; preds = %_ZN5eastl10VectorBa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl15insert_iteratorINS_6vectorIZ13TestAlgorithmvE5localNS_9allocatorEEEEaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl15insert_iteratorINS_6vectorIZ13TestAlgorithmvE5localNS_9allocatorEEEEaSERKS2_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %it = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -23663,7 +23663,7 @@ _ZN5eastl4copyIPKiNS_15insert_iteratorINS_6vectorIiNS_9allocatorEEEEEEET0_T_S9_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl15insert_iteratorINS_6vectorIZ13TestAlgorithmvE5local_0NS_9allocatorEEEEaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl15insert_iteratorINS_6vectorIZ13TestAlgorithmvE5local_0NS_9allocatorEEEEaSERKS2_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %it = getelementptr inbounds nuw i8, ptr %this, i64 8

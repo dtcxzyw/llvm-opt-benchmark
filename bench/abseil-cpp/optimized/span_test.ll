@@ -49144,7 +49144,7 @@ _ZN12_GLOBAL__N_126IntSpanOrderComparisonTestD2Ev.exit: ; preds = %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_155IntSpanOrderComparisonTest_SpanOfConstAndContainer_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(168) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_155IntSpanOrderComparisonTest_SpanOfConstAndContainer_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(168) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -51685,7 +51685,7 @@ _ZN12_GLOBAL__N_126IntSpanOrderComparisonTestD2Ev.exit: ; preds = %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_157IntSpanOrderComparisonTest_SpanOfMutableAndContainer_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(168) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_157IntSpanOrderComparisonTest_SpanOfMutableAndContainer_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(168) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8

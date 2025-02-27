@@ -660,7 +660,7 @@ name_find.exit:                                   ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onig_name_to_backref_number(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #2 {
+define dso_local i32 @onig_name_to_backref_number(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.st_str_end_key, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr i8, ptr %0, i64 128
@@ -788,7 +788,7 @@ onig_number_of_names.exit.thread:                 ; preds = %5, %11, %onig_numbe
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onig_set_callout_of_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8, i32 noundef %9, ptr noundef readonly %10) local_unnamed_addr #2 {
+define dso_local i32 @onig_set_callout_of_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8, i32 noundef %9, ptr noundef readonly captures(address_is_null) %10) local_unnamed_addr #2 {
   %12 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #25
   %.not = icmp eq i32 %1, 0
@@ -1680,7 +1680,7 @@ define dso_local i32 @onig_get_callout_num_by_tag(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @onig_node_free(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local void @onig_node_free(ptr noundef captures(address) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %4, label %3
 
@@ -1694,7 +1694,7 @@ define dso_local void @onig_node_free(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @node_free_body(ptr noundef readonly %0) unnamed_addr #2 {
+define internal fastcc void @node_free_body(ptr noundef readonly captures(address) %0) unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %common.ret, label %3
 
@@ -2073,7 +2073,7 @@ node_new_bag.exit:                                ; preds = %1, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @onig_node_reset_fail(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local noundef i32 @onig_node_reset_fail(ptr noundef captures(address) %0) local_unnamed_addr #2 {
   tail call fastcc void @node_free_body(ptr noundef %0)
   store i32 10, ptr %0, align 8, !tbaa !10
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2082,7 +2082,7 @@ define dso_local noundef i32 @onig_node_reset_fail(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @onig_free_reg_callout_list(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @onig_free_reg_callout_list(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %31, label %.preheader28
 
@@ -2163,7 +2163,7 @@ define dso_local void @onig_free_reg_callout_list(i32 noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #15 {
+define dso_local range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #15 {
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
@@ -3264,7 +3264,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @i_free_callout_name_entry(ptr noundef captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #15 {
+define internal noundef i32 @i_free_callout_name_entry(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr readnone captures(none) %2) #15 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
@@ -3286,7 +3286,7 @@ define internal noundef i32 @i_free_callout_tag_entry(ptr noundef captures(none)
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @bbuf_free(ptr noundef %0) unnamed_addr #15 {
+define internal fastcc void @bbuf_free(ptr noundef captures(address_is_null) %0) unnamed_addr #15 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -16876,7 +16876,7 @@ add_code_range.exit.thread:                       ; preds = %88, %57, %add_code_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -205, 1) i32 @and_cclass(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 {
+define internal fastcc range(i32 -205, 1) i32 @and_cclass(ptr noundef nonnull captures(address) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca [8 x i32], align 16
   %6 = alloca [8 x i32], align 16
@@ -17596,7 +17596,7 @@ declare i32 @onigenc_with_ascii_strncmp(ptr noundef, ptr noundef, ptr noundef, p
 declare ptr @onigenc_step(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -205, 1) i32 @or_code_range_buf(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull captures(none) initializes((0, 8)) %5) unnamed_addr #2 {
+define internal fastcc range(i32 -205, 1) i32 @or_code_range_buf(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2, ptr noundef captures(address_is_null) %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull captures(none) initializes((0, 8)) %5) unnamed_addr #2 {
   store ptr null, ptr %5, align 8, !tbaa !113
   %7 = icmp eq ptr %1, null
   %8 = icmp eq ptr %3, null
@@ -17789,7 +17789,7 @@ bbuf_clone.exit:                                  ; preds = %.lr.ph, %84, %.preh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -205, 1) i32 @not_code_range_buf(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull captures(none) initializes((0, 8)) %2) unnamed_addr #2 {
+define internal fastcc range(i32 -205, 1) i32 @not_code_range_buf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull captures(none) initializes((0, 8)) %2) unnamed_addr #2 {
   store ptr null, ptr %2, align 8, !tbaa !113
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %11

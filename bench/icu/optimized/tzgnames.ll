@@ -1653,7 +1653,7 @@ _ZNK6icu_7713UnicodeString8hashCodeEv.exit:       ; preds = %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_77L25comparePartialLocationKeyE8UElementS0_(ptr readonly %0, ptr readonly %1) #14 {
+define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_77L25comparePartialLocationKeyE8UElementS0_(ptr readonly captures(address) %0, ptr readonly captures(address) %1) #14 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %24, label %4
 

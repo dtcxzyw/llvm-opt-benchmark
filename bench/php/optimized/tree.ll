@@ -554,7 +554,7 @@ declare ptr @xmlNewDocTextLen(ptr noundef, ptr noundef, i32 noundef) local_unnam
 declare ptr @xmlNewDocFragment(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @dom_is_pre_insert_valid_without_step_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @dom_is_pre_insert_valid_without_step_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(address) %4) unnamed_addr #0 {
   %6 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -811,7 +811,7 @@ dom_insert_node_list_cleanup.exit:                ; preds = %26, %dom_free_node_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_insert_node_list_unchecked(ptr noundef readonly %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dom_insert_node_list_unchecked(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !10
   %7 = icmp eq i32 %6, 11

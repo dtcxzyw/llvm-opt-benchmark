@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [56 x i8] c"Received request to assign a negative sized string (%d)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_string_init(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_string_init(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %4
 
@@ -69,7 +69,7 @@ define hidden i32 @exr_attr_string_init(ptr noundef %0, ptr noundef writeonly %1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_string_init_static_with_length(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_string_init_static_with_length(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %5
 
@@ -116,7 +116,7 @@ define hidden i32 @exr_attr_string_init_static_with_length(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_string_init_static(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_string_init_static(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.split, label %8
 
@@ -176,7 +176,7 @@ exr_attr_string_init_static_with_length.exit:     ; preds = %22, %18, %.split13,
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_string_create_with_length(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_string_create_with_length(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %41, label %5
 
@@ -267,7 +267,7 @@ exr_attr_string_init.exit._crit_edge:             ; preds = %exr_attr_string_ini
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_string_create(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_string_create(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.split, label %23
 
@@ -396,7 +396,7 @@ exr_attr_string_create_with_length.exit:          ; preds = %27, %26, %54, %exr_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_string_set_with_length(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_string_set_with_length(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %exr_attr_string_create_with_length.exit, label %5
 
@@ -523,7 +523,7 @@ exr_attr_string_create_with_length.exit:          ; preds = %._crit_edge, %exr_a
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @exr_attr_string_destroy(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @exr_attr_string_destroy(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %3
 
@@ -559,7 +559,7 @@ define hidden range(i32 0, 3) i32 @exr_attr_string_destroy(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_string_set(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_string_set(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.split, label %28
 

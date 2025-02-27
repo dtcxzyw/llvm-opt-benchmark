@@ -277,7 +277,7 @@ _ZN6icu_7718CurrencyPluralInfo10initializeERKNS_6LocaleER10UErrorCode.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7718CurrencyPluralInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) initializes((0, 36)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7718CurrencyPluralInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) initializes((0, 36)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(36) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7718CurrencyPluralInfoE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 0, i64 28, i1 false)
@@ -295,7 +295,7 @@ define void @_ZN6icu_7718CurrencyPluralInfoC2ERKS0_(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(36) ptr @_ZN6icu_7718CurrencyPluralInfoaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(36) %0, ptr noundef nonnull readonly align 8 dereferenceable(36) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(36) ptr @_ZN6icu_7718CurrencyPluralInfoaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(36) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(36) %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %52, label %4
 
@@ -554,7 +554,7 @@ _ZN6icu_7712LocalPointerINS_9HashtableEED2Ev.exit: ; preds = %27, %21, %_ZN6icu_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7718CurrencyPluralInfo8copyHashEPKNS_9HashtableEPS1_R10UErrorCode(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7718CurrencyPluralInfo8copyHashEPKNS_9HashtableEPS1_R10UErrorCode(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca %"class.icu_77::UnicodeString", align 8
   %7 = load i32, ptr %3, align 4, !tbaa !6

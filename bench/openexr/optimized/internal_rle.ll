@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @internal_rle_compress(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define hidden i64 @internal_rle_compress(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   br label %6
 
@@ -452,7 +452,7 @@ define hidden i64 @internal_rle_decompress(ptr noundef writeonly captures(none) 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @internal_exr_undo_rle(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef writeonly %3, i64 noundef %4) local_unnamed_addr #1 {
+define hidden i32 @internal_exr_undo_rle(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef writeonly captures(address) %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = icmp eq i64 %2, 0
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %6

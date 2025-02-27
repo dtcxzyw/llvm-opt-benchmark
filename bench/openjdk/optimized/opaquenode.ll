@@ -31,7 +31,7 @@ define hidden noundef i32 @_ZNK11Opaque1Node4hashEv(ptr nonnull readnone align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK11Opaque1Node3cmpERK4Node(ptr noundef nonnull readnone align 8 dereferenceable(52) %0, ptr noundef nonnull readnone align 8 dereferenceable(52) %1) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK11Opaque1Node3cmpERK4Node(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(52) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(52) %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, %0
   ret i1 %3
 }
@@ -119,13 +119,13 @@ define hidden noundef i32 @_ZNK18ProfileBooleanNode4hashEv(ptr nonnull readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK18ProfileBooleanNode3cmpERK4Node(ptr noundef nonnull readnone align 8 dereferenceable(62) %0, ptr noundef nonnull readnone align 8 dereferenceable(52) %1) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK18ProfileBooleanNode3cmpERK4Node(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(62) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(52) %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, %0
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN18ProfileBooleanNode5IdealEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(62) %0, ptr readnone captures(none) %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN18ProfileBooleanNode5IdealEP8PhaseGVNb(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(62) %0, ptr readnone captures(none) %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 {
   br i1 %2, label %4, label %9
 
 4:                                                ; preds = %3
@@ -144,7 +144,7 @@ define hidden noundef ptr @_ZN18ProfileBooleanNode5IdealEP8PhaseGVNb(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN18ProfileBooleanNode8IdentityEP8PhaseGVN(ptr noundef nonnull readonly align 8 dereferenceable(62) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN18ProfileBooleanNode8IdentityEP8PhaseGVN(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(62) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1

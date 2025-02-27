@@ -781,7 +781,7 @@ define hidden noundef zeroext i1 @_mi_is_redirected() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @_mi_allocator_init(ptr noundef writeonly %0) local_unnamed_addr #9 {
+define hidden noundef zeroext i1 @_mi_allocator_init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

@@ -10445,7 +10445,7 @@ lor.end:                                          ; preds = %land.rhs.i, %land.r
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK17arith_decl_plugin9are_equalEP3appS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(441) %this, ptr noundef readonly %a, ptr noundef readonly %b) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK17arith_decl_plugin9are_equalEP3appS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(441) %this, ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) unnamed_addr #3 align 2 {
 entry:
   %cmp.i = icmp eq ptr %a, %b
   br i1 %cmp.i, label %return, label %if.end
@@ -11252,7 +11252,7 @@ _ZSt3getIP8rationalJiP3ast6symbolP7zstringS1_djEERKT_RKSt7variantIJDpT0_EE.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN17arith_decl_plugin14get_some_valueEP4sort(ptr noundef nonnull align 8 dereferenceable(441) %this, ptr noundef readnone %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN17arith_decl_plugin14get_some_valueEP4sort(ptr noundef nonnull align 8 dereferenceable(441) %this, ptr noundef readnone captures(address) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.rational, align 8
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
@@ -13513,7 +13513,7 @@ return:                                           ; preds = %while.body, %land.r
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK10arith_util19is_extended_numeralEP4exprR8rational(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %term, ptr noundef nonnull align 8 dereferenceable(32) %r) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK10arith_util19is_extended_numeralEP4exprR8rational(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly captures(address) %term, ptr noundef nonnull align 8 dereferenceable(32) %r) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %is_int.i = alloca i8, align 1
   %mul = alloca %class.rational, align 8

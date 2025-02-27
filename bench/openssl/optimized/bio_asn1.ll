@@ -553,7 +553,7 @@ declare ptr @BIO_get_data(ptr noundef) local_unnamed_addr #2
 declare ptr @BIO_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_bio_flush_ex(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %2, i32 noundef range(i32 2, 7) %3) unnamed_addr #1 {
+define internal fastcc i32 @asn1_bio_flush_ex(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef range(i32 2, 7) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load i32, ptr %5, align 8, !tbaa !15
   %7 = icmp slt i32 %6, 1

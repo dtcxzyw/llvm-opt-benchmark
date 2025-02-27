@@ -1014,7 +1014,7 @@ add_index_entry_with_check.exit.thread:           ; preds = %ce_same_name.exit.t
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @discard_cache_entry(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @discard_cache_entry(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %2
 
@@ -3383,7 +3383,7 @@ define dso_local range(i32 0, 2) i32 @ce_same_name(ptr noundef readonly captures
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local i32 @strcmp_offset(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #10 {
+define dso_local i32 @strcmp_offset(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #10 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %.preheader
 
@@ -3422,7 +3422,7 @@ define dso_local i32 @strcmp_offset(ptr noundef readonly captures(none) %0, ptr 
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @repo_refresh_and_write_index(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @repo_refresh_and_write_index(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca %struct.lock_file, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #30
   store i64 0, ptr %8, align 8
@@ -3459,7 +3459,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @repo_hold_locked_index(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @refresh_index(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @refresh_index(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -4271,7 +4271,7 @@ declare void @preload_index(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @trace2_region_enter_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @refresh_cache_ent(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc noundef ptr @refresh_cache_ent(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
   %8 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #30
   %9 = and i32 %2, 16
@@ -6158,7 +6158,7 @@ define dso_local range(i32 0, 2) i32 @is_index_unborn(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @validate_cache_entries(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @validate_cache_entries(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %43, %1
@@ -6343,7 +6343,7 @@ define dso_local range(i32 0, 2) i32 @unmerged_index(ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @repo_index_has_changes(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @repo_index_has_changes(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.object_id, align 4
   %5 = alloca %struct.diff_options, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -6986,7 +6986,7 @@ define dso_local range(i32 0, 2) i32 @index_name_is_other(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @read_blob_data_from_index(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local ptr @read_blob_data_from_index(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #30

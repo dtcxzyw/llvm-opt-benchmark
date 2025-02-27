@@ -912,7 +912,7 @@ define void @_ZN4LIEF2PE14ResourceDialog5parseERKNS0_12ResourceDataE(ptr dead_on
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i64 0, 8589934592) i64 @_ZN4LIEF2PE14ResourceDialog10parse_menuERS1_RNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
+define range(i64 0, 8589934592) i64 @_ZN4LIEF2PE14ResourceDialog10parse_menuERS1_RNS_12BinaryStreamE(ptr noundef nonnull align 8 captures(address) dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = alloca %"class.tl::expected.102", align 8
@@ -1196,7 +1196,7 @@ declare void @_ZNK4LIEF12BinaryStream14read_u16stringB5cxx11Ev(ptr dead_on_unwin
 declare noundef i64 @_ZNK4LIEF12BinaryStream5alignEm(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i64 0, 8589934592) i64 @_ZN4LIEF2PE14ResourceDialog11parse_classERS1_RNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
+define range(i64 0, 8589934592) i64 @_ZN4LIEF2PE14ResourceDialog11parse_classERS1_RNS_12BinaryStreamE(ptr noundef nonnull align 8 captures(address) dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = alloca %"class.tl::expected.102", align 8
@@ -1476,7 +1476,7 @@ _ZN2tl6detail21expected_storage_baseINSt7__cxx1112basic_stringIDsSt11char_traits
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i64 0, 8589934592) i64 @_ZN4LIEF2PE14ResourceDialog11parse_classERNS1_4ItemERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
+define range(i64 0, 8589934592) i64 @_ZN4LIEF2PE14ResourceDialog11parse_classERNS1_4ItemERNS_12BinaryStreamE(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = alloca %"class.tl::expected.102", align 8
@@ -1754,7 +1754,7 @@ _ZN2tl6detail21expected_storage_baseINSt7__cxx1112basic_stringIDsSt11char_traits
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i64 0, 8589934592) i64 @_ZN4LIEF2PE14ResourceDialog11parse_titleERS1_RNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
+define range(i64 0, 8589934592) i64 @_ZN4LIEF2PE14ResourceDialog11parse_titleERS1_RNS_12BinaryStreamE(ptr noundef nonnull align 8 captures(address) dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.tl::expected.102", align 8
   %4 = alloca %"class.std::__cxx11::basic_string.67", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22
@@ -1932,7 +1932,7 @@ _ZN2tl6detail21expected_storage_baseINSt7__cxx1112basic_stringIDsSt11char_traits
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i64 0, 8589934592) i64 @_ZN4LIEF2PE14ResourceDialog11parse_titleERNS1_4ItemERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
+define range(i64 0, 8589934592) i64 @_ZN4LIEF2PE14ResourceDialog11parse_titleERNS1_4ItemERNS_12BinaryStreamE(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = alloca %"class.tl::expected.102", align 8
@@ -2868,7 +2868,7 @@ _ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE14ResourceDialog14CONTROL_STYLESE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(144) ptr @_ZN4LIEF2PE14ResourceDialog5titleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(144) ptr @_ZN4LIEF2PE14ResourceDialog5titleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.tl::expected.102", align 8
   %4 = alloca %"class.std::__cxx11::basic_string.67", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22

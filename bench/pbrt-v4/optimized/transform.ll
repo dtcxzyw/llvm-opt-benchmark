@@ -7050,7 +7050,7 @@ _ZN4pbrt9TransformC2ERKNS_12SquareMatrixILi4EEE.exit3483: ; preds = %72, %.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt17AnimatedTransformclERKNS_3RayEPf(ptr dead_on_unwind noalias writable writeonly sret(%"class.pbrt::Ray") align 8 captures(none) initializes((0, 28), (32, 40)) %0, ptr noundef nonnull align 4 dereferenceable(696) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, ptr noundef %3) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK4pbrt17AnimatedTransformclERKNS_3RayEPf(ptr dead_on_unwind noalias writable writeonly sret(%"class.pbrt::Ray") align 8 captures(none) initializes((0, 28), (32, 40)) %0, ptr noundef nonnull align 4 dereferenceable(696) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #5 align 2 {
   %5 = alloca %"class.pbrt::Point3fi", align 4
   %6 = alloca %"class.pbrt::Point3fi", align 8
   %7 = alloca %"class.pbrt::Point3fi", align 4
@@ -8068,7 +8068,7 @@ _ZNK4pbrt9TransformmlERKS0_.exit112:              ; preds = %_ZN4pbrt12SquareMat
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt17AnimatedTransform12ApplyInverseERKNS_3RayEPf(ptr dead_on_unwind noalias writable writeonly sret(%"class.pbrt::Ray") align 8 captures(none) initializes((0, 28), (32, 40)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(696) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, ptr noundef %3) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK4pbrt17AnimatedTransform12ApplyInverseERKNS_3RayEPf(ptr dead_on_unwind noalias writable writeonly sret(%"class.pbrt::Ray") align 8 captures(none) initializes((0, 28), (32, 40)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(696) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #5 align 2 {
   %5 = alloca %"class.pbrt::Point3fi", align 4
   %6 = alloca %"class.pbrt::Point3fi", align 8
   %7 = alloca %"class.pbrt::Point3fi", align 4

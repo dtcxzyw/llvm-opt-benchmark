@@ -1041,7 +1041,7 @@ declare void @_ZN7glslang12TScanContext16deleteKeywordMapEv() local_unnamed_addr
 declare void @_ZN7glslang15HlslScanContext16deleteKeywordMapEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, 2) i32 @ShCompile(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ShCompile(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #3 {
   %12 = alloca %"class.glslang::TIntermediate", align 8
   %13 = alloca %"class.glslang::TShader::ForbidIncluder", align 8
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1403,7 +1403,7 @@ _ZNSt6vectorIN7glslang10TXfbBufferESaIS1_EE6resizeEm.exit: ; preds = %122, %124,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115CompileDeferredEP9TCompilerPKPKciPKiS5_S3_20EShOptimizationLevelPK16TBuiltInResourcei8EProfilebib11EShMessagesRN7glslang13TIntermediateERNSE_7TShader8IncluderENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNSE_12TEnvironmentEb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, i1 noundef zeroext %10, i32 noundef %11, i1 noundef zeroext %12, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(2024) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %16, ptr noundef readonly %17, i1 noundef zeroext %18) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115CompileDeferredEP9TCompilerPKPKciPKiS5_S3_20EShOptimizationLevelPK16TBuiltInResourcei8EProfilebib11EShMessagesRN7glslang13TIntermediateERNSE_7TShader8IncluderENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNSE_12TEnvironmentEb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, i1 noundef zeroext %10, i32 noundef %11, i1 noundef zeroext %12, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(2024) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %16, ptr noundef readonly captures(address_is_null) %17, i1 noundef zeroext %18) unnamed_addr #3 {
   %20 = alloca %"struct.glslang::SpvVersion", align 8
   %21 = alloca %"class.glslang::TInputScanner", align 8
   %22 = alloca i32, align 4
@@ -5879,7 +5879,7 @@ define void @_ZN7glslang8TProgramC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang8TProgramD2Ev(ptr noundef nonnull align 8 dereferenceable(497) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define void @_ZN7glslang8TProgramD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(497) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7glslang8TProgramE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %3 = load ptr, ptr %2, align 8
@@ -5979,7 +5979,7 @@ define void @_ZN7glslang8TProgramD0Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang8TProgram4linkE11EShMessages(ptr noundef nonnull align 8 dereferenceable(497) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN7glslang8TProgram4linkE11EShMessages(ptr noundef nonnull align 8 captures(address) dereferenceable(497) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -6015,7 +6015,7 @@ define noundef zeroext i1 @_ZN7glslang8TProgram4linkE11EShMessages(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang8TProgram9linkStageE11EShLanguage11EShMessages(ptr noundef nonnull align 8 dereferenceable(497) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN7glslang8TProgram9linkStageE11EShLanguage11EShMessages(ptr noundef nonnull align 8 captures(address) dereferenceable(497) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw [14 x %"class.std::__cxx11::list.104"], ptr %4, i64 0, i64 %5

@@ -633,7 +633,7 @@ define linkonce_odr void @_ZN6icu_776number4impl15CurrencySymbolsD2Ev(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_776number4impl15CurrencySymbols10getIsoCodeEv(ptr noundef nonnull readnone align 8 dereferenceable(232) %0) local_unnamed_addr #11 align 2 {
+define noundef nonnull ptr @_ZNK6icu_776number4impl15CurrencySymbols10getIsoCodeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(232) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   ret ptr %2
 }

@@ -54,7 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [42 x i8] c"-INVALIDOBJ Corrupted HLL object detected\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i64 @MurmurHash64A(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i64 @MurmurHash64A(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = zext i32 %2 to i64
   %5 = sext i32 %1 to i64
   %6 = mul i64 %5, -4132994306676758123
@@ -175,7 +175,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 1, 52) i32 @hllPatLen(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
+define dso_local range(i32 1, 52) i32 @hllPatLen(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %4 = trunc i64 %1 to i32
   %sext = shl i64 %1, 32
   %5 = ashr exact i64 %sext, 32
@@ -347,7 +347,7 @@ define dso_local range(i32 0, 2) i32 @hllDenseSet(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @hllDenseAdd(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @hllDenseAdd(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
   %5 = call i32 @hllPatLen(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4)
@@ -1530,7 +1530,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare void @sdsIncrLen(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @hllSparseAdd(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 {
+define dso_local range(i32 -1, 2) i32 @hllSparseAdd(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
   %5 = call i32 @hllPatLen(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4)
@@ -1542,7 +1542,7 @@ define dso_local range(i32 -1, 2) i32 @hllSparseAdd(ptr noundef captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @hllSparseRegHisto(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef captures(none) %3) local_unnamed_addr #2 {
+define dso_local void @hllSparseRegHisto(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(none) %3) local_unnamed_addr #2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1762,7 +1762,7 @@ define dso_local double @hllTau(double noundef %0) local_unnamed_addr #11 {
 declare double @sqrt(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hllCount(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
+define dso_local i64 @hllCount(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = alloca [64 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
@@ -2059,7 +2059,7 @@ declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare i64 @llroundl(x86_fp80 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @hllAdd(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 {
+define dso_local range(i32 -1, 2) i32 @hllAdd(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

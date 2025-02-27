@@ -47,7 +47,7 @@ define dso_local zeroext i1 @have_free_buffer() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @StrategyGetBuffer(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) local_unnamed_addr #1 {
+define dso_local ptr @StrategyGetBuffer(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) local_unnamed_addr #1 {
   store i8 0, ptr %2, align 1
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %GetBufferFromRing.exit.thread, label %4
@@ -386,7 +386,7 @@ define dso_local void @StrategyFreeBuffer(ptr noundef captures(none) %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, -1) i32 @StrategySyncStart(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, -1) i32 @StrategySyncStart(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @StrategyControl, align 8
   %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i8 1, ptr elementtype(i8) %3) #9, !srcloc !6
   %.not = icmp eq i8 %4, 0
@@ -580,7 +580,7 @@ define dso_local noundef ptr @GetAccessStrategyWithSize(i32 noundef %0, i32 noun
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @GetAccessStrategyBufferCount(ptr noundef readonly %0) local_unnamed_addr #5 {
+define dso_local i32 @GetAccessStrategyBufferCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -595,7 +595,7 @@ define dso_local i32 @GetAccessStrategyBufferCount(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @GetAccessStrategyPinLimit(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i32 @GetAccessStrategyPinLimit(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -635,7 +635,7 @@ define dso_local void @FreeAccessStrategy(ptr noundef %0) local_unnamed_addr #1 
 declare void @pfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @IOContextForStrategy(ptr noundef readonly %0) local_unnamed_addr #1 {
+define dso_local range(i32 0, 5) i32 @IOContextForStrategy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 

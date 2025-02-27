@@ -3864,7 +3864,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80EL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL13get_cld_klassPK15ClassLoaderDatab(ptr noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL13get_cld_klassPK15ClassLoaderDatab(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %_ZN10JfrTraceId4loadEPK5Klass.exit, label %4
 
@@ -4821,7 +4821,7 @@ define internal void @_ZL8do_klassP5Klass(ptr noundef %0) #0 {
 declare noundef zeroext i1 @_ZN17JfrKlassUnloading9on_unloadEPK5Klass(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15write_primitiveP19JfrCheckpointWriterPK5Klass(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZL15write_primitiveP19JfrCheckpointWriterPK5Klass(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = alloca %class.JfrCheckpointFlush, align 8
   %4 = alloca %class.JfrCheckpointFlush, align 8
   %5 = alloca i32, align 4

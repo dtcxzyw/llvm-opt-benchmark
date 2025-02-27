@@ -1225,7 +1225,7 @@ _ZlsRSo6symbol.exit:                              ; preds = %if.then2.i, %if.els
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN1q11interpreter16mk_depth1_vectorEPN3euf5enodeEP9func_declj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef readonly captures(none) %n, ptr noundef readnone %f, i32 noundef %i) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN1q11interpreter16mk_depth1_vectorEPN3euf5enodeEP9func_declj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef readonly captures(none) %n, ptr noundef readnone captures(address) %f, i32 noundef %i) local_unnamed_addr #4 align 2 {
 entry:
   %m_pool.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %m_pool.i, align 8
@@ -1376,7 +1376,7 @@ for.end:                                          ; preds = %for.inc, %_ZN1q11in
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN1q11interpreter16mk_depth2_vectorEPNS_6joint2EP9func_declj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef readonly captures(none) %j2, ptr noundef readnone %f, i32 noundef %i) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN1q11interpreter16mk_depth2_vectorEPNS_6joint2EP9func_declj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef readonly captures(none) %j2, ptr noundef readnone captures(address) %f, i32 noundef %i) local_unnamed_addr #4 align 2 {
 entry:
   %m_registers = getelementptr inbounds nuw i8, ptr %this, i64 32
   %m_reg = getelementptr inbounds nuw i8, ptr %j2, i64 12

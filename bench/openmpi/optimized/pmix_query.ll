@@ -1645,7 +1645,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %10, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @qinfocb(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((476, 480)) %3, ptr noundef readonly %4, ptr noundef %5) #1 {
+define internal void @qinfocb(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((476, 480)) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 476
   store i32 %0, ptr %7, align 4, !tbaa !108
   %.not = icmp eq ptr %1, null
@@ -1836,7 +1836,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %48, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_query_local_resolve_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((936, 952)) %3, ptr noundef readonly %4, ptr noundef %5) #1 {
+define void @pmix_query_local_resolve_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((936, 952)) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #1 {
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8, !tbaa !121
   %or.cond = icmp ult i32 %7, 64
   br i1 %or.cond, label %8, label %18

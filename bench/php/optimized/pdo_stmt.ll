@@ -7315,7 +7315,7 @@ row_read_column_number.exit.thread:               ; preds = %zend_string_equals.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @row_prop_write(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone returned %2, ptr readnone captures(none) %3) #0 {
+define internal noundef ptr @row_prop_write(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone returned captures(ret: address, provenance) %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.127) #17
   ret ptr %2
 }
@@ -7606,7 +7606,7 @@ zend_string_release_ex.exit:                      ; preds = %40, %35, %zval_try_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @row_dim_write(ptr readnone captures(none) %0, ptr noundef readnone %1, ptr readnone captures(none) %2) #0 {
+define internal void @row_dim_write(ptr readnone captures(none) %0, ptr noundef readnone captures(address_is_null) %1, ptr readnone captures(none) %2) #0 {
   %.not = icmp eq ptr %1, null
   %.str.129..str.130 = select i1 %.not, ptr @.str.129, ptr @.str.130
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull %.str.129..str.130) #17
@@ -8160,7 +8160,7 @@ define internal range(i32 -1, 1) i32 @pdo_stmt_iter_valid(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal ptr @pdo_stmt_iter_get_data(ptr noundef readonly %0) #12 {
+define internal ptr @pdo_stmt_iter_get_data(ptr noundef readonly captures(ret: address, provenance) %0) #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i8, ptr %3, align 8, !tbaa !37

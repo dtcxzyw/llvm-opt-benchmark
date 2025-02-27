@@ -153,7 +153,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PatternProps12isWhiteSpace
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN6icu_7712PatternProps14skipWhiteSpaceEPKDsi(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZN6icu_7712PatternProps14skipWhiteSpaceEPKDsi(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %.critedge
 
@@ -268,7 +268,7 @@ _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit:    ; preds = %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6icu_7712PatternProps14trimWhiteSpaceEPKDsRi(ptr noundef readonly %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN6icu_7712PatternProps14trimWhiteSpaceEPKDsRi(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #3 align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !6
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit31.thread, label %5
@@ -402,7 +402,7 @@ _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit31.thread: ; preds = %23, %29, %2, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PatternProps12isIdentifierEPKDsi(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PatternProps12isIdentifierEPKDsi(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = icmp slt i32 %1, 1
   br i1 %3, label %.loopexit, label %4
 
@@ -475,7 +475,7 @@ _ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread: ; preds = %33, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN6icu_7712PatternProps14skipIdentifierEPKDsi(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZN6icu_7712PatternProps14skipIdentifierEPKDsi(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %.critedge
 

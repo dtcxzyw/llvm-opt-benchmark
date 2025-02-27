@@ -203,7 +203,7 @@ zend_list_insert.exit:                            ; preds = %2, %.fold.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_fetch_resource2(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @zend_fetch_resource2(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %6
@@ -284,7 +284,7 @@ define dso_local ptr @zend_fetch_resource(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_fetch_resource_ex(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @zend_fetch_resource_ex(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
@@ -351,7 +351,7 @@ zend_fetch_resource.exit:                         ; preds = %29, %28, %25, %15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_fetch_resource2_ex(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @zend_fetch_resource2_ex(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13

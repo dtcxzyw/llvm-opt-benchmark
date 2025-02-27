@@ -5990,7 +5990,7 @@ declare ptr @_PyPegen_name_token(ptr noundef) #2
 declare ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @INVALID_VERSION_CHECK(ptr noundef %0, i32 noundef range(i32 5, 14) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #3 {
+define internal fastcc ptr @INVALID_VERSION_CHECK(ptr noundef %0, i32 noundef range(i32 5, 14) %1, ptr noundef %2, ptr noundef readnone captures(address_is_null, ret: address, provenance) %3) unnamed_addr #3 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %6, label %8
 
@@ -27857,7 +27857,7 @@ define internal fastcc ptr @block_rule(ptr noundef %0) unnamed_addr #0 {
 declare ptr @_PyAST_FunctionDef(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @NEW_TYPE_COMMENT(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #3 {
+define internal fastcc ptr @NEW_TYPE_COMMENT(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #3 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %14, label %4
 

@@ -124,7 +124,7 @@ dh_gen_init_base.exit:                            ; preds = %3, %.split.i, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_gen_set_template(ptr noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @dh_gen_set_template(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @ossl_prov_is_running() #8
   %4 = icmp eq i32 %3, 0
   %5 = icmp eq ptr %0, null

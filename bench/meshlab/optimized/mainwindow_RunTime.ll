@@ -46102,7 +46102,7 @@ _ZNK10MainWindow3GLAEv.exit.thread:               ; preds = %._crit_edge, %2, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow37updateRenderingDataAccordingToActionsEiP17MLRenderingActionR5QListIS1_E(ptr noundef nonnull align 8 dereferenceable(1376) %0, i32 noundef %1, ptr noundef readnone %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10MainWindow37updateRenderingDataAccordingToActionsEiP17MLRenderingActionR5QListIS1_E(ptr noundef nonnull align 8 dereferenceable(1376) %0, i32 noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QList.480, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1368
@@ -47821,7 +47821,7 @@ define void @_ZN10MainWindow9updateLogEv(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow22switchCurrentContainerEP13QMdiSubWindow(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef readnone %1) local_unnamed_addr #10 align 2 {
+define void @_ZN10MainWindow22switchCurrentContainerEP13QMdiSubWindow(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef readnone captures(address_is_null) %1) local_unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %8
 

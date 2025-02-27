@@ -5542,7 +5542,7 @@ define noundef i32 @_ZN5folly15HashingThreadId3getEv() local_unnamed_addr #0 ali
 declare noundef i64 @_ZN5folly18getCurrentThreadIDEv() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @_ZN5folly6detail18AccessSpreaderBase16degenerateGetcpuEPjS2_Pv(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #19 align 2 {
+define noundef i32 @_ZN5folly6detail18AccessSpreaderBase16degenerateGetcpuEPjS2_Pv(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #19 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4
 

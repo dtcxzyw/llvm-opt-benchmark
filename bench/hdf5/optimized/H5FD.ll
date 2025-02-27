@@ -495,7 +495,7 @@ declare i32 @H5FD__stdio_unregister() local_unnamed_addr #2
 declare i32 @H5I_dec_type_ref(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -1, -9223372036854775808) i64 @H5FDregister(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @H5FDregister(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %2) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %2, i8 0, i64 480, i1 false)

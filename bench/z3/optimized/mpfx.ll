@@ -5210,7 +5210,7 @@ if.end28:                                         ; preds = %_ZN12mpfx_manager5r
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12mpfx_manager5powerERK4mpfxjRS0_(ptr noundef nonnull align 8 dereferenceable(85) %this, ptr noundef nonnull readonly align 4 dereferenceable(4) %a, i32 noundef %p, ptr noundef nonnull align 4 dereferenceable(4) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12mpfx_manager5powerERK4mpfxjRS0_(ptr noundef nonnull align 8 dereferenceable(85) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(4) %a, i32 noundef %p, ptr noundef nonnull align 4 captures(address) dereferenceable(4) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pw = alloca %class._scoped_numeral, align 8
   %bf.load.i = load i32, ptr %a, align 4

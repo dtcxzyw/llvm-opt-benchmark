@@ -755,7 +755,7 @@ define noalias noundef nonnull ptr @gguf_init_empty() local_unnamed_addr #2 {
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z24gguf_init_from_file_implP8_IO_FILE16gguf_init_params(ptr noundef %0, i8 %1, ptr writeonly %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_Z24gguf_init_from_file_implP8_IO_FILE16gguf_init_params(ptr noundef %0, i8 %1, ptr writeonly captures(address_is_null) %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i:
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
@@ -4980,7 +4980,7 @@ declare void @ggml_set_no_alloc(ptr noundef, i1 noundef zeroext) local_unnamed_a
 declare ptr @ggml_new_tensor(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @gguf_init_from_file(ptr noundef %0, i8 %1, ptr %2) local_unnamed_addr #2 {
+define noundef ptr @gguf_init_from_file(ptr noundef %0, i8 %1, ptr captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = tail call ptr @ggml_fopen(ptr noundef %0, ptr noundef nonnull @.str.51)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %8
@@ -8921,7 +8921,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @gguf_set_val_str(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @gguf_set_val_str(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8

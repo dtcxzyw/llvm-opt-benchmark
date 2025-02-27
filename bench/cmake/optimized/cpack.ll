@@ -14270,7 +14270,7 @@ declare void @_ZN11cmJSONState15GetErrorMessageB5cxx11Eb(ptr dead_on_unwind writ
 declare void @_ZNK19cmCMakePresetsGraph22PrintPackagePresetListERKSt8functionIFbRKNS_13PackagePresetEEEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(536), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZ4mainENK3$_0clERKN19cmCMakePresetsGraph13PackagePresetE"(ptr readonly %.0.val, ptr %.256.val, ptr %.264.val) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZ4mainENK3$_0clERKN19cmCMakePresetsGraph13PackagePresetE"(ptr readonly captures(address) %.0.val, ptr %.256.val, ptr %.264.val) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %1 = ptrtoint ptr %.264.val to i64
   %2 = ptrtoint ptr %.256.val to i64
   %3 = sub i64 %1, %2
@@ -16264,7 +16264,7 @@ _ZN22cmDocumentationSectionD2Ev.exit24:           ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117makeGeneratorDocsERK23cmCPackGeneratorFactory(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(104) %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117makeGeneratorDocsERK23cmCPackGeneratorFactory(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(104) %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.cmDocumentationEntry, align 8

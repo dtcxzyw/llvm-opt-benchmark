@@ -809,7 +809,7 @@ define dso_local void @string_list_clear(ptr noundef captures(none) %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @string_list_clear_func(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define dso_local void @string_list_clear_func(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !tbaa !13
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %25, label %4

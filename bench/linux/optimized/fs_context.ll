@@ -147,7 +147,7 @@ define dso_local noundef range(i32 -519, 1) i32 @vfs_parse_fs_param_source(ptr n
 declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @logfc(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ...) #0 align 16 {
+define dso_local void @logfc(ptr noundef captures(address_is_null) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ...) #0 align 16 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = alloca %struct.va_format, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11

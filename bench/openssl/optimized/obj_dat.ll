@@ -3679,7 +3679,7 @@ ossl_obj_unlock.exit51:                           ; preds = %ossl_obj_unlock.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 -2147483648, 2147483648) i64 @OBJ_length(ptr noundef readonly %0) local_unnamed_addr #6 {
+define range(i64 -2147483648, 2147483648) i64 @OBJ_length(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -3695,7 +3695,7 @@ define range(i64 -2147483648, 2147483648) i64 @OBJ_length(ptr noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OBJ_get0_data(ptr noundef readonly %0) local_unnamed_addr #6 {
+define ptr @OBJ_get0_data(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

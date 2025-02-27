@@ -271,7 +271,7 @@ declare void @gtk_box_pack_start(ptr noundef, ptr noundef, i32 noundef, i32 noun
 declare i64 @gtk_box_get_type() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_button_pressed(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) #1 {
+define internal void @_button_pressed(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = alloca [200 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !54

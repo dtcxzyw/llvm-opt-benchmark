@@ -1920,7 +1920,7 @@ define dso_local void @locks_release_private(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @locks_owner_has_blockers(ptr noundef %0, ptr noundef readnone %1) #1 align 16 {
+define dso_local noundef zeroext i1 @locks_owner_has_blockers(ptr noundef %0, ptr noundef readnone captures(address) %1) #1 align 16 {
   tail call void @_raw_spin_lock(ptr noundef %0) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -2440,7 +2440,7 @@ declare dso_local void @__module_get(ptr noundef) local_unnamed_addr #0
 declare dso_local void @module_put(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -37, 2) i32 @posix_lock_file(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local range(i32 -37, 2) i32 @posix_lock_file(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = tail call fastcc i32 @posix_lock_inode(ptr noundef %5, ptr noundef %1, ptr noundef %2), !range !49
@@ -2448,7 +2448,7 @@ define dso_local range(i32 -37, 2) i32 @posix_lock_file(ptr noundef readonly cap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -37, 2) i32 @posix_lock_inode(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -37, 2) i32 @posix_lock_inode(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
   store ptr %4, ptr %4, align 8
@@ -4965,7 +4965,7 @@ define dso_local void @lease_get_mtime(ptr noundef %0, ptr noundef writeonly cap
 declare dso_local { i64, i64 } @current_time(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 256) i32 @fcntl_getlease(ptr noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 256) i32 @fcntl_getlease(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 align 16 {
   %2 = alloca %struct.list_head, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
@@ -6580,7 +6580,7 @@ flock_to_posix_lock.exit.thread:                  ; preds = %7, %60, %52, %43, %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vfs_lock_file(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #1 align 16 {
+define dso_local i32 @vfs_lock_file(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %0
@@ -7538,7 +7538,7 @@ define dso_local zeroext i1 @vfs_inode_has_locks(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @show_fd_locks(ptr noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #1 align 16 {
+define dso_local void @show_fd_locks(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 352
@@ -7965,7 +7965,7 @@ declare dso_local void @__register_sysctl_init(ptr noundef, ptr noundef, ptr nou
 declare dso_local i32 @proc_dointvec(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @locks_dump_ctx_list(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc void @locks_dump_ctx_list(ptr noundef readonly captures(address) %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, %0
   br i1 %4, label %.loopexit, label %.preheader

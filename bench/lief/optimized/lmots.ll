@@ -110,7 +110,7 @@ declare i32 @llvm.bswap.i32(i32) #6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -25, 1) i32 @mbedtls_lmots_export_public_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #5 {
+define hidden range(i32 -25, 1) i32 @mbedtls_lmots_export_public_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = icmp eq i32 %6, 4
@@ -155,7 +155,7 @@ define hidden range(i32 -25, 1) i32 @mbedtls_lmots_export_public_key(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_lmots_calculate_public_key_candidate(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef writeonly %7) local_unnamed_addr #3 {
+define hidden i32 @mbedtls_lmots_calculate_public_key_candidate(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #3 {
   %9 = alloca %struct.psa_hash_operation_s, align 8
   %10 = alloca i64, align 8
   %11 = alloca [2 x i8], align 2

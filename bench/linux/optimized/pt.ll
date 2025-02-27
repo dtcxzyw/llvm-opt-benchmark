@@ -1466,7 +1466,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #6
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @pt_topa_entry_for_page(ptr noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc ptr @pt_topa_entry_for_page(ptr noundef nonnull readonly captures(address) %0, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8
@@ -3076,7 +3076,7 @@ define internal void @pt_buffer_free_aux(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal void @pt_event_addr_filters_sync(ptr noundef readonly %0) #9 align 16 {
+define internal void @pt_event_addr_filters_sync(ptr noundef readonly captures(address) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3165,7 +3165,7 @@ define internal void @pt_event_addr_filters_sync(ptr noundef readonly %0) #9 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal noundef range(i32 -95, 1) i32 @pt_event_addr_filters_validate(ptr noundef readonly %0) #10 align 16 {
+define internal noundef range(i32 -95, 1) i32 @pt_event_addr_filters_validate(ptr noundef readonly captures(address) %0) #10 align 16 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pt_pmu, i64 320), align 8
   %3 = and i32 %2, 7
   br label %4

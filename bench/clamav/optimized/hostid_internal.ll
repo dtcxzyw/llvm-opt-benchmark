@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.device = type { ptr, [19 x i8] }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @get_device_entry(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define noundef ptr @get_device_entry(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %.preheader57
 

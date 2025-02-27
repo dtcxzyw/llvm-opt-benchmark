@@ -906,7 +906,7 @@ ehcleanup83:                                      ; preds = %ehcleanup80, %lpad8
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf9ac_plugin13register_nodeEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef readonly %n) unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf9ac_plugin13register_nodeEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef readonly captures(address) %n) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %n, align 8
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4

@@ -137,7 +137,7 @@ define dso_local i32 @jbd2_submit_inode_data(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @jbd2_wait_inode_data(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 align 16 {
+define dso_local i32 @jbd2_wait_inode_data(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %23, label %4
 

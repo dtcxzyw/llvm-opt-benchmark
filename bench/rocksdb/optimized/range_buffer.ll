@@ -104,7 +104,7 @@ declare noundef ptr @_Z26toku_dbt_positive_infinityv() local_unnamed_addr #2
 declare noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK4toku12range_buffer8iterator6record12get_left_keyEv(ptr noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK4toku12range_buffer8iterator6record12get_left_keyEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(80) %0) local_unnamed_addr #1 align 2 {
   %2 = load i8, ptr %0, align 8, !tbaa !23, !range !10, !noundef !11
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %4, label %6
@@ -133,7 +133,7 @@ define noundef ptr @_ZNK4toku12range_buffer8iterator6record12get_left_keyEv(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK4toku12range_buffer8iterator6record13get_right_keyEv(ptr noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK4toku12range_buffer8iterator6record13get_right_keyEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(80) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %3 = load i8, ptr %2, align 1, !tbaa !26, !range !10, !noundef !11
   %4 = trunc nuw i8 %3 to i1

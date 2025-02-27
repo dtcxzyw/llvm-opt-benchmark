@@ -294,7 +294,7 @@ _ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit: ; preds = %7, %9, %switch.lo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11SafeOpFlags17return_float_typeEPK4TypeS2_S2_10eBinaryOps(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZN11SafeOpFlags17return_float_typeEPK4TypeS2_S2_10eBinaryOps(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #7 align 2 {
   %5 = tail call noundef zeroext i1 @_ZN9CGOptions12enable_floatEv()
   br i1 %5, label %6, label %32
 
@@ -351,7 +351,7 @@ declare noundef zeroext i1 @_ZN9CGOptions12enable_floatEv() local_unnamed_addr #
 declare noundef zeroext i1 @_ZN18FunctionInvocation21BinaryOpWorksForFloatE10eBinaryOps(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11SafeOpFlags17return_float_typeEPK4TypeS2_9eUnaryOps(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZN11SafeOpFlags17return_float_typeEPK4TypeS2_9eUnaryOps(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN9CGOptions12enable_floatEv()
   br i1 %4, label %5, label %23
 
@@ -393,7 +393,7 @@ define dso_local noundef zeroext i1 @_ZN11SafeOpFlags17return_float_typeEPK4Type
 declare noundef zeroext i1 @_ZN18FunctionInvocation20UnaryOpWorksForFloatE9eUnaryOps(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noalias noundef nonnull ptr @_ZN11SafeOpFlags17make_random_unaryEPK4TypeS2_9eUnaryOps(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noalias noundef nonnull ptr @_ZN11SafeOpFlags17make_random_unaryEPK4TypeS2_9eUnaryOps(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
   %5 = tail call noundef zeroext i1 @_ZN9CGOptions12enable_floatEv()
   br i1 %5, label %6, label %_ZN11SafeOpFlags17return_float_typeEPK4TypeS2_9eUnaryOps.exit
@@ -465,7 +465,7 @@ declare noundef i32 @_Z8rnd_uptojPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_
 declare noundef ptr @_ZN13Probabilities15get_prob_filterE8ProbName(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN11SafeOpFlags18make_random_binaryEPK4TypeS2_S2_10SafeOpKind10eBinaryOps(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN11SafeOpFlags18make_random_binaryEPK4TypeS2_S2_10SafeOpKind10eBinaryOps(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noundef i32 @_ZN9DepthSpec19depth_guard_by_typeE5dTypei(i32 noundef 39, i32 noundef %3)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %63

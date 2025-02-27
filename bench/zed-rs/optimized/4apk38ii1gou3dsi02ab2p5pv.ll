@@ -1747,7 +1747,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error12object_boxed17hb459f7f3c7e4728aE.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h6bba9b5f26877f44E.llvm.4731052299134177300(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h6bba9b5f26877f44E.llvm.4731052299134177300(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
   %4 = icmp eq i64 %1, -5076933981314334344
   %5 = icmp eq i64 %2, 7199936582794304877
   %or.cond = and i1 %4, %5
@@ -1757,7 +1757,7 @@ define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h6bba9b5f26877f44E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17ha9a4318605e3905bE.llvm.4731052299134177300(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17ha9a4318605e3905bE.llvm.4731052299134177300(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
   %4 = icmp eq i64 %1, 3419990959903056772
   %5 = icmp eq i64 %2, 1871997861980073009
   %or.cond = and i1 %4, %5
@@ -1767,7 +1767,7 @@ define hidden noundef ptr @_ZN6anyhow5error15object_downcast17ha9a4318605e3905bE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hea254b1dc3dc9b32E.llvm.4731052299134177300(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hea254b1dc3dc9b32E.llvm.4731052299134177300(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
   %4 = icmp eq i64 %1, -2762482093538290455
   %5 = icmp eq i64 %2, -3543626384918356640
   %or.cond = and i1 %4, %5

@@ -1527,7 +1527,7 @@ declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17ba
 declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core9XdsClient10XdsChannel22SetChannelStatusLockedEN4absl12lts_202407226StatusE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClient10XdsChannel22SetChannelStatusLockedEN4absl12lts_202407226StatusE(ptr noundef nonnull align 8 captures(address) dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::Status", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.absl::lts_20240722::AlphaNum", align 8
@@ -3440,7 +3440,7 @@ _ZNK9grpc_core9XdsClient10XdsChannel7AdsCall22HasSubscribedResourcesEv.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZNK9grpc_core9XdsClient10XdsChannel7AdsCall22HasSubscribedResourcesEv(ptr noundef nonnull readonly align 8 dereferenceable(144) %0) local_unnamed_addr #15 align 2 {
+define noundef zeroext i1 @_ZNK9grpc_core9XdsClient10XdsChannel7AdsCall22HasSubscribedResourcesEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(144) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -3465,7 +3465,7 @@ define noundef zeroext i1 @_ZNK9grpc_core9XdsClient10XdsChannel7AdsCall22HasSubs
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core9XdsClient48MaybeRemoveUnsubscribedCacheEntriesForTypeLockedEPNS0_10XdsChannelEPKNS_15XdsResourceTypeE(ptr noundef nonnull align 8 dereferenceable(353) %0, ptr noundef readnone %1, ptr noundef readnone %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClient48MaybeRemoveUnsubscribedCacheEntriesForTypeLockedEPNS0_10XdsChannelEPKNS_15XdsResourceTypeE(ptr noundef nonnull align 8 dereferenceable(353) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %5 = load ptr, ptr %4, align 8, !tbaa !25
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -3982,7 +3982,7 @@ _ZNSt3mapIPKN9grpc_core15XdsResourceTypeES_INS0_9XdsClient14XdsResourceKeyENS4_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9grpc_core9XdsClient10XdsChannel19MaybeFallbackLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_14AuthorityStateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN9grpc_core9XdsClient10XdsChannel19MaybeFallbackLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_14AuthorityStateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(72) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<const grpc_core::XdsResourceType *, std::pair<const grpc_core::XdsResourceType *const, grpc_core::XdsClient::XdsChannel::AdsCall::ResourceTypeState>, std::_Select1st<std::pair<const grpc_core::XdsResourceType *const, grpc_core::XdsClient::XdsChannel::AdsCall::ResourceTypeState>>, std::less<const grpc_core::XdsResourceType *>>::_Auto_node", align 8
   %5 = alloca %"class.std::tuple.389", align 8
   %6 = alloca %"class.std::tuple.328", align 1
@@ -5825,7 +5825,7 @@ _ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EED2Ev.exit131: ; preds
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN9grpc_core9XdsClient20HasUncachedResourcesERKNS0_14AuthorityStateE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(353) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #15 align 2 {
+define noundef zeroext i1 @_ZN9grpc_core9XdsClient20HasUncachedResourcesERKNS0_14AuthorityStateE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(353) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -6260,7 +6260,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core9XdsClient10XdsChannel16SetHealthyLockedEv(ptr noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClient10XdsChannel16SetHealthyLockedEv(ptr noundef nonnull align 8 captures(address) dereferenceable(120) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.std::vector.98", align 8
@@ -6729,7 +6729,7 @@ _ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrINS0_9XdsClient10XdsChannelEEESaIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core9XdsClient10XdsChannel21OnConnectivityFailureEN4absl12lts_202407226StatusE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClient10XdsChannel21OnConnectivityFailureEN4absl12lts_202407226StatusE(ptr noundef nonnull align 8 captures(address) dereferenceable(120) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::Status", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !10
@@ -10815,7 +10815,7 @@ _ZNSt3mapIPKN9grpc_core15XdsResourceTypeENSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core9XdsClient10XdsChannel7AdsCall23ResourceNamesForRequestB5cxx11EPKNS_15XdsResourceTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.185") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(144) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClient10XdsChannel7AdsCall23ResourceNamesForRequestB5cxx11EPKNS_15XdsResourceTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.185") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(144) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -11422,7 +11422,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit25:      ; preds = %_ZN9grpc_core13RefC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK9grpc_core9XdsClient10XdsChannel7AdsCall22IsCurrentCallOnChannelEv(ptr noundef nonnull readonly align 8 dereferenceable(144) %0) local_unnamed_addr #17 align 2 {
+define noundef zeroext i1 @_ZNK9grpc_core9XdsClient10XdsChannel7AdsCall22IsCurrentCallOnChannelEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(144) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !263
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -15453,7 +15453,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10shared_ptrIKN9grpc_c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core9XdsClient13ResourceState8SetAckedESt10shared_ptrIKNS_15XdsResourceType12ResourceDataEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_NS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(176) initializes((32, 40), (48, 52)) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i64 %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClient13ResourceState8SetAckedESt10shared_ptrIKNS_15XdsResourceType12ResourceDataEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_NS_9TimestampE(ptr noundef nonnull align 8 captures(address) dereferenceable(176) initializes((32, 40), (48, 52)) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i64 %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %1, align 8, !tbaa !103
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18855,7 +18855,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit296:        ; preds = %536, %533
 declare void @_ZN4absl12lts_2024072220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.absl::lts_20240722::Status") align 8, i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN9grpc_core9XdsClient21GetResourceTypeLockedESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(353) %0, i64 %1, ptr readonly captures(none) %2) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN9grpc_core9XdsClient21GetResourceTypeLockedESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(353) %0, i64 %1, ptr readonly captures(none) %2) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -21207,7 +21207,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit61:      ; preds = %243
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core9XdsClient28ConstructFullXdsResourceNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES4_RKNS0_14XdsResourceKeyE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr readonly %2, i64 %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(56) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClient28ConstructFullXdsResourceNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES4_RKNS0_14XdsResourceKeyE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr readonly captures(address_is_null) %2, i64 %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(56) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca %"class.absl::lts_20240722::StatusOr.251", align 8
@@ -27642,7 +27642,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core9XdsClient16DumpClientConfigEPSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEP9upb_ArenaP36envoy_service_status_v3_ClientConfig(ptr noundef nonnull readonly align 8 dereferenceable(353) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClient16DumpClientConfigEPSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEP9upb_ArenaP36envoy_service_status_v3_ClientConfig(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(353) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.upb_MiniTableField, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.absl::lts_20240722::AlphaNum", align 8
@@ -28469,7 +28469,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core9XdsClient20ReportResourceCountsEN4absl12lts_2024072211FunctionRefIFvRKNS0_19ResourceCountLabelsEmEEE(ptr noundef nonnull readonly align 8 dereferenceable(353) %0, ptr %1, ptr readonly captures(none) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClient20ReportResourceCountsEN4absl12lts_2024072211FunctionRefIFvRKNS0_19ResourceCountLabelsEmEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(353) %0, ptr %1, ptr readonly captures(none) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.grpc_core::XdsClient::ResourceCountLabels", align 8
   %5 = alloca %"class.std::map.280", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #38
@@ -28826,7 +28826,7 @@ _ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEmSt4lessIS3_ESaISt4pairIKS3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core9XdsClient23ReportServerConnectionsEN4absl12lts_2024072211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEEbEEE(ptr noundef nonnull readonly align 8 dereferenceable(353) %0, ptr %1, ptr readonly captures(none) %2) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core9XdsClient23ReportServerConnectionsEN4absl12lts_2024072211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEEbEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(353) %0, ptr %1, ptr readonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8, !tbaa !25
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 232

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @DES_quad_cksum(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
+define i32 @DES_quad_cksum(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address) %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %6 = load i32, ptr %4, align 1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4

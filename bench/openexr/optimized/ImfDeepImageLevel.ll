@@ -269,7 +269,7 @@ define hidden void @_ZN7Imf_3_414DeepImageLevelD0Ev(ptr noundef nonnull align 8 
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_414DeepImageLevel16setSamplesToZeroEmjj(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7Imf_3_414DeepImageLevel16setSamplesToZeroEmjj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -299,7 +299,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_414DeepImageLevel14moveSampleListEmjjm(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7Imf_3_414DeepImageLevel14moveSampleListEmjjm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -323,7 +323,7 @@ define hidden void @_ZN7Imf_3_414DeepImageLevel14moveSampleListEmjjm(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_414DeepImageLevel22moveSamplesToNewBufferEPKjS2_PKm(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7Imf_3_414DeepImageLevel22moveSamplesToNewBufferEPKjS2_PKm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -347,7 +347,7 @@ define hidden void @_ZN7Imf_3_414DeepImageLevel22moveSamplesToNewBufferEPKjS2_PK
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_414DeepImageLevel21initializeSampleListsEv(ptr noundef nonnull readonly align 8 dereferenceable(192) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7Imf_3_414DeepImageLevel21initializeSampleListsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1312,7 +1312,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_416DeepIm
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN7Imf_3_414DeepImageLevel11findChannelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN7Imf_3_414DeepImageLevel11findChannelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1399,7 +1399,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_416DeepIm
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK7Imf_3_414DeepImageLevel11findChannelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK7Imf_3_414DeepImageLevel11findChannelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1678,13 +1678,13 @@ define ptr @_ZNK7Imf_3_414DeepImageLevel5beginEv(ptr noundef nonnull readonly al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZN7Imf_3_414DeepImageLevel3endEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %0) local_unnamed_addr #15 align 2 {
+define nonnull ptr @_ZN7Imf_3_414DeepImageLevel3endEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZNK7Imf_3_414DeepImageLevel3endEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %0) local_unnamed_addr #15 align 2 {
+define nonnull ptr @_ZNK7Imf_3_414DeepImageLevel3endEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }

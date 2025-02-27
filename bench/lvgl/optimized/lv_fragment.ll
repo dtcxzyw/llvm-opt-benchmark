@@ -216,7 +216,7 @@ declare void @lv_fragment_manager_delete(ptr noundef) local_unnamed_addr #1
 declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_fragment_get_manager(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_fragment_get_manager(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -239,7 +239,7 @@ define ptr @lv_fragment_get_manager(ptr noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_fragment_get_container(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_fragment_get_container(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -262,7 +262,7 @@ define ptr @lv_fragment_get_container(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_fragment_get_parent(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @lv_fragment_get_parent(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

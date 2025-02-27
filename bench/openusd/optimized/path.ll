@@ -17905,7 +17905,7 @@ define ptr @_ZN32pxrInternal_v0_24__pxrReserved__30SdfPathFindLongestStrictPrefi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__21SdfPathAncestorsRange8iteratorppEv(ptr noundef nonnull returned align 4 dereferenceable(8) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__21SdfPathAncestorsRange8iteratorppEv(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 4
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %85, label %3
@@ -21122,7 +21122,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #19
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_PerThreadPropertyPathCacheD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(16384) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_PerThreadPropertyPathCacheD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16384) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16384
   br label %3
 

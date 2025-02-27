@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @OnigEncAsciiToLowerCaseTable = external local_unnamed_addr constant [0 x i8], align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %1, ptr readnone captures(none) %2) #0 {
+define internal i32 @mbc_enc_len(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1, !tbaa !7
   %6 = zext i8 %5 to i64
@@ -102,7 +102,7 @@ define internal i32 @mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr readnone captures(none) %2) #0 {
+define internal range(i32 0, 2) i32 @is_mbc_newline(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr readnone captures(none) %2) #0 {
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %5, label %8
 
@@ -120,7 +120,7 @@ define internal range(i32 0, 2) i32 @is_mbc_newline(ptr noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define internal i32 @mbc_to_code(ptr noundef readonly %0, ptr noundef readnone %1, ptr readnone captures(none) %2) #1 {
+define internal i32 @mbc_to_code(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr readnone captures(none) %2) #1 {
   %4 = getelementptr i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1, !tbaa !7
   %6 = zext i8 %5 to i64
@@ -404,7 +404,7 @@ define internal i32 @get_ctype_code_range(i32 noundef %0, ptr noundef writeonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define internal noundef ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef readonly %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #1 {
+define internal noundef ptr @left_adjust_char_head(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(address, ret: address, provenance) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #1 {
   %.not = icmp ugt ptr %1, %0
   br i1 %.not, label %.preheader, label %.loopexit
 

@@ -64,7 +64,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_777PackageD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_777PackageD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @getDataInfo(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, ptr noundef %4) local_unnamed_addr #0 {
+define ptr @getDataInfo(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %39, label %7
 
@@ -1354,7 +1354,7 @@ define noundef signext i8 @_ZN6icu_777Package9getInTypeEv(ptr noundef nonnull re
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_777Package12writePackageEPKccS2_(ptr noundef nonnull align 8 dereferenceable(201237) %0, ptr noundef %1, i8 noundef signext %2, ptr noundef readonly %3) local_unnamed_addr #13 align 2 {
+define void @_ZN6icu_777Package12writePackageEPKccS2_(ptr noundef nonnull align 8 dereferenceable(201237) %0, ptr noundef %1, i8 noundef signext %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #13 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca [68 x i8], align 16
   %7 = alloca %struct.UDataOffsetTOCEntry, align 4
@@ -1962,7 +1962,7 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef nonnull ptr @_ZN6icu_777Package11allocStringEai(ptr noundef nonnull align 8 dereferenceable(201237) %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZN6icu_777Package11allocStringEai(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(201237) %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %.not = icmp eq i8 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %5 = load i32, ptr %4, align 8

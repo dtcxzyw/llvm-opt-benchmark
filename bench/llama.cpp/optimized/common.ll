@@ -1104,7 +1104,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z22postprocess_cpu_paramsR10cpu_paramsPKS_(ptr noundef nonnull align 4 captures(none) dereferenceable(532) %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define void @_Z22postprocess_cpu_paramsR10cpu_paramsPKS_(ptr noundef nonnull align 4 captures(none) dereferenceable(532) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 4, !tbaa !73
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %9

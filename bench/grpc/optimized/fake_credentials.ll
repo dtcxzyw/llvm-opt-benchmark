@@ -581,7 +581,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -1, 2) i32 @_ZNK29grpc_fake_channel_credentials8cmp_implEPK24grpc_channel_credentials(ptr noundef nonnull readnone align 8 dereferenceable(16) %0, ptr noundef readnone %1) unnamed_addr #5 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZNK29grpc_fake_channel_credentials8cmp_implEPK24grpc_channel_credentials(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(16) %0, ptr noundef readnone captures(address) %1) unnamed_addr #5 align 2 {
   %3 = icmp ult ptr %0, %1
   %4 = icmp ult ptr %1, %0
   %..i = zext i1 %4 to i32

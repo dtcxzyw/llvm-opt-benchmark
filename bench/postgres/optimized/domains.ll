@@ -424,7 +424,7 @@ define dso_local noundef i64 @domain_recv(ptr noundef captures(none) %0) local_u
 declare i64 @ReceiveFunctionCall(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @domain_check(i64 noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @domain_check(i64 noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %4, null
   %7 = load ptr, ptr @CurrentMemoryContext, align 8
   %spec.select.i = select i1 %6, ptr %7, ptr %4
@@ -457,7 +457,7 @@ domain_check_internal.exit:                       ; preds = %11, %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @domain_check_safe(i64 noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local zeroext i1 @domain_check_safe(i64 noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %4, null
   %8 = load ptr, ptr @CurrentMemoryContext, align 8
   %spec.select.i = select i1 %7, ptr %8, ptr %4

@@ -1163,7 +1163,7 @@ declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #2
 declare i32 @app_RAND_load() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_pkey(ptr noundef readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 4) %3, ptr noundef %4, i32 noundef range(i32 16, 8193) %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc ptr @get_pkey(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 4) %3, ptr noundef %4, i32 noundef range(i32 16, 8193) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
   store ptr null, ptr %8, align 8, !tbaa !4
@@ -1494,7 +1494,7 @@ declare i32 @bio_to_mem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_raw_keyop(i32 noundef range(i32 16, 8193) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @do_raw_keyop(i32 noundef range(i32 16, 8193) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca [100 x i8], align 16
   %11 = alloca [2048 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %11) #7

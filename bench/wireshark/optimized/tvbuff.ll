@@ -189,7 +189,7 @@ tvb_free_internal.exit:                           ; preds = %.preheader, %8
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @tvb_new_chain(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @tvb_new_chain(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @tvb_new_proxy(ptr noundef %1)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %4, label %5
@@ -227,7 +227,7 @@ tvb_add_to_chain.exit:                            ; preds = %.preheader.i
 declare ptr @tvb_new_proxy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @tvb_add_to_chain(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @tvb_add_to_chain(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 
@@ -261,7 +261,7 @@ define hidden void @tvb_add_to_chain(ptr noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @tvb_check_offset_length(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden void @tvb_check_offset_length(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @check_offset_length_no_exception(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %check_offset_length.exit, label %7
@@ -856,7 +856,7 @@ define ptr @tvb_clone(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @tvb_captured_length(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i32 @tvb_captured_length(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -877,7 +877,7 @@ define i32 @tvb_captured_length(ptr noundef readonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @tvb_captured_length_remaining(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @tvb_captured_length_remaining(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -924,7 +924,7 @@ compute_offset_and_remaining.exit.thread:         ; preds = %13, %10, %19
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -1057,7 +1057,7 @@ define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef rea
 declare void @except_throw(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @tvb_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @tvb_bytes_exist(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %4
 
@@ -1116,7 +1116,7 @@ check_offset_length_no_exception.exit:            ; preds = %28, %16, %13, %27, 
 }
 
 ; Function Attrs: inlinehint null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 0, 5) i32 @check_offset_length_no_exception(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #5 {
+define internal fastcc range(i32 0, 5) i32 @check_offset_length_no_exception(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #5 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %7
 
@@ -1249,7 +1249,7 @@ validate_offset.exit:                             ; preds = %37, %33, %30, %21, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @tvb_ensure_bytes_exist64(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @tvb_ensure_bytes_exist64(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i64 %2, 2147483647
   br i1 %4, label %5, label %6
 
@@ -1264,7 +1264,7 @@ define void @tvb_ensure_bytes_exist64(ptr noundef %0, i32 noundef %1, i64 nounde
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @tvb_ensure_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @tvb_ensure_bytes_exist(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %4
 
@@ -1432,7 +1432,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define zeroext i1 @tvb_offset_exists(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define zeroext i1 @tvb_offset_exists(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -1479,7 +1479,7 @@ compute_offset.exit.thread:                       ; preds = %13, %10, %compute_o
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @tvb_reported_length(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i32 @tvb_reported_length(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -1500,7 +1500,7 @@ define i32 @tvb_reported_length(ptr noundef readonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @tvb_reported_length_remaining(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @tvb_reported_length_remaining(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -1548,7 +1548,7 @@ compute_offset.exit.thread:                       ; preds = %13, %10, %compute_o
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @tvb_ensure_reported_length_remaining(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @tvb_ensure_reported_length_remaining(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -1648,7 +1648,7 @@ compute_offset.exit:                              ; preds = %27, %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @tvb_set_reported_length(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @tvb_set_reported_length(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -1698,7 +1698,7 @@ define void @tvb_set_reported_length(ptr noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @tvb_fix_reported_length(ptr noundef %0) local_unnamed_addr #0 {
+define void @tvb_fix_reported_length(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -3962,7 +3962,7 @@ define double @tvb_get_ntohieee_double(ptr noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @tvb_get_string_bytes(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define ptr @tvb_get_string_bytes(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
   store ptr null, ptr %7, align 8
@@ -4069,7 +4069,7 @@ declare zeroext i1 @hex_str_to_bytes_encoding(ptr noundef, ptr noundef, ptr noun
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @tvb_get_string_time(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define noundef ptr @tvb_get_string_time(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.tm, align 8
   %9 = alloca i64, align 8
@@ -6858,7 +6858,7 @@ define ptr @tvb_get_stringzpad(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @tvb_get_const_stringz(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define ptr @tvb_get_const_stringz(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %1)
   %5 = tail call fastcc ptr @ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef %4)
   %.not = icmp eq ptr %2, null
@@ -6873,7 +6873,7 @@ define ptr @tvb_get_const_stringz(ptr noundef %0, i32 noundef %1, ptr noundef wr
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @tvb_get_stringz_enc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @tvb_get_stringz_enc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %6
 
@@ -7903,7 +7903,7 @@ compute_offset_and_remaining.exit:                ; preds = %17, %3
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #19
   store i8 0, ptr %6, align 1
@@ -8020,7 +8020,7 @@ _tvb_captured_length_remaining.exit:              ; preds = %25, %19, %16, %12
 declare void @ws_mempbrk_compile(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @tvb_find_line_end_unquoted(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define i32 @tvb_find_line_end_unquoted(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
   store i8 0, ptr %5, align 1
@@ -8281,7 +8281,7 @@ define hidden i32 @tvb_skip_uint8(ptr noundef %0, i32 noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @tvb_get_token_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define i32 @tvb_get_token_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #19
   store i8 0, ptr %6, align 1
@@ -8393,7 +8393,7 @@ define ptr @tvb_bytes_to_str_punct(ptr noundef %0, ptr noundef %1, i32 noundef %
 declare ptr @bytes_to_str_punct_maxlen(ptr noundef, ptr noundef, i64 noundef, i8 noundef signext, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @tvb_bcd_dig_to_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define ptr @tvb_bcd_dig_to_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   %spec.store.select = select i1 %.not, ptr @Dgt0_9_bcd, ptr %4
   %7 = tail call ptr @tvb_get_bcd_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %spec.store.select, i1 noundef zeroext %5, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -8401,7 +8401,7 @@ define ptr @tvb_bcd_dig_to_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @tvb_bcd_dig_to_str_be(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define ptr @tvb_bcd_dig_to_str_be(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   %spec.store.select = select i1 %.not, ptr @Dgt0_9_bcd, ptr %4
   %7 = tail call ptr @tvb_get_bcd_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %spec.store.select, i1 noundef zeroext %5, i1 noundef zeroext false, i1 noundef zeroext true)

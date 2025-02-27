@@ -15,7 +15,7 @@ define dso_local void @geohashGetCoordRange(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @geohashEncode(ptr noundef readonly %0, ptr noundef readonly %1, double noundef %2, double noundef %3, i8 noundef zeroext %4, ptr noundef writeonly %5) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @geohashEncode(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, double noundef %2, double noundef %3, i8 noundef zeroext %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 {
   %7 = icmp eq ptr %5, null
   %8 = add i8 %4, -33
   %9 = icmp ult i8 %8, -32
@@ -140,7 +140,7 @@ define internal fastcc i64 @interleave64(i32 noundef %0, i32 noundef %1) unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashEncodeType(double noundef %0, double noundef %1, i8 noundef zeroext %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @geohashEncodeType(double noundef %0, double noundef %1, i8 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %3, null
   %6 = add i8 %2, -33
   %7 = icmp ult i8 %6, -32
@@ -212,7 +212,7 @@ geohashEncode.exit:                               ; preds = %4, %8, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashEncodeWGS84(double noundef %0, double noundef %1, i8 noundef zeroext %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @geohashEncodeWGS84(double noundef %0, double noundef %1, i8 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %3, null
   %6 = add i8 %2, -33
   %7 = icmp ult i8 %6, -32
@@ -284,7 +284,7 @@ geohashEncodeType.exit:                           ; preds = %4, %8, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecode(double %0, double %1, double %2, double %3, i64 %4, i8 %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @geohashDecode(double %0, double %1, double %2, double %3, i64 %4, i8 %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = icmp eq i64 %4, 0
   %9 = icmp eq i8 %5, 0
   %or.cond.not45 = select i1 %8, i1 %9, i1 false
@@ -384,13 +384,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecodeType(i64 %0, i8 %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @geohashDecodeType(i64 %0, i8 %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @geohashDecode(double -1.800000e+02, double 1.800000e+02, double 0xC0554345B1A57F00, double 0x40554345B1A57F00, i64 %0, i8 %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecodeWGS84(i64 %0, i8 %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @geohashDecodeWGS84(i64 %0, i8 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq i64 %0, 0
   %5 = icmp eq i8 %1, 0
   %or.cond.not45.i = select i1 %4, i1 %5, i1 false
@@ -470,7 +470,7 @@ geohashDecode.exit:                               ; preds = %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecodeAreaToLongLat(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @geohashDecodeAreaToLongLat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %21, label %3
 
@@ -506,7 +506,7 @@ define dso_local range(i32 0, 2) i32 @geohashDecodeAreaToLongLat(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecodeToLongLatType(i64 %0, i8 %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @geohashDecodeToLongLatType(i64 %0, i8 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %geohashDecode.exit.thread, label %4
 
@@ -592,7 +592,7 @@ geohashDecode.exit.thread:                        ; preds = %4, %3, %geohashDeco
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecodeToLongLatWGS84(i64 %0, i8 %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @geohashDecodeToLongLatWGS84(i64 %0, i8 %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @geohashDecodeToLongLatType(i64 %0, i8 %1, ptr noundef %2)
   ret i32 %4
 }

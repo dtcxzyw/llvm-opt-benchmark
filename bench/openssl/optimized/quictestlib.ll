@@ -80,7 +80,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.51 = private unnamed_addr constant [36 x i8] c"BIO_ADDR_copy(dst->peer, src->peer)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef %8, ptr noundef writeonly %9) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #0 {
   %11 = alloca [9 x i8], align 1
   %12 = alloca %struct.quic_tserver_args_st, align 8
   %13 = alloca ptr, align 8

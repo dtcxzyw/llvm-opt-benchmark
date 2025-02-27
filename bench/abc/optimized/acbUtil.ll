@@ -167,7 +167,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @Acb_ObjCollectTfi(ptr noundef initializes((524, 528)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @Acb_ObjCollectTfi(ptr noundef captures(ret: address, provenance) initializes((524, 528)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 524
   store i32 0, ptr %4, align 4, !tbaa !27
   %5 = getelementptr i8, ptr %0, i64 260
@@ -283,7 +283,7 @@ Acb_NtkIncTravId.exit:                            ; preds = %3, %Acb_NtkCleanObj
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @Acb_ObjCollectTfiVec(ptr noundef initializes((524, 528)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define nonnull ptr @Acb_ObjCollectTfiVec(ptr noundef captures(ret: address, provenance) initializes((524, 528)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 524
   store i32 0, ptr %3, align 4, !tbaa !27
   %4 = getelementptr i8, ptr %0, i64 260
@@ -508,7 +508,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @Acb_ObjCollectTfo(ptr noundef initializes((540, 544)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @Acb_ObjCollectTfo(ptr noundef captures(ret: address, provenance) initializes((540, 544)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 540
   store i32 0, ptr %4, align 4, !tbaa !27
   %5 = getelementptr i8, ptr %0, i64 260
@@ -602,7 +602,7 @@ Acb_NtkIncTravId.exit:                            ; preds = %3, %Acb_NtkCleanObj
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @Acb_ObjCollectTfoVec(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define nonnull ptr @Acb_ObjCollectTfoVec(ptr noundef captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 436
   %.val12 = load i32, ptr %3, align 4, !tbaa !36
   %4 = icmp slt i32 %.val12, 1
@@ -1371,7 +1371,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Acb_NtkCollectMffc(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Acb_NtkCollectMffc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4, !tbaa !27
@@ -3385,7 +3385,7 @@ Acb_ObjComputeLevelR.exit:                        ; preds = %53, %..critedge_cri
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_NtkUpdateLevelD(ptr noundef initializes((540, 544)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Acb_NtkUpdateLevelD(ptr noundef captures(none) initializes((540, 544)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Acb_ObjCollectTfo(ptr noundef %0, i32 noundef %1, i32 noundef 1)
   %4 = tail call i32 @Acb_NtkComputeLevelD(ptr noundef %0, ptr noundef nonnull %3)
   ret void
@@ -5406,7 +5406,7 @@ define void @Acb_NtkPrintNode(ptr noundef readonly captures(none) %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Acb_NtkCreateNode(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define i32 @Acb_NtkCreateNode(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %2, i64 4
   %.val = load i32, ptr %4, align 4, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -6993,7 +6993,7 @@ Acb_ObjComputeLevelD.exit:                        ; preds = %725, %Acb_ObjAddFan
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_NtkResetNode(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define void @Acb_NtkResetNode(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4, !tbaa !27
@@ -7598,7 +7598,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_NtkUpdateNode(ptr noundef initializes((484, 488)) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Acb_NtkUpdateNode(ptr noundef initializes((484, 488)) %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   tail call void @Acb_NtkSaveSupport(ptr noundef %0, i32 noundef %1)
   tail call void @Acb_NtkResetNode(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3)
   %5 = getelementptr i8, ptr %0, i64 136
@@ -8534,7 +8534,7 @@ Gia_ManAppendAnd.exit:                            ; preds = %143, %146
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Acb_NtkToGia2(ptr noundef initializes((164, 168)) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @Acb_NtkToGia2(ptr noundef initializes((164, 168)) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 116
   %.val74 = load i32, ptr %6, align 4, !tbaa !39
   %7 = shl i32 %.val74, 1

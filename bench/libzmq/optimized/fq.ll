@@ -205,7 +205,7 @@ _ZN3zmq7array_tINS_6pipe_tELi1EE4swapEmm.exit:    ; preds = %49, %52
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN3zmq4fq_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %0, ptr noundef readonly %1) local_unnamed_addr #7 align 2 {
+define void @_ZN3zmq4fq_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 align 2 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -278,7 +278,7 @@ _ZN3zmq7array_tINS_6pipe_tELi1EE5eraseEPS1_.exit: ; preds = %27, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN3zmq4fq_t9activatedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %0, ptr noundef readonly %1) local_unnamed_addr #7 align 2 {
+define void @_ZN3zmq4fq_t9activatedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 align 2 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -324,7 +324,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq4fq_t4recvEPNS_5msg_tE(ptr noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq4fq_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %0, ptr noundef nonnull %1, ptr noundef writeonly %2) local_unnamed_addr #6 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq4fq_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %0, ptr noundef nonnull %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 align 2 {
   %4 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %13, label %5, !prof !9

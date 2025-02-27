@@ -489,7 +489,7 @@ declare void @umtx_lock_77(ptr noundef) local_unnamed_addr #1
 declare void @umtx_unlock_77(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @ucnv_incrementRefCount_77(ptr noundef %0) local_unnamed_addr #0 {
+define void @ucnv_incrementRefCount_77(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 

@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.22 = private unnamed_addr constant [23 x i8] c" (max %zu bytes large)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @print_param_types(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef i32 @print_param_types(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [200 x i8], align 16
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.loopexit, label %6

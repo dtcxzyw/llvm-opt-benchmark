@@ -14,7 +14,7 @@ define dso_local i32 @lzma_lzma2_encoder_init(ptr noundef %0, ptr noundef %1, pt
 declare i32 @lzma_lz_encoder_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lzma2_encoder_init(ptr noundef captures(none) %0, ptr noundef %1, i64 %2, ptr noundef readonly %3, ptr noundef %4) #0 {
+define internal i32 @lzma2_encoder_init(ptr noundef captures(none) %0, ptr noundef %1, i64 %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %43, label %7
 
@@ -100,7 +100,7 @@ define dso_local range(i64 65704, 65703) i64 @lzma_lzma2_encoder_memusage(ptr no
 declare i64 @lzma_lzma_encoder_memusage(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 12) i32 @lzma_lzma2_props_encode(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 12) i32 @lzma_lzma2_props_encode(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %41, label %4
 

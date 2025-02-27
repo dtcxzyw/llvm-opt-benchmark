@@ -3820,7 +3820,7 @@ declare void @_ZN4node21InternalCallbackScopeD1Ev(ptr noundef nonnull align 8 de
 declare void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22PerIsolatePlatformData24DeleteFromScheduledTasksEPNS_11DelayedTaskE(ptr noundef nonnull align 8 captures(none) dereferenceable(576) %this, ptr noundef readnone %task) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node22PerIsolatePlatformData24DeleteFromScheduledTasksEPNS_11DelayedTaskE(ptr noundef nonnull align 8 captures(none) dereferenceable(576) %this, ptr noundef readnone captures(address) %task) local_unnamed_addr #3 align 2 {
 entry:
   %scheduled_delayed_tasks_ = getelementptr inbounds nuw i8, ptr %this, i64 552
   %0 = load ptr, ptr %scheduled_delayed_tasks_, align 8

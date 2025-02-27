@@ -768,7 +768,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i64 0, 8589934592) i64 @_ZN4LIEF2PE15parse_font_infoERNS0_21ResourceDialogRegularERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 {
+define hidden range(i64 0, 8589934592) i64 @_ZN4LIEF2PE15parse_font_infoERNS0_21ResourceDialogRegularERNS_12BinaryStreamE(ptr noundef nonnull align 8 captures(address) dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 {
   %3 = alloca i16, align 2
   %4 = alloca %"class.tl::expected.68", align 8
   %5 = alloca %"class.std::__cxx11::basic_string.58", align 8

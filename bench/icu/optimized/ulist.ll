@@ -31,7 +31,7 @@ define noalias noundef ptr @ulist_createEmptyList_77(ptr noundef captures(none) 
 declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @ulist_addItemEndList_77(ptr noundef %0, ptr noundef %1, i8 noundef signext %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define void @ulist_addItemEndList_77(ptr noundef captures(address_is_null) %0, ptr noundef %1, i8 noundef signext %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4, !tbaa !3
   %6 = icmp sgt i32 %5, 0
   %7 = icmp eq ptr %0, null
@@ -106,7 +106,7 @@ define void @ulist_addItemEndList_77(ptr noundef %0, ptr noundef %1, i8 noundef 
 declare void @uprv_free_77(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @ulist_addItemBeginList_77(ptr noundef %0, ptr noundef %1, i8 noundef signext %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define void @ulist_addItemBeginList_77(ptr noundef captures(address_is_null) %0, ptr noundef %1, i8 noundef signext %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4, !tbaa !3
   %6 = icmp sgt i32 %5, 0
   %7 = icmp eq ptr %0, null
@@ -180,7 +180,7 @@ define void @ulist_addItemBeginList_77(ptr noundef %0, ptr noundef %1, i8 nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define signext range(i8 0, 2) i8 @ulist_containsString_77(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
+define signext range(i8 0, 2) i8 @ulist_containsString_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %.preheader
 
@@ -219,7 +219,7 @@ define signext range(i8 0, 2) i8 @ulist_containsString_77(ptr noundef readonly %
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ulist_removeString_77(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ulist_removeString_77(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %.preheader
 
@@ -284,7 +284,7 @@ define signext range(i8 0, 2) i8 @ulist_removeString_77(ptr noundef %0, ptr noun
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @ulist_getNext_77(ptr noundef %0) local_unnamed_addr #5 {
+define ptr @ulist_getNext_77(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -306,7 +306,7 @@ define ptr @ulist_getNext_77(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ulist_getListSize_77(ptr noundef readonly %0) local_unnamed_addr #6 {
+define i32 @ulist_getListSize_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -321,7 +321,7 @@ define i32 @ulist_getListSize_77(ptr noundef readonly %0) local_unnamed_addr #6 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ulist_resetList_77(ptr noundef %0) local_unnamed_addr #7 {
+define void @ulist_resetList_77(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -444,7 +444,7 @@ ulist_getListSize_77.exit:                        ; preds = %8, %5, %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @ulist_next_keyword_value_77(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #9 {
+define ptr @ulist_next_keyword_value_77(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #9 {
   %4 = load i32, ptr %2, align 4, !tbaa !3
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %ulist_getNext_77.exit.thread

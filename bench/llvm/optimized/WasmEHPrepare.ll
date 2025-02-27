@@ -1000,7 +1000,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm16createWasmEHPassEv() loc
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19calculateWasmEHInfoEPKNS_8FunctionERNS_14WasmEHFuncInfoE(ptr noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm19calculateWasmEHInfoEPKNS_8FunctionERNS_14WasmEHFuncInfoE(ptr noundef readonly captures(address) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::PointerUnion.174", align 8
   %4 = alloca %"class.llvm::PointerUnion.174", align 8
   %5 = alloca %"class.llvm::PointerUnion.174", align 8

@@ -481,7 +481,7 @@ declare void @_ZN10open_spiel14GameRegistererC1ERKNS_8GameTypeESt8functionIFSt10
 declare void @_ZN10open_spiel28RegisterSingleTensorObserverC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN10open_spiel12connect_four16ConnectFourState6CellAtEii(ptr noundef nonnull readnone align 8 dereferenceable(236) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN10open_spiel12connect_four16ConnectFourState6CellAtEii(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(236) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = mul nsw i32 %1, 7
   %6 = add nsw i32 %5, %2

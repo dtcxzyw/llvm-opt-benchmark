@@ -128,7 +128,7 @@ declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fra_FraigSec(ptr noundef %0, ptr noundef captures(none) initializes((108, 112)) %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
+define noundef i32 @Fra_FraigSec(ptr noundef %0, ptr noundef captures(none) initializes((108, 112)) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8

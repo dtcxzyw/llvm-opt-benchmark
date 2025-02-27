@@ -4041,7 +4041,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_ndps_ipx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_ndps_ipx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca %struct.ndps_req_hash_key, align 8
   %6 = alloca ptr, align 8
   %7 = icmp eq ptr %3, null
@@ -10574,7 +10574,7 @@ define internal fastcc i32 @qualifiedname(ptr noundef %0, ptr noundef %1, i32 no
 declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @ndps_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @ndps_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3)
   %7 = add i32 %3, 4
   %8 = icmp eq i32 %6, 0

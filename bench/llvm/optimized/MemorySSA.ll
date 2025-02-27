@@ -15317,7 +15317,7 @@ _ZN4llvm14MemoryUseOrDef12setOptimizedEPNS_12MemoryAccessE.exit: ; preds = %_ZN4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN4llvm24DoNothingMemorySSAWalker25getClobberingMemoryAccessEPNS_12MemoryAccessERNS_14BatchAAResultsE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #11 align 2 {
+define dso_local noundef ptr @_ZN4llvm24DoNothingMemorySSAWalker25getClobberingMemoryAccessEPNS_12MemoryAccessERNS_14BatchAAResultsE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #11 align 2 {
   %4 = load i8, ptr %1, align 8, !tbaa !108
   %5 = and i8 %4, -2
   %spec.select.i.i.i.i.i.i.i.i.not = icmp eq i8 %5, 26
@@ -15336,7 +15336,7 @@ define dso_local noundef ptr @_ZN4llvm24DoNothingMemorySSAWalker25getClobberingM
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN4llvm24DoNothingMemorySSAWalker25getClobberingMemoryAccessEPNS_12MemoryAccessERKNS_14MemoryLocationERNS_14BatchAAResultsE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #11 align 2 {
+define dso_local noundef ptr @_ZN4llvm24DoNothingMemorySSAWalker25getClobberingMemoryAccessEPNS_12MemoryAccessERKNS_14MemoryLocationERNS_14BatchAAResultsE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #11 align 2 {
   %5 = load i8, ptr %1, align 8, !tbaa !108
   %6 = and i8 %5, -2
   %spec.select.i.i.i.i.i.i.i.i.not = icmp eq i8 %6, 26

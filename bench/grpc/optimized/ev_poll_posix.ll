@@ -262,7 +262,7 @@ define internal noundef i32 @_ZL13fd_wrapped_fdP7grpc_fd(ptr noundef readonly ca
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL9fd_orphanP7grpc_fdP12grpc_closurePiPKc(ptr noundef initializes((32, 36), (128, 136)) %0, ptr noundef %1, ptr noundef writeonly %2, ptr readnone captures(none) %3) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL9fd_orphanP7grpc_fdP12grpc_closurePiPKc(ptr noundef initializes((32, 36), (128, 136)) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr readnone captures(none) %3) #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::lts_20240722::Status", align 8
   %6 = alloca %"class.absl::lts_20240722::Status", align 8
   %7 = alloca %"class.absl::lts_20240722::Status", align 8
@@ -806,7 +806,7 @@ _ZL29fork_fd_list_remove_wakeup_fdP21grpc_cached_wakeup_fd.exit: ; preds = %.lr.
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZL12pollset_workP12grpc_pollsetPP19grpc_pollset_workerN9grpc_core9TimestampE(ptr dead_on_unwind noalias writable sret(%"class.absl::lts_20240722::Status") align 8 initializes((0, 8)) %0, ptr noundef %1, ptr noundef writeonly %2, i64 %3) #6 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL12pollset_workP12grpc_pollsetPP19grpc_pollset_workerN9grpc_core9TimestampE(ptr dead_on_unwind noalias writable sret(%"class.absl::lts_20240722::Status") align 8 initializes((0, 8)) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 %3) #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %6 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %7 = alloca %"class.absl::lts_20240722::Status", align 8
@@ -2588,7 +2588,7 @@ define internal void @_ZL27pollset_set_add_pollset_setP16grpc_pollset_setS0_(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL27pollset_set_del_pollset_setP16grpc_pollset_setS0_(ptr noundef %0, ptr noundef readnone %1) #3 {
+define internal void @_ZL27pollset_set_del_pollset_setP16grpc_pollset_setS0_(ptr noundef %0, ptr noundef readnone captures(address) %1) #3 {
   tail call void @gpr_mu_lock(ptr noundef %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !tbaa !141
@@ -4061,7 +4061,7 @@ declare void @_Z18grpc_error_set_intN4absl12lts_202407226StatusEN9grpc_core17Sta
 declare void @_Z18grpc_status_createN4absl12lts_2024072210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKN9grpc_core13DebugLocationEmPNS0_6StatusE(ptr dead_on_unwind writable sret(%"class.absl::lts_20240722::Status") align 8, i32 noundef, i64, ptr, ptr noundef nonnull align 1 dereferenceable(1), i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16notify_on_lockedP7grpc_fdPP12grpc_closureS2_(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16notify_on_lockedP7grpc_fdPP12grpc_closureS2_(ptr noundef captures(address) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.grpc_core::DebugLocation", align 1
   %5 = alloca %"class.absl::lts_20240722::Status", align 8
   %6 = alloca %"class.absl::lts_20240722::Status", align 8
@@ -4275,7 +4275,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit25:         ; preds = %63, %66
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL29maybe_wake_one_watcher_lockedP7grpc_fd(ptr noundef readonly %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL29maybe_wake_one_watcher_lockedP7grpc_fd(ptr noundef readonly captures(address) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::lts_20240722::Status", align 8
   %3 = alloca %"class.absl::lts_20240722::Status", align 8
   %4 = alloca %"class.absl::lts_20240722::Status", align 8
@@ -4699,7 +4699,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit21:         ; preds = %_ZN4absl12lts_20240
 declare void @_Z13grpc_os_errorRKN9grpc_core13DebugLocationEiPKc(ptr dead_on_unwind writable sret(%"class.absl::lts_20240722::Status") align 8, ptr noundef nonnull align 1 dereferenceable(1), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11fd_end_pollP15grpc_fd_watcherii(ptr noundef %0, i32 noundef range(i32 0, 26) %1, i32 noundef range(i32 0, 29) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11fd_end_pollP15grpc_fd_watcherii(ptr noundef captures(address) %0, i32 noundef range(i32 0, 26) %1, i32 noundef range(i32 0, 29) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.grpc_core::DebugLocation", align 1
   %5 = alloca %"class.absl::lts_20240722::Status", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32

@@ -578,7 +578,7 @@ declare dso_local void @proc_remove(ptr noundef) local_unnamed_addr #5
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_info_card_disconnect(ptr noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local void @snd_info_card_disconnect(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %17, label %3
 
@@ -617,7 +617,7 @@ define dso_local void @snd_info_card_disconnect(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @snd_info_clear_entries(ptr noundef %0) unnamed_addr #8 align 16 {
+define internal fastcc void @snd_info_clear_entries(ptr noundef captures(address) %0) unnamed_addr #8 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -646,7 +646,7 @@ define internal fastcc void @snd_info_clear_entries(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_info_card_free(ptr noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local noundef i32 @snd_info_card_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -662,7 +662,7 @@ define dso_local noundef i32 @snd_info_card_free(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 0, 2) i32 @snd_info_get_line(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #9 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @snd_info_get_line(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #9 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %49, label %5
 
@@ -744,7 +744,7 @@ define dso_local noundef range(i32 0, 2) i32 @snd_info_get_line(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef ptr @snd_info_get_str(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) #9 align 16 {
+define dso_local noundef ptr @snd_info_get_str(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1, i32 noundef %2) #9 align 16 {
   br label %4
 
 4:                                                ; preds = %10, %3

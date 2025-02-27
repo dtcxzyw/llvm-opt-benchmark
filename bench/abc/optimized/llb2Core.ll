@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [11 x i8] c"%9.2f sec\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Llb_CoreComputeCube(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define noundef ptr @Llb_CoreComputeCube(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %6 = load i64, ptr %5, align 8, !tbaa !3
   store i64 0, ptr %5, align 8, !tbaa !3

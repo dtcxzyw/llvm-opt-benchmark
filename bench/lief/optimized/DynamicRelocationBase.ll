@@ -102,7 +102,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF2PE17DynamicRelocationaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF2PE17DynamicRelocationaSERKS1_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %26, label %5
@@ -176,7 +176,7 @@ define void @_ZN4LIEF2PE17DynamicRelocationC2EOS1_(ptr noundef nonnull writeonly
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF2PE17DynamicRelocationaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((8, 24)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF2PE17DynamicRelocationaSEOS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) initializes((8, 24)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
@@ -230,7 +230,7 @@ define void @_ZN4LIEF2PE17DynamicRelocationD0Ev(ptr nonnull readnone align 8 cap
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF2PE17DynamicRelocation6fixupsESt10unique_ptrINS0_12DynamicFixupESt14default_deleteIS3_EE(ptr noundef nonnull returned align 8 dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF2PE17DynamicRelocation6fixupsESt10unique_ptrINS0_12DynamicFixupESt14default_deleteIS3_EE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %1, align 8, !tbaa !21
   store ptr null, ptr %1, align 8, !tbaa !21

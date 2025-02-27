@@ -15741,7 +15741,7 @@ define noundef i32 @_ZN15colvarbias_meta23write_state_to_replicasEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15colvarbias_meta10calc_hillsESt14_List_iteratorINS_4hillEES2_RdPKSt6vectorI11colvarvalueSaIS5_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(880) %0, ptr %1, ptr readnone %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, ptr noundef readonly %4) unnamed_addr #5 align 2 {
+define void @_ZN15colvarbias_meta10calc_hillsESt14_List_iteratorINS_4hillEES2_RdPKSt6vectorI11colvarvalueSaIS5_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(880) %0, ptr captures(address) %1, ptr readnone captures(address) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #5 align 2 {
   %.not2831 = icmp eq ptr %1, %2
   br i1 %.not2831, label %._crit_edge33, label %.preheader.lr.ph
 
@@ -15925,7 +15925,7 @@ define void @_ZN15colvarbias_meta10calc_hillsESt14_List_iteratorINS_4hillEES2_Rd
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15colvarbias_meta16calc_hills_forceERKmSt14_List_iteratorINS_4hillEES4_RSt6vectorI11colvarvalueSaIS6_EEPKS8_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(880) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr readonly %2, ptr readnone %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef readonly %5) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15colvarbias_meta16calc_hills_forceERKmSt14_List_iteratorINS_4hillEES4_RSt6vectorI11colvarvalueSaIS6_EEPKS8_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(880) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr readonly captures(address) %2, ptr readnone captures(address) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.colvarvalue, align 8
   %8 = alloca %class.colvarvalue, align 8
   %9 = alloca %class.colvarvalue, align 8
@@ -37024,7 +37024,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN15colvarbias_meta10wri
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15colvarbias_meta13project_hillsESt14_List_iteratorINS_4hillEES2_P18colvar_grid_scalarP20colvar_grid_gradientb(ptr noundef nonnull align 8 dereferenceable(880) %0, ptr %1, ptr %2, ptr noundef captures(none) %3, ptr noundef readonly %4, i1 noundef zeroext %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15colvarbias_meta13project_hillsESt14_List_iteratorINS_4hillEES2_P18colvar_grid_scalarP20colvar_grid_gradientb(ptr noundef nonnull align 8 dereferenceable(880) %0, ptr %1, ptr %2, ptr noundef captures(none) %3, ptr noundef readonly captures(address_is_null) %4, i1 noundef zeroext %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -39200,7 +39200,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15colvarbias_meta22recount_hills_off_gridESt14_List_iteratorINS_4hillEES2_P18colvar_grid_scalar(ptr noundef nonnull align 8 dereferenceable(880) %0, ptr %1, ptr readnone %2, ptr readnone captures(none) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15colvarbias_meta22recount_hills_off_gridESt14_List_iteratorINS_4hillEES2_P18colvar_grid_scalar(ptr noundef nonnull align 8 dereferenceable(880) %0, ptr %1, ptr readnone captures(address) %2, ptr readnone captures(none) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !230
   %.not8.i.i = icmp eq ptr %6, %5
@@ -50369,7 +50369,7 @@ define noundef nonnull align 8 dereferenceable(112) ptr @_ZN15colvarbias_meta4hi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15colvarbias_meta4hillD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15colvarbias_meta4hillD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96

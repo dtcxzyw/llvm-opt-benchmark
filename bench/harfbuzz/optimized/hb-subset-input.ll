@@ -508,7 +508,7 @@ _ZL17hb_object_destroyI17hb_subset_input_tEbPT_.exit.thread: ; preds = %1, %5, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @hb_subset_input_reference(ptr noundef returned %0) local_unnamed_addr #4 {
+define dso_local noundef ptr @hb_subset_input_reference(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #4 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZL19hb_object_referenceI17hb_subset_input_tEPT_S2_.exit, label %2
 
@@ -581,7 +581,7 @@ define dso_local void @hb_subset_input_set_flags(ptr noundef writeonly captures(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @hb_subset_input_set_user_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hb_subset_input_set_user_data(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZL23hb_object_set_user_dataI17hb_subset_input_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %6, !prof !57
 
@@ -635,7 +635,7 @@ _ZL23hb_object_set_user_dataI17hb_subset_input_tEbPT_P18hb_user_data_key_tPvPFvS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @hb_subset_input_get_user_data(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define dso_local ptr @hb_subset_input_get_user_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZL23hb_object_get_user_dataIK17hb_subset_input_tEPvPT_P18hb_user_data_key_t.exit, label %3, !prof !57
 
@@ -1393,7 +1393,7 @@ declare ptr @hb_face_reference(ptr noundef) local_unnamed_addr #2
 declare ptr @hb_subset_or_fail(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @hb_subset_input_old_to_new_glyph_mapping(ptr noundef readnone %0) local_unnamed_addr #14 {
+define dso_local nonnull ptr @hb_subset_input_old_to_new_glyph_mapping(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   ret ptr %2
 }

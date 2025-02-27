@@ -1797,7 +1797,7 @@ gcmp_special_blocks.exit:                         ; preds = %154, %158
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_encrypt(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_encrypt(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [20 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -1921,7 +1921,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_encrypt(
 declare dso_local void @ieee80211_aes_cmac(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_256_encrypt(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_256_encrypt(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [20 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -2279,7 +2279,7 @@ define dso_local noundef range(i32 1, 65577) i32 @ieee80211_crypto_aes_cmac_256_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 2) i32 @ieee80211_crypto_aes_gmac_encrypt(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @ieee80211_crypto_aes_gmac_encrypt(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [20 x i8], align 16
   %3 = alloca [12 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56

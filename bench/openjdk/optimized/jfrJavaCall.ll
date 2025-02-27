@@ -83,7 +83,7 @@ define hidden void @_ZN16JfrJavaArguments10Parameters12set_receiverEP7oopDesc(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN16JfrJavaArguments10Parameters12set_receiverE6Handle(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(264) initializes((0, 1), (8, 16)) %0, ptr readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN16JfrJavaArguments10Parameters12set_receiverE6Handle(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(264) initializes((0, 1), (8, 16)) %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_ZNK6HandleclEv.exit, label %4
 
@@ -132,7 +132,7 @@ define hidden void @_ZN16JfrJavaArguments10Parameters8push_oopEP7oopDesc(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN16JfrJavaArguments10Parameters8push_oopE6Handle(ptr noundef nonnull align 8 captures(none) dereferenceable(264) %0, ptr readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN16JfrJavaArguments10Parameters8push_oopE6Handle(ptr noundef nonnull align 8 captures(none) dereferenceable(264) %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_ZNK6HandleclEv.exit, label %4
 
@@ -249,7 +249,7 @@ define hidden void @_ZN16JfrJavaArguments10Parameters10push_jlongEl(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK16JfrJavaArguments10Parameters6valuesEi(ptr noundef nonnull readnone align 8 dereferenceable(264) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK16JfrJavaArguments10Parameters6valuesEi(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(264) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %3
   ret ptr %4
@@ -802,7 +802,7 @@ define hidden void @_ZN16JfrJavaArguments12set_receiverEP7oopDesc(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN16JfrJavaArguments12set_receiverE6Handle(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(300) initializes((0, 1), (8, 16)) %0, ptr readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN16JfrJavaArguments12set_receiverE6Handle(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(300) initializes((0, 1), (8, 16)) %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_ZN16JfrJavaArguments10Parameters12set_receiverE6Handle.exit, label %4
 
@@ -837,7 +837,7 @@ define hidden void @_ZN16JfrJavaArguments8push_oopEP7oopDesc(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN16JfrJavaArguments8push_oopE6Handle(ptr noundef nonnull align 8 captures(none) dereferenceable(300) %0, ptr readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN16JfrJavaArguments8push_oopE6Handle(ptr noundef nonnull align 8 captures(none) dereferenceable(300) %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_ZN16JfrJavaArguments10Parameters8push_oopE6Handle.exit, label %4
 
@@ -954,7 +954,7 @@ define hidden void @_ZN16JfrJavaArguments9push_longEl(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK16JfrJavaArguments5paramEi(ptr noundef nonnull readnone align 8 dereferenceable(300) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK16JfrJavaArguments5paramEi(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(300) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %3
   ret ptr %4

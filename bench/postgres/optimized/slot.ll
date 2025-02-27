@@ -1507,7 +1507,7 @@ define dso_local void @ReplicationSlotDrop(ptr noundef %0, i1 noundef zeroext %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReplicationSlotAlter(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @ReplicationSlotAlter(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   tail call void @ReplicationSlotAcquire(ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext true)
   %5 = load ptr, ptr @MyReplicationSlot, align 8

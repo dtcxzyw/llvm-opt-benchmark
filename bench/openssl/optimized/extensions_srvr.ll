@@ -626,7 +626,7 @@ PACKET_as_length_prefixed_2.exit.thread:          ; preds = %8, %5, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_parse_ctos_status_request(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readnone %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls_parse_ctos_status_request(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readnone captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1288

@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [48 x i8] c"Unable to compress buffer %lu -> %lu @ level %d\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @internal_zip_reconstruct_bytes(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden void @internal_zip_reconstruct_bytes(ptr noundef writeonly captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %5 = icmp samesign ugt i64 %2, 1
   br i1 %5, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -86,7 +86,7 @@ interleave.exit:                                  ; preds = %.lr.ph49.i, %._crit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @internal_zip_deconstruct_bytes(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden void @internal_zip_deconstruct_bytes(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge42, label %.lr.ph.preheader
@@ -153,7 +153,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @internal_exr_undo_zip(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3, i64 noundef %4) local_unnamed_addr #3 {
+define hidden i32 @internal_exr_undo_zip(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address) %3, i64 noundef %4) local_unnamed_addr #3 {
   %6 = alloca i64, align 8
   %7 = icmp eq i64 %2, %4
   br i1 %7, label %8, label %11

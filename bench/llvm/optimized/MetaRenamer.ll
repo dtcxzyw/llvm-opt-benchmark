@@ -1837,7 +1837,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_110MetaRenameERN4llvm6ModuleENS0_12function_refIFRNS0_17TargetLibraryInfoERNS0_8FunctionEEEEENK3$_0clERNS0_9StringRefERNS0_15SmallVectorImplISB_EE"(ptr readonly captures(none) %.0.val, i64 %.8.val, ptr readonly %.0.val1, i32 %.8.val3) unnamed_addr #8 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_110MetaRenameERN4llvm6ModuleENS0_12function_refIFRNS0_17TargetLibraryInfoERNS0_8FunctionEEEEENK3$_0clERNS0_9StringRefERNS0_15SmallVectorImplISB_EE"(ptr readonly captures(none) %.0.val, i64 %.8.val, ptr readonly captures(address) %.0.val1, i32 %.8.val3) unnamed_addr #8 align 2 {
   %1 = zext i32 %.8.val3 to i64
   %.idx5.i = shl nuw nsw i64 %1, 4
   %2 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 %.idx5.i

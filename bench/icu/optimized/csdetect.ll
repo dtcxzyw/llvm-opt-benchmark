@@ -1604,7 +1604,7 @@ define internal noundef i32 @_ZL9enumCountP12UEnumerationP10UErrorCode(ptr nound
 declare ptr @uenum_unextDefault_77(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL8enumNextP12UEnumerationPiP10UErrorCode(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr readnone captures(none) %2) #0 {
+define internal noundef ptr @_ZL8enumNextP12UEnumerationPiP10UErrorCode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !45
   %6 = load i32, ptr %5, align 8, !tbaa !53

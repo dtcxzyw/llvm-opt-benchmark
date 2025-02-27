@@ -54,7 +54,7 @@ define void @_ZN6icu_7712DateIntervalD0Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7712DateIntervalC2ERKS0_(ptr noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7712DateIntervalC2ERKS0_(ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(24) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6icu_7712DateIntervalE, i64 16), ptr %0, align 8, !tbaa !3
   %.not.i = icmp eq ptr %0, %1
   br i1 %.not.i, label %_ZN6icu_7712DateIntervalaSERKS0_.exit, label %3
@@ -75,7 +75,7 @@ _ZN6icu_7712DateIntervalaSERKS0_.exit:            ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6icu_7712DateIntervalaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6icu_7712DateIntervalaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(address, ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) local_unnamed_addr #4 align 2 {
   %.not = icmp eq ptr %0, %1
   br i1 %.not, label %10, label %3
 

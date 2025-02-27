@@ -310,167 +310,174 @@ zend_type_permits_self.exit:                      ; preds = %.critedge.i
   %.062 = phi i32 [ %20, %21 ], [ %81, %.loopexit126 ], [ %20, %zend_type_permits_self.exit ]
   switch i32 %.062, label %83 [
     i32 131072, label %.loopexit
-    i32 0, label %84
+    i32 0, label %._crit_edge
   ]
+
+._crit_edge:                                      ; preds = %82
+  %.pre = load i32, ptr %9, align 8, !tbaa !9
+  br label %84
 
 83:                                               ; preds = %82
   br label %.loopexit
 
-84:                                               ; preds = %82, %17
-  %85 = and i32 %2, 524288
-  %.not84 = icmp eq i32 %85, 0
-  br i1 %.not84, label %92, label %86
+84:                                               ; preds = %._crit_edge, %17
+  %85 = phi i32 [ %.pre, %._crit_edge ], [ %2, %17 ]
+  %86 = and i32 %85, 524288
+  %.not84 = icmp eq i32 %86, 0
+  br i1 %.not84, label %94, label %87
 
-86:                                               ; preds = %84
-  %87 = lshr i32 %5, 18
-  %88 = and i32 %87, 2
-  %89 = xor i32 %88, 2
-  %90 = call fastcc i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %1, i32 %2, ptr noundef %3, ptr %4, i32 %5)
-  %.not89 = icmp eq i32 %90, %89
-  %91 = icmp eq i32 %90, -1
+87:                                               ; preds = %84
+  %88 = lshr i32 %5, 18
+  %89 = and i32 %88, 2
+  %90 = xor i32 %89, 2
+  %91 = load ptr, ptr %8, align 8
+  %92 = call fastcc i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %91, i32 %85, ptr noundef %3, ptr %4, i32 %5)
+  %.not89 = icmp eq i32 %92, %90
+  %93 = icmp eq i32 %92, -1
   br i1 %.not89, label %.loopexit, label %.thread122
 
-92:                                               ; preds = %84
-  %93 = and i32 %2, 4194304
-  %.not85 = icmp eq i32 %93, 0
-  br i1 %.not85, label %99, label %94
+94:                                               ; preds = %84
+  %95 = and i32 %85, 4194304
+  %.not85 = icmp eq i32 %95, 0
+  br i1 %.not85, label %102, label %96
 
-94:                                               ; preds = %92
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %96 = load i32, ptr %1, align 8, !tbaa !4
-  %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw %struct.zend_type, ptr %95, i64 %97
-  br label %101
+96:                                               ; preds = %94
+  %97 = load ptr, ptr %8, align 8, !tbaa !12
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %99 = load i32, ptr %97, align 8, !tbaa !4
+  %100 = zext i32 %99 to i64
+  %101 = getelementptr inbounds nuw %struct.zend_type, ptr %98, i64 %100
+  br label %104
 
-99:                                               ; preds = %92
-  %100 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  br label %101
+102:                                              ; preds = %94
+  %103 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  br label %104
 
-101:                                              ; preds = %99, %94
-  %.064 = phi ptr [ %95, %94 ], [ %8, %99 ]
-  %.063 = phi ptr [ %98, %94 ], [ %100, %99 ]
-  %102 = icmp ne ptr %0, null
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  br label %105
+104:                                              ; preds = %102, %96
+  %.064 = phi ptr [ %98, %96 ], [ %8, %102 ]
+  %.063 = phi ptr [ %101, %96 ], [ %103, %102 ]
+  %105 = icmp ne ptr %0, null
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  br label %108
 
-105:                                              ; preds = %.thread, %101
-  %.373 = phi i1 [ false, %101 ], [ %.474.ph, %.thread ]
-  %.165 = phi ptr [ %.064, %101 ], [ %151, %.thread ]
-  %106 = getelementptr inbounds nuw i8, ptr %.165, i64 8
-  %107 = load i32, ptr %106, align 8, !tbaa !9
-  %108 = and i32 %107, 524288
-  %.not86 = icmp eq i32 %108, 0
-  %109 = load ptr, ptr %.165, align 8
-  br i1 %.not86, label %112, label %110
+108:                                              ; preds = %.thread, %104
+  %.373 = phi i1 [ false, %104 ], [ %.474.ph, %.thread ]
+  %.165 = phi ptr [ %.064, %104 ], [ %154, %.thread ]
+  %109 = getelementptr inbounds nuw i8, ptr %.165, i64 8
+  %110 = load i32, ptr %109, align 8, !tbaa !9
+  %111 = and i32 %110, 524288
+  %.not86 = icmp eq i32 %111, 0
+  %112 = load ptr, ptr %.165, align 8
+  br i1 %.not86, label %115, label %113
 
-110:                                              ; preds = %105
-  %111 = call fastcc i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %109, i32 %107, ptr noundef %3, ptr %4, i32 %5)
-  br label %149
+113:                                              ; preds = %108
+  %114 = call fastcc i32 @zend_is_intersection_subtype_of_type(ptr noundef %0, ptr %112, i32 %110, ptr noundef %3, ptr %4, i32 %5)
+  br label %152
 
-112:                                              ; preds = %105
-  %113 = and i32 %107, 16777216
-  %.not.i91 = icmp eq i32 %113, 0
-  br i1 %.not.i91, label %.thread, label %114
+115:                                              ; preds = %108
+  %116 = and i32 %110, 16777216
+  %.not.i91 = icmp eq i32 %116, 0
+  br i1 %.not.i91, label %.thread, label %117
 
-114:                                              ; preds = %112
-  call void @llvm.assume(i1 %102)
-  %115 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  %116 = load i64, ptr %115, align 8, !tbaa !13
-  %117 = load ptr, ptr @zend_known_strings, align 8, !tbaa !17
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 496
-  %119 = load ptr, ptr %118, align 8, !tbaa !19
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  %121 = load i64, ptr %120, align 8, !tbaa !13
-  %122 = icmp eq i64 %116, %121
-  br i1 %122, label %123, label %132
+117:                                              ; preds = %115
+  call void @llvm.assume(i1 %105)
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %119 = load i64, ptr %118, align 8, !tbaa !13
+  %120 = load ptr, ptr @zend_known_strings, align 8, !tbaa !17
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 496
+  %122 = load ptr, ptr %121, align 8, !tbaa !19
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %124 = load i64, ptr %123, align 8, !tbaa !13
+  %125 = icmp eq i64 %119, %124
+  br i1 %125, label %126, label %135
 
-123:                                              ; preds = %114
-  %124 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  %125 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  %126 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %124, i64 noundef %116, ptr noundef nonnull %125, i64 noundef %116) #17
-  %.not.i.i96 = icmp eq i32 %126, 0
-  br i1 %.not.i.i96, label %127, label %132
+126:                                              ; preds = %117
+  %127 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  %129 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %127, i64 noundef %119, ptr noundef nonnull %128, i64 noundef %119) #17
+  %.not.i.i96 = icmp eq i32 %129, 0
+  br i1 %.not.i.i96, label %130, label %135
 
-127:                                              ; preds = %123
-  %128 = load ptr, ptr %103, align 8, !tbaa !21
-  %.not19.i.i97 = icmp eq ptr %128, null
-  br i1 %.not19.i.i97, label %132, label %129
+130:                                              ; preds = %126
+  %131 = load ptr, ptr %106, align 8, !tbaa !21
+  %.not19.i.i97 = icmp eq ptr %131, null
+  br i1 %.not19.i.i97, label %135, label %132
 
-129:                                              ; preds = %127
-  %130 = load i32, ptr %104, align 4, !tbaa !22
-  %131 = and i32 %130, 131072
-  %.not20.i.i98 = icmp eq i32 %131, 0
-  br i1 %.not20.i.i98, label %147, label %get_class_from_type.exit
+132:                                              ; preds = %130
+  %133 = load i32, ptr %107, align 4, !tbaa !22
+  %134 = and i32 %133, 131072
+  %.not20.i.i98 = icmp eq i32 %134, 0
+  br i1 %.not20.i.i98, label %150, label %get_class_from_type.exit
 
-132:                                              ; preds = %127, %123, %114
-  %133 = load i64, ptr %115, align 8, !tbaa !13
-  %134 = load ptr, ptr @zend_known_strings, align 8, !tbaa !17
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 488
-  %136 = load ptr, ptr %135, align 8, !tbaa !19
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  %138 = load i64, ptr %137, align 8, !tbaa !13
-  %139 = icmp eq i64 %133, %138
-  br i1 %139, label %140, label %147
+135:                                              ; preds = %130, %126, %117
+  %136 = load i64, ptr %118, align 8, !tbaa !13
+  %137 = load ptr, ptr @zend_known_strings, align 8, !tbaa !17
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 488
+  %139 = load ptr, ptr %138, align 8, !tbaa !19
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  %141 = load i64, ptr %140, align 8, !tbaa !13
+  %142 = icmp eq i64 %136, %141
+  br i1 %142, label %143, label %150
 
-140:                                              ; preds = %132
-  %141 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  %142 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  %143 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %141, i64 noundef %133, ptr noundef nonnull %142, i64 noundef %133) #17
-  %.not21.i.i93 = icmp eq i32 %143, 0
-  br i1 %.not21.i.i93, label %get_class_from_type.exit, label %147
+143:                                              ; preds = %135
+  %144 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %139, i64 24
+  %146 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %144, i64 noundef %136, ptr noundef nonnull %145, i64 noundef %136) #17
+  %.not21.i.i93 = icmp eq i32 %146, 0
+  br i1 %.not21.i.i93, label %get_class_from_type.exit, label %150
 
-get_class_from_type.exit:                         ; preds = %129, %140
-  %.sink22.i.i95 = phi ptr [ %128, %129 ], [ %0, %140 ]
-  %144 = getelementptr inbounds nuw i8, ptr %.sink22.i.i95, i64 8
-  %145 = load ptr, ptr %144, align 8, !tbaa !37
-  %.not87.not = icmp eq ptr %145, null
+get_class_from_type.exit:                         ; preds = %132, %143
+  %.sink22.i.i95 = phi ptr [ %131, %132 ], [ %0, %143 ]
+  %147 = getelementptr inbounds nuw i8, ptr %.sink22.i.i95, i64 8
+  %148 = load ptr, ptr %147, align 8, !tbaa !37
+  %.not87.not = icmp eq ptr %148, null
   br i1 %.not87.not, label %.thread, label %.thread111
 
 .thread111:                                       ; preds = %get_class_from_type.exit
-  %146 = call fastcc i32 @zend_is_class_subtype_of_type(ptr noundef nonnull %0, ptr noundef %145, ptr noundef %3, ptr %4, i32 %5)
-  br label %149
+  %149 = call fastcc i32 @zend_is_class_subtype_of_type(ptr noundef nonnull %0, ptr noundef %148, ptr noundef %3, ptr %4, i32 %5)
+  br label %152
 
-147:                                              ; preds = %129, %140, %132
-  %.0.i.ph = phi ptr [ %109, %132 ], [ %109, %140 ], [ %128, %129 ]
-  %148 = call fastcc i32 @zend_is_class_subtype_of_type(ptr noundef nonnull %0, ptr noundef %.0.i.ph, ptr noundef %3, ptr %4, i32 %5)
-  br label %149
+150:                                              ; preds = %132, %143, %135
+  %.0.i.ph = phi ptr [ %112, %135 ], [ %112, %143 ], [ %131, %132 ]
+  %151 = call fastcc i32 @zend_is_class_subtype_of_type(ptr noundef nonnull %0, ptr noundef %.0.i.ph, ptr noundef %3, ptr %4, i32 %5)
+  br label %152
 
-149:                                              ; preds = %147, %.thread111, %110
-  %.159 = phi i32 [ %111, %110 ], [ %148, %147 ], [ %146, %.thread111 ]
-  switch i32 %.159, label %150 [
+152:                                              ; preds = %150, %.thread111, %113
+  %.159 = phi i32 [ %114, %113 ], [ %151, %150 ], [ %149, %.thread111 ]
+  switch i32 %.159, label %153 [
     i32 0, label %.loopexit
     i32 -1, label %.thread
   ]
 
-150:                                              ; preds = %149
+153:                                              ; preds = %152
   br label %.thread
 
-.thread:                                          ; preds = %149, %112, %get_class_from_type.exit, %150
-  %.474.ph = phi i1 [ %.373, %150 ], [ %.373, %get_class_from_type.exit ], [ %.373, %112 ], [ true, %149 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.165, i64 16
-  %152 = icmp ult ptr %151, %.063
-  br i1 %152, label %105, label %.thread122
+.thread:                                          ; preds = %152, %115, %get_class_from_type.exit, %153
+  %.474.ph = phi i1 [ %.373, %153 ], [ %.373, %get_class_from_type.exit ], [ %.373, %115 ], [ true, %152 ]
+  %154 = getelementptr inbounds nuw i8, ptr %.165, i64 16
+  %155 = icmp ult ptr %154, %.063
+  br i1 %155, label %108, label %.thread122
 
-.thread122:                                       ; preds = %.thread, %86
-  %.076 = phi i32 [ %89, %86 ], [ 0, %.thread ]
-  %.272 = phi i1 [ %91, %86 ], [ %.474.ph, %.thread ]
-  br i1 %.272, label %156, label %153
-
-153:                                              ; preds = %.thread122
-  %154 = icmp eq i32 %.076, 0
-  %155 = select i1 %154, i32 2, i32 0
-  br label %.loopexit
+.thread122:                                       ; preds = %.thread, %87
+  %.076 = phi i32 [ %90, %87 ], [ 0, %.thread ]
+  %.272 = phi i1 [ %93, %87 ], [ %.474.ph, %.thread ]
+  br i1 %.272, label %159, label %156
 
 156:                                              ; preds = %.thread122
-  %157 = load ptr, ptr %8, align 8
-  %158 = load i32, ptr %9, align 8
-  call fastcc void @register_unresolved_classes(ptr noundef %0, ptr %157, i32 %158)
+  %157 = icmp eq i32 %.076, 0
+  %158 = select i1 %157, i32 2, i32 0
+  br label %.loopexit
+
+159:                                              ; preds = %.thread122
+  %160 = load ptr, ptr %8, align 8
+  %161 = load i32, ptr %9, align 8
+  call fastcc void @register_unresolved_classes(ptr noundef %0, ptr %160, i32 %161)
   call fastcc void @register_unresolved_classes(ptr noundef %3, ptr %4, i32 %5)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %149, %83, %82, %86, %156, %153, %6
-  %.0 = phi i32 [ 2, %6 ], [ 0, %83 ], [ 2, %82 ], [ -1, %156 ], [ %155, %153 ], [ %89, %86 ], [ %.159, %149 ]
+.loopexit:                                        ; preds = %152, %83, %82, %87, %159, %156, %6
+  %.0 = phi i32 [ 2, %6 ], [ 0, %83 ], [ 2, %82 ], [ -1, %159 ], [ %158, %156 ], [ %90, %87 ], [ %.159, %152 ]
   ret i32 %.0
 }
 
@@ -1213,7 +1220,7 @@ resolve_class_name.exit:                          ; preds = %64, %67, %75, %.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @register_unresolved_classes(ptr noundef %0, ptr %1, i32 %2) unnamed_addr #2 {
+define internal fastcc void @register_unresolved_classes(ptr noundef captures(address_is_null) %0, ptr %1, i32 %2) unnamed_addr #2 {
   %4 = alloca %struct.zend_type, align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1328,7 +1335,7 @@ resolve_class_name.exit:                          ; preds = %42, %45, %53, %.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_build_properties_info_table(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @zend_build_properties_info_table(ptr noundef captures(address) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8, !tbaa !89
   %4 = icmp eq i32 %3, 0
@@ -1661,7 +1668,7 @@ define dso_local void @zend_hooked_property_variance_error(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 3) i32 @zend_verify_property_hook_variance(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 3) i32 @zend_verify_property_hook_variance(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !105, !nonnull !81, !noundef !81
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7923,7 +7930,7 @@ declare void @zend_begin_record_errors() local_unnamed_addr #9
 declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @zend_lazy_class_load(ptr noundef readonly %0) unnamed_addr #2 {
+define internal fastcc noundef ptr @zend_lazy_class_load(ptr noundef readonly captures(address) %0) unnamed_addr #2 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), align 8, !tbaa !91
   %3 = load ptr, ptr %2, align 8, !tbaa !92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -9617,7 +9624,7 @@ instanceof_function.exit:                         ; preds = %4
 declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lookup_class_ex(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 {
+define internal fastcc ptr @lookup_class_ex(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 {
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4, !tbaa !38
   %5 = and i32 %4, 32768
   %.not29 = icmp ne i32 %5, 0
@@ -13457,7 +13464,7 @@ declare void @function_add_ref(ptr noundef) local_unnamed_addr #9
 declare void @zend_add_magic_method(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_first_constant_definition(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, 4294967295) %2, ptr noundef %3, ptr noundef readnone %4) unnamed_addr #2 {
+define internal fastcc ptr @find_first_constant_definition(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, 4294967295) %2, ptr noundef %3, ptr noundef readnone captures(address, ret: address, provenance) %4) unnamed_addr #2 {
   %6 = icmp eq ptr %4, %0
   %7 = icmp ne i64 %2, 0
   %or.cond = and i1 %6, %7
@@ -13502,7 +13509,7 @@ declare zeroext i1 @zend_is_identical(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @zend_hash_del(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_first_property_definition(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, 4294967295) %2, ptr noundef %3, ptr noundef readnone %4) unnamed_addr #2 {
+define internal fastcc ptr @find_first_property_definition(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, 4294967295) %2, ptr noundef %3, ptr noundef readnone captures(address, ret: address, provenance) %4) unnamed_addr #2 {
   %6 = icmp eq ptr %4, %0
   %7 = icmp ne i64 %2, 0
   %or.cond = and i1 %6, %7

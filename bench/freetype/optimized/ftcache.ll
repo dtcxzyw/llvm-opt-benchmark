@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ftc_basic_sbit_family_class = internal constant %struct.FTC_SFamilyClassRec_ { %struct.FTC_MruListClassRec_ { i64 80, ptr @ftc_basic_family_compare, ptr @ftc_basic_family_init, ptr null }, ptr @ftc_basic_family_get_count, ptr @ftc_basic_family_load_bitmap }, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @FTC_ImageCache_New(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define i32 @FTC_ImageCache_New(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
@@ -119,7 +119,7 @@ FTC_GCache_New.exit:                              ; preds = %43, %.thread.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FTC_ImageCache_Lookup(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define i32 @FTC_ImageCache_Lookup(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.FTC_BasicQueryRec_, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -621,7 +621,7 @@ FTC_MruNode_Remove.exit:                          ; preds = %42, %.sink.split.i
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_gnode_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly %3) #3 {
+define internal zeroext range(i8 0, 2) i8 @ftc_gnode_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #3 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -863,7 +863,7 @@ ftc_cache_add.exit:                               ; preds = %FTC_Manager_Compres
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FTC_ImageCache_LookupScaler(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define i32 @FTC_ImageCache_LookupScaler(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.FTC_BasicQueryRec_, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -1210,7 +1210,7 @@ FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @FTC_SBitCache_New(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define i32 @FTC_SBitCache_New(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
@@ -1305,7 +1305,7 @@ FTC_GCache_New.exit:                              ; preds = %43, %.thread.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FTC_SBitCache_Lookup(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define i32 @FTC_SBitCache_Lookup(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.FTC_BasicQueryRec_, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1664,7 +1664,7 @@ FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_snode_compare(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) #0 {
+define internal zeroext range(i8 0, 2) i8 @ftc_snode_compare(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
   %5 = alloca i64, align 8
   %6 = load i32, ptr %1, align 8, !tbaa !62
   %.not76 = icmp eq ptr %3, null
@@ -1878,7 +1878,7 @@ FTC_Manager_FlushN.exit:                          ; preds = %86
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FTC_SBitCache_LookupScaler(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define i32 @FTC_SBitCache_LookupScaler(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.FTC_BasicQueryRec_, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -2270,7 +2270,7 @@ FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FTC_CMapCache_New(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define i32 @FTC_CMapCache_New(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
@@ -2686,7 +2686,7 @@ FTC_Manager_LookupFace.exit.thread:               ; preds = %84, %.loopexit.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly %3) #3 {
+define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #3 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -2725,7 +2725,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_compare(ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FTC_Manager_LookupFace(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @FTC_Manager_LookupFace(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   %.not = icmp eq ptr %2, null
@@ -2800,7 +2800,7 @@ FTC_MruNode_Up.exit:                              ; preds = %12
 declare i32 @FT_Get_Char_Index(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @FTC_Manager_LookupSize(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @FTC_Manager_LookupSize(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   %5 = icmp ne ptr %2, null
@@ -2996,7 +2996,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_size_node_compare(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_face_node_compare(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #2 {
+define internal zeroext range(i8 0, 2) i8 @ftc_face_node_compare(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !133
   %5 = icmp eq ptr %4, %1
@@ -3005,7 +3005,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_face_node_compare(ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FTC_Manager_New(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define i32 @FTC_Manager_New(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
   %.not = icmp eq ptr %0, null
@@ -3222,7 +3222,7 @@ FTC_MruList_Done.exit27:                          ; preds = %FTC_MruList_Remove.
 declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @FTC_Manager_Reset(ptr noundef %0) local_unnamed_addr #0 {
+define void @FTC_Manager_Reset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %FTC_Manager_FlushN.exit, label %2
 
@@ -3354,7 +3354,7 @@ FTC_Manager_FlushN.exit:                          ; preds = %58, %FTC_MruList_Re
 }
 
 ; Function Attrs: nounwind uwtable
-define void @FTC_Manager_RemoveFaceID(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @FTC_Manager_RemoveFaceID(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -3533,7 +3533,7 @@ FTC_Cache_RemoveFaceID.exit:                      ; preds = %._crit_edge.i, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @FTC_Node_Unref(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define void @FTC_Node_Unref(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -3712,7 +3712,7 @@ define internal range(i64 64, 9223372030412325018) i64 @ftc_inode_weight(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_basic_gnode_compare_faceid(ptr noundef captures(none) %0, ptr noundef readnone %1, ptr noundef captures(none) %2, ptr noundef writeonly %3) #0 {
+define internal zeroext range(i8 0, 2) i8 @ftc_basic_gnode_compare_faceid(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !81
   %.not = icmp eq ptr %3, null
@@ -4434,7 +4434,7 @@ FTC_GNode_Done.exit:                              ; preds = %._crit_edge, %15, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -191) i32 @ftc_snode_load(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, -191) i32 @ftc_snode_load(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !81
@@ -4642,7 +4642,7 @@ define internal fastcc i32 @ftc_sbit_copy_bitmap(ptr noundef writeonly captures(
 declare hidden ptr @ft_mem_dup(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftc_basic_family_get_count(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
+define internal i32 @ftc_basic_family_get_count(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !64
@@ -4722,7 +4722,7 @@ FTC_Manager_LookupFace.exit:                      ; preds = %12, %FTC_MruNode_Up
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftc_basic_family_load_bitmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) #0 {
+define internal i32 @ftc_basic_family_load_bitmap(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5060,7 +5060,7 @@ define internal noundef i64 @ftc_cmap_node_weight(ptr readnone captures(none) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_remove_faceid(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr readnone captures(none) %2, ptr noundef writeonly %3) #3 {
+define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_remove_faceid(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #3 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -5204,7 +5204,7 @@ declare i32 @FT_Done_Size(ptr noundef) local_unnamed_addr #5
 declare i32 @FT_Done_Face(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftc_size_node_init(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
+define internal i32 @ftc_size_node_init(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12

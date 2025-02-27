@@ -134,7 +134,7 @@ declare dso_local void @warn_alloc(i32 noundef, ptr noundef, ptr noundef, ...) l
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local ptr @vmemmap_alloc_block_buf(i64 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 section ".meminit.text" align 16 {
+define dso_local ptr @vmemmap_alloc_block_buf(i64 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 section ".meminit.text" align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %7, label %5
 
@@ -267,7 +267,7 @@ declare dso_local i32 @__node_distance(i32 noundef, i32 noundef) local_unnamed_a
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef ptr @vmemmap_pte_populate(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 section ".meminit.text" align 16 {
+define dso_local noundef ptr @vmemmap_pte_populate(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 section ".meminit.text" align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = load i64, ptr %0, align 8
@@ -641,7 +641,7 @@ define dso_local noundef ptr @vmemmap_pgd_populate(i64 noundef %0, i32 noundef %
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef range(i32 -12, 1) i32 @vmemmap_populate_basepages(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 section ".meminit.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @vmemmap_populate_basepages(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 section ".meminit.text" align 16 {
   %5 = icmp ult i64 %0, %1
   br i1 %5, label %.preheader, label %.loopexit
 
@@ -672,7 +672,7 @@ define weak dso_local i32 @vmemmap_check_pmd(ptr noundef %0, i32 noundef %1, i64
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef range(i32 -12, 1) i32 @vmemmap_populate_hugepages(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 section ".meminit.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @vmemmap_populate_hugepages(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 section ".meminit.text" align 16 {
   %5 = alloca i64, align 8
   %6 = icmp ult i64 %0, %1
   br i1 %6, label %7, label %.loopexit
@@ -768,7 +768,7 @@ define dso_local noundef range(i32 -12, 1) i32 @vmemmap_populate_hugepages(i64 n
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local ptr @__populate_section_memmap(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 section ".meminit.text" align 16 {
+define dso_local ptr @__populate_section_memmap(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 section ".meminit.text" align 16 {
   %6 = load i64, ptr @vmemmap_base, align 8
   %.idx = shl i64 %0, 6
   %7 = add i64 %6, %.idx
@@ -958,7 +958,7 @@ declare dso_local ptr @memblock_alloc_try_nid_raw(i64 noundef, i64 noundef, i64 
 declare dso_local i64 @__pti_set_user_pgtbl(ptr noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef ptr @vmemmap_populate_address(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 section ".meminit.text" align 16 {
+define internal fastcc noundef ptr @vmemmap_populate_address(i64 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 section ".meminit.text" align 16 {
   %5 = tail call ptr @vmemmap_pgd_populate(i64 noundef %0, i32 noundef %1) #9
   %6 = icmp eq ptr %5, null
   br i1 %6, label %21, label %7

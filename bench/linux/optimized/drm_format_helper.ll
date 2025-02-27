@@ -149,7 +149,7 @@ define dso_local i32 @drm_fb_clip_offset(i32 noundef %0, ptr noundef readonly ca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_fb_memcpy(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) #1 align 16 {
+define dso_local void @drm_fb_memcpy(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) #1 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -263,7 +263,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_fb_swab(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i1 noundef zeroext %5, ptr noundef captures(none) %6) #1 align 16 {
+define dso_local void @drm_fb_swab(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i1 noundef zeroext %5, ptr noundef captures(none) %6) #1 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @drm_format_info_bpp(ptr noundef %9, i32 noundef 0) #12
@@ -316,7 +316,7 @@ define dso_local void @drm_fb_swab(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal void @drm_fb_swab32_line(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) #8 align 16 {
+define internal void @drm_fb_swab32_line(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) #8 align 16 {
   %4 = zext i32 %2 to i64
   %5 = getelementptr i32, ptr %1, i64 %4
   %6 = icmp ugt ptr %5, %1
@@ -338,7 +338,7 @@ define internal void @drm_fb_swab32_line(ptr noundef writeonly captures(none) %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal void @drm_fb_swab16_line(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) #8 align 16 {
+define internal void @drm_fb_swab16_line(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) #8 align 16 {
   %4 = zext i32 %2 to i64
   %5 = getelementptr i16, ptr %1, i64 %4
   %6 = icmp ugt ptr %5, %1
@@ -363,7 +363,7 @@ define internal void @drm_fb_swab16_line(ptr noundef writeonly captures(none) %0
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef readonly %0, i8 %.0.val1, ptr %.0.val3, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5) unnamed_addr #1 align 16 {
+define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef readonly captures(address_is_null) %0, i8 %.0.val1, ptr %.0.val3, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5) unnamed_addr #1 align 16 {
   %7 = icmp eq ptr %0, null
   %8 = select i1 %7, ptr @drm_fb_xfrm.default_dst_pitch, ptr %0
   %9 = icmp eq i8 %.8.val, 0
@@ -621,7 +621,7 @@ define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_fb_xrgb8888_to_rgb332(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
+define dso_local void @drm_fb_xrgb8888_to_rgb332(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
   %.val = load ptr, ptr %0, align 8
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
@@ -663,7 +663,7 @@ define internal void @drm_fb_xrgb8888_to_rgb332_line(ptr noundef writeonly captu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_fb_xrgb8888_to_rgb565(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, i1 noundef zeroext %6) #1 align 16 {
+define dso_local void @drm_fb_xrgb8888_to_rgb565(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, i1 noundef zeroext %6) #1 align 16 {
   %8 = select i1 %6, ptr @drm_fb_xrgb8888_to_rgb565_swab_line, ptr @drm_fb_xrgb8888_to_rgb565_line
   %.val = load ptr, ptr %0, align 8
   %9 = getelementptr i8, ptr %0, i64 8
@@ -739,7 +739,7 @@ define internal void @drm_fb_xrgb8888_to_rgb565_line(ptr noundef writeonly captu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_fb_xrgb8888_to_xrgb1555(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
+define dso_local void @drm_fb_xrgb8888_to_xrgb1555(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
   %.val = load ptr, ptr %0, align 8
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
@@ -781,7 +781,7 @@ define internal void @drm_fb_xrgb8888_to_xrgb1555_line(ptr noundef writeonly cap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_fb_xrgb8888_to_argb1555(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
+define dso_local void @drm_fb_xrgb8888_to_argb1555(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
   %.val = load ptr, ptr %0, align 8
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
@@ -824,7 +824,7 @@ define internal void @drm_fb_xrgb8888_to_argb1555_line(ptr noundef writeonly cap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_fb_xrgb8888_to_rgba5551(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
+define dso_local void @drm_fb_xrgb8888_to_rgba5551(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
   %.val = load ptr, ptr %0, align 8
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
@@ -867,7 +867,7 @@ define internal void @drm_fb_xrgb8888_to_rgba5551_line(ptr noundef writeonly cap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_fb_xrgb8888_to_rgb888(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
+define dso_local void @drm_fb_xrgb8888_to_rgb888(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
   %.val = load ptr, ptr %0, align 8
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
@@ -910,7 +910,7 @@ define internal void @drm_fb_xrgb8888_to_rgb888_line(ptr noundef writeonly captu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_fb_xrgb8888_to_argb8888(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
+define dso_local void @drm_fb_xrgb8888_to_argb8888(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
   %.val = load ptr, ptr %0, align 8
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
@@ -944,7 +944,7 @@ define internal void @drm_fb_xrgb8888_to_argb8888_line(ptr noundef writeonly cap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_fb_xrgb8888_to_xrgb2101010(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
+define dso_local void @drm_fb_xrgb8888_to_xrgb2101010(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
   %.val = load ptr, ptr %0, align 8
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
@@ -989,7 +989,7 @@ define internal void @drm_fb_xrgb8888_to_xrgb2101010_line(ptr noundef writeonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_fb_xrgb8888_to_argb2101010(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
+define dso_local void @drm_fb_xrgb8888_to_argb2101010(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
   %.val = load ptr, ptr %0, align 8
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
@@ -1035,7 +1035,7 @@ define internal void @drm_fb_xrgb8888_to_argb2101010_line(ptr noundef writeonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_fb_xrgb8888_to_gray8(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
+define dso_local void @drm_fb_xrgb8888_to_gray8(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
   %.val = load ptr, ptr %0, align 8
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
@@ -1081,7 +1081,7 @@ define internal void @drm_fb_xrgb8888_to_gray8_line(ptr noundef writeonly captur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6) #1 align 16 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store i32 %2, ptr %8, align 4
@@ -1329,7 +1329,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_fb_xrgb8888_to_mono(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
+define dso_local void @drm_fb_xrgb8888_to_mono(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) #1 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 4
   %9 = load i32, ptr %4, align 4
@@ -1527,7 +1527,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #4
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @drm_fb_build_fourcc_list(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #1 align 16 {
+define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @drm_fb_build_fourcc_list(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #1 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = getelementptr i32, ptr %3, i64 %4

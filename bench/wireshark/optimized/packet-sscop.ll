@@ -350,7 +350,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden zeroext i1 @sscop_allowed_subdissector(ptr noundef readnone %0) local_unnamed_addr #0 {
+define hidden zeroext i1 @sscop_allowed_subdissector(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
   %.b1.i = load i1, ptr @initialize_handles_once.initialized, align 1
   br i1 %.b1.i, label %.initialize_handles_once.exit_crit_edge, label %2
 

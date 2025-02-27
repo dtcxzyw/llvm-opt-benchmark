@@ -246,7 +246,7 @@ declare void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9S
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ValistChecker14VAListAccepterELj15EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(1096) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ValistChecker14VAListAccepterELj15EED2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1096) %0) unnamed_addr #2 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load i32, ptr %2, align 8, !tbaa !9
@@ -2594,7 +2594,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_113ValistChecker19reportLeakedVAListsERKN4llvm11SmallVectorIPKN5clang4ento9MemRegionELj2EEENS1_9StringRefESB_RNS4_14CheckerContextEPNS4_12ExplodedNodeEb(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr readonly %.0.val, i32 %.8.val, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull align 8 captures(none) dereferenceable(81) %5, ptr noundef nonnull %6, i1 noundef zeroext %7) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_113ValistChecker19reportLeakedVAListsERKN4llvm11SmallVectorIPKN5clang4ento9MemRegionELj2EEENS1_9StringRefESB_RNS4_14CheckerContextEPNS4_12ExplodedNodeEb(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr readonly captures(address) %.0.val, i32 %.8.val, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull align 8 captures(none) dereferenceable(81) %5, ptr noundef nonnull %6, i1 noundef zeroext %7) unnamed_addr #2 align 2 {
   %9 = alloca %"class.std::unique_ptr.360", align 8
   %10 = alloca %"class.llvm::StringRef", align 8
   %11 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8

@@ -178,7 +178,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.10 = private unnamed_addr constant [76 x i8] c"The size of the non-bonded parameter matrix does not match numParticleTypes\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 256) i32 @_ZN5nblib19findNumEnergyGroupsEN3gmx8ArrayRefIiEE(ptr readonly %0, ptr readnone %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 256) i32 @_ZN5nblib19findNumEnergyGroupsEN3gmx8ArrayRefIiEE(ptr readonly captures(address) %0, ptr readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not10.i.i = icmp eq ptr %4, %1

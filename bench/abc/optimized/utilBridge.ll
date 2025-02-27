@@ -1043,7 +1043,7 @@ define noundef i32 @Gia_ManToBridgeResult(ptr noundef captures(none) %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Gia_ManFromBridgeReadBody(i32 %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define noundef ptr @Gia_ManFromBridgeReadBody(i32 %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %5 = load i8, ptr %1, align 1, !tbaa !47
   %6 = zext i8 %5 to i32
@@ -2120,7 +2120,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManFromBridge(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Gia_ManFromBridge(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

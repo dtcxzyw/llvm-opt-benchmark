@@ -389,7 +389,7 @@ declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @wsp_print_statuscode(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #0 {
+define internal void @wsp_print_statuscode(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %4
 

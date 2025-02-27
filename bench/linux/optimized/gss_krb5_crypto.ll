@@ -25,7 +25,7 @@ define dso_local void @krb5_make_confounder(ptr noundef %0, i32 noundef %1) loca
 declare dso_local void @get_random_bytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @krb5_encrypt(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @krb5_encrypt(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca [1 x %struct.scatterlist], align 16
   %7 = alloca [16 x i8], align 16
   %8 = alloca [464 x i8], align 8
@@ -113,7 +113,7 @@ declare dso_local i32 @crypto_skcipher_encrypt(ptr noundef) local_unnamed_addr #
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @krb5_decrypt(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @krb5_decrypt(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca [1 x %struct.scatterlist], align 16
   %7 = alloca [16 x i8], align 16
   %8 = alloca [464 x i8], align 8

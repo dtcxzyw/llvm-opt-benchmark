@@ -5393,31 +5393,31 @@ define noundef ptr @_ZN12colvarmodule4mainEv() local_unnamed_addr #17 align 2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN12colvarmodule9variablesEv(ptr noundef nonnull readnone align 8 dereferenceable(624) %0) local_unnamed_addr #18 align 2 {
+define noundef nonnull ptr @_ZN12colvarmodule9variablesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(624) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN12colvarmodule16variables_activeEv(ptr noundef nonnull readnone align 8 dereferenceable(624) %0) local_unnamed_addr #18 align 2 {
+define noundef nonnull ptr @_ZN12colvarmodule16variables_activeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(624) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN12colvarmodule20variables_active_smpEv(ptr noundef nonnull readnone align 8 dereferenceable(624) %0) local_unnamed_addr #18 align 2 {
+define noundef nonnull ptr @_ZN12colvarmodule20variables_active_smpEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(624) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN12colvarmodule26variables_active_smp_itemsEv(ptr noundef nonnull readnone align 8 dereferenceable(624) %0) local_unnamed_addr #18 align 2 {
+define noundef nonnull ptr @_ZN12colvarmodule26variables_active_smp_itemsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(624) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN12colvarmodule13biases_activeEv(ptr noundef nonnull readnone align 8 dereferenceable(624) %0) local_unnamed_addr #18 align 2 {
+define noundef nonnull ptr @_ZN12colvarmodule13biases_activeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(624) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   ret ptr %2
 }
@@ -5688,7 +5688,7 @@ define void @_ZN12colvarmodule6to_strB5cxx11ERKxmm(ptr dead_on_unwind noalias wr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12colvarmodule16read_config_fileEPKc(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef readonly %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN12colvarmodule16read_config_fileEPKc(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
@@ -11493,7 +11493,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12colvarmodule15read_index_fileEPKc(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef readonly %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN12colvarmodule15read_index_fileEPKc(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -25113,7 +25113,7 @@ _ZNSt6vectorIPN12colvarmodule10atom_groupESaIS2_EE9push_backERKS2_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN12colvarmodule27unregister_named_atom_groupEPNS_10atom_groupE(ptr noundef nonnull align 8 captures(none) dereferenceable(624) %0, ptr noundef readnone %1) local_unnamed_addr #23 align 2 {
+define void @_ZN12colvarmodule27unregister_named_atom_groupEPNS_10atom_groupE(ptr noundef nonnull align 8 captures(none) dereferenceable(624) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8, !tbaa !482
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -28400,7 +28400,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN12colvarmodule11write_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12colvarmodule20write_restart_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN12colvarmodule20write_restart_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
@@ -35346,7 +35346,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12colvarmodule17state_file_prefixB5cxx11EPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12colvarmodule17state_file_prefixB5cxx11EPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -44670,7 +44670,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80: ; preds = %_ZN
 declare noundef i32 @_ZN12colvarmodule10atom_group17create_sorted_idsEv(ptr noundef nonnull align 8 dereferenceable(1496)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12colvarmodule15load_coords_xyzEPKcPSt6vectorINS_7rvectorESaIS3_EEPNS_10atom_groupEb(ptr noundef nonnull align 8 captures(none) dereferenceable(624) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN12colvarmodule15load_coords_xyzEPKcPSt6vectorINS_7rvectorESaIS3_EEPNS_10atom_groupEb(ptr noundef nonnull align 8 captures(none) dereferenceable(624) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -48936,7 +48936,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12colvarmodule6to_strB5cxx11EPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12colvarmodule6to_strB5cxx11EPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -626,7 +626,7 @@ Vec_StrFree.exit38:                               ; preds = %Vec_StrFree.exit36,
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noalias noundef ptr @Bbl_ManStart(ptr noundef readonly %0) local_unnamed_addr #5 {
+define noalias noundef ptr @Bbl_ManStart(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %calloc17 = tail call dereferenceable_or_null(1232) ptr @calloc(i64 1, i64 1232)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %Vec_StrAlloc.exit
@@ -1785,7 +1785,7 @@ define ptr @Bbl_ManObjFirst(ptr noundef readonly captures(none) %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Bbl_ManObjNext(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #15 {
+define ptr @Bbl_ManObjNext(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #15 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val = load i32, ptr %3, align 4
   %4 = lshr i32 %.val, 2
@@ -1807,7 +1807,7 @@ define ptr @Bbl_ManObjNext(ptr noundef readonly captures(none) %0, ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Bbl_ObjFaninFirst(ptr noundef readonly %0) local_unnamed_addr #14 {
+define ptr @Bbl_ObjFaninFirst(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #14 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %2, align 4
   %.not = icmp ult i32 %.val, 16
@@ -1827,7 +1827,7 @@ define ptr @Bbl_ObjFaninFirst(ptr noundef readonly %0) local_unnamed_addr #14 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @Bbl_ObjFaninNext(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #17 {
+define ptr @Bbl_ObjFaninNext(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = lshr i32 %4, 4
@@ -2260,7 +2260,7 @@ define noalias noundef ptr @Bbl_ManTruthToSop(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Bbl_ManSopToTruth(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Bbl_ManSopToTruth(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [16 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #26
   %4 = icmp slt i32 %1, 6

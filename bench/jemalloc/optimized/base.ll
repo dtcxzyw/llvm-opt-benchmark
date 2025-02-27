@@ -1021,13 +1021,13 @@ define hidden void @je_base_delete(ptr noundef %0, ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @je_base_ehooks_get_for_metadata(ptr noundef readnone %0) local_unnamed_addr #4 {
+define hidden nonnull ptr @je_base_ehooks_get_for_metadata(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @je_base_ehooks_get(ptr noundef readnone returned %0) local_unnamed_addr #4 {
+define hidden noundef ptr @je_base_ehooks_get(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -1048,7 +1048,7 @@ define hidden noundef ptr @je_base_alloc(ptr noundef %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @base_alloc_impl(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #1 {
+define internal fastcc noundef ptr @base_alloc_impl(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #1 {
   %7 = add i64 %3, 15
   %8 = and i64 %7, -16
   %9 = add i64 %8, -1

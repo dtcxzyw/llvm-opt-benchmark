@@ -2319,7 +2319,7 @@ define internal range(i32 -1, 2) i32 @tbm_shared_comparator(ptr noundef readonly
 declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @tbm_private_iterate(ptr noundef %0) local_unnamed_addr #5 {
+define dso_local ptr @tbm_private_iterate(ptr noundef captures(ret: address, provenance) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2527,7 +2527,7 @@ tbm_extract_page_tuple.exit:                      ; preds = %.loopexit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @tbm_shared_iterate(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @tbm_shared_iterate(ptr noundef captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

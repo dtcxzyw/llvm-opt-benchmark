@@ -1770,7 +1770,7 @@ define internal fastcc zeroext i1 @add_avp(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nofree nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @proto_tree_find_node_from_finfo(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #6 {
+define internal fastcc ptr @proto_tree_find_node_from_finfo(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readnone captures(address) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1

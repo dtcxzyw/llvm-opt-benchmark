@@ -549,7 +549,7 @@ define i32 @_ZNK10open_spiel16FlatJointActions3endEv(ptr noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN10open_spiel24FlatJointActionsIteratorppEv(ptr noundef nonnull returned align 4 dereferenceable(4) %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN10open_spiel24FlatJointActionsIteratorppEv(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) local_unnamed_addr #6 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = add nsw i32 %2, 1
   store i32 %3, ptr %0, align 4
@@ -793,7 +793,7 @@ define void @_ZNK10open_spiel12FixedActions3endEv(ptr dead_on_unwind noalias wri
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(24) ptr @_ZN10open_spiel20FixedActionsIteratorppEv(ptr noundef nonnull returned align 4 dereferenceable(24) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 4 dereferenceable(24) ptr @_ZN10open_spiel20FixedActionsIteratorppEv(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(24) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

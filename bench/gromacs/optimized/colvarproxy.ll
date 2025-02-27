@@ -22247,13 +22247,13 @@ define void @_ZN11colvarproxy16clear_error_msgsEv(ptr noundef nonnull align 8 ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN11colvarproxy14get_error_msgsB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(1184) %0) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN11colvarproxy14get_error_msgsB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1184) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN11colvarproxy23get_version_from_stringEPKc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1184) %0, ptr noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN11colvarproxy23get_version_from_stringEPKc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1184) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_istringstream", align 8

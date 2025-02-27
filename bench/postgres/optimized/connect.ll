@@ -72,7 +72,7 @@ define internal void @ecpg_actual_connection_init() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ecpg_get_connection(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @ecpg_get_connection(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1257,7 +1257,7 @@ ecpg_get_connection_nr.exit:                      ; preds = %.lr.ph.i, %26, %.pr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ECPGget_PGconn(ptr noundef %0) local_unnamed_addr #0 {
+define ptr @ECPGget_PGconn(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @ecpg_get_connection(ptr noundef %0)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %7, label %4

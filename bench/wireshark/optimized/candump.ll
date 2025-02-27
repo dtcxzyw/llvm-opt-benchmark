@@ -70,7 +70,7 @@ define hidden range(i32 -1, 2) i32 @candump_open(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @candump_parse(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @candump_parse(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.candump_state_t, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, i8 0, i64 152, i1 false)
@@ -154,7 +154,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @g_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @candump_read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal noundef zeroext i1 @candump_read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) #0 {
   %6 = alloca %struct.msg_t, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #8
   %7 = load ptr, ptr %0, align 8
@@ -237,7 +237,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @candump_gen_packet(ptr noundef initializes((296, 312)) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @candump_gen_packet(ptr noundef initializes((296, 312)) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca %struct.canfd_frame, align 4
   %6 = alloca %struct.can_frame, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 280

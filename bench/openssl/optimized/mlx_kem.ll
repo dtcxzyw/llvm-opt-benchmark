@@ -73,7 +73,7 @@ mlx_kem_init.exit:                                ; preds = %9, %7, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mlx_kem_encapsulate(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal range(i32 0, 2) i32 @mlx_kem_encapsulate(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -398,7 +398,7 @@ mlx_kem_init.exit:                                ; preds = %10, %8, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mlx_kem_decapsulate(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #0 {
+define internal range(i32 0, 2) i32 @mlx_kem_decapsulate(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !11

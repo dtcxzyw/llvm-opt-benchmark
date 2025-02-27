@@ -330,7 +330,7 @@ define hidden void @"_ZN10wasmparser7readers4core5types103_$LT$impl$u20$wasmpars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h4c42a3bc5d85f909E"(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #1 {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h4c42a3bc5d85f909E"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) initializes((0, 24)) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %5, label %3
@@ -1231,7 +1231,7 @@ define void @_ZN14cranelift_wasm15func_translator14FuncTranslator3new17h796253c5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(360) ptr @_ZN14cranelift_wasm15func_translator14FuncTranslator7context17ha0c152a7521b18b1E(ptr noalias noundef readnone returned align 8 dereferenceable(608) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(360) ptr @_ZN14cranelift_wasm15func_translator14FuncTranslator7context17ha0c152a7521b18b1E(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(608) %0) unnamed_addr #9 {
   ret ptr %0
 }
 

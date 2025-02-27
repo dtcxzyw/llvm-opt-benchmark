@@ -1171,7 +1171,7 @@ target triple = "x86_64-pc-linux-gnu"
 @st_smpp_req = internal unnamed_addr global i32 -1, align 4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @smpp_handle_dcs(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define hidden void @smpp_handle_dcs(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
   %6 = load i32, ptr %2, align 4
@@ -3439,7 +3439,7 @@ declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unna
 declare ptr @export_pdu_create_common_tags(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %6)
   %8 = icmp sgt i32 %7, 0

@@ -921,7 +921,7 @@ _ZL9copyFlagsRKN4llvm8CallInstEPNS_5ValueE.exit:  ; preds = %_ZN4llvm16dyn_cast_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL35annotateNonNullNoUndefBasedOnAccessPN4llvm8CallInstENS_8ArrayRefIjEE(ptr noundef nonnull %0, ptr readonly %1, i64 %2) unnamed_addr #1 {
+define internal fastcc void @_ZL35annotateNonNullNoUndefBasedOnAccessPN4llvm8CallInstENS_8ArrayRefIjEE(ptr noundef nonnull %0, ptr readonly captures(address) %1, i64 %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = tail call noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #26
   %.not = icmp eq ptr %5, null
@@ -1016,7 +1016,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %21, %37
 declare noundef i64 @_ZN4llvm15GetStringLengthEPKNS_5ValueEj(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28annotateDereferenceableBytesPN4llvm8CallInstENS_8ArrayRefIjEEm(ptr noundef nonnull %0, ptr readonly %1, i64 %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc void @_ZL28annotateDereferenceableBytesPN4llvm8CallInstENS_8ArrayRefIjEEm(ptr noundef nonnull %0, ptr readonly captures(address) %1, i64 %2, i64 noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = tail call noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #26
   %.not = icmp eq ptr %6, null
@@ -5860,7 +5860,7 @@ _ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL33annotateNonNullAndDereferenceablePN4llvm8CallInstENS_8ArrayRefIjEEPNS_5ValueERKNS_10DataLayoutE(ptr noundef %0, ptr %1, i64 %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(496) %4) unnamed_addr #1 {
+define internal fastcc void @_ZL33annotateNonNullAndDereferenceablePN4llvm8CallInstENS_8ArrayRefIjEEPNS_5ValueERKNS_10DataLayoutE(ptr noundef %0, ptr captures(address) %1, i64 %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(496) %4) unnamed_addr #1 {
   %6 = alloca %"struct.llvm::SimplifyQuery", align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -14362,7 +14362,7 @@ _ZNK4llvm8CallBase12doesNotThrowEv.exit.thread:   ; preds = %1, %_ZNK4llvm8CallB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17LibCallSimplifier14classifyArgUseEPNS_5ValueEPNS_8FunctionEbRNS_15SmallVectorImplIPNS_8CallInstEEES9_S9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef %1, ptr noundef readnone %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm17LibCallSimplifier14classifyArgUseEPNS_5ValueEPNS_8FunctionEbRNS_15SmallVectorImplIPNS_8CallInstEEES9_S9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) local_unnamed_addr #1 align 2 {
   %8 = alloca i32, align 4
   %9 = load i8, ptr %1, align 8, !tbaa !63
   %.not = icmp eq i8 %9, 85
@@ -16874,7 +16874,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8CallInstEEEPT_S4_RKNS_5TwineE.exit54: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL28callHasFloatingPointArgumentPKN4llvm8CallInstE(ptr noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noundef zeroext i1 @_ZL28callHasFloatingPointArgumentPKN4llvm8CallInstE(ptr noundef readonly captures(address) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 1073741824
@@ -17125,7 +17125,7 @@ declare { ptr, ptr } @_ZN4llvm18getOrInsertLibFuncEPNS_6ModuleERKNS_17TargetLibr
 declare noundef ptr @_ZNK4llvm11Instruction5cloneEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL20callHasFP128ArgumentPKN4llvm8CallInstE(ptr noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noundef zeroext i1 @_ZL20callHasFP128ArgumentPKN4llvm8CallInstE(ptr noundef readonly captures(address) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 1073741824

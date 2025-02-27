@@ -2709,7 +2709,7 @@ define dso_local void @_ZN4enki13TaskScheduler14RunPinnedTasksEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4enki13TaskScheduler11WaitforTaskEPKNS_12ICompletableENS_12TaskPriorityE(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4enki13TaskScheduler11WaitforTaskEPKNS_12ICompletableENS_12TaskPriorityE(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZL13gtl_threadNum)
   %6 = load i32, ptr %5, align 4, !tbaa !27
@@ -3384,7 +3384,7 @@ define dso_local void @_ZN4enki10DependencyC2EPKNS_12ICompletableEPS1_(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4enki10DependencyC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #25 align 2 {
+define dso_local void @_ZN4enki10DependencyC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) unnamed_addr #25 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3434,7 +3434,7 @@ define dso_local void @_ZN4enki10DependencyC2EOS0_(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4enki10DependencyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4enki10DependencyD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !143
   %.not.i = icmp eq ptr %3, null
@@ -3481,7 +3481,7 @@ _ZN4enki10Dependency15ClearDependencyEv.exit:     ; preds = %.preheader.i, %1, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4enki10Dependency15ClearDependencyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #25 align 2 {
+define dso_local void @_ZN4enki10Dependency15ClearDependencyEv(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0) local_unnamed_addr #25 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !143
   %.not = icmp eq ptr %3, null

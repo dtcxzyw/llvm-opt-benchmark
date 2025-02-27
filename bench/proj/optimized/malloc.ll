@@ -40,7 +40,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef ptr @_Z11free_paramsP6pj_ctxP8ARG_listi(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define hidden noalias noundef ptr @_Z11free_paramsP6pj_ctxP8ARG_listi(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #4 {
   %.not6 = icmp eq ptr %1, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 

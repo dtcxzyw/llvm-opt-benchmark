@@ -1091,7 +1091,7 @@ _ZNSt10unique_ptrIN3gmx21AbstractOptionStorageESt14default_deleteIS1_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK3gmx8internal17OptionSectionImpl10findOptionEPKc(ptr noundef nonnull readonly align 8 dereferenceable(201) %0, ptr noundef readonly %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK3gmx8internal17OptionSectionImpl10findOptionEPKc(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(201) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
@@ -1250,7 +1250,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx8internal17OptionSectionImpl5startEv(ptr noundef nonnull align 8 dereferenceable(201) %0) local_unnamed_addr #5 align 2 {
+define void @_ZN3gmx8internal17OptionSectionImpl5startEv(ptr noundef nonnull align 8 captures(address) dereferenceable(201) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8, !tbaa !53
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1302,7 +1302,7 @@ define void @_ZN3gmx8internal17OptionSectionImpl5startEv(ptr noundef nonnull ali
 declare void @_ZN3gmx21AbstractOptionStorage11startSourceEv(ptr noundef nonnull align 8 dereferenceable(98)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx8internal17OptionSectionImpl6finishEv(ptr noundef nonnull readonly align 8 dereferenceable(201) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx8internal17OptionSectionImpl6finishEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(201) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i.i:
   %1 = alloca i64, align 8
   %2 = alloca %"class.gmx::ExceptionInitializer", align 8

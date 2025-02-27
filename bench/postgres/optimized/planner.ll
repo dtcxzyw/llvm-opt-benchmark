@@ -2277,7 +2277,7 @@ define internal fastcc ptr @preprocess_expression(ptr noundef %0, ptr noundef %1
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @preprocess_qual_conditions(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @preprocess_qual_conditions(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %common.ret, label %4
 
@@ -7192,7 +7192,7 @@ declare ptr @LCS_asString(i32 noundef) local_unnamed_addr #2
 declare ptr @make_pathkeys_for_sortclauses(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @preprocess_groupclause(ptr readonly captures(none) %.8.val, ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @preprocess_groupclause(ptr readonly captures(none) %.8.val, ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %.preheader34
 
@@ -7992,7 +7992,7 @@ declare void @split_pathtarget_at_srfs(ptr noundef, ptr noundef, ptr noundef, pt
 declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @apply_scanjoin_target_to_paths(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @apply_scanjoin_target_to_paths(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %9 = load ptr, ptr %8, align 8
@@ -8280,7 +8280,7 @@ define internal fastcc void @apply_scanjoin_target_to_paths(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @adjust_paths_for_srfs(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @adjust_paths_for_srfs(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
@@ -11433,7 +11433,7 @@ list_length.exit88:                               ; preds = %96
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_useful_pathkeys_for_distinct(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @get_useful_pathkeys_for_distinct(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = tail call ptr @lappend(ptr noundef null, ptr noundef %1) #12
   %5 = load i8, ptr @enable_distinct_reordering, align 1, !range !4, !noundef !5
   %6 = trunc nuw i8 %5 to i1

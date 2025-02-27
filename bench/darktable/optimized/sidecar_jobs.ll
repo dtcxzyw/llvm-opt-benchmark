@@ -72,7 +72,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare i32 @dt_image_write_sidecar_file(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @dt_sidecar_synch_enqueue_list(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @dt_sidecar_synch_enqueue_list(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_unlock_pending_queue.exit, label %2
 

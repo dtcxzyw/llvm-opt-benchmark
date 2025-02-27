@@ -1859,7 +1859,7 @@ target triple = "x86_64-pc-linux-gnu"
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_ptp_v2_timeInterval(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #1 {
+define hidden void @dissect_ptp_v2_timeInterval(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #1 {
   %9 = load i32, ptr %1, align 4
   %10 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %9)
   %11 = sitofp i64 %10 to double

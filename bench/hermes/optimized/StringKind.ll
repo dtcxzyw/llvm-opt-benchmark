@@ -18,7 +18,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN6hermes10StringKind5EntryppEv(ptr noundef nonnull returned align 4 dereferenceable(4) %this) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN6hermes10StringKind5EntryppEv(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %inc = add i32 %0, 1

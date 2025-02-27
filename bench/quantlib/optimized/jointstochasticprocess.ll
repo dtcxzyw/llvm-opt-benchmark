@@ -5598,7 +5598,7 @@ unreachable:                                      ; preds = %invoke.cont29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib22JointStochasticProcess12constituentsEv(ptr noundef nonnull readnone align 8 dereferenceable(272) %this) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib22JointStochasticProcess12constituentsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(272) %this) local_unnamed_addr #13 align 2 {
 entry:
   %l_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   ret ptr %l_

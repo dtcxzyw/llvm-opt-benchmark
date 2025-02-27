@@ -2380,7 +2380,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN8QuantLib20NonLinearLeastSquare7performERNS_18LeastSquareProblemE(ptr noundef nonnull returned align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %lsProblem) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN8QuantLib20NonLinearLeastSquare7performERNS_18LeastSquareProblemE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %lsProblem) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lsf = alloca %"class.QuantLib::LeastSquareFunction", align 8
   %P = alloca %"class.QuantLib::Problem", align 8

@@ -1276,7 +1276,7 @@ define linkonce_odr void @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EED2Ev(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_120ObjCSuperCallChecker13fillSelectorsERN5clang10ASTContextEN4llvm8ArrayRefINS_18SelectorDescriptorEEENS4_9StringRefE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23216) %1, ptr readonly %2, i64 %3, ptr %4, i64 %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_120ObjCSuperCallChecker13fillSelectorsERN5clang10ASTContextEN4llvm8ArrayRefINS_18SelectorDescriptorEEENS4_9StringRefE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23216) %1, ptr readonly captures(address) %2, i64 %3, ptr %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %4, i64 %5) #17

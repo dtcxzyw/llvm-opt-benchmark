@@ -1772,7 +1772,7 @@ define dso_local void @syncrep_yyfree(ptr noundef %0, ptr noundef readnone captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @syncrep_yy_flush_buffer(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
+define dso_local void @syncrep_yy_flush_buffer(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -2406,7 +2406,7 @@ define dso_local void @syncrep_yyset_lval(ptr noundef %0, ptr noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @syncrep_yylex_init(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @syncrep_yylex_init(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -2453,7 +2453,7 @@ declare ptr @__errno_location() local_unnamed_addr #8
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @syncrep_yylex_init_extra(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @syncrep_yylex_init_extra(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -2654,7 +2654,7 @@ syncrep_yyfree.exit28:                            ; preds = %syncrep_yyfree.exit
 declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @syncrep_scanner_init(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @syncrep_scanner_init(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @palloc0(i64 noundef 24) #15
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5

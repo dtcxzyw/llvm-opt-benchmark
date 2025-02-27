@@ -1023,7 +1023,7 @@ declare void @ustr_init(ptr noundef) local_unnamed_addr #9
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc void @_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef %5) unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = load i32, ptr %7, align 8, !tbaa !18
   %9 = zext i32 %8 to i64
@@ -3695,7 +3695,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 declare ptr @string_open(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL18getInvariantStringP10ParseStatePjP7UStringRiP10UErrorCode(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL18getInvariantStringP10ParseStatePjP7UStringRiP10UErrorCode(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #21
   call fastcc void @_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef null, ptr noundef %1, ptr noundef %3)
@@ -6313,7 +6313,7 @@ declare ptr @ucbuf_open(ptr noundef, ptr noundef, i8 noundef signext, i8 noundef
 declare signext i8 @getShowWarning() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19resLookupEP9SResourcePKc(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19resLookupEP9SResourcePKc(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = tail call ptr @res_none()
   %4 = icmp eq ptr %0, %3
   br i1 %4, label %.loopexit, label %5

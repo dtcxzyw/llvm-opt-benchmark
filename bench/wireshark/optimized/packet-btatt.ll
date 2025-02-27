@@ -7838,7 +7838,7 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @dissect_handle(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6, i32 noundef range(i32 -1, 65536) %7, i8 noundef zeroext %8) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_handle(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef range(i32 -1, 65536) %7, i8 noundef zeroext %8) unnamed_addr #1 {
   %10 = alloca i32, align 4
   %11 = alloca [5 x %struct._wmem_tree_key_t], align 16
   %12 = alloca i32, align 4
@@ -21302,7 +21302,7 @@ define internal fastcc void @save_value_fragment(i32 %.20.val, ptr noundef %0, i
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @get_value(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 65536) %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #1 {
+define internal fastcc ptr @get_value(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 65536) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca [4 x %struct._wmem_tree_key_t], align 16
   store i32 %1, ptr %5, align 4

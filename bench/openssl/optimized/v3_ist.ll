@@ -209,7 +209,7 @@ define internal ptr @v2i_issuer_sign_tool(ptr readnone captures(none) %0, ptr re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @i2r_issuer_sign_tool(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal range(i32 0, 2) i32 @i2r_issuer_sign_tool(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 

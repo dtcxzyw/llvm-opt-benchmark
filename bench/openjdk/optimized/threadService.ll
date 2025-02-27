@@ -839,7 +839,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %8, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ThreadService18remove_thread_dumpEP16ThreadDumpResult(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ThreadService18remove_thread_dumpEP16ThreadDumpResult(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @Management_lock, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %3
@@ -3377,7 +3377,7 @@ _ZN26GrowableArrayWithAllocatorIP14StackFrameInfo13GrowableArrayIS1_EE6appendERK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -3807,7 +3807,7 @@ _ZN21ThreadConcurrentLocks8add_lockEP15instanceOopDesc.exit17: ; preds = %_ZN9Oo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN19ConcurrentLocksDump23thread_concurrent_locksEP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef readnone %1) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN19ConcurrentLocksDump23thread_concurrent_locksEP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 align 2 {
   %.08 = load ptr, ptr %0, align 8
   %.not9 = icmp eq ptr %.08, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -3878,7 +3878,7 @@ _ZN26GrowableArrayWithAllocatorI9OopHandle13GrowableArrayIS0_EE6appendERKS0_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ConcurrentLocksDump14print_locks_onEP10JavaThreadP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef readnone %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19ConcurrentLocksDump14print_locks_onEP10JavaThreadP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.9) #13
   %.08.i = load ptr, ptr %0, align 8
   %.not9.i = icmp eq ptr %.08.i, null

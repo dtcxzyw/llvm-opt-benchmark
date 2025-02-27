@@ -401,7 +401,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK2cv10BOWTrainer14getDescriptorsEv(ptr noundef nonnull readnone align 8 dereferenceable(36) %0) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK2cv10BOWTrainer14getDescriptorsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(36) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -1185,7 +1185,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit:   ; preds = %.body, %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(96) ptr @_ZNK2cv25BOWImgDescriptorExtractor13getVocabularyEv(ptr noundef nonnull readnone align 8 dereferenceable(136) %0) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(96) ptr @_ZNK2cv25BOWImgDescriptorExtractor13getVocabularyEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(136) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

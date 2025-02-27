@@ -2137,7 +2137,7 @@ define hidden void @_ZN4ring2io6writer12TooLongError3new17h513b2f9deb057fb6E() u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN4ring6digest4sha116block_data_order17hcdd7d842b3d63616E(ptr noalias noundef align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @_ZN4ring6digest4sha116block_data_order17hcdd7d842b3d63616E(ptr noalias noundef align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca [80 x i32], align 4
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4

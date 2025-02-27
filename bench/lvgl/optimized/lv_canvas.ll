@@ -304,7 +304,7 @@ define void @lv_canvas_set_palette(ptr noundef %0, i8 noundef zeroext %1, i32 %2
 declare void @lv_draw_buf_set_palette(ptr noundef, i8 noundef zeroext, i32) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_canvas_get_draw_buf(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_canvas_get_draw_buf(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -432,7 +432,7 @@ define i32 @lv_canvas_get_px(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_canvas_get_image(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_canvas_get_image(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -446,7 +446,7 @@ define ptr @lv_canvas_get_image(ptr noundef readonly %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_canvas_get_buf(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_canvas_get_buf(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -470,7 +470,7 @@ define ptr @lv_canvas_get_buf(ptr noundef readonly %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_canvas_copy_buf(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define void @lv_canvas_copy_buf(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %5
 
@@ -790,7 +790,7 @@ declare zeroext i16 @lv_color_to_u16(i24) local_unnamed_addr #2
 declare i32 @lv_color_to_u32(i24) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_canvas_init_layer(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @lv_canvas_init_layer(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 

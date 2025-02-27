@@ -3266,7 +3266,7 @@ _ZN7glslang11HlslGrammar17acceptAnnotationsERNS_10TQualifierE.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptFunctionDefinitionERNS_19TFunctionDeclaratorERP11TIntermNodePNS_7TVectorINS_9HlslTokenEEE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptFunctionDefinitionERNS_19TFunctionDeclaratorERP11TIntermNodePNS_7TVectorINS_9HlslTokenEEE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -9972,7 +9972,7 @@ declare noundef ptr @_ZN7glslang16HlslParseContext24handleFunctionDefinitionERKN
 define noundef zeroext i1 @_ZN7glslang11HlslGrammar23acceptCompoundStatementERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = tail call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 359) #16
-  br i1 %4, label %5, label %35
+  br i1 %4, label %5, label %37
 
 5:                                                ; preds = %2
   %6 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar15acceptStatementERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -9981,69 +9981,69 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar23acceptCompoundStatementERP1
 .lr.ph:                                           ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  br label %.backedge
+  br label %9
 
-.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
-  %.01117 = phi ptr [ null, %.lr.ph ], [ %.01117.be, %.backedge.backedge ]
-  %9 = load ptr, ptr %3, align 8
-  %.not14 = icmp eq ptr %9, null
-  br i1 %.not14, label %19, label %10
+9:                                                ; preds = %.lr.ph, %24
+  %.01117 = phi ptr [ null, %.lr.ph ], [ %.1, %24 ]
+  %10 = load ptr, ptr %3, align 8
+  %.not14 = icmp eq ptr %10, null
+  br i1 %.not14, label %.thread, label %11
 
-10:                                               ; preds = %.backedge
-  %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
-  %.not15 = icmp eq ptr %14, null
-  br i1 %.not15, label %19, label %15
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %10, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
+  %.not15 = icmp eq ptr %15, null
+  br i1 %.not15, label %.thread, label %16
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %17 = load i32, ptr %16, align 8
-  %18 = and i32 %17, -2
-  %switch = icmp eq i32 %18, 472
-  br i1 %switch, label %.thread22, label %19
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %18 = load i32, ptr %17, align 8
+  %19 = and i32 %18, -2
+  %switch = icmp eq i32 %19, 472
+  br i1 %switch, label %20, label %.thread
 
-19:                                               ; preds = %.backedge, %15, %10
-  %20 = load ptr, ptr %8, align 8
-  %21 = tail call noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_(ptr noundef nonnull align 8 dereferenceable(2024) %20, ptr noundef %.01117, ptr noundef %9) #16
-  %22 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar15acceptStatementERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br i1 %22, label %.backedge.backedge, label %._crit_edge
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  tail call void @_ZN7glslang16HlslParseContext23wrapupSwitchSubsequenceEPNS_16TIntermAggregateEP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(2489) %21, ptr noundef %.01117, ptr noundef nonnull %10) #16
+  br label %24
 
-.backedge.backedge:                               ; preds = %19, %.thread22
-  %.01117.be = phi ptr [ %21, %19 ], [ null, %.thread22 ]
-  br label %.backedge, !llvm.loop !59
+.thread:                                          ; preds = %16, %9, %11
+  %22 = load ptr, ptr %8, align 8
+  %23 = tail call noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_(ptr noundef nonnull align 8 dereferenceable(2024) %22, ptr noundef %.01117, ptr noundef %10) #16
+  br label %24
 
-.thread22:                                        ; preds = %15
-  %23 = load ptr, ptr %7, align 8
-  tail call void @_ZN7glslang16HlslParseContext23wrapupSwitchSubsequenceEPNS_16TIntermAggregateEP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(2489) %23, ptr noundef %.01117, ptr noundef nonnull %9) #16
-  %24 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar15acceptStatementERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br i1 %24, label %.backedge.backedge, label %._crit_edge.thread
+24:                                               ; preds = %.thread, %20
+  %.1 = phi ptr [ null, %20 ], [ %23, %.thread ]
+  %25 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar15acceptStatementERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  br i1 %25, label %9, label %._crit_edge, !llvm.loop !59
 
-._crit_edge:                                      ; preds = %19
-  %.not = icmp eq ptr %21, null
-  br i1 %.not, label %._crit_edge.thread, label %25
+._crit_edge:                                      ; preds = %24
+  %.not = icmp eq ptr %.1, null
+  br i1 %.not, label %._crit_edge.thread, label %26
 
-25:                                               ; preds = %._crit_edge
-  %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 624
-  %28 = load i8, ptr %27, align 8
-  %29 = trunc i8 %28 to i1
-  %30 = select i1 %29, i32 2, i32 1
-  %31 = load ptr, ptr %21, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 392
-  %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(364) %21, i32 noundef %30) #16
+26:                                               ; preds = %._crit_edge
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 624
+  %30 = load i8, ptr %29, align 8
+  %31 = trunc i8 %30 to i1
+  %32 = select i1 %31, i32 2, i32 1
+  %33 = load ptr, ptr %.1, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 392
+  %35 = load ptr, ptr %34, align 8
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(364) %.1, i32 noundef %32) #16
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.thread22, %5, %25, %._crit_edge
-  %.011.lcssa21 = phi ptr [ %21, %25 ], [ null, %._crit_edge ], [ null, %5 ], [ null, %.thread22 ]
-  store ptr %.011.lcssa21, ptr %1, align 8
-  %34 = tail call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 360) #16
-  br label %35
+._crit_edge.thread:                               ; preds = %5, %26, %._crit_edge
+  %.011.lcssa20 = phi ptr [ %.1, %26 ], [ null, %._crit_edge ], [ null, %5 ]
+  store ptr %.011.lcssa20, ptr %1, align 8
+  %36 = tail call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 360) #16
+  br label %37
 
-35:                                               ; preds = %2, %._crit_edge.thread
-  %.0 = phi i1 [ %34, %._crit_edge.thread ], [ false, %2 ]
+37:                                               ; preds = %2, %._crit_edge.thread
+  %.0 = phi i1 [ %36, %._crit_edge.thread ], [ false, %2 ]
   ret i1 %.0
 }
 

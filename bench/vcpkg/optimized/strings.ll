@@ -581,7 +581,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN5vcpkg7Strings29case_insensitive_ascii_searchENS_10StringViewES1_(ptr readonly %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @_ZN5vcpkg7Strings29case_insensitive_ascii_searchENS_10StringViewES1_(ptr readonly %0, i64 %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   %6 = getelementptr inbounds i8, ptr %2, i64 %3
   %7 = icmp eq i64 %1, 0
@@ -642,7 +642,7 @@ define dso_local noundef ptr @_ZN5vcpkg7Strings29case_insensitive_ascii_searchEN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN5vcpkg7Strings31case_insensitive_ascii_containsENS_10StringViewES1_(ptr readonly %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN5vcpkg7Strings31case_insensitive_ascii_containsENS_10StringViewES1_(ptr readonly %0, i64 %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   %6 = getelementptr inbounds i8, ptr %2, i64 %3
   %7 = icmp eq i64 %1, 0
@@ -704,7 +704,7 @@ _ZN5vcpkg7Strings29case_insensitive_ascii_searchENS_10StringViewES1_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN5vcpkg7Strings29case_insensitive_ascii_equalsENS_10StringViewES1_(ptr readonly %0, i64 %1, ptr readonly captures(none) %2, i64 %3) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @_ZN5vcpkg7Strings29case_insensitive_ascii_equalsENS_10StringViewES1_(ptr readonly captures(address) %0, i64 %1, ptr readonly captures(none) %2, i64 %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   %.not.i.i = icmp eq i64 %1, %3
   br i1 %.not.i.i, label %6, label %"_ZSt5equalIPKcS1_N12_GLOBAL__N_13$_3EEbT_S4_T0_S5_T1_.exit"
@@ -739,7 +739,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg7Strings29case_insensitive_ascii_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5vcpkg7Strings26inplace_ascii_to_lowercaseEPcS1_(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #6 {
+define dso_local void @_ZN5vcpkg7Strings26inplace_ascii_to_lowercaseEPcS1_(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 {
   %.not8.i = icmp eq ptr %0, %1
   br i1 %.not8.i, label %"_ZSt9transformIPcS0_N12_GLOBAL__N_13$_2EET0_T_S4_S3_T1_.exit", label %.lr.ph.i
 
@@ -791,7 +791,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataE
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg7Strings18ascii_to_lowercaseB5cxx11ENS_10StringViewE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg7Strings18ascii_to_lowercaseB5cxx11ENS_10StringViewE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %.not4.i = icmp eq i64 %2, 0
@@ -823,7 +823,7 @@ define dso_local void @_ZN5vcpkg7Strings18ascii_to_lowercaseB5cxx11ENS_10StringV
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg7Strings18ascii_to_uppercaseB5cxx11ENS_10StringViewE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg7Strings18ascii_to_uppercaseB5cxx11ENS_10StringViewE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %.not4.i = icmp eq i64 %2, 0
@@ -855,7 +855,7 @@ define dso_local void @_ZN5vcpkg7Strings18ascii_to_uppercaseB5cxx11ENS_10StringV
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr readonly %0, i64 %1, ptr readonly captures(none) %2, i64 %3) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr readonly captures(address) %0, i64 %1, ptr readonly captures(none) %2, i64 %3) local_unnamed_addr #5 {
   %5 = icmp ult i64 %1, %3
   br i1 %5, label %"_ZSt5equalIPKcS1_N12_GLOBAL__N_13$_3EEbT_S4_T0_S5_T1_.exit", label %6
 
@@ -2260,7 +2260,7 @@ define dso_local void @_ZN5vcpkg7Strings11split_pathsB5cxx11ENS_10StringViewE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN5vcpkg7Strings13find_first_ofENS_10StringViewES1_(ptr readonly %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #5 {
+define dso_local noundef ptr @_ZN5vcpkg7Strings13find_first_ofENS_10StringViewES1_(ptr readonly captures(address, ret: address, provenance) %0, i64 %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   %6 = getelementptr inbounds i8, ptr %2, i64 %3
   %.not20.i = icmp eq i64 %1, 0
@@ -2623,7 +2623,7 @@ _ZNSt6vectorIN5vcpkg10StringViewESaIS1_EED2Ev.exit18: ; preds = %32, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN5vcpkg7Strings32contains_any_ignoring_c_commentsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SpanIKSt29boyer_moore_horspool_searcherIN9__gnu_cxx17__normal_iteratorIPKcS6_EESt4hashIcESt8equal_toIvEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN5vcpkg7Strings32contains_any_ignoring_c_commentsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SpanIKSt29boyer_moore_horspool_searcherIN9__gnu_cxx17__normal_iteratorIPKcS6_EESt4hashIcESt8equal_toIvEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"struct.vcpkg::StringView", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2979,7 +2979,7 @@ _ZN5vcpkg7Strings24long_string_contains_anyENS_10StringViewENS_4SpanIKSt29boyer_
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN5vcpkg7Strings24long_string_contains_anyENS_10StringViewENS_4SpanIKSt29boyer_moore_horspool_searcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4hashIcESt8equal_toIvEEEE(ptr readonly %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN5vcpkg7Strings24long_string_contains_anyENS_10StringViewENS_4SpanIKSt29boyer_moore_horspool_searcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4hashIcESt8equal_toIvEEEE(ptr readonly captures(address) %0, i64 %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds %"class.std::boyer_moore_horspool_searcher", ptr %2, i64 %3
   %.not19.not = icmp eq i64 %3, 0
   br i1 %.not19.not, label %._crit_edge, label %.lr.ph
@@ -3071,7 +3071,7 @@ declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(p
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN5vcpkg7Strings35contains_any_ignoring_hash_commentsENS_10StringViewENS_4SpanIKSt29boyer_moore_horspool_searcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4hashIcESt8equal_toIvEEEE(ptr %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN5vcpkg7Strings35contains_any_ignoring_hash_commentsENS_10StringViewENS_4SpanIKSt29boyer_moore_horspool_searcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4hashIcESt8equal_toIvEEEE(ptr %0, i64 %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #4 {
   %.fr = freeze i64 %3
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   %.not73 = icmp eq i64 %1, 0
@@ -4180,7 +4180,7 @@ define dso_local void @_ZN5vcpkg7Strings10b32_encodeB5cxx11Em(ptr dead_on_unwind
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg7Strings14percent_encodeB5cxx11ENS_10StringViewE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr readonly %1, i64 %2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg7Strings14percent_encodeB5cxx11ENS_10StringViewE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.fmt::v10::detail::concat", align 8
   %5 = alloca i8, align 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26

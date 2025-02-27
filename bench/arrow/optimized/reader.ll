@@ -35453,13 +35453,13 @@ define void @_ZTv0_n40_N5arrow3ipc8internal26IoRecordedRandomAccessFile4ReadEl(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5arrow3ipc8internal26IoRecordedRandomAccessFile10io_contextEv(ptr noundef nonnull readnone align 8 dereferenceable(112) %0) unnamed_addr #18 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5arrow3ipc8internal26IoRecordedRandomAccessFile10io_contextEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %0) unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZTv0_n48_NK5arrow3ipc8internal26IoRecordedRandomAccessFile10io_contextEv(ptr noundef readonly %0) unnamed_addr #15 align 2 {
+define noundef nonnull ptr @_ZTv0_n48_NK5arrow3ipc8internal26IoRecordedRandomAccessFile10io_contextEv(ptr noundef readonly captures(ret: address, provenance) %0) unnamed_addr #15 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !85
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -35469,7 +35469,7 @@ define noundef nonnull ptr @_ZTv0_n48_NK5arrow3ipc8internal26IoRecordedRandomAcc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5arrow3ipc8internal26IoRecordedRandomAccessFile13GetReadRangesEv(ptr noundef nonnull readnone align 8 dereferenceable(112) %0) local_unnamed_addr #18 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5arrow3ipc8internal26IoRecordedRandomAccessFile13GetReadRangesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }

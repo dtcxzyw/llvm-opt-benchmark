@@ -853,13 +853,13 @@ define noundef zeroext i1 @_ZN10grep_regex6config6Config19is_case_insensitive17h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN10grep_regex6config13ConfiguredHIR6config17h700f7638af130ec0E(ptr noalias noundef readonly align 8 dereferenceable(88) %0) unnamed_addr #12 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN10grep_regex6config13ConfiguredHIR6config17h700f7638af130ec0E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(88) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN10grep_regex6config13ConfiguredHIR3hir17h39e26d4b8ade2b2eE(ptr noalias noundef readonly returned align 8 dereferenceable(88) %0) unnamed_addr #12 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN10grep_regex6config13ConfiguredHIR3hir17h39e26d4b8ade2b2eE(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(88) %0) unnamed_addr #12 {
   ret ptr %0
 }
 
@@ -1259,7 +1259,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E(i1 noundef zeroext %0, i8 %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #14 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @_ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E(i1 noundef zeroext %0, i8 %1, ptr noalias noundef nonnull readonly align 1 captures(address) %2, i64 noundef %3) unnamed_addr #14 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %2, i64 %3
   br i1 %0, label %.preheader, label %.preheader22
 

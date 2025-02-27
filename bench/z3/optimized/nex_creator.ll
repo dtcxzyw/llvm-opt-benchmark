@@ -3005,7 +3005,7 @@ for.end:                                          ; preds = %if.end20, %if.end17
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK3nla11nex_creator13gt_on_var_nexERKNS_7nex_varERKNS_3nexE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(12) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK3nla11nex_creator13gt_on_var_nexERKNS_7nex_varERKNS_3nexE(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(12) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
 entry:
   br label %tailrecurse
 
@@ -3154,7 +3154,7 @@ return:                                           ; preds = %tailrecurse, %cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK3nla11nex_creator13gt_on_sum_sumERKNS_7nex_sumES3_(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK3nla11nex_creator13gt_on_sum_sumERKNS_7nex_sumES3_(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %a, align 8
   %0 = load ptr, ptr %vtable, align 8
@@ -3374,7 +3374,7 @@ return:                                           ; preds = %if.end.i, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
 entry:
   %cmp24 = icmp eq ptr %a, %b
   br i1 %cmp24, label %return, label %if.end
@@ -3538,7 +3538,7 @@ return:                                           ; preds = %if.end22, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK3nla11nex_creator9is_sortedERKNS_7nex_mulE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(48) %e) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK3nla11nex_creator9is_sortedERKNS_7nex_mulE(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(48) %e) local_unnamed_addr #3 align 2 {
 entry:
   %m_children.i = getelementptr inbounds nuw i8, ptr %e, i64 40
   br label %for.cond
@@ -11684,7 +11684,7 @@ return:                                           ; preds = %_ZNKSt8functionIFbP
 declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIPN3nla7nex_powElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_T0_T1_"(ptr noundef %__first, ptr noundef %__last, i64 noundef %__depth_limit, ptr %__comp.coerce) unnamed_addr #3 {
+define internal fastcc void @"_ZSt16__introsort_loopIPN3nla7nex_powElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_T0_T1_"(ptr noundef %__first, ptr noundef %__last, i64 noundef %__depth_limit, ptr captures(none) %__comp.coerce) unnamed_addr #3 {
 entry:
   %__tmp.i.i.i8.i = alloca %"class.nla::nex_pow", align 8
   %__tmp.i.i38.i.i = alloca %"class.nla::nex_pow", align 8

@@ -1249,7 +1249,7 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ucase_addStringCaseClosure_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucase_addStringCaseClosure_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = add i32 %1, -4
   %6 = icmp ult i32 %5, -2
@@ -2168,7 +2168,7 @@ define range(i32 1, 7) i32 @ucase_getCaseLocale_77(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucase_toFullLower_77(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @ucase_toFullLower_77(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i32 noundef %4) local_unnamed_addr #0 {
   store ptr null, ptr %3, align 8, !tbaa !40
   %6 = icmp ult i32 %0, 55296
   br i1 %6, label %7, label %9
@@ -2733,7 +2733,7 @@ _ZL14isPrecededBy_IPFiPvaES_.exit.thread169:      ; preds = %127, %_ZL10getDotTy
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL23isFollowedByCasedLetterPFiPvaES_a(ptr noundef readonly %0, ptr noundef %1, i8 noundef signext range(i8 -1, 2) %2) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL23isFollowedByCasedLetterPFiPvaES_a(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i8 noundef signext range(i8 -1, 2) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -2812,13 +2812,13 @@ ucase_getTypeOrIgnorable_77.exit:                 ; preds = %18, %20, %.sink.spl
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ucase_toFullUpper_77(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef i32 @ucase_toFullUpper_77(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef signext 1)
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i32 noundef %4, i8 noundef signext range(i8 0, 2) %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i32 noundef %4, i8 noundef signext range(i8 0, 2) %5) unnamed_addr #0 {
   store ptr null, ptr %3, align 8, !tbaa !40
   %7 = icmp ult i32 %0, 55296
   br i1 %7, label %8, label %10
@@ -3165,7 +3165,7 @@ _ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread131: ; preds = %_ZL10getDotTypei
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ucase_toFullTitle_77(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef i32 @ucase_toFullTitle_77(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef signext 0)
   ret i32 %6
 }

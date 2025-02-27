@@ -148,7 +148,7 @@ define internal i32 @ml_dsa_verify(ptr noundef %0, ptr noundef %1, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ml_dsa_digest_signverify_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @ml_dsa_digest_signverify_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %5
 

@@ -804,7 +804,7 @@ define i32 @uset_getItemCount_77(ptr noundef nonnull %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uset_getString_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define ptr @uset_getString_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %28, label %5
 
@@ -947,7 +947,7 @@ define noundef i32 @uset_serialize_77(ptr noundef %0, ptr noundef %1, i32 nounde
 declare noundef i32 @_ZNK6icu_7710UnicodeSet9serializeEPtiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define signext range(i8 0, 2) i8 @uset_getSerializedSet_77(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define signext range(i8 0, 2) i8 @uset_getSerializedSet_77(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %31, label %5
 
@@ -1097,7 +1097,7 @@ define void @uset_setSerializedToOne_77(ptr noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ugt i32 %1, 1114111
   %or.cond = or i1 %3, %4
@@ -1267,7 +1267,7 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1073741823, 1073741824) i32 @uset_getSerializedRangeCount_77(ptr noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 -1073741823, 1073741824) i32 @uset_getSerializedRangeCount_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -1289,7 +1289,7 @@ define range(i32 -1073741823, 1073741824) i32 @uset_getSerializedRangeCount_77(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define signext range(i8 0, 2) i8 @uset_getSerializedRange_77(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #9 {
+define signext range(i8 0, 2) i8 @uset_getSerializedRange_77(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #9 {
   %5 = icmp eq ptr %0, null
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %5, %6

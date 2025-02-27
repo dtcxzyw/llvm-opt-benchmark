@@ -599,7 +599,7 @@ define void @_ZN6icu_7715RBBISymbolTableD0Ev(ptr noundef nonnull align 8 derefer
 declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7715RBBISymbolTable6lookupERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK6icu_7715RBBISymbolTable6lookupERKNS_13UnicodeStringE(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(108) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !28
   %5 = tail call ptr @uhash_get_77(ptr noundef %4, ptr noundef nonnull %1)

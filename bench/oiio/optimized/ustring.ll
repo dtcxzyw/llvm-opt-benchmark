@@ -1583,7 +1583,7 @@ declare void @_ZN11OpenImageIO6v3_1_07Strutil9memformatB5cxx11Exi(ptr dead_on_un
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #4 align 2
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 -576460752303423488, 576460752303423488) i64 @_ZN11OpenImageIO6v3_1_07ustring15hash_collisionsEPSt6vectorIS1_SaIS1_EE(ptr noundef %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -576460752303423488, 576460752303423488) i64 @_ZN11OpenImageIO6v3_1_07ustring15hash_collisionsEPSt6vectorIS1_SaIS1_EE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_115collision_mutexE) #24
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %3

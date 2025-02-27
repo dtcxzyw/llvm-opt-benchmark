@@ -20731,7 +20731,7 @@ define noundef range(i8 0, 32) i8 @"_ZN13wasmtime_wasi4host10filesystem106_$LT$i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull ptr @"_ZN266_$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17hfabbbcac50dd525fE"(ptr noundef nonnull readnone returned %0) unnamed_addr #2 {
+define noundef nonnull ptr @"_ZN266_$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17hfabbbcac50dd525fE"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #2 {
   ret ptr %0
 }
 

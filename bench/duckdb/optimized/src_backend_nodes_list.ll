@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [38 x i8] c"cannot list_concat() a list to itself\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN17duckdb_libpgquery7lappendEPNS_6PGListEPv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN17duckdb_libpgquery7lappendEPNS_6PGListEPv(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef 16)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -43,7 +43,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery7lappendEPNS_6PGListEPv(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN17duckdb_libpgquery5lconsEPvPNS_6PGListE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN17duckdb_libpgquery5lconsEPvPNS_6PGListE(ptr noundef %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   %4 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef 16)
   br i1 %3, label %5, label %11
@@ -80,7 +80,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery5lconsEPvPNS_6PGListE(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN17duckdb_libpgquery11list_concatEPNS_6PGListES1_(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN17duckdb_libpgquery11list_concatEPNS_6PGListES1_(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %22, label %4
 
@@ -122,7 +122,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery11list_concatEPNS_6PGListES1_(p
 declare void @_ZN17duckdb_libpgquery4elogEiPKcz(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN17duckdb_libpgquery13list_truncateEPNS_6PGListEi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden noundef ptr @_ZN17duckdb_libpgquery13list_truncateEPNS_6PGListEi(ptr noundef captures(address_is_null, ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp slt i32 %1, 1
   %.not.i = icmp eq ptr %0, null
   %or.cond = or i1 %.not.i, %3
@@ -297,7 +297,7 @@ _ZN17duckdb_libpgqueryL17list_free_privateEPNS_6PGListEb.exit: ; preds = %1, %.l
 declare void @_ZN17duckdb_libpgquery5pfreeEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN17duckdb_libpgquery9list_copyEPKNS_6PGListE(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN17duckdb_libpgquery9list_copyEPKNS_6PGListE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %22, label %3
 
@@ -356,7 +356,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery9list_copyEPKNS_6PGListE(ptr no
 declare noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN17duckdb_libpgquery14list_copy_tailEPKNS_6PGListEi(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN17duckdb_libpgquery14list_copy_tailEPKNS_6PGListEi(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %3 = icmp eq ptr %0, null
   br i1 %3, label %26, label %4

@@ -94,7 +94,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.get_dtype = private unnamed_addr constant [17 x ptr] [ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr poison, ptr @.str.30], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ECPGstruct_member_dup(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @ECPGstruct_member_dup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not26 = icmp eq ptr %0, null
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
@@ -259,7 +259,7 @@ ECPGmake_struct_member.exit:                      ; preds = %79, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ECPGmake_struct_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @ECPGmake_struct_type(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @mm_alloc(i64 noundef 48) #7
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -819,7 +819,7 @@ declare void @mmerror(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_
 declare void @mmfatal(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address) %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
   %10 = icmp eq ptr %6, null
   br i1 %10, label %13, label %11
@@ -1305,7 +1305,7 @@ get_type.exit144:                                 ; preds = %switch.lookup183, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ECPGfree_struct_member(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @ECPGfree_struct_member(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not6 = icmp eq ptr %0, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
