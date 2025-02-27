@@ -43927,7 +43927,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19Coordina
   br label %.loopexit1549
 
 .loopexit1549:                                    ; preds = %1109, %1116
-  %.merged489 = phi { ptr, i32 } [ %1117, %1116 ], [ %.pn432.pn, %1109 ]
+  %.merged497 = phi { ptr, i32 } [ %1117, %1116 ], [ %.pn432.pn, %1109 ]
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #32
   br label %1226
 
@@ -44195,12 +44195,12 @@ _ZNSt12__shared_ptrIN5osgeo4proj9operation19CoordinateOperationELN9__gnu_cxx12_L
   br label %3999
 
 1226:                                             ; preds = %.loopexit1549, %966
-  %.merged488 = phi { ptr, i32 } [ %.merged489, %.loopexit1549 ], [ %.pn428.pn.pn, %966 ]
+  %.merged496 = phi { ptr, i32 } [ %.merged497, %.loopexit1549 ], [ %.pn428.pn.pn, %966 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27) #32
   br label %1227
 
 1227:                                             ; preds = %1226, %840, %835, %661, %652, %650
-  %.merged487 = phi { ptr, i32 } [ %841, %840 ], [ %.pn435.pn, %835 ], [ %651, %650 ], [ %.merged488, %1226 ], [ %.pn424.pn, %661 ], [ %653, %652 ]
+  %.merged495 = phi { ptr, i32 } [ %841, %840 ], [ %.pn435.pn, %835 ], [ %651, %650 ], [ %.merged496, %1226 ], [ %.pn424.pn, %661 ], [ %653, %652 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj9operation19CoordinateOperationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #32
   br label %4077
@@ -48332,12 +48332,12 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2930, %2937
-  %.merged502 = phi { ptr, i32 } [ %2938, %2937 ], [ %.pn475.pn, %2930 ]
+  %.merged489 = phi { ptr, i32 } [ %2938, %2937 ], [ %.pn475.pn, %2930 ]
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %77) #32
   br label %2939
 
 2939:                                             ; preds = %.loopexit, %2779
-  %.merged501 = phi { ptr, i32 } [ %.merged502, %.loopexit ], [ %.pn472.pn, %2779 ]
+  %.merged488 = phi { ptr, i32 } [ %.merged489, %.loopexit ], [ %.pn472.pn, %2779 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %77) #32
   br label %2991
 
@@ -48453,7 +48453,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEED2Ev.exit1152: ; pre
   br label %3999
 
 2991:                                             ; preds = %2770, %2939, %2685
-  %.merged500 = phi { ptr, i32 } [ %.merged501, %2939 ], [ %2686, %2685 ], [ %2771, %2770 ]
+  %.merged487 = phi { ptr, i32 } [ %.merged488, %2939 ], [ %2686, %2685 ], [ %2771, %2770 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %75) #32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75) #32
   br label %4077
@@ -49020,7 +49020,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
   br i1 %.not1530, label %._crit_edge1575, label %3044
 
 .loopexit1543:                                    ; preds = %3197, %3202, %3183
-  %.merged499 = phi { ptr, i32 } [ %3203, %3202 ], [ %3184, %3183 ], [ %.pn445.pn, %3197 ]
+  %.merged502 = phi { ptr, i32 } [ %3203, %3202 ], [ %3184, %3183 ], [ %.pn445.pn, %3197 ]
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %86) #32
   br label %3274
 
@@ -49198,13 +49198,13 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19Coordina
   br label %3999
 
 3274:                                             ; preds = %.loopexit1543, %3038
-  %.merged498 = phi { ptr, i32 } [ %.merged499, %.loopexit1543 ], [ %.pn442.pn, %3038 ]
+  %.merged501 = phi { ptr, i32 } [ %.merged502, %.loopexit1543 ], [ %.pn442.pn, %3038 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %86) #32
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %83) #32
   br label %3275
 
 3275:                                             ; preds = %3274, %3030
-  %.merged497 = phi { ptr, i32 } [ %.merged498, %3274 ], [ %.pn439.pn, %3030 ]
+  %.merged500 = phi { ptr, i32 } [ %.merged501, %3274 ], [ %.pn439.pn, %3030 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %83) #32
   br label %4077
 
@@ -50709,7 +50709,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19Coordina
   br label %3868
 
 3868:                                             ; preds = %3867, %3361
-  %.merged496 = phi { ptr, i32 } [ %.merged1534, %3867 ], [ %.pn448.pn, %3361 ]
+  %.merged499 = phi { ptr, i32 } [ %.merged1534, %3867 ], [ %.pn448.pn, %3361 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %92) #32
   br label %4077
 
@@ -51228,7 +51228,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2
   br label %4077
 
 4077:                                             ; preds = %1227, %1923, %2162, %2622, %2991, %3275, %648, %1553, %2168, %2641, %4076, %3868, %402
-  %.merged481 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %402 ], [ %.merged500, %2991 ], [ %.merged497, %3275 ], [ %2642, %2641 ], [ %.merged487, %1227 ], [ %.merged483, %1923 ], [ %.merged490, %2622 ], [ %.pn389, %2168 ], [ %2163, %2162 ], [ %.pn387, %1553 ], [ %649, %648 ], [ %.pn468.pn, %4076 ], [ %.merged496, %3868 ]
+  %.merged481 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %402 ], [ %.merged487, %2991 ], [ %.merged500, %3275 ], [ %2642, %2641 ], [ %.merged495, %1227 ], [ %.merged483, %1923 ], [ %.merged490, %2622 ], [ %.pn389, %2168 ], [ %2163, %2162 ], [ %.pn387, %1553 ], [ %649, %648 ], [ %.pn468.pn, %4076 ], [ %.merged499, %3868 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum22GeodeticReferenceFrameEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #32
   br label %4078
 
@@ -59293,36 +59293,36 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
   br label %.loopexit2258
 
 .loopexit2258:                                    ; preds = %768, %775
-  %.merged2231 = phi { ptr, i32 } [ %776, %775 ], [ %.pn676.pn, %768 ]
+  %.merged2247 = phi { ptr, i32 } [ %776, %775 ], [ %.pn676.pn, %768 ]
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %72) #32
   br label %777
 
 777:                                              ; preds = %.loopexit2258, %624
-  %.merged2230 = phi { ptr, i32 } [ %.merged2231, %.loopexit2258 ], [ %625, %624 ]
+  %.merged2246 = phi { ptr, i32 } [ %.merged2247, %.loopexit2258 ], [ %625, %624 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %72) #32
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %70) #32
   br label %778
 
 778:                                              ; preds = %777, %622
-  %.merged2229 = phi { ptr, i32 } [ %.merged2230, %777 ], [ %623, %622 ]
+  %.merged2245 = phi { ptr, i32 } [ %.merged2246, %777 ], [ %623, %622 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %70) #32
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11CompoundCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %69) #32
   br label %779
 
 779:                                              ; preds = %778, %620
-  %.merged2228 = phi { ptr, i32 } [ %.merged2229, %778 ], [ %621, %620 ]
+  %.merged2244 = phi { ptr, i32 } [ %.merged2245, %778 ], [ %621, %620 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69) #32
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %65) #32
   br label %780
 
 780:                                              ; preds = %779, %619
-  %.merged2227 = phi { ptr, i32 } [ %.merged2228, %779 ], [ %.pn596.pn.pn, %619 ]
+  %.merged2243 = phi { ptr, i32 } [ %.merged2244, %779 ], [ %.pn596.pn.pn, %619 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #32
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %63) #32
   br label %781
 
 781:                                              ; preds = %780, %598
-  %.merged2226 = phi { ptr, i32 } [ %.merged2227, %780 ], [ %593, %598 ]
+  %.merged2242 = phi { ptr, i32 } [ %.merged2243, %780 ], [ %593, %598 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %63) #32
   br label %6319
 
@@ -61772,36 +61772,36 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
   br label %.loopexit2255
 
 .loopexit2255:                                    ; preds = %1743, %1750
-  %.merged2225 = phi { ptr, i32 } [ %1751, %1750 ], [ %.pn591.pn, %1743 ]
+  %.merged2241 = phi { ptr, i32 } [ %1751, %1750 ], [ %.pn591.pn, %1743 ]
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %115) #32
   br label %1752
 
 1752:                                             ; preds = %.loopexit2255, %1599
-  %.merged2224 = phi { ptr, i32 } [ %.merged2225, %.loopexit2255 ], [ %1600, %1599 ]
+  %.merged2240 = phi { ptr, i32 } [ %.merged2241, %.loopexit2255 ], [ %1600, %1599 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %115) #32
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %113) #32
   br label %1753
 
 1753:                                             ; preds = %1752, %1597
-  %.merged2223 = phi { ptr, i32 } [ %.merged2224, %1752 ], [ %1598, %1597 ]
+  %.merged2239 = phi { ptr, i32 } [ %.merged2240, %1752 ], [ %1598, %1597 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %113) #32
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11CompoundCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %112) #32
   br label %1754
 
 1754:                                             ; preds = %1753, %1595
-  %.merged2222 = phi { ptr, i32 } [ %.merged2223, %1753 ], [ %1596, %1595 ]
+  %.merged2238 = phi { ptr, i32 } [ %.merged2239, %1753 ], [ %1596, %1595 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %112) #32
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %108) #32
   br label %1755
 
 1755:                                             ; preds = %1754, %1594
-  %.merged2221 = phi { ptr, i32 } [ %.merged2222, %1754 ], [ %.pn583.pn.pn, %1594 ]
+  %.merged2237 = phi { ptr, i32 } [ %.merged2238, %1754 ], [ %.pn583.pn.pn, %1594 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108) #32
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %104) #32
   br label %1756
 
 1756:                                             ; preds = %1755, %1573
-  %.merged2220 = phi { ptr, i32 } [ %.merged2221, %1755 ], [ %.pn2199, %1573 ]
+  %.merged2236 = phi { ptr, i32 } [ %.merged2237, %1755 ], [ %.pn2199, %1573 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %104) #32
   br label %6319
 
@@ -64394,46 +64394,46 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
   br label %.loopexit2254
 
 .loopexit2254:                                    ; preds = %2784, %2791, %2584
-  %.merged2247 = phi { ptr, i32 } [ %2585, %2584 ], [ %2792, %2791 ], [ %.pn673.pn, %2784 ]
+  %.merged2235 = phi { ptr, i32 } [ %2585, %2584 ], [ %2792, %2791 ], [ %.pn673.pn, %2784 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %153) #32
   br label %2793
 
 2793:                                             ; preds = %.loopexit2254, %2582
-  %.merged2246 = phi { ptr, i32 } [ %.merged2247, %.loopexit2254 ], [ %2583, %2582 ]
+  %.merged2234 = phi { ptr, i32 } [ %.merged2235, %.loopexit2254 ], [ %2583, %2582 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %153) #32
   br label %2794
 
 2794:                                             ; preds = %2793, %2551
-  %.merged2245 = phi { ptr, i32 } [ %.merged2246, %2793 ], [ %2552, %2551 ]
+  %.merged2233 = phi { ptr, i32 } [ %.merged2234, %2793 ], [ %2552, %2551 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %152) #32
   br label %2795
 
 2795:                                             ; preds = %2794, %2549
-  %.merged2244 = phi { ptr, i32 } [ %.merged2245, %2794 ], [ %2550, %2549 ]
+  %.merged2232 = phi { ptr, i32 } [ %.merged2233, %2794 ], [ %2550, %2549 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %152) #32
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %149) #32
   br label %2796
 
 2796:                                             ; preds = %2795, %2518
-  %.merged2243 = phi { ptr, i32 } [ %.merged2244, %2795 ], [ %.pn625.pn, %2518 ]
+  %.merged2231 = phi { ptr, i32 } [ %.merged2232, %2795 ], [ %.pn625.pn, %2518 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %149) #32
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %139) #32
   br label %2797
 
 2797:                                             ; preds = %2796, %2510
-  %.merged2242 = phi { ptr, i32 } [ %.merged2243, %2796 ], [ %.pn617.pn.pn.pn.pn.pn.pn, %2510 ]
+  %.merged2230 = phi { ptr, i32 } [ %.merged2231, %2796 ], [ %.pn617.pn.pn.pn.pn.pn.pn, %2510 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %139) #32
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %137) #32
   br label %2798
 
 2798:                                             ; preds = %2797, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1219
-  %.merged2241 = phi { ptr, i32 } [ %.merged2242, %2797 ], [ %2472, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1219 ]
+  %.merged2229 = phi { ptr, i32 } [ %.merged2230, %2797 ], [ %2472, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1219 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %137) #32
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %128) #32
   br label %2799
 
 2799:                                             ; preds = %2798, %2470
-  %.merged2240 = phi { ptr, i32 } [ %.merged2241, %2798 ], [ %.pn609.pn.pn.pn.pn.pn.pn, %2470 ]
+  %.merged2228 = phi { ptr, i32 } [ %.merged2229, %2798 ], [ %.pn609.pn.pn.pn.pn.pn.pn, %2470 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %128) #32
   br label %2892
 
@@ -64647,18 +64647,18 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2
   br label %.critedge715
 
 2892:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1213, %2799
-  %.merged2239 = phi { ptr, i32 } [ %.merged2240, %2799 ], [ %.pn604.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1213 ]
+  %.merged2227 = phi { ptr, i32 } [ %.merged2228, %2799 ], [ %.pn604.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1213 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %121) #32
   br label %2893
 
 2893:                                             ; preds = %2892, %2418
-  %.merged2238 = phi { ptr, i32 } [ %.merged2239, %2892 ], [ %2419, %2418 ]
+  %.merged2226 = phi { ptr, i32 } [ %.merged2227, %2892 ], [ %2419, %2418 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %121) #32
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %120) #32
   br label %2894
 
 2894:                                             ; preds = %2893, %2416
-  %.merged2237 = phi { ptr, i32 } [ %.merged2238, %2893 ], [ %2417, %2416 ]
+  %.merged2225 = phi { ptr, i32 } [ %.merged2226, %2893 ], [ %2417, %2416 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %120) #32
   br label %6319
 
@@ -73040,7 +73040,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2
   br i1 %.not2211, label %3770, label %3775
 
 .body1492:                                        ; preds = %.body1747, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1701, %6178, %3777, %3791, %3855, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69.i
-  %.merged2235 = phi { ptr, i32 } [ %3983, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69.i ], [ %3856, %3855 ], [ %3778, %3777 ], [ %3792, %3791 ], [ %5256, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1701 ], [ %6179, %6178 ], [ %.pn651, %.body1747 ]
+  %.merged2223 = phi { ptr, i32 } [ %3983, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69.i ], [ %3856, %3855 ], [ %3778, %3777 ], [ %3792, %3791 ], [ %5256, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1701 ], [ %6179, %6178 ], [ %.pn651, %.body1747 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %182) #32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %182) #32
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairISt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaISH_EESJ_ESt4lessIS5_ESaIS6_IKS5_SK_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %181) #32
@@ -73312,25 +73312,25 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i1802: ; preds = %6312, 
   br label %.sink.split
 
 6316:                                             ; preds = %3224, %.body1492, %.body1365
-  %.merged2234 = phi { ptr, i32 } [ %.merged2235, %.body1492 ], [ %.pn644.pn.pn.pn.pn.pn, %.body1365 ], [ %3225, %3224 ]
+  %.merged2222 = phi { ptr, i32 } [ %.merged2223, %.body1492 ], [ %.pn644.pn.pn.pn.pn.pn, %.body1365 ], [ %3225, %3224 ]
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %162) #32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %162) #32
   br label %6317
 
 6317:                                             ; preds = %6316, %3018
-  %.merged2233 = phi { ptr, i32 } [ %.merged2234, %6316 ], [ %3019, %3018 ]
+  %.merged2221 = phi { ptr, i32 } [ %.merged2222, %6316 ], [ %3019, %3018 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %160) #32
   br label %6318
 
 6318:                                             ; preds = %6317, %3016
-  %.merged2232 = phi { ptr, i32 } [ %.merged2233, %6317 ], [ %3017, %3016 ]
+  %.merged2220 = phi { ptr, i32 } [ %.merged2221, %6317 ], [ %3017, %3016 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %160) #32
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %159) #32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %159) #32
   br label %6319
 
 6319:                                             ; preds = %3003, %6318, %781, %1014, %1150, %1145, %1016, %1756, %782, %2894
-  %.merged = phi { ptr, i32 } [ %.merged2237, %2894 ], [ %.merged2226, %781 ], [ %.merged2220, %1756 ], [ %783, %782 ], [ %1015, %1014 ], [ %1151, %1150 ], [ %.pn570.pn.pn.pn.pn.pn.pn, %1145 ], [ %1017, %1016 ], [ %.pn670.pn, %3003 ], [ %.merged2232, %6318 ]
+  %.merged = phi { ptr, i32 } [ %.merged2225, %2894 ], [ %.merged2242, %781 ], [ %.merged2236, %1756 ], [ %783, %782 ], [ %1015, %1014 ], [ %1151, %1150 ], [ %.pn570.pn.pn.pn.pn.pn.pn, %1145 ], [ %1017, %1016 ], [ %.pn670.pn, %3003 ], [ %.merged2220, %6318 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %62) #32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62) #32
   resume { ptr, i32 } %.merged
@@ -75212,24 +75212,24 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
   br label %.loopexit1311
 
 .loopexit1311:                                    ; preds = %802, %809
-  %.merged563 = phi { ptr, i32 } [ %810, %809 ], [ %.pn550.pn, %802 ]
+  %.merged580 = phi { ptr, i32 } [ %810, %809 ], [ %.pn550.pn, %802 ]
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #32
   br label %811
 
 811:                                              ; preds = %.loopexit1311, %656
-  %.merged562 = phi { ptr, i32 } [ %.merged563, %.loopexit1311 ], [ %657, %656 ]
+  %.merged579 = phi { ptr, i32 } [ %.merged580, %.loopexit1311 ], [ %657, %656 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49) #32
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #32
   br label %812
 
 812:                                              ; preds = %811, %654
-  %.merged561 = phi { ptr, i32 } [ %.merged562, %811 ], [ %655, %654 ]
+  %.merged578 = phi { ptr, i32 } [ %.merged579, %811 ], [ %655, %654 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48) #32
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #32
   br label %813
 
 813:                                              ; preds = %812, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit703
-  %.merged560 = phi { ptr, i32 } [ %.merged561, %812 ], [ %647, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit703 ]
+  %.merged577 = phi { ptr, i32 } [ %.merged578, %812 ], [ %647, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit703 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46) #32
   br label %3416
 
@@ -77148,24 +77148,24 @@ _ZN5osgeo4proj4util8optionalINS0_6common9DataEpochEEC2Ev.exit832: ; preds = %_ZN
   br label %.loopexit1309
 
 .loopexit1309:                                    ; preds = %1612, %1308, %1619, %1332, %1299, %1716, %1297
-  %.merged576 = phi { ptr, i32 } [ %1298, %1297 ], [ %1300, %1299 ], [ %.pn504.pn, %1716 ], [ %1309, %1308 ], [ %1620, %1619 ], [ %1333, %1332 ], [ %.pn547.pn, %1612 ]
+  %.merged563 = phi { ptr, i32 } [ %1298, %1297 ], [ %1300, %1299 ], [ %.pn504.pn, %1716 ], [ %1309, %1308 ], [ %1620, %1619 ], [ %1333, %1332 ], [ %.pn547.pn, %1612 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #32
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %66) #32
   br label %1717
 
 1717:                                             ; preds = %.loopexit1309, %1295
-  %.merged575 = phi { ptr, i32 } [ %.merged576, %.loopexit1309 ], [ %1296, %1295 ]
+  %.merged562 = phi { ptr, i32 } [ %.merged563, %.loopexit1309 ], [ %1296, %1295 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66) #32
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %65) #32
   br label %1718
 
 1718:                                             ; preds = %1717, %1293
-  %.merged574 = phi { ptr, i32 } [ %.merged575, %1717 ], [ %1294, %1293 ]
+  %.merged561 = phi { ptr, i32 } [ %.merged562, %1717 ], [ %1294, %1293 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %65) #32
   br label %1719
 
 1719:                                             ; preds = %1251, %1210, %1718, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit758, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit752
-  %.merged573 = phi { ptr, i32 } [ %.merged574, %1718 ], [ %.pn494, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit752 ], [ %.pn492, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit758 ], [ %1252, %1251 ], [ %1211, %1210 ]
+  %.merged560 = phi { ptr, i32 } [ %.merged561, %1718 ], [ %.pn494, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit752 ], [ %.pn492, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit758 ], [ %1252, %1251 ], [ %1211, %1210 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %58) #32
   br label %3415
 
@@ -80596,28 +80596,28 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev.exit1052:
   br i1 %.not1299, label %._crit_edge1563, label %1782
 
 .loopexit:                                        ; preds = %2485, %2490, %2492, %2579, %3014, %2511
-  %.merged571 = phi { ptr, i32 } [ %.pn536.pn, %3014 ], [ %2580, %2579 ], [ %2512, %2511 ], [ %2493, %2492 ], [ %2491, %2490 ], [ %.pn539, %2485 ]
+  %.merged574 = phi { ptr, i32 } [ %.pn536.pn, %3014 ], [ %2580, %2579 ], [ %2512, %2511 ], [ %2493, %2492 ], [ %2491, %2490 ], [ %.pn539, %2485 ]
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %93) #32
   br label %3124
 
 3124:                                             ; preds = %.loopexit, %2393
-  %.merged570 = phi { ptr, i32 } [ %.merged571, %.loopexit ], [ %.pn527.pn, %2393 ]
+  %.merged573 = phi { ptr, i32 } [ %.merged574, %.loopexit ], [ %.pn527.pn, %2393 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %93) #32
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %89) #32
   br label %3125
 
 3125:                                             ; preds = %3124, %2385
-  %.merged569 = phi { ptr, i32 } [ %.merged570, %3124 ], [ %.pn523.pn.pn, %2385 ]
+  %.merged572 = phi { ptr, i32 } [ %.merged573, %3124 ], [ %.pn523.pn.pn, %2385 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %89) #32
   br label %.loopexit1308
 
 .loopexit1308:                                    ; preds = %2292, %2203, %2297, %2205, %2201, %3125, %2199, %1971
-  %.merged566 = phi { ptr, i32 } [ %.merged569, %3125 ], [ %2202, %2201 ], [ %2200, %2199 ], [ %1972, %1971 ], [ %2204, %2203 ], [ %2298, %2297 ], [ %2206, %2205 ], [ %.pn518.pn, %2292 ]
+  %.merged569 = phi { ptr, i32 } [ %.merged572, %3125 ], [ %2202, %2201 ], [ %2200, %2199 ], [ %1972, %1971 ], [ %2204, %2203 ], [ %2298, %2297 ], [ %2206, %2205 ], [ %.pn518.pn, %2292 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %80) #32
   br label %3126
 
 3126:                                             ; preds = %.loopexit1308, %1853
-  %.merged565 = phi { ptr, i32 } [ %.merged566, %.loopexit1308 ], [ %1854, %1853 ]
+  %.merged568 = phi { ptr, i32 } [ %.merged569, %.loopexit1308 ], [ %1854, %1853 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %80) #32
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %79) #32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %79) #32
@@ -81343,13 +81343,13 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2
   ret void
 
 3415:                                             ; preds = %3227, %3126, %1719, %1161
-  %.merged564 = phi { ptr, i32 } [ %.merged573, %1719 ], [ %.merged565, %3126 ], [ %.pn510.pn, %3227 ], [ %.pn488.pn.pn, %1161 ]
+  %.merged559 = phi { ptr, i32 } [ %.merged560, %1719 ], [ %.merged568, %3126 ], [ %.pn510.pn, %3227 ], [ %.pn488.pn.pn, %1161 ]
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %53) #32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53) #32
   br label %3416
 
 3416:                                             ; preds = %813, %645, %3415, %542, %332
-  %.merged558 = phi { ptr, i32 } [ %.merged564, %3415 ], [ %.merged581, %542 ], [ %333, %332 ], [ %.merged560, %813 ], [ %.pn486, %645 ]
+  %.merged558 = phi { ptr, i32 } [ %.merged559, %3415 ], [ %.merged581, %542 ], [ %333, %332 ], [ %.merged577, %813 ], [ %.pn486, %645 ]
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #32
   br label %3417
 
@@ -110647,7 +110647,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i187: ; preds = %344, 
   br label %351
 
 351:                                              ; preds = %349, %297
-  %.merged350 = phi { ptr, i32 } [ %350, %349 ], [ %.pn120.pn, %297 ]
+  %.merged349 = phi { ptr, i32 } [ %350, %349 ], [ %.pn120.pn, %297 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #32
   br label %950
@@ -110910,7 +110910,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE
   br label %470
 
 470:                                              ; preds = %468, %459
-  %.merged349 = phi { ptr, i32 } [ %469, %468 ], [ %.pn126.pn, %459 ]
+  %.merged351 = phi { ptr, i32 } [ %469, %468 ], [ %.pn126.pn, %459 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #32
   br label %950
@@ -111449,7 +111449,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev.ex
   br label %698
 
 698:                                              ; preds = %696, %644
-  %.merged351 = phi { ptr, i32 } [ %697, %696 ], [ %.pn132.pn, %644 ]
+  %.merged350 = phi { ptr, i32 } [ %697, %696 ], [ %.pn132.pn, %644 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #32
   br label %950
@@ -112029,7 +112029,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEED2Ev.exit279: ; pred
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ERKS8_.exit
 
 950:                                              ; preds = %470, %914, %698, %351
-  %.merged = phi { ptr, i32 } [ %.merged350, %351 ], [ %.merged349, %470 ], [ %.pn137, %914 ], [ %.merged351, %698 ]
+  %.merged = phi { ptr, i32 } [ %.merged349, %351 ], [ %.merged351, %470 ], [ %.pn137, %914 ], [ %.merged350, %698 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #32
   resume { ptr, i32 } %.merged
