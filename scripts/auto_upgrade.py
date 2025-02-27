@@ -128,6 +128,7 @@ supported_project = [
     "quest",
     "readerwriterqueue",
     "rocksdb",
+    "sentencepiece",
 ]
 
 modify_only = [
@@ -168,6 +169,7 @@ modify_only = [
     "ozz-animation",
     "pbrt-v4",
     "readerwriterqueue",
+    "sentencepiece",
 ]
 
 
