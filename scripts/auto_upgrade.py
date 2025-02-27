@@ -131,6 +131,7 @@ supported_project = [
     "sentencepiece",
     "simdjson",
     "snappy",
+    "taskflow",
 ]
 
 modify_only = [
