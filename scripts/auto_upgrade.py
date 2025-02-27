@@ -129,6 +129,7 @@ supported_project = [
     "readerwriterqueue",
     "rocksdb",
     "sentencepiece",
+    "simdjson",
 ]
 
 modify_only = [
