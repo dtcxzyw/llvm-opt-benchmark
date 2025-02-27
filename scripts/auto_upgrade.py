@@ -173,6 +173,7 @@ modify_only = [
     "readerwriterqueue",
     "sentencepiece",
     "snappy",
+    "spdlog",
 ]
 
 
