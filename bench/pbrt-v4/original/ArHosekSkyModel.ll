@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.ArHosekSkyModelState = type { [11 x [9 x double]], [11 x double], double, double, [11 x double], [11 x double], double, double }
 
@@ -73,1933 +73,2080 @@ target triple = "x86_64-unknown-linux-gnu"
 @order = dso_local constant i32 4, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ArHosekSkyModel_CookConfiguration(ptr noundef %dataset, ptr noundef %config, double noundef %turbidity, double noundef %albedo, double noundef %solar_elevation) #0 {
-entry:
-  %dataset.addr = alloca ptr, align 8
-  %config.addr = alloca ptr, align 8
-  %turbidity.addr = alloca double, align 8
-  %albedo.addr = alloca double, align 8
-  %solar_elevation.addr = alloca double, align 8
-  %elev_matrix = alloca ptr, align 8
-  %int_turbidity = alloca i32, align 4
-  %turbidity_rem = alloca double, align 8
-  %i = alloca i32, align 4
-  store ptr %dataset, ptr %dataset.addr, align 8
-  store ptr %config, ptr %config.addr, align 8
-  store double %turbidity, ptr %turbidity.addr, align 8
-  store double %albedo, ptr %albedo.addr, align 8
-  store double %solar_elevation, ptr %solar_elevation.addr, align 8
-  %0 = load double, ptr %turbidity.addr, align 8
-  %conv = fptosi double %0 to i32
-  store i32 %conv, ptr %int_turbidity, align 4
-  %1 = load double, ptr %turbidity.addr, align 8
-  %2 = load i32, ptr %int_turbidity, align 4
-  %conv1 = sitofp i32 %2 to double
-  %sub = fsub double %1, %conv1
-  store double %sub, ptr %turbidity_rem, align 8
-  %3 = load double, ptr %solar_elevation.addr, align 8
-  %div = fdiv double %3, 0x3FF921FB54442D18
-  %call = call double @pow(double noundef %div, double noundef 0x3FD5555555555555) #4
-  store double %call, ptr %solar_elevation.addr, align 8
-  %4 = load ptr, ptr %dataset.addr, align 8
-  %5 = load i32, ptr %int_turbidity, align 4
-  %sub2 = sub nsw i32 %5, 1
-  %mul = mul nsw i32 54, %sub2
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr inbounds double, ptr %4, i64 %idx.ext
-  store ptr %add.ptr, ptr %elev_matrix, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define dso_local void @ArHosekSkyModel_CookConfiguration(ptr noundef %0, ptr noundef %1, double noundef %2, double noundef %3, double noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca double, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !4
+  store double %2, ptr %8, align 8, !tbaa !9
+  store double %3, ptr %9, align 8, !tbaa !9
+  store double %4, ptr %10, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  %16 = load double, ptr %8, align 8, !tbaa !9
+  %17 = fptosi double %16 to i32
+  store i32 %17, ptr %12, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %18 = load double, ptr %8, align 8, !tbaa !9
+  %19 = load i32, ptr %12, align 4, !tbaa !11
+  %20 = sitofp i32 %19 to double
+  %21 = fsub double %18, %20
+  store double %21, ptr %13, align 8, !tbaa !9
+  %22 = load double, ptr %10, align 8, !tbaa !9
+  %23 = fdiv double %22, 0x3FF921FB54442D18
+  %24 = call double @pow(double noundef %23, double noundef 0x3FD5555555555555) #5, !tbaa !11
+  store double %24, ptr %10, align 8, !tbaa !9
+  %25 = load ptr, ptr %6, align 8, !tbaa !4
+  %26 = load i32, ptr %12, align 4, !tbaa !11
+  %27 = sub nsw i32 %26, 1
+  %28 = mul nsw i32 54, %27
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds double, ptr %25, i64 %29
+  store ptr %30, ptr %11, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  store i32 0, ptr %14, align 4, !tbaa !11
+  br label %31
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %6 = load i32, ptr %i, align 4
-  %cmp = icmp ult i32 %6, 9
-  br i1 %cmp, label %for.body, label %for.end
+31:                                               ; preds = %117, %5
+  %32 = load i32, ptr %14, align 4, !tbaa !11
+  %33 = icmp ult i32 %32, 9
+  br i1 %33, label %34, label %120
 
-for.body:                                         ; preds = %for.cond
-  %7 = load double, ptr %albedo.addr, align 8
-  %sub4 = fsub double 1.000000e+00, %7
-  %8 = load double, ptr %turbidity_rem, align 8
-  %sub5 = fsub double 1.000000e+00, %8
-  %mul6 = fmul double %sub4, %sub5
-  %9 = load double, ptr %solar_elevation.addr, align 8
-  %sub7 = fsub double 1.000000e+00, %9
-  %call8 = call double @pow(double noundef %sub7, double noundef 5.000000e+00) #4
-  %10 = load ptr, ptr %elev_matrix, align 8
-  %11 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %11 to i64
-  %arrayidx = getelementptr inbounds double, ptr %10, i64 %idxprom
-  %12 = load double, ptr %arrayidx, align 8
-  %13 = load double, ptr %solar_elevation.addr, align 8
-  %sub10 = fsub double 1.000000e+00, %13
-  %call11 = call double @pow(double noundef %sub10, double noundef 4.000000e+00) #4
-  %mul12 = fmul double 5.000000e+00, %call11
-  %14 = load double, ptr %solar_elevation.addr, align 8
-  %mul13 = fmul double %mul12, %14
-  %15 = load ptr, ptr %elev_matrix, align 8
-  %16 = load i32, ptr %i, align 4
-  %add = add i32 %16, 9
-  %idxprom14 = zext i32 %add to i64
-  %arrayidx15 = getelementptr inbounds double, ptr %15, i64 %idxprom14
-  %17 = load double, ptr %arrayidx15, align 8
-  %mul16 = fmul double %mul13, %17
-  %18 = call double @llvm.fmuladd.f64(double %call8, double %12, double %mul16)
-  %19 = load double, ptr %solar_elevation.addr, align 8
-  %sub17 = fsub double 1.000000e+00, %19
-  %call18 = call double @pow(double noundef %sub17, double noundef 3.000000e+00) #4
-  %mul19 = fmul double 1.000000e+01, %call18
-  %20 = load double, ptr %solar_elevation.addr, align 8
-  %call20 = call double @pow(double noundef %20, double noundef 2.000000e+00) #4
-  %mul21 = fmul double %mul19, %call20
-  %21 = load ptr, ptr %elev_matrix, align 8
-  %22 = load i32, ptr %i, align 4
-  %add22 = add i32 %22, 18
-  %idxprom23 = zext i32 %add22 to i64
-  %arrayidx24 = getelementptr inbounds double, ptr %21, i64 %idxprom23
-  %23 = load double, ptr %arrayidx24, align 8
-  %24 = call double @llvm.fmuladd.f64(double %mul21, double %23, double %18)
-  %25 = load double, ptr %solar_elevation.addr, align 8
-  %sub26 = fsub double 1.000000e+00, %25
-  %call27 = call double @pow(double noundef %sub26, double noundef 2.000000e+00) #4
-  %mul28 = fmul double 1.000000e+01, %call27
-  %26 = load double, ptr %solar_elevation.addr, align 8
-  %call29 = call double @pow(double noundef %26, double noundef 3.000000e+00) #4
-  %mul30 = fmul double %mul28, %call29
-  %27 = load ptr, ptr %elev_matrix, align 8
-  %28 = load i32, ptr %i, align 4
-  %add31 = add i32 %28, 27
-  %idxprom32 = zext i32 %add31 to i64
-  %arrayidx33 = getelementptr inbounds double, ptr %27, i64 %idxprom32
-  %29 = load double, ptr %arrayidx33, align 8
-  %30 = call double @llvm.fmuladd.f64(double %mul30, double %29, double %24)
-  %31 = load double, ptr %solar_elevation.addr, align 8
-  %sub35 = fsub double 1.000000e+00, %31
-  %mul36 = fmul double 5.000000e+00, %sub35
-  %32 = load double, ptr %solar_elevation.addr, align 8
-  %call37 = call double @pow(double noundef %32, double noundef 4.000000e+00) #4
-  %mul38 = fmul double %mul36, %call37
-  %33 = load ptr, ptr %elev_matrix, align 8
-  %34 = load i32, ptr %i, align 4
-  %add39 = add i32 %34, 36
-  %idxprom40 = zext i32 %add39 to i64
-  %arrayidx41 = getelementptr inbounds double, ptr %33, i64 %idxprom40
-  %35 = load double, ptr %arrayidx41, align 8
-  %36 = call double @llvm.fmuladd.f64(double %mul38, double %35, double %30)
-  %37 = load double, ptr %solar_elevation.addr, align 8
-  %call43 = call double @pow(double noundef %37, double noundef 5.000000e+00) #4
-  %38 = load ptr, ptr %elev_matrix, align 8
-  %39 = load i32, ptr %i, align 4
-  %add44 = add i32 %39, 45
-  %idxprom45 = zext i32 %add44 to i64
-  %arrayidx46 = getelementptr inbounds double, ptr %38, i64 %idxprom45
-  %40 = load double, ptr %arrayidx46, align 8
-  %41 = call double @llvm.fmuladd.f64(double %call43, double %40, double %36)
-  %mul48 = fmul double %mul6, %41
-  %42 = load ptr, ptr %config.addr, align 8
-  %43 = load i32, ptr %i, align 4
-  %idxprom49 = zext i32 %43 to i64
-  %arrayidx50 = getelementptr inbounds double, ptr %42, i64 %idxprom49
-  store double %mul48, ptr %arrayidx50, align 8
-  br label %for.inc
+34:                                               ; preds = %31
+  %35 = load double, ptr %9, align 8, !tbaa !9
+  %36 = fsub double 1.000000e+00, %35
+  %37 = load double, ptr %13, align 8, !tbaa !9
+  %38 = fsub double 1.000000e+00, %37
+  %39 = fmul double %36, %38
+  %40 = load double, ptr %10, align 8, !tbaa !9
+  %41 = fsub double 1.000000e+00, %40
+  %42 = call double @pow(double noundef %41, double noundef 5.000000e+00) #5, !tbaa !11
+  %43 = load ptr, ptr %11, align 8, !tbaa !4
+  %44 = load i32, ptr %14, align 4, !tbaa !11
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr inbounds nuw double, ptr %43, i64 %45
+  %47 = load double, ptr %46, align 8, !tbaa !9
+  %48 = load double, ptr %10, align 8, !tbaa !9
+  %49 = fsub double 1.000000e+00, %48
+  %50 = call double @pow(double noundef %49, double noundef 4.000000e+00) #5, !tbaa !11
+  %51 = fmul double 5.000000e+00, %50
+  %52 = load double, ptr %10, align 8, !tbaa !9
+  %53 = fmul double %51, %52
+  %54 = load ptr, ptr %11, align 8, !tbaa !4
+  %55 = load i32, ptr %14, align 4, !tbaa !11
+  %56 = add i32 %55, 9
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw double, ptr %54, i64 %57
+  %59 = load double, ptr %58, align 8, !tbaa !9
+  %60 = fmul double %53, %59
+  %61 = call double @llvm.fmuladd.f64(double %42, double %47, double %60)
+  %62 = load double, ptr %10, align 8, !tbaa !9
+  %63 = fsub double 1.000000e+00, %62
+  %64 = call double @pow(double noundef %63, double noundef 3.000000e+00) #5, !tbaa !11
+  %65 = fmul double 1.000000e+01, %64
+  %66 = load double, ptr %10, align 8, !tbaa !9
+  %67 = call double @pow(double noundef %66, double noundef 2.000000e+00) #5, !tbaa !11
+  %68 = fmul double %65, %67
+  %69 = load ptr, ptr %11, align 8, !tbaa !4
+  %70 = load i32, ptr %14, align 4, !tbaa !11
+  %71 = add i32 %70, 18
+  %72 = zext i32 %71 to i64
+  %73 = getelementptr inbounds nuw double, ptr %69, i64 %72
+  %74 = load double, ptr %73, align 8, !tbaa !9
+  %75 = call double @llvm.fmuladd.f64(double %68, double %74, double %61)
+  %76 = load double, ptr %10, align 8, !tbaa !9
+  %77 = fsub double 1.000000e+00, %76
+  %78 = call double @pow(double noundef %77, double noundef 2.000000e+00) #5, !tbaa !11
+  %79 = fmul double 1.000000e+01, %78
+  %80 = load double, ptr %10, align 8, !tbaa !9
+  %81 = call double @pow(double noundef %80, double noundef 3.000000e+00) #5, !tbaa !11
+  %82 = fmul double %79, %81
+  %83 = load ptr, ptr %11, align 8, !tbaa !4
+  %84 = load i32, ptr %14, align 4, !tbaa !11
+  %85 = add i32 %84, 27
+  %86 = zext i32 %85 to i64
+  %87 = getelementptr inbounds nuw double, ptr %83, i64 %86
+  %88 = load double, ptr %87, align 8, !tbaa !9
+  %89 = call double @llvm.fmuladd.f64(double %82, double %88, double %75)
+  %90 = load double, ptr %10, align 8, !tbaa !9
+  %91 = fsub double 1.000000e+00, %90
+  %92 = fmul double 5.000000e+00, %91
+  %93 = load double, ptr %10, align 8, !tbaa !9
+  %94 = call double @pow(double noundef %93, double noundef 4.000000e+00) #5, !tbaa !11
+  %95 = fmul double %92, %94
+  %96 = load ptr, ptr %11, align 8, !tbaa !4
+  %97 = load i32, ptr %14, align 4, !tbaa !11
+  %98 = add i32 %97, 36
+  %99 = zext i32 %98 to i64
+  %100 = getelementptr inbounds nuw double, ptr %96, i64 %99
+  %101 = load double, ptr %100, align 8, !tbaa !9
+  %102 = call double @llvm.fmuladd.f64(double %95, double %101, double %89)
+  %103 = load double, ptr %10, align 8, !tbaa !9
+  %104 = call double @pow(double noundef %103, double noundef 5.000000e+00) #5, !tbaa !11
+  %105 = load ptr, ptr %11, align 8, !tbaa !4
+  %106 = load i32, ptr %14, align 4, !tbaa !11
+  %107 = add i32 %106, 45
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr inbounds nuw double, ptr %105, i64 %108
+  %110 = load double, ptr %109, align 8, !tbaa !9
+  %111 = call double @llvm.fmuladd.f64(double %104, double %110, double %102)
+  %112 = fmul double %39, %111
+  %113 = load ptr, ptr %7, align 8, !tbaa !4
+  %114 = load i32, ptr %14, align 4, !tbaa !11
+  %115 = zext i32 %114 to i64
+  %116 = getelementptr inbounds nuw double, ptr %113, i64 %115
+  store double %112, ptr %116, align 8, !tbaa !9
+  br label %117
 
-for.inc:                                          ; preds = %for.body
-  %44 = load i32, ptr %i, align 4
-  %inc = add i32 %44, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
+117:                                              ; preds = %34
+  %118 = load i32, ptr %14, align 4, !tbaa !11
+  %119 = add i32 %118, 1
+  store i32 %119, ptr %14, align 4, !tbaa !11
+  br label %31, !llvm.loop !13
 
-for.end:                                          ; preds = %for.cond
-  %45 = load ptr, ptr %dataset.addr, align 8
-  %46 = load i32, ptr %int_turbidity, align 4
-  %sub51 = sub nsw i32 %46, 1
-  %mul52 = mul nsw i32 54, %sub51
-  %add53 = add nsw i32 540, %mul52
-  %idx.ext54 = sext i32 %add53 to i64
-  %add.ptr55 = getelementptr inbounds double, ptr %45, i64 %idx.ext54
-  store ptr %add.ptr55, ptr %elev_matrix, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond56
+120:                                              ; preds = %31
+  %121 = load ptr, ptr %6, align 8, !tbaa !4
+  %122 = load i32, ptr %12, align 4, !tbaa !11
+  %123 = sub nsw i32 %122, 1
+  %124 = mul nsw i32 54, %123
+  %125 = add nsw i32 540, %124
+  %126 = sext i32 %125 to i64
+  %127 = getelementptr inbounds double, ptr %121, i64 %126
+  store ptr %127, ptr %11, align 8, !tbaa !4
+  store i32 0, ptr %14, align 4, !tbaa !11
+  br label %128
 
-for.cond56:                                       ; preds = %for.inc109, %for.end
-  %47 = load i32, ptr %i, align 4
-  %cmp57 = icmp ult i32 %47, 9
-  br i1 %cmp57, label %for.body59, label %for.end111
+128:                                              ; preds = %214, %120
+  %129 = load i32, ptr %14, align 4, !tbaa !11
+  %130 = icmp ult i32 %129, 9
+  br i1 %130, label %131, label %217
 
-for.body59:                                       ; preds = %for.cond56
-  %48 = load double, ptr %albedo.addr, align 8
-  %49 = load double, ptr %turbidity_rem, align 8
-  %sub60 = fsub double 1.000000e+00, %49
-  %mul61 = fmul double %48, %sub60
-  %50 = load double, ptr %solar_elevation.addr, align 8
-  %sub62 = fsub double 1.000000e+00, %50
-  %call63 = call double @pow(double noundef %sub62, double noundef 5.000000e+00) #4
-  %51 = load ptr, ptr %elev_matrix, align 8
-  %52 = load i32, ptr %i, align 4
-  %idxprom64 = zext i32 %52 to i64
-  %arrayidx65 = getelementptr inbounds double, ptr %51, i64 %idxprom64
-  %53 = load double, ptr %arrayidx65, align 8
-  %54 = load double, ptr %solar_elevation.addr, align 8
-  %sub67 = fsub double 1.000000e+00, %54
-  %call68 = call double @pow(double noundef %sub67, double noundef 4.000000e+00) #4
-  %mul69 = fmul double 5.000000e+00, %call68
-  %55 = load double, ptr %solar_elevation.addr, align 8
-  %mul70 = fmul double %mul69, %55
-  %56 = load ptr, ptr %elev_matrix, align 8
-  %57 = load i32, ptr %i, align 4
-  %add71 = add i32 %57, 9
-  %idxprom72 = zext i32 %add71 to i64
-  %arrayidx73 = getelementptr inbounds double, ptr %56, i64 %idxprom72
-  %58 = load double, ptr %arrayidx73, align 8
-  %mul74 = fmul double %mul70, %58
-  %59 = call double @llvm.fmuladd.f64(double %call63, double %53, double %mul74)
-  %60 = load double, ptr %solar_elevation.addr, align 8
-  %sub75 = fsub double 1.000000e+00, %60
-  %call76 = call double @pow(double noundef %sub75, double noundef 3.000000e+00) #4
-  %mul77 = fmul double 1.000000e+01, %call76
-  %61 = load double, ptr %solar_elevation.addr, align 8
-  %call78 = call double @pow(double noundef %61, double noundef 2.000000e+00) #4
-  %mul79 = fmul double %mul77, %call78
-  %62 = load ptr, ptr %elev_matrix, align 8
-  %63 = load i32, ptr %i, align 4
-  %add80 = add i32 %63, 18
-  %idxprom81 = zext i32 %add80 to i64
-  %arrayidx82 = getelementptr inbounds double, ptr %62, i64 %idxprom81
-  %64 = load double, ptr %arrayidx82, align 8
-  %65 = call double @llvm.fmuladd.f64(double %mul79, double %64, double %59)
-  %66 = load double, ptr %solar_elevation.addr, align 8
-  %sub84 = fsub double 1.000000e+00, %66
-  %call85 = call double @pow(double noundef %sub84, double noundef 2.000000e+00) #4
-  %mul86 = fmul double 1.000000e+01, %call85
-  %67 = load double, ptr %solar_elevation.addr, align 8
-  %call87 = call double @pow(double noundef %67, double noundef 3.000000e+00) #4
-  %mul88 = fmul double %mul86, %call87
-  %68 = load ptr, ptr %elev_matrix, align 8
-  %69 = load i32, ptr %i, align 4
-  %add89 = add i32 %69, 27
-  %idxprom90 = zext i32 %add89 to i64
-  %arrayidx91 = getelementptr inbounds double, ptr %68, i64 %idxprom90
-  %70 = load double, ptr %arrayidx91, align 8
-  %71 = call double @llvm.fmuladd.f64(double %mul88, double %70, double %65)
-  %72 = load double, ptr %solar_elevation.addr, align 8
-  %sub93 = fsub double 1.000000e+00, %72
-  %mul94 = fmul double 5.000000e+00, %sub93
-  %73 = load double, ptr %solar_elevation.addr, align 8
-  %call95 = call double @pow(double noundef %73, double noundef 4.000000e+00) #4
-  %mul96 = fmul double %mul94, %call95
-  %74 = load ptr, ptr %elev_matrix, align 8
-  %75 = load i32, ptr %i, align 4
-  %add97 = add i32 %75, 36
-  %idxprom98 = zext i32 %add97 to i64
-  %arrayidx99 = getelementptr inbounds double, ptr %74, i64 %idxprom98
-  %76 = load double, ptr %arrayidx99, align 8
-  %77 = call double @llvm.fmuladd.f64(double %mul96, double %76, double %71)
-  %78 = load double, ptr %solar_elevation.addr, align 8
-  %call101 = call double @pow(double noundef %78, double noundef 5.000000e+00) #4
-  %79 = load ptr, ptr %elev_matrix, align 8
-  %80 = load i32, ptr %i, align 4
-  %add102 = add i32 %80, 45
-  %idxprom103 = zext i32 %add102 to i64
-  %arrayidx104 = getelementptr inbounds double, ptr %79, i64 %idxprom103
-  %81 = load double, ptr %arrayidx104, align 8
-  %82 = call double @llvm.fmuladd.f64(double %call101, double %81, double %77)
-  %83 = load ptr, ptr %config.addr, align 8
-  %84 = load i32, ptr %i, align 4
-  %idxprom107 = zext i32 %84 to i64
-  %arrayidx108 = getelementptr inbounds double, ptr %83, i64 %idxprom107
-  %85 = load double, ptr %arrayidx108, align 8
-  %86 = call double @llvm.fmuladd.f64(double %mul61, double %82, double %85)
-  store double %86, ptr %arrayidx108, align 8
-  br label %for.inc109
+131:                                              ; preds = %128
+  %132 = load double, ptr %9, align 8, !tbaa !9
+  %133 = load double, ptr %13, align 8, !tbaa !9
+  %134 = fsub double 1.000000e+00, %133
+  %135 = fmul double %132, %134
+  %136 = load double, ptr %10, align 8, !tbaa !9
+  %137 = fsub double 1.000000e+00, %136
+  %138 = call double @pow(double noundef %137, double noundef 5.000000e+00) #5, !tbaa !11
+  %139 = load ptr, ptr %11, align 8, !tbaa !4
+  %140 = load i32, ptr %14, align 4, !tbaa !11
+  %141 = zext i32 %140 to i64
+  %142 = getelementptr inbounds nuw double, ptr %139, i64 %141
+  %143 = load double, ptr %142, align 8, !tbaa !9
+  %144 = load double, ptr %10, align 8, !tbaa !9
+  %145 = fsub double 1.000000e+00, %144
+  %146 = call double @pow(double noundef %145, double noundef 4.000000e+00) #5, !tbaa !11
+  %147 = fmul double 5.000000e+00, %146
+  %148 = load double, ptr %10, align 8, !tbaa !9
+  %149 = fmul double %147, %148
+  %150 = load ptr, ptr %11, align 8, !tbaa !4
+  %151 = load i32, ptr %14, align 4, !tbaa !11
+  %152 = add i32 %151, 9
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds nuw double, ptr %150, i64 %153
+  %155 = load double, ptr %154, align 8, !tbaa !9
+  %156 = fmul double %149, %155
+  %157 = call double @llvm.fmuladd.f64(double %138, double %143, double %156)
+  %158 = load double, ptr %10, align 8, !tbaa !9
+  %159 = fsub double 1.000000e+00, %158
+  %160 = call double @pow(double noundef %159, double noundef 3.000000e+00) #5, !tbaa !11
+  %161 = fmul double 1.000000e+01, %160
+  %162 = load double, ptr %10, align 8, !tbaa !9
+  %163 = call double @pow(double noundef %162, double noundef 2.000000e+00) #5, !tbaa !11
+  %164 = fmul double %161, %163
+  %165 = load ptr, ptr %11, align 8, !tbaa !4
+  %166 = load i32, ptr %14, align 4, !tbaa !11
+  %167 = add i32 %166, 18
+  %168 = zext i32 %167 to i64
+  %169 = getelementptr inbounds nuw double, ptr %165, i64 %168
+  %170 = load double, ptr %169, align 8, !tbaa !9
+  %171 = call double @llvm.fmuladd.f64(double %164, double %170, double %157)
+  %172 = load double, ptr %10, align 8, !tbaa !9
+  %173 = fsub double 1.000000e+00, %172
+  %174 = call double @pow(double noundef %173, double noundef 2.000000e+00) #5, !tbaa !11
+  %175 = fmul double 1.000000e+01, %174
+  %176 = load double, ptr %10, align 8, !tbaa !9
+  %177 = call double @pow(double noundef %176, double noundef 3.000000e+00) #5, !tbaa !11
+  %178 = fmul double %175, %177
+  %179 = load ptr, ptr %11, align 8, !tbaa !4
+  %180 = load i32, ptr %14, align 4, !tbaa !11
+  %181 = add i32 %180, 27
+  %182 = zext i32 %181 to i64
+  %183 = getelementptr inbounds nuw double, ptr %179, i64 %182
+  %184 = load double, ptr %183, align 8, !tbaa !9
+  %185 = call double @llvm.fmuladd.f64(double %178, double %184, double %171)
+  %186 = load double, ptr %10, align 8, !tbaa !9
+  %187 = fsub double 1.000000e+00, %186
+  %188 = fmul double 5.000000e+00, %187
+  %189 = load double, ptr %10, align 8, !tbaa !9
+  %190 = call double @pow(double noundef %189, double noundef 4.000000e+00) #5, !tbaa !11
+  %191 = fmul double %188, %190
+  %192 = load ptr, ptr %11, align 8, !tbaa !4
+  %193 = load i32, ptr %14, align 4, !tbaa !11
+  %194 = add i32 %193, 36
+  %195 = zext i32 %194 to i64
+  %196 = getelementptr inbounds nuw double, ptr %192, i64 %195
+  %197 = load double, ptr %196, align 8, !tbaa !9
+  %198 = call double @llvm.fmuladd.f64(double %191, double %197, double %185)
+  %199 = load double, ptr %10, align 8, !tbaa !9
+  %200 = call double @pow(double noundef %199, double noundef 5.000000e+00) #5, !tbaa !11
+  %201 = load ptr, ptr %11, align 8, !tbaa !4
+  %202 = load i32, ptr %14, align 4, !tbaa !11
+  %203 = add i32 %202, 45
+  %204 = zext i32 %203 to i64
+  %205 = getelementptr inbounds nuw double, ptr %201, i64 %204
+  %206 = load double, ptr %205, align 8, !tbaa !9
+  %207 = call double @llvm.fmuladd.f64(double %200, double %206, double %198)
+  %208 = load ptr, ptr %7, align 8, !tbaa !4
+  %209 = load i32, ptr %14, align 4, !tbaa !11
+  %210 = zext i32 %209 to i64
+  %211 = getelementptr inbounds nuw double, ptr %208, i64 %210
+  %212 = load double, ptr %211, align 8, !tbaa !9
+  %213 = call double @llvm.fmuladd.f64(double %135, double %207, double %212)
+  store double %213, ptr %211, align 8, !tbaa !9
+  br label %214
 
-for.inc109:                                       ; preds = %for.body59
-  %87 = load i32, ptr %i, align 4
-  %inc110 = add i32 %87, 1
-  store i32 %inc110, ptr %i, align 4
-  br label %for.cond56, !llvm.loop !7
+214:                                              ; preds = %131
+  %215 = load i32, ptr %14, align 4, !tbaa !11
+  %216 = add i32 %215, 1
+  store i32 %216, ptr %14, align 4, !tbaa !11
+  br label %128, !llvm.loop !15
 
-for.end111:                                       ; preds = %for.cond56
-  %88 = load i32, ptr %int_turbidity, align 4
-  %cmp112 = icmp eq i32 %88, 10
-  br i1 %cmp112, label %if.then, label %if.end
+217:                                              ; preds = %128
+  %218 = load i32, ptr %12, align 4, !tbaa !11
+  %219 = icmp eq i32 %218, 10
+  br i1 %219, label %220, label %221
 
-if.then:                                          ; preds = %for.end111
-  br label %for.end231
+220:                                              ; preds = %217
+  store i32 1, ptr %15, align 4
+  br label %412
 
-if.end:                                           ; preds = %for.end111
-  %89 = load ptr, ptr %dataset.addr, align 8
-  %90 = load i32, ptr %int_turbidity, align 4
-  %mul114 = mul nsw i32 54, %90
-  %idx.ext115 = sext i32 %mul114 to i64
-  %add.ptr116 = getelementptr inbounds double, ptr %89, i64 %idx.ext115
-  store ptr %add.ptr116, ptr %elev_matrix, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond117
+221:                                              ; preds = %217
+  %222 = load ptr, ptr %6, align 8, !tbaa !4
+  %223 = load i32, ptr %12, align 4, !tbaa !11
+  %224 = mul nsw i32 54, %223
+  %225 = sext i32 %224 to i64
+  %226 = getelementptr inbounds double, ptr %222, i64 %225
+  store ptr %226, ptr %11, align 8, !tbaa !4
+  store i32 0, ptr %14, align 4, !tbaa !11
+  br label %227
 
-for.cond117:                                      ; preds = %for.inc170, %if.end
-  %91 = load i32, ptr %i, align 4
-  %cmp118 = icmp ult i32 %91, 9
-  br i1 %cmp118, label %for.body120, label %for.end172
+227:                                              ; preds = %313, %221
+  %228 = load i32, ptr %14, align 4, !tbaa !11
+  %229 = icmp ult i32 %228, 9
+  br i1 %229, label %230, label %316
 
-for.body120:                                      ; preds = %for.cond117
-  %92 = load double, ptr %albedo.addr, align 8
-  %sub121 = fsub double 1.000000e+00, %92
-  %93 = load double, ptr %turbidity_rem, align 8
-  %mul122 = fmul double %sub121, %93
-  %94 = load double, ptr %solar_elevation.addr, align 8
-  %sub123 = fsub double 1.000000e+00, %94
-  %call124 = call double @pow(double noundef %sub123, double noundef 5.000000e+00) #4
-  %95 = load ptr, ptr %elev_matrix, align 8
-  %96 = load i32, ptr %i, align 4
-  %idxprom125 = zext i32 %96 to i64
-  %arrayidx126 = getelementptr inbounds double, ptr %95, i64 %idxprom125
-  %97 = load double, ptr %arrayidx126, align 8
-  %98 = load double, ptr %solar_elevation.addr, align 8
-  %sub128 = fsub double 1.000000e+00, %98
-  %call129 = call double @pow(double noundef %sub128, double noundef 4.000000e+00) #4
-  %mul130 = fmul double 5.000000e+00, %call129
-  %99 = load double, ptr %solar_elevation.addr, align 8
-  %mul131 = fmul double %mul130, %99
-  %100 = load ptr, ptr %elev_matrix, align 8
-  %101 = load i32, ptr %i, align 4
-  %add132 = add i32 %101, 9
-  %idxprom133 = zext i32 %add132 to i64
-  %arrayidx134 = getelementptr inbounds double, ptr %100, i64 %idxprom133
-  %102 = load double, ptr %arrayidx134, align 8
-  %mul135 = fmul double %mul131, %102
-  %103 = call double @llvm.fmuladd.f64(double %call124, double %97, double %mul135)
-  %104 = load double, ptr %solar_elevation.addr, align 8
-  %sub136 = fsub double 1.000000e+00, %104
-  %call137 = call double @pow(double noundef %sub136, double noundef 3.000000e+00) #4
-  %mul138 = fmul double 1.000000e+01, %call137
-  %105 = load double, ptr %solar_elevation.addr, align 8
-  %call139 = call double @pow(double noundef %105, double noundef 2.000000e+00) #4
-  %mul140 = fmul double %mul138, %call139
-  %106 = load ptr, ptr %elev_matrix, align 8
-  %107 = load i32, ptr %i, align 4
-  %add141 = add i32 %107, 18
-  %idxprom142 = zext i32 %add141 to i64
-  %arrayidx143 = getelementptr inbounds double, ptr %106, i64 %idxprom142
-  %108 = load double, ptr %arrayidx143, align 8
-  %109 = call double @llvm.fmuladd.f64(double %mul140, double %108, double %103)
-  %110 = load double, ptr %solar_elevation.addr, align 8
-  %sub145 = fsub double 1.000000e+00, %110
-  %call146 = call double @pow(double noundef %sub145, double noundef 2.000000e+00) #4
-  %mul147 = fmul double 1.000000e+01, %call146
-  %111 = load double, ptr %solar_elevation.addr, align 8
-  %call148 = call double @pow(double noundef %111, double noundef 3.000000e+00) #4
-  %mul149 = fmul double %mul147, %call148
-  %112 = load ptr, ptr %elev_matrix, align 8
-  %113 = load i32, ptr %i, align 4
-  %add150 = add i32 %113, 27
-  %idxprom151 = zext i32 %add150 to i64
-  %arrayidx152 = getelementptr inbounds double, ptr %112, i64 %idxprom151
-  %114 = load double, ptr %arrayidx152, align 8
-  %115 = call double @llvm.fmuladd.f64(double %mul149, double %114, double %109)
-  %116 = load double, ptr %solar_elevation.addr, align 8
-  %sub154 = fsub double 1.000000e+00, %116
-  %mul155 = fmul double 5.000000e+00, %sub154
-  %117 = load double, ptr %solar_elevation.addr, align 8
-  %call156 = call double @pow(double noundef %117, double noundef 4.000000e+00) #4
-  %mul157 = fmul double %mul155, %call156
-  %118 = load ptr, ptr %elev_matrix, align 8
-  %119 = load i32, ptr %i, align 4
-  %add158 = add i32 %119, 36
-  %idxprom159 = zext i32 %add158 to i64
-  %arrayidx160 = getelementptr inbounds double, ptr %118, i64 %idxprom159
-  %120 = load double, ptr %arrayidx160, align 8
-  %121 = call double @llvm.fmuladd.f64(double %mul157, double %120, double %115)
-  %122 = load double, ptr %solar_elevation.addr, align 8
-  %call162 = call double @pow(double noundef %122, double noundef 5.000000e+00) #4
-  %123 = load ptr, ptr %elev_matrix, align 8
-  %124 = load i32, ptr %i, align 4
-  %add163 = add i32 %124, 45
-  %idxprom164 = zext i32 %add163 to i64
-  %arrayidx165 = getelementptr inbounds double, ptr %123, i64 %idxprom164
-  %125 = load double, ptr %arrayidx165, align 8
-  %126 = call double @llvm.fmuladd.f64(double %call162, double %125, double %121)
-  %127 = load ptr, ptr %config.addr, align 8
-  %128 = load i32, ptr %i, align 4
-  %idxprom168 = zext i32 %128 to i64
-  %arrayidx169 = getelementptr inbounds double, ptr %127, i64 %idxprom168
-  %129 = load double, ptr %arrayidx169, align 8
-  %130 = call double @llvm.fmuladd.f64(double %mul122, double %126, double %129)
-  store double %130, ptr %arrayidx169, align 8
-  br label %for.inc170
+230:                                              ; preds = %227
+  %231 = load double, ptr %9, align 8, !tbaa !9
+  %232 = fsub double 1.000000e+00, %231
+  %233 = load double, ptr %13, align 8, !tbaa !9
+  %234 = fmul double %232, %233
+  %235 = load double, ptr %10, align 8, !tbaa !9
+  %236 = fsub double 1.000000e+00, %235
+  %237 = call double @pow(double noundef %236, double noundef 5.000000e+00) #5, !tbaa !11
+  %238 = load ptr, ptr %11, align 8, !tbaa !4
+  %239 = load i32, ptr %14, align 4, !tbaa !11
+  %240 = zext i32 %239 to i64
+  %241 = getelementptr inbounds nuw double, ptr %238, i64 %240
+  %242 = load double, ptr %241, align 8, !tbaa !9
+  %243 = load double, ptr %10, align 8, !tbaa !9
+  %244 = fsub double 1.000000e+00, %243
+  %245 = call double @pow(double noundef %244, double noundef 4.000000e+00) #5, !tbaa !11
+  %246 = fmul double 5.000000e+00, %245
+  %247 = load double, ptr %10, align 8, !tbaa !9
+  %248 = fmul double %246, %247
+  %249 = load ptr, ptr %11, align 8, !tbaa !4
+  %250 = load i32, ptr %14, align 4, !tbaa !11
+  %251 = add i32 %250, 9
+  %252 = zext i32 %251 to i64
+  %253 = getelementptr inbounds nuw double, ptr %249, i64 %252
+  %254 = load double, ptr %253, align 8, !tbaa !9
+  %255 = fmul double %248, %254
+  %256 = call double @llvm.fmuladd.f64(double %237, double %242, double %255)
+  %257 = load double, ptr %10, align 8, !tbaa !9
+  %258 = fsub double 1.000000e+00, %257
+  %259 = call double @pow(double noundef %258, double noundef 3.000000e+00) #5, !tbaa !11
+  %260 = fmul double 1.000000e+01, %259
+  %261 = load double, ptr %10, align 8, !tbaa !9
+  %262 = call double @pow(double noundef %261, double noundef 2.000000e+00) #5, !tbaa !11
+  %263 = fmul double %260, %262
+  %264 = load ptr, ptr %11, align 8, !tbaa !4
+  %265 = load i32, ptr %14, align 4, !tbaa !11
+  %266 = add i32 %265, 18
+  %267 = zext i32 %266 to i64
+  %268 = getelementptr inbounds nuw double, ptr %264, i64 %267
+  %269 = load double, ptr %268, align 8, !tbaa !9
+  %270 = call double @llvm.fmuladd.f64(double %263, double %269, double %256)
+  %271 = load double, ptr %10, align 8, !tbaa !9
+  %272 = fsub double 1.000000e+00, %271
+  %273 = call double @pow(double noundef %272, double noundef 2.000000e+00) #5, !tbaa !11
+  %274 = fmul double 1.000000e+01, %273
+  %275 = load double, ptr %10, align 8, !tbaa !9
+  %276 = call double @pow(double noundef %275, double noundef 3.000000e+00) #5, !tbaa !11
+  %277 = fmul double %274, %276
+  %278 = load ptr, ptr %11, align 8, !tbaa !4
+  %279 = load i32, ptr %14, align 4, !tbaa !11
+  %280 = add i32 %279, 27
+  %281 = zext i32 %280 to i64
+  %282 = getelementptr inbounds nuw double, ptr %278, i64 %281
+  %283 = load double, ptr %282, align 8, !tbaa !9
+  %284 = call double @llvm.fmuladd.f64(double %277, double %283, double %270)
+  %285 = load double, ptr %10, align 8, !tbaa !9
+  %286 = fsub double 1.000000e+00, %285
+  %287 = fmul double 5.000000e+00, %286
+  %288 = load double, ptr %10, align 8, !tbaa !9
+  %289 = call double @pow(double noundef %288, double noundef 4.000000e+00) #5, !tbaa !11
+  %290 = fmul double %287, %289
+  %291 = load ptr, ptr %11, align 8, !tbaa !4
+  %292 = load i32, ptr %14, align 4, !tbaa !11
+  %293 = add i32 %292, 36
+  %294 = zext i32 %293 to i64
+  %295 = getelementptr inbounds nuw double, ptr %291, i64 %294
+  %296 = load double, ptr %295, align 8, !tbaa !9
+  %297 = call double @llvm.fmuladd.f64(double %290, double %296, double %284)
+  %298 = load double, ptr %10, align 8, !tbaa !9
+  %299 = call double @pow(double noundef %298, double noundef 5.000000e+00) #5, !tbaa !11
+  %300 = load ptr, ptr %11, align 8, !tbaa !4
+  %301 = load i32, ptr %14, align 4, !tbaa !11
+  %302 = add i32 %301, 45
+  %303 = zext i32 %302 to i64
+  %304 = getelementptr inbounds nuw double, ptr %300, i64 %303
+  %305 = load double, ptr %304, align 8, !tbaa !9
+  %306 = call double @llvm.fmuladd.f64(double %299, double %305, double %297)
+  %307 = load ptr, ptr %7, align 8, !tbaa !4
+  %308 = load i32, ptr %14, align 4, !tbaa !11
+  %309 = zext i32 %308 to i64
+  %310 = getelementptr inbounds nuw double, ptr %307, i64 %309
+  %311 = load double, ptr %310, align 8, !tbaa !9
+  %312 = call double @llvm.fmuladd.f64(double %234, double %306, double %311)
+  store double %312, ptr %310, align 8, !tbaa !9
+  br label %313
 
-for.inc170:                                       ; preds = %for.body120
-  %131 = load i32, ptr %i, align 4
-  %inc171 = add i32 %131, 1
-  store i32 %inc171, ptr %i, align 4
-  br label %for.cond117, !llvm.loop !8
+313:                                              ; preds = %230
+  %314 = load i32, ptr %14, align 4, !tbaa !11
+  %315 = add i32 %314, 1
+  store i32 %315, ptr %14, align 4, !tbaa !11
+  br label %227, !llvm.loop !16
 
-for.end172:                                       ; preds = %for.cond117
-  %132 = load ptr, ptr %dataset.addr, align 8
-  %133 = load i32, ptr %int_turbidity, align 4
-  %mul173 = mul nsw i32 54, %133
-  %add174 = add nsw i32 540, %mul173
-  %idx.ext175 = sext i32 %add174 to i64
-  %add.ptr176 = getelementptr inbounds double, ptr %132, i64 %idx.ext175
-  store ptr %add.ptr176, ptr %elev_matrix, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond177
+316:                                              ; preds = %227
+  %317 = load ptr, ptr %6, align 8, !tbaa !4
+  %318 = load i32, ptr %12, align 4, !tbaa !11
+  %319 = mul nsw i32 54, %318
+  %320 = add nsw i32 540, %319
+  %321 = sext i32 %320 to i64
+  %322 = getelementptr inbounds double, ptr %317, i64 %321
+  store ptr %322, ptr %11, align 8, !tbaa !4
+  store i32 0, ptr %14, align 4, !tbaa !11
+  br label %323
 
-for.cond177:                                      ; preds = %for.inc229, %for.end172
-  %134 = load i32, ptr %i, align 4
-  %cmp178 = icmp ult i32 %134, 9
-  br i1 %cmp178, label %for.body180, label %for.end231
+323:                                              ; preds = %408, %316
+  %324 = load i32, ptr %14, align 4, !tbaa !11
+  %325 = icmp ult i32 %324, 9
+  br i1 %325, label %326, label %411
 
-for.body180:                                      ; preds = %for.cond177
-  %135 = load double, ptr %albedo.addr, align 8
-  %136 = load double, ptr %turbidity_rem, align 8
-  %mul181 = fmul double %135, %136
-  %137 = load double, ptr %solar_elevation.addr, align 8
-  %sub182 = fsub double 1.000000e+00, %137
-  %call183 = call double @pow(double noundef %sub182, double noundef 5.000000e+00) #4
-  %138 = load ptr, ptr %elev_matrix, align 8
-  %139 = load i32, ptr %i, align 4
-  %idxprom184 = zext i32 %139 to i64
-  %arrayidx185 = getelementptr inbounds double, ptr %138, i64 %idxprom184
-  %140 = load double, ptr %arrayidx185, align 8
-  %141 = load double, ptr %solar_elevation.addr, align 8
-  %sub187 = fsub double 1.000000e+00, %141
-  %call188 = call double @pow(double noundef %sub187, double noundef 4.000000e+00) #4
-  %mul189 = fmul double 5.000000e+00, %call188
-  %142 = load double, ptr %solar_elevation.addr, align 8
-  %mul190 = fmul double %mul189, %142
-  %143 = load ptr, ptr %elev_matrix, align 8
-  %144 = load i32, ptr %i, align 4
-  %add191 = add i32 %144, 9
-  %idxprom192 = zext i32 %add191 to i64
-  %arrayidx193 = getelementptr inbounds double, ptr %143, i64 %idxprom192
-  %145 = load double, ptr %arrayidx193, align 8
-  %mul194 = fmul double %mul190, %145
-  %146 = call double @llvm.fmuladd.f64(double %call183, double %140, double %mul194)
-  %147 = load double, ptr %solar_elevation.addr, align 8
-  %sub195 = fsub double 1.000000e+00, %147
-  %call196 = call double @pow(double noundef %sub195, double noundef 3.000000e+00) #4
-  %mul197 = fmul double 1.000000e+01, %call196
-  %148 = load double, ptr %solar_elevation.addr, align 8
-  %call198 = call double @pow(double noundef %148, double noundef 2.000000e+00) #4
-  %mul199 = fmul double %mul197, %call198
-  %149 = load ptr, ptr %elev_matrix, align 8
-  %150 = load i32, ptr %i, align 4
-  %add200 = add i32 %150, 18
-  %idxprom201 = zext i32 %add200 to i64
-  %arrayidx202 = getelementptr inbounds double, ptr %149, i64 %idxprom201
-  %151 = load double, ptr %arrayidx202, align 8
-  %152 = call double @llvm.fmuladd.f64(double %mul199, double %151, double %146)
-  %153 = load double, ptr %solar_elevation.addr, align 8
-  %sub204 = fsub double 1.000000e+00, %153
-  %call205 = call double @pow(double noundef %sub204, double noundef 2.000000e+00) #4
-  %mul206 = fmul double 1.000000e+01, %call205
-  %154 = load double, ptr %solar_elevation.addr, align 8
-  %call207 = call double @pow(double noundef %154, double noundef 3.000000e+00) #4
-  %mul208 = fmul double %mul206, %call207
-  %155 = load ptr, ptr %elev_matrix, align 8
-  %156 = load i32, ptr %i, align 4
-  %add209 = add i32 %156, 27
-  %idxprom210 = zext i32 %add209 to i64
-  %arrayidx211 = getelementptr inbounds double, ptr %155, i64 %idxprom210
-  %157 = load double, ptr %arrayidx211, align 8
-  %158 = call double @llvm.fmuladd.f64(double %mul208, double %157, double %152)
-  %159 = load double, ptr %solar_elevation.addr, align 8
-  %sub213 = fsub double 1.000000e+00, %159
-  %mul214 = fmul double 5.000000e+00, %sub213
-  %160 = load double, ptr %solar_elevation.addr, align 8
-  %call215 = call double @pow(double noundef %160, double noundef 4.000000e+00) #4
-  %mul216 = fmul double %mul214, %call215
-  %161 = load ptr, ptr %elev_matrix, align 8
-  %162 = load i32, ptr %i, align 4
-  %add217 = add i32 %162, 36
-  %idxprom218 = zext i32 %add217 to i64
-  %arrayidx219 = getelementptr inbounds double, ptr %161, i64 %idxprom218
-  %163 = load double, ptr %arrayidx219, align 8
-  %164 = call double @llvm.fmuladd.f64(double %mul216, double %163, double %158)
-  %165 = load double, ptr %solar_elevation.addr, align 8
-  %call221 = call double @pow(double noundef %165, double noundef 5.000000e+00) #4
-  %166 = load ptr, ptr %elev_matrix, align 8
-  %167 = load i32, ptr %i, align 4
-  %add222 = add i32 %167, 45
-  %idxprom223 = zext i32 %add222 to i64
-  %arrayidx224 = getelementptr inbounds double, ptr %166, i64 %idxprom223
-  %168 = load double, ptr %arrayidx224, align 8
-  %169 = call double @llvm.fmuladd.f64(double %call221, double %168, double %164)
-  %170 = load ptr, ptr %config.addr, align 8
-  %171 = load i32, ptr %i, align 4
-  %idxprom227 = zext i32 %171 to i64
-  %arrayidx228 = getelementptr inbounds double, ptr %170, i64 %idxprom227
-  %172 = load double, ptr %arrayidx228, align 8
-  %173 = call double @llvm.fmuladd.f64(double %mul181, double %169, double %172)
-  store double %173, ptr %arrayidx228, align 8
-  br label %for.inc229
+326:                                              ; preds = %323
+  %327 = load double, ptr %9, align 8, !tbaa !9
+  %328 = load double, ptr %13, align 8, !tbaa !9
+  %329 = fmul double %327, %328
+  %330 = load double, ptr %10, align 8, !tbaa !9
+  %331 = fsub double 1.000000e+00, %330
+  %332 = call double @pow(double noundef %331, double noundef 5.000000e+00) #5, !tbaa !11
+  %333 = load ptr, ptr %11, align 8, !tbaa !4
+  %334 = load i32, ptr %14, align 4, !tbaa !11
+  %335 = zext i32 %334 to i64
+  %336 = getelementptr inbounds nuw double, ptr %333, i64 %335
+  %337 = load double, ptr %336, align 8, !tbaa !9
+  %338 = load double, ptr %10, align 8, !tbaa !9
+  %339 = fsub double 1.000000e+00, %338
+  %340 = call double @pow(double noundef %339, double noundef 4.000000e+00) #5, !tbaa !11
+  %341 = fmul double 5.000000e+00, %340
+  %342 = load double, ptr %10, align 8, !tbaa !9
+  %343 = fmul double %341, %342
+  %344 = load ptr, ptr %11, align 8, !tbaa !4
+  %345 = load i32, ptr %14, align 4, !tbaa !11
+  %346 = add i32 %345, 9
+  %347 = zext i32 %346 to i64
+  %348 = getelementptr inbounds nuw double, ptr %344, i64 %347
+  %349 = load double, ptr %348, align 8, !tbaa !9
+  %350 = fmul double %343, %349
+  %351 = call double @llvm.fmuladd.f64(double %332, double %337, double %350)
+  %352 = load double, ptr %10, align 8, !tbaa !9
+  %353 = fsub double 1.000000e+00, %352
+  %354 = call double @pow(double noundef %353, double noundef 3.000000e+00) #5, !tbaa !11
+  %355 = fmul double 1.000000e+01, %354
+  %356 = load double, ptr %10, align 8, !tbaa !9
+  %357 = call double @pow(double noundef %356, double noundef 2.000000e+00) #5, !tbaa !11
+  %358 = fmul double %355, %357
+  %359 = load ptr, ptr %11, align 8, !tbaa !4
+  %360 = load i32, ptr %14, align 4, !tbaa !11
+  %361 = add i32 %360, 18
+  %362 = zext i32 %361 to i64
+  %363 = getelementptr inbounds nuw double, ptr %359, i64 %362
+  %364 = load double, ptr %363, align 8, !tbaa !9
+  %365 = call double @llvm.fmuladd.f64(double %358, double %364, double %351)
+  %366 = load double, ptr %10, align 8, !tbaa !9
+  %367 = fsub double 1.000000e+00, %366
+  %368 = call double @pow(double noundef %367, double noundef 2.000000e+00) #5, !tbaa !11
+  %369 = fmul double 1.000000e+01, %368
+  %370 = load double, ptr %10, align 8, !tbaa !9
+  %371 = call double @pow(double noundef %370, double noundef 3.000000e+00) #5, !tbaa !11
+  %372 = fmul double %369, %371
+  %373 = load ptr, ptr %11, align 8, !tbaa !4
+  %374 = load i32, ptr %14, align 4, !tbaa !11
+  %375 = add i32 %374, 27
+  %376 = zext i32 %375 to i64
+  %377 = getelementptr inbounds nuw double, ptr %373, i64 %376
+  %378 = load double, ptr %377, align 8, !tbaa !9
+  %379 = call double @llvm.fmuladd.f64(double %372, double %378, double %365)
+  %380 = load double, ptr %10, align 8, !tbaa !9
+  %381 = fsub double 1.000000e+00, %380
+  %382 = fmul double 5.000000e+00, %381
+  %383 = load double, ptr %10, align 8, !tbaa !9
+  %384 = call double @pow(double noundef %383, double noundef 4.000000e+00) #5, !tbaa !11
+  %385 = fmul double %382, %384
+  %386 = load ptr, ptr %11, align 8, !tbaa !4
+  %387 = load i32, ptr %14, align 4, !tbaa !11
+  %388 = add i32 %387, 36
+  %389 = zext i32 %388 to i64
+  %390 = getelementptr inbounds nuw double, ptr %386, i64 %389
+  %391 = load double, ptr %390, align 8, !tbaa !9
+  %392 = call double @llvm.fmuladd.f64(double %385, double %391, double %379)
+  %393 = load double, ptr %10, align 8, !tbaa !9
+  %394 = call double @pow(double noundef %393, double noundef 5.000000e+00) #5, !tbaa !11
+  %395 = load ptr, ptr %11, align 8, !tbaa !4
+  %396 = load i32, ptr %14, align 4, !tbaa !11
+  %397 = add i32 %396, 45
+  %398 = zext i32 %397 to i64
+  %399 = getelementptr inbounds nuw double, ptr %395, i64 %398
+  %400 = load double, ptr %399, align 8, !tbaa !9
+  %401 = call double @llvm.fmuladd.f64(double %394, double %400, double %392)
+  %402 = load ptr, ptr %7, align 8, !tbaa !4
+  %403 = load i32, ptr %14, align 4, !tbaa !11
+  %404 = zext i32 %403 to i64
+  %405 = getelementptr inbounds nuw double, ptr %402, i64 %404
+  %406 = load double, ptr %405, align 8, !tbaa !9
+  %407 = call double @llvm.fmuladd.f64(double %329, double %401, double %406)
+  store double %407, ptr %405, align 8, !tbaa !9
+  br label %408
 
-for.inc229:                                       ; preds = %for.body180
-  %174 = load i32, ptr %i, align 4
-  %inc230 = add i32 %174, 1
-  store i32 %inc230, ptr %i, align 4
-  br label %for.cond177, !llvm.loop !9
+408:                                              ; preds = %326
+  %409 = load i32, ptr %14, align 4, !tbaa !11
+  %410 = add i32 %409, 1
+  store i32 %410, ptr %14, align 4, !tbaa !11
+  br label %323, !llvm.loop !17
 
-for.end231:                                       ; preds = %for.cond177, %if.then
+411:                                              ; preds = %323
+  store i32 0, ptr %15, align 4
+  br label %412
+
+412:                                              ; preds = %411, %220
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  %413 = load i32, ptr %15, align 4
+  switch i32 %413, label %415 [
+    i32 0, label %414
+    i32 1, label %414
+  ]
+
+414:                                              ; preds = %412, %412
   ret void
+
+415:                                              ; preds = %412
+  unreachable
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind
-declare double @pow(double noundef, double noundef) #1
+declare double @pow(double noundef, double noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef %dataset, double noundef %turbidity, double noundef %albedo, double noundef %solar_elevation) #0 {
-entry:
-  %retval = alloca double, align 8
-  %dataset.addr = alloca ptr, align 8
-  %turbidity.addr = alloca double, align 8
-  %albedo.addr = alloca double, align 8
-  %solar_elevation.addr = alloca double, align 8
-  %elev_matrix = alloca ptr, align 8
-  %int_turbidity = alloca i32, align 4
-  %turbidity_rem = alloca double, align 8
-  %res = alloca double, align 8
-  store ptr %dataset, ptr %dataset.addr, align 8
-  store double %turbidity, ptr %turbidity.addr, align 8
-  store double %albedo, ptr %albedo.addr, align 8
-  store double %solar_elevation, ptr %solar_elevation.addr, align 8
-  %0 = load double, ptr %turbidity.addr, align 8
-  %conv = fptosi double %0 to i32
-  store i32 %conv, ptr %int_turbidity, align 4
-  %1 = load double, ptr %turbidity.addr, align 8
-  %2 = load i32, ptr %int_turbidity, align 4
-  %conv1 = sitofp i32 %2 to double
-  %sub = fsub double %1, %conv1
-  store double %sub, ptr %turbidity_rem, align 8
-  %3 = load double, ptr %solar_elevation.addr, align 8
-  %div = fdiv double %3, 0x3FF921FB54442D18
-  %call = call double @pow(double noundef %div, double noundef 0x3FD5555555555555) #4
-  store double %call, ptr %solar_elevation.addr, align 8
-  %4 = load ptr, ptr %dataset.addr, align 8
-  %5 = load i32, ptr %int_turbidity, align 4
-  %sub2 = sub nsw i32 %5, 1
-  %mul = mul nsw i32 6, %sub2
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr inbounds double, ptr %4, i64 %idx.ext
-  store ptr %add.ptr, ptr %elev_matrix, align 8
-  %6 = load double, ptr %albedo.addr, align 8
-  %sub3 = fsub double 1.000000e+00, %6
-  %7 = load double, ptr %turbidity_rem, align 8
-  %sub4 = fsub double 1.000000e+00, %7
-  %mul5 = fmul double %sub3, %sub4
-  %8 = load double, ptr %solar_elevation.addr, align 8
-  %sub6 = fsub double 1.000000e+00, %8
-  %call7 = call double @pow(double noundef %sub6, double noundef 5.000000e+00) #4
-  %9 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx = getelementptr inbounds double, ptr %9, i64 0
-  %10 = load double, ptr %arrayidx, align 8
-  %11 = load double, ptr %solar_elevation.addr, align 8
-  %sub9 = fsub double 1.000000e+00, %11
-  %call10 = call double @pow(double noundef %sub9, double noundef 4.000000e+00) #4
-  %mul11 = fmul double 5.000000e+00, %call10
-  %12 = load double, ptr %solar_elevation.addr, align 8
-  %mul12 = fmul double %mul11, %12
-  %13 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx13 = getelementptr inbounds double, ptr %13, i64 1
-  %14 = load double, ptr %arrayidx13, align 8
-  %mul14 = fmul double %mul12, %14
-  %15 = call double @llvm.fmuladd.f64(double %call7, double %10, double %mul14)
-  %16 = load double, ptr %solar_elevation.addr, align 8
-  %sub15 = fsub double 1.000000e+00, %16
-  %call16 = call double @pow(double noundef %sub15, double noundef 3.000000e+00) #4
-  %mul17 = fmul double 1.000000e+01, %call16
-  %17 = load double, ptr %solar_elevation.addr, align 8
-  %call18 = call double @pow(double noundef %17, double noundef 2.000000e+00) #4
-  %mul19 = fmul double %mul17, %call18
-  %18 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx20 = getelementptr inbounds double, ptr %18, i64 2
-  %19 = load double, ptr %arrayidx20, align 8
-  %20 = call double @llvm.fmuladd.f64(double %mul19, double %19, double %15)
-  %21 = load double, ptr %solar_elevation.addr, align 8
-  %sub22 = fsub double 1.000000e+00, %21
-  %call23 = call double @pow(double noundef %sub22, double noundef 2.000000e+00) #4
-  %mul24 = fmul double 1.000000e+01, %call23
-  %22 = load double, ptr %solar_elevation.addr, align 8
-  %call25 = call double @pow(double noundef %22, double noundef 3.000000e+00) #4
-  %mul26 = fmul double %mul24, %call25
-  %23 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx27 = getelementptr inbounds double, ptr %23, i64 3
-  %24 = load double, ptr %arrayidx27, align 8
-  %25 = call double @llvm.fmuladd.f64(double %mul26, double %24, double %20)
-  %26 = load double, ptr %solar_elevation.addr, align 8
-  %sub29 = fsub double 1.000000e+00, %26
-  %mul30 = fmul double 5.000000e+00, %sub29
-  %27 = load double, ptr %solar_elevation.addr, align 8
-  %call31 = call double @pow(double noundef %27, double noundef 4.000000e+00) #4
-  %mul32 = fmul double %mul30, %call31
-  %28 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx33 = getelementptr inbounds double, ptr %28, i64 4
-  %29 = load double, ptr %arrayidx33, align 8
-  %30 = call double @llvm.fmuladd.f64(double %mul32, double %29, double %25)
-  %31 = load double, ptr %solar_elevation.addr, align 8
-  %call35 = call double @pow(double noundef %31, double noundef 5.000000e+00) #4
-  %32 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx36 = getelementptr inbounds double, ptr %32, i64 5
-  %33 = load double, ptr %arrayidx36, align 8
-  %34 = call double @llvm.fmuladd.f64(double %call35, double %33, double %30)
-  %mul38 = fmul double %mul5, %34
-  store double %mul38, ptr %res, align 8
-  %35 = load ptr, ptr %dataset.addr, align 8
-  %36 = load i32, ptr %int_turbidity, align 4
-  %sub39 = sub nsw i32 %36, 1
-  %mul40 = mul nsw i32 6, %sub39
-  %add = add nsw i32 60, %mul40
-  %idx.ext41 = sext i32 %add to i64
-  %add.ptr42 = getelementptr inbounds double, ptr %35, i64 %idx.ext41
-  store ptr %add.ptr42, ptr %elev_matrix, align 8
-  %37 = load double, ptr %albedo.addr, align 8
-  %38 = load double, ptr %turbidity_rem, align 8
-  %sub43 = fsub double 1.000000e+00, %38
-  %mul44 = fmul double %37, %sub43
-  %39 = load double, ptr %solar_elevation.addr, align 8
-  %sub45 = fsub double 1.000000e+00, %39
-  %call46 = call double @pow(double noundef %sub45, double noundef 5.000000e+00) #4
-  %40 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx47 = getelementptr inbounds double, ptr %40, i64 0
-  %41 = load double, ptr %arrayidx47, align 8
-  %42 = load double, ptr %solar_elevation.addr, align 8
-  %sub49 = fsub double 1.000000e+00, %42
-  %call50 = call double @pow(double noundef %sub49, double noundef 4.000000e+00) #4
-  %mul51 = fmul double 5.000000e+00, %call50
-  %43 = load double, ptr %solar_elevation.addr, align 8
-  %mul52 = fmul double %mul51, %43
-  %44 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx53 = getelementptr inbounds double, ptr %44, i64 1
-  %45 = load double, ptr %arrayidx53, align 8
-  %mul54 = fmul double %mul52, %45
-  %46 = call double @llvm.fmuladd.f64(double %call46, double %41, double %mul54)
-  %47 = load double, ptr %solar_elevation.addr, align 8
-  %sub55 = fsub double 1.000000e+00, %47
-  %call56 = call double @pow(double noundef %sub55, double noundef 3.000000e+00) #4
-  %mul57 = fmul double 1.000000e+01, %call56
-  %48 = load double, ptr %solar_elevation.addr, align 8
-  %call58 = call double @pow(double noundef %48, double noundef 2.000000e+00) #4
-  %mul59 = fmul double %mul57, %call58
-  %49 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx60 = getelementptr inbounds double, ptr %49, i64 2
-  %50 = load double, ptr %arrayidx60, align 8
-  %51 = call double @llvm.fmuladd.f64(double %mul59, double %50, double %46)
-  %52 = load double, ptr %solar_elevation.addr, align 8
-  %sub62 = fsub double 1.000000e+00, %52
-  %call63 = call double @pow(double noundef %sub62, double noundef 2.000000e+00) #4
-  %mul64 = fmul double 1.000000e+01, %call63
-  %53 = load double, ptr %solar_elevation.addr, align 8
-  %call65 = call double @pow(double noundef %53, double noundef 3.000000e+00) #4
-  %mul66 = fmul double %mul64, %call65
-  %54 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx67 = getelementptr inbounds double, ptr %54, i64 3
-  %55 = load double, ptr %arrayidx67, align 8
-  %56 = call double @llvm.fmuladd.f64(double %mul66, double %55, double %51)
-  %57 = load double, ptr %solar_elevation.addr, align 8
-  %sub69 = fsub double 1.000000e+00, %57
-  %mul70 = fmul double 5.000000e+00, %sub69
-  %58 = load double, ptr %solar_elevation.addr, align 8
-  %call71 = call double @pow(double noundef %58, double noundef 4.000000e+00) #4
-  %mul72 = fmul double %mul70, %call71
-  %59 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx73 = getelementptr inbounds double, ptr %59, i64 4
-  %60 = load double, ptr %arrayidx73, align 8
-  %61 = call double @llvm.fmuladd.f64(double %mul72, double %60, double %56)
-  %62 = load double, ptr %solar_elevation.addr, align 8
-  %call75 = call double @pow(double noundef %62, double noundef 5.000000e+00) #4
-  %63 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx76 = getelementptr inbounds double, ptr %63, i64 5
-  %64 = load double, ptr %arrayidx76, align 8
-  %65 = call double @llvm.fmuladd.f64(double %call75, double %64, double %61)
-  %66 = load double, ptr %res, align 8
-  %67 = call double @llvm.fmuladd.f64(double %mul44, double %65, double %66)
-  store double %67, ptr %res, align 8
-  %68 = load i32, ptr %int_turbidity, align 4
-  %cmp = icmp eq i32 %68, 10
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3) #0 {
+  %5 = alloca double, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca double, align 8
+  %13 = alloca double, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store double %1, ptr %7, align 8, !tbaa !9
+  store double %2, ptr %8, align 8, !tbaa !9
+  store double %3, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %15 = load double, ptr %7, align 8, !tbaa !9
+  %16 = fptosi double %15 to i32
+  store i32 %16, ptr %11, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %17 = load double, ptr %7, align 8, !tbaa !9
+  %18 = load i32, ptr %11, align 4, !tbaa !11
+  %19 = sitofp i32 %18 to double
+  %20 = fsub double %17, %19
+  store double %20, ptr %12, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %21 = load double, ptr %9, align 8, !tbaa !9
+  %22 = fdiv double %21, 0x3FF921FB54442D18
+  %23 = call double @pow(double noundef %22, double noundef 0x3FD5555555555555) #5, !tbaa !11
+  store double %23, ptr %9, align 8, !tbaa !9
+  %24 = load ptr, ptr %6, align 8, !tbaa !4
+  %25 = load i32, ptr %11, align 4, !tbaa !11
+  %26 = sub nsw i32 %25, 1
+  %27 = mul nsw i32 6, %26
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds double, ptr %24, i64 %28
+  store ptr %29, ptr %10, align 8, !tbaa !4
+  %30 = load double, ptr %8, align 8, !tbaa !9
+  %31 = fsub double 1.000000e+00, %30
+  %32 = load double, ptr %12, align 8, !tbaa !9
+  %33 = fsub double 1.000000e+00, %32
+  %34 = fmul double %31, %33
+  %35 = load double, ptr %9, align 8, !tbaa !9
+  %36 = fsub double 1.000000e+00, %35
+  %37 = call double @pow(double noundef %36, double noundef 5.000000e+00) #5, !tbaa !11
+  %38 = load ptr, ptr %10, align 8, !tbaa !4
+  %39 = getelementptr inbounds double, ptr %38, i64 0
+  %40 = load double, ptr %39, align 8, !tbaa !9
+  %41 = load double, ptr %9, align 8, !tbaa !9
+  %42 = fsub double 1.000000e+00, %41
+  %43 = call double @pow(double noundef %42, double noundef 4.000000e+00) #5, !tbaa !11
+  %44 = fmul double 5.000000e+00, %43
+  %45 = load double, ptr %9, align 8, !tbaa !9
+  %46 = fmul double %44, %45
+  %47 = load ptr, ptr %10, align 8, !tbaa !4
+  %48 = getelementptr inbounds double, ptr %47, i64 1
+  %49 = load double, ptr %48, align 8, !tbaa !9
+  %50 = fmul double %46, %49
+  %51 = call double @llvm.fmuladd.f64(double %37, double %40, double %50)
+  %52 = load double, ptr %9, align 8, !tbaa !9
+  %53 = fsub double 1.000000e+00, %52
+  %54 = call double @pow(double noundef %53, double noundef 3.000000e+00) #5, !tbaa !11
+  %55 = fmul double 1.000000e+01, %54
+  %56 = load double, ptr %9, align 8, !tbaa !9
+  %57 = call double @pow(double noundef %56, double noundef 2.000000e+00) #5, !tbaa !11
+  %58 = fmul double %55, %57
+  %59 = load ptr, ptr %10, align 8, !tbaa !4
+  %60 = getelementptr inbounds double, ptr %59, i64 2
+  %61 = load double, ptr %60, align 8, !tbaa !9
+  %62 = call double @llvm.fmuladd.f64(double %58, double %61, double %51)
+  %63 = load double, ptr %9, align 8, !tbaa !9
+  %64 = fsub double 1.000000e+00, %63
+  %65 = call double @pow(double noundef %64, double noundef 2.000000e+00) #5, !tbaa !11
+  %66 = fmul double 1.000000e+01, %65
+  %67 = load double, ptr %9, align 8, !tbaa !9
+  %68 = call double @pow(double noundef %67, double noundef 3.000000e+00) #5, !tbaa !11
+  %69 = fmul double %66, %68
+  %70 = load ptr, ptr %10, align 8, !tbaa !4
+  %71 = getelementptr inbounds double, ptr %70, i64 3
+  %72 = load double, ptr %71, align 8, !tbaa !9
+  %73 = call double @llvm.fmuladd.f64(double %69, double %72, double %62)
+  %74 = load double, ptr %9, align 8, !tbaa !9
+  %75 = fsub double 1.000000e+00, %74
+  %76 = fmul double 5.000000e+00, %75
+  %77 = load double, ptr %9, align 8, !tbaa !9
+  %78 = call double @pow(double noundef %77, double noundef 4.000000e+00) #5, !tbaa !11
+  %79 = fmul double %76, %78
+  %80 = load ptr, ptr %10, align 8, !tbaa !4
+  %81 = getelementptr inbounds double, ptr %80, i64 4
+  %82 = load double, ptr %81, align 8, !tbaa !9
+  %83 = call double @llvm.fmuladd.f64(double %79, double %82, double %73)
+  %84 = load double, ptr %9, align 8, !tbaa !9
+  %85 = call double @pow(double noundef %84, double noundef 5.000000e+00) #5, !tbaa !11
+  %86 = load ptr, ptr %10, align 8, !tbaa !4
+  %87 = getelementptr inbounds double, ptr %86, i64 5
+  %88 = load double, ptr %87, align 8, !tbaa !9
+  %89 = call double @llvm.fmuladd.f64(double %85, double %88, double %83)
+  %90 = fmul double %34, %89
+  store double %90, ptr %13, align 8, !tbaa !9
+  %91 = load ptr, ptr %6, align 8, !tbaa !4
+  %92 = load i32, ptr %11, align 4, !tbaa !11
+  %93 = sub nsw i32 %92, 1
+  %94 = mul nsw i32 6, %93
+  %95 = add nsw i32 60, %94
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds double, ptr %91, i64 %96
+  store ptr %97, ptr %10, align 8, !tbaa !4
+  %98 = load double, ptr %8, align 8, !tbaa !9
+  %99 = load double, ptr %12, align 8, !tbaa !9
+  %100 = fsub double 1.000000e+00, %99
+  %101 = fmul double %98, %100
+  %102 = load double, ptr %9, align 8, !tbaa !9
+  %103 = fsub double 1.000000e+00, %102
+  %104 = call double @pow(double noundef %103, double noundef 5.000000e+00) #5, !tbaa !11
+  %105 = load ptr, ptr %10, align 8, !tbaa !4
+  %106 = getelementptr inbounds double, ptr %105, i64 0
+  %107 = load double, ptr %106, align 8, !tbaa !9
+  %108 = load double, ptr %9, align 8, !tbaa !9
+  %109 = fsub double 1.000000e+00, %108
+  %110 = call double @pow(double noundef %109, double noundef 4.000000e+00) #5, !tbaa !11
+  %111 = fmul double 5.000000e+00, %110
+  %112 = load double, ptr %9, align 8, !tbaa !9
+  %113 = fmul double %111, %112
+  %114 = load ptr, ptr %10, align 8, !tbaa !4
+  %115 = getelementptr inbounds double, ptr %114, i64 1
+  %116 = load double, ptr %115, align 8, !tbaa !9
+  %117 = fmul double %113, %116
+  %118 = call double @llvm.fmuladd.f64(double %104, double %107, double %117)
+  %119 = load double, ptr %9, align 8, !tbaa !9
+  %120 = fsub double 1.000000e+00, %119
+  %121 = call double @pow(double noundef %120, double noundef 3.000000e+00) #5, !tbaa !11
+  %122 = fmul double 1.000000e+01, %121
+  %123 = load double, ptr %9, align 8, !tbaa !9
+  %124 = call double @pow(double noundef %123, double noundef 2.000000e+00) #5, !tbaa !11
+  %125 = fmul double %122, %124
+  %126 = load ptr, ptr %10, align 8, !tbaa !4
+  %127 = getelementptr inbounds double, ptr %126, i64 2
+  %128 = load double, ptr %127, align 8, !tbaa !9
+  %129 = call double @llvm.fmuladd.f64(double %125, double %128, double %118)
+  %130 = load double, ptr %9, align 8, !tbaa !9
+  %131 = fsub double 1.000000e+00, %130
+  %132 = call double @pow(double noundef %131, double noundef 2.000000e+00) #5, !tbaa !11
+  %133 = fmul double 1.000000e+01, %132
+  %134 = load double, ptr %9, align 8, !tbaa !9
+  %135 = call double @pow(double noundef %134, double noundef 3.000000e+00) #5, !tbaa !11
+  %136 = fmul double %133, %135
+  %137 = load ptr, ptr %10, align 8, !tbaa !4
+  %138 = getelementptr inbounds double, ptr %137, i64 3
+  %139 = load double, ptr %138, align 8, !tbaa !9
+  %140 = call double @llvm.fmuladd.f64(double %136, double %139, double %129)
+  %141 = load double, ptr %9, align 8, !tbaa !9
+  %142 = fsub double 1.000000e+00, %141
+  %143 = fmul double 5.000000e+00, %142
+  %144 = load double, ptr %9, align 8, !tbaa !9
+  %145 = call double @pow(double noundef %144, double noundef 4.000000e+00) #5, !tbaa !11
+  %146 = fmul double %143, %145
+  %147 = load ptr, ptr %10, align 8, !tbaa !4
+  %148 = getelementptr inbounds double, ptr %147, i64 4
+  %149 = load double, ptr %148, align 8, !tbaa !9
+  %150 = call double @llvm.fmuladd.f64(double %146, double %149, double %140)
+  %151 = load double, ptr %9, align 8, !tbaa !9
+  %152 = call double @pow(double noundef %151, double noundef 5.000000e+00) #5, !tbaa !11
+  %153 = load ptr, ptr %10, align 8, !tbaa !4
+  %154 = getelementptr inbounds double, ptr %153, i64 5
+  %155 = load double, ptr %154, align 8, !tbaa !9
+  %156 = call double @llvm.fmuladd.f64(double %152, double %155, double %150)
+  %157 = load double, ptr %13, align 8, !tbaa !9
+  %158 = call double @llvm.fmuladd.f64(double %101, double %156, double %157)
+  store double %158, ptr %13, align 8, !tbaa !9
+  %159 = load i32, ptr %11, align 4, !tbaa !11
+  %160 = icmp eq i32 %159, 10
+  br i1 %160, label %161, label %163
 
-if.then:                                          ; preds = %entry
-  %69 = load double, ptr %res, align 8
-  store double %69, ptr %retval, align 8
-  br label %return
+161:                                              ; preds = %4
+  %162 = load double, ptr %13, align 8, !tbaa !9
+  store double %162, ptr %5, align 8
+  store i32 1, ptr %14, align 4
+  br label %297
 
-if.end:                                           ; preds = %entry
-  %70 = load ptr, ptr %dataset.addr, align 8
-  %71 = load i32, ptr %int_turbidity, align 4
-  %mul80 = mul nsw i32 6, %71
-  %idx.ext81 = sext i32 %mul80 to i64
-  %add.ptr82 = getelementptr inbounds double, ptr %70, i64 %idx.ext81
-  store ptr %add.ptr82, ptr %elev_matrix, align 8
-  %72 = load double, ptr %albedo.addr, align 8
-  %sub83 = fsub double 1.000000e+00, %72
-  %73 = load double, ptr %turbidity_rem, align 8
-  %mul84 = fmul double %sub83, %73
-  %74 = load double, ptr %solar_elevation.addr, align 8
-  %sub85 = fsub double 1.000000e+00, %74
-  %call86 = call double @pow(double noundef %sub85, double noundef 5.000000e+00) #4
-  %75 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx87 = getelementptr inbounds double, ptr %75, i64 0
-  %76 = load double, ptr %arrayidx87, align 8
-  %77 = load double, ptr %solar_elevation.addr, align 8
-  %sub89 = fsub double 1.000000e+00, %77
-  %call90 = call double @pow(double noundef %sub89, double noundef 4.000000e+00) #4
-  %mul91 = fmul double 5.000000e+00, %call90
-  %78 = load double, ptr %solar_elevation.addr, align 8
-  %mul92 = fmul double %mul91, %78
-  %79 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx93 = getelementptr inbounds double, ptr %79, i64 1
-  %80 = load double, ptr %arrayidx93, align 8
-  %mul94 = fmul double %mul92, %80
-  %81 = call double @llvm.fmuladd.f64(double %call86, double %76, double %mul94)
-  %82 = load double, ptr %solar_elevation.addr, align 8
-  %sub95 = fsub double 1.000000e+00, %82
-  %call96 = call double @pow(double noundef %sub95, double noundef 3.000000e+00) #4
-  %mul97 = fmul double 1.000000e+01, %call96
-  %83 = load double, ptr %solar_elevation.addr, align 8
-  %call98 = call double @pow(double noundef %83, double noundef 2.000000e+00) #4
-  %mul99 = fmul double %mul97, %call98
-  %84 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx100 = getelementptr inbounds double, ptr %84, i64 2
-  %85 = load double, ptr %arrayidx100, align 8
-  %86 = call double @llvm.fmuladd.f64(double %mul99, double %85, double %81)
-  %87 = load double, ptr %solar_elevation.addr, align 8
-  %sub102 = fsub double 1.000000e+00, %87
-  %call103 = call double @pow(double noundef %sub102, double noundef 2.000000e+00) #4
-  %mul104 = fmul double 1.000000e+01, %call103
-  %88 = load double, ptr %solar_elevation.addr, align 8
-  %call105 = call double @pow(double noundef %88, double noundef 3.000000e+00) #4
-  %mul106 = fmul double %mul104, %call105
-  %89 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx107 = getelementptr inbounds double, ptr %89, i64 3
-  %90 = load double, ptr %arrayidx107, align 8
-  %91 = call double @llvm.fmuladd.f64(double %mul106, double %90, double %86)
-  %92 = load double, ptr %solar_elevation.addr, align 8
-  %sub109 = fsub double 1.000000e+00, %92
-  %mul110 = fmul double 5.000000e+00, %sub109
-  %93 = load double, ptr %solar_elevation.addr, align 8
-  %call111 = call double @pow(double noundef %93, double noundef 4.000000e+00) #4
-  %mul112 = fmul double %mul110, %call111
-  %94 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx113 = getelementptr inbounds double, ptr %94, i64 4
-  %95 = load double, ptr %arrayidx113, align 8
-  %96 = call double @llvm.fmuladd.f64(double %mul112, double %95, double %91)
-  %97 = load double, ptr %solar_elevation.addr, align 8
-  %call115 = call double @pow(double noundef %97, double noundef 5.000000e+00) #4
-  %98 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx116 = getelementptr inbounds double, ptr %98, i64 5
-  %99 = load double, ptr %arrayidx116, align 8
-  %100 = call double @llvm.fmuladd.f64(double %call115, double %99, double %96)
-  %101 = load double, ptr %res, align 8
-  %102 = call double @llvm.fmuladd.f64(double %mul84, double %100, double %101)
-  store double %102, ptr %res, align 8
-  %103 = load ptr, ptr %dataset.addr, align 8
-  %104 = load i32, ptr %int_turbidity, align 4
-  %mul119 = mul nsw i32 6, %104
-  %add120 = add nsw i32 60, %mul119
-  %idx.ext121 = sext i32 %add120 to i64
-  %add.ptr122 = getelementptr inbounds double, ptr %103, i64 %idx.ext121
-  store ptr %add.ptr122, ptr %elev_matrix, align 8
-  %105 = load double, ptr %albedo.addr, align 8
-  %106 = load double, ptr %turbidity_rem, align 8
-  %mul123 = fmul double %105, %106
-  %107 = load double, ptr %solar_elevation.addr, align 8
-  %sub124 = fsub double 1.000000e+00, %107
-  %call125 = call double @pow(double noundef %sub124, double noundef 5.000000e+00) #4
-  %108 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx126 = getelementptr inbounds double, ptr %108, i64 0
-  %109 = load double, ptr %arrayidx126, align 8
-  %110 = load double, ptr %solar_elevation.addr, align 8
-  %sub128 = fsub double 1.000000e+00, %110
-  %call129 = call double @pow(double noundef %sub128, double noundef 4.000000e+00) #4
-  %mul130 = fmul double 5.000000e+00, %call129
-  %111 = load double, ptr %solar_elevation.addr, align 8
-  %mul131 = fmul double %mul130, %111
-  %112 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx132 = getelementptr inbounds double, ptr %112, i64 1
-  %113 = load double, ptr %arrayidx132, align 8
-  %mul133 = fmul double %mul131, %113
-  %114 = call double @llvm.fmuladd.f64(double %call125, double %109, double %mul133)
-  %115 = load double, ptr %solar_elevation.addr, align 8
-  %sub134 = fsub double 1.000000e+00, %115
-  %call135 = call double @pow(double noundef %sub134, double noundef 3.000000e+00) #4
-  %mul136 = fmul double 1.000000e+01, %call135
-  %116 = load double, ptr %solar_elevation.addr, align 8
-  %call137 = call double @pow(double noundef %116, double noundef 2.000000e+00) #4
-  %mul138 = fmul double %mul136, %call137
-  %117 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx139 = getelementptr inbounds double, ptr %117, i64 2
-  %118 = load double, ptr %arrayidx139, align 8
-  %119 = call double @llvm.fmuladd.f64(double %mul138, double %118, double %114)
-  %120 = load double, ptr %solar_elevation.addr, align 8
-  %sub141 = fsub double 1.000000e+00, %120
-  %call142 = call double @pow(double noundef %sub141, double noundef 2.000000e+00) #4
-  %mul143 = fmul double 1.000000e+01, %call142
-  %121 = load double, ptr %solar_elevation.addr, align 8
-  %call144 = call double @pow(double noundef %121, double noundef 3.000000e+00) #4
-  %mul145 = fmul double %mul143, %call144
-  %122 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx146 = getelementptr inbounds double, ptr %122, i64 3
-  %123 = load double, ptr %arrayidx146, align 8
-  %124 = call double @llvm.fmuladd.f64(double %mul145, double %123, double %119)
-  %125 = load double, ptr %solar_elevation.addr, align 8
-  %sub148 = fsub double 1.000000e+00, %125
-  %mul149 = fmul double 5.000000e+00, %sub148
-  %126 = load double, ptr %solar_elevation.addr, align 8
-  %call150 = call double @pow(double noundef %126, double noundef 4.000000e+00) #4
-  %mul151 = fmul double %mul149, %call150
-  %127 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx152 = getelementptr inbounds double, ptr %127, i64 4
-  %128 = load double, ptr %arrayidx152, align 8
-  %129 = call double @llvm.fmuladd.f64(double %mul151, double %128, double %124)
-  %130 = load double, ptr %solar_elevation.addr, align 8
-  %call154 = call double @pow(double noundef %130, double noundef 5.000000e+00) #4
-  %131 = load ptr, ptr %elev_matrix, align 8
-  %arrayidx155 = getelementptr inbounds double, ptr %131, i64 5
-  %132 = load double, ptr %arrayidx155, align 8
-  %133 = call double @llvm.fmuladd.f64(double %call154, double %132, double %129)
-  %134 = load double, ptr %res, align 8
-  %135 = call double @llvm.fmuladd.f64(double %mul123, double %133, double %134)
-  store double %135, ptr %res, align 8
-  %136 = load double, ptr %res, align 8
-  store double %136, ptr %retval, align 8
-  br label %return
+163:                                              ; preds = %4
+  %164 = load ptr, ptr %6, align 8, !tbaa !4
+  %165 = load i32, ptr %11, align 4, !tbaa !11
+  %166 = mul nsw i32 6, %165
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr inbounds double, ptr %164, i64 %167
+  store ptr %168, ptr %10, align 8, !tbaa !4
+  %169 = load double, ptr %8, align 8, !tbaa !9
+  %170 = fsub double 1.000000e+00, %169
+  %171 = load double, ptr %12, align 8, !tbaa !9
+  %172 = fmul double %170, %171
+  %173 = load double, ptr %9, align 8, !tbaa !9
+  %174 = fsub double 1.000000e+00, %173
+  %175 = call double @pow(double noundef %174, double noundef 5.000000e+00) #5, !tbaa !11
+  %176 = load ptr, ptr %10, align 8, !tbaa !4
+  %177 = getelementptr inbounds double, ptr %176, i64 0
+  %178 = load double, ptr %177, align 8, !tbaa !9
+  %179 = load double, ptr %9, align 8, !tbaa !9
+  %180 = fsub double 1.000000e+00, %179
+  %181 = call double @pow(double noundef %180, double noundef 4.000000e+00) #5, !tbaa !11
+  %182 = fmul double 5.000000e+00, %181
+  %183 = load double, ptr %9, align 8, !tbaa !9
+  %184 = fmul double %182, %183
+  %185 = load ptr, ptr %10, align 8, !tbaa !4
+  %186 = getelementptr inbounds double, ptr %185, i64 1
+  %187 = load double, ptr %186, align 8, !tbaa !9
+  %188 = fmul double %184, %187
+  %189 = call double @llvm.fmuladd.f64(double %175, double %178, double %188)
+  %190 = load double, ptr %9, align 8, !tbaa !9
+  %191 = fsub double 1.000000e+00, %190
+  %192 = call double @pow(double noundef %191, double noundef 3.000000e+00) #5, !tbaa !11
+  %193 = fmul double 1.000000e+01, %192
+  %194 = load double, ptr %9, align 8, !tbaa !9
+  %195 = call double @pow(double noundef %194, double noundef 2.000000e+00) #5, !tbaa !11
+  %196 = fmul double %193, %195
+  %197 = load ptr, ptr %10, align 8, !tbaa !4
+  %198 = getelementptr inbounds double, ptr %197, i64 2
+  %199 = load double, ptr %198, align 8, !tbaa !9
+  %200 = call double @llvm.fmuladd.f64(double %196, double %199, double %189)
+  %201 = load double, ptr %9, align 8, !tbaa !9
+  %202 = fsub double 1.000000e+00, %201
+  %203 = call double @pow(double noundef %202, double noundef 2.000000e+00) #5, !tbaa !11
+  %204 = fmul double 1.000000e+01, %203
+  %205 = load double, ptr %9, align 8, !tbaa !9
+  %206 = call double @pow(double noundef %205, double noundef 3.000000e+00) #5, !tbaa !11
+  %207 = fmul double %204, %206
+  %208 = load ptr, ptr %10, align 8, !tbaa !4
+  %209 = getelementptr inbounds double, ptr %208, i64 3
+  %210 = load double, ptr %209, align 8, !tbaa !9
+  %211 = call double @llvm.fmuladd.f64(double %207, double %210, double %200)
+  %212 = load double, ptr %9, align 8, !tbaa !9
+  %213 = fsub double 1.000000e+00, %212
+  %214 = fmul double 5.000000e+00, %213
+  %215 = load double, ptr %9, align 8, !tbaa !9
+  %216 = call double @pow(double noundef %215, double noundef 4.000000e+00) #5, !tbaa !11
+  %217 = fmul double %214, %216
+  %218 = load ptr, ptr %10, align 8, !tbaa !4
+  %219 = getelementptr inbounds double, ptr %218, i64 4
+  %220 = load double, ptr %219, align 8, !tbaa !9
+  %221 = call double @llvm.fmuladd.f64(double %217, double %220, double %211)
+  %222 = load double, ptr %9, align 8, !tbaa !9
+  %223 = call double @pow(double noundef %222, double noundef 5.000000e+00) #5, !tbaa !11
+  %224 = load ptr, ptr %10, align 8, !tbaa !4
+  %225 = getelementptr inbounds double, ptr %224, i64 5
+  %226 = load double, ptr %225, align 8, !tbaa !9
+  %227 = call double @llvm.fmuladd.f64(double %223, double %226, double %221)
+  %228 = load double, ptr %13, align 8, !tbaa !9
+  %229 = call double @llvm.fmuladd.f64(double %172, double %227, double %228)
+  store double %229, ptr %13, align 8, !tbaa !9
+  %230 = load ptr, ptr %6, align 8, !tbaa !4
+  %231 = load i32, ptr %11, align 4, !tbaa !11
+  %232 = mul nsw i32 6, %231
+  %233 = add nsw i32 60, %232
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds double, ptr %230, i64 %234
+  store ptr %235, ptr %10, align 8, !tbaa !4
+  %236 = load double, ptr %8, align 8, !tbaa !9
+  %237 = load double, ptr %12, align 8, !tbaa !9
+  %238 = fmul double %236, %237
+  %239 = load double, ptr %9, align 8, !tbaa !9
+  %240 = fsub double 1.000000e+00, %239
+  %241 = call double @pow(double noundef %240, double noundef 5.000000e+00) #5, !tbaa !11
+  %242 = load ptr, ptr %10, align 8, !tbaa !4
+  %243 = getelementptr inbounds double, ptr %242, i64 0
+  %244 = load double, ptr %243, align 8, !tbaa !9
+  %245 = load double, ptr %9, align 8, !tbaa !9
+  %246 = fsub double 1.000000e+00, %245
+  %247 = call double @pow(double noundef %246, double noundef 4.000000e+00) #5, !tbaa !11
+  %248 = fmul double 5.000000e+00, %247
+  %249 = load double, ptr %9, align 8, !tbaa !9
+  %250 = fmul double %248, %249
+  %251 = load ptr, ptr %10, align 8, !tbaa !4
+  %252 = getelementptr inbounds double, ptr %251, i64 1
+  %253 = load double, ptr %252, align 8, !tbaa !9
+  %254 = fmul double %250, %253
+  %255 = call double @llvm.fmuladd.f64(double %241, double %244, double %254)
+  %256 = load double, ptr %9, align 8, !tbaa !9
+  %257 = fsub double 1.000000e+00, %256
+  %258 = call double @pow(double noundef %257, double noundef 3.000000e+00) #5, !tbaa !11
+  %259 = fmul double 1.000000e+01, %258
+  %260 = load double, ptr %9, align 8, !tbaa !9
+  %261 = call double @pow(double noundef %260, double noundef 2.000000e+00) #5, !tbaa !11
+  %262 = fmul double %259, %261
+  %263 = load ptr, ptr %10, align 8, !tbaa !4
+  %264 = getelementptr inbounds double, ptr %263, i64 2
+  %265 = load double, ptr %264, align 8, !tbaa !9
+  %266 = call double @llvm.fmuladd.f64(double %262, double %265, double %255)
+  %267 = load double, ptr %9, align 8, !tbaa !9
+  %268 = fsub double 1.000000e+00, %267
+  %269 = call double @pow(double noundef %268, double noundef 2.000000e+00) #5, !tbaa !11
+  %270 = fmul double 1.000000e+01, %269
+  %271 = load double, ptr %9, align 8, !tbaa !9
+  %272 = call double @pow(double noundef %271, double noundef 3.000000e+00) #5, !tbaa !11
+  %273 = fmul double %270, %272
+  %274 = load ptr, ptr %10, align 8, !tbaa !4
+  %275 = getelementptr inbounds double, ptr %274, i64 3
+  %276 = load double, ptr %275, align 8, !tbaa !9
+  %277 = call double @llvm.fmuladd.f64(double %273, double %276, double %266)
+  %278 = load double, ptr %9, align 8, !tbaa !9
+  %279 = fsub double 1.000000e+00, %278
+  %280 = fmul double 5.000000e+00, %279
+  %281 = load double, ptr %9, align 8, !tbaa !9
+  %282 = call double @pow(double noundef %281, double noundef 4.000000e+00) #5, !tbaa !11
+  %283 = fmul double %280, %282
+  %284 = load ptr, ptr %10, align 8, !tbaa !4
+  %285 = getelementptr inbounds double, ptr %284, i64 4
+  %286 = load double, ptr %285, align 8, !tbaa !9
+  %287 = call double @llvm.fmuladd.f64(double %283, double %286, double %277)
+  %288 = load double, ptr %9, align 8, !tbaa !9
+  %289 = call double @pow(double noundef %288, double noundef 5.000000e+00) #5, !tbaa !11
+  %290 = load ptr, ptr %10, align 8, !tbaa !4
+  %291 = getelementptr inbounds double, ptr %290, i64 5
+  %292 = load double, ptr %291, align 8, !tbaa !9
+  %293 = call double @llvm.fmuladd.f64(double %289, double %292, double %287)
+  %294 = load double, ptr %13, align 8, !tbaa !9
+  %295 = call double @llvm.fmuladd.f64(double %238, double %293, double %294)
+  store double %295, ptr %13, align 8, !tbaa !9
+  %296 = load double, ptr %13, align 8, !tbaa !9
+  store double %296, ptr %5, align 8
+  store i32 1, ptr %14, align 4
+  br label %297
 
-return:                                           ; preds = %if.end, %if.then
-  %137 = load double, ptr %retval, align 8
-  ret double %137
+297:                                              ; preds = %163, %161
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %298 = load double, ptr %5, align 8
+  ret double %298
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @ArHosekSkyModel_GetRadianceInternal(ptr noundef %configuration, double noundef %theta, double noundef %gamma) #0 {
-entry:
-  %configuration.addr = alloca ptr, align 8
-  %theta.addr = alloca double, align 8
-  %gamma.addr = alloca double, align 8
-  %expM = alloca double, align 8
-  %rayM = alloca double, align 8
-  %mieM = alloca double, align 8
-  %zenith = alloca double, align 8
-  store ptr %configuration, ptr %configuration.addr, align 8
-  store double %theta, ptr %theta.addr, align 8
-  store double %gamma, ptr %gamma.addr, align 8
-  %0 = load ptr, ptr %configuration.addr, align 8
-  %arrayidx = getelementptr inbounds double, ptr %0, i64 4
-  %1 = load double, ptr %arrayidx, align 8
-  %2 = load double, ptr %gamma.addr, align 8
-  %mul = fmul double %1, %2
-  %call = call double @exp(double noundef %mul) #4
-  store double %call, ptr %expM, align 8
-  %3 = load double, ptr %gamma.addr, align 8
-  %call1 = call double @cos(double noundef %3) #4
-  %4 = load double, ptr %gamma.addr, align 8
-  %call2 = call double @cos(double noundef %4) #4
-  %mul3 = fmul double %call1, %call2
-  store double %mul3, ptr %rayM, align 8
-  %5 = load double, ptr %gamma.addr, align 8
-  %call4 = call double @cos(double noundef %5) #4
-  %6 = load double, ptr %gamma.addr, align 8
-  %call5 = call double @cos(double noundef %6) #4
-  %7 = call double @llvm.fmuladd.f64(double %call4, double %call5, double 1.000000e+00)
-  %8 = load ptr, ptr %configuration.addr, align 8
-  %arrayidx7 = getelementptr inbounds double, ptr %8, i64 8
-  %9 = load double, ptr %arrayidx7, align 8
-  %10 = load ptr, ptr %configuration.addr, align 8
-  %arrayidx8 = getelementptr inbounds double, ptr %10, i64 8
-  %11 = load double, ptr %arrayidx8, align 8
-  %12 = call double @llvm.fmuladd.f64(double %9, double %11, double 1.000000e+00)
-  %13 = load ptr, ptr %configuration.addr, align 8
-  %arrayidx10 = getelementptr inbounds double, ptr %13, i64 8
-  %14 = load double, ptr %arrayidx10, align 8
-  %mul11 = fmul double 2.000000e+00, %14
-  %15 = load double, ptr %gamma.addr, align 8
-  %call12 = call double @cos(double noundef %15) #4
-  %neg = fneg double %mul11
-  %16 = call double @llvm.fmuladd.f64(double %neg, double %call12, double %12)
-  %call14 = call double @pow(double noundef %16, double noundef 1.500000e+00) #4
-  %div = fdiv double %7, %call14
-  store double %div, ptr %mieM, align 8
-  %17 = load double, ptr %theta.addr, align 8
-  %call15 = call double @cos(double noundef %17) #4
-  %call16 = call double @sqrt(double noundef %call15) #4
-  store double %call16, ptr %zenith, align 8
-  %18 = load ptr, ptr %configuration.addr, align 8
-  %arrayidx17 = getelementptr inbounds double, ptr %18, i64 0
-  %19 = load double, ptr %arrayidx17, align 8
-  %20 = load ptr, ptr %configuration.addr, align 8
-  %arrayidx18 = getelementptr inbounds double, ptr %20, i64 1
-  %21 = load double, ptr %arrayidx18, align 8
-  %22 = load double, ptr %theta.addr, align 8
-  %call19 = call double @cos(double noundef %22) #4
-  %add = fadd double %call19, 1.000000e-02
-  %div20 = fdiv double %21, %add
-  %call21 = call double @exp(double noundef %div20) #4
-  %23 = call double @llvm.fmuladd.f64(double %19, double %call21, double 1.000000e+00)
-  %24 = load ptr, ptr %configuration.addr, align 8
-  %arrayidx23 = getelementptr inbounds double, ptr %24, i64 2
-  %25 = load double, ptr %arrayidx23, align 8
-  %26 = load ptr, ptr %configuration.addr, align 8
-  %arrayidx24 = getelementptr inbounds double, ptr %26, i64 3
-  %27 = load double, ptr %arrayidx24, align 8
-  %28 = load double, ptr %expM, align 8
-  %29 = call double @llvm.fmuladd.f64(double %27, double %28, double %25)
-  %30 = load ptr, ptr %configuration.addr, align 8
-  %arrayidx26 = getelementptr inbounds double, ptr %30, i64 5
-  %31 = load double, ptr %arrayidx26, align 8
-  %32 = load double, ptr %rayM, align 8
-  %33 = call double @llvm.fmuladd.f64(double %31, double %32, double %29)
-  %34 = load ptr, ptr %configuration.addr, align 8
-  %arrayidx28 = getelementptr inbounds double, ptr %34, i64 6
-  %35 = load double, ptr %arrayidx28, align 8
-  %36 = load double, ptr %mieM, align 8
-  %37 = call double @llvm.fmuladd.f64(double %35, double %36, double %33)
-  %38 = load ptr, ptr %configuration.addr, align 8
-  %arrayidx30 = getelementptr inbounds double, ptr %38, i64 7
-  %39 = load double, ptr %arrayidx30, align 8
-  %40 = load double, ptr %zenith, align 8
-  %41 = call double @llvm.fmuladd.f64(double %39, double %40, double %37)
-  %mul32 = fmul double %23, %41
-  ret double %mul32
+define dso_local double @ArHosekSkyModel_GetRadianceInternal(ptr noundef %0, double noundef %1, double noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca double, align 8
+  %6 = alloca double, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store double %1, ptr %5, align 8, !tbaa !9
+  store double %2, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %11 = load ptr, ptr %4, align 8, !tbaa !4
+  %12 = getelementptr inbounds double, ptr %11, i64 4
+  %13 = load double, ptr %12, align 8, !tbaa !9
+  %14 = load double, ptr %6, align 8, !tbaa !9
+  %15 = fmul double %13, %14
+  %16 = call double @exp(double noundef %15) #5, !tbaa !11
+  store double %16, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %17 = load double, ptr %6, align 8, !tbaa !9
+  %18 = call double @cos(double noundef %17) #5, !tbaa !11
+  %19 = load double, ptr %6, align 8, !tbaa !9
+  %20 = call double @cos(double noundef %19) #5, !tbaa !11
+  %21 = fmul double %18, %20
+  store double %21, ptr %8, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %22 = load double, ptr %6, align 8, !tbaa !9
+  %23 = call double @cos(double noundef %22) #5, !tbaa !11
+  %24 = load double, ptr %6, align 8, !tbaa !9
+  %25 = call double @cos(double noundef %24) #5, !tbaa !11
+  %26 = call double @llvm.fmuladd.f64(double %23, double %25, double 1.000000e+00)
+  %27 = load ptr, ptr %4, align 8, !tbaa !4
+  %28 = getelementptr inbounds double, ptr %27, i64 8
+  %29 = load double, ptr %28, align 8, !tbaa !9
+  %30 = load ptr, ptr %4, align 8, !tbaa !4
+  %31 = getelementptr inbounds double, ptr %30, i64 8
+  %32 = load double, ptr %31, align 8, !tbaa !9
+  %33 = call double @llvm.fmuladd.f64(double %29, double %32, double 1.000000e+00)
+  %34 = load ptr, ptr %4, align 8, !tbaa !4
+  %35 = getelementptr inbounds double, ptr %34, i64 8
+  %36 = load double, ptr %35, align 8, !tbaa !9
+  %37 = fmul double 2.000000e+00, %36
+  %38 = load double, ptr %6, align 8, !tbaa !9
+  %39 = call double @cos(double noundef %38) #5, !tbaa !11
+  %40 = fneg double %37
+  %41 = call double @llvm.fmuladd.f64(double %40, double %39, double %33)
+  %42 = call double @pow(double noundef %41, double noundef 1.500000e+00) #5, !tbaa !11
+  %43 = fdiv double %26, %42
+  store double %43, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %44 = load double, ptr %5, align 8, !tbaa !9
+  %45 = call double @cos(double noundef %44) #5, !tbaa !11
+  %46 = call double @sqrt(double noundef %45) #5, !tbaa !11
+  store double %46, ptr %10, align 8, !tbaa !9
+  %47 = load ptr, ptr %4, align 8, !tbaa !4
+  %48 = getelementptr inbounds double, ptr %47, i64 0
+  %49 = load double, ptr %48, align 8, !tbaa !9
+  %50 = load ptr, ptr %4, align 8, !tbaa !4
+  %51 = getelementptr inbounds double, ptr %50, i64 1
+  %52 = load double, ptr %51, align 8, !tbaa !9
+  %53 = load double, ptr %5, align 8, !tbaa !9
+  %54 = call double @cos(double noundef %53) #5, !tbaa !11
+  %55 = fadd double %54, 1.000000e-02
+  %56 = fdiv double %52, %55
+  %57 = call double @exp(double noundef %56) #5, !tbaa !11
+  %58 = call double @llvm.fmuladd.f64(double %49, double %57, double 1.000000e+00)
+  %59 = load ptr, ptr %4, align 8, !tbaa !4
+  %60 = getelementptr inbounds double, ptr %59, i64 2
+  %61 = load double, ptr %60, align 8, !tbaa !9
+  %62 = load ptr, ptr %4, align 8, !tbaa !4
+  %63 = getelementptr inbounds double, ptr %62, i64 3
+  %64 = load double, ptr %63, align 8, !tbaa !9
+  %65 = load double, ptr %7, align 8, !tbaa !9
+  %66 = call double @llvm.fmuladd.f64(double %64, double %65, double %61)
+  %67 = load ptr, ptr %4, align 8, !tbaa !4
+  %68 = getelementptr inbounds double, ptr %67, i64 5
+  %69 = load double, ptr %68, align 8, !tbaa !9
+  %70 = load double, ptr %8, align 8, !tbaa !9
+  %71 = call double @llvm.fmuladd.f64(double %69, double %70, double %66)
+  %72 = load ptr, ptr %4, align 8, !tbaa !4
+  %73 = getelementptr inbounds double, ptr %72, i64 6
+  %74 = load double, ptr %73, align 8, !tbaa !9
+  %75 = load double, ptr %9, align 8, !tbaa !9
+  %76 = call double @llvm.fmuladd.f64(double %74, double %75, double %71)
+  %77 = load ptr, ptr %4, align 8, !tbaa !4
+  %78 = getelementptr inbounds double, ptr %77, i64 7
+  %79 = load double, ptr %78, align 8, !tbaa !9
+  %80 = load double, ptr %10, align 8, !tbaa !9
+  %81 = call double @llvm.fmuladd.f64(double %79, double %80, double %76)
+  %82 = fmul double %58, %81
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  ret double %82
 }
 
 ; Function Attrs: nounwind
-declare double @exp(double noundef) #1
+declare double @exp(double noundef) #2
 
 ; Function Attrs: nounwind
-declare double @cos(double noundef) #1
+declare double @cos(double noundef) #2
 
 ; Function Attrs: nounwind
-declare double @sqrt(double noundef) #1
+declare double @sqrt(double noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @arhosekskymodelstate_alloc_init(double noundef %solar_elevation, double noundef %atmospheric_turbidity, double noundef %ground_albedo) #0 {
-entry:
-  %solar_elevation.addr = alloca double, align 8
-  %atmospheric_turbidity.addr = alloca double, align 8
-  %ground_albedo.addr = alloca double, align 8
-  %state = alloca ptr, align 8
-  %wl = alloca i32, align 4
-  store double %solar_elevation, ptr %solar_elevation.addr, align 8
-  store double %atmospheric_turbidity, ptr %atmospheric_turbidity.addr, align 8
-  store double %ground_albedo, ptr %ground_albedo.addr, align 8
-  %call = call noalias ptr @malloc(i64 noundef 1088) #5
-  store ptr %call, ptr %state, align 8
-  %0 = load ptr, ptr %state, align 8
-  %solar_radius = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %0, i32 0, i32 3
-  store double 0x3F723AC80BF81B3F, ptr %solar_radius, align 8
-  %1 = load double, ptr %atmospheric_turbidity.addr, align 8
-  %2 = load ptr, ptr %state, align 8
-  %turbidity = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %2, i32 0, i32 2
-  store double %1, ptr %turbidity, align 8
-  %3 = load double, ptr %ground_albedo.addr, align 8
-  %4 = load ptr, ptr %state, align 8
-  %albedo = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %4, i32 0, i32 6
-  store double %3, ptr %albedo, align 8
-  %5 = load double, ptr %solar_elevation.addr, align 8
-  %6 = load ptr, ptr %state, align 8
-  %elevation = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %6, i32 0, i32 7
-  store double %5, ptr %elevation, align 8
-  store i32 0, ptr %wl, align 4
-  br label %for.cond
+define dso_local ptr @arhosekskymodelstate_alloc_init(double noundef %0, double noundef %1, double noundef %2) #0 {
+  %4 = alloca double, align 8
+  %5 = alloca double, align 8
+  %6 = alloca double, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store double %0, ptr %4, align 8, !tbaa !9
+  store double %1, ptr %5, align 8, !tbaa !9
+  store double %2, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %9 = call noalias ptr @malloc(i64 noundef 1088) #6
+  store ptr %9, ptr %7, align 8, !tbaa !18
+  %10 = load ptr, ptr %7, align 8, !tbaa !18
+  %11 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %10, i32 0, i32 3
+  store double 0x3F723AC80BF81B3F, ptr %11, align 8, !tbaa !20
+  %12 = load double, ptr %5, align 8, !tbaa !9
+  %13 = load ptr, ptr %7, align 8, !tbaa !18
+  %14 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %13, i32 0, i32 2
+  store double %12, ptr %14, align 8, !tbaa !22
+  %15 = load double, ptr %6, align 8, !tbaa !9
+  %16 = load ptr, ptr %7, align 8, !tbaa !18
+  %17 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %16, i32 0, i32 6
+  store double %15, ptr %17, align 8, !tbaa !23
+  %18 = load double, ptr %4, align 8, !tbaa !9
+  %19 = load ptr, ptr %7, align 8, !tbaa !18
+  %20 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %19, i32 0, i32 7
+  store double %18, ptr %20, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  store i32 0, ptr %8, align 4, !tbaa !11
+  br label %21
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %7 = load i32, ptr %wl, align 4
-  %cmp = icmp ult i32 %7, 11
-  br i1 %cmp, label %for.body, label %for.end
+21:                                               ; preds = %61, %3
+  %22 = load i32, ptr %8, align 4, !tbaa !11
+  %23 = icmp ult i32 %22, 11
+  br i1 %23, label %24, label %64
 
-for.body:                                         ; preds = %for.cond
-  %8 = load i32, ptr %wl, align 4
-  %idxprom = zext i32 %8 to i64
-  %arrayidx = getelementptr inbounds [11 x ptr], ptr @datasets, i64 0, i64 %idxprom
-  %9 = load ptr, ptr %arrayidx, align 8
-  %10 = load ptr, ptr %state, align 8
-  %configs = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %10, i32 0, i32 0
-  %11 = load i32, ptr %wl, align 4
-  %idxprom1 = zext i32 %11 to i64
-  %arrayidx2 = getelementptr inbounds [11 x [9 x double]], ptr %configs, i64 0, i64 %idxprom1
-  %arraydecay = getelementptr inbounds [9 x double], ptr %arrayidx2, i64 0, i64 0
-  %12 = load double, ptr %atmospheric_turbidity.addr, align 8
-  %13 = load double, ptr %ground_albedo.addr, align 8
-  %14 = load double, ptr %solar_elevation.addr, align 8
-  call void @ArHosekSkyModel_CookConfiguration(ptr noundef %9, ptr noundef %arraydecay, double noundef %12, double noundef %13, double noundef %14)
-  %15 = load i32, ptr %wl, align 4
-  %idxprom3 = zext i32 %15 to i64
-  %arrayidx4 = getelementptr inbounds [11 x ptr], ptr @datasetsRad, i64 0, i64 %idxprom3
-  %16 = load ptr, ptr %arrayidx4, align 8
-  %17 = load double, ptr %atmospheric_turbidity.addr, align 8
-  %18 = load double, ptr %ground_albedo.addr, align 8
-  %19 = load double, ptr %solar_elevation.addr, align 8
-  %call5 = call double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef %16, double noundef %17, double noundef %18, double noundef %19)
-  %20 = load ptr, ptr %state, align 8
-  %radiances = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %20, i32 0, i32 1
-  %21 = load i32, ptr %wl, align 4
-  %idxprom6 = zext i32 %21 to i64
-  %arrayidx7 = getelementptr inbounds [11 x double], ptr %radiances, i64 0, i64 %idxprom6
-  store double %call5, ptr %arrayidx7, align 8
-  %22 = load ptr, ptr %state, align 8
-  %emission_correction_factor_sun = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %22, i32 0, i32 5
-  %23 = load i32, ptr %wl, align 4
-  %idxprom8 = zext i32 %23 to i64
-  %arrayidx9 = getelementptr inbounds [11 x double], ptr %emission_correction_factor_sun, i64 0, i64 %idxprom8
-  store double 1.000000e+00, ptr %arrayidx9, align 8
-  %24 = load ptr, ptr %state, align 8
-  %emission_correction_factor_sky = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %24, i32 0, i32 4
-  %25 = load i32, ptr %wl, align 4
-  %idxprom10 = zext i32 %25 to i64
-  %arrayidx11 = getelementptr inbounds [11 x double], ptr %emission_correction_factor_sky, i64 0, i64 %idxprom10
-  store double 1.000000e+00, ptr %arrayidx11, align 8
-  br label %for.inc
+24:                                               ; preds = %21
+  %25 = load i32, ptr %8, align 4, !tbaa !11
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw [11 x ptr], ptr @datasets, i64 0, i64 %26
+  %28 = load ptr, ptr %27, align 8, !tbaa !4
+  %29 = load ptr, ptr %7, align 8, !tbaa !18
+  %30 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %8, align 4, !tbaa !11
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw [11 x [9 x double]], ptr %30, i64 0, i64 %32
+  %34 = getelementptr inbounds [9 x double], ptr %33, i64 0, i64 0
+  %35 = load double, ptr %5, align 8, !tbaa !9
+  %36 = load double, ptr %6, align 8, !tbaa !9
+  %37 = load double, ptr %4, align 8, !tbaa !9
+  call void @ArHosekSkyModel_CookConfiguration(ptr noundef %28, ptr noundef %34, double noundef %35, double noundef %36, double noundef %37)
+  %38 = load i32, ptr %8, align 4, !tbaa !11
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw [11 x ptr], ptr @datasetsRad, i64 0, i64 %39
+  %41 = load ptr, ptr %40, align 8, !tbaa !4
+  %42 = load double, ptr %5, align 8, !tbaa !9
+  %43 = load double, ptr %6, align 8, !tbaa !9
+  %44 = load double, ptr %4, align 8, !tbaa !9
+  %45 = call double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef %41, double noundef %42, double noundef %43, double noundef %44)
+  %46 = load ptr, ptr %7, align 8, !tbaa !18
+  %47 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %46, i32 0, i32 1
+  %48 = load i32, ptr %8, align 4, !tbaa !11
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds nuw [11 x double], ptr %47, i64 0, i64 %49
+  store double %45, ptr %50, align 8, !tbaa !9
+  %51 = load ptr, ptr %7, align 8, !tbaa !18
+  %52 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %51, i32 0, i32 5
+  %53 = load i32, ptr %8, align 4, !tbaa !11
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds nuw [11 x double], ptr %52, i64 0, i64 %54
+  store double 1.000000e+00, ptr %55, align 8, !tbaa !9
+  %56 = load ptr, ptr %7, align 8, !tbaa !18
+  %57 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %56, i32 0, i32 4
+  %58 = load i32, ptr %8, align 4, !tbaa !11
+  %59 = zext i32 %58 to i64
+  %60 = getelementptr inbounds nuw [11 x double], ptr %57, i64 0, i64 %59
+  store double 1.000000e+00, ptr %60, align 8, !tbaa !9
+  br label %61
 
-for.inc:                                          ; preds = %for.body
-  %26 = load i32, ptr %wl, align 4
-  %inc = add i32 %26, 1
-  store i32 %inc, ptr %wl, align 4
-  br label %for.cond, !llvm.loop !10
+61:                                               ; preds = %24
+  %62 = load i32, ptr %8, align 4, !tbaa !11
+  %63 = add i32 %62, 1
+  store i32 %63, ptr %8, align 4, !tbaa !11
+  br label %21, !llvm.loop !25
 
-for.end:                                          ; preds = %for.cond
-  %27 = load ptr, ptr %state, align 8
-  ret ptr %27
+64:                                               ; preds = %21
+  %65 = load ptr, ptr %7, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  ret ptr %65
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #3
+declare noalias ptr @malloc(i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @art_blackbody_dd_value(double noundef %temperature, double noundef %lambda) #0 {
-entry:
-  %temperature.addr = alloca double, align 8
-  %lambda.addr = alloca double, align 8
-  %c1 = alloca double, align 8
-  %c2 = alloca double, align 8
-  %value = alloca double, align 8
-  store double %temperature, ptr %temperature.addr, align 8
-  store double %lambda, ptr %lambda.addr, align 8
-  store double 3.741770e-16, ptr %c1, align 8
-  store double 1.438780e-02, ptr %c2, align 8
-  %0 = load double, ptr %c1, align 8
-  %1 = load double, ptr %lambda.addr, align 8
-  %call = call double @pow(double noundef %1, double noundef 5.000000e+00) #4
-  %div = fdiv double %0, %call
-  %2 = load double, ptr %c2, align 8
-  %3 = load double, ptr %lambda.addr, align 8
-  %4 = load double, ptr %temperature.addr, align 8
-  %mul = fmul double %3, %4
-  %div1 = fdiv double %2, %mul
-  %call2 = call double @exp(double noundef %div1) #4
-  %sub = fsub double %call2, 1.000000e+00
-  %div3 = fdiv double 1.000000e+00, %sub
-  %mul4 = fmul double %div, %div3
-  store double %mul4, ptr %value, align 8
-  %5 = load double, ptr %value, align 8
-  ret double %5
+define dso_local double @art_blackbody_dd_value(double noundef %0, double noundef %1) #0 {
+  %3 = alloca double, align 8
+  %4 = alloca double, align 8
+  %5 = alloca double, align 8
+  %6 = alloca double, align 8
+  %7 = alloca double, align 8
+  store double %0, ptr %3, align 8, !tbaa !9
+  store double %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  store double 3.741770e-16, ptr %5, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  store double 1.438780e-02, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %8 = load double, ptr %5, align 8, !tbaa !9
+  %9 = load double, ptr %4, align 8, !tbaa !9
+  %10 = call double @pow(double noundef %9, double noundef 5.000000e+00) #5, !tbaa !11
+  %11 = fdiv double %8, %10
+  %12 = load double, ptr %6, align 8, !tbaa !9
+  %13 = load double, ptr %4, align 8, !tbaa !9
+  %14 = load double, ptr %3, align 8, !tbaa !9
+  %15 = fmul double %13, %14
+  %16 = fdiv double %12, %15
+  %17 = call double @exp(double noundef %16) #5, !tbaa !11
+  %18 = fsub double %17, 1.000000e+00
+  %19 = fdiv double 1.000000e+00, %18
+  %20 = fmul double %11, %19
+  store double %20, ptr %7, align 8, !tbaa !9
+  %21 = load double, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  ret double %21
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @arhosekskymodelstate_alienworld_alloc_init(double noundef %solar_elevation, double noundef %solar_intensity, double noundef %solar_surface_temperature_kelvin, double noundef %atmospheric_turbidity, double noundef %ground_albedo) #0 {
-entry:
-  %solar_elevation.addr = alloca double, align 8
-  %solar_intensity.addr = alloca double, align 8
-  %solar_surface_temperature_kelvin.addr = alloca double, align 8
-  %atmospheric_turbidity.addr = alloca double, align 8
-  %ground_albedo.addr = alloca double, align 8
-  %state = alloca ptr, align 8
-  %wl = alloca i32, align 4
-  %owl = alloca double, align 8
-  %osr = alloca double, align 8
-  %nsr = alloca double, align 8
-  %correctionFactor = alloca double, align 8
-  %i = alloca i32, align 4
-  %ratio = alloca double, align 8
-  store double %solar_elevation, ptr %solar_elevation.addr, align 8
-  store double %solar_intensity, ptr %solar_intensity.addr, align 8
-  store double %solar_surface_temperature_kelvin, ptr %solar_surface_temperature_kelvin.addr, align 8
-  store double %atmospheric_turbidity, ptr %atmospheric_turbidity.addr, align 8
-  store double %ground_albedo, ptr %ground_albedo.addr, align 8
-  %call = call noalias ptr @malloc(i64 noundef 1088) #5
-  store ptr %call, ptr %state, align 8
-  %0 = load double, ptr %atmospheric_turbidity.addr, align 8
-  %1 = load ptr, ptr %state, align 8
-  %turbidity = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %1, i32 0, i32 2
-  store double %0, ptr %turbidity, align 8
-  %2 = load double, ptr %ground_albedo.addr, align 8
-  %3 = load ptr, ptr %state, align 8
-  %albedo = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %3, i32 0, i32 6
-  store double %2, ptr %albedo, align 8
-  %4 = load double, ptr %solar_elevation.addr, align 8
-  %5 = load ptr, ptr %state, align 8
-  %elevation = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %5, i32 0, i32 7
-  store double %4, ptr %elevation, align 8
-  store i32 0, ptr %wl, align 4
-  br label %for.cond
+define dso_local ptr @arhosekskymodelstate_alienworld_alloc_init(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) #0 {
+  %6 = alloca double, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca double, align 8
+  %14 = alloca double, align 8
+  %15 = alloca double, align 8
+  %16 = alloca double, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca double, align 8
+  store double %0, ptr %6, align 8, !tbaa !9
+  store double %1, ptr %7, align 8, !tbaa !9
+  store double %2, ptr %8, align 8, !tbaa !9
+  store double %3, ptr %9, align 8, !tbaa !9
+  store double %4, ptr %10, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %19 = call noalias ptr @malloc(i64 noundef 1088) #6
+  store ptr %19, ptr %11, align 8, !tbaa !18
+  %20 = load double, ptr %9, align 8, !tbaa !9
+  %21 = load ptr, ptr %11, align 8, !tbaa !18
+  %22 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %21, i32 0, i32 2
+  store double %20, ptr %22, align 8, !tbaa !22
+  %23 = load double, ptr %10, align 8, !tbaa !9
+  %24 = load ptr, ptr %11, align 8, !tbaa !18
+  %25 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %24, i32 0, i32 6
+  store double %23, ptr %25, align 8, !tbaa !23
+  %26 = load double, ptr %6, align 8, !tbaa !9
+  %27 = load ptr, ptr %11, align 8, !tbaa !18
+  %28 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %27, i32 0, i32 7
+  store double %26, ptr %28, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  store i32 0, ptr %12, align 4, !tbaa !11
+  br label %29
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %6 = load i32, ptr %wl, align 4
-  %cmp = icmp ult i32 %6, 11
-  br i1 %cmp, label %for.body, label %for.end
+29:                                               ; preds = %79, %5
+  %30 = load i32, ptr %12, align 4, !tbaa !11
+  %31 = icmp ult i32 %30, 11
+  br i1 %31, label %32, label %82
 
-for.body:                                         ; preds = %for.cond
-  %7 = load i32, ptr %wl, align 4
-  %idxprom = zext i32 %7 to i64
-  %arrayidx = getelementptr inbounds [11 x ptr], ptr @datasets, i64 0, i64 %idxprom
-  %8 = load ptr, ptr %arrayidx, align 8
-  %9 = load ptr, ptr %state, align 8
-  %configs = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %9, i32 0, i32 0
-  %10 = load i32, ptr %wl, align 4
-  %idxprom1 = zext i32 %10 to i64
-  %arrayidx2 = getelementptr inbounds [11 x [9 x double]], ptr %configs, i64 0, i64 %idxprom1
-  %arraydecay = getelementptr inbounds [9 x double], ptr %arrayidx2, i64 0, i64 0
-  %11 = load double, ptr %atmospheric_turbidity.addr, align 8
-  %12 = load double, ptr %ground_albedo.addr, align 8
-  %13 = load double, ptr %solar_elevation.addr, align 8
-  call void @ArHosekSkyModel_CookConfiguration(ptr noundef %8, ptr noundef %arraydecay, double noundef %11, double noundef %12, double noundef %13)
-  %14 = load i32, ptr %wl, align 4
-  %idxprom3 = zext i32 %14 to i64
-  %arrayidx4 = getelementptr inbounds [11 x ptr], ptr @datasetsRad, i64 0, i64 %idxprom3
-  %15 = load ptr, ptr %arrayidx4, align 8
-  %16 = load double, ptr %atmospheric_turbidity.addr, align 8
-  %17 = load double, ptr %ground_albedo.addr, align 8
-  %18 = load double, ptr %solar_elevation.addr, align 8
-  %call5 = call double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef %15, double noundef %16, double noundef %17, double noundef %18)
-  %19 = load ptr, ptr %state, align 8
-  %radiances = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %19, i32 0, i32 1
-  %20 = load i32, ptr %wl, align 4
-  %idxprom6 = zext i32 %20 to i64
-  %arrayidx7 = getelementptr inbounds [11 x double], ptr %radiances, i64 0, i64 %idxprom6
-  store double %call5, ptr %arrayidx7, align 8
-  %21 = load i32, ptr %wl, align 4
-  %conv = uitofp i32 %21 to double
-  %22 = call double @llvm.fmuladd.f64(double 4.000000e+01, double %conv, double 3.200000e+02)
-  %mul = fmul double %22, 1.000000e-09
-  store double %mul, ptr %owl, align 8
-  %23 = load i32, ptr %wl, align 4
-  %idxprom8 = zext i32 %23 to i64
-  %arrayidx9 = getelementptr inbounds [11 x double], ptr @originalSolarRadianceTable, i64 0, i64 %idxprom8
-  %24 = load double, ptr %arrayidx9, align 8
-  store double %24, ptr %osr, align 8
-  %25 = load double, ptr %solar_surface_temperature_kelvin.addr, align 8
-  %26 = load double, ptr %owl, align 8
-  %call10 = call double @art_blackbody_dd_value(double noundef %25, double noundef %26)
-  %mul11 = fmul double %call10, 3.199920e-10
-  store double %mul11, ptr %nsr, align 8
-  %27 = load double, ptr %nsr, align 8
-  %28 = load double, ptr %osr, align 8
-  %div = fdiv double %27, %28
-  %29 = load ptr, ptr %state, align 8
-  %emission_correction_factor_sun = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %29, i32 0, i32 5
-  %30 = load i32, ptr %wl, align 4
-  %idxprom12 = zext i32 %30 to i64
-  %arrayidx13 = getelementptr inbounds [11 x double], ptr %emission_correction_factor_sun, i64 0, i64 %idxprom12
-  store double %div, ptr %arrayidx13, align 8
-  br label %for.inc
+32:                                               ; preds = %29
+  %33 = load i32, ptr %12, align 4, !tbaa !11
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds nuw [11 x ptr], ptr @datasets, i64 0, i64 %34
+  %36 = load ptr, ptr %35, align 8, !tbaa !4
+  %37 = load ptr, ptr %11, align 8, !tbaa !18
+  %38 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %37, i32 0, i32 0
+  %39 = load i32, ptr %12, align 4, !tbaa !11
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw [11 x [9 x double]], ptr %38, i64 0, i64 %40
+  %42 = getelementptr inbounds [9 x double], ptr %41, i64 0, i64 0
+  %43 = load double, ptr %9, align 8, !tbaa !9
+  %44 = load double, ptr %10, align 8, !tbaa !9
+  %45 = load double, ptr %6, align 8, !tbaa !9
+  call void @ArHosekSkyModel_CookConfiguration(ptr noundef %36, ptr noundef %42, double noundef %43, double noundef %44, double noundef %45)
+  %46 = load i32, ptr %12, align 4, !tbaa !11
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw [11 x ptr], ptr @datasetsRad, i64 0, i64 %47
+  %49 = load ptr, ptr %48, align 8, !tbaa !4
+  %50 = load double, ptr %9, align 8, !tbaa !9
+  %51 = load double, ptr %10, align 8, !tbaa !9
+  %52 = load double, ptr %6, align 8, !tbaa !9
+  %53 = call double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef %49, double noundef %50, double noundef %51, double noundef %52)
+  %54 = load ptr, ptr %11, align 8, !tbaa !18
+  %55 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %54, i32 0, i32 1
+  %56 = load i32, ptr %12, align 4, !tbaa !11
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw [11 x double], ptr %55, i64 0, i64 %57
+  store double %53, ptr %58, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %59 = load i32, ptr %12, align 4, !tbaa !11
+  %60 = uitofp i32 %59 to double
+  %61 = call double @llvm.fmuladd.f64(double 4.000000e+01, double %60, double 3.200000e+02)
+  %62 = fmul double %61, 1.000000e-09
+  store double %62, ptr %13, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %63 = load i32, ptr %12, align 4, !tbaa !11
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr inbounds nuw [11 x double], ptr @originalSolarRadianceTable, i64 0, i64 %64
+  %66 = load double, ptr %65, align 8, !tbaa !9
+  store double %66, ptr %14, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %67 = load double, ptr %8, align 8, !tbaa !9
+  %68 = load double, ptr %13, align 8, !tbaa !9
+  %69 = call double @art_blackbody_dd_value(double noundef %67, double noundef %68)
+  %70 = fmul double %69, 3.199920e-10
+  store double %70, ptr %15, align 8, !tbaa !9
+  %71 = load double, ptr %15, align 8, !tbaa !9
+  %72 = load double, ptr %14, align 8, !tbaa !9
+  %73 = fdiv double %71, %72
+  %74 = load ptr, ptr %11, align 8, !tbaa !18
+  %75 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %74, i32 0, i32 5
+  %76 = load i32, ptr %12, align 4, !tbaa !11
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr inbounds nuw [11 x double], ptr %75, i64 0, i64 %77
+  store double %73, ptr %78, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  br label %79
 
-for.inc:                                          ; preds = %for.body
-  %31 = load i32, ptr %wl, align 4
-  %inc = add i32 %31, 1
-  store i32 %inc, ptr %wl, align 4
-  br label %for.cond, !llvm.loop !11
+79:                                               ; preds = %32
+  %80 = load i32, ptr %12, align 4, !tbaa !11
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %12, align 4, !tbaa !11
+  br label %29, !llvm.loop !26
 
-for.end:                                          ; preds = %for.cond
-  store double 0.000000e+00, ptr %correctionFactor, align 8
-  store i32 2, ptr %i, align 4
-  br label %for.cond14
+82:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  store double 0.000000e+00, ptr %16, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  store i32 2, ptr %17, align 4, !tbaa !11
+  br label %83
 
-for.cond14:                                       ; preds = %for.inc21, %for.end
-  %32 = load i32, ptr %i, align 4
-  %cmp15 = icmp ult i32 %32, 11
-  br i1 %cmp15, label %for.body17, label %for.end23
+83:                                               ; preds = %95, %82
+  %84 = load i32, ptr %17, align 4, !tbaa !11
+  %85 = icmp ult i32 %84, 11
+  br i1 %85, label %86, label %98
 
-for.body17:                                       ; preds = %for.cond14
-  %33 = load ptr, ptr %state, align 8
-  %emission_correction_factor_sun18 = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %33, i32 0, i32 5
-  %34 = load i32, ptr %i, align 4
-  %idxprom19 = zext i32 %34 to i64
-  %arrayidx20 = getelementptr inbounds [11 x double], ptr %emission_correction_factor_sun18, i64 0, i64 %idxprom19
-  %35 = load double, ptr %arrayidx20, align 8
-  %36 = load double, ptr %correctionFactor, align 8
-  %add = fadd double %36, %35
-  store double %add, ptr %correctionFactor, align 8
-  br label %for.inc21
+86:                                               ; preds = %83
+  %87 = load ptr, ptr %11, align 8, !tbaa !18
+  %88 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %87, i32 0, i32 5
+  %89 = load i32, ptr %17, align 4, !tbaa !11
+  %90 = zext i32 %89 to i64
+  %91 = getelementptr inbounds nuw [11 x double], ptr %88, i64 0, i64 %90
+  %92 = load double, ptr %91, align 8, !tbaa !9
+  %93 = load double, ptr %16, align 8, !tbaa !9
+  %94 = fadd double %93, %92
+  store double %94, ptr %16, align 8, !tbaa !9
+  br label %95
 
-for.inc21:                                        ; preds = %for.body17
-  %37 = load i32, ptr %i, align 4
-  %inc22 = add i32 %37, 1
-  store i32 %inc22, ptr %i, align 4
-  br label %for.cond14, !llvm.loop !12
+95:                                               ; preds = %86
+  %96 = load i32, ptr %17, align 4, !tbaa !11
+  %97 = add i32 %96, 1
+  store i32 %97, ptr %17, align 4, !tbaa !11
+  br label %83, !llvm.loop !27
 
-for.end23:                                        ; preds = %for.cond14
-  %38 = load double, ptr %correctionFactor, align 8
-  %div24 = fdiv double %38, 9.000000e+00
-  store double %div24, ptr %ratio, align 8
-  %39 = load double, ptr %solar_intensity.addr, align 8
-  %call25 = call double @sqrt(double noundef %39) #4
-  %mul26 = fmul double %call25, 0x3F723AC80BF81B3F
-  %40 = load double, ptr %ratio, align 8
-  %call27 = call double @sqrt(double noundef %40) #4
-  %div28 = fdiv double %mul26, %call27
-  %41 = load ptr, ptr %state, align 8
-  %solar_radius = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %41, i32 0, i32 3
-  store double %div28, ptr %solar_radius, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond29
+98:                                               ; preds = %83
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  %99 = load double, ptr %16, align 8, !tbaa !9
+  %100 = fdiv double %99, 9.000000e+00
+  store double %100, ptr %18, align 8, !tbaa !9
+  %101 = load double, ptr %7, align 8, !tbaa !9
+  %102 = call double @sqrt(double noundef %101) #5, !tbaa !11
+  %103 = fmul double %102, 0x3F723AC80BF81B3F
+  %104 = load double, ptr %18, align 8, !tbaa !9
+  %105 = call double @sqrt(double noundef %104) #5, !tbaa !11
+  %106 = fdiv double %103, %105
+  %107 = load ptr, ptr %11, align 8, !tbaa !18
+  %108 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %107, i32 0, i32 3
+  store double %106, ptr %108, align 8, !tbaa !20
+  store i32 0, ptr %17, align 4, !tbaa !11
+  br label %109
 
-for.cond29:                                       ; preds = %for.inc40, %for.end23
-  %42 = load i32, ptr %i, align 4
-  %cmp30 = icmp ult i32 %42, 11
-  br i1 %cmp30, label %for.body32, label %for.end42
+109:                                              ; preds = %128, %98
+  %110 = load i32, ptr %17, align 4, !tbaa !11
+  %111 = icmp ult i32 %110, 11
+  br i1 %111, label %112, label %131
 
-for.body32:                                       ; preds = %for.cond29
-  %43 = load double, ptr %solar_intensity.addr, align 8
-  %44 = load ptr, ptr %state, align 8
-  %emission_correction_factor_sun33 = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %44, i32 0, i32 5
-  %45 = load i32, ptr %i, align 4
-  %idxprom34 = zext i32 %45 to i64
-  %arrayidx35 = getelementptr inbounds [11 x double], ptr %emission_correction_factor_sun33, i64 0, i64 %idxprom34
-  %46 = load double, ptr %arrayidx35, align 8
-  %mul36 = fmul double %43, %46
-  %47 = load double, ptr %ratio, align 8
-  %div37 = fdiv double %mul36, %47
-  %48 = load ptr, ptr %state, align 8
-  %emission_correction_factor_sky = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %48, i32 0, i32 4
-  %49 = load i32, ptr %i, align 4
-  %idxprom38 = zext i32 %49 to i64
-  %arrayidx39 = getelementptr inbounds [11 x double], ptr %emission_correction_factor_sky, i64 0, i64 %idxprom38
-  store double %div37, ptr %arrayidx39, align 8
-  br label %for.inc40
+112:                                              ; preds = %109
+  %113 = load double, ptr %7, align 8, !tbaa !9
+  %114 = load ptr, ptr %11, align 8, !tbaa !18
+  %115 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %114, i32 0, i32 5
+  %116 = load i32, ptr %17, align 4, !tbaa !11
+  %117 = zext i32 %116 to i64
+  %118 = getelementptr inbounds nuw [11 x double], ptr %115, i64 0, i64 %117
+  %119 = load double, ptr %118, align 8, !tbaa !9
+  %120 = fmul double %113, %119
+  %121 = load double, ptr %18, align 8, !tbaa !9
+  %122 = fdiv double %120, %121
+  %123 = load ptr, ptr %11, align 8, !tbaa !18
+  %124 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %123, i32 0, i32 4
+  %125 = load i32, ptr %17, align 4, !tbaa !11
+  %126 = zext i32 %125 to i64
+  %127 = getelementptr inbounds nuw [11 x double], ptr %124, i64 0, i64 %126
+  store double %122, ptr %127, align 8, !tbaa !9
+  br label %128
 
-for.inc40:                                        ; preds = %for.body32
-  %50 = load i32, ptr %i, align 4
-  %inc41 = add i32 %50, 1
-  store i32 %inc41, ptr %i, align 4
-  br label %for.cond29, !llvm.loop !13
+128:                                              ; preds = %112
+  %129 = load i32, ptr %17, align 4, !tbaa !11
+  %130 = add i32 %129, 1
+  store i32 %130, ptr %17, align 4, !tbaa !11
+  br label %109, !llvm.loop !28
 
-for.end42:                                        ; preds = %for.cond29
-  %51 = load ptr, ptr %state, align 8
-  ret ptr %51
+131:                                              ; preds = %109
+  %132 = load ptr, ptr %11, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  ret ptr %132
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @arhosekskymodelstate_free(ptr noundef %state) #0 {
-entry:
-  %state.addr = alloca ptr, align 8
-  store ptr %state, ptr %state.addr, align 8
-  %0 = load ptr, ptr %state.addr, align 8
-  call void @free(ptr noundef %0) #4
+define dso_local void @arhosekskymodelstate_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  call void @free(ptr noundef %3) #5
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #1
+declare void @free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @arhosekskymodel_radiance(ptr noundef %state, double noundef %theta, double noundef %gamma, double noundef %wavelength) #0 {
-entry:
-  %retval = alloca double, align 8
-  %state.addr = alloca ptr, align 8
-  %theta.addr = alloca double, align 8
-  %gamma.addr = alloca double, align 8
-  %wavelength.addr = alloca double, align 8
-  %low_wl = alloca i32, align 4
-  %interp = alloca double, align 8
-  %val_low = alloca double, align 8
-  %result = alloca double, align 8
-  store ptr %state, ptr %state.addr, align 8
-  store double %theta, ptr %theta.addr, align 8
-  store double %gamma, ptr %gamma.addr, align 8
-  store double %wavelength, ptr %wavelength.addr, align 8
-  %0 = load double, ptr %wavelength.addr, align 8
-  %sub = fsub double %0, 3.200000e+02
-  %div = fdiv double %sub, 4.000000e+01
-  %conv = fptosi double %div to i32
-  store i32 %conv, ptr %low_wl, align 4
-  %1 = load i32, ptr %low_wl, align 4
-  %cmp = icmp slt i32 %1, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define dso_local double @arhosekskymodel_radiance(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3) #0 {
+  %5 = alloca double, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca double, align 8
+  %13 = alloca double, align 8
+  %14 = alloca double, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !18
+  store double %1, ptr %7, align 8, !tbaa !9
+  store double %2, ptr %8, align 8, !tbaa !9
+  store double %3, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  %15 = load double, ptr %9, align 8, !tbaa !9
+  %16 = fsub double %15, 3.200000e+02
+  %17 = fdiv double %16, 4.000000e+01
+  %18 = fptosi double %17 to i32
+  store i32 %18, ptr %10, align 4, !tbaa !11
+  %19 = load i32, ptr %10, align 4, !tbaa !11
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %24, label %21
 
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load i32, ptr %low_wl, align 4
-  %cmp2 = icmp sge i32 %2, 11
-  br i1 %cmp2, label %if.then, label %if.end
+21:                                               ; preds = %4
+  %22 = load i32, ptr %10, align 4, !tbaa !11
+  %23 = icmp sge i32 %22, 11
+  br i1 %23, label %24, label %25
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store double 0.000000e+00, ptr %retval, align 8
-  br label %return
+24:                                               ; preds = %21, %4
+  store double 0.000000e+00, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %98
 
-if.end:                                           ; preds = %lor.lhs.false
-  %3 = load double, ptr %wavelength.addr, align 8
-  %sub4 = fsub double %3, 3.200000e+02
-  %div5 = fdiv double %sub4, 4.000000e+01
-  %call = call double @fmod(double noundef %div5, double noundef 1.000000e+00) #4
-  store double %call, ptr %interp, align 8
-  %4 = load ptr, ptr %state.addr, align 8
-  %configs = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %4, i32 0, i32 0
-  %5 = load i32, ptr %low_wl, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds [11 x [9 x double]], ptr %configs, i64 0, i64 %idxprom
-  %arraydecay = getelementptr inbounds [9 x double], ptr %arrayidx, i64 0, i64 0
-  %6 = load double, ptr %theta.addr, align 8
-  %7 = load double, ptr %gamma.addr, align 8
-  %call6 = call double @ArHosekSkyModel_GetRadianceInternal(ptr noundef %arraydecay, double noundef %6, double noundef %7)
-  %8 = load ptr, ptr %state.addr, align 8
-  %radiances = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %8, i32 0, i32 1
-  %9 = load i32, ptr %low_wl, align 4
-  %idxprom7 = sext i32 %9 to i64
-  %arrayidx8 = getelementptr inbounds [11 x double], ptr %radiances, i64 0, i64 %idxprom7
-  %10 = load double, ptr %arrayidx8, align 8
-  %mul = fmul double %call6, %10
-  %11 = load ptr, ptr %state.addr, align 8
-  %emission_correction_factor_sky = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %11, i32 0, i32 4
-  %12 = load i32, ptr %low_wl, align 4
-  %idxprom9 = sext i32 %12 to i64
-  %arrayidx10 = getelementptr inbounds [11 x double], ptr %emission_correction_factor_sky, i64 0, i64 %idxprom9
-  %13 = load double, ptr %arrayidx10, align 8
-  %mul11 = fmul double %mul, %13
-  store double %mul11, ptr %val_low, align 8
-  %14 = load double, ptr %interp, align 8
-  %cmp12 = fcmp olt double %14, 0x3EB0C6F7A0B5ED8D
-  br i1 %cmp12, label %if.then14, label %if.end15
+25:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %26 = load double, ptr %9, align 8, !tbaa !9
+  %27 = fsub double %26, 3.200000e+02
+  %28 = fdiv double %27, 4.000000e+01
+  %29 = call double @fmod(double noundef %28, double noundef 1.000000e+00) #5, !tbaa !11
+  store double %29, ptr %12, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %30 = load ptr, ptr %6, align 8, !tbaa !18
+  %31 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %30, i32 0, i32 0
+  %32 = load i32, ptr %10, align 4, !tbaa !11
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds [11 x [9 x double]], ptr %31, i64 0, i64 %33
+  %35 = getelementptr inbounds [9 x double], ptr %34, i64 0, i64 0
+  %36 = load double, ptr %7, align 8, !tbaa !9
+  %37 = load double, ptr %8, align 8, !tbaa !9
+  %38 = call double @ArHosekSkyModel_GetRadianceInternal(ptr noundef %35, double noundef %36, double noundef %37)
+  %39 = load ptr, ptr %6, align 8, !tbaa !18
+  %40 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %39, i32 0, i32 1
+  %41 = load i32, ptr %10, align 4, !tbaa !11
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds [11 x double], ptr %40, i64 0, i64 %42
+  %44 = load double, ptr %43, align 8, !tbaa !9
+  %45 = fmul double %38, %44
+  %46 = load ptr, ptr %6, align 8, !tbaa !18
+  %47 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %46, i32 0, i32 4
+  %48 = load i32, ptr %10, align 4, !tbaa !11
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds [11 x double], ptr %47, i64 0, i64 %49
+  %51 = load double, ptr %50, align 8, !tbaa !9
+  %52 = fmul double %45, %51
+  store double %52, ptr %13, align 8, !tbaa !9
+  %53 = load double, ptr %12, align 8, !tbaa !9
+  %54 = fcmp olt double %53, 0x3EB0C6F7A0B5ED8D
+  br i1 %54, label %55, label %57
 
-if.then14:                                        ; preds = %if.end
-  %15 = load double, ptr %val_low, align 8
-  store double %15, ptr %retval, align 8
-  br label %return
+55:                                               ; preds = %25
+  %56 = load double, ptr %13, align 8, !tbaa !9
+  store double %56, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %97
 
-if.end15:                                         ; preds = %if.end
-  %16 = load double, ptr %interp, align 8
-  %sub16 = fsub double 1.000000e+00, %16
-  %17 = load double, ptr %val_low, align 8
-  %mul17 = fmul double %sub16, %17
-  store double %mul17, ptr %result, align 8
-  %18 = load i32, ptr %low_wl, align 4
-  %add = add nsw i32 %18, 1
-  %cmp18 = icmp slt i32 %add, 11
-  br i1 %cmp18, label %if.then20, label %if.end38
+57:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %58 = load double, ptr %12, align 8, !tbaa !9
+  %59 = fsub double 1.000000e+00, %58
+  %60 = load double, ptr %13, align 8, !tbaa !9
+  %61 = fmul double %59, %60
+  store double %61, ptr %14, align 8, !tbaa !9
+  %62 = load i32, ptr %10, align 4, !tbaa !11
+  %63 = add nsw i32 %62, 1
+  %64 = icmp slt i32 %63, 11
+  br i1 %64, label %65, label %95
 
-if.then20:                                        ; preds = %if.end15
-  %19 = load double, ptr %interp, align 8
-  %20 = load ptr, ptr %state.addr, align 8
-  %configs21 = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %20, i32 0, i32 0
-  %21 = load i32, ptr %low_wl, align 4
-  %add22 = add nsw i32 %21, 1
-  %idxprom23 = sext i32 %add22 to i64
-  %arrayidx24 = getelementptr inbounds [11 x [9 x double]], ptr %configs21, i64 0, i64 %idxprom23
-  %arraydecay25 = getelementptr inbounds [9 x double], ptr %arrayidx24, i64 0, i64 0
-  %22 = load double, ptr %theta.addr, align 8
-  %23 = load double, ptr %gamma.addr, align 8
-  %call26 = call double @ArHosekSkyModel_GetRadianceInternal(ptr noundef %arraydecay25, double noundef %22, double noundef %23)
-  %mul27 = fmul double %19, %call26
-  %24 = load ptr, ptr %state.addr, align 8
-  %radiances28 = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %24, i32 0, i32 1
-  %25 = load i32, ptr %low_wl, align 4
-  %add29 = add nsw i32 %25, 1
-  %idxprom30 = sext i32 %add29 to i64
-  %arrayidx31 = getelementptr inbounds [11 x double], ptr %radiances28, i64 0, i64 %idxprom30
-  %26 = load double, ptr %arrayidx31, align 8
-  %mul32 = fmul double %mul27, %26
-  %27 = load ptr, ptr %state.addr, align 8
-  %emission_correction_factor_sky33 = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %27, i32 0, i32 4
-  %28 = load i32, ptr %low_wl, align 4
-  %add34 = add nsw i32 %28, 1
-  %idxprom35 = sext i32 %add34 to i64
-  %arrayidx36 = getelementptr inbounds [11 x double], ptr %emission_correction_factor_sky33, i64 0, i64 %idxprom35
-  %29 = load double, ptr %arrayidx36, align 8
-  %30 = load double, ptr %result, align 8
-  %31 = call double @llvm.fmuladd.f64(double %mul32, double %29, double %30)
-  store double %31, ptr %result, align 8
-  br label %if.end38
+65:                                               ; preds = %57
+  %66 = load double, ptr %12, align 8, !tbaa !9
+  %67 = load ptr, ptr %6, align 8, !tbaa !18
+  %68 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %67, i32 0, i32 0
+  %69 = load i32, ptr %10, align 4, !tbaa !11
+  %70 = add nsw i32 %69, 1
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds [11 x [9 x double]], ptr %68, i64 0, i64 %71
+  %73 = getelementptr inbounds [9 x double], ptr %72, i64 0, i64 0
+  %74 = load double, ptr %7, align 8, !tbaa !9
+  %75 = load double, ptr %8, align 8, !tbaa !9
+  %76 = call double @ArHosekSkyModel_GetRadianceInternal(ptr noundef %73, double noundef %74, double noundef %75)
+  %77 = fmul double %66, %76
+  %78 = load ptr, ptr %6, align 8, !tbaa !18
+  %79 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %78, i32 0, i32 1
+  %80 = load i32, ptr %10, align 4, !tbaa !11
+  %81 = add nsw i32 %80, 1
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds [11 x double], ptr %79, i64 0, i64 %82
+  %84 = load double, ptr %83, align 8, !tbaa !9
+  %85 = fmul double %77, %84
+  %86 = load ptr, ptr %6, align 8, !tbaa !18
+  %87 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %86, i32 0, i32 4
+  %88 = load i32, ptr %10, align 4, !tbaa !11
+  %89 = add nsw i32 %88, 1
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds [11 x double], ptr %87, i64 0, i64 %90
+  %92 = load double, ptr %91, align 8, !tbaa !9
+  %93 = load double, ptr %14, align 8, !tbaa !9
+  %94 = call double @llvm.fmuladd.f64(double %85, double %92, double %93)
+  store double %94, ptr %14, align 8, !tbaa !9
+  br label %95
 
-if.end38:                                         ; preds = %if.then20, %if.end15
-  %32 = load double, ptr %result, align 8
-  store double %32, ptr %retval, align 8
-  br label %return
+95:                                               ; preds = %65, %57
+  %96 = load double, ptr %14, align 8, !tbaa !9
+  store double %96, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  br label %97
 
-return:                                           ; preds = %if.end38, %if.then14, %if.then
-  %33 = load double, ptr %retval, align 8
-  ret double %33
+97:                                               ; preds = %95, %55
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  br label %98
+
+98:                                               ; preds = %97, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  %99 = load double, ptr %5, align 8
+  ret double %99
 }
 
 ; Function Attrs: nounwind
-declare double @fmod(double noundef, double noundef) #1
+declare double @fmod(double noundef, double noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @arhosek_xyz_skymodelstate_alloc_init(double noundef %turbidity, double noundef %albedo, double noundef %elevation) #0 {
-entry:
-  %turbidity.addr = alloca double, align 8
-  %albedo.addr = alloca double, align 8
-  %elevation.addr = alloca double, align 8
-  %state = alloca ptr, align 8
-  %channel = alloca i32, align 4
-  store double %turbidity, ptr %turbidity.addr, align 8
-  store double %albedo, ptr %albedo.addr, align 8
-  store double %elevation, ptr %elevation.addr, align 8
-  %call = call noalias ptr @malloc(i64 noundef 1088) #5
-  store ptr %call, ptr %state, align 8
-  %0 = load ptr, ptr %state, align 8
-  %solar_radius = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %0, i32 0, i32 3
-  store double 0x3F723AC80BF81B3F, ptr %solar_radius, align 8
-  %1 = load double, ptr %turbidity.addr, align 8
-  %2 = load ptr, ptr %state, align 8
-  %turbidity1 = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %2, i32 0, i32 2
-  store double %1, ptr %turbidity1, align 8
-  %3 = load double, ptr %albedo.addr, align 8
-  %4 = load ptr, ptr %state, align 8
-  %albedo2 = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %4, i32 0, i32 6
-  store double %3, ptr %albedo2, align 8
-  %5 = load double, ptr %elevation.addr, align 8
-  %6 = load ptr, ptr %state, align 8
-  %elevation3 = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %6, i32 0, i32 7
-  store double %5, ptr %elevation3, align 8
-  store i32 0, ptr %channel, align 4
-  br label %for.cond
+define dso_local ptr @arhosek_xyz_skymodelstate_alloc_init(double noundef %0, double noundef %1, double noundef %2) #0 {
+  %4 = alloca double, align 8
+  %5 = alloca double, align 8
+  %6 = alloca double, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store double %0, ptr %4, align 8, !tbaa !9
+  store double %1, ptr %5, align 8, !tbaa !9
+  store double %2, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %9 = call noalias ptr @malloc(i64 noundef 1088) #6
+  store ptr %9, ptr %7, align 8, !tbaa !18
+  %10 = load ptr, ptr %7, align 8, !tbaa !18
+  %11 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %10, i32 0, i32 3
+  store double 0x3F723AC80BF81B3F, ptr %11, align 8, !tbaa !20
+  %12 = load double, ptr %4, align 8, !tbaa !9
+  %13 = load ptr, ptr %7, align 8, !tbaa !18
+  %14 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %13, i32 0, i32 2
+  store double %12, ptr %14, align 8, !tbaa !22
+  %15 = load double, ptr %5, align 8, !tbaa !9
+  %16 = load ptr, ptr %7, align 8, !tbaa !18
+  %17 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %16, i32 0, i32 6
+  store double %15, ptr %17, align 8, !tbaa !23
+  %18 = load double, ptr %6, align 8, !tbaa !9
+  %19 = load ptr, ptr %7, align 8, !tbaa !18
+  %20 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %19, i32 0, i32 7
+  store double %18, ptr %20, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  store i32 0, ptr %8, align 4, !tbaa !11
+  br label %21
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %7 = load i32, ptr %channel, align 4
-  %cmp = icmp ult i32 %7, 3
-  br i1 %cmp, label %for.body, label %for.end
+21:                                               ; preds = %51, %3
+  %22 = load i32, ptr %8, align 4, !tbaa !11
+  %23 = icmp ult i32 %22, 3
+  br i1 %23, label %24, label %54
 
-for.body:                                         ; preds = %for.cond
-  %8 = load i32, ptr %channel, align 4
-  %idxprom = zext i32 %8 to i64
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr @datasetsXYZ, i64 0, i64 %idxprom
-  %9 = load ptr, ptr %arrayidx, align 8
-  %10 = load ptr, ptr %state, align 8
-  %configs = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %10, i32 0, i32 0
-  %11 = load i32, ptr %channel, align 4
-  %idxprom4 = zext i32 %11 to i64
-  %arrayidx5 = getelementptr inbounds [11 x [9 x double]], ptr %configs, i64 0, i64 %idxprom4
-  %arraydecay = getelementptr inbounds [9 x double], ptr %arrayidx5, i64 0, i64 0
-  %12 = load double, ptr %turbidity.addr, align 8
-  %13 = load double, ptr %albedo.addr, align 8
-  %14 = load double, ptr %elevation.addr, align 8
-  call void @ArHosekSkyModel_CookConfiguration(ptr noundef %9, ptr noundef %arraydecay, double noundef %12, double noundef %13, double noundef %14)
-  %15 = load i32, ptr %channel, align 4
-  %idxprom6 = zext i32 %15 to i64
-  %arrayidx7 = getelementptr inbounds [3 x ptr], ptr @datasetsXYZRad, i64 0, i64 %idxprom6
-  %16 = load ptr, ptr %arrayidx7, align 8
-  %17 = load double, ptr %turbidity.addr, align 8
-  %18 = load double, ptr %albedo.addr, align 8
-  %19 = load double, ptr %elevation.addr, align 8
-  %call8 = call double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef %16, double noundef %17, double noundef %18, double noundef %19)
-  %20 = load ptr, ptr %state, align 8
-  %radiances = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %20, i32 0, i32 1
-  %21 = load i32, ptr %channel, align 4
-  %idxprom9 = zext i32 %21 to i64
-  %arrayidx10 = getelementptr inbounds [11 x double], ptr %radiances, i64 0, i64 %idxprom9
-  store double %call8, ptr %arrayidx10, align 8
-  br label %for.inc
+24:                                               ; preds = %21
+  %25 = load i32, ptr %8, align 4, !tbaa !11
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw [3 x ptr], ptr @datasetsXYZ, i64 0, i64 %26
+  %28 = load ptr, ptr %27, align 8, !tbaa !4
+  %29 = load ptr, ptr %7, align 8, !tbaa !18
+  %30 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %8, align 4, !tbaa !11
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw [11 x [9 x double]], ptr %30, i64 0, i64 %32
+  %34 = getelementptr inbounds [9 x double], ptr %33, i64 0, i64 0
+  %35 = load double, ptr %4, align 8, !tbaa !9
+  %36 = load double, ptr %5, align 8, !tbaa !9
+  %37 = load double, ptr %6, align 8, !tbaa !9
+  call void @ArHosekSkyModel_CookConfiguration(ptr noundef %28, ptr noundef %34, double noundef %35, double noundef %36, double noundef %37)
+  %38 = load i32, ptr %8, align 4, !tbaa !11
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw [3 x ptr], ptr @datasetsXYZRad, i64 0, i64 %39
+  %41 = load ptr, ptr %40, align 8, !tbaa !4
+  %42 = load double, ptr %4, align 8, !tbaa !9
+  %43 = load double, ptr %5, align 8, !tbaa !9
+  %44 = load double, ptr %6, align 8, !tbaa !9
+  %45 = call double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef %41, double noundef %42, double noundef %43, double noundef %44)
+  %46 = load ptr, ptr %7, align 8, !tbaa !18
+  %47 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %46, i32 0, i32 1
+  %48 = load i32, ptr %8, align 4, !tbaa !11
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds nuw [11 x double], ptr %47, i64 0, i64 %49
+  store double %45, ptr %50, align 8, !tbaa !9
+  br label %51
 
-for.inc:                                          ; preds = %for.body
-  %22 = load i32, ptr %channel, align 4
-  %inc = add i32 %22, 1
-  store i32 %inc, ptr %channel, align 4
-  br label %for.cond, !llvm.loop !14
+51:                                               ; preds = %24
+  %52 = load i32, ptr %8, align 4, !tbaa !11
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %8, align 4, !tbaa !11
+  br label %21, !llvm.loop !29
 
-for.end:                                          ; preds = %for.cond
-  %23 = load ptr, ptr %state, align 8
-  ret ptr %23
+54:                                               ; preds = %21
+  %55 = load ptr, ptr %7, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  ret ptr %55
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @arhosek_rgb_skymodelstate_alloc_init(double noundef %turbidity, double noundef %albedo, double noundef %elevation) #0 {
-entry:
-  %turbidity.addr = alloca double, align 8
-  %albedo.addr = alloca double, align 8
-  %elevation.addr = alloca double, align 8
-  %state = alloca ptr, align 8
-  %channel = alloca i32, align 4
-  store double %turbidity, ptr %turbidity.addr, align 8
-  store double %albedo, ptr %albedo.addr, align 8
-  store double %elevation, ptr %elevation.addr, align 8
-  %call = call noalias ptr @malloc(i64 noundef 1088) #5
-  store ptr %call, ptr %state, align 8
-  %0 = load ptr, ptr %state, align 8
-  %solar_radius = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %0, i32 0, i32 3
-  store double 0x3F723AC80BF81B3F, ptr %solar_radius, align 8
-  %1 = load double, ptr %turbidity.addr, align 8
-  %2 = load ptr, ptr %state, align 8
-  %turbidity1 = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %2, i32 0, i32 2
-  store double %1, ptr %turbidity1, align 8
-  %3 = load double, ptr %albedo.addr, align 8
-  %4 = load ptr, ptr %state, align 8
-  %albedo2 = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %4, i32 0, i32 6
-  store double %3, ptr %albedo2, align 8
-  %5 = load double, ptr %elevation.addr, align 8
-  %6 = load ptr, ptr %state, align 8
-  %elevation3 = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %6, i32 0, i32 7
-  store double %5, ptr %elevation3, align 8
-  store i32 0, ptr %channel, align 4
-  br label %for.cond
+define dso_local ptr @arhosek_rgb_skymodelstate_alloc_init(double noundef %0, double noundef %1, double noundef %2) #0 {
+  %4 = alloca double, align 8
+  %5 = alloca double, align 8
+  %6 = alloca double, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store double %0, ptr %4, align 8, !tbaa !9
+  store double %1, ptr %5, align 8, !tbaa !9
+  store double %2, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %9 = call noalias ptr @malloc(i64 noundef 1088) #6
+  store ptr %9, ptr %7, align 8, !tbaa !18
+  %10 = load ptr, ptr %7, align 8, !tbaa !18
+  %11 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %10, i32 0, i32 3
+  store double 0x3F723AC80BF81B3F, ptr %11, align 8, !tbaa !20
+  %12 = load double, ptr %4, align 8, !tbaa !9
+  %13 = load ptr, ptr %7, align 8, !tbaa !18
+  %14 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %13, i32 0, i32 2
+  store double %12, ptr %14, align 8, !tbaa !22
+  %15 = load double, ptr %5, align 8, !tbaa !9
+  %16 = load ptr, ptr %7, align 8, !tbaa !18
+  %17 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %16, i32 0, i32 6
+  store double %15, ptr %17, align 8, !tbaa !23
+  %18 = load double, ptr %6, align 8, !tbaa !9
+  %19 = load ptr, ptr %7, align 8, !tbaa !18
+  %20 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %19, i32 0, i32 7
+  store double %18, ptr %20, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  store i32 0, ptr %8, align 4, !tbaa !11
+  br label %21
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %7 = load i32, ptr %channel, align 4
-  %cmp = icmp ult i32 %7, 3
-  br i1 %cmp, label %for.body, label %for.end
+21:                                               ; preds = %51, %3
+  %22 = load i32, ptr %8, align 4, !tbaa !11
+  %23 = icmp ult i32 %22, 3
+  br i1 %23, label %24, label %54
 
-for.body:                                         ; preds = %for.cond
-  %8 = load i32, ptr %channel, align 4
-  %idxprom = zext i32 %8 to i64
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr @datasetsRGB, i64 0, i64 %idxprom
-  %9 = load ptr, ptr %arrayidx, align 8
-  %10 = load ptr, ptr %state, align 8
-  %configs = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %10, i32 0, i32 0
-  %11 = load i32, ptr %channel, align 4
-  %idxprom4 = zext i32 %11 to i64
-  %arrayidx5 = getelementptr inbounds [11 x [9 x double]], ptr %configs, i64 0, i64 %idxprom4
-  %arraydecay = getelementptr inbounds [9 x double], ptr %arrayidx5, i64 0, i64 0
-  %12 = load double, ptr %turbidity.addr, align 8
-  %13 = load double, ptr %albedo.addr, align 8
-  %14 = load double, ptr %elevation.addr, align 8
-  call void @ArHosekSkyModel_CookConfiguration(ptr noundef %9, ptr noundef %arraydecay, double noundef %12, double noundef %13, double noundef %14)
-  %15 = load i32, ptr %channel, align 4
-  %idxprom6 = zext i32 %15 to i64
-  %arrayidx7 = getelementptr inbounds [3 x ptr], ptr @datasetsRGBRad, i64 0, i64 %idxprom6
-  %16 = load ptr, ptr %arrayidx7, align 8
-  %17 = load double, ptr %turbidity.addr, align 8
-  %18 = load double, ptr %albedo.addr, align 8
-  %19 = load double, ptr %elevation.addr, align 8
-  %call8 = call double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef %16, double noundef %17, double noundef %18, double noundef %19)
-  %20 = load ptr, ptr %state, align 8
-  %radiances = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %20, i32 0, i32 1
-  %21 = load i32, ptr %channel, align 4
-  %idxprom9 = zext i32 %21 to i64
-  %arrayidx10 = getelementptr inbounds [11 x double], ptr %radiances, i64 0, i64 %idxprom9
-  store double %call8, ptr %arrayidx10, align 8
-  br label %for.inc
+24:                                               ; preds = %21
+  %25 = load i32, ptr %8, align 4, !tbaa !11
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw [3 x ptr], ptr @datasetsRGB, i64 0, i64 %26
+  %28 = load ptr, ptr %27, align 8, !tbaa !4
+  %29 = load ptr, ptr %7, align 8, !tbaa !18
+  %30 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %8, align 4, !tbaa !11
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw [11 x [9 x double]], ptr %30, i64 0, i64 %32
+  %34 = getelementptr inbounds [9 x double], ptr %33, i64 0, i64 0
+  %35 = load double, ptr %4, align 8, !tbaa !9
+  %36 = load double, ptr %5, align 8, !tbaa !9
+  %37 = load double, ptr %6, align 8, !tbaa !9
+  call void @ArHosekSkyModel_CookConfiguration(ptr noundef %28, ptr noundef %34, double noundef %35, double noundef %36, double noundef %37)
+  %38 = load i32, ptr %8, align 4, !tbaa !11
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw [3 x ptr], ptr @datasetsRGBRad, i64 0, i64 %39
+  %41 = load ptr, ptr %40, align 8, !tbaa !4
+  %42 = load double, ptr %4, align 8, !tbaa !9
+  %43 = load double, ptr %5, align 8, !tbaa !9
+  %44 = load double, ptr %6, align 8, !tbaa !9
+  %45 = call double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef %41, double noundef %42, double noundef %43, double noundef %44)
+  %46 = load ptr, ptr %7, align 8, !tbaa !18
+  %47 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %46, i32 0, i32 1
+  %48 = load i32, ptr %8, align 4, !tbaa !11
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds nuw [11 x double], ptr %47, i64 0, i64 %49
+  store double %45, ptr %50, align 8, !tbaa !9
+  br label %51
 
-for.inc:                                          ; preds = %for.body
-  %22 = load i32, ptr %channel, align 4
-  %inc = add i32 %22, 1
-  store i32 %inc, ptr %channel, align 4
-  br label %for.cond, !llvm.loop !15
+51:                                               ; preds = %24
+  %52 = load i32, ptr %8, align 4, !tbaa !11
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %8, align 4, !tbaa !11
+  br label %21, !llvm.loop !30
 
-for.end:                                          ; preds = %for.cond
-  %23 = load ptr, ptr %state, align 8
-  ret ptr %23
+54:                                               ; preds = %21
+  %55 = load ptr, ptr %7, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  ret ptr %55
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @arhosek_tristim_skymodel_radiance(ptr noundef %state, double noundef %theta, double noundef %gamma, i32 noundef %channel) #0 {
-entry:
-  %state.addr = alloca ptr, align 8
-  %theta.addr = alloca double, align 8
-  %gamma.addr = alloca double, align 8
-  %channel.addr = alloca i32, align 4
-  store ptr %state, ptr %state.addr, align 8
-  store double %theta, ptr %theta.addr, align 8
-  store double %gamma, ptr %gamma.addr, align 8
-  store i32 %channel, ptr %channel.addr, align 4
-  %0 = load ptr, ptr %state.addr, align 8
-  %configs = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %0, i32 0, i32 0
-  %1 = load i32, ptr %channel.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [11 x [9 x double]], ptr %configs, i64 0, i64 %idxprom
-  %arraydecay = getelementptr inbounds [9 x double], ptr %arrayidx, i64 0, i64 0
-  %2 = load double, ptr %theta.addr, align 8
-  %3 = load double, ptr %gamma.addr, align 8
-  %call = call double @ArHosekSkyModel_GetRadianceInternal(ptr noundef %arraydecay, double noundef %2, double noundef %3)
-  %4 = load ptr, ptr %state.addr, align 8
-  %radiances = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %4, i32 0, i32 1
-  %5 = load i32, ptr %channel.addr, align 4
-  %idxprom1 = sext i32 %5 to i64
-  %arrayidx2 = getelementptr inbounds [11 x double], ptr %radiances, i64 0, i64 %idxprom1
-  %6 = load double, ptr %arrayidx2, align 8
-  %mul = fmul double %call, %6
-  ret double %mul
+define dso_local double @arhosek_tristim_skymodel_radiance(ptr noundef %0, double noundef %1, double noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca double, align 8
+  %7 = alloca double, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !18
+  store double %1, ptr %6, align 8, !tbaa !9
+  store double %2, ptr %7, align 8, !tbaa !9
+  store i32 %3, ptr %8, align 4, !tbaa !11
+  %9 = load ptr, ptr %5, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %8, align 4, !tbaa !11
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds [11 x [9 x double]], ptr %10, i64 0, i64 %12
+  %14 = getelementptr inbounds [9 x double], ptr %13, i64 0, i64 0
+  %15 = load double, ptr %6, align 8, !tbaa !9
+  %16 = load double, ptr %7, align 8, !tbaa !9
+  %17 = call double @ArHosekSkyModel_GetRadianceInternal(ptr noundef %14, double noundef %15, double noundef %16)
+  %18 = load ptr, ptr %5, align 8, !tbaa !18
+  %19 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %8, align 4, !tbaa !11
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds [11 x double], ptr %19, i64 0, i64 %21
+  %23 = load double, ptr %22, align 8, !tbaa !9
+  %24 = fmul double %17, %23
+  ret double %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @arhosekskymodel_sr_internal(ptr noundef %state, i32 noundef %turbidity, i32 noundef %wl, double noundef %elevation) #0 {
-entry:
-  %state.addr = alloca ptr, align 8
-  %turbidity.addr = alloca i32, align 4
-  %wl.addr = alloca i32, align 4
-  %elevation.addr = alloca double, align 8
-  %pos = alloca i32, align 4
-  %break_x = alloca double, align 8
-  %coefs = alloca ptr, align 8
-  %res = alloca double, align 8
-  %x = alloca double, align 8
-  %x_exp = alloca double, align 8
-  %i = alloca i32, align 4
-  store ptr %state, ptr %state.addr, align 8
-  store i32 %turbidity, ptr %turbidity.addr, align 4
-  store i32 %wl, ptr %wl.addr, align 4
-  store double %elevation, ptr %elevation.addr, align 8
-  %0 = load double, ptr %elevation.addr, align 8
-  %mul = fmul double 2.000000e+00, %0
-  %div = fdiv double %mul, 0x400921FB54442D18
-  %call = call double @pow(double noundef %div, double noundef 0x3FD5555555555555) #4
-  %mul1 = fmul double %call, 4.500000e+01
-  %conv = fptosi double %mul1 to i32
-  store i32 %conv, ptr %pos, align 4
-  %1 = load i32, ptr %pos, align 4
-  %cmp = icmp sgt i32 %1, 44
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local double @arhosekskymodel_sr_internal(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca double, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca double, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca double, align 8
+  %13 = alloca double, align 8
+  %14 = alloca double, align 8
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !18
+  store i32 %1, ptr %6, align 4, !tbaa !11
+  store i32 %2, ptr %7, align 4, !tbaa !11
+  store double %3, ptr %8, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  %16 = load double, ptr %8, align 8, !tbaa !9
+  %17 = fmul double 2.000000e+00, %16
+  %18 = fdiv double %17, 0x400921FB54442D18
+  %19 = call double @pow(double noundef %18, double noundef 0x3FD5555555555555) #5, !tbaa !11
+  %20 = fmul double %19, 4.500000e+01
+  %21 = fptosi double %20 to i32
+  store i32 %21, ptr %9, align 4, !tbaa !11
+  %22 = load i32, ptr %9, align 4, !tbaa !11
+  %23 = icmp sgt i32 %22, 44
+  br i1 %23, label %24, label %25
 
-if.then:                                          ; preds = %entry
-  store i32 44, ptr %pos, align 4
-  br label %if.end
+24:                                               ; preds = %4
+  store i32 44, ptr %9, align 4, !tbaa !11
+  br label %25
 
-if.end:                                           ; preds = %if.then, %entry
-  %2 = load i32, ptr %pos, align 4
-  %conv3 = sitofp i32 %2 to double
-  %div4 = fdiv double %conv3, 4.500000e+01
-  %call5 = call double @pow(double noundef %div4, double noundef 3.000000e+00) #4
-  %mul6 = fmul double %call5, 0x3FF921FB54442D18
-  store double %mul6, ptr %break_x, align 8
-  %3 = load i32, ptr %wl.addr, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds [11 x ptr], ptr @solarDatasets, i64 0, i64 %idxprom
-  %4 = load ptr, ptr %arrayidx, align 8
-  %5 = load i32, ptr %turbidity.addr, align 4
-  %mul7 = mul nsw i32 180, %5
-  %6 = load i32, ptr %pos, align 4
-  %add = add nsw i32 %6, 1
-  %mul8 = mul nsw i32 4, %add
-  %add9 = add nsw i32 %mul7, %mul8
-  %sub = sub nsw i32 %add9, 1
-  %idx.ext = sext i32 %sub to i64
-  %add.ptr = getelementptr inbounds double, ptr %4, i64 %idx.ext
-  store ptr %add.ptr, ptr %coefs, align 8
-  store double 0.000000e+00, ptr %res, align 8
-  %7 = load double, ptr %elevation.addr, align 8
-  %8 = load double, ptr %break_x, align 8
-  %sub10 = fsub double %7, %8
-  store double %sub10, ptr %x, align 8
-  store double 1.000000e+00, ptr %x_exp, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+25:                                               ; preds = %24, %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %26 = load i32, ptr %9, align 4, !tbaa !11
+  %27 = sitofp i32 %26 to double
+  %28 = fdiv double %27, 4.500000e+01
+  %29 = call double @pow(double noundef %28, double noundef 3.000000e+00) #5, !tbaa !11
+  %30 = fmul double %29, 0x3FF921FB54442D18
+  store double %30, ptr %10, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %31 = load i32, ptr %7, align 4, !tbaa !11
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds [11 x ptr], ptr @solarDatasets, i64 0, i64 %32
+  %34 = load ptr, ptr %33, align 8, !tbaa !4
+  %35 = load i32, ptr %6, align 4, !tbaa !11
+  %36 = mul nsw i32 180, %35
+  %37 = load i32, ptr %9, align 4, !tbaa !11
+  %38 = add nsw i32 %37, 1
+  %39 = mul nsw i32 4, %38
+  %40 = add nsw i32 %36, %39
+  %41 = sub nsw i32 %40, 1
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds double, ptr %34, i64 %42
+  store ptr %43, ptr %11, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  store double 0.000000e+00, ptr %12, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %44 = load double, ptr %8, align 8, !tbaa !9
+  %45 = load double, ptr %10, align 8, !tbaa !9
+  %46 = fsub double %44, %45
+  store double %46, ptr %13, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  store double 1.000000e+00, ptr %14, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  store i32 0, ptr %15, align 4, !tbaa !11
+  br label %47
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %9 = load i32, ptr %i, align 4
-  %cmp11 = icmp slt i32 %9, 4
-  br i1 %cmp11, label %for.body, label %for.end
+47:                                               ; preds = %60, %25
+  %48 = load i32, ptr %15, align 4, !tbaa !11
+  %49 = icmp slt i32 %48, 4
+  br i1 %49, label %50, label %63
 
-for.body:                                         ; preds = %for.cond
-  %10 = load double, ptr %x_exp, align 8
-  %11 = load ptr, ptr %coefs, align 8
-  %incdec.ptr = getelementptr inbounds double, ptr %11, i32 -1
-  store ptr %incdec.ptr, ptr %coefs, align 8
-  %12 = load double, ptr %11, align 8
-  %13 = load double, ptr %res, align 8
-  %14 = call double @llvm.fmuladd.f64(double %10, double %12, double %13)
-  store double %14, ptr %res, align 8
-  %15 = load double, ptr %x, align 8
-  %16 = load double, ptr %x_exp, align 8
-  %mul14 = fmul double %16, %15
-  store double %mul14, ptr %x_exp, align 8
-  br label %for.inc
+50:                                               ; preds = %47
+  %51 = load double, ptr %14, align 8, !tbaa !9
+  %52 = load ptr, ptr %11, align 8, !tbaa !4
+  %53 = getelementptr inbounds double, ptr %52, i32 -1
+  store ptr %53, ptr %11, align 8, !tbaa !4
+  %54 = load double, ptr %52, align 8, !tbaa !9
+  %55 = load double, ptr %12, align 8, !tbaa !9
+  %56 = call double @llvm.fmuladd.f64(double %51, double %54, double %55)
+  store double %56, ptr %12, align 8, !tbaa !9
+  %57 = load double, ptr %13, align 8, !tbaa !9
+  %58 = load double, ptr %14, align 8, !tbaa !9
+  %59 = fmul double %58, %57
+  store double %59, ptr %14, align 8, !tbaa !9
+  br label %60
 
-for.inc:                                          ; preds = %for.body
-  %17 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %17, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !16
+60:                                               ; preds = %50
+  %61 = load i32, ptr %15, align 4, !tbaa !11
+  %62 = add nsw i32 %61, 1
+  store i32 %62, ptr %15, align 4, !tbaa !11
+  br label %47, !llvm.loop !31
 
-for.end:                                          ; preds = %for.cond
-  %18 = load double, ptr %res, align 8
-  %19 = load ptr, ptr %state.addr, align 8
-  %emission_correction_factor_sun = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %19, i32 0, i32 5
-  %20 = load i32, ptr %wl.addr, align 4
-  %idxprom15 = sext i32 %20 to i64
-  %arrayidx16 = getelementptr inbounds [11 x double], ptr %emission_correction_factor_sun, i64 0, i64 %idxprom15
-  %21 = load double, ptr %arrayidx16, align 8
-  %mul17 = fmul double %18, %21
-  ret double %mul17
+63:                                               ; preds = %47
+  %64 = load double, ptr %12, align 8, !tbaa !9
+  %65 = load ptr, ptr %5, align 8, !tbaa !18
+  %66 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %65, i32 0, i32 5
+  %67 = load i32, ptr %7, align 4, !tbaa !11
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds [11 x double], ptr %66, i64 0, i64 %68
+  %70 = load double, ptr %69, align 8, !tbaa !9
+  %71 = fmul double %64, %70
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  ret double %71
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @arhosekskymodel_solar_radiance_internal2(ptr noundef %state, double noundef %wavelength, double noundef %elevation, double noundef %gamma) #0 {
-entry:
-  %retval = alloca double, align 8
-  %state.addr = alloca ptr, align 8
-  %wavelength.addr = alloca double, align 8
-  %elevation.addr = alloca double, align 8
-  %gamma.addr = alloca double, align 8
-  %sol_rad_sin = alloca double, align 8
-  %ar2 = alloca double, align 8
-  %singamma = alloca double, align 8
-  %sc2 = alloca double, align 8
-  %sampleCosine = alloca double, align 8
-  %turb_low = alloca i32, align 4
-  %turb_frac = alloca double, align 8
-  %wl_low = alloca i32, align 4
-  %wl_frac = alloca double, align 8
-  %direct_radiance = alloca double, align 8
-  %ldCoefficient = alloca [6 x double], align 16
-  %i = alloca i32, align 4
-  %darkeningFactor = alloca double, align 8
-  store ptr %state, ptr %state.addr, align 8
-  store double %wavelength, ptr %wavelength.addr, align 8
-  store double %elevation, ptr %elevation.addr, align 8
-  store double %gamma, ptr %gamma.addr, align 8
-  %0 = load ptr, ptr %state.addr, align 8
-  %solar_radius = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %0, i32 0, i32 3
-  %1 = load double, ptr %solar_radius, align 8
-  %call = call double @sin(double noundef %1) #4
-  store double %call, ptr %sol_rad_sin, align 8
-  %2 = load double, ptr %sol_rad_sin, align 8
-  %3 = load double, ptr %sol_rad_sin, align 8
-  %mul = fmul double %2, %3
-  %div = fdiv double 1.000000e+00, %mul
-  store double %div, ptr %ar2, align 8
-  %4 = load double, ptr %gamma.addr, align 8
-  %call1 = call double @sin(double noundef %4) #4
-  store double %call1, ptr %singamma, align 8
-  %5 = load double, ptr %ar2, align 8
-  %6 = load double, ptr %singamma, align 8
-  %mul2 = fmul double %5, %6
-  %7 = load double, ptr %singamma, align 8
-  %neg = fneg double %mul2
-  %8 = call double @llvm.fmuladd.f64(double %neg, double %7, double 1.000000e+00)
-  store double %8, ptr %sc2, align 8
-  %9 = load double, ptr %sc2, align 8
-  %cmp = fcmp olt double %9, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local double @arhosekskymodel_solar_radiance_internal2(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3) #0 {
+  %5 = alloca double, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca double, align 8
+  %14 = alloca double, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca double, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca double, align 8
+  %20 = alloca double, align 8
+  %21 = alloca [6 x double], align 16
+  %22 = alloca i32, align 4
+  %23 = alloca double, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !18
+  store double %1, ptr %7, align 8, !tbaa !9
+  store double %2, ptr %8, align 8, !tbaa !9
+  store double %3, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %24 = load ptr, ptr %6, align 8, !tbaa !18
+  %25 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %24, i32 0, i32 3
+  %26 = load double, ptr %25, align 8, !tbaa !20
+  %27 = call double @sin(double noundef %26) #5, !tbaa !11
+  store double %27, ptr %10, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %28 = load double, ptr %10, align 8, !tbaa !9
+  %29 = load double, ptr %10, align 8, !tbaa !9
+  %30 = fmul double %28, %29
+  %31 = fdiv double 1.000000e+00, %30
+  store double %31, ptr %11, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %32 = load double, ptr %9, align 8, !tbaa !9
+  %33 = call double @sin(double noundef %32) #5, !tbaa !11
+  store double %33, ptr %12, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %34 = load double, ptr %11, align 8, !tbaa !9
+  %35 = load double, ptr %12, align 8, !tbaa !9
+  %36 = fmul double %34, %35
+  %37 = load double, ptr %12, align 8, !tbaa !9
+  %38 = fneg double %36
+  %39 = call double @llvm.fmuladd.f64(double %38, double %37, double 1.000000e+00)
+  store double %39, ptr %13, align 8, !tbaa !9
+  %40 = load double, ptr %13, align 8, !tbaa !9
+  %41 = fcmp olt double %40, 0.000000e+00
+  br i1 %41, label %42, label %43
 
-if.then:                                          ; preds = %entry
-  store double 0.000000e+00, ptr %sc2, align 8
-  br label %if.end
+42:                                               ; preds = %4
+  store double 0.000000e+00, ptr %13, align 8, !tbaa !9
+  br label %43
 
-if.end:                                           ; preds = %if.then, %entry
-  %10 = load double, ptr %sc2, align 8
-  %call4 = call double @sqrt(double noundef %10) #4
-  store double %call4, ptr %sampleCosine, align 8
-  %11 = load double, ptr %sampleCosine, align 8
-  %cmp5 = fcmp oeq double %11, 0.000000e+00
-  br i1 %cmp5, label %if.then6, label %if.end7
+43:                                               ; preds = %42, %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %44 = load double, ptr %13, align 8, !tbaa !9
+  %45 = call double @sqrt(double noundef %44) #5, !tbaa !11
+  store double %45, ptr %14, align 8, !tbaa !9
+  %46 = load double, ptr %14, align 8, !tbaa !9
+  %47 = fcmp oeq double %46, 0.000000e+00
+  br i1 %47, label %48, label %49
 
-if.then6:                                         ; preds = %if.end
-  store double 0.000000e+00, ptr %retval, align 8
-  br label %return
+48:                                               ; preds = %43
+  store double 0.000000e+00, ptr %5, align 8
+  store i32 1, ptr %15, align 4
+  br label %179
 
-if.end7:                                          ; preds = %if.end
-  %12 = load ptr, ptr %state.addr, align 8
-  %turbidity = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %12, i32 0, i32 2
-  %13 = load double, ptr %turbidity, align 8
-  %conv = fptosi double %13 to i32
-  %sub = sub nsw i32 %conv, 1
-  store i32 %sub, ptr %turb_low, align 4
-  %14 = load ptr, ptr %state.addr, align 8
-  %turbidity8 = getelementptr inbounds %struct.ArHosekSkyModelState, ptr %14, i32 0, i32 2
-  %15 = load double, ptr %turbidity8, align 8
-  %16 = load i32, ptr %turb_low, align 4
-  %add = add nsw i32 %16, 1
-  %conv9 = sitofp i32 %add to double
-  %sub10 = fsub double %15, %conv9
-  store double %sub10, ptr %turb_frac, align 8
-  %17 = load i32, ptr %turb_low, align 4
-  %cmp11 = icmp eq i32 %17, 9
-  br i1 %cmp11, label %if.then13, label %if.end14
+49:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %50 = load ptr, ptr %6, align 8, !tbaa !18
+  %51 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %50, i32 0, i32 2
+  %52 = load double, ptr %51, align 8, !tbaa !22
+  %53 = fptosi double %52 to i32
+  %54 = sub nsw i32 %53, 1
+  store i32 %54, ptr %16, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  %55 = load ptr, ptr %6, align 8, !tbaa !18
+  %56 = getelementptr inbounds nuw %struct.ArHosekSkyModelState, ptr %55, i32 0, i32 2
+  %57 = load double, ptr %56, align 8, !tbaa !22
+  %58 = load i32, ptr %16, align 4, !tbaa !11
+  %59 = add nsw i32 %58, 1
+  %60 = sitofp i32 %59 to double
+  %61 = fsub double %57, %60
+  store double %61, ptr %17, align 8, !tbaa !9
+  %62 = load i32, ptr %16, align 4, !tbaa !11
+  %63 = icmp eq i32 %62, 9
+  br i1 %63, label %64, label %65
 
-if.then13:                                        ; preds = %if.end7
-  store i32 8, ptr %turb_low, align 4
-  store double 1.000000e+00, ptr %turb_frac, align 8
-  br label %if.end14
+64:                                               ; preds = %49
+  store i32 8, ptr %16, align 4, !tbaa !11
+  store double 1.000000e+00, ptr %17, align 8, !tbaa !9
+  br label %65
 
-if.end14:                                         ; preds = %if.then13, %if.end7
-  %18 = load double, ptr %wavelength.addr, align 8
-  %sub15 = fsub double %18, 3.200000e+02
-  %div16 = fdiv double %sub15, 4.000000e+01
-  %conv17 = fptosi double %div16 to i32
-  store i32 %conv17, ptr %wl_low, align 4
-  %19 = load double, ptr %wavelength.addr, align 8
-  %call18 = call double @fmod(double noundef %19, double noundef 4.000000e+01) #4
-  %div19 = fdiv double %call18, 4.000000e+01
-  store double %div19, ptr %wl_frac, align 8
-  %20 = load i32, ptr %wl_low, align 4
-  %cmp20 = icmp eq i32 %20, 10
-  br i1 %cmp20, label %if.then22, label %if.end23
+65:                                               ; preds = %64, %49
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  %66 = load double, ptr %7, align 8, !tbaa !9
+  %67 = fsub double %66, 3.200000e+02
+  %68 = fdiv double %67, 4.000000e+01
+  %69 = fptosi double %68 to i32
+  store i32 %69, ptr %18, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  %70 = load double, ptr %7, align 8, !tbaa !9
+  %71 = call double @fmod(double noundef %70, double noundef 4.000000e+01) #5, !tbaa !11
+  %72 = fdiv double %71, 4.000000e+01
+  store double %72, ptr %19, align 8, !tbaa !9
+  %73 = load i32, ptr %18, align 4, !tbaa !11
+  %74 = icmp eq i32 %73, 10
+  br i1 %74, label %75, label %76
 
-if.then22:                                        ; preds = %if.end14
-  store i32 9, ptr %wl_low, align 4
-  store double 1.000000e+00, ptr %wl_frac, align 8
-  br label %if.end23
+75:                                               ; preds = %65
+  store i32 9, ptr %18, align 4, !tbaa !11
+  store double 1.000000e+00, ptr %19, align 8, !tbaa !9
+  br label %76
 
-if.end23:                                         ; preds = %if.then22, %if.end14
-  %21 = load double, ptr %turb_frac, align 8
-  %sub24 = fsub double 1.000000e+00, %21
-  %22 = load double, ptr %wl_frac, align 8
-  %sub25 = fsub double 1.000000e+00, %22
-  %23 = load ptr, ptr %state.addr, align 8
-  %24 = load i32, ptr %turb_low, align 4
-  %25 = load i32, ptr %wl_low, align 4
-  %26 = load double, ptr %elevation.addr, align 8
-  %call26 = call double @arhosekskymodel_sr_internal(ptr noundef %23, i32 noundef %24, i32 noundef %25, double noundef %26)
-  %27 = load double, ptr %wl_frac, align 8
-  %28 = load ptr, ptr %state.addr, align 8
-  %29 = load i32, ptr %turb_low, align 4
-  %30 = load i32, ptr %wl_low, align 4
-  %add28 = add nsw i32 %30, 1
-  %31 = load double, ptr %elevation.addr, align 8
-  %call29 = call double @arhosekskymodel_sr_internal(ptr noundef %28, i32 noundef %29, i32 noundef %add28, double noundef %31)
-  %mul30 = fmul double %27, %call29
-  %32 = call double @llvm.fmuladd.f64(double %sub25, double %call26, double %mul30)
-  %33 = load double, ptr %turb_frac, align 8
-  %34 = load double, ptr %wl_frac, align 8
-  %sub32 = fsub double 1.000000e+00, %34
-  %35 = load ptr, ptr %state.addr, align 8
-  %36 = load i32, ptr %turb_low, align 4
-  %add33 = add nsw i32 %36, 1
-  %37 = load i32, ptr %wl_low, align 4
-  %38 = load double, ptr %elevation.addr, align 8
-  %call34 = call double @arhosekskymodel_sr_internal(ptr noundef %35, i32 noundef %add33, i32 noundef %37, double noundef %38)
-  %39 = load double, ptr %wl_frac, align 8
-  %40 = load ptr, ptr %state.addr, align 8
-  %41 = load i32, ptr %turb_low, align 4
-  %add36 = add nsw i32 %41, 1
-  %42 = load i32, ptr %wl_low, align 4
-  %add37 = add nsw i32 %42, 1
-  %43 = load double, ptr %elevation.addr, align 8
-  %call38 = call double @arhosekskymodel_sr_internal(ptr noundef %40, i32 noundef %add36, i32 noundef %add37, double noundef %43)
-  %mul39 = fmul double %39, %call38
-  %44 = call double @llvm.fmuladd.f64(double %sub32, double %call34, double %mul39)
-  %mul40 = fmul double %33, %44
-  %45 = call double @llvm.fmuladd.f64(double %sub24, double %32, double %mul40)
-  store double %45, ptr %direct_radiance, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+76:                                               ; preds = %75, %65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  %77 = load double, ptr %17, align 8, !tbaa !9
+  %78 = fsub double 1.000000e+00, %77
+  %79 = load double, ptr %19, align 8, !tbaa !9
+  %80 = fsub double 1.000000e+00, %79
+  %81 = load ptr, ptr %6, align 8, !tbaa !18
+  %82 = load i32, ptr %16, align 4, !tbaa !11
+  %83 = load i32, ptr %18, align 4, !tbaa !11
+  %84 = load double, ptr %8, align 8, !tbaa !9
+  %85 = call double @arhosekskymodel_sr_internal(ptr noundef %81, i32 noundef %82, i32 noundef %83, double noundef %84)
+  %86 = load double, ptr %19, align 8, !tbaa !9
+  %87 = load ptr, ptr %6, align 8, !tbaa !18
+  %88 = load i32, ptr %16, align 4, !tbaa !11
+  %89 = load i32, ptr %18, align 4, !tbaa !11
+  %90 = add nsw i32 %89, 1
+  %91 = load double, ptr %8, align 8, !tbaa !9
+  %92 = call double @arhosekskymodel_sr_internal(ptr noundef %87, i32 noundef %88, i32 noundef %90, double noundef %91)
+  %93 = fmul double %86, %92
+  %94 = call double @llvm.fmuladd.f64(double %80, double %85, double %93)
+  %95 = load double, ptr %17, align 8, !tbaa !9
+  %96 = load double, ptr %19, align 8, !tbaa !9
+  %97 = fsub double 1.000000e+00, %96
+  %98 = load ptr, ptr %6, align 8, !tbaa !18
+  %99 = load i32, ptr %16, align 4, !tbaa !11
+  %100 = add nsw i32 %99, 1
+  %101 = load i32, ptr %18, align 4, !tbaa !11
+  %102 = load double, ptr %8, align 8, !tbaa !9
+  %103 = call double @arhosekskymodel_sr_internal(ptr noundef %98, i32 noundef %100, i32 noundef %101, double noundef %102)
+  %104 = load double, ptr %19, align 8, !tbaa !9
+  %105 = load ptr, ptr %6, align 8, !tbaa !18
+  %106 = load i32, ptr %16, align 4, !tbaa !11
+  %107 = add nsw i32 %106, 1
+  %108 = load i32, ptr %18, align 4, !tbaa !11
+  %109 = add nsw i32 %108, 1
+  %110 = load double, ptr %8, align 8, !tbaa !9
+  %111 = call double @arhosekskymodel_sr_internal(ptr noundef %105, i32 noundef %107, i32 noundef %109, double noundef %110)
+  %112 = fmul double %104, %111
+  %113 = call double @llvm.fmuladd.f64(double %97, double %103, double %112)
+  %114 = fmul double %95, %113
+  %115 = call double @llvm.fmuladd.f64(double %78, double %94, double %114)
+  store double %115, ptr %20, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 48, ptr %21) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #5
+  store i32 0, ptr %22, align 4, !tbaa !11
+  br label %116
 
-for.cond:                                         ; preds = %for.inc, %if.end23
-  %46 = load i32, ptr %i, align 4
-  %cmp41 = icmp slt i32 %46, 6
-  br i1 %cmp41, label %for.body, label %for.end
+116:                                              ; preds = %145, %76
+  %117 = load i32, ptr %22, align 4, !tbaa !11
+  %118 = icmp slt i32 %117, 6
+  br i1 %118, label %119, label %148
 
-for.body:                                         ; preds = %for.cond
-  %47 = load double, ptr %wl_frac, align 8
-  %sub43 = fsub double 1.000000e+00, %47
-  %48 = load i32, ptr %wl_low, align 4
-  %idxprom = sext i32 %48 to i64
-  %arrayidx = getelementptr inbounds [11 x ptr], ptr @limbDarkeningDatasets, i64 0, i64 %idxprom
-  %49 = load ptr, ptr %arrayidx, align 8
-  %50 = load i32, ptr %i, align 4
-  %idxprom44 = sext i32 %50 to i64
-  %arrayidx45 = getelementptr inbounds double, ptr %49, i64 %idxprom44
-  %51 = load double, ptr %arrayidx45, align 8
-  %52 = load double, ptr %wl_frac, align 8
-  %53 = load i32, ptr %wl_low, align 4
-  %add47 = add nsw i32 %53, 1
-  %idxprom48 = sext i32 %add47 to i64
-  %arrayidx49 = getelementptr inbounds [11 x ptr], ptr @limbDarkeningDatasets, i64 0, i64 %idxprom48
-  %54 = load ptr, ptr %arrayidx49, align 8
-  %55 = load i32, ptr %i, align 4
-  %idxprom50 = sext i32 %55 to i64
-  %arrayidx51 = getelementptr inbounds double, ptr %54, i64 %idxprom50
-  %56 = load double, ptr %arrayidx51, align 8
-  %mul52 = fmul double %52, %56
-  %57 = call double @llvm.fmuladd.f64(double %sub43, double %51, double %mul52)
-  %58 = load i32, ptr %i, align 4
-  %idxprom53 = sext i32 %58 to i64
-  %arrayidx54 = getelementptr inbounds [6 x double], ptr %ldCoefficient, i64 0, i64 %idxprom53
-  store double %57, ptr %arrayidx54, align 8
-  br label %for.inc
+119:                                              ; preds = %116
+  %120 = load double, ptr %19, align 8, !tbaa !9
+  %121 = fsub double 1.000000e+00, %120
+  %122 = load i32, ptr %18, align 4, !tbaa !11
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds [11 x ptr], ptr @limbDarkeningDatasets, i64 0, i64 %123
+  %125 = load ptr, ptr %124, align 8, !tbaa !4
+  %126 = load i32, ptr %22, align 4, !tbaa !11
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds double, ptr %125, i64 %127
+  %129 = load double, ptr %128, align 8, !tbaa !9
+  %130 = load double, ptr %19, align 8, !tbaa !9
+  %131 = load i32, ptr %18, align 4, !tbaa !11
+  %132 = add nsw i32 %131, 1
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds [11 x ptr], ptr @limbDarkeningDatasets, i64 0, i64 %133
+  %135 = load ptr, ptr %134, align 8, !tbaa !4
+  %136 = load i32, ptr %22, align 4, !tbaa !11
+  %137 = sext i32 %136 to i64
+  %138 = getelementptr inbounds double, ptr %135, i64 %137
+  %139 = load double, ptr %138, align 8, !tbaa !9
+  %140 = fmul double %130, %139
+  %141 = call double @llvm.fmuladd.f64(double %121, double %129, double %140)
+  %142 = load i32, ptr %22, align 4, !tbaa !11
+  %143 = sext i32 %142 to i64
+  %144 = getelementptr inbounds [6 x double], ptr %21, i64 0, i64 %143
+  store double %141, ptr %144, align 8, !tbaa !9
+  br label %145
 
-for.inc:                                          ; preds = %for.body
-  %59 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %59, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !17
+145:                                              ; preds = %119
+  %146 = load i32, ptr %22, align 4, !tbaa !11
+  %147 = add nsw i32 %146, 1
+  store i32 %147, ptr %22, align 4, !tbaa !11
+  br label %116, !llvm.loop !32
 
-for.end:                                          ; preds = %for.cond
-  %arrayidx55 = getelementptr inbounds [6 x double], ptr %ldCoefficient, i64 0, i64 0
-  %60 = load double, ptr %arrayidx55, align 16
-  %arrayidx56 = getelementptr inbounds [6 x double], ptr %ldCoefficient, i64 0, i64 1
-  %61 = load double, ptr %arrayidx56, align 8
-  %62 = load double, ptr %sampleCosine, align 8
-  %63 = call double @llvm.fmuladd.f64(double %61, double %62, double %60)
-  %arrayidx58 = getelementptr inbounds [6 x double], ptr %ldCoefficient, i64 0, i64 2
-  %64 = load double, ptr %arrayidx58, align 16
-  %65 = load double, ptr %sampleCosine, align 8
-  %call59 = call double @pow(double noundef %65, double noundef 2.000000e+00) #4
-  %66 = call double @llvm.fmuladd.f64(double %64, double %call59, double %63)
-  %arrayidx61 = getelementptr inbounds [6 x double], ptr %ldCoefficient, i64 0, i64 3
-  %67 = load double, ptr %arrayidx61, align 8
-  %68 = load double, ptr %sampleCosine, align 8
-  %call62 = call double @pow(double noundef %68, double noundef 3.000000e+00) #4
-  %69 = call double @llvm.fmuladd.f64(double %67, double %call62, double %66)
-  %arrayidx64 = getelementptr inbounds [6 x double], ptr %ldCoefficient, i64 0, i64 4
-  %70 = load double, ptr %arrayidx64, align 16
-  %71 = load double, ptr %sampleCosine, align 8
-  %call65 = call double @pow(double noundef %71, double noundef 4.000000e+00) #4
-  %72 = call double @llvm.fmuladd.f64(double %70, double %call65, double %69)
-  %arrayidx67 = getelementptr inbounds [6 x double], ptr %ldCoefficient, i64 0, i64 5
-  %73 = load double, ptr %arrayidx67, align 8
-  %74 = load double, ptr %sampleCosine, align 8
-  %call68 = call double @pow(double noundef %74, double noundef 5.000000e+00) #4
-  %75 = call double @llvm.fmuladd.f64(double %73, double %call68, double %72)
-  store double %75, ptr %darkeningFactor, align 8
-  %76 = load double, ptr %darkeningFactor, align 8
-  %77 = load double, ptr %direct_radiance, align 8
-  %mul70 = fmul double %77, %76
-  store double %mul70, ptr %direct_radiance, align 8
-  %78 = load double, ptr %direct_radiance, align 8
-  store double %78, ptr %retval, align 8
-  br label %return
+148:                                              ; preds = %116
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #5
+  %149 = getelementptr inbounds [6 x double], ptr %21, i64 0, i64 0
+  %150 = load double, ptr %149, align 16, !tbaa !9
+  %151 = getelementptr inbounds [6 x double], ptr %21, i64 0, i64 1
+  %152 = load double, ptr %151, align 8, !tbaa !9
+  %153 = load double, ptr %14, align 8, !tbaa !9
+  %154 = call double @llvm.fmuladd.f64(double %152, double %153, double %150)
+  %155 = getelementptr inbounds [6 x double], ptr %21, i64 0, i64 2
+  %156 = load double, ptr %155, align 16, !tbaa !9
+  %157 = load double, ptr %14, align 8, !tbaa !9
+  %158 = call double @pow(double noundef %157, double noundef 2.000000e+00) #5, !tbaa !11
+  %159 = call double @llvm.fmuladd.f64(double %156, double %158, double %154)
+  %160 = getelementptr inbounds [6 x double], ptr %21, i64 0, i64 3
+  %161 = load double, ptr %160, align 8, !tbaa !9
+  %162 = load double, ptr %14, align 8, !tbaa !9
+  %163 = call double @pow(double noundef %162, double noundef 3.000000e+00) #5, !tbaa !11
+  %164 = call double @llvm.fmuladd.f64(double %161, double %163, double %159)
+  %165 = getelementptr inbounds [6 x double], ptr %21, i64 0, i64 4
+  %166 = load double, ptr %165, align 16, !tbaa !9
+  %167 = load double, ptr %14, align 8, !tbaa !9
+  %168 = call double @pow(double noundef %167, double noundef 4.000000e+00) #5, !tbaa !11
+  %169 = call double @llvm.fmuladd.f64(double %166, double %168, double %164)
+  %170 = getelementptr inbounds [6 x double], ptr %21, i64 0, i64 5
+  %171 = load double, ptr %170, align 8, !tbaa !9
+  %172 = load double, ptr %14, align 8, !tbaa !9
+  %173 = call double @pow(double noundef %172, double noundef 5.000000e+00) #5, !tbaa !11
+  %174 = call double @llvm.fmuladd.f64(double %171, double %173, double %169)
+  store double %174, ptr %23, align 8, !tbaa !9
+  %175 = load double, ptr %23, align 8, !tbaa !9
+  %176 = load double, ptr %20, align 8, !tbaa !9
+  %177 = fmul double %176, %175
+  store double %177, ptr %20, align 8, !tbaa !9
+  %178 = load double, ptr %20, align 8, !tbaa !9
+  store double %178, ptr %5, align 8
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 48, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  br label %179
 
-return:                                           ; preds = %for.end, %if.then6
-  %79 = load double, ptr %retval, align 8
-  ret double %79
+179:                                              ; preds = %148, %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %180 = load double, ptr %5, align 8
+  ret double %180
 }
 
 ; Function Attrs: nounwind
-declare double @sin(double noundef) #1
+declare double @sin(double noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @arhosekskymodel_solar_radiance(ptr noundef %state, double noundef %theta, double noundef %gamma, double noundef %wavelength) #0 {
-entry:
-  %state.addr = alloca ptr, align 8
-  %theta.addr = alloca double, align 8
-  %gamma.addr = alloca double, align 8
-  %wavelength.addr = alloca double, align 8
-  %direct_radiance = alloca double, align 8
-  %inscattered_radiance = alloca double, align 8
-  store ptr %state, ptr %state.addr, align 8
-  store double %theta, ptr %theta.addr, align 8
-  store double %gamma, ptr %gamma.addr, align 8
-  store double %wavelength, ptr %wavelength.addr, align 8
-  %0 = load ptr, ptr %state.addr, align 8
-  %1 = load double, ptr %wavelength.addr, align 8
-  %2 = load double, ptr %theta.addr, align 8
-  %sub = fsub double 0x3FF921FB54442D18, %2
-  %3 = load double, ptr %gamma.addr, align 8
-  %call = call double @arhosekskymodel_solar_radiance_internal2(ptr noundef %0, double noundef %1, double noundef %sub, double noundef %3)
-  store double %call, ptr %direct_radiance, align 8
-  %4 = load ptr, ptr %state.addr, align 8
-  %5 = load double, ptr %theta.addr, align 8
-  %6 = load double, ptr %gamma.addr, align 8
-  %7 = load double, ptr %wavelength.addr, align 8
-  %call1 = call double @arhosekskymodel_radiance(ptr noundef %4, double noundef %5, double noundef %6, double noundef %7)
-  store double %call1, ptr %inscattered_radiance, align 8
-  %8 = load double, ptr %direct_radiance, align 8
-  %9 = load double, ptr %inscattered_radiance, align 8
-  %add = fadd double %8, %9
-  ret double %add
+define dso_local double @arhosekskymodel_solar_radiance(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca double, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !18
+  store double %1, ptr %6, align 8, !tbaa !9
+  store double %2, ptr %7, align 8, !tbaa !9
+  store double %3, ptr %8, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %11 = load ptr, ptr %5, align 8, !tbaa !18
+  %12 = load double, ptr %8, align 8, !tbaa !9
+  %13 = load double, ptr %6, align 8, !tbaa !9
+  %14 = fsub double 0x3FF921FB54442D18, %13
+  %15 = load double, ptr %7, align 8, !tbaa !9
+  %16 = call double @arhosekskymodel_solar_radiance_internal2(ptr noundef %11, double noundef %12, double noundef %14, double noundef %15)
+  store double %16, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %17 = load ptr, ptr %5, align 8, !tbaa !18
+  %18 = load double, ptr %6, align 8, !tbaa !9
+  %19 = load double, ptr %7, align 8, !tbaa !9
+  %20 = load double, ptr %8, align 8, !tbaa !9
+  %21 = call double @arhosekskymodel_radiance(ptr noundef %17, double noundef %18, double noundef %19, double noundef %20)
+  store double %21, ptr %10, align 8, !tbaa !9
+  %22 = load double, ptr %9, align 8, !tbaa !9
+  %23 = load double, ptr %10, align 8, !tbaa !9
+  %24 = fadd double %22, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  ret double %24
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 double", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"double", !7, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = distinct !{!15, !14}
+!16 = distinct !{!16, !14}
+!17 = distinct !{!17, !14}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS20ArHosekSkyModelState", !6, i64 0}
+!20 = !{!21, !10, i64 888}
+!21 = !{!"ArHosekSkyModelState", !7, i64 0, !7, i64 792, !10, i64 880, !10, i64 888, !7, i64 896, !7, i64 984, !10, i64 1072, !10, i64 1080}
+!22 = !{!21, !10, i64 880}
+!23 = !{!21, !10, i64 1072}
+!24 = !{!21, !10, i64 1080}
+!25 = distinct !{!25, !14}
+!26 = distinct !{!26, !14}
+!27 = distinct !{!27, !14}
+!28 = distinct !{!28, !14}
+!29 = distinct !{!29, !14}
+!30 = distinct !{!30, !14}
+!31 = distinct !{!31, !14}
+!32 = distinct !{!32, !14}

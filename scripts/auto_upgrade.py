@@ -120,6 +120,7 @@ supported_project = [
     "openexr",
     "oiio",
     "ozz-animation",
+    "pbrt-v4",
 ]
 
 modify_only = [
@@ -158,6 +159,7 @@ modify_only = [
     "nghttp2",
     "opencc",
     "ozz-animation",
+    "pbrt-v4",
 ]
 
 
