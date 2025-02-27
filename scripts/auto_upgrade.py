@@ -123,6 +123,7 @@ supported_project = [
     "pbrt-v4",
     "pcg-cpp",
     "proj",
+    "pugixml",
 ]
 
 modify_only = [
