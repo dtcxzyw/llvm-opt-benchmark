@@ -6,80 +6,75 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.ozz::animation::TrackTriggeringJob::Iterator" = type { ptr, float, i64, %"struct.ozz::animation::TrackTriggeringJob::Edge" }
 %"struct.ozz::animation::TrackTriggeringJob::Edge" = type { float, i8 }
 
-@_ZN3ozz9animation18TrackTriggeringJobC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3ozz9animation18TrackTriggeringJobC2Ev
 @_ZN3ozz9animation18TrackTriggeringJob8IteratorC1EPKS1_ = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN3ozz9animation18TrackTriggeringJob8IteratorC2EPKS1_
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3ozz9animation18TrackTriggeringJobC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 12), (16, 32)) %0) unnamed_addr #0 align 2 {
-  store float 0.000000e+00, ptr %0, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float 0.000000e+00, ptr %2, align 4
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float 0.000000e+00, ptr %3, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  ret void
-}
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3ozz9animation18TrackTriggeringJob8ValidateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3ozz9animation18TrackTriggeringJob8ValidateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = icmp ne ptr %3, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !12
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
   ret i1 %8
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK3ozz9animation18TrackTriggeringJob3RunEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %"class.ozz::animation::TrackTriggeringJob::Iterator", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = icmp ne ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !12
   %8 = icmp ne ptr %7, null
   %9 = and i1 %5, %8
   br i1 %9, label %10, label %27
 
 10:                                               ; preds = %1
-  %11 = load float, ptr %0, align 8
+  %11 = load float, ptr %0, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load float, ptr %12, align 4
+  %13 = load float, ptr %12, align 4, !tbaa !14
   %14 = fcmp oeq float %11, %13
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
-  store ptr %0, ptr %7, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.32.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 -2, ptr %.sroa.32.0..sroa_idx, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !15
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !17
+  %.sroa.52.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 -2, ptr %.sroa.52.0..sroa_idx, align 8, !tbaa !18
   br label %27
 
 16:                                               ; preds = %10
-  store ptr %0, ptr %2, align 8
-  %17 = tail call float @llvm.floor.f32(float %11)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float %17, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #6
+  store ptr %0, ptr %2, align 8, !tbaa !20
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %18 = tail call float @llvm.floor.f32(float %11)
+  store float %18, ptr %17, align 8, !tbaa !24
   %19 = fcmp olt float %11, %13
   br i1 %19, label %_ZN3ozz9animation18TrackTriggeringJob8IteratorC2EPKS1_.exit, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %22 = load i64, ptr %21, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %22 = load i64, ptr %21, align 8, !tbaa !25
   %23 = add i64 %22, -1
   br label %_ZN3ozz9animation18TrackTriggeringJob8IteratorC2EPKS1_.exit
 
 _ZN3ozz9animation18TrackTriggeringJob8IteratorC2EPKS1_.exit: ; preds = %16, %20
   %24 = phi i64 [ %23, %20 ], [ 0, %16 ]
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %24, ptr %25, align 8
+  store i64 %24, ptr %25, align 8, !tbaa !28
   %26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animation18TrackTriggeringJob8IteratorppEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !29
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #6
   br label %27
 
 27:                                               ; preds = %1, %_ZN3ozz9animation18TrackTriggeringJob8IteratorC2EPKS1_.exit, %15
@@ -91,30 +86,29 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN3ozz9animation18TrackTriggeringJob8IteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 12), (16, 24)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
-  store ptr %1, ptr %0, align 8
-  %3 = load float, ptr %1, align 8
-  %4 = tail call float @llvm.floor.f32(float %3)
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %4, ptr %5, align 8
-  %6 = load float, ptr %1, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %8 = load float, ptr %7, align 4
-  %9 = fcmp olt float %6, %8
-  br i1 %9, label %16, label %10
+  store ptr %1, ptr %0, align 8, !tbaa !20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load float, ptr %1, align 8, !tbaa !13
+  %5 = tail call float @llvm.floor.f32(float %4)
+  store float %5, ptr %3, align 8, !tbaa !24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = load float, ptr %6, align 4, !tbaa !14
+  %8 = fcmp olt float %4, %7
+  br i1 %8, label %15, label %9
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = add i64 %14, -1
-  br label %16
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load i64, ptr %12, align 8, !tbaa !25
+  %14 = add i64 %13, -1
+  br label %15
 
-16:                                               ; preds = %2, %10
-  %17 = phi i64 [ %15, %10 ], [ 0, %2 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %17, ptr %18, align 8
-  %19 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animation18TrackTriggeringJob8IteratorppEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+15:                                               ; preds = %2, %9
+  %16 = phi i64 [ %14, %9 ], [ 0, %2 ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %16, ptr %17, align 8, !tbaa !28
+  %18 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animation18TrackTriggeringJob8IteratorppEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   ret void
 }
 
@@ -123,307 +117,327 @@ declare float @llvm.floor.f32(float) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animation18TrackTriggeringJob8IteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(32) %0) local_unnamed_addr #4 align 2 {
-  %2 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %9 = load float, ptr %8, align 4
-  %10 = load float, ptr %2, align 8
-  %11 = fcmp ogt float %9, %10
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load float, ptr %12, align 8
-  br i1 %11, label %.preheader34, label %.preheader36
+  %4 = load ptr, ptr %3, align 8, !tbaa !4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !31
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %8 = load i64, ptr %7, align 8, !tbaa !25
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %10 = load float, ptr %9, align 4, !tbaa !14
+  %11 = load float, ptr %2, align 8, !tbaa !13
+  %12 = fcmp ogt float %10, %11
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.promoted73 = load float, ptr %13, align 8, !tbaa !24
+  br i1 %12, label %.preheader56, label %.preheader58
 
-.preheader36:                                     ; preds = %1
-  %14 = fadd float %13, 1.000000e+00
-  %15 = fcmp ogt float %14, %9
-  br i1 %15, label %.preheader35.lr.ph, label %.loopexit
+.preheader58:                                     ; preds = %1
+  %14 = fadd float %.promoted73, 1.000000e+00
+  %15 = fcmp ogt float %14, %10
+  br i1 %15, label %.preheader57.lr.ph, label %.loopexit
 
-.preheader35.lr.ph:                               ; preds = %.preheader36
+.preheader57.lr.ph:                               ; preds = %.preheader58
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %20 = add i64 %7, -1
-  %.pre = load i64, ptr %16, align 8
-  br label %.preheader35
+  %18 = getelementptr i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %22 = add i64 %8, -1
+  %.promoted68 = load i64, ptr %16, align 8, !tbaa !28
+  br label %.preheader57
 
-.preheader34:                                     ; preds = %1
-  %21 = fcmp olt float %13, %9
-  br i1 %21, label %.preheader.lr.ph, label %.loopexit
+.preheader56:                                     ; preds = %1
+  %23 = fcmp olt float %.promoted73, %10
+  br i1 %23, label %.preheader.lr.ph, label %.loopexit
 
-.preheader.lr.ph:                                 ; preds = %.preheader34
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %.pre54 = load i64, ptr %22, align 8
+.preheader.lr.ph:                                 ; preds = %.preheader56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %26 = getelementptr i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.promoted74 = load i64, ptr %24, align 8, !tbaa !28
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge46
-  %26 = phi i64 [ %.pre54, %.preheader.lr.ph ], [ 0, %._crit_edge46 ]
-  %27 = phi float [ %13, %.preheader.lr.ph ], [ %29, %._crit_edge46 ]
-  %28 = icmp slt i64 %26, %7
-  %29 = fadd float %27, 1.000000e+00
-  br i1 %28, label %.lr.ph45, label %._crit_edge46
+.preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge70
+  %30 = phi i64 [ %.promoted74, %.preheader.lr.ph ], [ 0, %._crit_edge70 ]
+  %31 = phi float [ %.promoted73, %.preheader.lr.ph ], [ %.pre-phi, %._crit_edge70 ]
+  %32 = icmp slt i64 %30, %8
+  br i1 %32, label %.lr.ph69, label %.preheader.._crit_edge70_crit_edge
 
-.lr.ph45:                                         ; preds = %.preheader, %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit
-  %30 = phi i64 [ %88, %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit ], [ %26, %.preheader ]
-  %31 = icmp eq i64 %30, 0
-  %. = select i1 %31, i64 %7, i64 %30
-  %32 = add nsw i64 %., -1
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds float, ptr %35, i64 %32
-  %37 = load float, ptr %36, align 4
-  %38 = getelementptr inbounds float, ptr %35, i64 %30
-  %39 = load float, ptr %38, align 4
-  %40 = load float, ptr %24, align 8
-  %41 = fcmp ole float %37, %40
-  %42 = fcmp ogt float %39, %40
-  %or.cond.i = select i1 %41, i1 %42, i1 false
-  br i1 %or.cond.i, label %46, label %43
+.preheader.._crit_edge70_crit_edge:               ; preds = %.preheader
+  %.pre = fadd float %31, 1.000000e+00
+  br label %._crit_edge70
 
-43:                                               ; preds = %.lr.ph45
-  %44 = fcmp ule float %37, %40
-  %45 = fcmp ugt float %39, %40
-  %or.cond48.i = select i1 %44, i1 true, i1 %45
-  br i1 %or.cond48.i, label %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit, label %46
+.lr.ph69:                                         ; preds = %.preheader
+  %.val = load float, ptr %26, align 8, !tbaa !32
+  %33 = load ptr, ptr %27, align 8, !tbaa !31
+  %34 = fadd float %31, 1.000000e+00
+  %35 = fcmp ult float %10, %34
+  br label %36
 
-46:                                               ; preds = %43, %.lr.ph45
-  %storemerge57 = phi i8 [ 1, %.lr.ph45 ], [ 0, %43 ]
-  store i8 %storemerge57, ptr %25, align 4
-  %47 = load ptr, ptr %3, align 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %50 = load ptr, ptr %49, align 8
-  %51 = sdiv i64 %32, 8
-  %52 = getelementptr inbounds i8, ptr %50, i64 %51
-  %53 = load i8, ptr %52, align 1
+36:                                               ; preds = %.lr.ph69, %83
+  %37 = phi i64 [ %30, %.lr.ph69 ], [ %84, %83 ]
+  %38 = icmp eq i64 %37, 0
+  %. = select i1 %38, i64 %8, i64 %37
+  %39 = add nsw i64 %., -1
+  %40 = getelementptr inbounds nuw float, ptr %33, i64 %39
+  %41 = load float, ptr %40, align 4, !tbaa !17
+  %42 = getelementptr inbounds nuw float, ptr %33, i64 %37
+  %43 = load float, ptr %42, align 4, !tbaa !17
+  %44 = fcmp ole float %41, %.val
+  %45 = fcmp ogt float %43, %.val
+  %or.cond.i = select i1 %44, i1 %45, i1 false
+  br i1 %or.cond.i, label %49, label %46
+
+46:                                               ; preds = %36
+  %47 = fcmp ule float %41, %.val
+  %48 = fcmp ugt float %43, %.val
+  %or.cond44.i = select i1 %47, i1 true, i1 %48
+  br i1 %or.cond44.i, label %83, label %49
+
+49:                                               ; preds = %46, %36
+  %storemerge81 = phi i8 [ 1, %36 ], [ 0, %46 ]
+  store i8 %storemerge81, ptr %28, align 4, !tbaa !33
+  %50 = load ptr, ptr %29, align 8, !tbaa !34
+  %51 = sdiv i64 %39, 8
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %51
+  %53 = load i8, ptr %52, align 1, !tbaa !37
   %54 = zext i8 %53 to i32
-  %55 = trunc i64 %32 to i32
+  %55 = trunc i64 %39 to i32
   %56 = and i32 %55, 7
   %57 = shl nuw nsw i32 1, %56
   %58 = and i32 %57, %54
   %.not.i = icmp eq i32 %58, 0
   br i1 %.not.i, label %62, label %59
 
-59:                                               ; preds = %46
-  %60 = getelementptr inbounds float, ptr %48, i64 %30
-  %61 = load float, ptr %60, align 4
-  br label %74
+59:                                               ; preds = %49
+  %60 = getelementptr inbounds nuw float, ptr %6, i64 %37
+  %61 = load float, ptr %60, align 4, !tbaa !17
+  br label %73
 
-62:                                               ; preds = %46
-  br i1 %31, label %74, label %63
+62:                                               ; preds = %49
+  br i1 %38, label %73, label %63
 
 63:                                               ; preds = %62
-  %64 = load float, ptr %24, align 8
-  %65 = fsub float %64, %37
-  %66 = fsub float %39, %37
-  %67 = fdiv float %65, %66
-  %68 = getelementptr inbounds float, ptr %48, i64 %32
-  %69 = load float, ptr %68, align 4
-  %70 = getelementptr inbounds float, ptr %48, i64 %30
-  %71 = load float, ptr %70, align 4
-  %72 = fsub float %71, %69
-  %73 = tail call noundef float @llvm.fmuladd.f32(float %72, float %67, float %69)
-  br label %74
+  %64 = fsub float %.val, %41
+  %65 = fsub float %43, %41
+  %66 = fdiv float %64, %65
+  %67 = getelementptr inbounds nuw float, ptr %6, i64 %39
+  %68 = load float, ptr %67, align 4, !tbaa !17
+  %69 = getelementptr inbounds nuw float, ptr %6, i64 %37
+  %70 = load float, ptr %69, align 4, !tbaa !17
+  %71 = fsub float %70, %68
+  %72 = tail call noundef float @llvm.fmuladd.f32(float %71, float %66, float %68)
+  br label %73
 
-74:                                               ; preds = %59, %62, %63
-  %.sink.i = phi float [ %61, %59 ], [ %73, %63 ], [ 0.000000e+00, %62 ]
-  %75 = fadd float %27, %.sink.i
-  store float %75, ptr %23, align 8
-  %76 = load float, ptr %2, align 8
-  %77 = fcmp ult float %75, %76
-  %.pre55 = load float, ptr %8, align 4
-  br i1 %77, label %83, label %78
+73:                                               ; preds = %59, %62, %63
+  %.sink.i = phi float [ %61, %59 ], [ %72, %63 ], [ 0.000000e+00, %62 ]
+  %74 = fadd float %31, %.sink.i
+  store float %74, ptr %25, align 8, !tbaa !38
+  %75 = fcmp ult float %74, %11
+  %76 = fcmp uge float %74, %10
+  %or.cond = and i1 %35, %76
+  %or.cond75 = or i1 %75, %or.cond
+  br i1 %or.cond75, label %78, label %.thread
 
-78:                                               ; preds = %74
-  %79 = fcmp uge float %75, %.pre55
-  %80 = fcmp ult float %.pre55, %29
-  %or.cond = and i1 %79, %80
-  br i1 %or.cond, label %83, label %81
+.thread:                                          ; preds = %73
+  %77 = add nsw i64 %37, 1
+  store i64 %77, ptr %24, align 8, !tbaa !28
+  br label %144
 
-81:                                               ; preds = %78
-  %82 = add nsw i64 %30, 1
-  store i64 %82, ptr %22, align 8
-  br label %161
+78:                                               ; preds = %73
+  %79 = getelementptr inbounds nuw float, ptr %6, i64 %37
+  %80 = load float, ptr %79, align 4, !tbaa !17
+  %81 = fadd float %31, %80
+  %82 = fcmp ult float %81, %10
+  br i1 %82, label %83, label %._crit_edge70
 
-83:                                               ; preds = %78, %74
-  %84 = getelementptr inbounds float, ptr %5, i64 %30
-  %85 = load float, ptr %84, align 4
-  %86 = fadd float %27, %85
-  %87 = fcmp ult float %86, %.pre55
-  br i1 %87, label %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit, label %._crit_edge46
+83:                                               ; preds = %78, %46
+  %84 = add i64 %37, 1
+  store i64 %84, ptr %24, align 8, !tbaa !28
+  %exitcond.not = icmp eq i64 %84, %8
+  br i1 %exitcond.not, label %._crit_edge70, label %36, !llvm.loop !39
 
-_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit: ; preds = %43, %83
-  %88 = add i64 %30, 1
-  store i64 %88, ptr %22, align 8
-  %exitcond.not = icmp eq i64 %88, %7
-  br i1 %exitcond.not, label %._crit_edge46, label %.lr.ph45, !llvm.loop !5
+._crit_edge70:                                    ; preds = %83, %78, %.preheader.._crit_edge70_crit_edge
+  %.pre-phi = phi float [ %.pre, %.preheader.._crit_edge70_crit_edge ], [ %34, %78 ], [ %34, %83 ]
+  store i64 0, ptr %24, align 8, !tbaa !28
+  store float %.pre-phi, ptr %13, align 8, !tbaa !24
+  %85 = fcmp olt float %.pre-phi, %10
+  br i1 %85, label %.preheader, label %.loopexit, !llvm.loop !41
 
-._crit_edge46:                                    ; preds = %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit, %83, %.preheader
-  store i64 0, ptr %22, align 8
-  store float %29, ptr %12, align 8
-  %89 = load float, ptr %8, align 4
-  %90 = fcmp olt float %29, %89
-  br i1 %90, label %.preheader, label %.loopexit, !llvm.loop !7
+.preheader57:                                     ; preds = %.preheader57.lr.ph, %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33._crit_edge
+  %86 = phi i64 [ %.promoted68, %.preheader57.lr.ph ], [ %22, %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33._crit_edge ]
+  %87 = phi float [ %14, %.preheader57.lr.ph ], [ %142, %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33._crit_edge ]
+  %88 = phi float [ %.promoted73, %.preheader57.lr.ph ], [ %141, %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33._crit_edge ]
+  %89 = icmp sgt i64 %86, -1
+  br i1 %89, label %.lr.ph, label %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33._crit_edge
 
-.preheader35:                                     ; preds = %.preheader35.lr.ph, %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24._crit_edge
-  %91 = phi i64 [ %.pre, %.preheader35.lr.ph ], [ %20, %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24._crit_edge ]
-  %92 = phi float [ %14, %.preheader35.lr.ph ], [ %158, %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24._crit_edge ]
-  %93 = phi float [ %13, %.preheader35.lr.ph ], [ %157, %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24._crit_edge ]
-  %94 = icmp sgt i64 %91, -1
-  br i1 %94, label %.lr.ph, label %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24._crit_edge
+.lr.ph:                                           ; preds = %.preheader57
+  %.val25 = load float, ptr %18, align 8, !tbaa !32
+  %90 = load ptr, ptr %19, align 8, !tbaa !31
+  %91 = fcmp ult float %11, %87
+  br label %92
 
-.lr.ph:                                           ; preds = %.preheader35, %154
-  %95 = phi i64 [ %155, %154 ], [ %91, %.preheader35 ]
-  %96 = icmp eq i64 %95, 0
-  %.17 = select i1 %96, i64 %7, i64 %95
-  %97 = add nsw i64 %.17, -1
-  %98 = load ptr, ptr %3, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds float, ptr %100, i64 %97
-  %102 = load float, ptr %101, align 4
-  %103 = getelementptr inbounds nuw float, ptr %100, i64 %95
-  %104 = load float, ptr %103, align 4
-  %105 = load float, ptr %18, align 8
-  %106 = fcmp ole float %102, %105
-  %107 = fcmp ogt float %104, %105
-  %or.cond.i18 = select i1 %106, i1 %107, i1 false
-  br i1 %or.cond.i18, label %111, label %108
+92:                                               ; preds = %.lr.ph, %138
+  %93 = phi i64 [ %86, %.lr.ph ], [ %139, %138 ]
+  %94 = icmp eq i64 %93, 0
+  %.22 = select i1 %94, i64 %8, i64 %93
+  %95 = add nsw i64 %.22, -1
+  %96 = getelementptr inbounds nuw float, ptr %90, i64 %95
+  %97 = load float, ptr %96, align 4, !tbaa !17
+  %98 = getelementptr inbounds nuw float, ptr %90, i64 %93
+  %99 = load float, ptr %98, align 4, !tbaa !17
+  %100 = fcmp ole float %97, %.val25
+  %101 = fcmp ogt float %99, %.val25
+  %or.cond.i27 = select i1 %100, i1 %101, i1 false
+  br i1 %or.cond.i27, label %105, label %102
 
-108:                                              ; preds = %.lr.ph
-  %109 = fcmp ule float %102, %105
-  %110 = fcmp ugt float %104, %105
-  %or.cond48.i19 = select i1 %109, i1 true, i1 %110
-  br i1 %or.cond48.i19, label %._ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24_crit_edge, label %111
+102:                                              ; preds = %92
+  %103 = fcmp ule float %97, %.val25
+  %104 = fcmp ugt float %99, %.val25
+  %or.cond44.i28 = select i1 %103, i1 true, i1 %104
+  br i1 %or.cond44.i28, label %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33, label %105
 
-._ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24_crit_edge: ; preds = %108
-  %.pre53 = load float, ptr %8, align 4
-  br label %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24
+105:                                              ; preds = %102, %92
+  %storemerge = phi i8 [ 0, %92 ], [ 1, %102 ]
+  store i8 %storemerge, ptr %20, align 4, !tbaa !33
+  %106 = load ptr, ptr %21, align 8, !tbaa !34
+  %107 = sdiv i64 %95, 8
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 %107
+  %109 = load i8, ptr %108, align 1, !tbaa !37
+  %110 = zext i8 %109 to i32
+  %111 = trunc i64 %95 to i32
+  %112 = and i32 %111, 7
+  %113 = shl nuw nsw i32 1, %112
+  %114 = and i32 %113, %110
+  %.not.i29 = icmp eq i32 %114, 0
+  br i1 %.not.i29, label %118, label %115
 
-111:                                              ; preds = %108, %.lr.ph
-  %storemerge = phi i8 [ 0, %.lr.ph ], [ 1, %108 ]
-  store i8 %storemerge, ptr %19, align 4
-  %112 = load ptr, ptr %3, align 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  %115 = load ptr, ptr %114, align 8
-  %116 = sdiv i64 %97, 8
-  %117 = getelementptr inbounds i8, ptr %115, i64 %116
-  %118 = load i8, ptr %117, align 1
-  %119 = zext i8 %118 to i32
-  %120 = trunc i64 %97 to i32
-  %121 = and i32 %120, 7
-  %122 = shl nuw nsw i32 1, %121
-  %123 = and i32 %122, %119
-  %.not.i20 = icmp eq i32 %123, 0
-  br i1 %.not.i20, label %127, label %124
+115:                                              ; preds = %105
+  %116 = getelementptr inbounds nuw float, ptr %6, i64 %93
+  %117 = load float, ptr %116, align 4, !tbaa !17
+  br label %129
 
-124:                                              ; preds = %111
-  %125 = getelementptr inbounds nuw float, ptr %113, i64 %95
-  %126 = load float, ptr %125, align 4
-  br label %139
+118:                                              ; preds = %105
+  br i1 %94, label %129, label %119
 
-127:                                              ; preds = %111
-  br i1 %96, label %139, label %128
+119:                                              ; preds = %118
+  %120 = fsub float %.val25, %97
+  %121 = fsub float %99, %97
+  %122 = fdiv float %120, %121
+  %123 = getelementptr inbounds nuw float, ptr %6, i64 %95
+  %124 = load float, ptr %123, align 4, !tbaa !17
+  %125 = getelementptr inbounds nuw float, ptr %6, i64 %93
+  %126 = load float, ptr %125, align 4, !tbaa !17
+  %127 = fsub float %126, %124
+  %128 = tail call noundef float @llvm.fmuladd.f32(float %127, float %122, float %124)
+  br label %129
 
-128:                                              ; preds = %127
-  %129 = load float, ptr %18, align 8
-  %130 = fsub float %129, %102
-  %131 = fsub float %104, %102
-  %132 = fdiv float %130, %131
-  %133 = getelementptr inbounds float, ptr %113, i64 %97
-  %134 = load float, ptr %133, align 4
-  %135 = getelementptr inbounds nuw float, ptr %113, i64 %95
-  %136 = load float, ptr %135, align 4
-  %137 = fsub float %136, %134
-  %138 = tail call noundef float @llvm.fmuladd.f32(float %137, float %132, float %134)
-  br label %139
+129:                                              ; preds = %115, %118, %119
+  %.sink.i31 = phi float [ %117, %115 ], [ %128, %119 ], [ 0.000000e+00, %118 ]
+  %130 = fadd float %88, %.sink.i31
+  store float %130, ptr %17, align 8, !tbaa !38
+  %131 = fcmp ult float %130, %10
+  %132 = fcmp uge float %130, %11
+  %or.cond55 = and i1 %91, %132
+  %or.cond76 = or i1 %131, %or.cond55
+  br i1 %or.cond76, label %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33, label %.thread47
 
-139:                                              ; preds = %124, %127, %128
-  %.sink.i22 = phi float [ %126, %124 ], [ %138, %128 ], [ 0.000000e+00, %127 ]
-  %140 = fadd float %93, %.sink.i22
-  store float %140, ptr %17, align 8
-  %141 = load float, ptr %8, align 4
-  %142 = fcmp ult float %140, %141
-  br i1 %142, label %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24, label %143
+.thread47:                                        ; preds = %129
+  %133 = add nsw i64 %93, -1
+  store i64 %133, ptr %16, align 8, !tbaa !28
+  br label %144
 
-143:                                              ; preds = %139
-  %144 = load float, ptr %2, align 8
-  %145 = fcmp uge float %140, %144
-  %146 = fcmp ult float %144, %92
-  %or.cond33 = and i1 %145, %146
-  br i1 %or.cond33, label %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24, label %147
+_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33: ; preds = %102, %129
+  %134 = getelementptr inbounds nuw float, ptr %6, i64 %93
+  %135 = load float, ptr %134, align 4, !tbaa !17
+  %136 = fadd float %88, %135
+  %137 = fcmp ugt float %136, %10
+  br i1 %137, label %138, label %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33._crit_edge
 
-147:                                              ; preds = %143
-  %148 = add nsw i64 %95, -1
-  store i64 %148, ptr %16, align 8
-  br label %161
+138:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33
+  %139 = add nsw i64 %93, -1
+  store i64 %139, ptr %16, align 8, !tbaa !28
+  %140 = icmp sgt i64 %93, 0
+  br i1 %140, label %92, label %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33._crit_edge, !llvm.loop !42
 
-_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24: ; preds = %._ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24_crit_edge, %143, %139
-  %149 = phi float [ %.pre53, %._ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24_crit_edge ], [ %141, %143 ], [ %141, %139 ]
-  %150 = getelementptr inbounds nuw float, ptr %5, i64 %95
-  %151 = load float, ptr %150, align 4
-  %152 = fadd float %93, %151
-  %153 = fcmp ugt float %152, %149
-  br i1 %153, label %154, label %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24._crit_edge
+_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33._crit_edge: ; preds = %138, %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33, %.preheader57
+  store i64 %22, ptr %16, align 8, !tbaa !28
+  %141 = fadd float %88, -1.000000e+00
+  store float %141, ptr %13, align 8, !tbaa !24
+  %142 = fadd float %141, 1.000000e+00
+  %143 = fcmp ogt float %142, %10
+  br i1 %143, label %.preheader57, label %.loopexit, !llvm.loop !43
 
-154:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24
-  %155 = add nsw i64 %95, -1
-  store i64 %155, ptr %16, align 8
-  %156 = icmp sgt i64 %95, 0
-  br i1 %156, label %.lr.ph, label %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24._crit_edge, !llvm.loop !8
+.loopexit:                                        ; preds = %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33._crit_edge, %._crit_edge70, %.preheader58, %.preheader56
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !17
+  %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 -2, ptr %.sroa.534.0..sroa_idx, align 8, !tbaa !18
+  br label %144
 
-_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24._crit_edge: ; preds = %154, %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24, %.preheader35
-  store i64 %20, ptr %16, align 8
-  %157 = fadd float %93, -1.000000e+00
-  store float %157, ptr %12, align 8
-  %158 = fadd float %157, 1.000000e+00
-  %159 = load float, ptr %8, align 4
-  %160 = fcmp ogt float %158, %159
-  br i1 %160, label %.preheader35, label %.loopexit, !llvm.loop !9
-
-.loopexit:                                        ; preds = %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24._crit_edge, %._crit_edge46, %.preheader36, %.preheader34
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -2, ptr %.sroa.325.0..sroa_idx, align 8
-  br label %161
-
-161:                                              ; preds = %.loopexit, %147, %81
+144:                                              ; preds = %.thread47, %.thread, %.loopexit
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
-
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = !{!5, !9, i64 16}
+!5 = !{!"_ZTSN3ozz9animation18TrackTriggeringJobE", !6, i64 0, !6, i64 4, !6, i64 8, !9, i64 16, !11, i64 24}
+!6 = !{!"float", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"p1 _ZTSN3ozz9animation10FloatTrackE", !10, i64 0}
+!10 = !{!"any pointer", !7, i64 0}
+!11 = !{!"p1 _ZTSN3ozz9animation18TrackTriggeringJob8IteratorE", !10, i64 0}
+!12 = !{!5, !11, i64 24}
+!13 = !{!5, !6, i64 0}
+!14 = !{!5, !6, i64 4}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTSN3ozz9animation18TrackTriggeringJobE", !10, i64 0}
+!17 = !{!6, !6, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !7, i64 0}
+!20 = !{!21, !16, i64 0}
+!21 = !{!"_ZTSN3ozz9animation18TrackTriggeringJob8IteratorE", !16, i64 0, !6, i64 8, !19, i64 16, !22, i64 24}
+!22 = !{!"_ZTSN3ozz9animation18TrackTriggeringJob4EdgeE", !6, i64 0, !23, i64 4}
+!23 = !{!"bool", !7, i64 0}
+!24 = !{!21, !6, i64 8}
+!25 = !{!26, !19, i64 8}
+!26 = !{!"_ZTSN3ozz4spanIfEE", !27, i64 0, !19, i64 8}
+!27 = !{!"p1 float", !10, i64 0}
+!28 = !{!21, !19, i64 16}
+!29 = !{i64 0, i64 8, !15, i64 8, i64 4, !17, i64 16, i64 8, !18, i64 24, i64 4, !17, i64 28, i64 1, !30}
+!30 = !{!23, !23, i64 0}
+!31 = !{!26, !27, i64 0}
+!32 = !{!5, !6, i64 8}
+!33 = !{!22, !23, i64 4}
+!34 = !{!35, !36, i64 0}
+!35 = !{!"_ZTSN3ozz4spanIhEE", !36, i64 0, !19, i64 8}
+!36 = !{!"p1 omnipotent char", !10, i64 0}
+!37 = !{!7, !7, i64 0}
+!38 = !{!21, !6, i64 24}
+!39 = distinct !{!39, !40}
+!40 = !{!"llvm.loop.mustprogress"}
+!41 = distinct !{!41, !40}
+!42 = distinct !{!42, !40}
+!43 = distinct !{!43, !40}

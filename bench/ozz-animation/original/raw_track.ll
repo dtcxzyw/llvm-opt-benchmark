@@ -140,7 +140,13 @@ $_ZN3ozz2io8OArchivelsEj = comdat any
 
 $_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEEEEvRKT_ = comdat any
 
+$_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeIfEEEEKNS0_8internal5ArrayIKT_EEPS9_m = comdat any
+
 $_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4dataEv = comdat any
+
+$_ZN3ozz13EndianSwapperIjLm4EE4SwapEj = comdat any
+
+$_ZN3ozz19_in_place_byte_swapERhS0_ = comdat any
 
 $_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEELb0EE5WriteERNS0_8OArchiveE = comdat any
 
@@ -148,11 +154,17 @@ $_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16Ra
 
 $_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEEE4SaveERNS0_8OArchiveEPKS9_m = comdat any
 
+$_ZNK3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEE4SaveERNS0_8OArchiveE = comdat any
+
 $_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeIfEEE4SaveERNS0_8OArchiveEPKS5_m = comdat any
 
 $_ZN3ozz2io8OArchivelsEh = comdat any
 
 $_ZN3ozz2io8OArchivelsEf = comdat any
+
+$_ZN3ozz13EndianSwapperIhLm1EE4SwapEh = comdat any
+
+$_ZN3ozz13EndianSwapperIfLm4EE4SwapEf = comdat any
 
 $_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE11_M_data_ptrIS4_EEPT_SA_ = comdat any
 
@@ -171,6 +183,8 @@ $_ZN3ozz2io8IArchiversERj = comdat any
 $_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE6resizeEm = comdat any
 
 $_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEEEEEvRT_ = comdat any
+
+$_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeIfEEEEKNS0_8internal5ArrayIT_EEPS8_m = comdat any
 
 $_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4dataEv = comdat any
 
@@ -258,6 +272,8 @@ $_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16Ra
 
 $_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEEEE4LoadERNS0_8IArchiveEPS9_mj = comdat any
 
+$_ZNK3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEE4LoadERNS0_8IArchiveEj = comdat any
+
 $_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeIfEEE4LoadERNS0_8IArchiveEPS5_mj = comdat any
 
 $_ZN3ozz2io8IArchiversERh = comdat any
@@ -276,6 +292,8 @@ $_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Fl
 
 $_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEvRKT_ = comdat any
 
+$_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEKNS0_8internal5ArrayIKT_EEPSB_m = comdat any
+
 $_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4dataEv = comdat any
 
 $_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEELb0EE5WriteERNS0_8OArchiveE = comdat any
@@ -283,6 +301,8 @@ $_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframe
 $_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEvv = comdat any
 
 $_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEE4SaveERNS0_8OArchiveEPKSB_m = comdat any
+
+$_ZNK3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4SaveERNS0_8OArchiveE = comdat any
 
 $_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4SaveERNS0_8OArchiveEPKS7_m = comdat any
 
@@ -303,6 +323,8 @@ $_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Fl
 $_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE6resizeEm = comdat any
 
 $_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEvRT_ = comdat any
+
+$_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEKNS0_8internal5ArrayIT_EEPSA_m = comdat any
 
 $_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4dataEv = comdat any
 
@@ -343,6 +365,8 @@ $_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKey
 $_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE9constructIS6_JEEEvPT_DpOT0_ = comdat any
 
 $_ZN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float2EEC2Ev = comdat any
+
+$_ZN3ozz4math6Float2C2Ev = comdat any
 
 $_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE8allocateERS8_m = comdat any
 
@@ -386,6 +410,8 @@ $_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16Ra
 
 $_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEE4LoadERNS0_8IArchiveEPSB_mj = comdat any
 
+$_ZNK3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4LoadERNS0_8IArchiveEj = comdat any
+
 $_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4LoadERNS0_8IArchiveEPS7_mj = comdat any
 
 $_ZN3ozz2io8IArchiversINS_4math6Float2EEEvRT_ = comdat any
@@ -402,6 +428,8 @@ $_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Fl
 
 $_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEvRKT_ = comdat any
 
+$_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEKNS0_8internal5ArrayIKT_EEPSB_m = comdat any
+
 $_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4dataEv = comdat any
 
 $_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEELb0EE5WriteERNS0_8OArchiveE = comdat any
@@ -409,6 +437,8 @@ $_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframe
 $_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEvv = comdat any
 
 $_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEE4SaveERNS0_8OArchiveEPKSB_m = comdat any
+
+$_ZNK3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4SaveERNS0_8OArchiveE = comdat any
 
 $_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4SaveERNS0_8OArchiveEPKS7_m = comdat any
 
@@ -429,6 +459,8 @@ $_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Fl
 $_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE6resizeEm = comdat any
 
 $_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEvRT_ = comdat any
+
+$_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEKNS0_8internal5ArrayIT_EEPSA_m = comdat any
 
 $_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4dataEv = comdat any
 
@@ -469,6 +501,8 @@ $_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKey
 $_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE9constructIS6_JEEEvPT_DpOT0_ = comdat any
 
 $_ZN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float3EEC2Ev = comdat any
+
+$_ZN3ozz4math6Float3C2Ev = comdat any
 
 $_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE8allocateERS8_m = comdat any
 
@@ -512,6 +546,8 @@ $_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16Ra
 
 $_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEE4LoadERNS0_8IArchiveEPSB_mj = comdat any
 
+$_ZNK3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4LoadERNS0_8IArchiveEj = comdat any
+
 $_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4LoadERNS0_8IArchiveEPS7_mj = comdat any
 
 $_ZN3ozz2io8IArchiversINS_4math6Float3EEEvRT_ = comdat any
@@ -528,6 +564,8 @@ $_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Fl
 
 $_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEvRKT_ = comdat any
 
+$_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEKNS0_8internal5ArrayIKT_EEPSB_m = comdat any
+
 $_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4dataEv = comdat any
 
 $_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEELb0EE5WriteERNS0_8OArchiveE = comdat any
@@ -535,6 +573,8 @@ $_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframe
 $_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEvv = comdat any
 
 $_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEE4SaveERNS0_8OArchiveEPKSB_m = comdat any
+
+$_ZNK3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4SaveERNS0_8OArchiveE = comdat any
 
 $_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4SaveERNS0_8OArchiveEPKS7_m = comdat any
 
@@ -555,6 +595,8 @@ $_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Fl
 $_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE6resizeEm = comdat any
 
 $_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEvRT_ = comdat any
+
+$_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEKNS0_8internal5ArrayIT_EEPSA_m = comdat any
 
 $_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4dataEv = comdat any
 
@@ -595,6 +637,8 @@ $_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKey
 $_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE9constructIS6_JEEEvPT_DpOT0_ = comdat any
 
 $_ZN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float4EEC2Ev = comdat any
+
+$_ZN3ozz4math6Float4C2Ev = comdat any
 
 $_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE8allocateERS8_m = comdat any
 
@@ -638,6 +682,8 @@ $_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16Ra
 
 $_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEE4LoadERNS0_8IArchiveEPSB_mj = comdat any
 
+$_ZNK3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4LoadERNS0_8IArchiveEj = comdat any
+
 $_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4LoadERNS0_8IArchiveEPS7_mj = comdat any
 
 $_ZN3ozz2io8IArchiversINS_4math6Float4EEEvRT_ = comdat any
@@ -654,6 +700,8 @@ $_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10Q
 
 $_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEvRKT_ = comdat any
 
+$_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEKNS0_8internal5ArrayIKT_EEPSB_m = comdat any
+
 $_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4dataEv = comdat any
 
 $_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEELb0EE5WriteERNS0_8OArchiveE = comdat any
@@ -661,6 +709,8 @@ $_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframe
 $_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEvv = comdat any
 
 $_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEE4SaveERNS0_8OArchiveEPKSB_m = comdat any
+
+$_ZNK3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4SaveERNS0_8OArchiveE = comdat any
 
 $_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4SaveERNS0_8OArchiveEPKS7_m = comdat any
 
@@ -681,6 +731,8 @@ $_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10Q
 $_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE6resizeEm = comdat any
 
 $_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEvRT_ = comdat any
+
+$_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEKNS0_8internal5ArrayIT_EEPSA_m = comdat any
 
 $_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4dataEv = comdat any
 
@@ -721,6 +773,8 @@ $_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKey
 $_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE9constructIS6_JEEEvPT_DpOT0_ = comdat any
 
 $_ZN3ozz9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEC2Ev = comdat any
+
+$_ZN3ozz4math10QuaternionC2Ev = comdat any
 
 $_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE8allocateERS8_m = comdat any
 
@@ -764,6 +818,8 @@ $_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16Ra
 
 $_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEE4LoadERNS0_8IArchiveEPSB_mj = comdat any
 
+$_ZNK3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4LoadERNS0_8IArchiveEj = comdat any
+
 $_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4LoadERNS0_8IArchiveEPS7_mj = comdat any
 
 $_ZN3ozz2io8IArchiversINS_4math10QuaternionEEEvRT_ = comdat any
@@ -780,81 +836,114 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %3 = alloca ptr, align 8
   %4 = alloca float, align 4
   %5 = alloca i64, align 8
-  %6 = alloca float, align 4
-  store ptr %0, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  store float -1.000000e+00, ptr %4, align 4
-  store i64 0, ptr %5, align 8
-  br label %8
+  %6 = alloca i32, align 4
+  %7 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #12
+  store float -1.000000e+00, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  store i64 0, ptr %5, align 8, !tbaa !11
+  br label %9
 
-8:                                                ; preds = %32, %1
-  %9 = load i64, ptr %5, align 8
-  %10 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack", ptr %7, i32 0, i32 0
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #8
-  %12 = icmp ult i64 %9, %11
-  br i1 %12, label %13, label %35
+9:                                                ; preds = %37, %1
+  %10 = load i64, ptr %5, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack", ptr %8, i32 0, i32 0
+  %12 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
+  %13 = icmp ult i64 %10, %12
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack", ptr %7, i32 0, i32 0
-  %15 = load i64, ptr %5, align 8
-  %16 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %15) #8
-  %17 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %16, i32 0, i32 1
-  %18 = load float, ptr %17, align 4
-  store float %18, ptr %6, align 4
-  %19 = load float, ptr %6, align 4
-  %20 = fcmp olt float %19, 0.000000e+00
-  br i1 %20, label %24, label %21
+14:                                               ; preds = %9
+  store i32 2, ptr %6, align 4
+  br label %40
 
-21:                                               ; preds = %13
-  %22 = load float, ptr %6, align 4
-  %23 = fcmp ogt float %22, 1.000000e+00
-  br i1 %23, label %24, label %25
+15:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  %16 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack", ptr %8, i32 0, i32 0
+  %17 = load i64, ptr %5, align 8, !tbaa !11
+  %18 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %17) #12
+  %19 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %18, i32 0, i32 1
+  %20 = load float, ptr %19, align 4, !tbaa !13
+  store float %20, ptr %7, align 4, !tbaa !9
+  %21 = load float, ptr %7, align 4, !tbaa !9
+  %22 = fcmp olt float %21, 0.000000e+00
+  br i1 %22, label %26, label %23
 
-24:                                               ; preds = %21, %13
+23:                                               ; preds = %15
+  %24 = load float, ptr %7, align 4, !tbaa !9
+  %25 = fcmp ogt float %24, 1.000000e+00
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %23, %15
   store i1 false, ptr %2, align 1
-  br label %36
+  store i32 1, ptr %6, align 4
+  br label %34
 
-25:                                               ; preds = %21
-  %26 = load float, ptr %6, align 4
-  %27 = load float, ptr %4, align 4
-  %28 = fcmp ole float %26, %27
-  br i1 %28, label %29, label %30
+27:                                               ; preds = %23
+  %28 = load float, ptr %7, align 4, !tbaa !9
+  %29 = load float, ptr %4, align 4, !tbaa !9
+  %30 = fcmp ole float %28, %29
+  br i1 %30, label %31, label %32
 
-29:                                               ; preds = %25
+31:                                               ; preds = %27
   store i1 false, ptr %2, align 1
-  br label %36
+  store i32 1, ptr %6, align 4
+  br label %34
 
-30:                                               ; preds = %25
-  %31 = load float, ptr %6, align 4
-  store float %31, ptr %4, align 4
-  br label %32
+32:                                               ; preds = %27
+  %33 = load float, ptr %7, align 4, !tbaa !9
+  store float %33, ptr %4, align 4, !tbaa !9
+  store i32 0, ptr %6, align 4
+  br label %34
 
-32:                                               ; preds = %30
-  %33 = load i64, ptr %5, align 8
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %5, align 8
-  br label %8, !llvm.loop !5
+34:                                               ; preds = %32, %31, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  %35 = load i32, ptr %6, align 4
+  switch i32 %35, label %40 [
+    i32 0, label %36
+  ]
 
-35:                                               ; preds = %8
+36:                                               ; preds = %34
+  br label %37
+
+37:                                               ; preds = %36
+  %38 = load i64, ptr %5, align 8, !tbaa !11
+  %39 = add i64 %38, 1
+  store i64 %39, ptr %5, align 8, !tbaa !11
+  br label %9, !llvm.loop !16
+
+40:                                               ; preds = %34, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  %41 = load i32, ptr %6, align 4
+  switch i32 %41, label %43 [
+    i32 2, label %42
+  ]
+
+42:                                               ; preds = %40
   store i1 true, ptr %2, align 1
-  br label %36
+  store i32 1, ptr %6, align 4
+  br label %43
 
-36:                                               ; preds = %35, %29, %24
-  %37 = load i1, ptr %2, align 1
-  ret i1 %37
+43:                                               ; preds = %42, %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #12
+  %44 = load i1, ptr %2, align 1
+  ret i1 %44
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -866,110 +955,117 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %8, i64 %9
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  %9 = load i64, ptr %4, align 8, !tbaa !11
+  %10 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %8, i64 %9
   ret ptr %10
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZNK3ozz9animation7offline8internal8RawTrackIfE4SaveERNS_2io8OArchiveE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #1 comdat align 2 {
+define weak_odr dso_local void @_ZNK3ozz9animation7offline8internal8RawTrackIfE4SaveERNS_2io8OArchiveE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !24
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack", ptr %5, i32 0, i32 0
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack", ptr %5, i32 0, i32 0
   call void @_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS7_EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8, !tbaa !24
+  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack", ptr %5, i32 0, i32 1
   call void @_ZN3ozz2io8OArchivelsINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS7_EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS7_EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !18
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS7_EEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS7_EEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !18
   call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS6_EEEE4SaveERNS0_8OArchiveEPKS9_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !26
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !26
   call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZN3ozz9animation7offline8internal8RawTrackIfE4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #1 comdat align 2 {
+define weak_odr dso_local void @_ZN3ozz9animation7offline8internal8RawTrackIfE4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  store i32 %2, ptr %6, align 4, !tbaa !30
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack", ptr %7, i32 0, i32 0
+  %8 = load ptr, ptr %5, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack", ptr %7, i32 0, i32 0
   call void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS7_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8, !tbaa !28
+  %11 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack", ptr %7, i32 0, i32 1
   call void @_ZN3ozz2io8IArchiversINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS7_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS7_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !18
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS7_EEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS7_EEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !30
+  %9 = load ptr, ptr %4, align 8, !tbaa !18
+  %10 = load i32, ptr %5, align 4, !tbaa !30
   call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS6_EEEE4LoadERNS0_8IArchiveEPS9_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !26
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !30
+  %9 = load ptr, ptr %4, align 8, !tbaa !26
+  %10 = load i32, ptr %5, align 4, !tbaa !30
   call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
 }
 
@@ -979,81 +1075,111 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %3 = alloca ptr, align 8
   %4 = alloca float, align 4
   %5 = alloca i64, align 8
-  %6 = alloca float, align 4
-  store ptr %0, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  store float -1.000000e+00, ptr %4, align 4
-  store i64 0, ptr %5, align 8
-  br label %8
+  %6 = alloca i32, align 4
+  %7 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #12
+  store float -1.000000e+00, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  store i64 0, ptr %5, align 8, !tbaa !11
+  br label %9
 
-8:                                                ; preds = %32, %1
-  %9 = load i64, ptr %5, align 8
-  %10 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.2", ptr %7, i32 0, i32 0
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #8
-  %12 = icmp ult i64 %9, %11
-  br i1 %12, label %13, label %35
+9:                                                ; preds = %37, %1
+  %10 = load i64, ptr %5, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.2", ptr %8, i32 0, i32 0
+  %12 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
+  %13 = icmp ult i64 %10, %12
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.2", ptr %7, i32 0, i32 0
-  %15 = load i64, ptr %5, align 8
-  %16 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %15) #8
-  %17 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %16, i32 0, i32 1
-  %18 = load float, ptr %17, align 4
-  store float %18, ptr %6, align 4
-  %19 = load float, ptr %6, align 4
-  %20 = fcmp olt float %19, 0.000000e+00
-  br i1 %20, label %24, label %21
+14:                                               ; preds = %9
+  store i32 2, ptr %6, align 4
+  br label %40
 
-21:                                               ; preds = %13
-  %22 = load float, ptr %6, align 4
-  %23 = fcmp ogt float %22, 1.000000e+00
-  br i1 %23, label %24, label %25
+15:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  %16 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.2", ptr %8, i32 0, i32 0
+  %17 = load i64, ptr %5, align 8, !tbaa !11
+  %18 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %17) #12
+  %19 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %18, i32 0, i32 1
+  %20 = load float, ptr %19, align 4, !tbaa !34
+  store float %20, ptr %7, align 4, !tbaa !9
+  %21 = load float, ptr %7, align 4, !tbaa !9
+  %22 = fcmp olt float %21, 0.000000e+00
+  br i1 %22, label %26, label %23
 
-24:                                               ; preds = %21, %13
+23:                                               ; preds = %15
+  %24 = load float, ptr %7, align 4, !tbaa !9
+  %25 = fcmp ogt float %24, 1.000000e+00
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %23, %15
   store i1 false, ptr %2, align 1
-  br label %36
+  store i32 1, ptr %6, align 4
+  br label %34
 
-25:                                               ; preds = %21
-  %26 = load float, ptr %6, align 4
-  %27 = load float, ptr %4, align 4
-  %28 = fcmp ole float %26, %27
-  br i1 %28, label %29, label %30
+27:                                               ; preds = %23
+  %28 = load float, ptr %7, align 4, !tbaa !9
+  %29 = load float, ptr %4, align 4, !tbaa !9
+  %30 = fcmp ole float %28, %29
+  br i1 %30, label %31, label %32
 
-29:                                               ; preds = %25
+31:                                               ; preds = %27
   store i1 false, ptr %2, align 1
-  br label %36
+  store i32 1, ptr %6, align 4
+  br label %34
 
-30:                                               ; preds = %25
-  %31 = load float, ptr %6, align 4
-  store float %31, ptr %4, align 4
-  br label %32
+32:                                               ; preds = %27
+  %33 = load float, ptr %7, align 4, !tbaa !9
+  store float %33, ptr %4, align 4, !tbaa !9
+  store i32 0, ptr %6, align 4
+  br label %34
 
-32:                                               ; preds = %30
-  %33 = load i64, ptr %5, align 8
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %5, align 8
-  br label %8, !llvm.loop !7
+34:                                               ; preds = %32, %31, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  %35 = load i32, ptr %6, align 4
+  switch i32 %35, label %40 [
+    i32 0, label %36
+  ]
 
-35:                                               ; preds = %8
+36:                                               ; preds = %34
+  br label %37
+
+37:                                               ; preds = %36
+  %38 = load i64, ptr %5, align 8, !tbaa !11
+  %39 = add i64 %38, 1
+  store i64 %39, ptr %5, align 8, !tbaa !11
+  br label %9, !llvm.loop !37
+
+40:                                               ; preds = %34, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  %41 = load i32, ptr %6, align 4
+  switch i32 %41, label %43 [
+    i32 2, label %42
+  ]
+
+42:                                               ; preds = %40
   store i1 true, ptr %2, align 1
-  br label %36
+  store i32 1, ptr %6, align 4
+  br label %43
 
-36:                                               ; preds = %35, %29, %24
-  %37 = load i1, ptr %2, align 1
-  ret i1 %37
+43:                                               ; preds = %42, %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #12
+  %44 = load i1, ptr %2, align 1
+  ret i1 %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !40
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !43
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -1065,79 +1191,81 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %8, i64 %9
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !43
+  %9 = load i64, ptr %4, align 8, !tbaa !11
+  %10 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %8, i64 %9
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZNK3ozz9animation7offline8internal8RawTrackINS_4math6Float2EE4SaveERNS_2io8OArchiveE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #1 comdat align 2 {
+define weak_odr dso_local void @_ZNK3ozz9animation7offline8internal8RawTrackINS_4math6Float2EE4SaveERNS_2io8OArchiveE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !24
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.2", ptr %5, i32 0, i32 0
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.2", ptr %5, i32 0, i32 0
   call void @_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS9_EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.2", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8, !tbaa !24
+  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.2", ptr %5, i32 0, i32 1
   call void @_ZN3ozz2io8OArchivelsINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS9_EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS9_EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !38
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS9_EEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS9_EEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !38
   call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS8_EEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float2EE4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #1 comdat align 2 {
+define weak_odr dso_local void @_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float2EE4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  store i32 %2, ptr %6, align 4, !tbaa !30
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.2", ptr %7, i32 0, i32 0
+  %8 = load ptr, ptr %5, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.2", ptr %7, i32 0, i32 0
   call void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS9_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.2", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8, !tbaa !28
+  %11 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.2", ptr %7, i32 0, i32 1
   call void @_ZN3ozz2io8IArchiversINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS9_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS9_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !38
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS9_EEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS9_EEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !30
+  %9 = load ptr, ptr %4, align 8, !tbaa !38
+  %10 = load i32, ptr %5, align 4, !tbaa !30
   call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
 }
 
@@ -1147,81 +1275,111 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %3 = alloca ptr, align 8
   %4 = alloca float, align 4
   %5 = alloca i64, align 8
-  %6 = alloca float, align 4
-  store ptr %0, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  store float -1.000000e+00, ptr %4, align 4
-  store i64 0, ptr %5, align 8
-  br label %8
+  %6 = alloca i32, align 4
+  %7 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #12
+  store float -1.000000e+00, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  store i64 0, ptr %5, align 8, !tbaa !11
+  br label %9
 
-8:                                                ; preds = %32, %1
-  %9 = load i64, ptr %5, align 8
-  %10 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.8", ptr %7, i32 0, i32 0
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #8
-  %12 = icmp ult i64 %9, %11
-  br i1 %12, label %13, label %35
+9:                                                ; preds = %37, %1
+  %10 = load i64, ptr %5, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.8", ptr %8, i32 0, i32 0
+  %12 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
+  %13 = icmp ult i64 %10, %12
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.8", ptr %7, i32 0, i32 0
-  %15 = load i64, ptr %5, align 8
-  %16 = call noundef nonnull align 4 dereferenceable(20) ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %15) #8
-  %17 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %16, i32 0, i32 1
-  %18 = load float, ptr %17, align 4
-  store float %18, ptr %6, align 4
-  %19 = load float, ptr %6, align 4
-  %20 = fcmp olt float %19, 0.000000e+00
-  br i1 %20, label %24, label %21
+14:                                               ; preds = %9
+  store i32 2, ptr %6, align 4
+  br label %40
 
-21:                                               ; preds = %13
-  %22 = load float, ptr %6, align 4
-  %23 = fcmp ogt float %22, 1.000000e+00
-  br i1 %23, label %24, label %25
+15:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  %16 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.8", ptr %8, i32 0, i32 0
+  %17 = load i64, ptr %5, align 8, !tbaa !11
+  %18 = call noundef nonnull align 4 dereferenceable(20) ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %17) #12
+  %19 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %18, i32 0, i32 1
+  %20 = load float, ptr %19, align 4, !tbaa !46
+  store float %20, ptr %7, align 4, !tbaa !9
+  %21 = load float, ptr %7, align 4, !tbaa !9
+  %22 = fcmp olt float %21, 0.000000e+00
+  br i1 %22, label %26, label %23
 
-24:                                               ; preds = %21, %13
+23:                                               ; preds = %15
+  %24 = load float, ptr %7, align 4, !tbaa !9
+  %25 = fcmp ogt float %24, 1.000000e+00
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %23, %15
   store i1 false, ptr %2, align 1
-  br label %36
+  store i32 1, ptr %6, align 4
+  br label %34
 
-25:                                               ; preds = %21
-  %26 = load float, ptr %6, align 4
-  %27 = load float, ptr %4, align 4
-  %28 = fcmp ole float %26, %27
-  br i1 %28, label %29, label %30
+27:                                               ; preds = %23
+  %28 = load float, ptr %7, align 4, !tbaa !9
+  %29 = load float, ptr %4, align 4, !tbaa !9
+  %30 = fcmp ole float %28, %29
+  br i1 %30, label %31, label %32
 
-29:                                               ; preds = %25
+31:                                               ; preds = %27
   store i1 false, ptr %2, align 1
-  br label %36
+  store i32 1, ptr %6, align 4
+  br label %34
 
-30:                                               ; preds = %25
-  %31 = load float, ptr %6, align 4
-  store float %31, ptr %4, align 4
-  br label %32
+32:                                               ; preds = %27
+  %33 = load float, ptr %7, align 4, !tbaa !9
+  store float %33, ptr %4, align 4, !tbaa !9
+  store i32 0, ptr %6, align 4
+  br label %34
 
-32:                                               ; preds = %30
-  %33 = load i64, ptr %5, align 8
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %5, align 8
-  br label %8, !llvm.loop !8
+34:                                               ; preds = %32, %31, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  %35 = load i32, ptr %6, align 4
+  switch i32 %35, label %40 [
+    i32 0, label %36
+  ]
 
-35:                                               ; preds = %8
+36:                                               ; preds = %34
+  br label %37
+
+37:                                               ; preds = %36
+  %38 = load i64, ptr %5, align 8, !tbaa !11
+  %39 = add i64 %38, 1
+  store i64 %39, ptr %5, align 8, !tbaa !11
+  br label %9, !llvm.loop !49
+
+40:                                               ; preds = %34, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  %41 = load i32, ptr %6, align 4
+  switch i32 %41, label %43 [
+    i32 2, label %42
+  ]
+
+42:                                               ; preds = %40
   store i1 true, ptr %2, align 1
-  br label %36
+  store i32 1, ptr %6, align 4
+  br label %43
 
-36:                                               ; preds = %35, %29, %24
-  %37 = load i1, ptr %2, align 1
-  ret i1 %37
+43:                                               ; preds = %42, %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #12
+  %44 = load i1, ptr %2, align 1
+  ret i1 %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !52
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !55
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -1233,79 +1391,81 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(20) ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !50
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %8, i64 %9
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !55
+  %9 = load i64, ptr %4, align 8, !tbaa !11
+  %10 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %8, i64 %9
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZNK3ozz9animation7offline8internal8RawTrackINS_4math6Float3EE4SaveERNS_2io8OArchiveE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #1 comdat align 2 {
+define weak_odr dso_local void @_ZNK3ozz9animation7offline8internal8RawTrackINS_4math6Float3EE4SaveERNS_2io8OArchiveE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store ptr %1, ptr %4, align 8, !tbaa !24
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.8", ptr %5, i32 0, i32 0
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.8", ptr %5, i32 0, i32 0
   call void @_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS9_EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.8", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8, !tbaa !24
+  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.8", ptr %5, i32 0, i32 1
   call void @_ZN3ozz2io8OArchivelsINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS9_EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS9_EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !50
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS9_EEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS9_EEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !50
   call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS8_EEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float3EE4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #1 comdat align 2 {
+define weak_odr dso_local void @_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float3EE4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !44
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  store i32 %2, ptr %6, align 4, !tbaa !30
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.8", ptr %7, i32 0, i32 0
+  %8 = load ptr, ptr %5, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.8", ptr %7, i32 0, i32 0
   call void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS9_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.8", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8, !tbaa !28
+  %11 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.8", ptr %7, i32 0, i32 1
   call void @_ZN3ozz2io8IArchiversINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS9_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS9_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !50
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS9_EEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS9_EEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !30
+  %9 = load ptr, ptr %4, align 8, !tbaa !50
+  %10 = load i32, ptr %5, align 4, !tbaa !30
   call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
 }
 
@@ -1315,81 +1475,111 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %3 = alloca ptr, align 8
   %4 = alloca float, align 4
   %5 = alloca i64, align 8
-  %6 = alloca float, align 4
-  store ptr %0, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  store float -1.000000e+00, ptr %4, align 4
-  store i64 0, ptr %5, align 8
-  br label %8
+  %6 = alloca i32, align 4
+  %7 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #12
+  store float -1.000000e+00, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  store i64 0, ptr %5, align 8, !tbaa !11
+  br label %9
 
-8:                                                ; preds = %32, %1
-  %9 = load i64, ptr %5, align 8
-  %10 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.14", ptr %7, i32 0, i32 0
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #8
-  %12 = icmp ult i64 %9, %11
-  br i1 %12, label %13, label %35
+9:                                                ; preds = %37, %1
+  %10 = load i64, ptr %5, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.14", ptr %8, i32 0, i32 0
+  %12 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
+  %13 = icmp ult i64 %10, %12
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.14", ptr %7, i32 0, i32 0
-  %15 = load i64, ptr %5, align 8
-  %16 = call noundef nonnull align 4 dereferenceable(24) ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %15) #8
-  %17 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %16, i32 0, i32 1
-  %18 = load float, ptr %17, align 4
-  store float %18, ptr %6, align 4
-  %19 = load float, ptr %6, align 4
-  %20 = fcmp olt float %19, 0.000000e+00
-  br i1 %20, label %24, label %21
+14:                                               ; preds = %9
+  store i32 2, ptr %6, align 4
+  br label %40
 
-21:                                               ; preds = %13
-  %22 = load float, ptr %6, align 4
-  %23 = fcmp ogt float %22, 1.000000e+00
-  br i1 %23, label %24, label %25
+15:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  %16 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.14", ptr %8, i32 0, i32 0
+  %17 = load i64, ptr %5, align 8, !tbaa !11
+  %18 = call noundef nonnull align 4 dereferenceable(24) ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %17) #12
+  %19 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %18, i32 0, i32 1
+  %20 = load float, ptr %19, align 4, !tbaa !58
+  store float %20, ptr %7, align 4, !tbaa !9
+  %21 = load float, ptr %7, align 4, !tbaa !9
+  %22 = fcmp olt float %21, 0.000000e+00
+  br i1 %22, label %26, label %23
 
-24:                                               ; preds = %21, %13
+23:                                               ; preds = %15
+  %24 = load float, ptr %7, align 4, !tbaa !9
+  %25 = fcmp ogt float %24, 1.000000e+00
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %23, %15
   store i1 false, ptr %2, align 1
-  br label %36
+  store i32 1, ptr %6, align 4
+  br label %34
 
-25:                                               ; preds = %21
-  %26 = load float, ptr %6, align 4
-  %27 = load float, ptr %4, align 4
-  %28 = fcmp ole float %26, %27
-  br i1 %28, label %29, label %30
+27:                                               ; preds = %23
+  %28 = load float, ptr %7, align 4, !tbaa !9
+  %29 = load float, ptr %4, align 4, !tbaa !9
+  %30 = fcmp ole float %28, %29
+  br i1 %30, label %31, label %32
 
-29:                                               ; preds = %25
+31:                                               ; preds = %27
   store i1 false, ptr %2, align 1
-  br label %36
+  store i32 1, ptr %6, align 4
+  br label %34
 
-30:                                               ; preds = %25
-  %31 = load float, ptr %6, align 4
-  store float %31, ptr %4, align 4
-  br label %32
+32:                                               ; preds = %27
+  %33 = load float, ptr %7, align 4, !tbaa !9
+  store float %33, ptr %4, align 4, !tbaa !9
+  store i32 0, ptr %6, align 4
+  br label %34
 
-32:                                               ; preds = %30
-  %33 = load i64, ptr %5, align 8
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %5, align 8
-  br label %8, !llvm.loop !9
+34:                                               ; preds = %32, %31, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  %35 = load i32, ptr %6, align 4
+  switch i32 %35, label %40 [
+    i32 0, label %36
+  ]
 
-35:                                               ; preds = %8
+36:                                               ; preds = %34
+  br label %37
+
+37:                                               ; preds = %36
+  %38 = load i64, ptr %5, align 8, !tbaa !11
+  %39 = add i64 %38, 1
+  store i64 %39, ptr %5, align 8, !tbaa !11
+  br label %9, !llvm.loop !61
+
+40:                                               ; preds = %34, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  %41 = load i32, ptr %6, align 4
+  switch i32 %41, label %43 [
+    i32 2, label %42
+  ]
+
+42:                                               ; preds = %40
   store i1 true, ptr %2, align 1
-  br label %36
+  store i32 1, ptr %6, align 4
+  br label %43
 
-36:                                               ; preds = %35, %29, %24
-  %37 = load i1, ptr %2, align 1
-  ret i1 %37
+43:                                               ; preds = %42, %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #12
+  %44 = load i1, ptr %2, align 1
+  ret i1 %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !62
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !64
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !67
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -1401,79 +1591,81 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(24) ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %8, i64 %9
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !67
+  %9 = load i64, ptr %4, align 8, !tbaa !11
+  %10 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %8, i64 %9
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZNK3ozz9animation7offline8internal8RawTrackINS_4math6Float4EE4SaveERNS_2io8OArchiveE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #1 comdat align 2 {
+define weak_odr dso_local void @_ZNK3ozz9animation7offline8internal8RawTrackINS_4math6Float4EE4SaveERNS_2io8OArchiveE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !24
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.14", ptr %5, i32 0, i32 0
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.14", ptr %5, i32 0, i32 0
   call void @_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS9_EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.14", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8, !tbaa !24
+  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.14", ptr %5, i32 0, i32 1
   call void @_ZN3ozz2io8OArchivelsINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS9_EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS9_EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !62
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS9_EEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS9_EEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !62
   call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS8_EEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float4EE4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #1 comdat align 2 {
+define weak_odr dso_local void @_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float4EE4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !56
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  store i32 %2, ptr %6, align 4, !tbaa !30
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.14", ptr %7, i32 0, i32 0
+  %8 = load ptr, ptr %5, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.14", ptr %7, i32 0, i32 0
   call void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS9_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.14", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8, !tbaa !28
+  %11 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.14", ptr %7, i32 0, i32 1
   call void @_ZN3ozz2io8IArchiversINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS9_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS9_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !62
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS9_EEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS9_EEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !30
+  %9 = load ptr, ptr %4, align 8, !tbaa !62
+  %10 = load i32, ptr %5, align 4, !tbaa !30
   call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
 }
 
@@ -1483,81 +1675,111 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %3 = alloca ptr, align 8
   %4 = alloca float, align 4
   %5 = alloca i64, align 8
-  %6 = alloca float, align 4
-  store ptr %0, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  store float -1.000000e+00, ptr %4, align 4
-  store i64 0, ptr %5, align 8
-  br label %8
+  %6 = alloca i32, align 4
+  %7 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !68
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #12
+  store float -1.000000e+00, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  store i64 0, ptr %5, align 8, !tbaa !11
+  br label %9
 
-8:                                                ; preds = %32, %1
-  %9 = load i64, ptr %5, align 8
-  %10 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.20", ptr %7, i32 0, i32 0
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #8
-  %12 = icmp ult i64 %9, %11
-  br i1 %12, label %13, label %35
+9:                                                ; preds = %37, %1
+  %10 = load i64, ptr %5, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.20", ptr %8, i32 0, i32 0
+  %12 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
+  %13 = icmp ult i64 %10, %12
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.20", ptr %7, i32 0, i32 0
-  %15 = load i64, ptr %5, align 8
-  %16 = call noundef nonnull align 4 dereferenceable(24) ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %15) #8
-  %17 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %16, i32 0, i32 1
-  %18 = load float, ptr %17, align 4
-  store float %18, ptr %6, align 4
-  %19 = load float, ptr %6, align 4
-  %20 = fcmp olt float %19, 0.000000e+00
-  br i1 %20, label %24, label %21
+14:                                               ; preds = %9
+  store i32 2, ptr %6, align 4
+  br label %40
 
-21:                                               ; preds = %13
-  %22 = load float, ptr %6, align 4
-  %23 = fcmp ogt float %22, 1.000000e+00
-  br i1 %23, label %24, label %25
+15:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  %16 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.20", ptr %8, i32 0, i32 0
+  %17 = load i64, ptr %5, align 8, !tbaa !11
+  %18 = call noundef nonnull align 4 dereferenceable(24) ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %17) #12
+  %19 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %18, i32 0, i32 1
+  %20 = load float, ptr %19, align 4, !tbaa !70
+  store float %20, ptr %7, align 4, !tbaa !9
+  %21 = load float, ptr %7, align 4, !tbaa !9
+  %22 = fcmp olt float %21, 0.000000e+00
+  br i1 %22, label %26, label %23
 
-24:                                               ; preds = %21, %13
+23:                                               ; preds = %15
+  %24 = load float, ptr %7, align 4, !tbaa !9
+  %25 = fcmp ogt float %24, 1.000000e+00
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %23, %15
   store i1 false, ptr %2, align 1
-  br label %36
+  store i32 1, ptr %6, align 4
+  br label %34
 
-25:                                               ; preds = %21
-  %26 = load float, ptr %6, align 4
-  %27 = load float, ptr %4, align 4
-  %28 = fcmp ole float %26, %27
-  br i1 %28, label %29, label %30
+27:                                               ; preds = %23
+  %28 = load float, ptr %7, align 4, !tbaa !9
+  %29 = load float, ptr %4, align 4, !tbaa !9
+  %30 = fcmp ole float %28, %29
+  br i1 %30, label %31, label %32
 
-29:                                               ; preds = %25
+31:                                               ; preds = %27
   store i1 false, ptr %2, align 1
-  br label %36
+  store i32 1, ptr %6, align 4
+  br label %34
 
-30:                                               ; preds = %25
-  %31 = load float, ptr %6, align 4
-  store float %31, ptr %4, align 4
-  br label %32
+32:                                               ; preds = %27
+  %33 = load float, ptr %7, align 4, !tbaa !9
+  store float %33, ptr %4, align 4, !tbaa !9
+  store i32 0, ptr %6, align 4
+  br label %34
 
-32:                                               ; preds = %30
-  %33 = load i64, ptr %5, align 8
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %5, align 8
-  br label %8, !llvm.loop !10
+34:                                               ; preds = %32, %31, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  %35 = load i32, ptr %6, align 4
+  switch i32 %35, label %40 [
+    i32 0, label %36
+  ]
 
-35:                                               ; preds = %8
+36:                                               ; preds = %34
+  br label %37
+
+37:                                               ; preds = %36
+  %38 = load i64, ptr %5, align 8, !tbaa !11
+  %39 = add i64 %38, 1
+  store i64 %39, ptr %5, align 8, !tbaa !11
+  br label %9, !llvm.loop !73
+
+40:                                               ; preds = %34, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  %41 = load i32, ptr %6, align 4
+  switch i32 %41, label %43 [
+    i32 2, label %42
+  ]
+
+42:                                               ; preds = %40
   store i1 true, ptr %2, align 1
-  br label %36
+  store i32 1, ptr %6, align 4
+  br label %43
 
-36:                                               ; preds = %35, %29, %24
-  %37 = load i1, ptr %2, align 1
-  ret i1 %37
+43:                                               ; preds = %42, %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #12
+  %44 = load i1, ptr %2, align 1
+  ret i1 %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !76
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !79
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -1569,609 +1791,589 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(24) ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !74
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %8, i64 %9
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !79
+  %9 = load i64, ptr %4, align 8, !tbaa !11
+  %10 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %8, i64 %9
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZNK3ozz9animation7offline8internal8RawTrackINS_4math10QuaternionEE4SaveERNS_2io8OArchiveE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #1 comdat align 2 {
+define weak_odr dso_local void @_ZNK3ozz9animation7offline8internal8RawTrackINS_4math10QuaternionEE4SaveERNS_2io8OArchiveE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !68
+  store ptr %1, ptr %4, align 8, !tbaa !24
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.20", ptr %5, i32 0, i32 0
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.20", ptr %5, i32 0, i32 0
   call void @_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS9_EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.20", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8, !tbaa !24
+  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.20", ptr %5, i32 0, i32 1
   call void @_ZN3ozz2io8OArchivelsINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS9_EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS9_EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !74
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS9_EEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS9_EEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !74
   call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS8_EEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZN3ozz9animation7offline8internal8RawTrackINS_4math10QuaternionEE4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #1 comdat align 2 {
+define weak_odr dso_local void @_ZN3ozz9animation7offline8internal8RawTrackINS_4math10QuaternionEE4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !68
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  store i32 %2, ptr %6, align 4, !tbaa !30
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.20", ptr %7, i32 0, i32 0
+  %8 = load ptr, ptr %5, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.20", ptr %7, i32 0, i32 0
   call void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS9_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %"struct.ozz::animation::offline::internal::RawTrack.20", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8, !tbaa !28
+  %11 = getelementptr inbounds nuw %"struct.ozz::animation::offline::internal::RawTrack.20", ptr %7, i32 0, i32 1
   call void @_ZN3ozz2io8IArchiversINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS9_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS9_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !74
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS9_EEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS9_EEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !30
+  %9 = load ptr, ptr %4, align 8, !tbaa !74
+  %10 = load i32, ptr %5, align 4, !tbaa !30
   call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS7_EEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS7_EEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS6_EEEE4SaveERNS0_8OArchiveEPKS9_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
-  %4 = alloca %"struct.ozz::io::internal::Array", align 8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS6_EEEE4SaveERNS0_8OArchiveEPKS9_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  %7 = alloca ptr, align 8
+  %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
-  %13 = alloca %"struct.ozz::io::internal::Array", align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i64 %2, ptr %9, align 8
-  store i64 0, ptr %10, align 8
-  br label %14
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.ozz::io::internal::Array", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8, !tbaa !11
+  br label %11
 
-14:                                               ; preds = %44, %3
-  %15 = load i64, ptr %10, align 8
-  %16 = load i64, ptr %9, align 8
-  %17 = icmp ult i64 %15, %16
-  br i1 %17, label %18, label %47
+11:                                               ; preds = %39, %3
+  %12 = load i64, ptr %7, align 8, !tbaa !11
+  %13 = load i64, ptr %6, align 8, !tbaa !11
+  %14 = icmp ult i64 %12, %13
+  br i1 %14, label %16, label %15
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %8, align 8
-  %20 = load i64, ptr %10, align 8
-  %21 = getelementptr inbounds %"class.std::vector", ptr %19, i64 %20
-  store ptr %21, ptr %11, align 8
-  %22 = load ptr, ptr %11, align 8
-  %23 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #8
-  %24 = trunc i64 %23 to i32
-  store i32 %24, ptr %12, align 4
-  %25 = load ptr, ptr %7, align 8
-  %26 = load i32, ptr %12, align 4
-  call void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %25, i32 noundef %26)
-  %27 = load i32, ptr %12, align 4
-  %28 = icmp ugt i32 %27, 0
-  br i1 %28, label %29, label %43
+15:                                               ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %42
 
-29:                                               ; preds = %18
-  %30 = load ptr, ptr %7, align 8
-  %31 = load ptr, ptr %11, align 8
-  %32 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #8
-  %33 = load i32, ptr %12, align 4
-  %34 = zext i32 %33 to i64
-  store ptr %32, ptr %5, align 8
-  store i64 %34, ptr %6, align 8
-  %35 = load ptr, ptr %5, align 8
-  store ptr %35, ptr %4, align 8
-  %36 = getelementptr inbounds %"struct.ozz::io::internal::Array", ptr %4, i32 0, i32 1
-  %37 = load i64, ptr %6, align 8
+16:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %17 = load ptr, ptr %5, align 8, !tbaa !18
+  %18 = load i64, ptr %7, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %"class.std::vector", ptr %17, i64 %18
+  store ptr %19, ptr %8, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  %20 = load ptr, ptr %8, align 8, !tbaa !18
+  %21 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #12
+  %22 = trunc i64 %21 to i32
+  store i32 %22, ptr %9, align 4, !tbaa !30
+  %23 = load ptr, ptr %4, align 8, !tbaa !24
+  %24 = load i32, ptr %9, align 4, !tbaa !30
+  call void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %23, i32 noundef %24)
+  %25 = load i32, ptr %9, align 4, !tbaa !30
+  %26 = icmp ugt i32 %25, 0
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %16
+  %28 = load ptr, ptr %4, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #12
+  %29 = load ptr, ptr %8, align 8, !tbaa !18
+  %30 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #12
+  %31 = load i32, ptr %9, align 4, !tbaa !30
+  %32 = zext i32 %31 to i64
+  %33 = call { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeIfEEEEKNS0_8internal5ArrayIKT_EEPS9_m(ptr noundef %30, i64 noundef %32)
+  %34 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
+  %35 = extractvalue { ptr, i64 } %33, 0
+  store ptr %35, ptr %34, align 8
+  %36 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
+  %37 = extractvalue { ptr, i64 } %33, 1
   store i64 %37, ptr %36, align 8
-  %38 = load { ptr, i64 }, ptr %4, align 8
-  %39 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 0
-  %40 = extractvalue { ptr, i64 } %38, 0
-  store ptr %40, ptr %39, align 8
-  %41 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 1
-  %42 = extractvalue { ptr, i64 } %38, 1
-  store i64 %42, ptr %41, align 8
-  call void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %30, ptr noundef nonnull align 8 dereferenceable(16) %13)
-  br label %43
+  call void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #12
+  br label %38
 
-43:                                               ; preds = %29, %18
-  br label %44
+38:                                               ; preds = %27, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  br label %39
 
-44:                                               ; preds = %43
-  %45 = load i64, ptr %10, align 8
-  %46 = add i64 %45, 1
-  store i64 %46, ptr %10, align 8
-  br label %14, !llvm.loop !11
+39:                                               ; preds = %38
+  %40 = load i64, ptr %7, align 8, !tbaa !11
+  %41 = add i64 %40, 1
+  store i64 %41, ptr %7, align 8, !tbaa !11
+  br label %11, !llvm.loop !80
 
-47:                                               ; preds = %14
+42:                                               ; preds = %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %0, i32 noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %0, i32 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca i32, align 4
-  store ptr %0, ptr %9, align 8
-  store i32 %1, ptr %10, align 4
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds %"class.ozz::io::OArchive", ptr %12, i32 0, i32 1
-  %14 = load i8, ptr %13, align 8
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %80
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store i32 %1, ptr %4, align 4, !tbaa !30
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
+  %7 = getelementptr inbounds nuw %"class.ozz::io::OArchive", ptr %6, i32 0, i32 1
+  %8 = load i8, ptr %7, align 8, !tbaa !81, !range !85, !noundef !86
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %13
 
-16:                                               ; preds = %2
-  %17 = load i32, ptr %10, align 4
-  store i32 %17, ptr %7, align 4
-  store ptr %7, ptr %8, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 3
-  store ptr %18, ptr %3, align 8
-  store ptr %20, ptr %4, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = load ptr, ptr %4, align 8
-  %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i32
-  %27 = xor i32 %23, %26
-  %28 = trunc i32 %27 to i8
-  %29 = load ptr, ptr %3, align 8
-  store i8 %28, ptr %29, align 1
-  %30 = load ptr, ptr %3, align 8
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  %33 = load ptr, ptr %4, align 8
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = xor i32 %32, %35
-  %37 = trunc i32 %36 to i8
-  %38 = load ptr, ptr %4, align 8
-  store i8 %37, ptr %38, align 1
-  %39 = load ptr, ptr %3, align 8
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = load ptr, ptr %4, align 8
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  %45 = xor i32 %41, %44
-  %46 = trunc i32 %45 to i8
-  %47 = load ptr, ptr %3, align 8
-  store i8 %46, ptr %47, align 1
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1
-  %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 2
-  store ptr %49, ptr %5, align 8
-  store ptr %51, ptr %6, align 8
-  %52 = load ptr, ptr %5, align 8
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = load ptr, ptr %6, align 8
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = xor i32 %54, %57
-  %59 = trunc i32 %58 to i8
-  %60 = load ptr, ptr %5, align 8
-  store i8 %59, ptr %60, align 1
-  %61 = load ptr, ptr %5, align 8
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = load ptr, ptr %6, align 8
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = xor i32 %63, %66
-  %68 = trunc i32 %67 to i8
-  %69 = load ptr, ptr %6, align 8
-  store i8 %68, ptr %69, align 1
-  %70 = load ptr, ptr %5, align 8
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i32
-  %73 = load ptr, ptr %6, align 8
-  %74 = load i8, ptr %73, align 1
-  %75 = zext i8 %74 to i32
-  %76 = xor i32 %72, %75
-  %77 = trunc i32 %76 to i8
-  %78 = load ptr, ptr %5, align 8
-  store i8 %77, ptr %78, align 1
-  %79 = load i32, ptr %7, align 4
-  br label %82
+10:                                               ; preds = %2
+  %11 = load i32, ptr %4, align 4, !tbaa !30
+  %12 = call noundef i32 @_ZN3ozz13EndianSwapperIjLm4EE4SwapEj(i32 noundef %11)
+  br label %15
 
-80:                                               ; preds = %2
-  %81 = load i32, ptr %10, align 4
-  br label %82
+13:                                               ; preds = %2
+  %14 = load i32, ptr %4, align 4, !tbaa !30
+  br label %15
 
-82:                                               ; preds = %80, %16
-  %83 = phi i32 [ %79, %16 ], [ %81, %80 ]
-  store i32 %83, ptr %11, align 4
-  %84 = getelementptr inbounds %"class.ozz::io::OArchive", ptr %12, i32 0, i32 0
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds ptr, ptr %86, i64 2
-  %88 = load ptr, ptr %87, align 8
-  %89 = call noundef i64 %88(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef %11, i64 noundef 4)
+15:                                               ; preds = %13, %10
+  %16 = phi i32 [ %12, %10 ], [ %14, %13 ]
+  store i32 %16, ptr %5, align 4, !tbaa !30
+  %17 = getelementptr inbounds nuw %"class.ozz::io::OArchive", ptr %6, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !87
+  %19 = load ptr, ptr %18, align 8, !tbaa !88
+  %20 = getelementptr inbounds ptr, ptr %19, i64 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %5, i64 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !90
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !90
   call void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEEE4SaveERNS0_8OArchiveEPKS9_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeIfEEEEKNS0_8internal5ArrayIKT_EEPS9_m(ptr noundef %0, i64 noundef %1) #4 comdat {
+  %3 = alloca %"struct.ozz::io::internal::Array", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !92
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array", ptr %3, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !92
+  store ptr %7, ptr %6, align 8, !tbaa !93
+  %8 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array", ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %5, align 8, !tbaa !11
+  store i64 %9, ptr %8, align 8, !tbaa !95
+  %10 = load { ptr, i64 }, ptr %3, align 8
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE11_M_data_ptrIS4_EEPT_SA_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
+  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE11_M_data_ptrIS4_EEPT_SA_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #12
   ret ptr %7
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef i32 @_ZN3ozz13EndianSwapperIjLm4EE4SwapEj(i32 noundef %0) #5 comdat align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store i32 %0, ptr %2, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  store ptr %2, ptr %3, align 8, !tbaa !96
+  %4 = load ptr, ptr %3, align 8, !tbaa !96
+  %5 = getelementptr inbounds i8, ptr %4, i64 0
+  %6 = load ptr, ptr %3, align 8, !tbaa !96
+  %7 = getelementptr inbounds i8, ptr %6, i64 3
+  call void @_ZN3ozz19_in_place_byte_swapERhS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %8 = load ptr, ptr %3, align 8, !tbaa !96
+  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %10 = load ptr, ptr %3, align 8, !tbaa !96
+  %11 = getelementptr inbounds i8, ptr %10, i64 2
+  call void @_ZN3ozz19_in_place_byte_swapERhS0_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %12 = load i32, ptr %2, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
+  ret i32 %12
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3ozz19_in_place_byte_swapERhS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !96
+  store ptr %1, ptr %4, align 8, !tbaa !96
+  %5 = load ptr, ptr %3, align 8, !tbaa !96
+  %6 = load i8, ptr %5, align 1, !tbaa !98
+  %7 = zext i8 %6 to i32
+  %8 = load ptr, ptr %4, align 8, !tbaa !96
+  %9 = load i8, ptr %8, align 1, !tbaa !98
+  %10 = zext i8 %9 to i32
+  %11 = xor i32 %7, %10
+  %12 = trunc i32 %11 to i8
+  %13 = load ptr, ptr %3, align 8, !tbaa !96
+  store i8 %12, ptr %13, align 1, !tbaa !98
+  %14 = load ptr, ptr %3, align 8, !tbaa !96
+  %15 = load i8, ptr %14, align 1, !tbaa !98
+  %16 = zext i8 %15 to i32
+  %17 = load ptr, ptr %4, align 8, !tbaa !96
+  %18 = load i8, ptr %17, align 1, !tbaa !98
+  %19 = zext i8 %18 to i32
+  %20 = xor i32 %16, %19
+  %21 = trunc i32 %20 to i8
+  %22 = load ptr, ptr %4, align 8, !tbaa !96
+  store i8 %21, ptr %22, align 1, !tbaa !98
+  %23 = load ptr, ptr %3, align 8, !tbaa !96
+  %24 = load i8, ptr %23, align 1, !tbaa !98
+  %25 = zext i8 %24 to i32
+  %26 = load ptr, ptr %4, align 8, !tbaa !96
+  %27 = load i8, ptr %26, align 1, !tbaa !98
+  %28 = zext i8 %27 to i32
+  %29 = xor i32 %25, %28
+  %30 = trunc i32 %29 to i8
+  %31 = load ptr, ptr %3, align 8, !tbaa !96
+  store i8 %30, ptr %31, align 1, !tbaa !98
+  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   %4 = load ptr, ptr %2, align 8
-  store i32 1, ptr %3, align 4
-  %5 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 1, ptr %3, align 4, !tbaa !30
+  %5 = load i32, ptr %3, align 4, !tbaa !30
   call void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %4, i32 noundef %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEEE4SaveERNS0_8OArchiveEPKS9_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEEE4SaveERNS0_8OArchiveEPKS9_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i64, align 8
-  %9 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i64 %2, ptr %8, align 8
-  store i64 0, ptr %9, align 8
-  br label %10
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !90
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8, !tbaa !11
+  br label %8
 
-10:                                               ; preds = %24, %3
-  %11 = load i64, ptr %9, align 8
-  %12 = load i64, ptr %8, align 8
-  %13 = icmp ult i64 %11, %12
-  br i1 %13, label %14, label %27
+8:                                                ; preds = %18, %3
+  %9 = load i64, ptr %7, align 8, !tbaa !11
+  %10 = load i64, ptr %6, align 8, !tbaa !11
+  %11 = icmp ult i64 %9, %10
+  br i1 %11, label %13, label %12
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %7, align 8
-  %16 = load i64, ptr %9, align 8
-  %17 = getelementptr inbounds %"struct.ozz::io::internal::Array", ptr %15, i64 %16
-  %18 = load ptr, ptr %6, align 8
-  store ptr %17, ptr %4, align 8
-  store ptr %18, ptr %5, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds %"struct.ozz::io::internal::Array", ptr %19, i32 0, i32 1
-  %23 = load i64, ptr %22, align 8
-  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeIfEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %20, ptr noundef %21, i64 noundef %23)
-  br label %24
+12:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %21
 
-24:                                               ; preds = %14
-  %25 = load i64, ptr %9, align 8
-  %26 = add i64 %25, 1
-  store i64 %26, ptr %9, align 8
-  br label %10, !llvm.loop !12
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %5, align 8, !tbaa !90
+  %15 = load i64, ptr %7, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array", ptr %14, i64 %15
+  %17 = load ptr, ptr %4, align 8, !tbaa !24
+  call void @_ZNK3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEE4SaveERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(9) %17)
+  br label %18
 
-27:                                               ; preds = %10
+18:                                               ; preds = %13
+  %19 = load i64, ptr %7, align 8, !tbaa !11
+  %20 = add i64 %19, 1
+  store i64 %20, ptr %7, align 8, !tbaa !11
+  br label %8, !llvm.loop !99
+
+21:                                               ; preds = %12
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEE4SaveERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !90
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array", ptr %5, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !93
+  %9 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array", ptr %5, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !95
+  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeIfEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %8, i64 noundef %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeIfEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeIfEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  store i64 0, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8, !tbaa !11
   br label %10
 
-10:                                               ; preds = %32, %3
-  %11 = load i64, ptr %7, align 8
-  %12 = load i64, ptr %6, align 8
+10:                                               ; preds = %33, %3
+  %11 = load i64, ptr %7, align 8, !tbaa !11
+  %12 = load i64, ptr %6, align 8, !tbaa !11
   %13 = icmp ult i64 %11, %12
-  br i1 %13, label %14, label %35
+  br i1 %13, label %15, label %14
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i64, ptr %7, align 8
-  %17 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %15, i64 %16
-  store ptr %17, ptr %8, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %18, i32 0, i32 0
-  %20 = load i32, ptr %19, align 4
-  %21 = trunc i32 %20 to i8
-  store i8 %21, ptr %9, align 1
-  %22 = load ptr, ptr %4, align 8
-  %23 = load i8, ptr %9, align 1
-  call void @_ZN3ozz2io8OArchivelsEh(ptr noundef nonnull align 8 dereferenceable(9) %22, i8 noundef zeroext %23)
-  %24 = load ptr, ptr %4, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %25, i32 0, i32 1
-  %27 = load float, ptr %26, align 4
-  call void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %24, float noundef %27)
-  %28 = load ptr, ptr %4, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %29, i32 0, i32 2
-  %31 = load float, ptr %30, align 4
-  call void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %28, float noundef %31)
-  br label %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %36
 
-32:                                               ; preds = %14
-  %33 = load i64, ptr %7, align 8
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %7, align 8
-  br label %10, !llvm.loop !13
+15:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %16 = load ptr, ptr %5, align 8, !tbaa !92
+  %17 = load i64, ptr %7, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %16, i64 %17
+  store ptr %18, ptr %8, align 8, !tbaa !92
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #12
+  %19 = load ptr, ptr %8, align 8, !tbaa !92
+  %20 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %19, i32 0, i32 0
+  %21 = load i32, ptr %20, align 4, !tbaa !100
+  %22 = trunc i32 %21 to i8
+  store i8 %22, ptr %9, align 1, !tbaa !98
+  %23 = load ptr, ptr %4, align 8, !tbaa !24
+  %24 = load i8, ptr %9, align 1, !tbaa !98
+  call void @_ZN3ozz2io8OArchivelsEh(ptr noundef nonnull align 8 dereferenceable(9) %23, i8 noundef zeroext %24)
+  %25 = load ptr, ptr %4, align 8, !tbaa !24
+  %26 = load ptr, ptr %8, align 8, !tbaa !92
+  %27 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %26, i32 0, i32 1
+  %28 = load float, ptr %27, align 4, !tbaa !13
+  call void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %25, float noundef %28)
+  %29 = load ptr, ptr %4, align 8, !tbaa !24
+  %30 = load ptr, ptr %8, align 8, !tbaa !92
+  %31 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %30, i32 0, i32 2
+  %32 = load float, ptr %31, align 4, !tbaa !101
+  call void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %29, float noundef %32)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  br label %33
 
-35:                                               ; preds = %10
+33:                                               ; preds = %15
+  %34 = load i64, ptr %7, align 8, !tbaa !11
+  %35 = add i64 %34, 1
+  store i64 %35, ptr %7, align 8, !tbaa !11
+  br label %10, !llvm.loop !102
+
+36:                                               ; preds = %14
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsEh(ptr noundef nonnull align 8 dereferenceable(9) %0, i8 noundef zeroext %1) #1 comdat align 2 {
-  %3 = alloca i8, align 1
-  %4 = alloca ptr, align 8
-  %5 = alloca i8, align 1
-  %6 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  store i8 %1, ptr %5, align 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.ozz::io::OArchive", ptr %7, i32 0, i32 1
-  %9 = load i8, ptr %8, align 8
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %14
-
-11:                                               ; preds = %2
-  %12 = load i8, ptr %5, align 1
-  store i8 %12, ptr %3, align 1
-  %13 = load i8, ptr %3, align 1
-  br label %16
-
-14:                                               ; preds = %2
-  %15 = load i8, ptr %5, align 1
-  br label %16
-
-16:                                               ; preds = %14, %11
-  %17 = phi i8 [ %13, %11 ], [ %15, %14 ]
-  store i8 %17, ptr %6, align 1
-  %18 = getelementptr inbounds %"class.ozz::io::OArchive", ptr %7, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 2
-  %22 = load ptr, ptr %21, align 8
-  %23 = call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %6, i64 noundef 1)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %0, float noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsEh(ptr noundef nonnull align 8 dereferenceable(9) %0, i8 noundef zeroext %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca float, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca float, align 4
-  %11 = alloca float, align 4
-  store ptr %0, ptr %9, align 8
-  store float %1, ptr %10, align 4
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds %"class.ozz::io::OArchive", ptr %12, i32 0, i32 1
-  %14 = load i8, ptr %13, align 8
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %80
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store i8 %1, ptr %4, align 1, !tbaa !98
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #12
+  %7 = getelementptr inbounds nuw %"class.ozz::io::OArchive", ptr %6, i32 0, i32 1
+  %8 = load i8, ptr %7, align 8, !tbaa !81, !range !85, !noundef !86
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %13
 
-16:                                               ; preds = %2
-  %17 = load float, ptr %10, align 4
-  store float %17, ptr %7, align 4
-  store ptr %7, ptr %8, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 3
-  store ptr %18, ptr %3, align 8
-  store ptr %20, ptr %4, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = load ptr, ptr %4, align 8
-  %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i32
-  %27 = xor i32 %23, %26
-  %28 = trunc i32 %27 to i8
-  %29 = load ptr, ptr %3, align 8
-  store i8 %28, ptr %29, align 1
-  %30 = load ptr, ptr %3, align 8
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  %33 = load ptr, ptr %4, align 8
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = xor i32 %32, %35
-  %37 = trunc i32 %36 to i8
-  %38 = load ptr, ptr %4, align 8
-  store i8 %37, ptr %38, align 1
-  %39 = load ptr, ptr %3, align 8
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = load ptr, ptr %4, align 8
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  %45 = xor i32 %41, %44
-  %46 = trunc i32 %45 to i8
-  %47 = load ptr, ptr %3, align 8
-  store i8 %46, ptr %47, align 1
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1
-  %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 2
-  store ptr %49, ptr %5, align 8
-  store ptr %51, ptr %6, align 8
-  %52 = load ptr, ptr %5, align 8
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = load ptr, ptr %6, align 8
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = xor i32 %54, %57
-  %59 = trunc i32 %58 to i8
-  %60 = load ptr, ptr %5, align 8
-  store i8 %59, ptr %60, align 1
-  %61 = load ptr, ptr %5, align 8
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = load ptr, ptr %6, align 8
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = xor i32 %63, %66
-  %68 = trunc i32 %67 to i8
-  %69 = load ptr, ptr %6, align 8
-  store i8 %68, ptr %69, align 1
-  %70 = load ptr, ptr %5, align 8
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i32
-  %73 = load ptr, ptr %6, align 8
-  %74 = load i8, ptr %73, align 1
-  %75 = zext i8 %74 to i32
-  %76 = xor i32 %72, %75
-  %77 = trunc i32 %76 to i8
-  %78 = load ptr, ptr %5, align 8
-  store i8 %77, ptr %78, align 1
-  %79 = load float, ptr %7, align 4
-  br label %82
+10:                                               ; preds = %2
+  %11 = load i8, ptr %4, align 1, !tbaa !98
+  %12 = call noundef zeroext i8 @_ZN3ozz13EndianSwapperIhLm1EE4SwapEh(i8 noundef zeroext %11)
+  br label %15
 
-80:                                               ; preds = %2
-  %81 = load float, ptr %10, align 4
-  br label %82
+13:                                               ; preds = %2
+  %14 = load i8, ptr %4, align 1, !tbaa !98
+  br label %15
 
-82:                                               ; preds = %80, %16
-  %83 = phi float [ %79, %16 ], [ %81, %80 ]
-  store float %83, ptr %11, align 4
-  %84 = getelementptr inbounds %"class.ozz::io::OArchive", ptr %12, i32 0, i32 0
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds ptr, ptr %86, i64 2
-  %88 = load ptr, ptr %87, align 8
-  %89 = call noundef i64 %88(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef %11, i64 noundef 4)
+15:                                               ; preds = %13, %10
+  %16 = phi i8 [ %12, %10 ], [ %14, %13 ]
+  store i8 %16, ptr %5, align 1, !tbaa !98
+  %17 = getelementptr inbounds nuw %"class.ozz::io::OArchive", ptr %6, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !87
+  %19 = load ptr, ptr %18, align 8, !tbaa !88
+  %20 = getelementptr inbounds ptr, ptr %19, i64 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %5, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #12
   ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %0, float noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  %5 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store float %1, ptr %4, align 4, !tbaa !9
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
+  %7 = getelementptr inbounds nuw %"class.ozz::io::OArchive", ptr %6, i32 0, i32 1
+  %8 = load i8, ptr %7, align 8, !tbaa !81, !range !85, !noundef !86
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %2
+  %11 = load float, ptr %4, align 4, !tbaa !9
+  %12 = call noundef float @_ZN3ozz13EndianSwapperIfLm4EE4SwapEf(float noundef %11)
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load float, ptr %4, align 4, !tbaa !9
+  br label %15
+
+15:                                               ; preds = %13, %10
+  %16 = phi float [ %12, %10 ], [ %14, %13 ]
+  store float %16, ptr %5, align 4, !tbaa !9
+  %17 = getelementptr inbounds nuw %"class.ozz::io::OArchive", ptr %6, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !87
+  %19 = load ptr, ptr %18, align 8, !tbaa !88
+  %20 = getelementptr inbounds ptr, ptr %19, i64 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %5, i64 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i8 @_ZN3ozz13EndianSwapperIhLm1EE4SwapEh(i8 noundef zeroext %0) #4 comdat align 2 {
+  %2 = alloca i8, align 1
+  store i8 %0, ptr %2, align 1, !tbaa !98
+  %3 = load i8, ptr %2, align 1, !tbaa !98
+  ret i8 %3
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef float @_ZN3ozz13EndianSwapperIfLm4EE4SwapEf(float noundef %0) #4 comdat align 2 {
+  %2 = alloca float, align 4
+  %3 = alloca ptr, align 8
+  store float %0, ptr %2, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  store ptr %2, ptr %3, align 8, !tbaa !96
+  %4 = load ptr, ptr %3, align 8, !tbaa !96
+  %5 = getelementptr inbounds i8, ptr %4, i64 0
+  %6 = load ptr, ptr %3, align 8, !tbaa !96
+  %7 = getelementptr inbounds i8, ptr %6, i64 3
+  call void @_ZN3ozz19_in_place_byte_swapERhS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %8 = load ptr, ptr %3, align 8, !tbaa !96
+  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %10 = load ptr, ptr %3, align 8, !tbaa !96
+  %11 = getelementptr inbounds i8, ptr %10, i64 2
+  call void @_ZN3ozz19_in_place_byte_swapERhS0_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %12 = load float, ptr %2, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
+  ret float %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE11_M_data_ptrIS4_EEPT_SA_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !92
+  %5 = load ptr, ptr %4, align 8, !tbaa !92
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
-declare void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef) #2
+declare void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS7_EEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   ret i1 true
 }
 
@@ -2179,235 +2381,161 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKSt
 define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS7_EEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4, !tbaa !30
+  %4 = load i32, ptr %3, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret i32 %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS6_EEEE4LoadERNS0_8IArchiveEPS9_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 comdat align 2 {
-  %5 = alloca %"struct.ozz::io::internal::Array.26", align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca i64, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca i32, align 4
-  %15 = alloca %"struct.ozz::io::internal::Array.26", align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
-  store i64 0, ptr %12, align 8
-  br label %16
-
-16:                                               ; preds = %45, %4
-  %17 = load i64, ptr %12, align 8
-  %18 = load i64, ptr %10, align 8
-  %19 = icmp ult i64 %17, %18
-  br i1 %19, label %20, label %48
-
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %9, align 8
-  %22 = load i64, ptr %12, align 8
-  %23 = getelementptr inbounds %"class.std::vector", ptr %21, i64 %22
-  store ptr %23, ptr %13, align 8
-  %24 = load ptr, ptr %8, align 8
-  call void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %24, ptr noundef nonnull align 4 dereferenceable(4) %14)
-  %25 = load ptr, ptr %13, align 8
-  %26 = load i32, ptr %14, align 4
-  %27 = zext i32 %26 to i64
-  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %27)
-  %28 = load i32, ptr %14, align 4
-  %29 = icmp ugt i32 %28, 0
-  br i1 %29, label %30, label %44
-
-30:                                               ; preds = %20
-  %31 = load ptr, ptr %8, align 8
-  %32 = load ptr, ptr %13, align 8
-  %33 = call noundef ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %32) #8
-  %34 = load i32, ptr %14, align 4
-  %35 = zext i32 %34 to i64
-  store ptr %33, ptr %6, align 8
-  store i64 %35, ptr %7, align 8
-  %36 = load ptr, ptr %6, align 8
-  store ptr %36, ptr %5, align 8
-  %37 = getelementptr inbounds %"struct.ozz::io::internal::Array.26", ptr %5, i32 0, i32 1
-  %38 = load i64, ptr %7, align 8
-  store i64 %38, ptr %37, align 8
-  %39 = load { ptr, i64 }, ptr %5, align 8
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %15, i32 0, i32 0
-  %41 = extractvalue { ptr, i64 } %39, 0
-  store ptr %41, ptr %40, align 8
-  %42 = getelementptr inbounds { ptr, i64 }, ptr %15, i32 0, i32 1
-  %43 = extractvalue { ptr, i64 } %39, 1
-  store i64 %43, ptr %42, align 8
-  call void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %31, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  br label %44
-
-44:                                               ; preds = %30, %20
-  br label %45
-
-45:                                               ; preds = %44
-  %46 = load i64, ptr %12, align 8
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %12, align 8
-  br label %16, !llvm.loop !14
-
-48:                                               ; preds = %16
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #1 comdat align 2 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS6_EEEE4LoadERNS0_8IArchiveEPS9_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #3 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  store ptr %0, ptr %9, align 8
-  store ptr %1, ptr %10, align 8
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds %"class.ozz::io::IArchive", ptr %12, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 1
-  %17 = load ptr, ptr %16, align 8
-  %18 = call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %11, i64 noundef 4)
-  %19 = getelementptr inbounds %"class.ozz::io::IArchive", ptr %12, i32 0, i32 1
-  %20 = load i8, ptr %19, align 8
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %22, label %86
+  %12 = alloca %"struct.ozz::io::internal::Array.26", align 8
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !18
+  store i64 %2, ptr %7, align 8, !tbaa !11
+  store i32 %3, ptr %8, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  store i64 0, ptr %9, align 8, !tbaa !11
+  br label %13
 
-22:                                               ; preds = %2
-  %23 = load i32, ptr %11, align 4
-  store i32 %23, ptr %7, align 4
-  store ptr %7, ptr %8, align 8
-  %24 = load ptr, ptr %8, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 3
-  store ptr %24, ptr %3, align 8
-  store ptr %26, ptr %4, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i32
-  %30 = load ptr, ptr %4, align 8
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  %33 = xor i32 %29, %32
-  %34 = trunc i32 %33 to i8
-  %35 = load ptr, ptr %3, align 8
-  store i8 %34, ptr %35, align 1
-  %36 = load ptr, ptr %3, align 8
-  %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i32
-  %39 = load ptr, ptr %4, align 8
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = xor i32 %38, %41
-  %43 = trunc i32 %42 to i8
-  %44 = load ptr, ptr %4, align 8
-  store i8 %43, ptr %44, align 1
-  %45 = load ptr, ptr %3, align 8
-  %46 = load i8, ptr %45, align 1
-  %47 = zext i8 %46 to i32
-  %48 = load ptr, ptr %4, align 8
-  %49 = load i8, ptr %48, align 1
-  %50 = zext i8 %49 to i32
-  %51 = xor i32 %47, %50
-  %52 = trunc i32 %51 to i8
-  %53 = load ptr, ptr %3, align 8
-  store i8 %52, ptr %53, align 1
-  %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 2
-  store ptr %55, ptr %5, align 8
-  store ptr %57, ptr %6, align 8
-  %58 = load ptr, ptr %5, align 8
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i32
-  %61 = load ptr, ptr %6, align 8
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = xor i32 %60, %63
-  %65 = trunc i32 %64 to i8
-  %66 = load ptr, ptr %5, align 8
-  store i8 %65, ptr %66, align 1
-  %67 = load ptr, ptr %5, align 8
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i32
-  %70 = load ptr, ptr %6, align 8
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i32
-  %73 = xor i32 %69, %72
-  %74 = trunc i32 %73 to i8
-  %75 = load ptr, ptr %6, align 8
-  store i8 %74, ptr %75, align 1
-  %76 = load ptr, ptr %5, align 8
-  %77 = load i8, ptr %76, align 1
-  %78 = zext i8 %77 to i32
-  %79 = load ptr, ptr %6, align 8
-  %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i32
-  %82 = xor i32 %78, %81
-  %83 = trunc i32 %82 to i8
-  %84 = load ptr, ptr %5, align 8
-  store i8 %83, ptr %84, align 1
-  %85 = load i32, ptr %7, align 4
-  br label %88
+13:                                               ; preds = %40, %4
+  %14 = load i64, ptr %9, align 8, !tbaa !11
+  %15 = load i64, ptr %7, align 8, !tbaa !11
+  %16 = icmp ult i64 %14, %15
+  br i1 %16, label %18, label %17
 
-86:                                               ; preds = %2
-  %87 = load i32, ptr %11, align 4
-  br label %88
+17:                                               ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %43
 
-88:                                               ; preds = %86, %22
-  %89 = phi i32 [ %85, %22 ], [ %87, %86 ]
-  %90 = load ptr, ptr %10, align 8
-  store i32 %89, ptr %90, align 4
+18:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %19 = load ptr, ptr %6, align 8, !tbaa !18
+  %20 = load i64, ptr %9, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw %"class.std::vector", ptr %19, i64 %20
+  store ptr %21, ptr %10, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #12
+  %22 = load ptr, ptr %5, align 8, !tbaa !28
+  call void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %22, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %23 = load ptr, ptr %10, align 8, !tbaa !18
+  %24 = load i32, ptr %11, align 4, !tbaa !30
+  %25 = zext i32 %24 to i64
+  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %25)
+  %26 = load i32, ptr %11, align 4, !tbaa !30
+  %27 = icmp ugt i32 %26, 0
+  br i1 %27, label %28, label %39
+
+28:                                               ; preds = %18
+  %29 = load ptr, ptr %5, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #12
+  %30 = load ptr, ptr %10, align 8, !tbaa !18
+  %31 = call noundef ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #12
+  %32 = load i32, ptr %11, align 4, !tbaa !30
+  %33 = zext i32 %32 to i64
+  %34 = call { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeIfEEEEKNS0_8internal5ArrayIT_EEPS8_m(ptr noundef %31, i64 noundef %33)
+  %35 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 0
+  %36 = extractvalue { ptr, i64 } %34, 0
+  store ptr %36, ptr %35, align 8
+  %37 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 1
+  %38 = extractvalue { ptr, i64 } %34, 1
+  store i64 %38, ptr %37, align 8
+  call void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #12
+  br label %39
+
+39:                                               ; preds = %28, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  br label %40
+
+40:                                               ; preds = %39
+  %41 = load i64, ptr %9, align 8, !tbaa !11
+  %42 = add i64 %41, 1
+  store i64 %42, ptr %9, align 8, !tbaa !11
+  br label %13, !llvm.loop !103
+
+43:                                               ; preds = %17
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !104
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
+  %7 = getelementptr inbounds nuw %"class.ozz::io::IArchive", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !106
+  %9 = load ptr, ptr %8, align 8, !tbaa !88
+  %10 = getelementptr inbounds ptr, ptr %9, i64 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %5, i64 noundef 4)
+  %13 = getelementptr inbounds nuw %"class.ozz::io::IArchive", ptr %6, i32 0, i32 1
+  %14 = load i8, ptr %13, align 8, !tbaa !108, !range !85, !noundef !86
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %19
+
+16:                                               ; preds = %2
+  %17 = load i32, ptr %5, align 4, !tbaa !30
+  %18 = call noundef i32 @_ZN3ozz13EndianSwapperIjLm4EE4SwapEj(i32 noundef %17)
+  br label %21
+
+19:                                               ; preds = %2
+  %20 = load i32, ptr %5, align 4, !tbaa !30
+  br label %21
+
+21:                                               ; preds = %19, %16
+  %22 = phi i32 [ %18, %16 ], [ %20, %19 ]
+  %23 = load ptr, ptr %4, align 8, !tbaa !104
+  store i32 %22, ptr %23, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %6 = load i64, ptr %4, align 8, !tbaa !11
+  %7 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   %8 = icmp ugt i64 %6, %7
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %2
-  %10 = load i64, ptr %4, align 8
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %10 = load i64, ptr %4, align 8, !tbaa !11
+  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   %12 = sub i64 %10, %11
   call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %12)
   br label %24
 
 13:                                               ; preds = %2
-  %14 = load i64, ptr %4, align 8
-  %15 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %14 = load i64, ptr %4, align 8, !tbaa !11
+  %15 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   %16 = icmp ult i64 %14, %15
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
-  %19 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i64, ptr %4, align 8
-  %22 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %20, i64 %21
-  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE15_M_erase_at_endEPS4_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %22) #8
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !23
+  %21 = load i64, ptr %4, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %20, i64 %21
+  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE15_M_erase_at_endEPS4_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %22) #12
   br label %23
 
 23:                                               ; preds = %17, %13
@@ -2418,36 +2546,55 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !109
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayINS_9animation7offline16RawTrackKeyframeIfEEEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !30
+  %9 = load ptr, ptr %4, align 8, !tbaa !109
+  %10 = load i32, ptr %5, align 4, !tbaa !30
   call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEEEE4LoadERNS0_8IArchiveEPS9_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeIfEEEEKNS0_8internal5ArrayIT_EEPS8_m(ptr noundef %0, i64 noundef %1) #4 comdat {
+  %3 = alloca %"struct.ozz::io::internal::Array.26", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !92
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.26", ptr %3, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !92
+  store ptr %7, ptr %6, align 8, !tbaa !111
+  %8 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.26", ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %5, align 8, !tbaa !11
+  store i64 %9, ptr %8, align 8, !tbaa !113
+  %10 = load { ptr, i64 }, ptr %3, align 8
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE11_M_data_ptrIS4_EEPT_SA_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
+  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE11_M_data_ptrIS4_EEPT_SA_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #12
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -2459,36 +2606,38 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %14 = load ptr, ptr %3, align 8
-  %15 = load i64, ptr %4, align 8
+  %15 = load i64, ptr %4, align 8, !tbaa !11
   %16 = icmp ne i64 %15, 0
   br i1 %16, label %17, label %133
 
 17:                                               ; preds = %2
-  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
-  store i64 %18, ptr %5, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
-  %20 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %19, i32 0, i32 2
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
-  %23 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %22, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
+  store i64 %18, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8, !tbaa !114
+  %22 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !20
   %25 = ptrtoint ptr %21 to i64
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
   %28 = sdiv exact i64 %27, 12
-  store i64 %28, ptr %6, align 8
-  %29 = load i64, ptr %5, align 8
-  %30 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  store i64 %28, ptr %6, align 8, !tbaa !11
+  %29 = load i64, ptr %5, align 8, !tbaa !11
+  %30 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %31 = icmp ugt i64 %29, %30
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %17
-  %33 = load i64, ptr %6, align 8
-  %34 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
-  %35 = load i64, ptr %5, align 8
+  %33 = load i64, ptr %6, align 8, !tbaa !11
+  %34 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
+  %35 = load i64, ptr %5, align 8, !tbaa !11
   %36 = sub i64 %34, %35
   %37 = icmp ugt i64 %33, %36
   br i1 %37, label %38, label %39
@@ -2497,56 +2646,61 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   unreachable
 
 39:                                               ; preds = %32
-  %40 = load i64, ptr %6, align 8
-  %41 = load i64, ptr %4, align 8
+  %40 = load i64, ptr %6, align 8, !tbaa !11
+  %41 = load i64, ptr %4, align 8, !tbaa !11
   %42 = icmp uge i64 %40, %41
   br i1 %42, label %43, label %52
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
-  %45 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i64, ptr %4, align 8
-  %48 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %44 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !20
+  %47 = load i64, ptr %4, align 8, !tbaa !11
+  %48 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %49 = call noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeIfEEmNS0_12StdAllocatorIS4_EEET_S8_T0_RT1_(ptr noundef %46, i64 noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %48)
-  %50 = getelementptr inbounds %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
-  %51 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %50, i32 0, i32 1
-  store ptr %49, ptr %51, align 8
+  %50 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %50, i32 0, i32 1
+  store ptr %49, ptr %51, align 8, !tbaa !20
   br label %132
 
 52:                                               ; preds = %39
-  %53 = getelementptr inbounds %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
-  %54 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %7, align 8
-  %56 = getelementptr inbounds %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
-  %57 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %56, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  store ptr %58, ptr %8, align 8
-  %59 = load i64, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %53 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
+  %54 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8, !tbaa !23
+  store ptr %55, ptr %7, align 8, !tbaa !92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %56 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8, !tbaa !20
+  store ptr %58, ptr %8, align 8, !tbaa !92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %59 = load i64, ptr %4, align 8, !tbaa !11
   %60 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %59, ptr noundef @.str)
-  store i64 %60, ptr %9, align 8
-  %61 = load i64, ptr %9, align 8
+  store i64 %60, ptr %9, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %61 = load i64, ptr %9, align 8, !tbaa !11
   %62 = call noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %61)
-  store ptr %62, ptr %10, align 8
-  store ptr null, ptr %11, align 8
-  %63 = load ptr, ptr %10, align 8
-  %64 = load i64, ptr %5, align 8
-  %65 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %63, i64 %64
-  %66 = load i64, ptr %4, align 8
-  %67 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  store ptr %62, ptr %10, align 8, !tbaa !92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  store ptr null, ptr %11, align 8, !tbaa !92
+  %63 = load ptr, ptr %10, align 8, !tbaa !92
+  %64 = load i64, ptr %5, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %63, i64 %64
+  %66 = load i64, ptr %4, align 8, !tbaa !11
+  %67 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %68 = invoke noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeIfEEmNS0_12StdAllocatorIS4_EEET_S8_T0_RT1_(ptr noundef %65, i64 noundef %66, ptr noundef nonnull align 1 dereferenceable(1) %67)
           to label %69 unwind label %79
 
 69:                                               ; preds = %52
-  %70 = load ptr, ptr %10, align 8
-  %71 = load i64, ptr %5, align 8
-  %72 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %70, i64 %71
-  store ptr %72, ptr %11, align 8
-  %73 = load ptr, ptr %7, align 8
-  %74 = load ptr, ptr %8, align 8
-  %75 = load ptr, ptr %10, align 8
-  %76 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %70 = load ptr, ptr %10, align 8, !tbaa !92
+  %71 = load i64, ptr %5, align 8, !tbaa !11
+  %72 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %70, i64 %71
+  store ptr %72, ptr %11, align 8, !tbaa !92
+  %73 = load ptr, ptr %7, align 8, !tbaa !92
+  %74 = load ptr, ptr %8, align 8, !tbaa !92
+  %75 = load ptr, ptr %10, align 8, !tbaa !92
+  %76 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %77 = invoke noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline16RawTrackKeyframeIfEES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_(ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef nonnull align 1 dereferenceable(1) %76)
           to label %78 unwind label %79
 
@@ -2564,17 +2718,17 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
 
 83:                                               ; preds = %79
   %84 = load ptr, ptr %12, align 8
-  %85 = call ptr @__cxa_begin_catch(ptr %84) #8
-  %86 = load ptr, ptr %11, align 8
+  %85 = call ptr @__cxa_begin_catch(ptr %84) #12
+  %86 = load ptr, ptr %11, align 8, !tbaa !92
   %87 = icmp ne ptr %86, null
   br i1 %87, label %88, label %99
 
 88:                                               ; preds = %83
-  %89 = load ptr, ptr %11, align 8
-  %90 = load ptr, ptr %11, align 8
-  %91 = load i64, ptr %4, align 8
-  %92 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %90, i64 %91
-  %93 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %89 = load ptr, ptr %11, align 8, !tbaa !92
+  %90 = load ptr, ptr %11, align 8, !tbaa !92
+  %91 = load i64, ptr %4, align 8, !tbaa !11
+  %92 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %90, i64 %91
+  %93 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEEvT_S8_RT0_(ptr noundef %89, ptr noundef %92, ptr noundef nonnull align 1 dereferenceable(1) %93)
           to label %94 unwind label %95
 
@@ -2592,54 +2746,68 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
           to label %103 unwind label %139
 
 99:                                               ; preds = %94, %83
-  %100 = load ptr, ptr %10, align 8
-  %101 = load i64, ptr %9, align 8
+  %100 = load ptr, ptr %10, align 8, !tbaa !92
+  %101 = load i64, ptr %9, align 8, !tbaa !11
   invoke void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE13_M_deallocateEPS4_m(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %100, i64 noundef %101)
           to label %102 unwind label %95
 
 102:                                              ; preds = %99
-  invoke void @__cxa_rethrow() #9
+  invoke void @__cxa_rethrow() #13
           to label %142 unwind label %95
 
 103:                                              ; preds = %95
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   br label %134
 
 104:                                              ; preds = %78
-  %105 = load ptr, ptr %7, align 8
-  %106 = load ptr, ptr %8, align 8
-  %107 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %105 = load ptr, ptr %7, align 8, !tbaa !92
+  %106 = load ptr, ptr %8, align 8, !tbaa !92
+  %107 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   call void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEEvT_S8_RT0_(ptr noundef %105, ptr noundef %106, ptr noundef nonnull align 1 dereferenceable(1) %107)
-  %108 = load ptr, ptr %7, align 8
-  %109 = getelementptr inbounds %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
-  %110 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %109, i32 0, i32 2
-  %111 = load ptr, ptr %110, align 8
-  %112 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  %108 = load ptr, ptr %7, align 8, !tbaa !92
+  %109 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
+  %110 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %109, i32 0, i32 2
+  %111 = load ptr, ptr %110, align 8, !tbaa !114
+  %112 = load ptr, ptr %7, align 8, !tbaa !92
   %113 = ptrtoint ptr %111 to i64
   %114 = ptrtoint ptr %112 to i64
   %115 = sub i64 %113, %114
   %116 = sdiv exact i64 %115, 12
   call void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE13_M_deallocateEPS4_m(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %108, i64 noundef %116)
-  %117 = load ptr, ptr %10, align 8
-  %118 = getelementptr inbounds %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
-  %119 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %118, i32 0, i32 0
-  store ptr %117, ptr %119, align 8
-  %120 = load ptr, ptr %10, align 8
-  %121 = load i64, ptr %5, align 8
-  %122 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %120, i64 %121
-  %123 = load i64, ptr %4, align 8
-  %124 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %122, i64 %123
-  %125 = getelementptr inbounds %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
-  %126 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %125, i32 0, i32 1
-  store ptr %124, ptr %126, align 8
-  %127 = load ptr, ptr %10, align 8
-  %128 = load i64, ptr %9, align 8
-  %129 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %127, i64 %128
-  %130 = getelementptr inbounds %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
-  %131 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %130, i32 0, i32 2
-  store ptr %129, ptr %131, align 8
+  %117 = load ptr, ptr %10, align 8, !tbaa !92
+  %118 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
+  %119 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %118, i32 0, i32 0
+  store ptr %117, ptr %119, align 8, !tbaa !23
+  %120 = load ptr, ptr %10, align 8, !tbaa !92
+  %121 = load i64, ptr %5, align 8, !tbaa !11
+  %122 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %120, i64 %121
+  %123 = load i64, ptr %4, align 8, !tbaa !11
+  %124 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %122, i64 %123
+  %125 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
+  %126 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %125, i32 0, i32 1
+  store ptr %124, ptr %126, align 8, !tbaa !20
+  %127 = load ptr, ptr %10, align 8, !tbaa !92
+  %128 = load i64, ptr %9, align 8, !tbaa !11
+  %129 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %14, i32 0, i32 0
+  %131 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %130, i32 0, i32 2
+  store ptr %129, ptr %131, align 8, !tbaa !114
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   br label %132
 
 132:                                              ; preds = %104, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   br label %133
 
 133:                                              ; preds = %132, %2
@@ -2656,7 +2824,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   %140 = landingpad { ptr, i32 }
           catch ptr null
   %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #10
+  call void @__clang_call_terminate(ptr %141) #14
   unreachable
 
 142:                                              ; preds = %102
@@ -2668,82 +2836,85 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !92
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !20
+  %10 = load ptr, ptr %4, align 8, !tbaa !92
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 12
-  store i64 %14, ptr %5, align 8
-  %15 = load i64, ptr %5, align 8
+  store i64 %14, ptr %5, align 8, !tbaa !11
+  %15 = load i64, ptr %5, align 8, !tbaa !11
   %16 = icmp ne i64 %15, 0
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
-  %20 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
+  %18 = load ptr, ptr %4, align 8, !tbaa !92
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !20
+  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEEvT_S8_RT0_(ptr noundef %18, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %23 unwind label %28
 
 23:                                               ; preds = %17
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
-  %26 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %25, i32 0, i32 1
-  store ptr %24, ptr %26, align 8
+  %24 = load ptr, ptr %4, align 8, !tbaa !92
+  %25 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<float>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<float>>>::_Vector_impl_data", ptr %25, i32 0, i32 1
+  store ptr %24, ptr %26, align 8, !tbaa !20
   br label %27
 
 27:                                               ; preds = %23, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   ret void
 
 28:                                               ; preds = %17
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #10
+  call void @__clang_call_terminate(ptr %30) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #8
-  %5 = call noundef i64 @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE11_S_max_sizeERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  %5 = call noundef i64 @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE11_S_max_sizeERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
   ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeIfEEmNS0_12StdAllocatorIS4_EEET_S8_T0_RT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeIfEEmNS0_12StdAllocatorIS4_EEET_S8_T0_RT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %10 = load ptr, ptr %4, align 8
-  store ptr %10, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !92
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !115
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %10 = load ptr, ptr %4, align 8, !tbaa !92
+  store ptr %10, ptr %7, align 8, !tbaa !92
   br label %11
 
 11:                                               ; preds = %18, %3
-  %12 = load i64, ptr %5, align 8
+  %12 = load i64, ptr %5, align 8, !tbaa !11
   %13 = icmp ugt i64 %12, 0
   br i1 %13, label %14, label %34
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %7, align 8
+  %15 = load ptr, ptr %6, align 8, !tbaa !115
+  %16 = load ptr, ptr %7, align 8, !tbaa !92
   invoke void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE9constructIS5_JEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS6_PT_DpOS9_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %16)
           to label %17 unwind label %23
 
@@ -2751,13 +2922,13 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8
+  %19 = load i64, ptr %5, align 8, !tbaa !11
   %20 = add i64 %19, -1
-  store i64 %20, ptr %5, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %21, i32 1
-  store ptr %22, ptr %7, align 8
-  br label %11, !llvm.loop !15
+  store i64 %20, ptr %5, align 8, !tbaa !11
+  %21 = load ptr, ptr %7, align 8, !tbaa !92
+  %22 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %21, i32 1
+  store ptr %22, ptr %7, align 8, !tbaa !92
+  br label %11, !llvm.loop !117
 
 23:                                               ; preds = %14
   %24 = landingpad { ptr, i32 }
@@ -2770,19 +2941,20 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %8, align 8
-  %29 = call ptr @__cxa_begin_catch(ptr %28) #8
-  %30 = load ptr, ptr %4, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = load ptr, ptr %6, align 8
+  %29 = call ptr @__cxa_begin_catch(ptr %28) #12
+  %30 = load ptr, ptr %4, align 8, !tbaa !92
+  %31 = load ptr, ptr %7, align 8, !tbaa !92
+  %32 = load ptr, ptr %6, align 8, !tbaa !115
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEEvT_S8_RT0_(ptr noundef %30, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %32)
           to label %33 unwind label %36
 
 33:                                               ; preds = %27
-  invoke void @__cxa_rethrow() #9
+  invoke void @__cxa_rethrow() #13
           to label %50 unwind label %36
 
 34:                                               ; preds = %11
-  %35 = load ptr, ptr %7, align 8
+  %35 = load ptr, ptr %7, align 8, !tbaa !92
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   ret ptr %35
 
 36:                                               ; preds = %33, %27
@@ -2796,10 +2968,10 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
           to label %40 unwind label %47
 
 40:                                               ; preds = %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   br label %42
 
 41:                                               ; No predecessors!
-  call void @llvm.trap()
   unreachable
 
 42:                                               ; preds = %40
@@ -2813,7 +2985,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #10
+  call void @__clang_call_terminate(ptr %49) #14
   unreachable
 
 50:                                               ; preds = %33
@@ -2823,81 +2995,85 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !96
   %9 = load ptr, ptr %4, align 8
-  %10 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %10 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   %12 = sub i64 %10, %11
-  %13 = load i64, ptr %5, align 8
+  %13 = load i64, ptr %5, align 8, !tbaa !11
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %6, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #9
+  %16 = load ptr, ptr %6, align 8, !tbaa !96
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #13
   unreachable
 
 17:                                               ; preds = %3
-  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  %19 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  store i64 %19, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %19 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  store i64 %19, ptr %8, align 8, !tbaa !11
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !11
   %22 = add i64 %18, %21
-  store i64 %22, ptr %7, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  store i64 %22, ptr %7, align 8, !tbaa !11
+  %23 = load i64, ptr %7, align 8, !tbaa !11
+  %24 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %17
-  %27 = load i64, ptr %7, align 8
-  %28 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %27 = load i64, ptr %7, align 8, !tbaa !11
+  %28 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   %29 = icmp ugt i64 %27, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26, %17
-  %31 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %31 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   br label %34
 
 32:                                               ; preds = %26
-  %33 = load i64, ptr %7, align 8
+  %33 = load i64, ptr %7, align 8, !tbaa !11
   br label %34
 
 34:                                               ; preds = %32, %30
   %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   ret i64 %35
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !118
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !11
   %7 = icmp ne i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
-  %10 = load i64, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !11
   %11 = call noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE8allocateERS6_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
   br label %13
 
@@ -2911,31 +3087,31 @@ define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7o
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline16RawTrackKeyframeIfEES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline16RawTrackKeyframeIfEES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #3 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.std::move_iterator", align 8
   %10 = alloca %"class.std::move_iterator", align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %11 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !92
+  store ptr %1, ptr %6, align 8, !tbaa !92
+  store ptr %2, ptr %7, align 8, !tbaa !92
+  store ptr %3, ptr %8, align 8, !tbaa !115
+  %11 = load ptr, ptr %5, align 8, !tbaa !92
   %12 = call ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeIfEESt13move_iteratorIPS4_EET0_PT_(ptr noundef %11)
-  %13 = getelementptr inbounds %"class.std::move_iterator", ptr %9, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %9, i32 0, i32 0
   store ptr %12, ptr %13, align 8
-  %14 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %6, align 8, !tbaa !92
   %15 = call ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeIfEESt13move_iteratorIPS4_EET0_PT_(ptr noundef %14)
-  %16 = getelementptr inbounds %"class.std::move_iterator", ptr %10, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %10, i32 0, i32 0
   store ptr %15, ptr %16, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %"class.std::move_iterator", ptr %9, i32 0, i32 0
+  %17 = load ptr, ptr %7, align 8, !tbaa !92
+  %18 = load ptr, ptr %8, align 8, !tbaa !115
+  %19 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %9, i32 0, i32 0
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %"class.std::move_iterator", ptr %10, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %10, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeIfEEES6_NS1_12StdAllocatorIS5_EEET0_T_SB_SA_RT1_(ptr %20, ptr %22, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18)
   ret ptr %23
@@ -2944,54 +3120,54 @@ define linkonce_odr dso_local noundef ptr @_ZSt34__uninitialized_move_if_noexcep
 declare ptr @__cxa_begin_catch(ptr)
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEEvT_S8_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat {
+define linkonce_odr dso_local void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEEvT_S8_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !92
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  store ptr %2, ptr %6, align 8, !tbaa !115
   br label %7
 
 7:                                                ; preds = %14, %3
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !92
+  %9 = load ptr, ptr %5, align 8, !tbaa !92
   %10 = icmp ne ptr %8, %9
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %6, align 8, !tbaa !115
+  %13 = load ptr, ptr %4, align 8, !tbaa !92
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE7destroyIS5_EEvRS6_PT_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef %13)
   br label %14
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %15, i32 1
-  store ptr %16, ptr %4, align 8
-  br label %7, !llvm.loop !16
+  %15 = load ptr, ptr %4, align 8, !tbaa !92
+  %16 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %15, i32 1
+  store ptr %16, ptr %4, align 8, !tbaa !92
+  br label %7, !llvm.loop !120
 
 17:                                               ; preds = %7
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE13_M_deallocateEPS4_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE13_M_deallocateEPS4_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !118
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  store i64 %2, ptr %6, align 8, !tbaa !11
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !92
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !92
+  %13 = load i64, ptr %6, align 8, !tbaa !11
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE10deallocateERS6_PS5_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
@@ -3003,10 +3179,10 @@ declare void @__cxa_rethrow()
 
 declare void @__cxa_end_catch()
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #3 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #8
-  call void @_ZSt9terminatev() #10
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #12
+  call void @_ZSt9terminatev() #14
   unreachable
 }
 
@@ -3017,40 +3193,44 @@ define linkonce_odr dso_local noundef i64 @_ZNSt6vectorIN3ozz9animation7offline1
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 768614336404564650, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE8max_sizeERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
-  store i64 %6, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !115
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  store i64 768614336404564650, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #12
+  %5 = load ptr, ptr %2, align 8, !tbaa !115
+  %6 = call noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE8max_sizeERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  store i64 %6, ptr %4, align 8, !tbaa !11
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %8 unwind label %10
 
 8:                                                ; preds = %1
-  %9 = load i64, ptr %7, align 8
+  %9 = load i64, ptr %7, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
   ret i64 %9
 
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #10
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE8max_sizeERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !115
+  %3 = load ptr, ptr %2, align 8, !tbaa !115
   %4 = invoke noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE11_S_max_sizeIKS6_EEDTcldtfp_8max_sizeEERT_i(ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef 0)
           to label %5 unwind label %6
 
@@ -3061,31 +3241,31 @@ define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAll
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #10
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %5, align 8
-  %7 = load i64, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i64, ptr %8, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !121
+  store ptr %1, ptr %5, align 8, !tbaa !121
+  %6 = load ptr, ptr %5, align 8, !tbaa !121
+  %7 = load i64, ptr %6, align 8, !tbaa !11
+  %8 = load ptr, ptr %4, align 8, !tbaa !121
+  %9 = load i64, ptr %8, align 8, !tbaa !11
   %10 = icmp ult i64 %7, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !121
   store ptr %12, ptr %3, align 8
   br label %15
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !121
   store ptr %14, ptr %3, align 8
   br label %15
 
@@ -3098,43 +3278,40 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE11_S_max_sizeIKS6_EEDTcldtfp_8max_sizeEERT_i(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeIfEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
+  store ptr %0, ptr %3, align 8, !tbaa !115
+  store i32 %1, ptr %4, align 4, !tbaa !30
+  %5 = load ptr, ptr %3, align 8, !tbaa !115
+  %6 = call noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeIfEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
   ret i64 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeIfEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !115
   ret i64 1537228672809129301
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE9constructIS5_JEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS6_PT_DpOS9_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE9constructIS5_JEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS6_PT_DpOS9_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !115
+  store ptr %1, ptr %4, align 8, !tbaa !92
+  %5 = load ptr, ptr %3, align 8, !tbaa !115
+  %6 = load ptr, ptr %4, align 8, !tbaa !92
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE12_S_constructIS5_JEEENSt9enable_ifIXsr6__and_INS7_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS6_PSB_DpOSC_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6)
   ret void
 }
 
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #4
-
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE12_S_constructIS5_JEEENSt9enable_ifIXsr6__and_INS7_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS6_PSB_DpOSC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE12_S_constructIS5_JEEENSt9enable_ifIXsr6__and_INS7_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS6_PSB_DpOSC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !115
+  store ptr %1, ptr %4, align 8, !tbaa !92
+  %5 = load ptr, ptr %3, align 8, !tbaa !115
+  %6 = load ptr, ptr %4, align 8, !tbaa !92
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeIfEEE9constructIS4_JEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6)
   ret void
 }
@@ -3143,40 +3320,40 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorI
 define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeIfEEE9constructIS4_JEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !115
+  store ptr %1, ptr %4, align 8, !tbaa !92
+  %5 = load ptr, ptr %4, align 8, !tbaa !92
   call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 12, i1 false)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #6
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #10
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load i64, ptr %6, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %8, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !121
+  store ptr %1, ptr %5, align 8, !tbaa !121
+  %6 = load ptr, ptr %4, align 8, !tbaa !121
+  %7 = load i64, ptr %6, align 8, !tbaa !11
+  %8 = load ptr, ptr %5, align 8, !tbaa !121
+  %9 = load i64, ptr %8, align 8, !tbaa !11
   %10 = icmp ult i64 %7, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !121
   store ptr %12, ptr %3, align 8
   br label %15
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !121
   store ptr %14, ptr %3, align 8
   br label %15
 
@@ -3189,11 +3366,11 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 define linkonce_odr dso_local noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE8allocateERS6_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = call noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeIfEEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6) #8
+  store ptr %0, ptr %3, align 8, !tbaa !115
+  store i64 %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !115
+  %6 = load i64, ptr %4, align 8, !tbaa !11
+  %7 = call noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeIfEEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6) #12
   ret ptr %7
 }
 
@@ -3201,15 +3378,15 @@ define linkonce_odr dso_local noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAll
 define linkonce_odr dso_local noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeIfEEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !115
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
           to label %6 unwind label %14
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr %4, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !11
   %8 = mul i64 12, %7
-  %9 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !88
   %10 = getelementptr inbounds ptr, ptr %9, i64 2
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %8, i64 noundef 4)
@@ -3222,14 +3399,14 @@ define linkonce_odr dso_local noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7o
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #10
+  call void @__clang_call_terminate(ptr %16) #14
   unreachable
 }
 
-declare noundef ptr @_ZN3ozz6memory17default_allocatorEv() #2
+declare noundef ptr @_ZN3ozz6memory17default_allocatorEv() #6
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeIfEEES6_NS1_12StdAllocatorIS5_EEET0_T_SB_SA_RT1_(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #1 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeIfEEES6_NS1_12StdAllocatorIS5_EEET0_T_SB_SA_RT1_(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #2 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::move_iterator", align 8
   %6 = alloca %"class.std::move_iterator", align 8
   %7 = alloca ptr, align 8
@@ -3237,14 +3414,15 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds %"class.std::move_iterator", ptr %5, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %5, i32 0, i32 0
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.std::move_iterator", ptr %6, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %6, i32 0, i32 0
   store ptr %1, ptr %13, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %14 = load ptr, ptr %7, align 8
-  store ptr %14, ptr %9, align 8
+  store ptr %2, ptr %7, align 8, !tbaa !92
+  store ptr %3, ptr %8, align 8, !tbaa !115
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %14 = load ptr, ptr %7, align 8, !tbaa !92
+  store ptr %14, ptr %9, align 8, !tbaa !92
   br label %15
 
 15:                                               ; preds = %26, %4
@@ -3255,8 +3433,8 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
   br i1 %16, label %18, label %40
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr %8, align 8
-  %20 = load ptr, ptr %9, align 8
+  %19 = load ptr, ptr %8, align 8, !tbaa !115
+  %20 = load ptr, ptr %9, align 8, !tbaa !92
   %21 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeIfEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %22 unwind label %29
 
@@ -3272,10 +3450,10 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
           to label %26 unwind label %29
 
 26:                                               ; preds = %24
-  %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %27, i32 1
-  store ptr %28, ptr %9, align 8
-  br label %15, !llvm.loop !17
+  %27 = load ptr, ptr %9, align 8, !tbaa !92
+  %28 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %27, i32 1
+  store ptr %28, ptr %9, align 8, !tbaa !92
+  br label %15, !llvm.loop !123
 
 29:                                               ; preds = %24, %22, %18, %15
   %30 = landingpad { ptr, i32 }
@@ -3288,19 +3466,20 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %10, align 8
-  %35 = call ptr @__cxa_begin_catch(ptr %34) #8
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = load ptr, ptr %8, align 8
+  %35 = call ptr @__cxa_begin_catch(ptr %34) #12
+  %36 = load ptr, ptr %7, align 8, !tbaa !92
+  %37 = load ptr, ptr %9, align 8, !tbaa !92
+  %38 = load ptr, ptr %8, align 8, !tbaa !115
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEEvT_S8_RT0_(ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38)
           to label %39 unwind label %42
 
 39:                                               ; preds = %33
-  invoke void @__cxa_rethrow() #9
+  invoke void @__cxa_rethrow() #13
           to label %56 unwind label %42
 
 40:                                               ; preds = %17
-  %41 = load ptr, ptr %9, align 8
+  %41 = load ptr, ptr %9, align 8, !tbaa !92
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
   ret ptr %41
 
 42:                                               ; preds = %39, %33
@@ -3314,10 +3493,10 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
           to label %46 unwind label %53
 
 46:                                               ; preds = %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
   br label %48
 
 47:                                               ; No predecessors!
-  call void @llvm.trap()
   unreachable
 
 48:                                               ; preds = %46
@@ -3331,49 +3510,49 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #10
+  call void @__clang_call_terminate(ptr %55) #14
   unreachable
 
 56:                                               ; preds = %39
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeIfEESt13move_iteratorIPS4_EET0_PT_(ptr noundef %0) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeIfEESt13move_iteratorIPS4_EET0_PT_(ptr noundef %0) #3 comdat {
   %2 = alloca %"class.std::move_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !92
+  %4 = load ptr, ptr %3, align 8, !tbaa !92
   call void @_ZNSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeIfEEEC2ES5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
-  %5 = getelementptr inbounds %"class.std::move_iterator", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %2, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZStneIPN3ozz9animation7offline16RawTrackKeyframeIfEEEbRKSt13move_iteratorIT_ESA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZStneIPN3ozz9animation7offline16RawTrackKeyframeIfEEEbRKSt13move_iteratorIT_ESA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !124
+  store ptr %1, ptr %4, align 8, !tbaa !124
+  %5 = load ptr, ptr %3, align 8, !tbaa !124
+  %6 = load ptr, ptr %4, align 8, !tbaa !124
   %7 = call noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline16RawTrackKeyframeIfEEEbRKSt13move_iteratorIT_ESA_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %8 = xor i1 %7, true
   ret i1 %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE9constructIS5_JS5_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS6_PT_DpOS9_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(12) %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE9constructIS5_JS5_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS6_PT_DpOS9_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(12) %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !115
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  store ptr %2, ptr %6, align 8, !tbaa !92
+  %7 = load ptr, ptr %4, align 8, !tbaa !115
+  %8 = load ptr, ptr %5, align 8, !tbaa !92
+  %9 = load ptr, ptr %6, align 8, !tbaa !92
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE12_S_constructIS5_JS5_EEENSt9enable_ifIXsr6__and_INS7_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS6_PSB_DpOSC_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(12) %9)
   ret void
 }
@@ -3381,34 +3560,34 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeIfEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !124
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !126
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeIfEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !124
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %5, i32 1
-  store ptr %6, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !126
+  %6 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !126
   ret ptr %3
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline16RawTrackKeyframeIfEEEbRKSt13move_iteratorIT_ESA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline16RawTrackKeyframeIfEEEbRKSt13move_iteratorIT_ESA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !124
+  store ptr %1, ptr %4, align 8, !tbaa !124
+  %5 = load ptr, ptr %3, align 8, !tbaa !124
   %6 = call noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeIfEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !124
   %8 = call noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeIfEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %9 = icmp eq ptr %6, %8
   ret i1 %9
@@ -3417,24 +3596,24 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIPN3ozz9animation7offlin
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeIfEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !124
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !126
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE12_S_constructIS5_JS5_EEENSt9enable_ifIXsr6__and_INS7_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS6_PSB_DpOSC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(12) %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE12_S_constructIS5_JS5_EEENSt9enable_ifIXsr6__and_INS7_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS6_PSB_DpOSC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(12) %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !115
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  store ptr %2, ptr %6, align 8, !tbaa !92
+  %7 = load ptr, ptr %4, align 8, !tbaa !115
+  %8 = load ptr, ptr %5, align 8, !tbaa !92
+  %9 = load ptr, ptr %6, align 8, !tbaa !92
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeIfEEE9constructIS4_JS4_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(12) %9)
   ret void
 }
@@ -3444,53 +3623,53 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 12, i1 false)
+  store ptr %0, ptr %4, align 8, !tbaa !115
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  store ptr %2, ptr %6, align 8, !tbaa !92
+  %7 = load ptr, ptr %5, align 8, !tbaa !92
+  %8 = load ptr, ptr %6, align 8, !tbaa !92
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 12, i1 false), !tbaa.struct !128
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeIfEEEC2ES5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !124
+  store ptr %1, ptr %4, align 8, !tbaa !92
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::move_iterator", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !92
+  store ptr %7, ptr %6, align 8, !tbaa !126
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE7destroyIS5_EEvRS6_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE7destroyIS5_EEvRS6_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !115
+  store ptr %1, ptr %4, align 8, !tbaa !92
+  %5 = load ptr, ptr %3, align 8, !tbaa !115
+  %6 = load ptr, ptr %4, align 8, !tbaa !92
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE10_S_destroyIS6_S5_EEDTcldtfp_7destroyfp0_EERT_PT0_i(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE10_S_destroyIS6_S5_EEDTcldtfp_7destroyfp0_EERT_PT0_i(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i32 noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeIfEEEEE10_S_destroyIS6_S5_EEDTcldtfp_7destroyfp0_EERT_PT0_i(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i32 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !115
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  store i32 %2, ptr %6, align 4, !tbaa !30
+  %7 = load ptr, ptr %4, align 8, !tbaa !115
+  %8 = load ptr, ptr %5, align 8, !tbaa !92
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeIfEEE7destroyIS4_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8)
   ret void
 }
@@ -3499,8 +3678,8 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorI
 define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeIfEEE7destroyIS4_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !115
+  store ptr %1, ptr %4, align 8, !tbaa !92
   ret void
 }
 
@@ -3509,13 +3688,13 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorI
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
-  call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeIfEEE10deallocateEPS4_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #8
+  store ptr %0, ptr %4, align 8, !tbaa !115
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  %7 = load ptr, ptr %4, align 8, !tbaa !115
+  %8 = load ptr, ptr %5, align 8, !tbaa !92
+  %9 = load i64, ptr %6, align 8, !tbaa !11
+  call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeIfEEE10deallocateEPS4_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #12
   ret void
 }
 
@@ -3524,15 +3703,15 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !115
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  store i64 %2, ptr %6, align 8, !tbaa !11
   %7 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
           to label %8 unwind label %14
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !92
+  %10 = load ptr, ptr %7, align 8, !tbaa !88
   %11 = getelementptr inbounds ptr, ptr %10, i64 3
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9)
@@ -3545,82 +3724,96 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #10
+  call void @__clang_call_terminate(ptr %16) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayINS_9animation7offline16RawTrackKeyframeIfEEEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   %4 = load ptr, ptr %2, align 8
-  store i32 0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4, !tbaa !30
   call void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret i32 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEEEE4LoadERNS0_8IArchiveEPS9_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEEEE4LoadERNS0_8IArchiveEPS9_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #3 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca i64, align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
-  store i64 0, ptr %12, align 8
-  br label %13
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !109
+  store i64 %2, ptr %7, align 8, !tbaa !11
+  store i32 %3, ptr %8, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  store i64 0, ptr %9, align 8, !tbaa !11
+  br label %10
 
-13:                                               ; preds = %29, %4
-  %14 = load i64, ptr %12, align 8
-  %15 = load i64, ptr %10, align 8
-  %16 = icmp ult i64 %14, %15
-  br i1 %16, label %17, label %32
+10:                                               ; preds = %21, %4
+  %11 = load i64, ptr %9, align 8, !tbaa !11
+  %12 = load i64, ptr %7, align 8, !tbaa !11
+  %13 = icmp ult i64 %11, %12
+  br i1 %13, label %15, label %14
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %9, align 8
-  %19 = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds %"struct.ozz::io::internal::Array.26", ptr %18, i64 %19
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i32, ptr %11, align 4
-  store ptr %20, ptr %5, align 8
-  store ptr %21, ptr %6, align 8
-  store i32 %22, ptr %7, align 4
-  %23 = load ptr, ptr %5, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds %"struct.ozz::io::internal::Array.26", ptr %23, i32 0, i32 1
-  %27 = load i64, ptr %26, align 8
-  %28 = load i32, ptr %7, align 4
-  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeIfEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %24, ptr noundef %25, i64 noundef %27, i32 noundef %28)
-  br label %29
+14:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %24
 
-29:                                               ; preds = %17
-  %30 = load i64, ptr %12, align 8
-  %31 = add i64 %30, 1
-  store i64 %31, ptr %12, align 8
-  br label %13, !llvm.loop !18
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %6, align 8, !tbaa !109
+  %17 = load i64, ptr %9, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.26", ptr %16, i64 %17
+  %19 = load ptr, ptr %5, align 8, !tbaa !28
+  %20 = load i32, ptr %8, align 4, !tbaa !30
+  call void @_ZNK3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEE4LoadERNS0_8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(9) %19, i32 noundef %20)
+  br label %21
 
-32:                                               ; preds = %13
+21:                                               ; preds = %15
+  %22 = load i64, ptr %9, align 8, !tbaa !11
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %9, align 8, !tbaa !11
+  br label %10, !llvm.loop !130
+
+24:                                               ; preds = %14
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEE4LoadERNS0_8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !109
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  store i32 %2, ptr %6, align 4, !tbaa !30
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.26", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !111
+  %11 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.26", ptr %7, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !113
+  %13 = load i32, ptr %6, align 4, !tbaa !30
+  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeIfEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef %10, i64 noundef %12, i32 noundef %13)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeIfEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeIfEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #2 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -3628,206 +3821,138 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16Raw
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i8, align 1
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  store i64 0, ptr %9, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !92
+  store i64 %2, ptr %7, align 8, !tbaa !11
+  store i32 %3, ptr %8, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  store i64 0, ptr %9, align 8, !tbaa !11
   br label %12
 
-12:                                               ; preds = %31, %4
-  %13 = load i64, ptr %9, align 8
-  %14 = load i64, ptr %7, align 8
+12:                                               ; preds = %32, %4
+  %13 = load i64, ptr %9, align 8, !tbaa !11
+  %14 = load i64, ptr %7, align 8, !tbaa !11
   %15 = icmp ult i64 %13, %14
-  br i1 %15, label %16, label %34
+  br i1 %15, label %17, label %16
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i64, ptr %9, align 8
-  %19 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %17, i64 %18
-  store ptr %19, ptr %10, align 8
-  %20 = load ptr, ptr %5, align 8
-  call void @_ZN3ozz2io8IArchiversERh(ptr noundef nonnull align 8 dereferenceable(9) %20, ptr noundef nonnull align 1 dereferenceable(1) %11)
-  %21 = load i8, ptr %11, align 1
-  %22 = zext i8 %21 to i32
-  %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %23, i32 0, i32 0
-  store i32 %22, ptr %24, align 4
-  %25 = load ptr, ptr %5, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %26, i32 0, i32 1
-  call void @_ZN3ozz2io8IArchiversERf(ptr noundef nonnull align 8 dereferenceable(9) %25, ptr noundef nonnull align 4 dereferenceable(4) %27)
-  %28 = load ptr, ptr %5, align 8
-  %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %29, i32 0, i32 2
-  call void @_ZN3ozz2io8IArchiversERf(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef nonnull align 4 dereferenceable(4) %30)
-  br label %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %35
 
-31:                                               ; preds = %16
-  %32 = load i64, ptr %9, align 8
-  %33 = add i64 %32, 1
-  store i64 %33, ptr %9, align 8
-  br label %12, !llvm.loop !19
+17:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %18 = load ptr, ptr %6, align 8, !tbaa !92
+  %19 = load i64, ptr %9, align 8, !tbaa !11
+  %20 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %18, i64 %19
+  store ptr %20, ptr %10, align 8, !tbaa !92
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #12
+  %21 = load ptr, ptr %5, align 8, !tbaa !28
+  call void @_ZN3ozz2io8IArchiversERh(ptr noundef nonnull align 8 dereferenceable(9) %21, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %22 = load i8, ptr %11, align 1, !tbaa !98
+  %23 = zext i8 %22 to i32
+  %24 = load ptr, ptr %10, align 8, !tbaa !92
+  %25 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %24, i32 0, i32 0
+  store i32 %23, ptr %25, align 4, !tbaa !100
+  %26 = load ptr, ptr %5, align 8, !tbaa !28
+  %27 = load ptr, ptr %10, align 8, !tbaa !92
+  %28 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %27, i32 0, i32 1
+  call void @_ZN3ozz2io8IArchiversERf(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull align 4 dereferenceable(4) %28)
+  %29 = load ptr, ptr %5, align 8, !tbaa !28
+  %30 = load ptr, ptr %10, align 8, !tbaa !92
+  %31 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %30, i32 0, i32 2
+  call void @_ZN3ozz2io8IArchiversERf(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 4 dereferenceable(4) %31)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  br label %32
 
-34:                                               ; preds = %12
+32:                                               ; preds = %17
+  %33 = load i64, ptr %9, align 8, !tbaa !11
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %9, align 8, !tbaa !11
+  br label %12, !llvm.loop !131
+
+35:                                               ; preds = %16
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversERh(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #1 comdat align 2 {
-  %3 = alloca i8, align 1
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.ozz::io::IArchive", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 1
-  %12 = load ptr, ptr %11, align 8
-  %13 = call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %6, i64 noundef 1)
-  %14 = getelementptr inbounds %"class.ozz::io::IArchive", ptr %7, i32 0, i32 1
-  %15 = load i8, ptr %14, align 8
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %20
-
-17:                                               ; preds = %2
-  %18 = load i8, ptr %6, align 1
-  store i8 %18, ptr %3, align 1
-  %19 = load i8, ptr %3, align 1
-  br label %22
-
-20:                                               ; preds = %2
-  %21 = load i8, ptr %6, align 1
-  br label %22
-
-22:                                               ; preds = %20, %17
-  %23 = phi i8 [ %19, %17 ], [ %21, %20 ]
-  %24 = load ptr, ptr %5, align 8
-  store i8 %23, ptr %24, align 1
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversERf(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversERh(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca float, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca float, align 4
-  store ptr %0, ptr %9, align 8
-  store ptr %1, ptr %10, align 8
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds %"class.ozz::io::IArchive", ptr %12, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 1
-  %17 = load ptr, ptr %16, align 8
-  %18 = call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %11, i64 noundef 4)
-  %19 = getelementptr inbounds %"class.ozz::io::IArchive", ptr %12, i32 0, i32 1
-  %20 = load i8, ptr %19, align 8
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %22, label %86
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !96
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #12
+  %7 = getelementptr inbounds nuw %"class.ozz::io::IArchive", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !106
+  %9 = load ptr, ptr %8, align 8, !tbaa !88
+  %10 = getelementptr inbounds ptr, ptr %9, i64 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %5, i64 noundef 1)
+  %13 = getelementptr inbounds nuw %"class.ozz::io::IArchive", ptr %6, i32 0, i32 1
+  %14 = load i8, ptr %13, align 8, !tbaa !108, !range !85, !noundef !86
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %19
 
-22:                                               ; preds = %2
-  %23 = load float, ptr %11, align 4
-  store float %23, ptr %7, align 4
-  store ptr %7, ptr %8, align 8
-  %24 = load ptr, ptr %8, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 3
-  store ptr %24, ptr %3, align 8
-  store ptr %26, ptr %4, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i32
-  %30 = load ptr, ptr %4, align 8
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  %33 = xor i32 %29, %32
-  %34 = trunc i32 %33 to i8
-  %35 = load ptr, ptr %3, align 8
-  store i8 %34, ptr %35, align 1
-  %36 = load ptr, ptr %3, align 8
-  %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i32
-  %39 = load ptr, ptr %4, align 8
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = xor i32 %38, %41
-  %43 = trunc i32 %42 to i8
-  %44 = load ptr, ptr %4, align 8
-  store i8 %43, ptr %44, align 1
-  %45 = load ptr, ptr %3, align 8
-  %46 = load i8, ptr %45, align 1
-  %47 = zext i8 %46 to i32
-  %48 = load ptr, ptr %4, align 8
-  %49 = load i8, ptr %48, align 1
-  %50 = zext i8 %49 to i32
-  %51 = xor i32 %47, %50
-  %52 = trunc i32 %51 to i8
-  %53 = load ptr, ptr %3, align 8
-  store i8 %52, ptr %53, align 1
-  %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 2
-  store ptr %55, ptr %5, align 8
-  store ptr %57, ptr %6, align 8
-  %58 = load ptr, ptr %5, align 8
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i32
-  %61 = load ptr, ptr %6, align 8
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = xor i32 %60, %63
-  %65 = trunc i32 %64 to i8
-  %66 = load ptr, ptr %5, align 8
-  store i8 %65, ptr %66, align 1
-  %67 = load ptr, ptr %5, align 8
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i32
-  %70 = load ptr, ptr %6, align 8
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i32
-  %73 = xor i32 %69, %72
-  %74 = trunc i32 %73 to i8
-  %75 = load ptr, ptr %6, align 8
-  store i8 %74, ptr %75, align 1
-  %76 = load ptr, ptr %5, align 8
-  %77 = load i8, ptr %76, align 1
-  %78 = zext i8 %77 to i32
-  %79 = load ptr, ptr %6, align 8
-  %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i32
-  %82 = xor i32 %78, %81
-  %83 = trunc i32 %82 to i8
-  %84 = load ptr, ptr %5, align 8
-  store i8 %83, ptr %84, align 1
-  %85 = load float, ptr %7, align 4
-  br label %88
+16:                                               ; preds = %2
+  %17 = load i8, ptr %5, align 1, !tbaa !98
+  %18 = call noundef zeroext i8 @_ZN3ozz13EndianSwapperIhLm1EE4SwapEh(i8 noundef zeroext %17)
+  br label %21
 
-86:                                               ; preds = %2
-  %87 = load float, ptr %11, align 4
-  br label %88
+19:                                               ; preds = %2
+  %20 = load i8, ptr %5, align 1, !tbaa !98
+  br label %21
 
-88:                                               ; preds = %86, %22
-  %89 = phi float [ %85, %22 ], [ %87, %86 ]
-  %90 = load ptr, ptr %10, align 8
-  store float %89, ptr %90, align 4
+21:                                               ; preds = %19, %16
+  %22 = phi i8 [ %18, %16 ], [ %20, %19 ]
+  %23 = load ptr, ptr %4, align 8, !tbaa !96
+  store i8 %22, ptr %23, align 1, !tbaa !98
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversERf(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !132
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
+  %7 = getelementptr inbounds nuw %"class.ozz::io::IArchive", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !106
+  %9 = load ptr, ptr %8, align 8, !tbaa !88
+  %10 = getelementptr inbounds ptr, ptr %9, i64 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %5, i64 noundef 4)
+  %13 = getelementptr inbounds nuw %"class.ozz::io::IArchive", ptr %6, i32 0, i32 1
+  %14 = load i8, ptr %13, align 8, !tbaa !108, !range !85, !noundef !86
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %19
+
+16:                                               ; preds = %2
+  %17 = load float, ptr %5, align 4, !tbaa !9
+  %18 = call noundef float @_ZN3ozz13EndianSwapperIfLm4EE4SwapEf(float noundef %17)
+  br label %21
+
+19:                                               ; preds = %2
+  %20 = load float, ptr %5, align 4, !tbaa !9
+  br label %21
+
+21:                                               ; preds = %19, %16
+  %22 = phi float [ %18, %16 ], [ %20, %19 ]
+  %23 = load ptr, ptr %4, align 8, !tbaa !132
+  store float %22, ptr %23, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   ret i1 true
 }
 
@@ -3835,258 +3960,301 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS
 define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4, !tbaa !30
+  %4 = load i32, ptr %3, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret i32 %4
 }
 
-declare void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef, i32 noundef) #2
+declare void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef, i32 noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS9_EEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS9_EEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS8_EEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
-  %4 = alloca %"struct.ozz::io::internal::Array.27", align 8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS8_EEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  %7 = alloca ptr, align 8
+  %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
-  %13 = alloca %"struct.ozz::io::internal::Array.27", align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i64 %2, ptr %9, align 8
-  store i64 0, ptr %10, align 8
-  br label %14
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.ozz::io::internal::Array.27", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !38
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8, !tbaa !11
+  br label %11
 
-14:                                               ; preds = %44, %3
-  %15 = load i64, ptr %10, align 8
-  %16 = load i64, ptr %9, align 8
-  %17 = icmp ult i64 %15, %16
-  br i1 %17, label %18, label %47
+11:                                               ; preds = %39, %3
+  %12 = load i64, ptr %7, align 8, !tbaa !11
+  %13 = load i64, ptr %6, align 8, !tbaa !11
+  %14 = icmp ult i64 %12, %13
+  br i1 %14, label %16, label %15
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %8, align 8
-  %20 = load i64, ptr %10, align 8
-  %21 = getelementptr inbounds %"class.std::vector.3", ptr %19, i64 %20
-  store ptr %21, ptr %11, align 8
-  %22 = load ptr, ptr %11, align 8
-  %23 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #8
-  %24 = trunc i64 %23 to i32
-  store i32 %24, ptr %12, align 4
-  %25 = load ptr, ptr %7, align 8
-  %26 = load i32, ptr %12, align 4
-  call void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %25, i32 noundef %26)
-  %27 = load i32, ptr %12, align 4
-  %28 = icmp ugt i32 %27, 0
-  br i1 %28, label %29, label %43
+15:                                               ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %42
 
-29:                                               ; preds = %18
-  %30 = load ptr, ptr %7, align 8
-  %31 = load ptr, ptr %11, align 8
-  %32 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #8
-  %33 = load i32, ptr %12, align 4
-  %34 = zext i32 %33 to i64
-  store ptr %32, ptr %5, align 8
-  store i64 %34, ptr %6, align 8
-  %35 = load ptr, ptr %5, align 8
-  store ptr %35, ptr %4, align 8
-  %36 = getelementptr inbounds %"struct.ozz::io::internal::Array.27", ptr %4, i32 0, i32 1
-  %37 = load i64, ptr %6, align 8
+16:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %17 = load ptr, ptr %5, align 8, !tbaa !38
+  %18 = load i64, ptr %7, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %"class.std::vector.3", ptr %17, i64 %18
+  store ptr %19, ptr %8, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  %20 = load ptr, ptr %8, align 8, !tbaa !38
+  %21 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #12
+  %22 = trunc i64 %21 to i32
+  store i32 %22, ptr %9, align 4, !tbaa !30
+  %23 = load ptr, ptr %4, align 8, !tbaa !24
+  %24 = load i32, ptr %9, align 4, !tbaa !30
+  call void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %23, i32 noundef %24)
+  %25 = load i32, ptr %9, align 4, !tbaa !30
+  %26 = icmp ugt i32 %25, 0
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %16
+  %28 = load ptr, ptr %4, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #12
+  %29 = load ptr, ptr %8, align 8, !tbaa !38
+  %30 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #12
+  %31 = load i32, ptr %9, align 4, !tbaa !30
+  %32 = zext i32 %31 to i64
+  %33 = call { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEKNS0_8internal5ArrayIKT_EEPSB_m(ptr noundef %30, i64 noundef %32)
+  %34 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
+  %35 = extractvalue { ptr, i64 } %33, 0
+  store ptr %35, ptr %34, align 8
+  %36 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
+  %37 = extractvalue { ptr, i64 } %33, 1
   store i64 %37, ptr %36, align 8
-  %38 = load { ptr, i64 }, ptr %4, align 8
-  %39 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 0
-  %40 = extractvalue { ptr, i64 } %38, 0
-  store ptr %40, ptr %39, align 8
-  %41 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 1
-  %42 = extractvalue { ptr, i64 } %38, 1
-  store i64 %42, ptr %41, align 8
-  call void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %30, ptr noundef nonnull align 8 dereferenceable(16) %13)
-  br label %43
+  call void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #12
+  br label %38
 
-43:                                               ; preds = %29, %18
-  br label %44
+38:                                               ; preds = %27, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  br label %39
 
-44:                                               ; preds = %43
-  %45 = load i64, ptr %10, align 8
-  %46 = add i64 %45, 1
-  store i64 %46, ptr %10, align 8
-  br label %14, !llvm.loop !20
+39:                                               ; preds = %38
+  %40 = load i64, ptr %7, align 8, !tbaa !11
+  %41 = add i64 %40, 1
+  store i64 %41, ptr %7, align 8, !tbaa !11
+  br label %11, !llvm.loop !134
 
-47:                                               ; preds = %14
+42:                                               ; preds = %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !135
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !135
   call void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEKNS0_8internal5ArrayIKT_EEPSB_m(ptr noundef %0, i64 noundef %1) #4 comdat {
+  %3 = alloca %"struct.ozz::io::internal::Array.27", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !137
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.27", ptr %3, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !137
+  store ptr %7, ptr %6, align 8, !tbaa !138
+  %8 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.27", ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %5, align 8, !tbaa !11
+  store i64 %9, ptr %8, align 8, !tbaa !140
+  %10 = load { ptr, i64 }, ptr %3, align 8
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !43
+  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #12
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   %4 = load ptr, ptr %2, align 8
-  store i32 1, ptr %3, align 4
-  %5 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 1, ptr %3, align 4, !tbaa !30
+  %5 = load i32, ptr %3, align 4, !tbaa !30
   call void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %4, i32 noundef %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i64, align 8
-  %9 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i64 %2, ptr %8, align 8
-  store i64 0, ptr %9, align 8
-  br label %10
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !135
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8, !tbaa !11
+  br label %8
 
-10:                                               ; preds = %24, %3
-  %11 = load i64, ptr %9, align 8
-  %12 = load i64, ptr %8, align 8
-  %13 = icmp ult i64 %11, %12
-  br i1 %13, label %14, label %27
+8:                                                ; preds = %18, %3
+  %9 = load i64, ptr %7, align 8, !tbaa !11
+  %10 = load i64, ptr %6, align 8, !tbaa !11
+  %11 = icmp ult i64 %9, %10
+  br i1 %11, label %13, label %12
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %7, align 8
-  %16 = load i64, ptr %9, align 8
-  %17 = getelementptr inbounds %"struct.ozz::io::internal::Array.27", ptr %15, i64 %16
-  %18 = load ptr, ptr %6, align 8
-  store ptr %17, ptr %4, align 8
-  store ptr %18, ptr %5, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds %"struct.ozz::io::internal::Array.27", ptr %19, i32 0, i32 1
-  %23 = load i64, ptr %22, align 8
-  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4SaveERNS0_8OArchiveEPKS7_m(ptr noundef nonnull align 8 dereferenceable(9) %20, ptr noundef %21, i64 noundef %23)
-  br label %24
+12:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %21
 
-24:                                               ; preds = %14
-  %25 = load i64, ptr %9, align 8
-  %26 = add i64 %25, 1
-  store i64 %26, ptr %9, align 8
-  br label %10, !llvm.loop !21
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %5, align 8, !tbaa !135
+  %15 = load i64, ptr %7, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.27", ptr %14, i64 %15
+  %17 = load ptr, ptr %4, align 8, !tbaa !24
+  call void @_ZNK3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4SaveERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(9) %17)
+  br label %18
 
-27:                                               ; preds = %10
+18:                                               ; preds = %13
+  %19 = load i64, ptr %7, align 8, !tbaa !11
+  %20 = add i64 %19, 1
+  store i64 %20, ptr %7, align 8, !tbaa !11
+  br label %8, !llvm.loop !141
+
+21:                                               ; preds = %12
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4SaveERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !135
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.27", ptr %5, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !138
+  %9 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.27", ptr %5, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !140
+  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4SaveERNS0_8OArchiveEPKS7_m(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %8, i64 noundef %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4SaveERNS0_8OArchiveEPKS7_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4SaveERNS0_8OArchiveEPKS7_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  store i64 0, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !137
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8, !tbaa !11
   br label %10
 
-10:                                               ; preds = %31, %3
-  %11 = load i64, ptr %7, align 8
-  %12 = load i64, ptr %6, align 8
+10:                                               ; preds = %32, %3
+  %11 = load i64, ptr %7, align 8, !tbaa !11
+  %12 = load i64, ptr %6, align 8, !tbaa !11
   %13 = icmp ult i64 %11, %12
-  br i1 %13, label %14, label %34
+  br i1 %13, label %15, label %14
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i64, ptr %7, align 8
-  %17 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %15, i64 %16
-  store ptr %17, ptr %8, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %18, i32 0, i32 0
-  %20 = load i32, ptr %19, align 4
-  %21 = trunc i32 %20 to i8
-  store i8 %21, ptr %9, align 1
-  %22 = load ptr, ptr %4, align 8
-  %23 = load i8, ptr %9, align 1
-  call void @_ZN3ozz2io8OArchivelsEh(ptr noundef nonnull align 8 dereferenceable(9) %22, i8 noundef zeroext %23)
-  %24 = load ptr, ptr %4, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %25, i32 0, i32 1
-  %27 = load float, ptr %26, align 4
-  call void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %24, float noundef %27)
-  %28 = load ptr, ptr %4, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %29, i32 0, i32 2
-  call void @_ZN3ozz2io8OArchivelsINS_4math6Float2EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef nonnull align 4 dereferenceable(8) %30)
-  br label %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %35
 
-31:                                               ; preds = %14
-  %32 = load i64, ptr %7, align 8
-  %33 = add i64 %32, 1
-  store i64 %33, ptr %7, align 8
-  br label %10, !llvm.loop !22
+15:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %16 = load ptr, ptr %5, align 8, !tbaa !137
+  %17 = load i64, ptr %7, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %16, i64 %17
+  store ptr %18, ptr %8, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #12
+  %19 = load ptr, ptr %8, align 8, !tbaa !137
+  %20 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %19, i32 0, i32 0
+  %21 = load i32, ptr %20, align 4, !tbaa !142
+  %22 = trunc i32 %21 to i8
+  store i8 %22, ptr %9, align 1, !tbaa !98
+  %23 = load ptr, ptr %4, align 8, !tbaa !24
+  %24 = load i8, ptr %9, align 1, !tbaa !98
+  call void @_ZN3ozz2io8OArchivelsEh(ptr noundef nonnull align 8 dereferenceable(9) %23, i8 noundef zeroext %24)
+  %25 = load ptr, ptr %4, align 8, !tbaa !24
+  %26 = load ptr, ptr %8, align 8, !tbaa !137
+  %27 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %26, i32 0, i32 1
+  %28 = load float, ptr %27, align 4, !tbaa !34
+  call void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %25, float noundef %28)
+  %29 = load ptr, ptr %4, align 8, !tbaa !24
+  %30 = load ptr, ptr %8, align 8, !tbaa !137
+  %31 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %30, i32 0, i32 2
+  call void @_ZN3ozz2io8OArchivelsINS_4math6Float2EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 4 dereferenceable(8) %31)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  br label %32
 
-34:                                               ; preds = %10
+32:                                               ; preds = %15
+  %33 = load i64, ptr %7, align 8, !tbaa !11
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %7, align 8, !tbaa !11
+  br label %10, !llvm.loop !143
+
+35:                                               ; preds = %14
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS_4math6Float2EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS_4math6Float2EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !144
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKNS_4math6Float2ELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionINS_4math6Float2EEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !144
   call void @_ZN3ozz2io6ExternINS_4math6Float2EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
 }
@@ -4094,33 +4262,33 @@ define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS_4math6Float2EEEvRKT
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKNS_4math6Float2ELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS_4math6Float2EEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
-declare void @_ZN3ozz2io6ExternINS_4math6Float2EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef) #2
+declare void @_ZN3ozz2io6ExternINS_4math6Float2EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store ptr %1, ptr %4, align 8, !tbaa !137
+  %5 = load ptr, ptr %4, align 8, !tbaa !137
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS9_EEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   ret i1 true
 }
 
@@ -4128,121 +4296,124 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKSt
 define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS9_EEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4, !tbaa !30
+  %4 = load i32, ptr %3, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret i32 %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 comdat align 2 {
-  %5 = alloca %"struct.ozz::io::internal::Array.28", align 8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #3 comdat align 2 {
+  %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = alloca i64, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca i32, align 4
-  %15 = alloca %"struct.ozz::io::internal::Array.28", align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
-  store i64 0, ptr %12, align 8
-  br label %16
+  %12 = alloca %"struct.ozz::io::internal::Array.28", align 8
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !38
+  store i64 %2, ptr %7, align 8, !tbaa !11
+  store i32 %3, ptr %8, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  store i64 0, ptr %9, align 8, !tbaa !11
+  br label %13
 
-16:                                               ; preds = %45, %4
-  %17 = load i64, ptr %12, align 8
-  %18 = load i64, ptr %10, align 8
-  %19 = icmp ult i64 %17, %18
-  br i1 %19, label %20, label %48
+13:                                               ; preds = %40, %4
+  %14 = load i64, ptr %9, align 8, !tbaa !11
+  %15 = load i64, ptr %7, align 8, !tbaa !11
+  %16 = icmp ult i64 %14, %15
+  br i1 %16, label %18, label %17
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %9, align 8
-  %22 = load i64, ptr %12, align 8
-  %23 = getelementptr inbounds %"class.std::vector.3", ptr %21, i64 %22
-  store ptr %23, ptr %13, align 8
-  %24 = load ptr, ptr %8, align 8
-  call void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %24, ptr noundef nonnull align 4 dereferenceable(4) %14)
-  %25 = load ptr, ptr %13, align 8
-  %26 = load i32, ptr %14, align 4
-  %27 = zext i32 %26 to i64
-  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %27)
-  %28 = load i32, ptr %14, align 4
-  %29 = icmp ugt i32 %28, 0
-  br i1 %29, label %30, label %44
+17:                                               ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %43
 
-30:                                               ; preds = %20
-  %31 = load ptr, ptr %8, align 8
-  %32 = load ptr, ptr %13, align 8
-  %33 = call noundef ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %32) #8
-  %34 = load i32, ptr %14, align 4
-  %35 = zext i32 %34 to i64
-  store ptr %33, ptr %6, align 8
-  store i64 %35, ptr %7, align 8
-  %36 = load ptr, ptr %6, align 8
-  store ptr %36, ptr %5, align 8
-  %37 = getelementptr inbounds %"struct.ozz::io::internal::Array.28", ptr %5, i32 0, i32 1
-  %38 = load i64, ptr %7, align 8
+18:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %19 = load ptr, ptr %6, align 8, !tbaa !38
+  %20 = load i64, ptr %9, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw %"class.std::vector.3", ptr %19, i64 %20
+  store ptr %21, ptr %10, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #12
+  %22 = load ptr, ptr %5, align 8, !tbaa !28
+  call void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %22, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %23 = load ptr, ptr %10, align 8, !tbaa !38
+  %24 = load i32, ptr %11, align 4, !tbaa !30
+  %25 = zext i32 %24 to i64
+  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %25)
+  %26 = load i32, ptr %11, align 4, !tbaa !30
+  %27 = icmp ugt i32 %26, 0
+  br i1 %27, label %28, label %39
+
+28:                                               ; preds = %18
+  %29 = load ptr, ptr %5, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #12
+  %30 = load ptr, ptr %10, align 8, !tbaa !38
+  %31 = call noundef ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #12
+  %32 = load i32, ptr %11, align 4, !tbaa !30
+  %33 = zext i32 %32 to i64
+  %34 = call { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEKNS0_8internal5ArrayIT_EEPSA_m(ptr noundef %31, i64 noundef %33)
+  %35 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 0
+  %36 = extractvalue { ptr, i64 } %34, 0
+  store ptr %36, ptr %35, align 8
+  %37 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 1
+  %38 = extractvalue { ptr, i64 } %34, 1
   store i64 %38, ptr %37, align 8
-  %39 = load { ptr, i64 }, ptr %5, align 8
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %15, i32 0, i32 0
-  %41 = extractvalue { ptr, i64 } %39, 0
-  store ptr %41, ptr %40, align 8
-  %42 = getelementptr inbounds { ptr, i64 }, ptr %15, i32 0, i32 1
-  %43 = extractvalue { ptr, i64 } %39, 1
-  store i64 %43, ptr %42, align 8
-  call void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %31, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  br label %44
+  call void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #12
+  br label %39
 
-44:                                               ; preds = %30, %20
-  br label %45
+39:                                               ; preds = %28, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  br label %40
 
-45:                                               ; preds = %44
-  %46 = load i64, ptr %12, align 8
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %12, align 8
-  br label %16, !llvm.loop !23
+40:                                               ; preds = %39
+  %41 = load i64, ptr %9, align 8, !tbaa !11
+  %42 = add i64 %41, 1
+  store i64 %42, ptr %9, align 8, !tbaa !11
+  br label %13, !llvm.loop !146
 
-48:                                               ; preds = %16
+43:                                               ; preds = %17
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %6 = load i64, ptr %4, align 8, !tbaa !11
+  %7 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   %8 = icmp ugt i64 %6, %7
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %2
-  %10 = load i64, ptr %4, align 8
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %10 = load i64, ptr %4, align 8, !tbaa !11
+  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   %12 = sub i64 %10, %11
   call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %12)
   br label %24
 
 13:                                               ; preds = %2
-  %14 = load i64, ptr %4, align 8
-  %15 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %14 = load i64, ptr %4, align 8, !tbaa !11
+  %15 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   %16 = icmp ult i64 %14, %15
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %5, i32 0, i32 0
-  %19 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i64, ptr %4, align 8
-  %22 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %20, i64 %21
-  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE15_M_erase_at_endEPS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %22) #8
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %5, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !43
+  %21 = load i64, ptr %4, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %20, i64 %21
+  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE15_M_erase_at_endEPS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %22) #12
   br label %23
 
 23:                                               ; preds = %17, %13
@@ -4253,36 +4424,55 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !147
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !30
+  %9 = load ptr, ptr %4, align 8, !tbaa !147
+  %10 = load i32, ptr %5, align 4, !tbaa !30
   call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEKNS0_8internal5ArrayIT_EEPSA_m(ptr noundef %0, i64 noundef %1) #4 comdat {
+  %3 = alloca %"struct.ozz::io::internal::Array.28", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !137
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.28", ptr %3, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !137
+  store ptr %7, ptr %6, align 8, !tbaa !149
+  %8 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.28", ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %5, align 8, !tbaa !11
+  store i64 %9, ptr %8, align 8, !tbaa !151
+  %10 = load { ptr, i64 }, ptr %3, align 8
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !43
+  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #12
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -4294,36 +4484,38 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %14 = load ptr, ptr %3, align 8
-  %15 = load i64, ptr %4, align 8
+  %15 = load i64, ptr %4, align 8, !tbaa !11
   %16 = icmp ne i64 %15, 0
   br i1 %16, label %17, label %133
 
 17:                                               ; preds = %2
-  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
-  store i64 %18, ptr %5, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
-  %20 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %19, i32 0, i32 2
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
-  %23 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %22, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
+  store i64 %18, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8, !tbaa !152
+  %22 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !40
   %25 = ptrtoint ptr %21 to i64
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
   %28 = sdiv exact i64 %27, 16
-  store i64 %28, ptr %6, align 8
-  %29 = load i64, ptr %5, align 8
-  %30 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  store i64 %28, ptr %6, align 8, !tbaa !11
+  %29 = load i64, ptr %5, align 8, !tbaa !11
+  %30 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %31 = icmp ugt i64 %29, %30
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %17
-  %33 = load i64, ptr %6, align 8
-  %34 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
-  %35 = load i64, ptr %5, align 8
+  %33 = load i64, ptr %6, align 8, !tbaa !11
+  %34 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
+  %35 = load i64, ptr %5, align 8, !tbaa !11
   %36 = sub i64 %34, %35
   %37 = icmp ugt i64 %33, %36
   br i1 %37, label %38, label %39
@@ -4332,56 +4524,61 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   unreachable
 
 39:                                               ; preds = %32
-  %40 = load i64, ptr %6, align 8
-  %41 = load i64, ptr %4, align 8
+  %40 = load i64, ptr %6, align 8, !tbaa !11
+  %41 = load i64, ptr %4, align 8, !tbaa !11
   %42 = icmp uge i64 %40, %41
   br i1 %42, label %43, label %52
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
-  %45 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i64, ptr %4, align 8
-  %48 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %44 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !40
+  %47 = load i64, ptr %4, align 8, !tbaa !11
+  %48 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %49 = call noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_(ptr noundef %46, i64 noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %48)
-  %50 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
-  %51 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %50, i32 0, i32 1
-  store ptr %49, ptr %51, align 8
+  %50 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %50, i32 0, i32 1
+  store ptr %49, ptr %51, align 8, !tbaa !40
   br label %132
 
 52:                                               ; preds = %39
-  %53 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
-  %54 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %7, align 8
-  %56 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
-  %57 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %56, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  store ptr %58, ptr %8, align 8
-  %59 = load i64, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %53 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
+  %54 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8, !tbaa !43
+  store ptr %55, ptr %7, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %56 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8, !tbaa !40
+  store ptr %58, ptr %8, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %59 = load i64, ptr %4, align 8, !tbaa !11
   %60 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %59, ptr noundef @.str)
-  store i64 %60, ptr %9, align 8
-  %61 = load i64, ptr %9, align 8
+  store i64 %60, ptr %9, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %61 = load i64, ptr %9, align 8, !tbaa !11
   %62 = call noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %61)
-  store ptr %62, ptr %10, align 8
-  store ptr null, ptr %11, align 8
-  %63 = load ptr, ptr %10, align 8
-  %64 = load i64, ptr %5, align 8
-  %65 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %63, i64 %64
-  %66 = load i64, ptr %4, align 8
-  %67 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  store ptr %62, ptr %10, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  store ptr null, ptr %11, align 8, !tbaa !137
+  %63 = load ptr, ptr %10, align 8, !tbaa !137
+  %64 = load i64, ptr %5, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %63, i64 %64
+  %66 = load i64, ptr %4, align 8, !tbaa !11
+  %67 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %68 = invoke noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_(ptr noundef %65, i64 noundef %66, ptr noundef nonnull align 1 dereferenceable(1) %67)
           to label %69 unwind label %79
 
 69:                                               ; preds = %52
-  %70 = load ptr, ptr %10, align 8
-  %71 = load i64, ptr %5, align 8
-  %72 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %70, i64 %71
-  store ptr %72, ptr %11, align 8
-  %73 = load ptr, ptr %7, align 8
-  %74 = load ptr, ptr %8, align 8
-  %75 = load ptr, ptr %10, align 8
-  %76 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %70 = load ptr, ptr %10, align 8, !tbaa !137
+  %71 = load i64, ptr %5, align 8, !tbaa !11
+  %72 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %70, i64 %71
+  store ptr %72, ptr %11, align 8, !tbaa !137
+  %73 = load ptr, ptr %7, align 8, !tbaa !137
+  %74 = load ptr, ptr %8, align 8, !tbaa !137
+  %75 = load ptr, ptr %10, align 8, !tbaa !137
+  %76 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %77 = invoke noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEES7_NS0_12StdAllocatorIS6_EEET0_T_SB_SA_RT1_(ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef nonnull align 1 dereferenceable(1) %76)
           to label %78 unwind label %79
 
@@ -4399,17 +4596,17 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
 
 83:                                               ; preds = %79
   %84 = load ptr, ptr %12, align 8
-  %85 = call ptr @__cxa_begin_catch(ptr %84) #8
-  %86 = load ptr, ptr %11, align 8
+  %85 = call ptr @__cxa_begin_catch(ptr %84) #12
+  %86 = load ptr, ptr %11, align 8, !tbaa !137
   %87 = icmp ne ptr %86, null
   br i1 %87, label %88, label %99
 
 88:                                               ; preds = %83
-  %89 = load ptr, ptr %11, align 8
-  %90 = load ptr, ptr %11, align 8
-  %91 = load i64, ptr %4, align 8
-  %92 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %90, i64 %91
-  %93 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %89 = load ptr, ptr %11, align 8, !tbaa !137
+  %90 = load ptr, ptr %11, align 8, !tbaa !137
+  %91 = load i64, ptr %4, align 8, !tbaa !11
+  %92 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %90, i64 %91
+  %93 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %89, ptr noundef %92, ptr noundef nonnull align 1 dereferenceable(1) %93)
           to label %94 unwind label %95
 
@@ -4427,54 +4624,68 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
           to label %103 unwind label %139
 
 99:                                               ; preds = %94, %83
-  %100 = load ptr, ptr %10, align 8
-  %101 = load i64, ptr %9, align 8
+  %100 = load ptr, ptr %10, align 8, !tbaa !137
+  %101 = load i64, ptr %9, align 8, !tbaa !11
   invoke void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE13_M_deallocateEPS6_m(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %100, i64 noundef %101)
           to label %102 unwind label %95
 
 102:                                              ; preds = %99
-  invoke void @__cxa_rethrow() #9
+  invoke void @__cxa_rethrow() #13
           to label %142 unwind label %95
 
 103:                                              ; preds = %95
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   br label %134
 
 104:                                              ; preds = %78
-  %105 = load ptr, ptr %7, align 8
-  %106 = load ptr, ptr %8, align 8
-  %107 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %105 = load ptr, ptr %7, align 8, !tbaa !137
+  %106 = load ptr, ptr %8, align 8, !tbaa !137
+  %107 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   call void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %105, ptr noundef %106, ptr noundef nonnull align 1 dereferenceable(1) %107)
-  %108 = load ptr, ptr %7, align 8
-  %109 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
-  %110 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %109, i32 0, i32 2
-  %111 = load ptr, ptr %110, align 8
-  %112 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  %108 = load ptr, ptr %7, align 8, !tbaa !137
+  %109 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
+  %110 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %109, i32 0, i32 2
+  %111 = load ptr, ptr %110, align 8, !tbaa !152
+  %112 = load ptr, ptr %7, align 8, !tbaa !137
   %113 = ptrtoint ptr %111 to i64
   %114 = ptrtoint ptr %112 to i64
   %115 = sub i64 %113, %114
   %116 = sdiv exact i64 %115, 16
   call void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE13_M_deallocateEPS6_m(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %108, i64 noundef %116)
-  %117 = load ptr, ptr %10, align 8
-  %118 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
-  %119 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %118, i32 0, i32 0
-  store ptr %117, ptr %119, align 8
-  %120 = load ptr, ptr %10, align 8
-  %121 = load i64, ptr %5, align 8
-  %122 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %120, i64 %121
-  %123 = load i64, ptr %4, align 8
-  %124 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %122, i64 %123
-  %125 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
-  %126 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %125, i32 0, i32 1
-  store ptr %124, ptr %126, align 8
-  %127 = load ptr, ptr %10, align 8
-  %128 = load i64, ptr %9, align 8
-  %129 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %127, i64 %128
-  %130 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
-  %131 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %130, i32 0, i32 2
-  store ptr %129, ptr %131, align 8
+  %117 = load ptr, ptr %10, align 8, !tbaa !137
+  %118 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
+  %119 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %118, i32 0, i32 0
+  store ptr %117, ptr %119, align 8, !tbaa !43
+  %120 = load ptr, ptr %10, align 8, !tbaa !137
+  %121 = load i64, ptr %5, align 8, !tbaa !11
+  %122 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %120, i64 %121
+  %123 = load i64, ptr %4, align 8, !tbaa !11
+  %124 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %122, i64 %123
+  %125 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
+  %126 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %125, i32 0, i32 1
+  store ptr %124, ptr %126, align 8, !tbaa !40
+  %127 = load ptr, ptr %10, align 8, !tbaa !137
+  %128 = load i64, ptr %9, align 8, !tbaa !11
+  %129 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %14, i32 0, i32 0
+  %131 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %130, i32 0, i32 2
+  store ptr %129, ptr %131, align 8, !tbaa !152
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   br label %132
 
 132:                                              ; preds = %104, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   br label %133
 
 133:                                              ; preds = %132, %2
@@ -4491,7 +4702,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   %140 = landingpad { ptr, i32 }
           catch ptr null
   %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #10
+  call void @__clang_call_terminate(ptr %141) #14
   unreachable
 
 142:                                              ; preds = %102
@@ -4503,82 +4714,85 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store ptr %1, ptr %4, align 8, !tbaa !137
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !40
+  %10 = load ptr, ptr %4, align 8, !tbaa !137
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 16
-  store i64 %14, ptr %5, align 8
-  %15 = load i64, ptr %5, align 8
+  store i64 %14, ptr %5, align 8, !tbaa !11
+  %15 = load i64, ptr %5, align 8, !tbaa !11
   %16 = icmp ne i64 %15, 0
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %6, i32 0, i32 0
-  %20 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
+  %18 = load ptr, ptr %4, align 8, !tbaa !137
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !40
+  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %18, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %23 unwind label %28
 
 23:                                               ; preds = %17
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %6, i32 0, i32 0
-  %26 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %25, i32 0, i32 1
-  store ptr %24, ptr %26, align 8
+  %24 = load ptr, ptr %4, align 8, !tbaa !137
+  %25 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %6, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float2>>>::_Vector_impl_data", ptr %25, i32 0, i32 1
+  store ptr %24, ptr %26, align 8, !tbaa !40
   br label %27
 
 27:                                               ; preds = %23, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   ret void
 
 28:                                               ; preds = %17
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #10
+  call void @__clang_call_terminate(ptr %30) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #8
-  %5 = call noundef i64 @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE11_S_max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  %5 = call noundef i64 @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE11_S_max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
   ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %10 = load ptr, ptr %4, align 8
-  store ptr %10, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !137
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !153
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %10 = load ptr, ptr %4, align 8, !tbaa !137
+  store ptr %10, ptr %7, align 8, !tbaa !137
   br label %11
 
 11:                                               ; preds = %18, %3
-  %12 = load i64, ptr %5, align 8
+  %12 = load i64, ptr %5, align 8, !tbaa !11
   %13 = icmp ugt i64 %12, 0
   br i1 %13, label %14, label %34
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %7, align 8
+  %15 = load ptr, ptr %6, align 8, !tbaa !153
+  %16 = load ptr, ptr %7, align 8, !tbaa !137
   invoke void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE9constructIS7_JEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %16)
           to label %17 unwind label %23
 
@@ -4586,13 +4800,13 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8
+  %19 = load i64, ptr %5, align 8, !tbaa !11
   %20 = add i64 %19, -1
-  store i64 %20, ptr %5, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %21, i32 1
-  store ptr %22, ptr %7, align 8
-  br label %11, !llvm.loop !24
+  store i64 %20, ptr %5, align 8, !tbaa !11
+  %21 = load ptr, ptr %7, align 8, !tbaa !137
+  %22 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %21, i32 1
+  store ptr %22, ptr %7, align 8, !tbaa !137
+  br label %11, !llvm.loop !155
 
 23:                                               ; preds = %14
   %24 = landingpad { ptr, i32 }
@@ -4605,19 +4819,20 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %8, align 8
-  %29 = call ptr @__cxa_begin_catch(ptr %28) #8
-  %30 = load ptr, ptr %4, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = load ptr, ptr %6, align 8
+  %29 = call ptr @__cxa_begin_catch(ptr %28) #12
+  %30 = load ptr, ptr %4, align 8, !tbaa !137
+  %31 = load ptr, ptr %7, align 8, !tbaa !137
+  %32 = load ptr, ptr %6, align 8, !tbaa !153
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %30, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %32)
           to label %33 unwind label %36
 
 33:                                               ; preds = %27
-  invoke void @__cxa_rethrow() #9
+  invoke void @__cxa_rethrow() #13
           to label %50 unwind label %36
 
 34:                                               ; preds = %11
-  %35 = load ptr, ptr %7, align 8
+  %35 = load ptr, ptr %7, align 8, !tbaa !137
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   ret ptr %35
 
 36:                                               ; preds = %33, %27
@@ -4631,10 +4846,10 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
           to label %40 unwind label %47
 
 40:                                               ; preds = %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   br label %42
 
 41:                                               ; No predecessors!
-  call void @llvm.trap()
   unreachable
 
 42:                                               ; preds = %40
@@ -4648,7 +4863,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #10
+  call void @__clang_call_terminate(ptr %49) #14
   unreachable
 
 50:                                               ; preds = %33
@@ -4658,81 +4873,85 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !156
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !38
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !96
   %9 = load ptr, ptr %4, align 8
-  %10 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %10 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   %12 = sub i64 %10, %11
-  %13 = load i64, ptr %5, align 8
+  %13 = load i64, ptr %5, align 8, !tbaa !11
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %6, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #9
+  %16 = load ptr, ptr %6, align 8, !tbaa !96
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #13
   unreachable
 
 17:                                               ; preds = %3
-  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  %19 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  store i64 %19, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %19 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  store i64 %19, ptr %8, align 8, !tbaa !11
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !11
   %22 = add i64 %18, %21
-  store i64 %22, ptr %7, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  store i64 %22, ptr %7, align 8, !tbaa !11
+  %23 = load i64, ptr %7, align 8, !tbaa !11
+  %24 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %17
-  %27 = load i64, ptr %7, align 8
-  %28 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %27 = load i64, ptr %7, align 8, !tbaa !11
+  %28 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   %29 = icmp ugt i64 %27, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26, %17
-  %31 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %31 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   br label %34
 
 32:                                               ; preds = %26
-  %33 = load i64, ptr %7, align 8
+  %33 = load i64, ptr %7, align 8, !tbaa !11
   br label %34
 
 34:                                               ; preds = %32, %30
   %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   ret i64 %35
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !156
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !11
   %7 = icmp ne i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %5, i32 0, i32 0
-  %10 = load i64, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !11
   %11 = call noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
   br label %13
 
@@ -4744,85 +4963,85 @@ define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7o
   ret ptr %14
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEES7_NS0_12StdAllocatorIS6_EEET0_T_SB_SA_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEES7_NS0_12StdAllocatorIS6_EEET0_T_SB_SA_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #3 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.std::move_iterator.29", align 8
   %10 = alloca %"class.std::move_iterator.29", align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %11 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !137
+  store ptr %1, ptr %6, align 8, !tbaa !137
+  store ptr %2, ptr %7, align 8, !tbaa !137
+  store ptr %3, ptr %8, align 8, !tbaa !153
+  %11 = load ptr, ptr %5, align 8, !tbaa !137
   %12 = call ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEESt13move_iteratorIPS6_EET0_PT_(ptr noundef %11)
-  %13 = getelementptr inbounds %"class.std::move_iterator.29", ptr %9, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.std::move_iterator.29", ptr %9, i32 0, i32 0
   store ptr %12, ptr %13, align 8
-  %14 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %6, align 8, !tbaa !137
   %15 = call ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEESt13move_iteratorIPS6_EET0_PT_(ptr noundef %14)
-  %16 = getelementptr inbounds %"class.std::move_iterator.29", ptr %10, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"class.std::move_iterator.29", ptr %10, i32 0, i32 0
   store ptr %15, ptr %16, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %"class.std::move_iterator.29", ptr %9, i32 0, i32 0
+  %17 = load ptr, ptr %7, align 8, !tbaa !137
+  %18 = load ptr, ptr %8, align 8, !tbaa !153
+  %19 = getelementptr inbounds nuw %"class.std::move_iterator.29", ptr %9, i32 0, i32 0
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %"class.std::move_iterator.29", ptr %10, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"class.std::move_iterator.29", ptr %10, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS1_4math6Float2EEEES8_NS1_12StdAllocatorIS7_EEET0_T_SD_SC_RT1_(ptr %20, ptr %22, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18)
   ret ptr %23
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat {
+define linkonce_odr dso_local void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !137
+  store ptr %1, ptr %5, align 8, !tbaa !137
+  store ptr %2, ptr %6, align 8, !tbaa !153
   br label %7
 
 7:                                                ; preds = %14, %3
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !137
+  %9 = load ptr, ptr %5, align 8, !tbaa !137
   %10 = icmp ne ptr %8, %9
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %6, align 8, !tbaa !153
+  %13 = load ptr, ptr %4, align 8, !tbaa !137
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE7destroyIS7_EEvRS8_PT_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef %13)
   br label %14
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %15, i32 1
-  store ptr %16, ptr %4, align 8
-  br label %7, !llvm.loop !25
+  %15 = load ptr, ptr %4, align 8, !tbaa !137
+  %16 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %15, i32 1
+  store ptr %16, ptr %4, align 8, !tbaa !137
+  br label %7, !llvm.loop !158
 
 17:                                               ; preds = %7
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE13_M_deallocateEPS6_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE13_M_deallocateEPS6_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !156
+  store ptr %1, ptr %5, align 8, !tbaa !137
+  store i64 %2, ptr %6, align 8, !tbaa !11
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !137
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !137
+  %13 = load i64, ptr %6, align 8, !tbaa !11
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE10deallocateERS8_PS7_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
@@ -4835,30 +5054,34 @@ define linkonce_odr dso_local noundef i64 @_ZNSt6vectorIN3ozz9animation7offline1
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 576460752303423487, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE8max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
-  store i64 %6, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !153
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  store i64 576460752303423487, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #12
+  %5 = load ptr, ptr %2, align 8, !tbaa !153
+  %6 = call noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE8max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  store i64 %6, ptr %4, align 8, !tbaa !11
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
   ret i64 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !156
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.4", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.4", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE8max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !153
+  %3 = load ptr, ptr %2, align 8, !tbaa !153
   %4 = invoke noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE11_S_max_sizeIKS8_EEDTcldtfp_8max_sizeEERT_i(ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef 0)
           to label %5 unwind label %6
 
@@ -4869,7 +5092,7 @@ define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAll
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #10
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 }
 
@@ -4877,64 +5100,70 @@ define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAll
 define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE11_S_max_sizeIKS8_EEDTcldtfp_8max_sizeEERT_i(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
+  store ptr %0, ptr %3, align 8, !tbaa !153
+  store i32 %1, ptr %4, align 4, !tbaa !30
+  %5 = load ptr, ptr %3, align 8, !tbaa !153
+  %6 = call noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
   ret i64 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !153
   ret i64 1152921504606846975
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE9constructIS7_JEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE9constructIS7_JEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !153
+  store ptr %1, ptr %4, align 8, !tbaa !137
+  %5 = load ptr, ptr %3, align 8, !tbaa !153
+  %6 = load ptr, ptr %4, align 8, !tbaa !137
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE12_S_constructIS7_JEEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE12_S_constructIS7_JEEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE12_S_constructIS7_JEEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !153
+  store ptr %1, ptr %4, align 8, !tbaa !137
+  %5 = load ptr, ptr %3, align 8, !tbaa !153
+  %6 = load ptr, ptr %4, align 8, !tbaa !137
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE9constructIS6_JEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE9constructIS6_JEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE9constructIS6_JEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !153
+  store ptr %1, ptr %4, align 8, !tbaa !137
+  %5 = load ptr, ptr %4, align 8, !tbaa !137
   call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 16, i1 false)
   call void @_ZN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float2EEC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %5)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float2EEC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float2EEC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %4, i32 0, i32 2
-  store ptr %5, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %3, i32 0, i32 2
+  call void @_ZN3ozz4math6Float2C2Ev(ptr noundef nonnull align 4 dereferenceable(8) %4)
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3ozz4math6Float2C2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !144
   ret void
 }
 
@@ -4942,11 +5171,11 @@ define linkonce_odr dso_local void @_ZN3ozz9animation7offline16RawTrackKeyframeI
 define linkonce_odr dso_local noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = call noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6) #8
+  store ptr %0, ptr %3, align 8, !tbaa !153
+  store i64 %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !153
+  %6 = load i64, ptr %4, align 8, !tbaa !11
+  %7 = call noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6) #12
   ret ptr %7
 }
 
@@ -4954,15 +5183,15 @@ define linkonce_odr dso_local noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAll
 define linkonce_odr dso_local noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !153
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
           to label %6 unwind label %14
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr %4, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !11
   %8 = mul i64 16, %7
-  %9 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !88
   %10 = getelementptr inbounds ptr, ptr %9, i64 2
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %8, i64 noundef 4)
@@ -4975,12 +5204,12 @@ define linkonce_odr dso_local noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7o
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #10
+  call void @__clang_call_terminate(ptr %16) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS1_4math6Float2EEEES8_NS1_12StdAllocatorIS7_EEET0_T_SD_SC_RT1_(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #1 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS1_4math6Float2EEEES8_NS1_12StdAllocatorIS7_EEET0_T_SD_SC_RT1_(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #2 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::move_iterator.29", align 8
   %6 = alloca %"class.std::move_iterator.29", align 8
   %7 = alloca ptr, align 8
@@ -4988,14 +5217,15 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds %"class.std::move_iterator.29", ptr %5, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.std::move_iterator.29", ptr %5, i32 0, i32 0
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.std::move_iterator.29", ptr %6, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.std::move_iterator.29", ptr %6, i32 0, i32 0
   store ptr %1, ptr %13, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %14 = load ptr, ptr %7, align 8
-  store ptr %14, ptr %9, align 8
+  store ptr %2, ptr %7, align 8, !tbaa !137
+  store ptr %3, ptr %8, align 8, !tbaa !153
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %14 = load ptr, ptr %7, align 8, !tbaa !137
+  store ptr %14, ptr %9, align 8, !tbaa !137
   br label %15
 
 15:                                               ; preds = %26, %4
@@ -5006,8 +5236,8 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
   br i1 %16, label %18, label %40
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr %8, align 8
-  %20 = load ptr, ptr %9, align 8
+  %19 = load ptr, ptr %8, align 8, !tbaa !153
+  %20 = load ptr, ptr %9, align 8, !tbaa !137
   %21 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %22 unwind label %29
 
@@ -5023,10 +5253,10 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
           to label %26 unwind label %29
 
 26:                                               ; preds = %24
-  %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %27, i32 1
-  store ptr %28, ptr %9, align 8
-  br label %15, !llvm.loop !26
+  %27 = load ptr, ptr %9, align 8, !tbaa !137
+  %28 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %27, i32 1
+  store ptr %28, ptr %9, align 8, !tbaa !137
+  br label %15, !llvm.loop !159
 
 29:                                               ; preds = %24, %22, %18, %15
   %30 = landingpad { ptr, i32 }
@@ -5039,19 +5269,20 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %10, align 8
-  %35 = call ptr @__cxa_begin_catch(ptr %34) #8
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = load ptr, ptr %8, align 8
+  %35 = call ptr @__cxa_begin_catch(ptr %34) #12
+  %36 = load ptr, ptr %7, align 8, !tbaa !137
+  %37 = load ptr, ptr %9, align 8, !tbaa !137
+  %38 = load ptr, ptr %8, align 8, !tbaa !153
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38)
           to label %39 unwind label %42
 
 39:                                               ; preds = %33
-  invoke void @__cxa_rethrow() #9
+  invoke void @__cxa_rethrow() #13
           to label %56 unwind label %42
 
 40:                                               ; preds = %17
-  %41 = load ptr, ptr %9, align 8
+  %41 = load ptr, ptr %9, align 8, !tbaa !137
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
   ret ptr %41
 
 42:                                               ; preds = %39, %33
@@ -5065,10 +5296,10 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
           to label %46 unwind label %53
 
 46:                                               ; preds = %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
   br label %48
 
 47:                                               ; No predecessors!
-  call void @llvm.trap()
   unreachable
 
 48:                                               ; preds = %46
@@ -5082,49 +5313,49 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #10
+  call void @__clang_call_terminate(ptr %55) #14
   unreachable
 
 56:                                               ; preds = %39
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEESt13move_iteratorIPS6_EET0_PT_(ptr noundef %0) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEESt13move_iteratorIPS6_EET0_PT_(ptr noundef %0) #3 comdat {
   %2 = alloca %"class.std::move_iterator.29", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !137
+  %4 = load ptr, ptr %3, align 8, !tbaa !137
   call void @_ZNSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEC2ES7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
-  %5 = getelementptr inbounds %"class.std::move_iterator.29", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.std::move_iterator.29", ptr %2, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZStneIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZStneIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !160
+  store ptr %1, ptr %4, align 8, !tbaa !160
+  %5 = load ptr, ptr %3, align 8, !tbaa !160
+  %6 = load ptr, ptr %4, align 8, !tbaa !160
   %7 = call noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %8 = xor i1 %7, true
   ret i1 %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE9constructIS7_JS7_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE9constructIS7_JS7_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !153
+  store ptr %1, ptr %5, align 8, !tbaa !137
+  store ptr %2, ptr %6, align 8, !tbaa !137
+  %7 = load ptr, ptr %4, align 8, !tbaa !153
+  %8 = load ptr, ptr %5, align 8, !tbaa !137
+  %9 = load ptr, ptr %6, align 8, !tbaa !137
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE12_S_constructIS7_JS7_EEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(16) %9)
   ret void
 }
@@ -5132,34 +5363,34 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !160
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator.29", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator.29", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !162
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !160
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator.29", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %5, i32 1
-  store ptr %6, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator.29", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !162
+  %6 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !162
   ret ptr %3
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !160
+  store ptr %1, ptr %4, align 8, !tbaa !160
+  %5 = load ptr, ptr %3, align 8, !tbaa !160
   %6 = call noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !160
   %8 = call noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %9 = icmp eq ptr %6, %8
   ret i1 %9
@@ -5168,24 +5399,24 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIPN3ozz9animation7offlin
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !160
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator.29", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator.29", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !162
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE12_S_constructIS7_JS7_EEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE12_S_constructIS7_JS7_EEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !153
+  store ptr %1, ptr %5, align 8, !tbaa !137
+  store ptr %2, ptr %6, align 8, !tbaa !137
+  %7 = load ptr, ptr %4, align 8, !tbaa !153
+  %8 = load ptr, ptr %5, align 8, !tbaa !137
+  %9 = load ptr, ptr %6, align 8, !tbaa !137
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE9constructIS6_JS6_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(16) %9)
   ret void
 }
@@ -5195,12 +5426,12 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 16, i1 false)
+  store ptr %0, ptr %4, align 8, !tbaa !153
+  store ptr %1, ptr %5, align 8, !tbaa !137
+  store ptr %2, ptr %6, align 8, !tbaa !137
+  %7 = load ptr, ptr %5, align 8, !tbaa !137
+  %8 = load ptr, ptr %6, align 8, !tbaa !137
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 16, i1 false), !tbaa.struct !164
   ret void
 }
 
@@ -5208,37 +5439,37 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
 define linkonce_odr dso_local void @_ZNSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEC2ES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !160
+  store ptr %1, ptr %4, align 8, !tbaa !137
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::move_iterator.29", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.std::move_iterator.29", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !137
+  store ptr %7, ptr %6, align 8, !tbaa !162
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE7destroyIS7_EEvRS8_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE7destroyIS7_EEvRS8_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !153
+  store ptr %1, ptr %4, align 8, !tbaa !137
+  %5 = load ptr, ptr %3, align 8, !tbaa !153
+  %6 = load ptr, ptr %4, align 8, !tbaa !137
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE10_S_destroyIS8_S7_EEDTcldtfp_7destroyfp0_EERT_PT0_i(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE10_S_destroyIS8_S7_EEDTcldtfp_7destroyfp0_EERT_PT0_i(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i32 noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEEEE10_S_destroyIS8_S7_EEDTcldtfp_7destroyfp0_EERT_PT0_i(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i32 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !153
+  store ptr %1, ptr %5, align 8, !tbaa !137
+  store i32 %2, ptr %6, align 4, !tbaa !30
+  %7 = load ptr, ptr %4, align 8, !tbaa !153
+  %8 = load ptr, ptr %5, align 8, !tbaa !137
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE7destroyIS6_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8)
   ret void
 }
@@ -5247,8 +5478,8 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorI
 define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE7destroyIS6_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !153
+  store ptr %1, ptr %4, align 8, !tbaa !137
   ret void
 }
 
@@ -5257,13 +5488,13 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorI
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
-  call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE10deallocateEPS6_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #8
+  store ptr %0, ptr %4, align 8, !tbaa !153
+  store ptr %1, ptr %5, align 8, !tbaa !137
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  %7 = load ptr, ptr %4, align 8, !tbaa !153
+  %8 = load ptr, ptr %5, align 8, !tbaa !137
+  %9 = load i64, ptr %6, align 8, !tbaa !11
+  call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE10deallocateEPS6_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #12
   ret void
 }
 
@@ -5272,15 +5503,15 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !153
+  store ptr %1, ptr %5, align 8, !tbaa !137
+  store i64 %2, ptr %6, align 8, !tbaa !11
   %7 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
           to label %8 unwind label %14
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !137
+  %10 = load ptr, ptr %7, align 8, !tbaa !88
   %11 = getelementptr inbounds ptr, ptr %10, i64 3
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9)
@@ -5293,82 +5524,96 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #10
+  call void @__clang_call_terminate(ptr %16) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   %4 = load ptr, ptr %2, align 8
-  store i32 0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4, !tbaa !30
   call void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret i32 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #3 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca i64, align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
-  store i64 0, ptr %12, align 8
-  br label %13
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !147
+  store i64 %2, ptr %7, align 8, !tbaa !11
+  store i32 %3, ptr %8, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  store i64 0, ptr %9, align 8, !tbaa !11
+  br label %10
 
-13:                                               ; preds = %29, %4
-  %14 = load i64, ptr %12, align 8
-  %15 = load i64, ptr %10, align 8
-  %16 = icmp ult i64 %14, %15
-  br i1 %16, label %17, label %32
+10:                                               ; preds = %21, %4
+  %11 = load i64, ptr %9, align 8, !tbaa !11
+  %12 = load i64, ptr %7, align 8, !tbaa !11
+  %13 = icmp ult i64 %11, %12
+  br i1 %13, label %15, label %14
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %9, align 8
-  %19 = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds %"struct.ozz::io::internal::Array.28", ptr %18, i64 %19
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i32, ptr %11, align 4
-  store ptr %20, ptr %5, align 8
-  store ptr %21, ptr %6, align 8
-  store i32 %22, ptr %7, align 4
-  %23 = load ptr, ptr %5, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds %"struct.ozz::io::internal::Array.28", ptr %23, i32 0, i32 1
-  %27 = load i64, ptr %26, align 8
-  %28 = load i32, ptr %7, align 4
-  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4LoadERNS0_8IArchiveEPS7_mj(ptr noundef nonnull align 8 dereferenceable(9) %24, ptr noundef %25, i64 noundef %27, i32 noundef %28)
-  br label %29
+14:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %24
 
-29:                                               ; preds = %17
-  %30 = load i64, ptr %12, align 8
-  %31 = add i64 %30, 1
-  store i64 %31, ptr %12, align 8
-  br label %13, !llvm.loop !27
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %6, align 8, !tbaa !147
+  %17 = load i64, ptr %9, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.28", ptr %16, i64 %17
+  %19 = load ptr, ptr %5, align 8, !tbaa !28
+  %20 = load i32, ptr %8, align 4, !tbaa !30
+  call void @_ZNK3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4LoadERNS0_8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(9) %19, i32 noundef %20)
+  br label %21
 
-32:                                               ; preds = %13
+21:                                               ; preds = %15
+  %22 = load i64, ptr %9, align 8, !tbaa !11
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %9, align 8, !tbaa !11
+  br label %10, !llvm.loop !165
+
+24:                                               ; preds = %14
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4LoadERNS0_8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !147
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  store i32 %2, ptr %6, align 4, !tbaa !30
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.28", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !149
+  %11 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.28", ptr %7, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !151
+  %13 = load i32, ptr %6, align 4, !tbaa !30
+  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4LoadERNS0_8IArchiveEPS7_mj(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef %10, i64 noundef %12, i32 noundef %13)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4LoadERNS0_8IArchiveEPS7_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4LoadERNS0_8IArchiveEPS7_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #2 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -5376,72 +5621,83 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16Raw
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i8, align 1
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  store i64 0, ptr %9, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !137
+  store i64 %2, ptr %7, align 8, !tbaa !11
+  store i32 %3, ptr %8, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  store i64 0, ptr %9, align 8, !tbaa !11
   br label %12
 
-12:                                               ; preds = %31, %4
-  %13 = load i64, ptr %9, align 8
-  %14 = load i64, ptr %7, align 8
+12:                                               ; preds = %32, %4
+  %13 = load i64, ptr %9, align 8, !tbaa !11
+  %14 = load i64, ptr %7, align 8, !tbaa !11
   %15 = icmp ult i64 %13, %14
-  br i1 %15, label %16, label %34
+  br i1 %15, label %17, label %16
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i64, ptr %9, align 8
-  %19 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %17, i64 %18
-  store ptr %19, ptr %10, align 8
-  %20 = load ptr, ptr %5, align 8
-  call void @_ZN3ozz2io8IArchiversERh(ptr noundef nonnull align 8 dereferenceable(9) %20, ptr noundef nonnull align 1 dereferenceable(1) %11)
-  %21 = load i8, ptr %11, align 1
-  %22 = zext i8 %21 to i32
-  %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %23, i32 0, i32 0
-  store i32 %22, ptr %24, align 4
-  %25 = load ptr, ptr %5, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %26, i32 0, i32 1
-  call void @_ZN3ozz2io8IArchiversERf(ptr noundef nonnull align 8 dereferenceable(9) %25, ptr noundef nonnull align 4 dereferenceable(4) %27)
-  %28 = load ptr, ptr %5, align 8
-  %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %29, i32 0, i32 2
-  call void @_ZN3ozz2io8IArchiversINS_4math6Float2EEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef nonnull align 4 dereferenceable(8) %30)
-  br label %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %35
 
-31:                                               ; preds = %16
-  %32 = load i64, ptr %9, align 8
-  %33 = add i64 %32, 1
-  store i64 %33, ptr %9, align 8
-  br label %12, !llvm.loop !28
+17:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %18 = load ptr, ptr %6, align 8, !tbaa !137
+  %19 = load i64, ptr %9, align 8, !tbaa !11
+  %20 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %18, i64 %19
+  store ptr %20, ptr %10, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #12
+  %21 = load ptr, ptr %5, align 8, !tbaa !28
+  call void @_ZN3ozz2io8IArchiversERh(ptr noundef nonnull align 8 dereferenceable(9) %21, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %22 = load i8, ptr %11, align 1, !tbaa !98
+  %23 = zext i8 %22 to i32
+  %24 = load ptr, ptr %10, align 8, !tbaa !137
+  %25 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %24, i32 0, i32 0
+  store i32 %23, ptr %25, align 4, !tbaa !142
+  %26 = load ptr, ptr %5, align 8, !tbaa !28
+  %27 = load ptr, ptr %10, align 8, !tbaa !137
+  %28 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %27, i32 0, i32 1
+  call void @_ZN3ozz2io8IArchiversERf(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull align 4 dereferenceable(4) %28)
+  %29 = load ptr, ptr %5, align 8, !tbaa !28
+  %30 = load ptr, ptr %10, align 8, !tbaa !137
+  %31 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %30, i32 0, i32 2
+  call void @_ZN3ozz2io8IArchiversINS_4math6Float2EEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 4 dereferenceable(8) %31)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  br label %32
 
-34:                                               ; preds = %12
+32:                                               ; preds = %17
+  %33 = load i64, ptr %9, align 8, !tbaa !11
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %9, align 8, !tbaa !11
+  br label %12, !llvm.loop !166
+
+35:                                               ; preds = %16
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversINS_4math6Float2EEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversINS_4math6Float2EEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !144
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS_4math6Float2ELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionINS_4math6Float2EEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !30
+  %9 = load ptr, ptr %4, align 8, !tbaa !144
+  %10 = load i32, ptr %5, align 4, !tbaa !30
   call void @_ZN3ozz2io6ExternINS_4math6Float2EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS_4math6Float2ELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   ret i1 true
 }
 
@@ -5449,258 +5705,301 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS
 define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionINS_4math6Float2EEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4, !tbaa !30
+  %4 = load i32, ptr %3, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret i32 %4
 }
 
-declare void @_ZN3ozz2io6ExternINS_4math6Float2EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef, i32 noundef) #2
+declare void @_ZN3ozz2io6ExternINS_4math6Float2EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef, i32 noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS9_EEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS9_EEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS8_EEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
-  %4 = alloca %"struct.ozz::io::internal::Array.30", align 8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS8_EEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  %7 = alloca ptr, align 8
+  %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
-  %13 = alloca %"struct.ozz::io::internal::Array.30", align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i64 %2, ptr %9, align 8
-  store i64 0, ptr %10, align 8
-  br label %14
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.ozz::io::internal::Array.30", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !50
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8, !tbaa !11
+  br label %11
 
-14:                                               ; preds = %44, %3
-  %15 = load i64, ptr %10, align 8
-  %16 = load i64, ptr %9, align 8
-  %17 = icmp ult i64 %15, %16
-  br i1 %17, label %18, label %47
+11:                                               ; preds = %39, %3
+  %12 = load i64, ptr %7, align 8, !tbaa !11
+  %13 = load i64, ptr %6, align 8, !tbaa !11
+  %14 = icmp ult i64 %12, %13
+  br i1 %14, label %16, label %15
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %8, align 8
-  %20 = load i64, ptr %10, align 8
-  %21 = getelementptr inbounds %"class.std::vector.9", ptr %19, i64 %20
-  store ptr %21, ptr %11, align 8
-  %22 = load ptr, ptr %11, align 8
-  %23 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #8
-  %24 = trunc i64 %23 to i32
-  store i32 %24, ptr %12, align 4
-  %25 = load ptr, ptr %7, align 8
-  %26 = load i32, ptr %12, align 4
-  call void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %25, i32 noundef %26)
-  %27 = load i32, ptr %12, align 4
-  %28 = icmp ugt i32 %27, 0
-  br i1 %28, label %29, label %43
+15:                                               ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %42
 
-29:                                               ; preds = %18
-  %30 = load ptr, ptr %7, align 8
-  %31 = load ptr, ptr %11, align 8
-  %32 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #8
-  %33 = load i32, ptr %12, align 4
-  %34 = zext i32 %33 to i64
-  store ptr %32, ptr %5, align 8
-  store i64 %34, ptr %6, align 8
-  %35 = load ptr, ptr %5, align 8
-  store ptr %35, ptr %4, align 8
-  %36 = getelementptr inbounds %"struct.ozz::io::internal::Array.30", ptr %4, i32 0, i32 1
-  %37 = load i64, ptr %6, align 8
+16:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %17 = load ptr, ptr %5, align 8, !tbaa !50
+  %18 = load i64, ptr %7, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %"class.std::vector.9", ptr %17, i64 %18
+  store ptr %19, ptr %8, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  %20 = load ptr, ptr %8, align 8, !tbaa !50
+  %21 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #12
+  %22 = trunc i64 %21 to i32
+  store i32 %22, ptr %9, align 4, !tbaa !30
+  %23 = load ptr, ptr %4, align 8, !tbaa !24
+  %24 = load i32, ptr %9, align 4, !tbaa !30
+  call void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %23, i32 noundef %24)
+  %25 = load i32, ptr %9, align 4, !tbaa !30
+  %26 = icmp ugt i32 %25, 0
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %16
+  %28 = load ptr, ptr %4, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #12
+  %29 = load ptr, ptr %8, align 8, !tbaa !50
+  %30 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #12
+  %31 = load i32, ptr %9, align 4, !tbaa !30
+  %32 = zext i32 %31 to i64
+  %33 = call { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEKNS0_8internal5ArrayIKT_EEPSB_m(ptr noundef %30, i64 noundef %32)
+  %34 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
+  %35 = extractvalue { ptr, i64 } %33, 0
+  store ptr %35, ptr %34, align 8
+  %36 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
+  %37 = extractvalue { ptr, i64 } %33, 1
   store i64 %37, ptr %36, align 8
-  %38 = load { ptr, i64 }, ptr %4, align 8
-  %39 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 0
-  %40 = extractvalue { ptr, i64 } %38, 0
-  store ptr %40, ptr %39, align 8
-  %41 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 1
-  %42 = extractvalue { ptr, i64 } %38, 1
-  store i64 %42, ptr %41, align 8
-  call void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %30, ptr noundef nonnull align 8 dereferenceable(16) %13)
-  br label %43
+  call void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #12
+  br label %38
 
-43:                                               ; preds = %29, %18
-  br label %44
+38:                                               ; preds = %27, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  br label %39
 
-44:                                               ; preds = %43
-  %45 = load i64, ptr %10, align 8
-  %46 = add i64 %45, 1
-  store i64 %46, ptr %10, align 8
-  br label %14, !llvm.loop !29
+39:                                               ; preds = %38
+  %40 = load i64, ptr %7, align 8, !tbaa !11
+  %41 = add i64 %40, 1
+  store i64 %41, ptr %7, align 8, !tbaa !11
+  br label %11, !llvm.loop !167
 
-47:                                               ; preds = %14
+42:                                               ; preds = %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !168
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !168
   call void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEKNS0_8internal5ArrayIKT_EEPSB_m(ptr noundef %0, i64 noundef %1) #4 comdat {
+  %3 = alloca %"struct.ozz::io::internal::Array.30", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !170
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.30", ptr %3, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !170
+  store ptr %7, ptr %6, align 8, !tbaa !171
+  %8 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.30", ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %5, align 8, !tbaa !11
+  store i64 %9, ptr %8, align 8, !tbaa !173
+  %10 = load { ptr, i64 }, ptr %3, align 8
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !55
+  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #12
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   %4 = load ptr, ptr %2, align 8
-  store i32 1, ptr %3, align 4
-  %5 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 1, ptr %3, align 4, !tbaa !30
+  %5 = load i32, ptr %3, align 4, !tbaa !30
   call void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %4, i32 noundef %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i64, align 8
-  %9 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i64 %2, ptr %8, align 8
-  store i64 0, ptr %9, align 8
-  br label %10
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !168
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8, !tbaa !11
+  br label %8
 
-10:                                               ; preds = %24, %3
-  %11 = load i64, ptr %9, align 8
-  %12 = load i64, ptr %8, align 8
-  %13 = icmp ult i64 %11, %12
-  br i1 %13, label %14, label %27
+8:                                                ; preds = %18, %3
+  %9 = load i64, ptr %7, align 8, !tbaa !11
+  %10 = load i64, ptr %6, align 8, !tbaa !11
+  %11 = icmp ult i64 %9, %10
+  br i1 %11, label %13, label %12
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %7, align 8
-  %16 = load i64, ptr %9, align 8
-  %17 = getelementptr inbounds %"struct.ozz::io::internal::Array.30", ptr %15, i64 %16
-  %18 = load ptr, ptr %6, align 8
-  store ptr %17, ptr %4, align 8
-  store ptr %18, ptr %5, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds %"struct.ozz::io::internal::Array.30", ptr %19, i32 0, i32 1
-  %23 = load i64, ptr %22, align 8
-  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4SaveERNS0_8OArchiveEPKS7_m(ptr noundef nonnull align 8 dereferenceable(9) %20, ptr noundef %21, i64 noundef %23)
-  br label %24
+12:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %21
 
-24:                                               ; preds = %14
-  %25 = load i64, ptr %9, align 8
-  %26 = add i64 %25, 1
-  store i64 %26, ptr %9, align 8
-  br label %10, !llvm.loop !30
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %5, align 8, !tbaa !168
+  %15 = load i64, ptr %7, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.30", ptr %14, i64 %15
+  %17 = load ptr, ptr %4, align 8, !tbaa !24
+  call void @_ZNK3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4SaveERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(9) %17)
+  br label %18
 
-27:                                               ; preds = %10
+18:                                               ; preds = %13
+  %19 = load i64, ptr %7, align 8, !tbaa !11
+  %20 = add i64 %19, 1
+  store i64 %20, ptr %7, align 8, !tbaa !11
+  br label %8, !llvm.loop !174
+
+21:                                               ; preds = %12
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4SaveERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !168
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.30", ptr %5, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !171
+  %9 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.30", ptr %5, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !173
+  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4SaveERNS0_8OArchiveEPKS7_m(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %8, i64 noundef %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4SaveERNS0_8OArchiveEPKS7_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4SaveERNS0_8OArchiveEPKS7_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  store i64 0, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !170
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8, !tbaa !11
   br label %10
 
-10:                                               ; preds = %31, %3
-  %11 = load i64, ptr %7, align 8
-  %12 = load i64, ptr %6, align 8
+10:                                               ; preds = %32, %3
+  %11 = load i64, ptr %7, align 8, !tbaa !11
+  %12 = load i64, ptr %6, align 8, !tbaa !11
   %13 = icmp ult i64 %11, %12
-  br i1 %13, label %14, label %34
+  br i1 %13, label %15, label %14
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i64, ptr %7, align 8
-  %17 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %15, i64 %16
-  store ptr %17, ptr %8, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %18, i32 0, i32 0
-  %20 = load i32, ptr %19, align 4
-  %21 = trunc i32 %20 to i8
-  store i8 %21, ptr %9, align 1
-  %22 = load ptr, ptr %4, align 8
-  %23 = load i8, ptr %9, align 1
-  call void @_ZN3ozz2io8OArchivelsEh(ptr noundef nonnull align 8 dereferenceable(9) %22, i8 noundef zeroext %23)
-  %24 = load ptr, ptr %4, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %25, i32 0, i32 1
-  %27 = load float, ptr %26, align 4
-  call void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %24, float noundef %27)
-  %28 = load ptr, ptr %4, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %29, i32 0, i32 2
-  call void @_ZN3ozz2io8OArchivelsINS_4math6Float3EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef nonnull align 4 dereferenceable(12) %30)
-  br label %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %35
 
-31:                                               ; preds = %14
-  %32 = load i64, ptr %7, align 8
-  %33 = add i64 %32, 1
-  store i64 %33, ptr %7, align 8
-  br label %10, !llvm.loop !31
+15:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %16 = load ptr, ptr %5, align 8, !tbaa !170
+  %17 = load i64, ptr %7, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %16, i64 %17
+  store ptr %18, ptr %8, align 8, !tbaa !170
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #12
+  %19 = load ptr, ptr %8, align 8, !tbaa !170
+  %20 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %19, i32 0, i32 0
+  %21 = load i32, ptr %20, align 4, !tbaa !175
+  %22 = trunc i32 %21 to i8
+  store i8 %22, ptr %9, align 1, !tbaa !98
+  %23 = load ptr, ptr %4, align 8, !tbaa !24
+  %24 = load i8, ptr %9, align 1, !tbaa !98
+  call void @_ZN3ozz2io8OArchivelsEh(ptr noundef nonnull align 8 dereferenceable(9) %23, i8 noundef zeroext %24)
+  %25 = load ptr, ptr %4, align 8, !tbaa !24
+  %26 = load ptr, ptr %8, align 8, !tbaa !170
+  %27 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %26, i32 0, i32 1
+  %28 = load float, ptr %27, align 4, !tbaa !46
+  call void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %25, float noundef %28)
+  %29 = load ptr, ptr %4, align 8, !tbaa !24
+  %30 = load ptr, ptr %8, align 8, !tbaa !170
+  %31 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %30, i32 0, i32 2
+  call void @_ZN3ozz2io8OArchivelsINS_4math6Float3EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 4 dereferenceable(12) %31)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  br label %32
 
-34:                                               ; preds = %10
+32:                                               ; preds = %15
+  %33 = load i64, ptr %7, align 8, !tbaa !11
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %7, align 8, !tbaa !11
+  br label %10, !llvm.loop !176
+
+35:                                               ; preds = %14
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS_4math6Float3EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS_4math6Float3EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !177
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKNS_4math6Float3ELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionINS_4math6Float3EEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !177
   call void @_ZN3ozz2io6ExternINS_4math6Float3EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
 }
@@ -5708,33 +6007,33 @@ define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS_4math6Float3EEEvRKT
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKNS_4math6Float3ELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS_4math6Float3EEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
-declare void @_ZN3ozz2io6ExternINS_4math6Float3EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef) #2
+declare void @_ZN3ozz2io6ExternINS_4math6Float3EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !50
+  store ptr %1, ptr %4, align 8, !tbaa !170
+  %5 = load ptr, ptr %4, align 8, !tbaa !170
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS9_EEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   ret i1 true
 }
 
@@ -5742,121 +6041,124 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKSt
 define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS9_EEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4, !tbaa !30
+  %4 = load i32, ptr %3, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret i32 %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 comdat align 2 {
-  %5 = alloca %"struct.ozz::io::internal::Array.31", align 8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #3 comdat align 2 {
+  %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = alloca i64, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca i32, align 4
-  %15 = alloca %"struct.ozz::io::internal::Array.31", align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
-  store i64 0, ptr %12, align 8
-  br label %16
+  %12 = alloca %"struct.ozz::io::internal::Array.31", align 8
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !50
+  store i64 %2, ptr %7, align 8, !tbaa !11
+  store i32 %3, ptr %8, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  store i64 0, ptr %9, align 8, !tbaa !11
+  br label %13
 
-16:                                               ; preds = %45, %4
-  %17 = load i64, ptr %12, align 8
-  %18 = load i64, ptr %10, align 8
-  %19 = icmp ult i64 %17, %18
-  br i1 %19, label %20, label %48
+13:                                               ; preds = %40, %4
+  %14 = load i64, ptr %9, align 8, !tbaa !11
+  %15 = load i64, ptr %7, align 8, !tbaa !11
+  %16 = icmp ult i64 %14, %15
+  br i1 %16, label %18, label %17
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %9, align 8
-  %22 = load i64, ptr %12, align 8
-  %23 = getelementptr inbounds %"class.std::vector.9", ptr %21, i64 %22
-  store ptr %23, ptr %13, align 8
-  %24 = load ptr, ptr %8, align 8
-  call void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %24, ptr noundef nonnull align 4 dereferenceable(4) %14)
-  %25 = load ptr, ptr %13, align 8
-  %26 = load i32, ptr %14, align 4
-  %27 = zext i32 %26 to i64
-  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %27)
-  %28 = load i32, ptr %14, align 4
-  %29 = icmp ugt i32 %28, 0
-  br i1 %29, label %30, label %44
+17:                                               ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %43
 
-30:                                               ; preds = %20
-  %31 = load ptr, ptr %8, align 8
-  %32 = load ptr, ptr %13, align 8
-  %33 = call noundef ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %32) #8
-  %34 = load i32, ptr %14, align 4
-  %35 = zext i32 %34 to i64
-  store ptr %33, ptr %6, align 8
-  store i64 %35, ptr %7, align 8
-  %36 = load ptr, ptr %6, align 8
-  store ptr %36, ptr %5, align 8
-  %37 = getelementptr inbounds %"struct.ozz::io::internal::Array.31", ptr %5, i32 0, i32 1
-  %38 = load i64, ptr %7, align 8
+18:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %19 = load ptr, ptr %6, align 8, !tbaa !50
+  %20 = load i64, ptr %9, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw %"class.std::vector.9", ptr %19, i64 %20
+  store ptr %21, ptr %10, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #12
+  %22 = load ptr, ptr %5, align 8, !tbaa !28
+  call void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %22, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %23 = load ptr, ptr %10, align 8, !tbaa !50
+  %24 = load i32, ptr %11, align 4, !tbaa !30
+  %25 = zext i32 %24 to i64
+  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %25)
+  %26 = load i32, ptr %11, align 4, !tbaa !30
+  %27 = icmp ugt i32 %26, 0
+  br i1 %27, label %28, label %39
+
+28:                                               ; preds = %18
+  %29 = load ptr, ptr %5, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #12
+  %30 = load ptr, ptr %10, align 8, !tbaa !50
+  %31 = call noundef ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #12
+  %32 = load i32, ptr %11, align 4, !tbaa !30
+  %33 = zext i32 %32 to i64
+  %34 = call { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEKNS0_8internal5ArrayIT_EEPSA_m(ptr noundef %31, i64 noundef %33)
+  %35 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 0
+  %36 = extractvalue { ptr, i64 } %34, 0
+  store ptr %36, ptr %35, align 8
+  %37 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 1
+  %38 = extractvalue { ptr, i64 } %34, 1
   store i64 %38, ptr %37, align 8
-  %39 = load { ptr, i64 }, ptr %5, align 8
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %15, i32 0, i32 0
-  %41 = extractvalue { ptr, i64 } %39, 0
-  store ptr %41, ptr %40, align 8
-  %42 = getelementptr inbounds { ptr, i64 }, ptr %15, i32 0, i32 1
-  %43 = extractvalue { ptr, i64 } %39, 1
-  store i64 %43, ptr %42, align 8
-  call void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %31, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  br label %44
+  call void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #12
+  br label %39
 
-44:                                               ; preds = %30, %20
-  br label %45
+39:                                               ; preds = %28, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  br label %40
 
-45:                                               ; preds = %44
-  %46 = load i64, ptr %12, align 8
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %12, align 8
-  br label %16, !llvm.loop !32
+40:                                               ; preds = %39
+  %41 = load i64, ptr %9, align 8, !tbaa !11
+  %42 = add i64 %41, 1
+  store i64 %42, ptr %9, align 8, !tbaa !11
+  br label %13, !llvm.loop !179
 
-48:                                               ; preds = %16
+43:                                               ; preds = %17
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !50
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %6 = load i64, ptr %4, align 8, !tbaa !11
+  %7 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   %8 = icmp ugt i64 %6, %7
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %2
-  %10 = load i64, ptr %4, align 8
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %10 = load i64, ptr %4, align 8, !tbaa !11
+  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   %12 = sub i64 %10, %11
   call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %12)
   br label %24
 
 13:                                               ; preds = %2
-  %14 = load i64, ptr %4, align 8
-  %15 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %14 = load i64, ptr %4, align 8, !tbaa !11
+  %15 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   %16 = icmp ult i64 %14, %15
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %5, i32 0, i32 0
-  %19 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i64, ptr %4, align 8
-  %22 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %20, i64 %21
-  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE15_M_erase_at_endEPS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %22) #8
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %5, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !55
+  %21 = load i64, ptr %4, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %20, i64 %21
+  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE15_M_erase_at_endEPS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %22) #12
   br label %23
 
 23:                                               ; preds = %17, %13
@@ -5867,36 +6169,55 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !180
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !30
+  %9 = load ptr, ptr %4, align 8, !tbaa !180
+  %10 = load i32, ptr %5, align 4, !tbaa !30
   call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEKNS0_8internal5ArrayIT_EEPSA_m(ptr noundef %0, i64 noundef %1) #4 comdat {
+  %3 = alloca %"struct.ozz::io::internal::Array.31", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !170
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.31", ptr %3, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !170
+  store ptr %7, ptr %6, align 8, !tbaa !182
+  %8 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.31", ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %5, align 8, !tbaa !11
+  store i64 %9, ptr %8, align 8, !tbaa !184
+  %10 = load { ptr, i64 }, ptr %3, align 8
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !55
+  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #12
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -5908,36 +6229,38 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !50
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %14 = load ptr, ptr %3, align 8
-  %15 = load i64, ptr %4, align 8
+  %15 = load i64, ptr %4, align 8, !tbaa !11
   %16 = icmp ne i64 %15, 0
   br i1 %16, label %17, label %133
 
 17:                                               ; preds = %2
-  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
-  store i64 %18, ptr %5, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
-  %20 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %19, i32 0, i32 2
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
-  %23 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %22, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
+  store i64 %18, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8, !tbaa !185
+  %22 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !52
   %25 = ptrtoint ptr %21 to i64
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
   %28 = sdiv exact i64 %27, 20
-  store i64 %28, ptr %6, align 8
-  %29 = load i64, ptr %5, align 8
-  %30 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  store i64 %28, ptr %6, align 8, !tbaa !11
+  %29 = load i64, ptr %5, align 8, !tbaa !11
+  %30 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %31 = icmp ugt i64 %29, %30
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %17
-  %33 = load i64, ptr %6, align 8
-  %34 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
-  %35 = load i64, ptr %5, align 8
+  %33 = load i64, ptr %6, align 8, !tbaa !11
+  %34 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
+  %35 = load i64, ptr %5, align 8, !tbaa !11
   %36 = sub i64 %34, %35
   %37 = icmp ugt i64 %33, %36
   br i1 %37, label %38, label %39
@@ -5946,56 +6269,61 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   unreachable
 
 39:                                               ; preds = %32
-  %40 = load i64, ptr %6, align 8
-  %41 = load i64, ptr %4, align 8
+  %40 = load i64, ptr %6, align 8, !tbaa !11
+  %41 = load i64, ptr %4, align 8, !tbaa !11
   %42 = icmp uge i64 %40, %41
   br i1 %42, label %43, label %52
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
-  %45 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i64, ptr %4, align 8
-  %48 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %44 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !52
+  %47 = load i64, ptr %4, align 8, !tbaa !11
+  %48 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %49 = call noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_(ptr noundef %46, i64 noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %48)
-  %50 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
-  %51 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %50, i32 0, i32 1
-  store ptr %49, ptr %51, align 8
+  %50 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %50, i32 0, i32 1
+  store ptr %49, ptr %51, align 8, !tbaa !52
   br label %132
 
 52:                                               ; preds = %39
-  %53 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
-  %54 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %7, align 8
-  %56 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
-  %57 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %56, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  store ptr %58, ptr %8, align 8
-  %59 = load i64, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %53 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
+  %54 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8, !tbaa !55
+  store ptr %55, ptr %7, align 8, !tbaa !170
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %56 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8, !tbaa !52
+  store ptr %58, ptr %8, align 8, !tbaa !170
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %59 = load i64, ptr %4, align 8, !tbaa !11
   %60 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %59, ptr noundef @.str)
-  store i64 %60, ptr %9, align 8
-  %61 = load i64, ptr %9, align 8
+  store i64 %60, ptr %9, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %61 = load i64, ptr %9, align 8, !tbaa !11
   %62 = call noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %61)
-  store ptr %62, ptr %10, align 8
-  store ptr null, ptr %11, align 8
-  %63 = load ptr, ptr %10, align 8
-  %64 = load i64, ptr %5, align 8
-  %65 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %63, i64 %64
-  %66 = load i64, ptr %4, align 8
-  %67 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  store ptr %62, ptr %10, align 8, !tbaa !170
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  store ptr null, ptr %11, align 8, !tbaa !170
+  %63 = load ptr, ptr %10, align 8, !tbaa !170
+  %64 = load i64, ptr %5, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %63, i64 %64
+  %66 = load i64, ptr %4, align 8, !tbaa !11
+  %67 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %68 = invoke noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_(ptr noundef %65, i64 noundef %66, ptr noundef nonnull align 1 dereferenceable(1) %67)
           to label %69 unwind label %79
 
 69:                                               ; preds = %52
-  %70 = load ptr, ptr %10, align 8
-  %71 = load i64, ptr %5, align 8
-  %72 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %70, i64 %71
-  store ptr %72, ptr %11, align 8
-  %73 = load ptr, ptr %7, align 8
-  %74 = load ptr, ptr %8, align 8
-  %75 = load ptr, ptr %10, align 8
-  %76 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %70 = load ptr, ptr %10, align 8, !tbaa !170
+  %71 = load i64, ptr %5, align 8, !tbaa !11
+  %72 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %70, i64 %71
+  store ptr %72, ptr %11, align 8, !tbaa !170
+  %73 = load ptr, ptr %7, align 8, !tbaa !170
+  %74 = load ptr, ptr %8, align 8, !tbaa !170
+  %75 = load ptr, ptr %10, align 8, !tbaa !170
+  %76 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %77 = invoke noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEES7_NS0_12StdAllocatorIS6_EEET0_T_SB_SA_RT1_(ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef nonnull align 1 dereferenceable(1) %76)
           to label %78 unwind label %79
 
@@ -6013,17 +6341,17 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
 
 83:                                               ; preds = %79
   %84 = load ptr, ptr %12, align 8
-  %85 = call ptr @__cxa_begin_catch(ptr %84) #8
-  %86 = load ptr, ptr %11, align 8
+  %85 = call ptr @__cxa_begin_catch(ptr %84) #12
+  %86 = load ptr, ptr %11, align 8, !tbaa !170
   %87 = icmp ne ptr %86, null
   br i1 %87, label %88, label %99
 
 88:                                               ; preds = %83
-  %89 = load ptr, ptr %11, align 8
-  %90 = load ptr, ptr %11, align 8
-  %91 = load i64, ptr %4, align 8
-  %92 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %90, i64 %91
-  %93 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %89 = load ptr, ptr %11, align 8, !tbaa !170
+  %90 = load ptr, ptr %11, align 8, !tbaa !170
+  %91 = load i64, ptr %4, align 8, !tbaa !11
+  %92 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %90, i64 %91
+  %93 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %89, ptr noundef %92, ptr noundef nonnull align 1 dereferenceable(1) %93)
           to label %94 unwind label %95
 
@@ -6041,54 +6369,68 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
           to label %103 unwind label %139
 
 99:                                               ; preds = %94, %83
-  %100 = load ptr, ptr %10, align 8
-  %101 = load i64, ptr %9, align 8
+  %100 = load ptr, ptr %10, align 8, !tbaa !170
+  %101 = load i64, ptr %9, align 8, !tbaa !11
   invoke void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE13_M_deallocateEPS6_m(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %100, i64 noundef %101)
           to label %102 unwind label %95
 
 102:                                              ; preds = %99
-  invoke void @__cxa_rethrow() #9
+  invoke void @__cxa_rethrow() #13
           to label %142 unwind label %95
 
 103:                                              ; preds = %95
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   br label %134
 
 104:                                              ; preds = %78
-  %105 = load ptr, ptr %7, align 8
-  %106 = load ptr, ptr %8, align 8
-  %107 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %105 = load ptr, ptr %7, align 8, !tbaa !170
+  %106 = load ptr, ptr %8, align 8, !tbaa !170
+  %107 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   call void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %105, ptr noundef %106, ptr noundef nonnull align 1 dereferenceable(1) %107)
-  %108 = load ptr, ptr %7, align 8
-  %109 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
-  %110 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %109, i32 0, i32 2
-  %111 = load ptr, ptr %110, align 8
-  %112 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  %108 = load ptr, ptr %7, align 8, !tbaa !170
+  %109 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
+  %110 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %109, i32 0, i32 2
+  %111 = load ptr, ptr %110, align 8, !tbaa !185
+  %112 = load ptr, ptr %7, align 8, !tbaa !170
   %113 = ptrtoint ptr %111 to i64
   %114 = ptrtoint ptr %112 to i64
   %115 = sub i64 %113, %114
   %116 = sdiv exact i64 %115, 20
   call void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE13_M_deallocateEPS6_m(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %108, i64 noundef %116)
-  %117 = load ptr, ptr %10, align 8
-  %118 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
-  %119 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %118, i32 0, i32 0
-  store ptr %117, ptr %119, align 8
-  %120 = load ptr, ptr %10, align 8
-  %121 = load i64, ptr %5, align 8
-  %122 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %120, i64 %121
-  %123 = load i64, ptr %4, align 8
-  %124 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %122, i64 %123
-  %125 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
-  %126 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %125, i32 0, i32 1
-  store ptr %124, ptr %126, align 8
-  %127 = load ptr, ptr %10, align 8
-  %128 = load i64, ptr %9, align 8
-  %129 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %127, i64 %128
-  %130 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
-  %131 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %130, i32 0, i32 2
-  store ptr %129, ptr %131, align 8
+  %117 = load ptr, ptr %10, align 8, !tbaa !170
+  %118 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
+  %119 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %118, i32 0, i32 0
+  store ptr %117, ptr %119, align 8, !tbaa !55
+  %120 = load ptr, ptr %10, align 8, !tbaa !170
+  %121 = load i64, ptr %5, align 8, !tbaa !11
+  %122 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %120, i64 %121
+  %123 = load i64, ptr %4, align 8, !tbaa !11
+  %124 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %122, i64 %123
+  %125 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
+  %126 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %125, i32 0, i32 1
+  store ptr %124, ptr %126, align 8, !tbaa !52
+  %127 = load ptr, ptr %10, align 8, !tbaa !170
+  %128 = load i64, ptr %9, align 8, !tbaa !11
+  %129 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %14, i32 0, i32 0
+  %131 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %130, i32 0, i32 2
+  store ptr %129, ptr %131, align 8, !tbaa !185
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   br label %132
 
 132:                                              ; preds = %104, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   br label %133
 
 133:                                              ; preds = %132, %2
@@ -6105,7 +6447,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   %140 = landingpad { ptr, i32 }
           catch ptr null
   %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #10
+  call void @__clang_call_terminate(ptr %141) #14
   unreachable
 
 142:                                              ; preds = %102
@@ -6117,82 +6459,85 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !50
+  store ptr %1, ptr %4, align 8, !tbaa !170
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
+  %10 = load ptr, ptr %4, align 8, !tbaa !170
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 20
-  store i64 %14, ptr %5, align 8
-  %15 = load i64, ptr %5, align 8
+  store i64 %14, ptr %5, align 8, !tbaa !11
+  %15 = load i64, ptr %5, align 8, !tbaa !11
   %16 = icmp ne i64 %15, 0
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %6, i32 0, i32 0
-  %20 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
+  %18 = load ptr, ptr %4, align 8, !tbaa !170
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !52
+  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %18, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %23 unwind label %28
 
 23:                                               ; preds = %17
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %6, i32 0, i32 0
-  %26 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %25, i32 0, i32 1
-  store ptr %24, ptr %26, align 8
+  %24 = load ptr, ptr %4, align 8, !tbaa !170
+  %25 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %6, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float3>>>::_Vector_impl_data", ptr %25, i32 0, i32 1
+  store ptr %24, ptr %26, align 8, !tbaa !52
   br label %27
 
 27:                                               ; preds = %23, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   ret void
 
 28:                                               ; preds = %17
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #10
+  call void @__clang_call_terminate(ptr %30) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #8
-  %5 = call noundef i64 @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE11_S_max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  %5 = call noundef i64 @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE11_S_max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
   ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %10 = load ptr, ptr %4, align 8
-  store ptr %10, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !170
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !186
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %10 = load ptr, ptr %4, align 8, !tbaa !170
+  store ptr %10, ptr %7, align 8, !tbaa !170
   br label %11
 
 11:                                               ; preds = %18, %3
-  %12 = load i64, ptr %5, align 8
+  %12 = load i64, ptr %5, align 8, !tbaa !11
   %13 = icmp ugt i64 %12, 0
   br i1 %13, label %14, label %34
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %7, align 8
+  %15 = load ptr, ptr %6, align 8, !tbaa !186
+  %16 = load ptr, ptr %7, align 8, !tbaa !170
   invoke void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE9constructIS7_JEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %16)
           to label %17 unwind label %23
 
@@ -6200,13 +6545,13 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8
+  %19 = load i64, ptr %5, align 8, !tbaa !11
   %20 = add i64 %19, -1
-  store i64 %20, ptr %5, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %21, i32 1
-  store ptr %22, ptr %7, align 8
-  br label %11, !llvm.loop !33
+  store i64 %20, ptr %5, align 8, !tbaa !11
+  %21 = load ptr, ptr %7, align 8, !tbaa !170
+  %22 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %21, i32 1
+  store ptr %22, ptr %7, align 8, !tbaa !170
+  br label %11, !llvm.loop !188
 
 23:                                               ; preds = %14
   %24 = landingpad { ptr, i32 }
@@ -6219,19 +6564,20 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %8, align 8
-  %29 = call ptr @__cxa_begin_catch(ptr %28) #8
-  %30 = load ptr, ptr %4, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = load ptr, ptr %6, align 8
+  %29 = call ptr @__cxa_begin_catch(ptr %28) #12
+  %30 = load ptr, ptr %4, align 8, !tbaa !170
+  %31 = load ptr, ptr %7, align 8, !tbaa !170
+  %32 = load ptr, ptr %6, align 8, !tbaa !186
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %30, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %32)
           to label %33 unwind label %36
 
 33:                                               ; preds = %27
-  invoke void @__cxa_rethrow() #9
+  invoke void @__cxa_rethrow() #13
           to label %50 unwind label %36
 
 34:                                               ; preds = %11
-  %35 = load ptr, ptr %7, align 8
+  %35 = load ptr, ptr %7, align 8, !tbaa !170
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   ret ptr %35
 
 36:                                               ; preds = %33, %27
@@ -6245,10 +6591,10 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
           to label %40 unwind label %47
 
 40:                                               ; preds = %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   br label %42
 
 41:                                               ; No predecessors!
-  call void @llvm.trap()
   unreachable
 
 42:                                               ; preds = %40
@@ -6262,7 +6608,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #10
+  call void @__clang_call_terminate(ptr %49) #14
   unreachable
 
 50:                                               ; preds = %33
@@ -6272,81 +6618,85 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !189
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !50
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !96
   %9 = load ptr, ptr %4, align 8
-  %10 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %10 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   %12 = sub i64 %10, %11
-  %13 = load i64, ptr %5, align 8
+  %13 = load i64, ptr %5, align 8, !tbaa !11
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %6, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #9
+  %16 = load ptr, ptr %6, align 8, !tbaa !96
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #13
   unreachable
 
 17:                                               ; preds = %3
-  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  %19 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  store i64 %19, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %19 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  store i64 %19, ptr %8, align 8, !tbaa !11
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !11
   %22 = add i64 %18, %21
-  store i64 %22, ptr %7, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  store i64 %22, ptr %7, align 8, !tbaa !11
+  %23 = load i64, ptr %7, align 8, !tbaa !11
+  %24 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %17
-  %27 = load i64, ptr %7, align 8
-  %28 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %27 = load i64, ptr %7, align 8, !tbaa !11
+  %28 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   %29 = icmp ugt i64 %27, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26, %17
-  %31 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %31 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   br label %34
 
 32:                                               ; preds = %26
-  %33 = load i64, ptr %7, align 8
+  %33 = load i64, ptr %7, align 8, !tbaa !11
   br label %34
 
 34:                                               ; preds = %32, %30
   %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   ret i64 %35
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !189
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !11
   %7 = icmp ne i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %5, i32 0, i32 0
-  %10 = load i64, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !11
   %11 = call noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
   br label %13
 
@@ -6358,85 +6708,85 @@ define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7o
   ret ptr %14
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEES7_NS0_12StdAllocatorIS6_EEET0_T_SB_SA_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEES7_NS0_12StdAllocatorIS6_EEET0_T_SB_SA_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #3 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.std::move_iterator.32", align 8
   %10 = alloca %"class.std::move_iterator.32", align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %11 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !170
+  store ptr %1, ptr %6, align 8, !tbaa !170
+  store ptr %2, ptr %7, align 8, !tbaa !170
+  store ptr %3, ptr %8, align 8, !tbaa !186
+  %11 = load ptr, ptr %5, align 8, !tbaa !170
   %12 = call ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEESt13move_iteratorIPS6_EET0_PT_(ptr noundef %11)
-  %13 = getelementptr inbounds %"class.std::move_iterator.32", ptr %9, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.std::move_iterator.32", ptr %9, i32 0, i32 0
   store ptr %12, ptr %13, align 8
-  %14 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %6, align 8, !tbaa !170
   %15 = call ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEESt13move_iteratorIPS6_EET0_PT_(ptr noundef %14)
-  %16 = getelementptr inbounds %"class.std::move_iterator.32", ptr %10, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"class.std::move_iterator.32", ptr %10, i32 0, i32 0
   store ptr %15, ptr %16, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %"class.std::move_iterator.32", ptr %9, i32 0, i32 0
+  %17 = load ptr, ptr %7, align 8, !tbaa !170
+  %18 = load ptr, ptr %8, align 8, !tbaa !186
+  %19 = getelementptr inbounds nuw %"class.std::move_iterator.32", ptr %9, i32 0, i32 0
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %"class.std::move_iterator.32", ptr %10, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"class.std::move_iterator.32", ptr %10, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS1_4math6Float3EEEES8_NS1_12StdAllocatorIS7_EEET0_T_SD_SC_RT1_(ptr %20, ptr %22, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18)
   ret ptr %23
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat {
+define linkonce_odr dso_local void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !170
+  store ptr %1, ptr %5, align 8, !tbaa !170
+  store ptr %2, ptr %6, align 8, !tbaa !186
   br label %7
 
 7:                                                ; preds = %14, %3
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !170
+  %9 = load ptr, ptr %5, align 8, !tbaa !170
   %10 = icmp ne ptr %8, %9
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %6, align 8, !tbaa !186
+  %13 = load ptr, ptr %4, align 8, !tbaa !170
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE7destroyIS7_EEvRS8_PT_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef %13)
   br label %14
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %15, i32 1
-  store ptr %16, ptr %4, align 8
-  br label %7, !llvm.loop !34
+  %15 = load ptr, ptr %4, align 8, !tbaa !170
+  %16 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %15, i32 1
+  store ptr %16, ptr %4, align 8, !tbaa !170
+  br label %7, !llvm.loop !191
 
 17:                                               ; preds = %7
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE13_M_deallocateEPS6_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE13_M_deallocateEPS6_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !189
+  store ptr %1, ptr %5, align 8, !tbaa !170
+  store i64 %2, ptr %6, align 8, !tbaa !11
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !170
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !170
+  %13 = load i64, ptr %6, align 8, !tbaa !11
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE10deallocateERS8_PS7_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
@@ -6449,30 +6799,34 @@ define linkonce_odr dso_local noundef i64 @_ZNSt6vectorIN3ozz9animation7offline1
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 461168601842738790, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE8max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
-  store i64 %6, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !186
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  store i64 461168601842738790, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #12
+  %5 = load ptr, ptr %2, align 8, !tbaa !186
+  %6 = call noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE8max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  store i64 %6, ptr %4, align 8, !tbaa !11
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
   ret i64 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !189
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.10", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.10", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE8max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !186
+  %3 = load ptr, ptr %2, align 8, !tbaa !186
   %4 = invoke noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE11_S_max_sizeIKS8_EEDTcldtfp_8max_sizeEERT_i(ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef 0)
           to label %5 unwind label %6
 
@@ -6483,7 +6837,7 @@ define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAll
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #10
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 }
 
@@ -6491,64 +6845,70 @@ define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAll
 define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE11_S_max_sizeIKS8_EEDTcldtfp_8max_sizeEERT_i(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
+  store ptr %0, ptr %3, align 8, !tbaa !186
+  store i32 %1, ptr %4, align 4, !tbaa !30
+  %5 = load ptr, ptr %3, align 8, !tbaa !186
+  %6 = call noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
   ret i64 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !186
   ret i64 922337203685477580
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE9constructIS7_JEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE9constructIS7_JEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !186
+  store ptr %1, ptr %4, align 8, !tbaa !170
+  %5 = load ptr, ptr %3, align 8, !tbaa !186
+  %6 = load ptr, ptr %4, align 8, !tbaa !170
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE12_S_constructIS7_JEEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE12_S_constructIS7_JEEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE12_S_constructIS7_JEEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !186
+  store ptr %1, ptr %4, align 8, !tbaa !170
+  %5 = load ptr, ptr %3, align 8, !tbaa !186
+  %6 = load ptr, ptr %4, align 8, !tbaa !170
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE9constructIS6_JEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE9constructIS6_JEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE9constructIS6_JEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !186
+  store ptr %1, ptr %4, align 8, !tbaa !170
+  %5 = load ptr, ptr %4, align 8, !tbaa !170
   call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 20, i1 false)
   call void @_ZN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float3EEC2Ev(ptr noundef nonnull align 4 dereferenceable(20) %5)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float3EEC2Ev(ptr noundef nonnull align 4 dereferenceable(20) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float3EEC2Ev(ptr noundef nonnull align 4 dereferenceable(20) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %4, i32 0, i32 2
-  store ptr %5, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !170
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %3, i32 0, i32 2
+  call void @_ZN3ozz4math6Float3C2Ev(ptr noundef nonnull align 4 dereferenceable(12) %4)
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3ozz4math6Float3C2Ev(ptr noundef nonnull align 4 dereferenceable(12) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !177
   ret void
 }
 
@@ -6556,11 +6916,11 @@ define linkonce_odr dso_local void @_ZN3ozz9animation7offline16RawTrackKeyframeI
 define linkonce_odr dso_local noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = call noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6) #8
+  store ptr %0, ptr %3, align 8, !tbaa !186
+  store i64 %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !186
+  %6 = load i64, ptr %4, align 8, !tbaa !11
+  %7 = call noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6) #12
   ret ptr %7
 }
 
@@ -6568,15 +6928,15 @@ define linkonce_odr dso_local noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAll
 define linkonce_odr dso_local noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !186
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
           to label %6 unwind label %14
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr %4, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !11
   %8 = mul i64 20, %7
-  %9 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !88
   %10 = getelementptr inbounds ptr, ptr %9, i64 2
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %8, i64 noundef 4)
@@ -6589,12 +6949,12 @@ define linkonce_odr dso_local noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7o
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #10
+  call void @__clang_call_terminate(ptr %16) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS1_4math6Float3EEEES8_NS1_12StdAllocatorIS7_EEET0_T_SD_SC_RT1_(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #1 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS1_4math6Float3EEEES8_NS1_12StdAllocatorIS7_EEET0_T_SD_SC_RT1_(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #2 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::move_iterator.32", align 8
   %6 = alloca %"class.std::move_iterator.32", align 8
   %7 = alloca ptr, align 8
@@ -6602,14 +6962,15 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds %"class.std::move_iterator.32", ptr %5, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.std::move_iterator.32", ptr %5, i32 0, i32 0
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.std::move_iterator.32", ptr %6, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.std::move_iterator.32", ptr %6, i32 0, i32 0
   store ptr %1, ptr %13, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %14 = load ptr, ptr %7, align 8
-  store ptr %14, ptr %9, align 8
+  store ptr %2, ptr %7, align 8, !tbaa !170
+  store ptr %3, ptr %8, align 8, !tbaa !186
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %14 = load ptr, ptr %7, align 8, !tbaa !170
+  store ptr %14, ptr %9, align 8, !tbaa !170
   br label %15
 
 15:                                               ; preds = %26, %4
@@ -6620,8 +6981,8 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
   br i1 %16, label %18, label %40
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr %8, align 8
-  %20 = load ptr, ptr %9, align 8
+  %19 = load ptr, ptr %8, align 8, !tbaa !186
+  %20 = load ptr, ptr %9, align 8, !tbaa !170
   %21 = invoke noundef nonnull align 4 dereferenceable(20) ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %22 unwind label %29
 
@@ -6637,10 +6998,10 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
           to label %26 unwind label %29
 
 26:                                               ; preds = %24
-  %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %27, i32 1
-  store ptr %28, ptr %9, align 8
-  br label %15, !llvm.loop !35
+  %27 = load ptr, ptr %9, align 8, !tbaa !170
+  %28 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %27, i32 1
+  store ptr %28, ptr %9, align 8, !tbaa !170
+  br label %15, !llvm.loop !192
 
 29:                                               ; preds = %24, %22, %18, %15
   %30 = landingpad { ptr, i32 }
@@ -6653,19 +7014,20 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %10, align 8
-  %35 = call ptr @__cxa_begin_catch(ptr %34) #8
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = load ptr, ptr %8, align 8
+  %35 = call ptr @__cxa_begin_catch(ptr %34) #12
+  %36 = load ptr, ptr %7, align 8, !tbaa !170
+  %37 = load ptr, ptr %9, align 8, !tbaa !170
+  %38 = load ptr, ptr %8, align 8, !tbaa !186
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38)
           to label %39 unwind label %42
 
 39:                                               ; preds = %33
-  invoke void @__cxa_rethrow() #9
+  invoke void @__cxa_rethrow() #13
           to label %56 unwind label %42
 
 40:                                               ; preds = %17
-  %41 = load ptr, ptr %9, align 8
+  %41 = load ptr, ptr %9, align 8, !tbaa !170
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
   ret ptr %41
 
 42:                                               ; preds = %39, %33
@@ -6679,10 +7041,10 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
           to label %46 unwind label %53
 
 46:                                               ; preds = %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
   br label %48
 
 47:                                               ; No predecessors!
-  call void @llvm.trap()
   unreachable
 
 48:                                               ; preds = %46
@@ -6696,49 +7058,49 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #10
+  call void @__clang_call_terminate(ptr %55) #14
   unreachable
 
 56:                                               ; preds = %39
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEESt13move_iteratorIPS6_EET0_PT_(ptr noundef %0) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEESt13move_iteratorIPS6_EET0_PT_(ptr noundef %0) #3 comdat {
   %2 = alloca %"class.std::move_iterator.32", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !170
+  %4 = load ptr, ptr %3, align 8, !tbaa !170
   call void @_ZNSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEC2ES7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
-  %5 = getelementptr inbounds %"class.std::move_iterator.32", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.std::move_iterator.32", ptr %2, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZStneIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZStneIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !193
+  store ptr %1, ptr %4, align 8, !tbaa !193
+  %5 = load ptr, ptr %3, align 8, !tbaa !193
+  %6 = load ptr, ptr %4, align 8, !tbaa !193
   %7 = call noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %8 = xor i1 %7, true
   ret i1 %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE9constructIS7_JS7_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(20) %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE9constructIS7_JS7_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(20) %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !186
+  store ptr %1, ptr %5, align 8, !tbaa !170
+  store ptr %2, ptr %6, align 8, !tbaa !170
+  %7 = load ptr, ptr %4, align 8, !tbaa !186
+  %8 = load ptr, ptr %5, align 8, !tbaa !170
+  %9 = load ptr, ptr %6, align 8, !tbaa !170
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE12_S_constructIS7_JS7_EEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(20) %9)
   ret void
 }
@@ -6746,34 +7108,34 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(20) ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !193
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator.32", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator.32", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !195
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !193
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator.32", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %5, i32 1
-  store ptr %6, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator.32", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !195
+  %6 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !195
   ret ptr %3
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !193
+  store ptr %1, ptr %4, align 8, !tbaa !193
+  %5 = load ptr, ptr %3, align 8, !tbaa !193
   %6 = call noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !193
   %8 = call noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %9 = icmp eq ptr %6, %8
   ret i1 %9
@@ -6782,24 +7144,24 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIPN3ozz9animation7offlin
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !193
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator.32", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator.32", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !195
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE12_S_constructIS7_JS7_EEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(20) %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE12_S_constructIS7_JS7_EEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(20) %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !186
+  store ptr %1, ptr %5, align 8, !tbaa !170
+  store ptr %2, ptr %6, align 8, !tbaa !170
+  %7 = load ptr, ptr %4, align 8, !tbaa !186
+  %8 = load ptr, ptr %5, align 8, !tbaa !170
+  %9 = load ptr, ptr %6, align 8, !tbaa !170
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE9constructIS6_JS6_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(20) %9)
   ret void
 }
@@ -6809,12 +7171,12 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 20, i1 false)
+  store ptr %0, ptr %4, align 8, !tbaa !186
+  store ptr %1, ptr %5, align 8, !tbaa !170
+  store ptr %2, ptr %6, align 8, !tbaa !170
+  %7 = load ptr, ptr %5, align 8, !tbaa !170
+  %8 = load ptr, ptr %6, align 8, !tbaa !170
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 20, i1 false), !tbaa.struct !197
   ret void
 }
 
@@ -6822,37 +7184,37 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
 define linkonce_odr dso_local void @_ZNSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEC2ES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !193
+  store ptr %1, ptr %4, align 8, !tbaa !170
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::move_iterator.32", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.std::move_iterator.32", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !170
+  store ptr %7, ptr %6, align 8, !tbaa !195
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE7destroyIS7_EEvRS8_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE7destroyIS7_EEvRS8_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !186
+  store ptr %1, ptr %4, align 8, !tbaa !170
+  %5 = load ptr, ptr %3, align 8, !tbaa !186
+  %6 = load ptr, ptr %4, align 8, !tbaa !170
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE10_S_destroyIS8_S7_EEDTcldtfp_7destroyfp0_EERT_PT0_i(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE10_S_destroyIS8_S7_EEDTcldtfp_7destroyfp0_EERT_PT0_i(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i32 noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEEEE10_S_destroyIS8_S7_EEDTcldtfp_7destroyfp0_EERT_PT0_i(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i32 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !186
+  store ptr %1, ptr %5, align 8, !tbaa !170
+  store i32 %2, ptr %6, align 4, !tbaa !30
+  %7 = load ptr, ptr %4, align 8, !tbaa !186
+  %8 = load ptr, ptr %5, align 8, !tbaa !170
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE7destroyIS6_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8)
   ret void
 }
@@ -6861,8 +7223,8 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorI
 define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE7destroyIS6_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !186
+  store ptr %1, ptr %4, align 8, !tbaa !170
   ret void
 }
 
@@ -6871,13 +7233,13 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorI
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
-  call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE10deallocateEPS6_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #8
+  store ptr %0, ptr %4, align 8, !tbaa !186
+  store ptr %1, ptr %5, align 8, !tbaa !170
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  %7 = load ptr, ptr %4, align 8, !tbaa !186
+  %8 = load ptr, ptr %5, align 8, !tbaa !170
+  %9 = load i64, ptr %6, align 8, !tbaa !11
+  call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE10deallocateEPS6_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #12
   ret void
 }
 
@@ -6886,15 +7248,15 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !186
+  store ptr %1, ptr %5, align 8, !tbaa !170
+  store i64 %2, ptr %6, align 8, !tbaa !11
   %7 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
           to label %8 unwind label %14
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !170
+  %10 = load ptr, ptr %7, align 8, !tbaa !88
   %11 = getelementptr inbounds ptr, ptr %10, i64 3
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9)
@@ -6907,82 +7269,96 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #10
+  call void @__clang_call_terminate(ptr %16) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   %4 = load ptr, ptr %2, align 8
-  store i32 0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4, !tbaa !30
   call void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret i32 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #3 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca i64, align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
-  store i64 0, ptr %12, align 8
-  br label %13
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !180
+  store i64 %2, ptr %7, align 8, !tbaa !11
+  store i32 %3, ptr %8, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  store i64 0, ptr %9, align 8, !tbaa !11
+  br label %10
 
-13:                                               ; preds = %29, %4
-  %14 = load i64, ptr %12, align 8
-  %15 = load i64, ptr %10, align 8
-  %16 = icmp ult i64 %14, %15
-  br i1 %16, label %17, label %32
+10:                                               ; preds = %21, %4
+  %11 = load i64, ptr %9, align 8, !tbaa !11
+  %12 = load i64, ptr %7, align 8, !tbaa !11
+  %13 = icmp ult i64 %11, %12
+  br i1 %13, label %15, label %14
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %9, align 8
-  %19 = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds %"struct.ozz::io::internal::Array.31", ptr %18, i64 %19
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i32, ptr %11, align 4
-  store ptr %20, ptr %5, align 8
-  store ptr %21, ptr %6, align 8
-  store i32 %22, ptr %7, align 4
-  %23 = load ptr, ptr %5, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds %"struct.ozz::io::internal::Array.31", ptr %23, i32 0, i32 1
-  %27 = load i64, ptr %26, align 8
-  %28 = load i32, ptr %7, align 4
-  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4LoadERNS0_8IArchiveEPS7_mj(ptr noundef nonnull align 8 dereferenceable(9) %24, ptr noundef %25, i64 noundef %27, i32 noundef %28)
-  br label %29
+14:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %24
 
-29:                                               ; preds = %17
-  %30 = load i64, ptr %12, align 8
-  %31 = add i64 %30, 1
-  store i64 %31, ptr %12, align 8
-  br label %13, !llvm.loop !36
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %6, align 8, !tbaa !180
+  %17 = load i64, ptr %9, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.31", ptr %16, i64 %17
+  %19 = load ptr, ptr %5, align 8, !tbaa !28
+  %20 = load i32, ptr %8, align 4, !tbaa !30
+  call void @_ZNK3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4LoadERNS0_8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(9) %19, i32 noundef %20)
+  br label %21
 
-32:                                               ; preds = %13
+21:                                               ; preds = %15
+  %22 = load i64, ptr %9, align 8, !tbaa !11
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %9, align 8, !tbaa !11
+  br label %10, !llvm.loop !198
+
+24:                                               ; preds = %14
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4LoadERNS0_8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !180
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  store i32 %2, ptr %6, align 4, !tbaa !30
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.31", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !182
+  %11 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.31", ptr %7, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !184
+  %13 = load i32, ptr %6, align 4, !tbaa !30
+  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4LoadERNS0_8IArchiveEPS7_mj(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef %10, i64 noundef %12, i32 noundef %13)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4LoadERNS0_8IArchiveEPS7_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4LoadERNS0_8IArchiveEPS7_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #2 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -6990,72 +7366,83 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16Raw
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i8, align 1
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  store i64 0, ptr %9, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !170
+  store i64 %2, ptr %7, align 8, !tbaa !11
+  store i32 %3, ptr %8, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  store i64 0, ptr %9, align 8, !tbaa !11
   br label %12
 
-12:                                               ; preds = %31, %4
-  %13 = load i64, ptr %9, align 8
-  %14 = load i64, ptr %7, align 8
+12:                                               ; preds = %32, %4
+  %13 = load i64, ptr %9, align 8, !tbaa !11
+  %14 = load i64, ptr %7, align 8, !tbaa !11
   %15 = icmp ult i64 %13, %14
-  br i1 %15, label %16, label %34
+  br i1 %15, label %17, label %16
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i64, ptr %9, align 8
-  %19 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %17, i64 %18
-  store ptr %19, ptr %10, align 8
-  %20 = load ptr, ptr %5, align 8
-  call void @_ZN3ozz2io8IArchiversERh(ptr noundef nonnull align 8 dereferenceable(9) %20, ptr noundef nonnull align 1 dereferenceable(1) %11)
-  %21 = load i8, ptr %11, align 1
-  %22 = zext i8 %21 to i32
-  %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %23, i32 0, i32 0
-  store i32 %22, ptr %24, align 4
-  %25 = load ptr, ptr %5, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %26, i32 0, i32 1
-  call void @_ZN3ozz2io8IArchiversERf(ptr noundef nonnull align 8 dereferenceable(9) %25, ptr noundef nonnull align 4 dereferenceable(4) %27)
-  %28 = load ptr, ptr %5, align 8
-  %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %29, i32 0, i32 2
-  call void @_ZN3ozz2io8IArchiversINS_4math6Float3EEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef nonnull align 4 dereferenceable(12) %30)
-  br label %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %35
 
-31:                                               ; preds = %16
-  %32 = load i64, ptr %9, align 8
-  %33 = add i64 %32, 1
-  store i64 %33, ptr %9, align 8
-  br label %12, !llvm.loop !37
+17:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %18 = load ptr, ptr %6, align 8, !tbaa !170
+  %19 = load i64, ptr %9, align 8, !tbaa !11
+  %20 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %18, i64 %19
+  store ptr %20, ptr %10, align 8, !tbaa !170
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #12
+  %21 = load ptr, ptr %5, align 8, !tbaa !28
+  call void @_ZN3ozz2io8IArchiversERh(ptr noundef nonnull align 8 dereferenceable(9) %21, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %22 = load i8, ptr %11, align 1, !tbaa !98
+  %23 = zext i8 %22 to i32
+  %24 = load ptr, ptr %10, align 8, !tbaa !170
+  %25 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %24, i32 0, i32 0
+  store i32 %23, ptr %25, align 4, !tbaa !175
+  %26 = load ptr, ptr %5, align 8, !tbaa !28
+  %27 = load ptr, ptr %10, align 8, !tbaa !170
+  %28 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %27, i32 0, i32 1
+  call void @_ZN3ozz2io8IArchiversERf(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull align 4 dereferenceable(4) %28)
+  %29 = load ptr, ptr %5, align 8, !tbaa !28
+  %30 = load ptr, ptr %10, align 8, !tbaa !170
+  %31 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %30, i32 0, i32 2
+  call void @_ZN3ozz2io8IArchiversINS_4math6Float3EEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 4 dereferenceable(12) %31)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  br label %32
 
-34:                                               ; preds = %12
+32:                                               ; preds = %17
+  %33 = load i64, ptr %9, align 8, !tbaa !11
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %9, align 8, !tbaa !11
+  br label %12, !llvm.loop !199
+
+35:                                               ; preds = %16
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversINS_4math6Float3EEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversINS_4math6Float3EEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !177
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS_4math6Float3ELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionINS_4math6Float3EEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !30
+  %9 = load ptr, ptr %4, align 8, !tbaa !177
+  %10 = load i32, ptr %5, align 4, !tbaa !30
   call void @_ZN3ozz2io6ExternINS_4math6Float3EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS_4math6Float3ELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   ret i1 true
 }
 
@@ -7063,258 +7450,301 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS
 define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionINS_4math6Float3EEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4, !tbaa !30
+  %4 = load i32, ptr %3, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret i32 %4
 }
 
-declare void @_ZN3ozz2io6ExternINS_4math6Float3EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef, i32 noundef) #2
+declare void @_ZN3ozz2io6ExternINS_4math6Float3EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef, i32 noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS9_EEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS9_EEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS8_EEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
-  %4 = alloca %"struct.ozz::io::internal::Array.33", align 8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS8_EEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  %7 = alloca ptr, align 8
+  %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
-  %13 = alloca %"struct.ozz::io::internal::Array.33", align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i64 %2, ptr %9, align 8
-  store i64 0, ptr %10, align 8
-  br label %14
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.ozz::io::internal::Array.33", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !62
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8, !tbaa !11
+  br label %11
 
-14:                                               ; preds = %44, %3
-  %15 = load i64, ptr %10, align 8
-  %16 = load i64, ptr %9, align 8
-  %17 = icmp ult i64 %15, %16
-  br i1 %17, label %18, label %47
+11:                                               ; preds = %39, %3
+  %12 = load i64, ptr %7, align 8, !tbaa !11
+  %13 = load i64, ptr %6, align 8, !tbaa !11
+  %14 = icmp ult i64 %12, %13
+  br i1 %14, label %16, label %15
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %8, align 8
-  %20 = load i64, ptr %10, align 8
-  %21 = getelementptr inbounds %"class.std::vector.15", ptr %19, i64 %20
-  store ptr %21, ptr %11, align 8
-  %22 = load ptr, ptr %11, align 8
-  %23 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #8
-  %24 = trunc i64 %23 to i32
-  store i32 %24, ptr %12, align 4
-  %25 = load ptr, ptr %7, align 8
-  %26 = load i32, ptr %12, align 4
-  call void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %25, i32 noundef %26)
-  %27 = load i32, ptr %12, align 4
-  %28 = icmp ugt i32 %27, 0
-  br i1 %28, label %29, label %43
+15:                                               ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %42
 
-29:                                               ; preds = %18
-  %30 = load ptr, ptr %7, align 8
-  %31 = load ptr, ptr %11, align 8
-  %32 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #8
-  %33 = load i32, ptr %12, align 4
-  %34 = zext i32 %33 to i64
-  store ptr %32, ptr %5, align 8
-  store i64 %34, ptr %6, align 8
-  %35 = load ptr, ptr %5, align 8
-  store ptr %35, ptr %4, align 8
-  %36 = getelementptr inbounds %"struct.ozz::io::internal::Array.33", ptr %4, i32 0, i32 1
-  %37 = load i64, ptr %6, align 8
+16:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %17 = load ptr, ptr %5, align 8, !tbaa !62
+  %18 = load i64, ptr %7, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %"class.std::vector.15", ptr %17, i64 %18
+  store ptr %19, ptr %8, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  %20 = load ptr, ptr %8, align 8, !tbaa !62
+  %21 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #12
+  %22 = trunc i64 %21 to i32
+  store i32 %22, ptr %9, align 4, !tbaa !30
+  %23 = load ptr, ptr %4, align 8, !tbaa !24
+  %24 = load i32, ptr %9, align 4, !tbaa !30
+  call void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %23, i32 noundef %24)
+  %25 = load i32, ptr %9, align 4, !tbaa !30
+  %26 = icmp ugt i32 %25, 0
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %16
+  %28 = load ptr, ptr %4, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #12
+  %29 = load ptr, ptr %8, align 8, !tbaa !62
+  %30 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #12
+  %31 = load i32, ptr %9, align 4, !tbaa !30
+  %32 = zext i32 %31 to i64
+  %33 = call { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEKNS0_8internal5ArrayIKT_EEPSB_m(ptr noundef %30, i64 noundef %32)
+  %34 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
+  %35 = extractvalue { ptr, i64 } %33, 0
+  store ptr %35, ptr %34, align 8
+  %36 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
+  %37 = extractvalue { ptr, i64 } %33, 1
   store i64 %37, ptr %36, align 8
-  %38 = load { ptr, i64 }, ptr %4, align 8
-  %39 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 0
-  %40 = extractvalue { ptr, i64 } %38, 0
-  store ptr %40, ptr %39, align 8
-  %41 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 1
-  %42 = extractvalue { ptr, i64 } %38, 1
-  store i64 %42, ptr %41, align 8
-  call void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %30, ptr noundef nonnull align 8 dereferenceable(16) %13)
-  br label %43
+  call void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #12
+  br label %38
 
-43:                                               ; preds = %29, %18
-  br label %44
+38:                                               ; preds = %27, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  br label %39
 
-44:                                               ; preds = %43
-  %45 = load i64, ptr %10, align 8
-  %46 = add i64 %45, 1
-  store i64 %46, ptr %10, align 8
-  br label %14, !llvm.loop !38
+39:                                               ; preds = %38
+  %40 = load i64, ptr %7, align 8, !tbaa !11
+  %41 = add i64 %40, 1
+  store i64 %41, ptr %7, align 8, !tbaa !11
+  br label %11, !llvm.loop !200
 
-47:                                               ; preds = %14
+42:                                               ; preds = %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !201
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !201
   call void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEKNS0_8internal5ArrayIKT_EEPSB_m(ptr noundef %0, i64 noundef %1) #4 comdat {
+  %3 = alloca %"struct.ozz::io::internal::Array.33", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !203
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.33", ptr %3, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !203
+  store ptr %7, ptr %6, align 8, !tbaa !204
+  %8 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.33", ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %5, align 8, !tbaa !11
+  store i64 %9, ptr %8, align 8, !tbaa !206
+  %10 = load { ptr, i64 }, ptr %3, align 8
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !62
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !67
+  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #12
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   %4 = load ptr, ptr %2, align 8
-  store i32 1, ptr %3, align 4
-  %5 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 1, ptr %3, align 4, !tbaa !30
+  %5 = load i32, ptr %3, align 4, !tbaa !30
   call void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %4, i32 noundef %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i64, align 8
-  %9 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i64 %2, ptr %8, align 8
-  store i64 0, ptr %9, align 8
-  br label %10
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !201
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8, !tbaa !11
+  br label %8
 
-10:                                               ; preds = %24, %3
-  %11 = load i64, ptr %9, align 8
-  %12 = load i64, ptr %8, align 8
-  %13 = icmp ult i64 %11, %12
-  br i1 %13, label %14, label %27
+8:                                                ; preds = %18, %3
+  %9 = load i64, ptr %7, align 8, !tbaa !11
+  %10 = load i64, ptr %6, align 8, !tbaa !11
+  %11 = icmp ult i64 %9, %10
+  br i1 %11, label %13, label %12
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %7, align 8
-  %16 = load i64, ptr %9, align 8
-  %17 = getelementptr inbounds %"struct.ozz::io::internal::Array.33", ptr %15, i64 %16
-  %18 = load ptr, ptr %6, align 8
-  store ptr %17, ptr %4, align 8
-  store ptr %18, ptr %5, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds %"struct.ozz::io::internal::Array.33", ptr %19, i32 0, i32 1
-  %23 = load i64, ptr %22, align 8
-  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4SaveERNS0_8OArchiveEPKS7_m(ptr noundef nonnull align 8 dereferenceable(9) %20, ptr noundef %21, i64 noundef %23)
-  br label %24
+12:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %21
 
-24:                                               ; preds = %14
-  %25 = load i64, ptr %9, align 8
-  %26 = add i64 %25, 1
-  store i64 %26, ptr %9, align 8
-  br label %10, !llvm.loop !39
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %5, align 8, !tbaa !201
+  %15 = load i64, ptr %7, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.33", ptr %14, i64 %15
+  %17 = load ptr, ptr %4, align 8, !tbaa !24
+  call void @_ZNK3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4SaveERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(9) %17)
+  br label %18
 
-27:                                               ; preds = %10
+18:                                               ; preds = %13
+  %19 = load i64, ptr %7, align 8, !tbaa !11
+  %20 = add i64 %19, 1
+  store i64 %20, ptr %7, align 8, !tbaa !11
+  br label %8, !llvm.loop !207
+
+21:                                               ; preds = %12
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4SaveERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !201
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.33", ptr %5, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !204
+  %9 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.33", ptr %5, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !206
+  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4SaveERNS0_8OArchiveEPKS7_m(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %8, i64 noundef %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4SaveERNS0_8OArchiveEPKS7_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4SaveERNS0_8OArchiveEPKS7_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  store i64 0, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !203
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8, !tbaa !11
   br label %10
 
-10:                                               ; preds = %31, %3
-  %11 = load i64, ptr %7, align 8
-  %12 = load i64, ptr %6, align 8
+10:                                               ; preds = %32, %3
+  %11 = load i64, ptr %7, align 8, !tbaa !11
+  %12 = load i64, ptr %6, align 8, !tbaa !11
   %13 = icmp ult i64 %11, %12
-  br i1 %13, label %14, label %34
+  br i1 %13, label %15, label %14
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i64, ptr %7, align 8
-  %17 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %15, i64 %16
-  store ptr %17, ptr %8, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %18, i32 0, i32 0
-  %20 = load i32, ptr %19, align 4
-  %21 = trunc i32 %20 to i8
-  store i8 %21, ptr %9, align 1
-  %22 = load ptr, ptr %4, align 8
-  %23 = load i8, ptr %9, align 1
-  call void @_ZN3ozz2io8OArchivelsEh(ptr noundef nonnull align 8 dereferenceable(9) %22, i8 noundef zeroext %23)
-  %24 = load ptr, ptr %4, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %25, i32 0, i32 1
-  %27 = load float, ptr %26, align 4
-  call void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %24, float noundef %27)
-  %28 = load ptr, ptr %4, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %29, i32 0, i32 2
-  call void @_ZN3ozz2io8OArchivelsINS_4math6Float4EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef nonnull align 4 dereferenceable(16) %30)
-  br label %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %35
 
-31:                                               ; preds = %14
-  %32 = load i64, ptr %7, align 8
-  %33 = add i64 %32, 1
-  store i64 %33, ptr %7, align 8
-  br label %10, !llvm.loop !40
+15:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %16 = load ptr, ptr %5, align 8, !tbaa !203
+  %17 = load i64, ptr %7, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %16, i64 %17
+  store ptr %18, ptr %8, align 8, !tbaa !203
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #12
+  %19 = load ptr, ptr %8, align 8, !tbaa !203
+  %20 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %19, i32 0, i32 0
+  %21 = load i32, ptr %20, align 4, !tbaa !208
+  %22 = trunc i32 %21 to i8
+  store i8 %22, ptr %9, align 1, !tbaa !98
+  %23 = load ptr, ptr %4, align 8, !tbaa !24
+  %24 = load i8, ptr %9, align 1, !tbaa !98
+  call void @_ZN3ozz2io8OArchivelsEh(ptr noundef nonnull align 8 dereferenceable(9) %23, i8 noundef zeroext %24)
+  %25 = load ptr, ptr %4, align 8, !tbaa !24
+  %26 = load ptr, ptr %8, align 8, !tbaa !203
+  %27 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %26, i32 0, i32 1
+  %28 = load float, ptr %27, align 4, !tbaa !58
+  call void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %25, float noundef %28)
+  %29 = load ptr, ptr %4, align 8, !tbaa !24
+  %30 = load ptr, ptr %8, align 8, !tbaa !203
+  %31 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %30, i32 0, i32 2
+  call void @_ZN3ozz2io8OArchivelsINS_4math6Float4EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 4 dereferenceable(16) %31)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  br label %32
 
-34:                                               ; preds = %10
+32:                                               ; preds = %15
+  %33 = load i64, ptr %7, align 8, !tbaa !11
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %7, align 8, !tbaa !11
+  br label %10, !llvm.loop !209
+
+35:                                               ; preds = %14
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS_4math6Float4EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS_4math6Float4EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !210
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKNS_4math6Float4ELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionINS_4math6Float4EEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !210
   call void @_ZN3ozz2io6ExternINS_4math6Float4EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
 }
@@ -7322,33 +7752,33 @@ define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS_4math6Float4EEEvRKT
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKNS_4math6Float4ELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS_4math6Float4EEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
-declare void @_ZN3ozz2io6ExternINS_4math6Float4EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef) #2
+declare void @_ZN3ozz2io6ExternINS_4math6Float4EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !203
+  %5 = load ptr, ptr %4, align 8, !tbaa !203
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS9_EEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   ret i1 true
 }
 
@@ -7356,121 +7786,124 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKSt
 define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS9_EEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4, !tbaa !30
+  %4 = load i32, ptr %3, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret i32 %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 comdat align 2 {
-  %5 = alloca %"struct.ozz::io::internal::Array.34", align 8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #3 comdat align 2 {
+  %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = alloca i64, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca i32, align 4
-  %15 = alloca %"struct.ozz::io::internal::Array.34", align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
-  store i64 0, ptr %12, align 8
-  br label %16
+  %12 = alloca %"struct.ozz::io::internal::Array.34", align 8
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !62
+  store i64 %2, ptr %7, align 8, !tbaa !11
+  store i32 %3, ptr %8, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  store i64 0, ptr %9, align 8, !tbaa !11
+  br label %13
 
-16:                                               ; preds = %45, %4
-  %17 = load i64, ptr %12, align 8
-  %18 = load i64, ptr %10, align 8
-  %19 = icmp ult i64 %17, %18
-  br i1 %19, label %20, label %48
+13:                                               ; preds = %40, %4
+  %14 = load i64, ptr %9, align 8, !tbaa !11
+  %15 = load i64, ptr %7, align 8, !tbaa !11
+  %16 = icmp ult i64 %14, %15
+  br i1 %16, label %18, label %17
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %9, align 8
-  %22 = load i64, ptr %12, align 8
-  %23 = getelementptr inbounds %"class.std::vector.15", ptr %21, i64 %22
-  store ptr %23, ptr %13, align 8
-  %24 = load ptr, ptr %8, align 8
-  call void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %24, ptr noundef nonnull align 4 dereferenceable(4) %14)
-  %25 = load ptr, ptr %13, align 8
-  %26 = load i32, ptr %14, align 4
-  %27 = zext i32 %26 to i64
-  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %27)
-  %28 = load i32, ptr %14, align 4
-  %29 = icmp ugt i32 %28, 0
-  br i1 %29, label %30, label %44
+17:                                               ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %43
 
-30:                                               ; preds = %20
-  %31 = load ptr, ptr %8, align 8
-  %32 = load ptr, ptr %13, align 8
-  %33 = call noundef ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %32) #8
-  %34 = load i32, ptr %14, align 4
-  %35 = zext i32 %34 to i64
-  store ptr %33, ptr %6, align 8
-  store i64 %35, ptr %7, align 8
-  %36 = load ptr, ptr %6, align 8
-  store ptr %36, ptr %5, align 8
-  %37 = getelementptr inbounds %"struct.ozz::io::internal::Array.34", ptr %5, i32 0, i32 1
-  %38 = load i64, ptr %7, align 8
+18:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %19 = load ptr, ptr %6, align 8, !tbaa !62
+  %20 = load i64, ptr %9, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw %"class.std::vector.15", ptr %19, i64 %20
+  store ptr %21, ptr %10, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #12
+  %22 = load ptr, ptr %5, align 8, !tbaa !28
+  call void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %22, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %23 = load ptr, ptr %10, align 8, !tbaa !62
+  %24 = load i32, ptr %11, align 4, !tbaa !30
+  %25 = zext i32 %24 to i64
+  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %25)
+  %26 = load i32, ptr %11, align 4, !tbaa !30
+  %27 = icmp ugt i32 %26, 0
+  br i1 %27, label %28, label %39
+
+28:                                               ; preds = %18
+  %29 = load ptr, ptr %5, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #12
+  %30 = load ptr, ptr %10, align 8, !tbaa !62
+  %31 = call noundef ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #12
+  %32 = load i32, ptr %11, align 4, !tbaa !30
+  %33 = zext i32 %32 to i64
+  %34 = call { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEKNS0_8internal5ArrayIT_EEPSA_m(ptr noundef %31, i64 noundef %33)
+  %35 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 0
+  %36 = extractvalue { ptr, i64 } %34, 0
+  store ptr %36, ptr %35, align 8
+  %37 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 1
+  %38 = extractvalue { ptr, i64 } %34, 1
   store i64 %38, ptr %37, align 8
-  %39 = load { ptr, i64 }, ptr %5, align 8
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %15, i32 0, i32 0
-  %41 = extractvalue { ptr, i64 } %39, 0
-  store ptr %41, ptr %40, align 8
-  %42 = getelementptr inbounds { ptr, i64 }, ptr %15, i32 0, i32 1
-  %43 = extractvalue { ptr, i64 } %39, 1
-  store i64 %43, ptr %42, align 8
-  call void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %31, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  br label %44
+  call void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #12
+  br label %39
 
-44:                                               ; preds = %30, %20
-  br label %45
+39:                                               ; preds = %28, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  br label %40
 
-45:                                               ; preds = %44
-  %46 = load i64, ptr %12, align 8
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %12, align 8
-  br label %16, !llvm.loop !41
+40:                                               ; preds = %39
+  %41 = load i64, ptr %9, align 8, !tbaa !11
+  %42 = add i64 %41, 1
+  store i64 %42, ptr %9, align 8, !tbaa !11
+  br label %13, !llvm.loop !212
 
-48:                                               ; preds = %16
+43:                                               ; preds = %17
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %6 = load i64, ptr %4, align 8, !tbaa !11
+  %7 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   %8 = icmp ugt i64 %6, %7
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %2
-  %10 = load i64, ptr %4, align 8
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %10 = load i64, ptr %4, align 8, !tbaa !11
+  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   %12 = sub i64 %10, %11
   call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %12)
   br label %24
 
 13:                                               ; preds = %2
-  %14 = load i64, ptr %4, align 8
-  %15 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %14 = load i64, ptr %4, align 8, !tbaa !11
+  %15 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   %16 = icmp ult i64 %14, %15
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %5, i32 0, i32 0
-  %19 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i64, ptr %4, align 8
-  %22 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %20, i64 %21
-  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE15_M_erase_at_endEPS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %22) #8
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %5, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !67
+  %21 = load i64, ptr %4, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %20, i64 %21
+  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE15_M_erase_at_endEPS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %22) #12
   br label %23
 
 23:                                               ; preds = %17, %13
@@ -7481,36 +7914,55 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !213
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !30
+  %9 = load ptr, ptr %4, align 8, !tbaa !213
+  %10 = load i32, ptr %5, align 4, !tbaa !30
   call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEKNS0_8internal5ArrayIT_EEPSA_m(ptr noundef %0, i64 noundef %1) #4 comdat {
+  %3 = alloca %"struct.ozz::io::internal::Array.34", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !203
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.34", ptr %3, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !203
+  store ptr %7, ptr %6, align 8, !tbaa !215
+  %8 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.34", ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %5, align 8, !tbaa !11
+  store i64 %9, ptr %8, align 8, !tbaa !217
+  %10 = load { ptr, i64 }, ptr %3, align 8
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !62
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !67
+  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #12
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -7522,36 +7974,38 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %14 = load ptr, ptr %3, align 8
-  %15 = load i64, ptr %4, align 8
+  %15 = load i64, ptr %4, align 8, !tbaa !11
   %16 = icmp ne i64 %15, 0
   br i1 %16, label %17, label %133
 
 17:                                               ; preds = %2
-  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
-  store i64 %18, ptr %5, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
-  %20 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %19, i32 0, i32 2
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
-  %23 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %22, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
+  store i64 %18, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8, !tbaa !218
+  %22 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !64
   %25 = ptrtoint ptr %21 to i64
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
   %28 = sdiv exact i64 %27, 24
-  store i64 %28, ptr %6, align 8
-  %29 = load i64, ptr %5, align 8
-  %30 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  store i64 %28, ptr %6, align 8, !tbaa !11
+  %29 = load i64, ptr %5, align 8, !tbaa !11
+  %30 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %31 = icmp ugt i64 %29, %30
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %17
-  %33 = load i64, ptr %6, align 8
-  %34 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
-  %35 = load i64, ptr %5, align 8
+  %33 = load i64, ptr %6, align 8, !tbaa !11
+  %34 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
+  %35 = load i64, ptr %5, align 8, !tbaa !11
   %36 = sub i64 %34, %35
   %37 = icmp ugt i64 %33, %36
   br i1 %37, label %38, label %39
@@ -7560,56 +8014,61 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   unreachable
 
 39:                                               ; preds = %32
-  %40 = load i64, ptr %6, align 8
-  %41 = load i64, ptr %4, align 8
+  %40 = load i64, ptr %6, align 8, !tbaa !11
+  %41 = load i64, ptr %4, align 8, !tbaa !11
   %42 = icmp uge i64 %40, %41
   br i1 %42, label %43, label %52
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
-  %45 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i64, ptr %4, align 8
-  %48 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %44 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !64
+  %47 = load i64, ptr %4, align 8, !tbaa !11
+  %48 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %49 = call noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_(ptr noundef %46, i64 noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %48)
-  %50 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
-  %51 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %50, i32 0, i32 1
-  store ptr %49, ptr %51, align 8
+  %50 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %50, i32 0, i32 1
+  store ptr %49, ptr %51, align 8, !tbaa !64
   br label %132
 
 52:                                               ; preds = %39
-  %53 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
-  %54 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %7, align 8
-  %56 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
-  %57 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %56, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  store ptr %58, ptr %8, align 8
-  %59 = load i64, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %53 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
+  %54 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8, !tbaa !67
+  store ptr %55, ptr %7, align 8, !tbaa !203
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %56 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8, !tbaa !64
+  store ptr %58, ptr %8, align 8, !tbaa !203
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %59 = load i64, ptr %4, align 8, !tbaa !11
   %60 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %59, ptr noundef @.str)
-  store i64 %60, ptr %9, align 8
-  %61 = load i64, ptr %9, align 8
+  store i64 %60, ptr %9, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %61 = load i64, ptr %9, align 8, !tbaa !11
   %62 = call noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %61)
-  store ptr %62, ptr %10, align 8
-  store ptr null, ptr %11, align 8
-  %63 = load ptr, ptr %10, align 8
-  %64 = load i64, ptr %5, align 8
-  %65 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %63, i64 %64
-  %66 = load i64, ptr %4, align 8
-  %67 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  store ptr %62, ptr %10, align 8, !tbaa !203
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  store ptr null, ptr %11, align 8, !tbaa !203
+  %63 = load ptr, ptr %10, align 8, !tbaa !203
+  %64 = load i64, ptr %5, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %63, i64 %64
+  %66 = load i64, ptr %4, align 8, !tbaa !11
+  %67 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %68 = invoke noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_(ptr noundef %65, i64 noundef %66, ptr noundef nonnull align 1 dereferenceable(1) %67)
           to label %69 unwind label %79
 
 69:                                               ; preds = %52
-  %70 = load ptr, ptr %10, align 8
-  %71 = load i64, ptr %5, align 8
-  %72 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %70, i64 %71
-  store ptr %72, ptr %11, align 8
-  %73 = load ptr, ptr %7, align 8
-  %74 = load ptr, ptr %8, align 8
-  %75 = load ptr, ptr %10, align 8
-  %76 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %70 = load ptr, ptr %10, align 8, !tbaa !203
+  %71 = load i64, ptr %5, align 8, !tbaa !11
+  %72 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %70, i64 %71
+  store ptr %72, ptr %11, align 8, !tbaa !203
+  %73 = load ptr, ptr %7, align 8, !tbaa !203
+  %74 = load ptr, ptr %8, align 8, !tbaa !203
+  %75 = load ptr, ptr %10, align 8, !tbaa !203
+  %76 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %77 = invoke noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEES7_NS0_12StdAllocatorIS6_EEET0_T_SB_SA_RT1_(ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef nonnull align 1 dereferenceable(1) %76)
           to label %78 unwind label %79
 
@@ -7627,17 +8086,17 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
 
 83:                                               ; preds = %79
   %84 = load ptr, ptr %12, align 8
-  %85 = call ptr @__cxa_begin_catch(ptr %84) #8
-  %86 = load ptr, ptr %11, align 8
+  %85 = call ptr @__cxa_begin_catch(ptr %84) #12
+  %86 = load ptr, ptr %11, align 8, !tbaa !203
   %87 = icmp ne ptr %86, null
   br i1 %87, label %88, label %99
 
 88:                                               ; preds = %83
-  %89 = load ptr, ptr %11, align 8
-  %90 = load ptr, ptr %11, align 8
-  %91 = load i64, ptr %4, align 8
-  %92 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %90, i64 %91
-  %93 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %89 = load ptr, ptr %11, align 8, !tbaa !203
+  %90 = load ptr, ptr %11, align 8, !tbaa !203
+  %91 = load i64, ptr %4, align 8, !tbaa !11
+  %92 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %90, i64 %91
+  %93 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %89, ptr noundef %92, ptr noundef nonnull align 1 dereferenceable(1) %93)
           to label %94 unwind label %95
 
@@ -7655,54 +8114,68 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
           to label %103 unwind label %139
 
 99:                                               ; preds = %94, %83
-  %100 = load ptr, ptr %10, align 8
-  %101 = load i64, ptr %9, align 8
+  %100 = load ptr, ptr %10, align 8, !tbaa !203
+  %101 = load i64, ptr %9, align 8, !tbaa !11
   invoke void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE13_M_deallocateEPS6_m(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %100, i64 noundef %101)
           to label %102 unwind label %95
 
 102:                                              ; preds = %99
-  invoke void @__cxa_rethrow() #9
+  invoke void @__cxa_rethrow() #13
           to label %142 unwind label %95
 
 103:                                              ; preds = %95
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   br label %134
 
 104:                                              ; preds = %78
-  %105 = load ptr, ptr %7, align 8
-  %106 = load ptr, ptr %8, align 8
-  %107 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %105 = load ptr, ptr %7, align 8, !tbaa !203
+  %106 = load ptr, ptr %8, align 8, !tbaa !203
+  %107 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   call void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %105, ptr noundef %106, ptr noundef nonnull align 1 dereferenceable(1) %107)
-  %108 = load ptr, ptr %7, align 8
-  %109 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
-  %110 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %109, i32 0, i32 2
-  %111 = load ptr, ptr %110, align 8
-  %112 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  %108 = load ptr, ptr %7, align 8, !tbaa !203
+  %109 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
+  %110 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %109, i32 0, i32 2
+  %111 = load ptr, ptr %110, align 8, !tbaa !218
+  %112 = load ptr, ptr %7, align 8, !tbaa !203
   %113 = ptrtoint ptr %111 to i64
   %114 = ptrtoint ptr %112 to i64
   %115 = sub i64 %113, %114
   %116 = sdiv exact i64 %115, 24
   call void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE13_M_deallocateEPS6_m(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %108, i64 noundef %116)
-  %117 = load ptr, ptr %10, align 8
-  %118 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
-  %119 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %118, i32 0, i32 0
-  store ptr %117, ptr %119, align 8
-  %120 = load ptr, ptr %10, align 8
-  %121 = load i64, ptr %5, align 8
-  %122 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %120, i64 %121
-  %123 = load i64, ptr %4, align 8
-  %124 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %122, i64 %123
-  %125 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
-  %126 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %125, i32 0, i32 1
-  store ptr %124, ptr %126, align 8
-  %127 = load ptr, ptr %10, align 8
-  %128 = load i64, ptr %9, align 8
-  %129 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %127, i64 %128
-  %130 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
-  %131 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %130, i32 0, i32 2
-  store ptr %129, ptr %131, align 8
+  %117 = load ptr, ptr %10, align 8, !tbaa !203
+  %118 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
+  %119 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %118, i32 0, i32 0
+  store ptr %117, ptr %119, align 8, !tbaa !67
+  %120 = load ptr, ptr %10, align 8, !tbaa !203
+  %121 = load i64, ptr %5, align 8, !tbaa !11
+  %122 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %120, i64 %121
+  %123 = load i64, ptr %4, align 8, !tbaa !11
+  %124 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %122, i64 %123
+  %125 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
+  %126 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %125, i32 0, i32 1
+  store ptr %124, ptr %126, align 8, !tbaa !64
+  %127 = load ptr, ptr %10, align 8, !tbaa !203
+  %128 = load i64, ptr %9, align 8, !tbaa !11
+  %129 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %14, i32 0, i32 0
+  %131 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %130, i32 0, i32 2
+  store ptr %129, ptr %131, align 8, !tbaa !218
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   br label %132
 
 132:                                              ; preds = %104, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   br label %133
 
 133:                                              ; preds = %132, %2
@@ -7719,7 +8192,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   %140 = landingpad { ptr, i32 }
           catch ptr null
   %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #10
+  call void @__clang_call_terminate(ptr %141) #14
   unreachable
 
 142:                                              ; preds = %102
@@ -7731,82 +8204,85 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !203
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !64
+  %10 = load ptr, ptr %4, align 8, !tbaa !203
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 24
-  store i64 %14, ptr %5, align 8
-  %15 = load i64, ptr %5, align 8
+  store i64 %14, ptr %5, align 8, !tbaa !11
+  %15 = load i64, ptr %5, align 8, !tbaa !11
   %16 = icmp ne i64 %15, 0
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %6, i32 0, i32 0
-  %20 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
+  %18 = load ptr, ptr %4, align 8, !tbaa !203
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !64
+  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %18, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %23 unwind label %28
 
 23:                                               ; preds = %17
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %6, i32 0, i32 0
-  %26 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %25, i32 0, i32 1
-  store ptr %24, ptr %26, align 8
+  %24 = load ptr, ptr %4, align 8, !tbaa !203
+  %25 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %6, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Float4>>>::_Vector_impl_data", ptr %25, i32 0, i32 1
+  store ptr %24, ptr %26, align 8, !tbaa !64
   br label %27
 
 27:                                               ; preds = %23, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   ret void
 
 28:                                               ; preds = %17
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #10
+  call void @__clang_call_terminate(ptr %30) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !62
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #8
-  %5 = call noundef i64 @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE11_S_max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  %5 = call noundef i64 @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE11_S_max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
   ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %10 = load ptr, ptr %4, align 8
-  store ptr %10, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !203
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !219
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %10 = load ptr, ptr %4, align 8, !tbaa !203
+  store ptr %10, ptr %7, align 8, !tbaa !203
   br label %11
 
 11:                                               ; preds = %18, %3
-  %12 = load i64, ptr %5, align 8
+  %12 = load i64, ptr %5, align 8, !tbaa !11
   %13 = icmp ugt i64 %12, 0
   br i1 %13, label %14, label %34
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %7, align 8
+  %15 = load ptr, ptr %6, align 8, !tbaa !219
+  %16 = load ptr, ptr %7, align 8, !tbaa !203
   invoke void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE9constructIS7_JEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %16)
           to label %17 unwind label %23
 
@@ -7814,13 +8290,13 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8
+  %19 = load i64, ptr %5, align 8, !tbaa !11
   %20 = add i64 %19, -1
-  store i64 %20, ptr %5, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %21, i32 1
-  store ptr %22, ptr %7, align 8
-  br label %11, !llvm.loop !42
+  store i64 %20, ptr %5, align 8, !tbaa !11
+  %21 = load ptr, ptr %7, align 8, !tbaa !203
+  %22 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %21, i32 1
+  store ptr %22, ptr %7, align 8, !tbaa !203
+  br label %11, !llvm.loop !221
 
 23:                                               ; preds = %14
   %24 = landingpad { ptr, i32 }
@@ -7833,19 +8309,20 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %8, align 8
-  %29 = call ptr @__cxa_begin_catch(ptr %28) #8
-  %30 = load ptr, ptr %4, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = load ptr, ptr %6, align 8
+  %29 = call ptr @__cxa_begin_catch(ptr %28) #12
+  %30 = load ptr, ptr %4, align 8, !tbaa !203
+  %31 = load ptr, ptr %7, align 8, !tbaa !203
+  %32 = load ptr, ptr %6, align 8, !tbaa !219
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %30, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %32)
           to label %33 unwind label %36
 
 33:                                               ; preds = %27
-  invoke void @__cxa_rethrow() #9
+  invoke void @__cxa_rethrow() #13
           to label %50 unwind label %36
 
 34:                                               ; preds = %11
-  %35 = load ptr, ptr %7, align 8
+  %35 = load ptr, ptr %7, align 8, !tbaa !203
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   ret ptr %35
 
 36:                                               ; preds = %33, %27
@@ -7859,10 +8336,10 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
           to label %40 unwind label %47
 
 40:                                               ; preds = %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   br label %42
 
 41:                                               ; No predecessors!
-  call void @llvm.trap()
   unreachable
 
 42:                                               ; preds = %40
@@ -7876,7 +8353,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #10
+  call void @__clang_call_terminate(ptr %49) #14
   unreachable
 
 50:                                               ; preds = %33
@@ -7886,81 +8363,85 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !222
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !62
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !96
   %9 = load ptr, ptr %4, align 8
-  %10 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %10 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   %12 = sub i64 %10, %11
-  %13 = load i64, ptr %5, align 8
+  %13 = load i64, ptr %5, align 8, !tbaa !11
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %6, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #9
+  %16 = load ptr, ptr %6, align 8, !tbaa !96
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #13
   unreachable
 
 17:                                               ; preds = %3
-  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  %19 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  store i64 %19, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %19 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  store i64 %19, ptr %8, align 8, !tbaa !11
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !11
   %22 = add i64 %18, %21
-  store i64 %22, ptr %7, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  store i64 %22, ptr %7, align 8, !tbaa !11
+  %23 = load i64, ptr %7, align 8, !tbaa !11
+  %24 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %17
-  %27 = load i64, ptr %7, align 8
-  %28 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %27 = load i64, ptr %7, align 8, !tbaa !11
+  %28 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   %29 = icmp ugt i64 %27, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26, %17
-  %31 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %31 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   br label %34
 
 32:                                               ; preds = %26
-  %33 = load i64, ptr %7, align 8
+  %33 = load i64, ptr %7, align 8, !tbaa !11
   br label %34
 
 34:                                               ; preds = %32, %30
   %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   ret i64 %35
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !222
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !11
   %7 = icmp ne i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %5, i32 0, i32 0
-  %10 = load i64, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !11
   %11 = call noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
   br label %13
 
@@ -7972,85 +8453,85 @@ define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7o
   ret ptr %14
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEES7_NS0_12StdAllocatorIS6_EEET0_T_SB_SA_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEES7_NS0_12StdAllocatorIS6_EEET0_T_SB_SA_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #3 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.std::move_iterator.35", align 8
   %10 = alloca %"class.std::move_iterator.35", align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %11 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !203
+  store ptr %1, ptr %6, align 8, !tbaa !203
+  store ptr %2, ptr %7, align 8, !tbaa !203
+  store ptr %3, ptr %8, align 8, !tbaa !219
+  %11 = load ptr, ptr %5, align 8, !tbaa !203
   %12 = call ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEESt13move_iteratorIPS6_EET0_PT_(ptr noundef %11)
-  %13 = getelementptr inbounds %"class.std::move_iterator.35", ptr %9, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.std::move_iterator.35", ptr %9, i32 0, i32 0
   store ptr %12, ptr %13, align 8
-  %14 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %6, align 8, !tbaa !203
   %15 = call ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEESt13move_iteratorIPS6_EET0_PT_(ptr noundef %14)
-  %16 = getelementptr inbounds %"class.std::move_iterator.35", ptr %10, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"class.std::move_iterator.35", ptr %10, i32 0, i32 0
   store ptr %15, ptr %16, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %"class.std::move_iterator.35", ptr %9, i32 0, i32 0
+  %17 = load ptr, ptr %7, align 8, !tbaa !203
+  %18 = load ptr, ptr %8, align 8, !tbaa !219
+  %19 = getelementptr inbounds nuw %"class.std::move_iterator.35", ptr %9, i32 0, i32 0
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %"class.std::move_iterator.35", ptr %10, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"class.std::move_iterator.35", ptr %10, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS1_4math6Float4EEEES8_NS1_12StdAllocatorIS7_EEET0_T_SD_SC_RT1_(ptr %20, ptr %22, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18)
   ret ptr %23
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat {
+define linkonce_odr dso_local void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !203
+  store ptr %1, ptr %5, align 8, !tbaa !203
+  store ptr %2, ptr %6, align 8, !tbaa !219
   br label %7
 
 7:                                                ; preds = %14, %3
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !203
+  %9 = load ptr, ptr %5, align 8, !tbaa !203
   %10 = icmp ne ptr %8, %9
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %6, align 8, !tbaa !219
+  %13 = load ptr, ptr %4, align 8, !tbaa !203
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE7destroyIS7_EEvRS8_PT_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef %13)
   br label %14
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %15, i32 1
-  store ptr %16, ptr %4, align 8
-  br label %7, !llvm.loop !43
+  %15 = load ptr, ptr %4, align 8, !tbaa !203
+  %16 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %15, i32 1
+  store ptr %16, ptr %4, align 8, !tbaa !203
+  br label %7, !llvm.loop !224
 
 17:                                               ; preds = %7
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE13_M_deallocateEPS6_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE13_M_deallocateEPS6_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !222
+  store ptr %1, ptr %5, align 8, !tbaa !203
+  store i64 %2, ptr %6, align 8, !tbaa !11
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !203
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !203
+  %13 = load i64, ptr %6, align 8, !tbaa !11
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE10deallocateERS8_PS7_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
@@ -8063,30 +8544,34 @@ define linkonce_odr dso_local noundef i64 @_ZNSt6vectorIN3ozz9animation7offline1
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 384307168202282325, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE8max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
-  store i64 %6, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !219
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  store i64 384307168202282325, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #12
+  %5 = load ptr, ptr %2, align 8, !tbaa !219
+  %6 = call noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE8max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  store i64 %6, ptr %4, align 8, !tbaa !11
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
   ret i64 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !222
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.16", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.16", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE8max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !219
+  %3 = load ptr, ptr %2, align 8, !tbaa !219
   %4 = invoke noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE11_S_max_sizeIKS8_EEDTcldtfp_8max_sizeEERT_i(ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef 0)
           to label %5 unwind label %6
 
@@ -8097,7 +8582,7 @@ define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAll
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #10
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 }
 
@@ -8105,64 +8590,70 @@ define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAll
 define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE11_S_max_sizeIKS8_EEDTcldtfp_8max_sizeEERT_i(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
+  store ptr %0, ptr %3, align 8, !tbaa !219
+  store i32 %1, ptr %4, align 4, !tbaa !30
+  %5 = load ptr, ptr %3, align 8, !tbaa !219
+  %6 = call noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
   ret i64 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !219
   ret i64 768614336404564650
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE9constructIS7_JEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE9constructIS7_JEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !219
+  store ptr %1, ptr %4, align 8, !tbaa !203
+  %5 = load ptr, ptr %3, align 8, !tbaa !219
+  %6 = load ptr, ptr %4, align 8, !tbaa !203
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE12_S_constructIS7_JEEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE12_S_constructIS7_JEEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE12_S_constructIS7_JEEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !219
+  store ptr %1, ptr %4, align 8, !tbaa !203
+  %5 = load ptr, ptr %3, align 8, !tbaa !219
+  %6 = load ptr, ptr %4, align 8, !tbaa !203
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE9constructIS6_JEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE9constructIS6_JEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE9constructIS6_JEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !219
+  store ptr %1, ptr %4, align 8, !tbaa !203
+  %5 = load ptr, ptr %4, align 8, !tbaa !203
   call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 24, i1 false)
   call void @_ZN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float4EEC2Ev(ptr noundef nonnull align 4 dereferenceable(24) %5)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float4EEC2Ev(ptr noundef nonnull align 4 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float4EEC2Ev(ptr noundef nonnull align 4 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %4, i32 0, i32 2
-  store ptr %5, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !203
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %3, i32 0, i32 2
+  call void @_ZN3ozz4math6Float4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %4)
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3ozz4math6Float4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !210
   ret void
 }
 
@@ -8170,11 +8661,11 @@ define linkonce_odr dso_local void @_ZN3ozz9animation7offline16RawTrackKeyframeI
 define linkonce_odr dso_local noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = call noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6) #8
+  store ptr %0, ptr %3, align 8, !tbaa !219
+  store i64 %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !219
+  %6 = load i64, ptr %4, align 8, !tbaa !11
+  %7 = call noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6) #12
   ret ptr %7
 }
 
@@ -8182,15 +8673,15 @@ define linkonce_odr dso_local noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAll
 define linkonce_odr dso_local noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !219
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
           to label %6 unwind label %14
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr %4, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !11
   %8 = mul i64 24, %7
-  %9 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !88
   %10 = getelementptr inbounds ptr, ptr %9, i64 2
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %8, i64 noundef 4)
@@ -8203,12 +8694,12 @@ define linkonce_odr dso_local noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7o
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #10
+  call void @__clang_call_terminate(ptr %16) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS1_4math6Float4EEEES8_NS1_12StdAllocatorIS7_EEET0_T_SD_SC_RT1_(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #1 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS1_4math6Float4EEEES8_NS1_12StdAllocatorIS7_EEET0_T_SD_SC_RT1_(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #2 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::move_iterator.35", align 8
   %6 = alloca %"class.std::move_iterator.35", align 8
   %7 = alloca ptr, align 8
@@ -8216,14 +8707,15 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds %"class.std::move_iterator.35", ptr %5, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.std::move_iterator.35", ptr %5, i32 0, i32 0
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.std::move_iterator.35", ptr %6, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.std::move_iterator.35", ptr %6, i32 0, i32 0
   store ptr %1, ptr %13, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %14 = load ptr, ptr %7, align 8
-  store ptr %14, ptr %9, align 8
+  store ptr %2, ptr %7, align 8, !tbaa !203
+  store ptr %3, ptr %8, align 8, !tbaa !219
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %14 = load ptr, ptr %7, align 8, !tbaa !203
+  store ptr %14, ptr %9, align 8, !tbaa !203
   br label %15
 
 15:                                               ; preds = %26, %4
@@ -8234,8 +8726,8 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
   br i1 %16, label %18, label %40
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr %8, align 8
-  %20 = load ptr, ptr %9, align 8
+  %19 = load ptr, ptr %8, align 8, !tbaa !219
+  %20 = load ptr, ptr %9, align 8, !tbaa !203
   %21 = invoke noundef nonnull align 4 dereferenceable(24) ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %22 unwind label %29
 
@@ -8251,10 +8743,10 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
           to label %26 unwind label %29
 
 26:                                               ; preds = %24
-  %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %27, i32 1
-  store ptr %28, ptr %9, align 8
-  br label %15, !llvm.loop !44
+  %27 = load ptr, ptr %9, align 8, !tbaa !203
+  %28 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %27, i32 1
+  store ptr %28, ptr %9, align 8, !tbaa !203
+  br label %15, !llvm.loop !225
 
 29:                                               ; preds = %24, %22, %18, %15
   %30 = landingpad { ptr, i32 }
@@ -8267,19 +8759,20 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %10, align 8
-  %35 = call ptr @__cxa_begin_catch(ptr %34) #8
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = load ptr, ptr %8, align 8
+  %35 = call ptr @__cxa_begin_catch(ptr %34) #12
+  %36 = load ptr, ptr %7, align 8, !tbaa !203
+  %37 = load ptr, ptr %9, align 8, !tbaa !203
+  %38 = load ptr, ptr %8, align 8, !tbaa !219
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38)
           to label %39 unwind label %42
 
 39:                                               ; preds = %33
-  invoke void @__cxa_rethrow() #9
+  invoke void @__cxa_rethrow() #13
           to label %56 unwind label %42
 
 40:                                               ; preds = %17
-  %41 = load ptr, ptr %9, align 8
+  %41 = load ptr, ptr %9, align 8, !tbaa !203
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
   ret ptr %41
 
 42:                                               ; preds = %39, %33
@@ -8293,10 +8786,10 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
           to label %46 unwind label %53
 
 46:                                               ; preds = %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
   br label %48
 
 47:                                               ; No predecessors!
-  call void @llvm.trap()
   unreachable
 
 48:                                               ; preds = %46
@@ -8310,49 +8803,49 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #10
+  call void @__clang_call_terminate(ptr %55) #14
   unreachable
 
 56:                                               ; preds = %39
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEESt13move_iteratorIPS6_EET0_PT_(ptr noundef %0) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEESt13move_iteratorIPS6_EET0_PT_(ptr noundef %0) #3 comdat {
   %2 = alloca %"class.std::move_iterator.35", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !203
+  %4 = load ptr, ptr %3, align 8, !tbaa !203
   call void @_ZNSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEC2ES7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
-  %5 = getelementptr inbounds %"class.std::move_iterator.35", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.std::move_iterator.35", ptr %2, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZStneIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZStneIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !226
+  store ptr %1, ptr %4, align 8, !tbaa !226
+  %5 = load ptr, ptr %3, align 8, !tbaa !226
+  %6 = load ptr, ptr %4, align 8, !tbaa !226
   %7 = call noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %8 = xor i1 %7, true
   ret i1 %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE9constructIS7_JS7_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(24) %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE9constructIS7_JS7_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(24) %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !219
+  store ptr %1, ptr %5, align 8, !tbaa !203
+  store ptr %2, ptr %6, align 8, !tbaa !203
+  %7 = load ptr, ptr %4, align 8, !tbaa !219
+  %8 = load ptr, ptr %5, align 8, !tbaa !203
+  %9 = load ptr, ptr %6, align 8, !tbaa !203
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE12_S_constructIS7_JS7_EEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(24) %9)
   ret void
 }
@@ -8360,34 +8853,34 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(24) ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !226
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator.35", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator.35", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !228
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !226
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator.35", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %5, i32 1
-  store ptr %6, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator.35", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !228
+  %6 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !228
   ret ptr %3
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !226
+  store ptr %1, ptr %4, align 8, !tbaa !226
+  %5 = load ptr, ptr %3, align 8, !tbaa !226
   %6 = call noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !226
   %8 = call noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %9 = icmp eq ptr %6, %8
   ret i1 %9
@@ -8396,24 +8889,24 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIPN3ozz9animation7offlin
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !226
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator.35", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator.35", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !228
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE12_S_constructIS7_JS7_EEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(24) %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE12_S_constructIS7_JS7_EEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(24) %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !219
+  store ptr %1, ptr %5, align 8, !tbaa !203
+  store ptr %2, ptr %6, align 8, !tbaa !203
+  %7 = load ptr, ptr %4, align 8, !tbaa !219
+  %8 = load ptr, ptr %5, align 8, !tbaa !203
+  %9 = load ptr, ptr %6, align 8, !tbaa !203
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE9constructIS6_JS6_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(24) %9)
   ret void
 }
@@ -8423,12 +8916,12 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 24, i1 false)
+  store ptr %0, ptr %4, align 8, !tbaa !219
+  store ptr %1, ptr %5, align 8, !tbaa !203
+  store ptr %2, ptr %6, align 8, !tbaa !203
+  %7 = load ptr, ptr %5, align 8, !tbaa !203
+  %8 = load ptr, ptr %6, align 8, !tbaa !203
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 24, i1 false), !tbaa.struct !230
   ret void
 }
 
@@ -8436,37 +8929,37 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
 define linkonce_odr dso_local void @_ZNSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEC2ES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !226
+  store ptr %1, ptr %4, align 8, !tbaa !203
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::move_iterator.35", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.std::move_iterator.35", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !203
+  store ptr %7, ptr %6, align 8, !tbaa !228
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE7destroyIS7_EEvRS8_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE7destroyIS7_EEvRS8_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !219
+  store ptr %1, ptr %4, align 8, !tbaa !203
+  %5 = load ptr, ptr %3, align 8, !tbaa !219
+  %6 = load ptr, ptr %4, align 8, !tbaa !203
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE10_S_destroyIS8_S7_EEDTcldtfp_7destroyfp0_EERT_PT0_i(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE10_S_destroyIS8_S7_EEDTcldtfp_7destroyfp0_EERT_PT0_i(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i32 noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEEEE10_S_destroyIS8_S7_EEDTcldtfp_7destroyfp0_EERT_PT0_i(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i32 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !219
+  store ptr %1, ptr %5, align 8, !tbaa !203
+  store i32 %2, ptr %6, align 4, !tbaa !30
+  %7 = load ptr, ptr %4, align 8, !tbaa !219
+  %8 = load ptr, ptr %5, align 8, !tbaa !203
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE7destroyIS6_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8)
   ret void
 }
@@ -8475,8 +8968,8 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorI
 define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE7destroyIS6_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !219
+  store ptr %1, ptr %4, align 8, !tbaa !203
   ret void
 }
 
@@ -8485,13 +8978,13 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorI
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
-  call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE10deallocateEPS6_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #8
+  store ptr %0, ptr %4, align 8, !tbaa !219
+  store ptr %1, ptr %5, align 8, !tbaa !203
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  %7 = load ptr, ptr %4, align 8, !tbaa !219
+  %8 = load ptr, ptr %5, align 8, !tbaa !203
+  %9 = load i64, ptr %6, align 8, !tbaa !11
+  call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE10deallocateEPS6_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #12
   ret void
 }
 
@@ -8500,15 +8993,15 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !219
+  store ptr %1, ptr %5, align 8, !tbaa !203
+  store i64 %2, ptr %6, align 8, !tbaa !11
   %7 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
           to label %8 unwind label %14
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !203
+  %10 = load ptr, ptr %7, align 8, !tbaa !88
   %11 = getelementptr inbounds ptr, ptr %10, i64 3
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9)
@@ -8521,82 +9014,96 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #10
+  call void @__clang_call_terminate(ptr %16) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   %4 = load ptr, ptr %2, align 8
-  store i32 0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4, !tbaa !30
   call void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret i32 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #3 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca i64, align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
-  store i64 0, ptr %12, align 8
-  br label %13
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !213
+  store i64 %2, ptr %7, align 8, !tbaa !11
+  store i32 %3, ptr %8, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  store i64 0, ptr %9, align 8, !tbaa !11
+  br label %10
 
-13:                                               ; preds = %29, %4
-  %14 = load i64, ptr %12, align 8
-  %15 = load i64, ptr %10, align 8
-  %16 = icmp ult i64 %14, %15
-  br i1 %16, label %17, label %32
+10:                                               ; preds = %21, %4
+  %11 = load i64, ptr %9, align 8, !tbaa !11
+  %12 = load i64, ptr %7, align 8, !tbaa !11
+  %13 = icmp ult i64 %11, %12
+  br i1 %13, label %15, label %14
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %9, align 8
-  %19 = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds %"struct.ozz::io::internal::Array.34", ptr %18, i64 %19
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i32, ptr %11, align 4
-  store ptr %20, ptr %5, align 8
-  store ptr %21, ptr %6, align 8
-  store i32 %22, ptr %7, align 4
-  %23 = load ptr, ptr %5, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds %"struct.ozz::io::internal::Array.34", ptr %23, i32 0, i32 1
-  %27 = load i64, ptr %26, align 8
-  %28 = load i32, ptr %7, align 4
-  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4LoadERNS0_8IArchiveEPS7_mj(ptr noundef nonnull align 8 dereferenceable(9) %24, ptr noundef %25, i64 noundef %27, i32 noundef %28)
-  br label %29
+14:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %24
 
-29:                                               ; preds = %17
-  %30 = load i64, ptr %12, align 8
-  %31 = add i64 %30, 1
-  store i64 %31, ptr %12, align 8
-  br label %13, !llvm.loop !45
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %6, align 8, !tbaa !213
+  %17 = load i64, ptr %9, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.34", ptr %16, i64 %17
+  %19 = load ptr, ptr %5, align 8, !tbaa !28
+  %20 = load i32, ptr %8, align 4, !tbaa !30
+  call void @_ZNK3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4LoadERNS0_8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(9) %19, i32 noundef %20)
+  br label %21
 
-32:                                               ; preds = %13
+21:                                               ; preds = %15
+  %22 = load i64, ptr %9, align 8, !tbaa !11
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %9, align 8, !tbaa !11
+  br label %10, !llvm.loop !231
+
+24:                                               ; preds = %14
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4LoadERNS0_8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !213
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  store i32 %2, ptr %6, align 4, !tbaa !30
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.34", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !215
+  %11 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.34", ptr %7, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !217
+  %13 = load i32, ptr %6, align 4, !tbaa !30
+  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4LoadERNS0_8IArchiveEPS7_mj(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef %10, i64 noundef %12, i32 noundef %13)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4LoadERNS0_8IArchiveEPS7_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4LoadERNS0_8IArchiveEPS7_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #2 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -8604,72 +9111,83 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16Raw
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i8, align 1
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  store i64 0, ptr %9, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !203
+  store i64 %2, ptr %7, align 8, !tbaa !11
+  store i32 %3, ptr %8, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  store i64 0, ptr %9, align 8, !tbaa !11
   br label %12
 
-12:                                               ; preds = %31, %4
-  %13 = load i64, ptr %9, align 8
-  %14 = load i64, ptr %7, align 8
+12:                                               ; preds = %32, %4
+  %13 = load i64, ptr %9, align 8, !tbaa !11
+  %14 = load i64, ptr %7, align 8, !tbaa !11
   %15 = icmp ult i64 %13, %14
-  br i1 %15, label %16, label %34
+  br i1 %15, label %17, label %16
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i64, ptr %9, align 8
-  %19 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %17, i64 %18
-  store ptr %19, ptr %10, align 8
-  %20 = load ptr, ptr %5, align 8
-  call void @_ZN3ozz2io8IArchiversERh(ptr noundef nonnull align 8 dereferenceable(9) %20, ptr noundef nonnull align 1 dereferenceable(1) %11)
-  %21 = load i8, ptr %11, align 1
-  %22 = zext i8 %21 to i32
-  %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %23, i32 0, i32 0
-  store i32 %22, ptr %24, align 4
-  %25 = load ptr, ptr %5, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %26, i32 0, i32 1
-  call void @_ZN3ozz2io8IArchiversERf(ptr noundef nonnull align 8 dereferenceable(9) %25, ptr noundef nonnull align 4 dereferenceable(4) %27)
-  %28 = load ptr, ptr %5, align 8
-  %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %29, i32 0, i32 2
-  call void @_ZN3ozz2io8IArchiversINS_4math6Float4EEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef nonnull align 4 dereferenceable(16) %30)
-  br label %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %35
 
-31:                                               ; preds = %16
-  %32 = load i64, ptr %9, align 8
-  %33 = add i64 %32, 1
-  store i64 %33, ptr %9, align 8
-  br label %12, !llvm.loop !46
+17:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %18 = load ptr, ptr %6, align 8, !tbaa !203
+  %19 = load i64, ptr %9, align 8, !tbaa !11
+  %20 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %18, i64 %19
+  store ptr %20, ptr %10, align 8, !tbaa !203
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #12
+  %21 = load ptr, ptr %5, align 8, !tbaa !28
+  call void @_ZN3ozz2io8IArchiversERh(ptr noundef nonnull align 8 dereferenceable(9) %21, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %22 = load i8, ptr %11, align 1, !tbaa !98
+  %23 = zext i8 %22 to i32
+  %24 = load ptr, ptr %10, align 8, !tbaa !203
+  %25 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %24, i32 0, i32 0
+  store i32 %23, ptr %25, align 4, !tbaa !208
+  %26 = load ptr, ptr %5, align 8, !tbaa !28
+  %27 = load ptr, ptr %10, align 8, !tbaa !203
+  %28 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %27, i32 0, i32 1
+  call void @_ZN3ozz2io8IArchiversERf(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull align 4 dereferenceable(4) %28)
+  %29 = load ptr, ptr %5, align 8, !tbaa !28
+  %30 = load ptr, ptr %10, align 8, !tbaa !203
+  %31 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %30, i32 0, i32 2
+  call void @_ZN3ozz2io8IArchiversINS_4math6Float4EEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 4 dereferenceable(16) %31)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  br label %32
 
-34:                                               ; preds = %12
+32:                                               ; preds = %17
+  %33 = load i64, ptr %9, align 8, !tbaa !11
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %9, align 8, !tbaa !11
+  br label %12, !llvm.loop !232
+
+35:                                               ; preds = %16
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversINS_4math6Float4EEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversINS_4math6Float4EEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !210
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS_4math6Float4ELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionINS_4math6Float4EEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !30
+  %9 = load ptr, ptr %4, align 8, !tbaa !210
+  %10 = load i32, ptr %5, align 4, !tbaa !30
   call void @_ZN3ozz2io6ExternINS_4math6Float4EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS_4math6Float4ELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   ret i1 true
 }
 
@@ -8677,258 +9195,301 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS
 define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionINS_4math6Float4EEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4, !tbaa !30
+  %4 = load i32, ptr %3, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret i32 %4
 }
 
-declare void @_ZN3ozz2io6ExternINS_4math6Float4EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef, i32 noundef) #2
+declare void @_ZN3ozz2io6ExternINS_4math6Float4EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef, i32 noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS9_EEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS9_EEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS8_EEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
-  %4 = alloca %"struct.ozz::io::internal::Array.36", align 8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS8_EEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  %7 = alloca ptr, align 8
+  %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
-  %13 = alloca %"struct.ozz::io::internal::Array.36", align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i64 %2, ptr %9, align 8
-  store i64 0, ptr %10, align 8
-  br label %14
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.ozz::io::internal::Array.36", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !74
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8, !tbaa !11
+  br label %11
 
-14:                                               ; preds = %44, %3
-  %15 = load i64, ptr %10, align 8
-  %16 = load i64, ptr %9, align 8
-  %17 = icmp ult i64 %15, %16
-  br i1 %17, label %18, label %47
+11:                                               ; preds = %39, %3
+  %12 = load i64, ptr %7, align 8, !tbaa !11
+  %13 = load i64, ptr %6, align 8, !tbaa !11
+  %14 = icmp ult i64 %12, %13
+  br i1 %14, label %16, label %15
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %8, align 8
-  %20 = load i64, ptr %10, align 8
-  %21 = getelementptr inbounds %"class.std::vector.21", ptr %19, i64 %20
-  store ptr %21, ptr %11, align 8
-  %22 = load ptr, ptr %11, align 8
-  %23 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #8
-  %24 = trunc i64 %23 to i32
-  store i32 %24, ptr %12, align 4
-  %25 = load ptr, ptr %7, align 8
-  %26 = load i32, ptr %12, align 4
-  call void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %25, i32 noundef %26)
-  %27 = load i32, ptr %12, align 4
-  %28 = icmp ugt i32 %27, 0
-  br i1 %28, label %29, label %43
+15:                                               ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %42
 
-29:                                               ; preds = %18
-  %30 = load ptr, ptr %7, align 8
-  %31 = load ptr, ptr %11, align 8
-  %32 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #8
-  %33 = load i32, ptr %12, align 4
-  %34 = zext i32 %33 to i64
-  store ptr %32, ptr %5, align 8
-  store i64 %34, ptr %6, align 8
-  %35 = load ptr, ptr %5, align 8
-  store ptr %35, ptr %4, align 8
-  %36 = getelementptr inbounds %"struct.ozz::io::internal::Array.36", ptr %4, i32 0, i32 1
-  %37 = load i64, ptr %6, align 8
+16:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %17 = load ptr, ptr %5, align 8, !tbaa !74
+  %18 = load i64, ptr %7, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %"class.std::vector.21", ptr %17, i64 %18
+  store ptr %19, ptr %8, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  %20 = load ptr, ptr %8, align 8, !tbaa !74
+  %21 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #12
+  %22 = trunc i64 %21 to i32
+  store i32 %22, ptr %9, align 4, !tbaa !30
+  %23 = load ptr, ptr %4, align 8, !tbaa !24
+  %24 = load i32, ptr %9, align 4, !tbaa !30
+  call void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %23, i32 noundef %24)
+  %25 = load i32, ptr %9, align 4, !tbaa !30
+  %26 = icmp ugt i32 %25, 0
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %16
+  %28 = load ptr, ptr %4, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #12
+  %29 = load ptr, ptr %8, align 8, !tbaa !74
+  %30 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #12
+  %31 = load i32, ptr %9, align 4, !tbaa !30
+  %32 = zext i32 %31 to i64
+  %33 = call { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEKNS0_8internal5ArrayIKT_EEPSB_m(ptr noundef %30, i64 noundef %32)
+  %34 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
+  %35 = extractvalue { ptr, i64 } %33, 0
+  store ptr %35, ptr %34, align 8
+  %36 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
+  %37 = extractvalue { ptr, i64 } %33, 1
   store i64 %37, ptr %36, align 8
-  %38 = load { ptr, i64 }, ptr %4, align 8
-  %39 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 0
-  %40 = extractvalue { ptr, i64 } %38, 0
-  store ptr %40, ptr %39, align 8
-  %41 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 1
-  %42 = extractvalue { ptr, i64 } %38, 1
-  store i64 %42, ptr %41, align 8
-  call void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %30, ptr noundef nonnull align 8 dereferenceable(16) %13)
-  br label %43
+  call void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #12
+  br label %38
 
-43:                                               ; preds = %29, %18
-  br label %44
+38:                                               ; preds = %27, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  br label %39
 
-44:                                               ; preds = %43
-  %45 = load i64, ptr %10, align 8
-  %46 = add i64 %45, 1
-  store i64 %46, ptr %10, align 8
-  br label %14, !llvm.loop !47
+39:                                               ; preds = %38
+  %40 = load i64, ptr %7, align 8, !tbaa !11
+  %41 = add i64 %40, 1
+  store i64 %41, ptr %7, align 8, !tbaa !11
+  br label %11, !llvm.loop !233
 
-47:                                               ; preds = %14
+42:                                               ; preds = %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !234
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !234
   call void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEKNS0_8internal5ArrayIKT_EEPSB_m(ptr noundef %0, i64 noundef %1) #4 comdat {
+  %3 = alloca %"struct.ozz::io::internal::Array.36", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !236
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.36", ptr %3, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !236
+  store ptr %7, ptr %6, align 8, !tbaa !237
+  %8 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.36", ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %5, align 8, !tbaa !11
+  store i64 %9, ptr %8, align 8, !tbaa !239
+  %10 = load { ptr, i64 }, ptr %3, align 8
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !79
+  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #12
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   %4 = load ptr, ptr %2, align 8
-  store i32 1, ptr %3, align 4
-  %5 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 1, ptr %3, align 4, !tbaa !30
+  %5 = load i32, ptr %3, align 4, !tbaa !30
   call void @_ZN3ozz2io8OArchivelsEj(ptr noundef nonnull align 8 dereferenceable(9) %4, i32 noundef %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEE4SaveERNS0_8OArchiveEPKSB_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i64, align 8
-  %9 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i64 %2, ptr %8, align 8
-  store i64 0, ptr %9, align 8
-  br label %10
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !234
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8, !tbaa !11
+  br label %8
 
-10:                                               ; preds = %24, %3
-  %11 = load i64, ptr %9, align 8
-  %12 = load i64, ptr %8, align 8
-  %13 = icmp ult i64 %11, %12
-  br i1 %13, label %14, label %27
+8:                                                ; preds = %18, %3
+  %9 = load i64, ptr %7, align 8, !tbaa !11
+  %10 = load i64, ptr %6, align 8, !tbaa !11
+  %11 = icmp ult i64 %9, %10
+  br i1 %11, label %13, label %12
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %7, align 8
-  %16 = load i64, ptr %9, align 8
-  %17 = getelementptr inbounds %"struct.ozz::io::internal::Array.36", ptr %15, i64 %16
-  %18 = load ptr, ptr %6, align 8
-  store ptr %17, ptr %4, align 8
-  store ptr %18, ptr %5, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds %"struct.ozz::io::internal::Array.36", ptr %19, i32 0, i32 1
-  %23 = load i64, ptr %22, align 8
-  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4SaveERNS0_8OArchiveEPKS7_m(ptr noundef nonnull align 8 dereferenceable(9) %20, ptr noundef %21, i64 noundef %23)
-  br label %24
+12:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %21
 
-24:                                               ; preds = %14
-  %25 = load i64, ptr %9, align 8
-  %26 = add i64 %25, 1
-  store i64 %26, ptr %9, align 8
-  br label %10, !llvm.loop !48
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %5, align 8, !tbaa !234
+  %15 = load i64, ptr %7, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.36", ptr %14, i64 %15
+  %17 = load ptr, ptr %4, align 8, !tbaa !24
+  call void @_ZNK3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4SaveERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(9) %17)
+  br label %18
 
-27:                                               ; preds = %10
+18:                                               ; preds = %13
+  %19 = load i64, ptr %7, align 8, !tbaa !11
+  %20 = add i64 %19, 1
+  store i64 %20, ptr %7, align 8, !tbaa !11
+  br label %8, !llvm.loop !240
+
+21:                                               ; preds = %12
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4SaveERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !234
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.36", ptr %5, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !237
+  %9 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.36", ptr %5, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !239
+  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4SaveERNS0_8OArchiveEPKS7_m(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %8, i64 noundef %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4SaveERNS0_8OArchiveEPKS7_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4SaveERNS0_8OArchiveEPKS7_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  store i64 0, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !236
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  store i64 0, ptr %7, align 8, !tbaa !11
   br label %10
 
-10:                                               ; preds = %31, %3
-  %11 = load i64, ptr %7, align 8
-  %12 = load i64, ptr %6, align 8
+10:                                               ; preds = %32, %3
+  %11 = load i64, ptr %7, align 8, !tbaa !11
+  %12 = load i64, ptr %6, align 8, !tbaa !11
   %13 = icmp ult i64 %11, %12
-  br i1 %13, label %14, label %34
+  br i1 %13, label %15, label %14
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i64, ptr %7, align 8
-  %17 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %15, i64 %16
-  store ptr %17, ptr %8, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %18, i32 0, i32 0
-  %20 = load i32, ptr %19, align 4
-  %21 = trunc i32 %20 to i8
-  store i8 %21, ptr %9, align 1
-  %22 = load ptr, ptr %4, align 8
-  %23 = load i8, ptr %9, align 1
-  call void @_ZN3ozz2io8OArchivelsEh(ptr noundef nonnull align 8 dereferenceable(9) %22, i8 noundef zeroext %23)
-  %24 = load ptr, ptr %4, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %25, i32 0, i32 1
-  %27 = load float, ptr %26, align 4
-  call void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %24, float noundef %27)
-  %28 = load ptr, ptr %4, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %29, i32 0, i32 2
-  call void @_ZN3ozz2io8OArchivelsINS_4math10QuaternionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef nonnull align 4 dereferenceable(16) %30)
-  br label %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  br label %35
 
-31:                                               ; preds = %14
-  %32 = load i64, ptr %7, align 8
-  %33 = add i64 %32, 1
-  store i64 %33, ptr %7, align 8
-  br label %10, !llvm.loop !49
+15:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %16 = load ptr, ptr %5, align 8, !tbaa !236
+  %17 = load i64, ptr %7, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %16, i64 %17
+  store ptr %18, ptr %8, align 8, !tbaa !236
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #12
+  %19 = load ptr, ptr %8, align 8, !tbaa !236
+  %20 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %19, i32 0, i32 0
+  %21 = load i32, ptr %20, align 4, !tbaa !241
+  %22 = trunc i32 %21 to i8
+  store i8 %22, ptr %9, align 1, !tbaa !98
+  %23 = load ptr, ptr %4, align 8, !tbaa !24
+  %24 = load i8, ptr %9, align 1, !tbaa !98
+  call void @_ZN3ozz2io8OArchivelsEh(ptr noundef nonnull align 8 dereferenceable(9) %23, i8 noundef zeroext %24)
+  %25 = load ptr, ptr %4, align 8, !tbaa !24
+  %26 = load ptr, ptr %8, align 8, !tbaa !236
+  %27 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %26, i32 0, i32 1
+  %28 = load float, ptr %27, align 4, !tbaa !70
+  call void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %25, float noundef %28)
+  %29 = load ptr, ptr %4, align 8, !tbaa !24
+  %30 = load ptr, ptr %8, align 8, !tbaa !236
+  %31 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %30, i32 0, i32 2
+  call void @_ZN3ozz2io8OArchivelsINS_4math10QuaternionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 4 dereferenceable(16) %31)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  br label %32
 
-34:                                               ; preds = %10
+32:                                               ; preds = %15
+  %33 = load i64, ptr %7, align 8, !tbaa !11
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %7, align 8, !tbaa !11
+  br label %10, !llvm.loop !242
+
+35:                                               ; preds = %14
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS_4math10QuaternionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS_4math10QuaternionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !243
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKNS_4math10QuaternionELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionINS_4math10QuaternionEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !243
   call void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
 }
@@ -8936,33 +9497,33 @@ define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS_4math10QuaternionEE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKNS_4math10QuaternionELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS_4math10QuaternionEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
-declare void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef) #2
+declare void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !74
+  store ptr %1, ptr %4, align 8, !tbaa !236
+  %5 = load ptr, ptr %4, align 8, !tbaa !236
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKSt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS9_EEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   ret i1 true
 }
 
@@ -8970,121 +9531,124 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKSt
 define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS9_EEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4, !tbaa !30
+  %4 = load i32, ptr %3, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret i32 %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 comdat align 2 {
-  %5 = alloca %"struct.ozz::io::internal::Array.37", align 8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #3 comdat align 2 {
+  %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = alloca i64, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca i32, align 4
-  %15 = alloca %"struct.ozz::io::internal::Array.37", align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
-  store i64 0, ptr %12, align 8
-  br label %16
+  %12 = alloca %"struct.ozz::io::internal::Array.37", align 8
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !74
+  store i64 %2, ptr %7, align 8, !tbaa !11
+  store i32 %3, ptr %8, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  store i64 0, ptr %9, align 8, !tbaa !11
+  br label %13
 
-16:                                               ; preds = %45, %4
-  %17 = load i64, ptr %12, align 8
-  %18 = load i64, ptr %10, align 8
-  %19 = icmp ult i64 %17, %18
-  br i1 %19, label %20, label %48
+13:                                               ; preds = %40, %4
+  %14 = load i64, ptr %9, align 8, !tbaa !11
+  %15 = load i64, ptr %7, align 8, !tbaa !11
+  %16 = icmp ult i64 %14, %15
+  br i1 %16, label %18, label %17
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %9, align 8
-  %22 = load i64, ptr %12, align 8
-  %23 = getelementptr inbounds %"class.std::vector.21", ptr %21, i64 %22
-  store ptr %23, ptr %13, align 8
-  %24 = load ptr, ptr %8, align 8
-  call void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %24, ptr noundef nonnull align 4 dereferenceable(4) %14)
-  %25 = load ptr, ptr %13, align 8
-  %26 = load i32, ptr %14, align 4
-  %27 = zext i32 %26 to i64
-  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %27)
-  %28 = load i32, ptr %14, align 4
-  %29 = icmp ugt i32 %28, 0
-  br i1 %29, label %30, label %44
+17:                                               ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %43
 
-30:                                               ; preds = %20
-  %31 = load ptr, ptr %8, align 8
-  %32 = load ptr, ptr %13, align 8
-  %33 = call noundef ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %32) #8
-  %34 = load i32, ptr %14, align 4
-  %35 = zext i32 %34 to i64
-  store ptr %33, ptr %6, align 8
-  store i64 %35, ptr %7, align 8
-  %36 = load ptr, ptr %6, align 8
-  store ptr %36, ptr %5, align 8
-  %37 = getelementptr inbounds %"struct.ozz::io::internal::Array.37", ptr %5, i32 0, i32 1
-  %38 = load i64, ptr %7, align 8
+18:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %19 = load ptr, ptr %6, align 8, !tbaa !74
+  %20 = load i64, ptr %9, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw %"class.std::vector.21", ptr %19, i64 %20
+  store ptr %21, ptr %10, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #12
+  %22 = load ptr, ptr %5, align 8, !tbaa !28
+  call void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %22, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %23 = load ptr, ptr %10, align 8, !tbaa !74
+  %24 = load i32, ptr %11, align 4, !tbaa !30
+  %25 = zext i32 %24 to i64
+  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %25)
+  %26 = load i32, ptr %11, align 4, !tbaa !30
+  %27 = icmp ugt i32 %26, 0
+  br i1 %27, label %28, label %39
+
+28:                                               ; preds = %18
+  %29 = load ptr, ptr %5, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #12
+  %30 = load ptr, ptr %10, align 8, !tbaa !74
+  %31 = call noundef ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #12
+  %32 = load i32, ptr %11, align 4, !tbaa !30
+  %33 = zext i32 %32 to i64
+  %34 = call { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEKNS0_8internal5ArrayIT_EEPSA_m(ptr noundef %31, i64 noundef %33)
+  %35 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 0
+  %36 = extractvalue { ptr, i64 } %34, 0
+  store ptr %36, ptr %35, align 8
+  %37 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 1
+  %38 = extractvalue { ptr, i64 } %34, 1
   store i64 %38, ptr %37, align 8
-  %39 = load { ptr, i64 }, ptr %5, align 8
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %15, i32 0, i32 0
-  %41 = extractvalue { ptr, i64 } %39, 0
-  store ptr %41, ptr %40, align 8
-  %42 = getelementptr inbounds { ptr, i64 }, ptr %15, i32 0, i32 1
-  %43 = extractvalue { ptr, i64 } %39, 1
-  store i64 %43, ptr %42, align 8
-  call void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %31, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  br label %44
+  call void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #12
+  br label %39
 
-44:                                               ; preds = %30, %20
-  br label %45
+39:                                               ; preds = %28, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  br label %40
 
-45:                                               ; preds = %44
-  %46 = load i64, ptr %12, align 8
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %12, align 8
-  br label %16, !llvm.loop !50
+40:                                               ; preds = %39
+  %41 = load i64, ptr %9, align 8, !tbaa !11
+  %42 = add i64 %41, 1
+  store i64 %42, ptr %9, align 8, !tbaa !11
+  br label %13, !llvm.loop !245
 
-48:                                               ; preds = %16
+43:                                               ; preds = %17
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !74
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %6 = load i64, ptr %4, align 8, !tbaa !11
+  %7 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   %8 = icmp ugt i64 %6, %7
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %2
-  %10 = load i64, ptr %4, align 8
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %10 = load i64, ptr %4, align 8, !tbaa !11
+  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   %12 = sub i64 %10, %11
   call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %12)
   br label %24
 
 13:                                               ; preds = %2
-  %14 = load i64, ptr %4, align 8
-  %15 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %14 = load i64, ptr %4, align 8, !tbaa !11
+  %15 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   %16 = icmp ult i64 %14, %15
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %5, i32 0, i32 0
-  %19 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i64, ptr %4, align 8
-  %22 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %20, i64 %21
-  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE15_M_erase_at_endEPS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %22) #8
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %5, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !79
+  %21 = load i64, ptr %4, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %20, i64 %21
+  call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE15_M_erase_at_endEPS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %22) #12
   br label %23
 
 23:                                               ; preds = %17, %13
@@ -9095,36 +9659,55 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !246
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !30
+  %9 = load ptr, ptr %4, align 8, !tbaa !246
+  %10 = load i32, ptr %5, align 4, !tbaa !30
   call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local { ptr, i64 } @_ZN3ozz2io9MakeArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEKNS0_8internal5ArrayIT_EEPSA_m(ptr noundef %0, i64 noundef %1) #4 comdat {
+  %3 = alloca %"struct.ozz::io::internal::Array.37", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !236
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.37", ptr %3, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !236
+  store ptr %7, ptr %6, align 8, !tbaa !248
+  %8 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.37", ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %5, align 8, !tbaa !11
+  store i64 %9, ptr %8, align 8, !tbaa !250
+  %10 = load { ptr, i64 }, ptr %3, align 8
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !79
+  %7 = call noundef ptr @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE11_M_data_ptrIS6_EEPT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #12
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -9136,36 +9719,38 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !74
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %14 = load ptr, ptr %3, align 8
-  %15 = load i64, ptr %4, align 8
+  %15 = load i64, ptr %4, align 8, !tbaa !11
   %16 = icmp ne i64 %15, 0
   br i1 %16, label %17, label %133
 
 17:                                               ; preds = %2
-  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
-  store i64 %18, ptr %5, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
-  %20 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %19, i32 0, i32 2
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
-  %23 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %22, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
+  store i64 %18, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8, !tbaa !251
+  %22 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !76
   %25 = ptrtoint ptr %21 to i64
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
   %28 = sdiv exact i64 %27, 24
-  store i64 %28, ptr %6, align 8
-  %29 = load i64, ptr %5, align 8
-  %30 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  store i64 %28, ptr %6, align 8, !tbaa !11
+  %29 = load i64, ptr %5, align 8, !tbaa !11
+  %30 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %31 = icmp ugt i64 %29, %30
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %17
-  %33 = load i64, ptr %6, align 8
-  %34 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
-  %35 = load i64, ptr %5, align 8
+  %33 = load i64, ptr %6, align 8, !tbaa !11
+  %34 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
+  %35 = load i64, ptr %5, align 8, !tbaa !11
   %36 = sub i64 %34, %35
   %37 = icmp ugt i64 %33, %36
   br i1 %37, label %38, label %39
@@ -9174,56 +9759,61 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   unreachable
 
 39:                                               ; preds = %32
-  %40 = load i64, ptr %6, align 8
-  %41 = load i64, ptr %4, align 8
+  %40 = load i64, ptr %6, align 8, !tbaa !11
+  %41 = load i64, ptr %4, align 8, !tbaa !11
   %42 = icmp uge i64 %40, %41
   br i1 %42, label %43, label %52
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
-  %45 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i64, ptr %4, align 8
-  %48 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %44 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !76
+  %47 = load i64, ptr %4, align 8, !tbaa !11
+  %48 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %49 = call noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_(ptr noundef %46, i64 noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %48)
-  %50 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
-  %51 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %50, i32 0, i32 1
-  store ptr %49, ptr %51, align 8
+  %50 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %50, i32 0, i32 1
+  store ptr %49, ptr %51, align 8, !tbaa !76
   br label %132
 
 52:                                               ; preds = %39
-  %53 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
-  %54 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %7, align 8
-  %56 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
-  %57 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %56, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  store ptr %58, ptr %8, align 8
-  %59 = load i64, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %53 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
+  %54 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8, !tbaa !79
+  store ptr %55, ptr %7, align 8, !tbaa !236
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %56 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8, !tbaa !76
+  store ptr %58, ptr %8, align 8, !tbaa !236
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %59 = load i64, ptr %4, align 8, !tbaa !11
   %60 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %59, ptr noundef @.str)
-  store i64 %60, ptr %9, align 8
-  %61 = load i64, ptr %9, align 8
+  store i64 %60, ptr %9, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %61 = load i64, ptr %9, align 8, !tbaa !11
   %62 = call noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %61)
-  store ptr %62, ptr %10, align 8
-  store ptr null, ptr %11, align 8
-  %63 = load ptr, ptr %10, align 8
-  %64 = load i64, ptr %5, align 8
-  %65 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %63, i64 %64
-  %66 = load i64, ptr %4, align 8
-  %67 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  store ptr %62, ptr %10, align 8, !tbaa !236
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  store ptr null, ptr %11, align 8, !tbaa !236
+  %63 = load ptr, ptr %10, align 8, !tbaa !236
+  %64 = load i64, ptr %5, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %63, i64 %64
+  %66 = load i64, ptr %4, align 8, !tbaa !11
+  %67 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %68 = invoke noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_(ptr noundef %65, i64 noundef %66, ptr noundef nonnull align 1 dereferenceable(1) %67)
           to label %69 unwind label %79
 
 69:                                               ; preds = %52
-  %70 = load ptr, ptr %10, align 8
-  %71 = load i64, ptr %5, align 8
-  %72 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %70, i64 %71
-  store ptr %72, ptr %11, align 8
-  %73 = load ptr, ptr %7, align 8
-  %74 = load ptr, ptr %8, align 8
-  %75 = load ptr, ptr %10, align 8
-  %76 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %70 = load ptr, ptr %10, align 8, !tbaa !236
+  %71 = load i64, ptr %5, align 8, !tbaa !11
+  %72 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %70, i64 %71
+  store ptr %72, ptr %11, align 8, !tbaa !236
+  %73 = load ptr, ptr %7, align 8, !tbaa !236
+  %74 = load ptr, ptr %8, align 8, !tbaa !236
+  %75 = load ptr, ptr %10, align 8, !tbaa !236
+  %76 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   %77 = invoke noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEES7_NS0_12StdAllocatorIS6_EEET0_T_SB_SA_RT1_(ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef nonnull align 1 dereferenceable(1) %76)
           to label %78 unwind label %79
 
@@ -9241,17 +9831,17 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
 
 83:                                               ; preds = %79
   %84 = load ptr, ptr %12, align 8
-  %85 = call ptr @__cxa_begin_catch(ptr %84) #8
-  %86 = load ptr, ptr %11, align 8
+  %85 = call ptr @__cxa_begin_catch(ptr %84) #12
+  %86 = load ptr, ptr %11, align 8, !tbaa !236
   %87 = icmp ne ptr %86, null
   br i1 %87, label %88, label %99
 
 88:                                               ; preds = %83
-  %89 = load ptr, ptr %11, align 8
-  %90 = load ptr, ptr %11, align 8
-  %91 = load i64, ptr %4, align 8
-  %92 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %90, i64 %91
-  %93 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %89 = load ptr, ptr %11, align 8, !tbaa !236
+  %90 = load ptr, ptr %11, align 8, !tbaa !236
+  %91 = load i64, ptr %4, align 8, !tbaa !11
+  %92 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %90, i64 %91
+  %93 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %89, ptr noundef %92, ptr noundef nonnull align 1 dereferenceable(1) %93)
           to label %94 unwind label %95
 
@@ -9269,54 +9859,68 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
           to label %103 unwind label %139
 
 99:                                               ; preds = %94, %83
-  %100 = load ptr, ptr %10, align 8
-  %101 = load i64, ptr %9, align 8
+  %100 = load ptr, ptr %10, align 8, !tbaa !236
+  %101 = load i64, ptr %9, align 8, !tbaa !11
   invoke void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE13_M_deallocateEPS6_m(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %100, i64 noundef %101)
           to label %102 unwind label %95
 
 102:                                              ; preds = %99
-  invoke void @__cxa_rethrow() #9
+  invoke void @__cxa_rethrow() #13
           to label %142 unwind label %95
 
 103:                                              ; preds = %95
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   br label %134
 
 104:                                              ; preds = %78
-  %105 = load ptr, ptr %7, align 8
-  %106 = load ptr, ptr %8, align 8
-  %107 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  %105 = load ptr, ptr %7, align 8, !tbaa !236
+  %106 = load ptr, ptr %8, align 8, !tbaa !236
+  %107 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
   call void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %105, ptr noundef %106, ptr noundef nonnull align 1 dereferenceable(1) %107)
-  %108 = load ptr, ptr %7, align 8
-  %109 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
-  %110 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %109, i32 0, i32 2
-  %111 = load ptr, ptr %110, align 8
-  %112 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  %108 = load ptr, ptr %7, align 8, !tbaa !236
+  %109 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
+  %110 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %109, i32 0, i32 2
+  %111 = load ptr, ptr %110, align 8, !tbaa !251
+  %112 = load ptr, ptr %7, align 8, !tbaa !236
   %113 = ptrtoint ptr %111 to i64
   %114 = ptrtoint ptr %112 to i64
   %115 = sub i64 %113, %114
   %116 = sdiv exact i64 %115, 24
   call void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE13_M_deallocateEPS6_m(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %108, i64 noundef %116)
-  %117 = load ptr, ptr %10, align 8
-  %118 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
-  %119 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %118, i32 0, i32 0
-  store ptr %117, ptr %119, align 8
-  %120 = load ptr, ptr %10, align 8
-  %121 = load i64, ptr %5, align 8
-  %122 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %120, i64 %121
-  %123 = load i64, ptr %4, align 8
-  %124 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %122, i64 %123
-  %125 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
-  %126 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %125, i32 0, i32 1
-  store ptr %124, ptr %126, align 8
-  %127 = load ptr, ptr %10, align 8
-  %128 = load i64, ptr %9, align 8
-  %129 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %127, i64 %128
-  %130 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
-  %131 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %130, i32 0, i32 2
-  store ptr %129, ptr %131, align 8
+  %117 = load ptr, ptr %10, align 8, !tbaa !236
+  %118 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
+  %119 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %118, i32 0, i32 0
+  store ptr %117, ptr %119, align 8, !tbaa !79
+  %120 = load ptr, ptr %10, align 8, !tbaa !236
+  %121 = load i64, ptr %5, align 8, !tbaa !11
+  %122 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %120, i64 %121
+  %123 = load i64, ptr %4, align 8, !tbaa !11
+  %124 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %122, i64 %123
+  %125 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
+  %126 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %125, i32 0, i32 1
+  store ptr %124, ptr %126, align 8, !tbaa !76
+  %127 = load ptr, ptr %10, align 8, !tbaa !236
+  %128 = load i64, ptr %9, align 8, !tbaa !11
+  %129 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %14, i32 0, i32 0
+  %131 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %130, i32 0, i32 2
+  store ptr %129, ptr %131, align 8, !tbaa !251
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   br label %132
 
 132:                                              ; preds = %104, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   br label %133
 
 133:                                              ; preds = %132, %2
@@ -9333,7 +9937,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   %140 = landingpad { ptr, i32 }
           catch ptr null
   %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #10
+  call void @__clang_call_terminate(ptr %141) #14
   unreachable
 
 142:                                              ; preds = %102
@@ -9345,82 +9949,85 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !74
+  store ptr %1, ptr %4, align 8, !tbaa !236
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
+  %10 = load ptr, ptr %4, align 8, !tbaa !236
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 24
-  store i64 %14, ptr %5, align 8
-  %15 = load i64, ptr %5, align 8
+  store i64 %14, ptr %5, align 8, !tbaa !11
+  %15 = load i64, ptr %5, align 8, !tbaa !11
   %16 = icmp ne i64 %15, 0
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %6, i32 0, i32 0
-  %20 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
+  %18 = load ptr, ptr %4, align 8, !tbaa !236
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !76
+  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %18, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %23 unwind label %28
 
 23:                                               ; preds = %17
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %6, i32 0, i32 0
-  %26 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %25, i32 0, i32 1
-  store ptr %24, ptr %26, align 8
+  %24 = load ptr, ptr %4, align 8, !tbaa !236
+  %25 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %6, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>, ozz::StdAllocator<ozz::animation::offline::RawTrackKeyframe<ozz::math::Quaternion>>>::_Vector_impl_data", ptr %25, i32 0, i32 1
+  store ptr %24, ptr %26, align 8, !tbaa !76
   br label %27
 
 27:                                               ; preds = %23, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   ret void
 
 28:                                               ; preds = %17
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #10
+  call void @__clang_call_terminate(ptr %30) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #8
-  %5 = call noundef i64 @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE11_S_max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  %5 = call noundef i64 @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE11_S_max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
   ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %10 = load ptr, ptr %4, align 8
-  store ptr %10, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !236
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !252
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %10 = load ptr, ptr %4, align 8, !tbaa !236
+  store ptr %10, ptr %7, align 8, !tbaa !236
   br label %11
 
 11:                                               ; preds = %18, %3
-  %12 = load i64, ptr %5, align 8
+  %12 = load i64, ptr %5, align 8, !tbaa !11
   %13 = icmp ugt i64 %12, 0
   br i1 %13, label %14, label %34
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %7, align 8
+  %15 = load ptr, ptr %6, align 8, !tbaa !252
+  %16 = load ptr, ptr %7, align 8, !tbaa !236
   invoke void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE9constructIS7_JEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %16)
           to label %17 unwind label %23
 
@@ -9428,13 +10035,13 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8
+  %19 = load i64, ptr %5, align 8, !tbaa !11
   %20 = add i64 %19, -1
-  store i64 %20, ptr %5, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %21, i32 1
-  store ptr %22, ptr %7, align 8
-  br label %11, !llvm.loop !51
+  store i64 %20, ptr %5, align 8, !tbaa !11
+  %21 = load ptr, ptr %7, align 8, !tbaa !236
+  %22 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %21, i32 1
+  store ptr %22, ptr %7, align 8, !tbaa !236
+  br label %11, !llvm.loop !254
 
 23:                                               ; preds = %14
   %24 = landingpad { ptr, i32 }
@@ -9447,19 +10054,20 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %8, align 8
-  %29 = call ptr @__cxa_begin_catch(ptr %28) #8
-  %30 = load ptr, ptr %4, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = load ptr, ptr %6, align 8
+  %29 = call ptr @__cxa_begin_catch(ptr %28) #12
+  %30 = load ptr, ptr %4, align 8, !tbaa !236
+  %31 = load ptr, ptr %7, align 8, !tbaa !236
+  %32 = load ptr, ptr %6, align 8, !tbaa !252
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %30, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %32)
           to label %33 unwind label %36
 
 33:                                               ; preds = %27
-  invoke void @__cxa_rethrow() #9
+  invoke void @__cxa_rethrow() #13
           to label %50 unwind label %36
 
 34:                                               ; preds = %11
-  %35 = load ptr, ptr %7, align 8
+  %35 = load ptr, ptr %7, align 8, !tbaa !236
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   ret ptr %35
 
 36:                                               ; preds = %33, %27
@@ -9473,10 +10081,10 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
           to label %40 unwind label %47
 
 40:                                               ; preds = %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   br label %42
 
 41:                                               ; No predecessors!
-  call void @llvm.trap()
   unreachable
 
 42:                                               ; preds = %40
@@ -9490,7 +10098,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #10
+  call void @__clang_call_terminate(ptr %49) #14
   unreachable
 
 50:                                               ; preds = %33
@@ -9500,81 +10108,85 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPN3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !255
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !74
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !96
   %9 = load ptr, ptr %4, align 8
-  %10 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %10 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   %12 = sub i64 %10, %11
-  %13 = load i64, ptr %5, align 8
+  %13 = load i64, ptr %5, align 8, !tbaa !11
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %6, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #9
+  %16 = load ptr, ptr %6, align 8, !tbaa !96
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #13
   unreachable
 
 17:                                               ; preds = %3
-  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  %19 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  store i64 %19, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %19 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  store i64 %19, ptr %8, align 8, !tbaa !11
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !11
   %22 = add i64 %18, %21
-  store i64 %22, ptr %7, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  store i64 %22, ptr %7, align 8, !tbaa !11
+  %23 = load i64, ptr %7, align 8, !tbaa !11
+  %24 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %17
-  %27 = load i64, ptr %7, align 8
-  %28 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %27 = load i64, ptr %7, align 8, !tbaa !11
+  %28 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   %29 = icmp ugt i64 %27, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26, %17
-  %31 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %31 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   br label %34
 
 32:                                               ; preds = %26
-  %33 = load i64, ptr %7, align 8
+  %33 = load i64, ptr %7, align 8, !tbaa !11
   br label %34
 
 34:                                               ; preds = %32, %30
   %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
   ret i64 %35
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !255
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !11
   %7 = icmp ne i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %5, i32 0, i32 0
-  %10 = load i64, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !11
   %11 = call noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
   br label %13
 
@@ -9586,85 +10198,85 @@ define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7o
   ret ptr %14
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEES7_NS0_12StdAllocatorIS6_EEET0_T_SB_SA_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEES7_NS0_12StdAllocatorIS6_EEET0_T_SB_SA_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #3 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.std::move_iterator.38", align 8
   %10 = alloca %"class.std::move_iterator.38", align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %11 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !236
+  store ptr %1, ptr %6, align 8, !tbaa !236
+  store ptr %2, ptr %7, align 8, !tbaa !236
+  store ptr %3, ptr %8, align 8, !tbaa !252
+  %11 = load ptr, ptr %5, align 8, !tbaa !236
   %12 = call ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEESt13move_iteratorIPS6_EET0_PT_(ptr noundef %11)
-  %13 = getelementptr inbounds %"class.std::move_iterator.38", ptr %9, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.std::move_iterator.38", ptr %9, i32 0, i32 0
   store ptr %12, ptr %13, align 8
-  %14 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %6, align 8, !tbaa !236
   %15 = call ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEESt13move_iteratorIPS6_EET0_PT_(ptr noundef %14)
-  %16 = getelementptr inbounds %"class.std::move_iterator.38", ptr %10, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"class.std::move_iterator.38", ptr %10, i32 0, i32 0
   store ptr %15, ptr %16, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %"class.std::move_iterator.38", ptr %9, i32 0, i32 0
+  %17 = load ptr, ptr %7, align 8, !tbaa !236
+  %18 = load ptr, ptr %8, align 8, !tbaa !252
+  %19 = getelementptr inbounds nuw %"class.std::move_iterator.38", ptr %9, i32 0, i32 0
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %"class.std::move_iterator.38", ptr %10, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"class.std::move_iterator.38", ptr %10, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS1_4math10QuaternionEEEES8_NS1_12StdAllocatorIS7_EEET0_T_SD_SC_RT1_(ptr %20, ptr %22, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18)
   ret ptr %23
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat {
+define linkonce_odr dso_local void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !236
+  store ptr %1, ptr %5, align 8, !tbaa !236
+  store ptr %2, ptr %6, align 8, !tbaa !252
   br label %7
 
 7:                                                ; preds = %14, %3
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !236
+  %9 = load ptr, ptr %5, align 8, !tbaa !236
   %10 = icmp ne ptr %8, %9
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %6, align 8, !tbaa !252
+  %13 = load ptr, ptr %4, align 8, !tbaa !236
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE7destroyIS7_EEvRS8_PT_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef %13)
   br label %14
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %15, i32 1
-  store ptr %16, ptr %4, align 8
-  br label %7, !llvm.loop !52
+  %15 = load ptr, ptr %4, align 8, !tbaa !236
+  %16 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %15, i32 1
+  store ptr %16, ptr %4, align 8, !tbaa !236
+  br label %7, !llvm.loop !257
 
 17:                                               ; preds = %7
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE13_M_deallocateEPS6_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE13_M_deallocateEPS6_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !255
+  store ptr %1, ptr %5, align 8, !tbaa !236
+  store i64 %2, ptr %6, align 8, !tbaa !11
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !236
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !236
+  %13 = load i64, ptr %6, align 8, !tbaa !11
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE10deallocateERS8_PS7_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
@@ -9677,30 +10289,34 @@ define linkonce_odr dso_local noundef i64 @_ZNSt6vectorIN3ozz9animation7offline1
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 384307168202282325, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE8max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
-  store i64 %6, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !252
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  store i64 384307168202282325, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #12
+  %5 = load ptr, ptr %2, align 8, !tbaa !252
+  %6 = call noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE8max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  store i64 %6, ptr %4, align 8, !tbaa !11
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
   ret i64 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !255
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.22", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.22", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE8max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !252
+  %3 = load ptr, ptr %2, align 8, !tbaa !252
   %4 = invoke noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE11_S_max_sizeIKS8_EEDTcldtfp_8max_sizeEERT_i(ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef 0)
           to label %5 unwind label %6
 
@@ -9711,7 +10327,7 @@ define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAll
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #10
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 }
 
@@ -9719,64 +10335,70 @@ define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAll
 define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE11_S_max_sizeIKS8_EEDTcldtfp_8max_sizeEERT_i(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
+  store ptr %0, ptr %3, align 8, !tbaa !252
+  store i32 %1, ptr %4, align 4, !tbaa !30
+  %5 = load ptr, ptr %3, align 8, !tbaa !252
+  %6 = call noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
   ret i64 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !252
   ret i64 768614336404564650
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE9constructIS7_JEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE9constructIS7_JEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !252
+  store ptr %1, ptr %4, align 8, !tbaa !236
+  %5 = load ptr, ptr %3, align 8, !tbaa !252
+  %6 = load ptr, ptr %4, align 8, !tbaa !236
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE12_S_constructIS7_JEEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE12_S_constructIS7_JEEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE12_S_constructIS7_JEEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !252
+  store ptr %1, ptr %4, align 8, !tbaa !236
+  %5 = load ptr, ptr %3, align 8, !tbaa !252
+  %6 = load ptr, ptr %4, align 8, !tbaa !236
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE9constructIS6_JEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE9constructIS6_JEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE9constructIS6_JEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !252
+  store ptr %1, ptr %4, align 8, !tbaa !236
+  %5 = load ptr, ptr %4, align 8, !tbaa !236
   call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 24, i1 false)
   call void @_ZN3ozz9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEC2Ev(ptr noundef nonnull align 4 dereferenceable(24) %5)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEC2Ev(ptr noundef nonnull align 4 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEC2Ev(ptr noundef nonnull align 4 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %4, i32 0, i32 2
-  store ptr %5, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !236
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %3, i32 0, i32 2
+  call void @_ZN3ozz4math10QuaternionC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %4)
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3ozz4math10QuaternionC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !243
   ret void
 }
 
@@ -9784,11 +10406,11 @@ define linkonce_odr dso_local void @_ZN3ozz9animation7offline16RawTrackKeyframeI
 define linkonce_odr dso_local noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = call noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6) #8
+  store ptr %0, ptr %3, align 8, !tbaa !252
+  store i64 %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !252
+  %6 = load i64, ptr %4, align 8, !tbaa !11
+  %7 = call noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6) #12
   ret ptr %7
 }
 
@@ -9796,15 +10418,15 @@ define linkonce_odr dso_local noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAll
 define linkonce_odr dso_local noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !252
+  store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
           to label %6 unwind label %14
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr %4, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !11
   %8 = mul i64 24, %7
-  %9 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !88
   %10 = getelementptr inbounds ptr, ptr %9, i64 2
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %8, i64 noundef 4)
@@ -9817,12 +10439,12 @@ define linkonce_odr dso_local noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7o
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #10
+  call void @__clang_call_terminate(ptr %16) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS1_4math10QuaternionEEEES8_NS1_12StdAllocatorIS7_EEET0_T_SD_SC_RT1_(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #1 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS1_4math10QuaternionEEEES8_NS1_12StdAllocatorIS7_EEET0_T_SD_SC_RT1_(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #2 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::move_iterator.38", align 8
   %6 = alloca %"class.std::move_iterator.38", align 8
   %7 = alloca ptr, align 8
@@ -9830,14 +10452,15 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds %"class.std::move_iterator.38", ptr %5, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.std::move_iterator.38", ptr %5, i32 0, i32 0
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.std::move_iterator.38", ptr %6, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.std::move_iterator.38", ptr %6, i32 0, i32 0
   store ptr %1, ptr %13, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %14 = load ptr, ptr %7, align 8
-  store ptr %14, ptr %9, align 8
+  store ptr %2, ptr %7, align 8, !tbaa !236
+  store ptr %3, ptr %8, align 8, !tbaa !252
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %14 = load ptr, ptr %7, align 8, !tbaa !236
+  store ptr %14, ptr %9, align 8, !tbaa !236
   br label %15
 
 15:                                               ; preds = %26, %4
@@ -9848,8 +10471,8 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
   br i1 %16, label %18, label %40
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr %8, align 8
-  %20 = load ptr, ptr %9, align 8
+  %19 = load ptr, ptr %8, align 8, !tbaa !252
+  %20 = load ptr, ptr %9, align 8, !tbaa !236
   %21 = invoke noundef nonnull align 4 dereferenceable(24) ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %22 unwind label %29
 
@@ -9865,10 +10488,10 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
           to label %26 unwind label %29
 
 26:                                               ; preds = %24
-  %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %27, i32 1
-  store ptr %28, ptr %9, align 8
-  br label %15, !llvm.loop !53
+  %27 = load ptr, ptr %9, align 8, !tbaa !236
+  %28 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %27, i32 1
+  store ptr %28, ptr %9, align 8, !tbaa !236
+  br label %15, !llvm.loop !258
 
 29:                                               ; preds = %24, %22, %18, %15
   %30 = landingpad { ptr, i32 }
@@ -9881,19 +10504,20 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %10, align 8
-  %35 = call ptr @__cxa_begin_catch(ptr %34) #8
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = load ptr, ptr %8, align 8
+  %35 = call ptr @__cxa_begin_catch(ptr %34) #12
+  %36 = load ptr, ptr %7, align 8, !tbaa !236
+  %37 = load ptr, ptr %9, align 8, !tbaa !236
+  %38 = load ptr, ptr %8, align 8, !tbaa !252
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEEvT_SA_RT0_(ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38)
           to label %39 unwind label %42
 
 39:                                               ; preds = %33
-  invoke void @__cxa_rethrow() #9
+  invoke void @__cxa_rethrow() #13
           to label %56 unwind label %42
 
 40:                                               ; preds = %17
-  %41 = load ptr, ptr %9, align 8
+  %41 = load ptr, ptr %9, align 8, !tbaa !236
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
   ret ptr %41
 
 42:                                               ; preds = %39, %33
@@ -9907,10 +10531,10 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
           to label %46 unwind label %53
 
 46:                                               ; preds = %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
   br label %48
 
 47:                                               ; No predecessors!
-  call void @llvm.trap()
   unreachable
 
 48:                                               ; preds = %46
@@ -9924,49 +10548,49 @@ define linkonce_odr dso_local noundef ptr @_ZSt22__uninitialized_copy_aISt13move
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #10
+  call void @__clang_call_terminate(ptr %55) #14
   unreachable
 
 56:                                               ; preds = %39
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEESt13move_iteratorIPS6_EET0_PT_(ptr noundef %0) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEESt13move_iteratorIPS6_EET0_PT_(ptr noundef %0) #3 comdat {
   %2 = alloca %"class.std::move_iterator.38", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !236
+  %4 = load ptr, ptr %3, align 8, !tbaa !236
   call void @_ZNSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEC2ES7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
-  %5 = getelementptr inbounds %"class.std::move_iterator.38", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.std::move_iterator.38", ptr %2, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZStneIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZStneIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !259
+  store ptr %1, ptr %4, align 8, !tbaa !259
+  %5 = load ptr, ptr %3, align 8, !tbaa !259
+  %6 = load ptr, ptr %4, align 8, !tbaa !259
   %7 = call noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %8 = xor i1 %7, true
   ret i1 %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE9constructIS7_JS7_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(24) %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE9constructIS7_JS7_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS8_PT_DpOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(24) %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !252
+  store ptr %1, ptr %5, align 8, !tbaa !236
+  store ptr %2, ptr %6, align 8, !tbaa !236
+  %7 = load ptr, ptr %4, align 8, !tbaa !252
+  %8 = load ptr, ptr %5, align 8, !tbaa !236
+  %9 = load ptr, ptr %6, align 8, !tbaa !236
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE12_S_constructIS7_JS7_EEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(24) %9)
   ret void
 }
@@ -9974,34 +10598,34 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(24) ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !259
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator.38", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator.38", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !261
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !259
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator.38", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %5, i32 1
-  store ptr %6, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator.38", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !261
+  %6 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !261
   ret ptr %3
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEbRKSt13move_iteratorIT_ESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !259
+  store ptr %1, ptr %4, align 8, !tbaa !259
+  %5 = load ptr, ptr %3, align 8, !tbaa !259
   %6 = call noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !259
   %8 = call noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %9 = icmp eq ptr %6, %8
   ret i1 %9
@@ -10010,24 +10634,24 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIPN3ozz9animation7offlin
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !259
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator.38", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator.38", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !261
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE12_S_constructIS7_JS7_EEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(24) %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE12_S_constructIS7_JS7_EEENSt9enable_ifIXsr6__and_INS9_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS8_PSD_DpOSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(24) %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !252
+  store ptr %1, ptr %5, align 8, !tbaa !236
+  store ptr %2, ptr %6, align 8, !tbaa !236
+  %7 = load ptr, ptr %4, align 8, !tbaa !252
+  %8 = load ptr, ptr %5, align 8, !tbaa !236
+  %9 = load ptr, ptr %6, align 8, !tbaa !236
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE9constructIS6_JS6_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(24) %9)
   ret void
 }
@@ -10037,12 +10661,12 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 24, i1 false)
+  store ptr %0, ptr %4, align 8, !tbaa !252
+  store ptr %1, ptr %5, align 8, !tbaa !236
+  store ptr %2, ptr %6, align 8, !tbaa !236
+  %7 = load ptr, ptr %5, align 8, !tbaa !236
+  %8 = load ptr, ptr %6, align 8, !tbaa !236
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 24, i1 false), !tbaa.struct !230
   ret void
 }
 
@@ -10050,37 +10674,37 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
 define linkonce_odr dso_local void @_ZNSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEC2ES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !259
+  store ptr %1, ptr %4, align 8, !tbaa !236
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::move_iterator.38", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.std::move_iterator.38", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !236
+  store ptr %7, ptr %6, align 8, !tbaa !261
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE7destroyIS7_EEvRS8_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE7destroyIS7_EEvRS8_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !252
+  store ptr %1, ptr %4, align 8, !tbaa !236
+  %5 = load ptr, ptr %3, align 8, !tbaa !252
+  %6 = load ptr, ptr %4, align 8, !tbaa !236
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE10_S_destroyIS8_S7_EEDTcldtfp_7destroyfp0_EERT_PT0_i(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE10_S_destroyIS8_S7_EEDTcldtfp_7destroyfp0_EERT_PT0_i(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i32 noundef %2) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEEEE10_S_destroyIS8_S7_EEDTcldtfp_7destroyfp0_EERT_PT0_i(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i32 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !252
+  store ptr %1, ptr %5, align 8, !tbaa !236
+  store i32 %2, ptr %6, align 4, !tbaa !30
+  %7 = load ptr, ptr %4, align 8, !tbaa !252
+  %8 = load ptr, ptr %5, align 8, !tbaa !236
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE7destroyIS6_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8)
   ret void
 }
@@ -10089,8 +10713,8 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorI
 define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE7destroyIS6_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !252
+  store ptr %1, ptr %4, align 8, !tbaa !236
   ret void
 }
 
@@ -10099,13 +10723,13 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorI
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
-  call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE10deallocateEPS6_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #8
+  store ptr %0, ptr %4, align 8, !tbaa !252
+  store ptr %1, ptr %5, align 8, !tbaa !236
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  %7 = load ptr, ptr %4, align 8, !tbaa !252
+  %8 = load ptr, ptr %5, align 8, !tbaa !236
+  %9 = load i64, ptr %6, align 8, !tbaa !11
+  call void @_ZN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE10deallocateEPS6_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #12
   ret void
 }
 
@@ -10114,15 +10738,15 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !252
+  store ptr %1, ptr %5, align 8, !tbaa !236
+  store i64 %2, ptr %6, align 8, !tbaa !11
   %7 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
           to label %8 unwind label %14
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !236
+  %10 = load ptr, ptr %7, align 8, !tbaa !88
   %11 = getelementptr inbounds ptr, ptr %10, i64 3
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9)
@@ -10135,82 +10759,96 @@ define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline1
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #10
+  call void @__clang_call_terminate(ptr %16) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   %4 = load ptr, ptr %2, align 8
-  store i32 0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4, !tbaa !30
   call void @_ZN3ozz2io8IArchiversERj(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret i32 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #3 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca i64, align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
-  store i64 0, ptr %12, align 8
-  br label %13
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !246
+  store i64 %2, ptr %7, align 8, !tbaa !11
+  store i32 %3, ptr %8, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  store i64 0, ptr %9, align 8, !tbaa !11
+  br label %10
 
-13:                                               ; preds = %29, %4
-  %14 = load i64, ptr %12, align 8
-  %15 = load i64, ptr %10, align 8
-  %16 = icmp ult i64 %14, %15
-  br i1 %16, label %17, label %32
+10:                                               ; preds = %21, %4
+  %11 = load i64, ptr %9, align 8, !tbaa !11
+  %12 = load i64, ptr %7, align 8, !tbaa !11
+  %13 = icmp ult i64 %11, %12
+  br i1 %13, label %15, label %14
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %9, align 8
-  %19 = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds %"struct.ozz::io::internal::Array.37", ptr %18, i64 %19
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i32, ptr %11, align 4
-  store ptr %20, ptr %5, align 8
-  store ptr %21, ptr %6, align 8
-  store i32 %22, ptr %7, align 4
-  %23 = load ptr, ptr %5, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds %"struct.ozz::io::internal::Array.37", ptr %23, i32 0, i32 1
-  %27 = load i64, ptr %26, align 8
-  %28 = load i32, ptr %7, align 4
-  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4LoadERNS0_8IArchiveEPS7_mj(ptr noundef nonnull align 8 dereferenceable(9) %24, ptr noundef %25, i64 noundef %27, i32 noundef %28)
-  br label %29
+14:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %24
 
-29:                                               ; preds = %17
-  %30 = load i64, ptr %12, align 8
-  %31 = add i64 %30, 1
-  store i64 %31, ptr %12, align 8
-  br label %13, !llvm.loop !54
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %6, align 8, !tbaa !246
+  %17 = load i64, ptr %9, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.37", ptr %16, i64 %17
+  %19 = load ptr, ptr %5, align 8, !tbaa !28
+  %20 = load i32, ptr %8, align 4, !tbaa !30
+  call void @_ZNK3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4LoadERNS0_8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(9) %19, i32 noundef %20)
+  br label %21
 
-32:                                               ; preds = %13
+21:                                               ; preds = %15
+  %22 = load i64, ptr %9, align 8, !tbaa !11
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %9, align 8, !tbaa !11
+  br label %10, !llvm.loop !263
+
+24:                                               ; preds = %14
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4LoadERNS0_8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !246
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  store i32 %2, ptr %6, align 4, !tbaa !30
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.37", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !248
+  %11 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.37", ptr %7, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !250
+  %13 = load i32, ptr %6, align 4, !tbaa !30
+  call void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4LoadERNS0_8IArchiveEPS7_mj(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef %10, i64 noundef %12, i32 noundef %13)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4LoadERNS0_8IArchiveEPS7_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4LoadERNS0_8IArchiveEPS7_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #2 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -10218,72 +10856,83 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline16Raw
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i8, align 1
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  store i64 0, ptr %9, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %6, align 8, !tbaa !236
+  store i64 %2, ptr %7, align 8, !tbaa !11
+  store i32 %3, ptr %8, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  store i64 0, ptr %9, align 8, !tbaa !11
   br label %12
 
-12:                                               ; preds = %31, %4
-  %13 = load i64, ptr %9, align 8
-  %14 = load i64, ptr %7, align 8
+12:                                               ; preds = %32, %4
+  %13 = load i64, ptr %9, align 8, !tbaa !11
+  %14 = load i64, ptr %7, align 8, !tbaa !11
   %15 = icmp ult i64 %13, %14
-  br i1 %15, label %16, label %34
+  br i1 %15, label %17, label %16
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i64, ptr %9, align 8
-  %19 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %17, i64 %18
-  store ptr %19, ptr %10, align 8
-  %20 = load ptr, ptr %5, align 8
-  call void @_ZN3ozz2io8IArchiversERh(ptr noundef nonnull align 8 dereferenceable(9) %20, ptr noundef nonnull align 1 dereferenceable(1) %11)
-  %21 = load i8, ptr %11, align 1
-  %22 = zext i8 %21 to i32
-  %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %23, i32 0, i32 0
-  store i32 %22, ptr %24, align 4
-  %25 = load ptr, ptr %5, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %26, i32 0, i32 1
-  call void @_ZN3ozz2io8IArchiversERf(ptr noundef nonnull align 8 dereferenceable(9) %25, ptr noundef nonnull align 4 dereferenceable(4) %27)
-  %28 = load ptr, ptr %5, align 8
-  %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %29, i32 0, i32 2
-  call void @_ZN3ozz2io8IArchiversINS_4math10QuaternionEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef nonnull align 4 dereferenceable(16) %30)
-  br label %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %35
 
-31:                                               ; preds = %16
-  %32 = load i64, ptr %9, align 8
-  %33 = add i64 %32, 1
-  store i64 %33, ptr %9, align 8
-  br label %12, !llvm.loop !55
+17:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %18 = load ptr, ptr %6, align 8, !tbaa !236
+  %19 = load i64, ptr %9, align 8, !tbaa !11
+  %20 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %18, i64 %19
+  store ptr %20, ptr %10, align 8, !tbaa !236
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #12
+  %21 = load ptr, ptr %5, align 8, !tbaa !28
+  call void @_ZN3ozz2io8IArchiversERh(ptr noundef nonnull align 8 dereferenceable(9) %21, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %22 = load i8, ptr %11, align 1, !tbaa !98
+  %23 = zext i8 %22 to i32
+  %24 = load ptr, ptr %10, align 8, !tbaa !236
+  %25 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %24, i32 0, i32 0
+  store i32 %23, ptr %25, align 4, !tbaa !241
+  %26 = load ptr, ptr %5, align 8, !tbaa !28
+  %27 = load ptr, ptr %10, align 8, !tbaa !236
+  %28 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %27, i32 0, i32 1
+  call void @_ZN3ozz2io8IArchiversERf(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull align 4 dereferenceable(4) %28)
+  %29 = load ptr, ptr %5, align 8, !tbaa !28
+  %30 = load ptr, ptr %10, align 8, !tbaa !236
+  %31 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %30, i32 0, i32 2
+  call void @_ZN3ozz2io8IArchiversINS_4math10QuaternionEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 4 dereferenceable(16) %31)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  br label %32
 
-34:                                               ; preds = %12
+32:                                               ; preds = %17
+  %33 = load i64, ptr %9, align 8, !tbaa !11
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %9, align 8, !tbaa !11
+  br label %12, !llvm.loop !264
+
+35:                                               ; preds = %16
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversINS_4math10QuaternionEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversINS_4math10QuaternionEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !243
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS_4math10QuaternionELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionINS_4math10QuaternionEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !30
+  %9 = load ptr, ptr %4, align 8, !tbaa !243
+  %10 = load i32, ptr %5, align 4, !tbaa !30
   call void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS_4math10QuaternionELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   ret i1 true
 }
 
@@ -10291,81 +10940,296 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS
 define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionINS_4math10QuaternionEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #12
+  store i32 0, ptr %3, align 4, !tbaa !30
+  %4 = load i32, ptr %3, align 4, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #12
   ret i32 %4
 }
 
-declare void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef, i32 noundef) #2
+declare void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef, i32 noundef) #6
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn }
-attributes #10 = { noreturn nounwind }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { alwaysinline mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn }
+attributes #14 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6}
-!38 = distinct !{!38, !6}
-!39 = distinct !{!39, !6}
-!40 = distinct !{!40, !6}
-!41 = distinct !{!41, !6}
-!42 = distinct !{!42, !6}
-!43 = distinct !{!43, !6}
-!44 = distinct !{!44, !6}
-!45 = distinct !{!45, !6}
-!46 = distinct !{!46, !6}
-!47 = distinct !{!47, !6}
-!48 = distinct !{!48, !6}
-!49 = distinct !{!49, !6}
-!50 = distinct !{!50, !6}
-!51 = distinct !{!51, !6}
-!52 = distinct !{!52, !6}
-!53 = distinct !{!53, !6}
-!54 = distinct !{!54, !6}
-!55 = distinct !{!55, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTSN3ozz9animation7offline8internal8RawTrackIfEE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"float", !7, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !7, i64 0}
+!13 = !{!14, !10, i64 4}
+!14 = !{!"_ZTSN3ozz9animation7offline16RawTrackKeyframeIfEE", !15, i64 0, !10, i64 4, !10, i64 8}
+!15 = !{!"_ZTSN3ozz9animation7offline21RawTrackInterpolation5ValueE", !7, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTSSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE", !6, i64 0}
+!20 = !{!21, !22, i64 8}
+!21 = !{!"_ZTSNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE17_Vector_impl_dataE", !22, i64 0, !22, i64 8, !22, i64 16}
+!22 = !{!"p1 _ZTSN3ozz9animation7offline16RawTrackKeyframeIfEE", !6, i64 0}
+!23 = !{!21, !22, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTSN3ozz2io8OArchiveE", !6, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEE", !6, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTSN3ozz2io8IArchiveE", !6, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"int", !7, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTSN3ozz9animation7offline8internal8RawTrackINS_4math6Float2EEE", !6, i64 0}
+!34 = !{!35, !10, i64 4}
+!35 = !{!"_ZTSN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float2EEE", !15, i64 0, !10, i64 4, !36, i64 8}
+!36 = !{!"_ZTSN3ozz4math6Float2E", !10, i64 0, !10, i64 4}
+!37 = distinct !{!37, !17}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTSSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE", !6, i64 0}
+!40 = !{!41, !42, i64 8}
+!41 = !{!"_ZTSNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE17_Vector_impl_dataE", !42, i64 0, !42, i64 8, !42, i64 16}
+!42 = !{!"p1 _ZTSN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float2EEE", !6, i64 0}
+!43 = !{!41, !42, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTSN3ozz9animation7offline8internal8RawTrackINS_4math6Float3EEE", !6, i64 0}
+!46 = !{!47, !10, i64 4}
+!47 = !{!"_ZTSN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float3EEE", !15, i64 0, !10, i64 4, !48, i64 8}
+!48 = !{!"_ZTSN3ozz4math6Float3E", !10, i64 0, !10, i64 4, !10, i64 8}
+!49 = distinct !{!49, !17}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTSSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE", !6, i64 0}
+!52 = !{!53, !54, i64 8}
+!53 = !{!"_ZTSNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE17_Vector_impl_dataE", !54, i64 0, !54, i64 8, !54, i64 16}
+!54 = !{!"p1 _ZTSN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float3EEE", !6, i64 0}
+!55 = !{!53, !54, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTSN3ozz9animation7offline8internal8RawTrackINS_4math6Float4EEE", !6, i64 0}
+!58 = !{!59, !10, i64 4}
+!59 = !{!"_ZTSN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float4EEE", !15, i64 0, !10, i64 4, !60, i64 8}
+!60 = !{!"_ZTSN3ozz4math6Float4E", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
+!61 = distinct !{!61, !17}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTSSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE", !6, i64 0}
+!64 = !{!65, !66, i64 8}
+!65 = !{!"_ZTSNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE17_Vector_impl_dataE", !66, i64 0, !66, i64 8, !66, i64 16}
+!66 = !{!"p1 _ZTSN3ozz9animation7offline16RawTrackKeyframeINS_4math6Float4EEE", !6, i64 0}
+!67 = !{!65, !66, i64 0}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"p1 _ZTSN3ozz9animation7offline8internal8RawTrackINS_4math10QuaternionEEE", !6, i64 0}
+!70 = !{!71, !10, i64 4}
+!71 = !{!"_ZTSN3ozz9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEE", !15, i64 0, !10, i64 4, !72, i64 8}
+!72 = !{!"_ZTSN3ozz4math10QuaternionE", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
+!73 = distinct !{!73, !17}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 _ZTSSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE", !6, i64 0}
+!76 = !{!77, !78, i64 8}
+!77 = !{!"_ZTSNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE17_Vector_impl_dataE", !78, i64 0, !78, i64 8, !78, i64 16}
+!78 = !{!"p1 _ZTSN3ozz9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEE", !6, i64 0}
+!79 = !{!77, !78, i64 0}
+!80 = distinct !{!80, !17}
+!81 = !{!82, !84, i64 8}
+!82 = !{!"_ZTSN3ozz2io8OArchiveE", !83, i64 0, !84, i64 8}
+!83 = !{!"p1 _ZTSN3ozz2io6StreamE", !6, i64 0}
+!84 = !{!"bool", !7, i64 0}
+!85 = !{i8 0, i8 2}
+!86 = !{}
+!87 = !{!82, !83, i64 0}
+!88 = !{!89, !89, i64 0}
+!89 = !{!"vtable pointer", !8, i64 0}
+!90 = !{!91, !91, i64 0}
+!91 = !{!"p1 _ZTSN3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEE", !6, i64 0}
+!92 = !{!22, !22, i64 0}
+!93 = !{!94, !22, i64 0}
+!94 = !{!"_ZTSN3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeIfEEEE", !22, i64 0, !12, i64 8}
+!95 = !{!94, !12, i64 8}
+!96 = !{!97, !97, i64 0}
+!97 = !{!"p1 omnipotent char", !6, i64 0}
+!98 = !{!7, !7, i64 0}
+!99 = distinct !{!99, !17}
+!100 = !{!14, !15, i64 0}
+!101 = !{!14, !10, i64 8}
+!102 = distinct !{!102, !17}
+!103 = distinct !{!103, !17}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 int", !6, i64 0}
+!106 = !{!107, !83, i64 0}
+!107 = !{!"_ZTSN3ozz2io8IArchiveE", !83, i64 0, !84, i64 8}
+!108 = !{!107, !84, i64 8}
+!109 = !{!110, !110, i64 0}
+!110 = !{!"p1 _ZTSN3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEEE", !6, i64 0}
+!111 = !{!112, !22, i64 0}
+!112 = !{!"_ZTSN3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeIfEEEE", !22, i64 0, !12, i64 8}
+!113 = !{!112, !12, i64 8}
+!114 = !{!21, !22, i64 16}
+!115 = !{!116, !116, i64 0}
+!116 = !{!"p1 _ZTSN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeIfEEEE", !6, i64 0}
+!117 = distinct !{!117, !17}
+!118 = !{!119, !119, i64 0}
+!119 = !{!"p1 _ZTSSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEE", !6, i64 0}
+!120 = distinct !{!120, !17}
+!121 = !{!122, !122, i64 0}
+!122 = !{!"p1 long", !6, i64 0}
+!123 = distinct !{!123, !17}
+!124 = !{!125, !125, i64 0}
+!125 = !{!"p1 _ZTSSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeIfEEE", !6, i64 0}
+!126 = !{!127, !22, i64 0}
+!127 = !{!"_ZTSSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeIfEEE", !22, i64 0}
+!128 = !{i64 0, i64 4, !129, i64 4, i64 4, !9, i64 8, i64 4, !9}
+!129 = !{!15, !15, i64 0}
+!130 = distinct !{!130, !17}
+!131 = distinct !{!131, !17}
+!132 = !{!133, !133, i64 0}
+!133 = !{!"p1 float", !6, i64 0}
+!134 = distinct !{!134, !17}
+!135 = !{!136, !136, i64 0}
+!136 = !{!"p1 _ZTSN3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEE", !6, i64 0}
+!137 = !{!42, !42, i64 0}
+!138 = !{!139, !42, i64 0}
+!139 = !{!"_ZTSN3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEE", !42, i64 0, !12, i64 8}
+!140 = !{!139, !12, i64 8}
+!141 = distinct !{!141, !17}
+!142 = !{!35, !15, i64 0}
+!143 = distinct !{!143, !17}
+!144 = !{!145, !145, i64 0}
+!145 = !{!"p1 _ZTSN3ozz4math6Float2E", !6, i64 0}
+!146 = distinct !{!146, !17}
+!147 = !{!148, !148, i64 0}
+!148 = !{!"p1 _ZTSN3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEE", !6, i64 0}
+!149 = !{!150, !42, i64 0}
+!150 = !{!"_ZTSN3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEE", !42, i64 0, !12, i64 8}
+!151 = !{!150, !12, i64 8}
+!152 = !{!41, !42, i64 16}
+!153 = !{!154, !154, i64 0}
+!154 = !{!"p1 _ZTSN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEE", !6, i64 0}
+!155 = distinct !{!155, !17}
+!156 = !{!157, !157, i64 0}
+!157 = !{!"p1 _ZTSSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE", !6, i64 0}
+!158 = distinct !{!158, !17}
+!159 = distinct !{!159, !17}
+!160 = !{!161, !161, i64 0}
+!161 = !{!"p1 _ZTSSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEE", !6, i64 0}
+!162 = !{!163, !42, i64 0}
+!163 = !{!"_ZTSSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEE", !42, i64 0}
+!164 = !{i64 0, i64 4, !129, i64 4, i64 4, !9, i64 8, i64 4, !9, i64 12, i64 4, !9}
+!165 = distinct !{!165, !17}
+!166 = distinct !{!166, !17}
+!167 = distinct !{!167, !17}
+!168 = !{!169, !169, i64 0}
+!169 = !{!"p1 _ZTSN3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEE", !6, i64 0}
+!170 = !{!54, !54, i64 0}
+!171 = !{!172, !54, i64 0}
+!172 = !{!"_ZTSN3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEE", !54, i64 0, !12, i64 8}
+!173 = !{!172, !12, i64 8}
+!174 = distinct !{!174, !17}
+!175 = !{!47, !15, i64 0}
+!176 = distinct !{!176, !17}
+!177 = !{!178, !178, i64 0}
+!178 = !{!"p1 _ZTSN3ozz4math6Float3E", !6, i64 0}
+!179 = distinct !{!179, !17}
+!180 = !{!181, !181, i64 0}
+!181 = !{!"p1 _ZTSN3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEE", !6, i64 0}
+!182 = !{!183, !54, i64 0}
+!183 = !{!"_ZTSN3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEE", !54, i64 0, !12, i64 8}
+!184 = !{!183, !12, i64 8}
+!185 = !{!53, !54, i64 16}
+!186 = !{!187, !187, i64 0}
+!187 = !{!"p1 _ZTSN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEE", !6, i64 0}
+!188 = distinct !{!188, !17}
+!189 = !{!190, !190, i64 0}
+!190 = !{!"p1 _ZTSSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE", !6, i64 0}
+!191 = distinct !{!191, !17}
+!192 = distinct !{!192, !17}
+!193 = !{!194, !194, i64 0}
+!194 = !{!"p1 _ZTSSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEE", !6, i64 0}
+!195 = !{!196, !54, i64 0}
+!196 = !{!"_ZTSSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEE", !54, i64 0}
+!197 = !{i64 0, i64 4, !129, i64 4, i64 4, !9, i64 8, i64 4, !9, i64 12, i64 4, !9, i64 16, i64 4, !9}
+!198 = distinct !{!198, !17}
+!199 = distinct !{!199, !17}
+!200 = distinct !{!200, !17}
+!201 = !{!202, !202, i64 0}
+!202 = !{!"p1 _ZTSN3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEE", !6, i64 0}
+!203 = !{!66, !66, i64 0}
+!204 = !{!205, !66, i64 0}
+!205 = !{!"_ZTSN3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEE", !66, i64 0, !12, i64 8}
+!206 = !{!205, !12, i64 8}
+!207 = distinct !{!207, !17}
+!208 = !{!59, !15, i64 0}
+!209 = distinct !{!209, !17}
+!210 = !{!211, !211, i64 0}
+!211 = !{!"p1 _ZTSN3ozz4math6Float4E", !6, i64 0}
+!212 = distinct !{!212, !17}
+!213 = !{!214, !214, i64 0}
+!214 = !{!"p1 _ZTSN3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEE", !6, i64 0}
+!215 = !{!216, !66, i64 0}
+!216 = !{!"_ZTSN3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEE", !66, i64 0, !12, i64 8}
+!217 = !{!216, !12, i64 8}
+!218 = !{!65, !66, i64 16}
+!219 = !{!220, !220, i64 0}
+!220 = !{!"p1 _ZTSN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEE", !6, i64 0}
+!221 = distinct !{!221, !17}
+!222 = !{!223, !223, i64 0}
+!223 = !{!"p1 _ZTSSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE", !6, i64 0}
+!224 = distinct !{!224, !17}
+!225 = distinct !{!225, !17}
+!226 = !{!227, !227, i64 0}
+!227 = !{!"p1 _ZTSSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEE", !6, i64 0}
+!228 = !{!229, !66, i64 0}
+!229 = !{!"_ZTSSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEE", !66, i64 0}
+!230 = !{i64 0, i64 4, !129, i64 4, i64 4, !9, i64 8, i64 4, !9, i64 12, i64 4, !9, i64 16, i64 4, !9, i64 20, i64 4, !9}
+!231 = distinct !{!231, !17}
+!232 = distinct !{!232, !17}
+!233 = distinct !{!233, !17}
+!234 = !{!235, !235, i64 0}
+!235 = !{!"p1 _ZTSN3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEE", !6, i64 0}
+!236 = !{!78, !78, i64 0}
+!237 = !{!238, !78, i64 0}
+!238 = !{!"_ZTSN3ozz2io8internal5ArrayIKNS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEE", !78, i64 0, !12, i64 8}
+!239 = !{!238, !12, i64 8}
+!240 = distinct !{!240, !17}
+!241 = !{!71, !15, i64 0}
+!242 = distinct !{!242, !17}
+!243 = !{!244, !244, i64 0}
+!244 = !{!"p1 _ZTSN3ozz4math10QuaternionE", !6, i64 0}
+!245 = distinct !{!245, !17}
+!246 = !{!247, !247, i64 0}
+!247 = !{!"p1 _ZTSN3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEE", !6, i64 0}
+!248 = !{!249, !78, i64 0}
+!249 = !{!"_ZTSN3ozz2io8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEE", !78, i64 0, !12, i64 8}
+!250 = !{!249, !12, i64 8}
+!251 = !{!77, !78, i64 16}
+!252 = !{!253, !253, i64 0}
+!253 = !{!"p1 _ZTSN3ozz12StdAllocatorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEE", !6, i64 0}
+!254 = distinct !{!254, !17}
+!255 = !{!256, !256, i64 0}
+!256 = !{!"p1 _ZTSSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE", !6, i64 0}
+!257 = distinct !{!257, !17}
+!258 = distinct !{!258, !17}
+!259 = !{!260, !260, i64 0}
+!260 = !{!"p1 _ZTSSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEE", !6, i64 0}
+!261 = !{!262, !78, i64 0}
+!262 = !{!"_ZTSSt13move_iteratorIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEE", !78, i64 0}
+!263 = distinct !{!263, !17}
+!264 = distinct !{!264, !17}

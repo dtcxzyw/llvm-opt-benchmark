@@ -2,7 +2,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.ozz::span" = type { ptr, i64 }
-%"class.ozz::animation::Skeleton" = type { %"struct.ozz::span.0", %"struct.ozz::span.1", %"struct.ozz::span.2" }
+%"class.ozz::animation::Skeleton" = type { ptr, %"struct.ozz::span.0", %"struct.ozz::span.1", %"struct.ozz::span.2" }
 %"struct.ozz::span.0" = type { ptr, i64 }
 %"struct.ozz::span.1" = type { ptr, i64 }
 %"struct.ozz::span.2" = type { ptr, i64 }
@@ -13,6 +13,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.ozz::math::SoaTransform" = type { %"struct.ozz::math::SoaFloat3", %"struct.ozz::math::SoaQuaternion", %"struct.ozz::math::SoaFloat3" }
 %"struct.ozz::math::SoaQuaternion" = type { <4 x float>, <4 x float>, <4 x float>, <4 x float> }
 %"struct.ozz::math::SoaFloat3" = type { <4 x float>, <4 x float>, <4 x float> }
+%struct.__mm_store_ss_struct = type { float }
+%struct.__storeu_ps = type { <4 x float> }
 
 $_ZNK3ozz9animation8Skeleton11joint_namesEv = comdat any
 
@@ -24,7 +26,15 @@ $_ZNK3ozz9animation8Skeleton16joint_rest_posesEv = comdat any
 
 $_ZNK3ozz4spanIKNS_4math12SoaTransformEEixEm = comdat any
 
+$_ZN3ozz4math12Transpose3x4EPKDv4_fPS1_ = comdat any
+
+$_ZN3ozz4math12Transpose4x4EPKDv4_fPS1_ = comdat any
+
 $_ZN3ozz4math9TransformC2Ev = comdat any
+
+$_ZN3ozz4math10Store3PtrUEDv4_fPf = comdat any
+
+$_ZN3ozz4math9StorePtrUEDv4_fPf = comdat any
 
 $_ZNK3ozz4spanIPcE5beginEv = comdat any
 
@@ -36,78 +46,104 @@ $_ZNK3ozz4spanINS_4math12SoaTransformEEcvNS0_IKS2_EEEv = comdat any
 
 $_ZN3ozz4spanIKNS_4math12SoaTransformEEC2EPS3_m = comdat any
 
+$_ZN3ozz4math6Float3C2Ev = comdat any
+
+$_ZN3ozz4math10QuaternionC2Ev = comdat any
+
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3ozz9animation9FindJointERKNS0_8SkeletonEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #0 {
+define dso_local noundef i32 @_ZN3ozz9animation9FindJointERKNS0_8SkeletonEPKc(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"struct.ozz::span", align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = call { ptr, i64 } @_ZNK3ozz9animation8Skeleton11joint_namesEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
-  %12 = extractvalue { ptr, i64 } %10, 0
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
-  %14 = extractvalue { ptr, i64 } %10, 1
-  store i64 %14, ptr %13, align 8
-  store ptr %7, ptr %6, align 8
-  store i64 0, ptr %8, align 8
-  br label %15
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #9
+  %10 = load ptr, ptr %4, align 8, !tbaa !4
+  %11 = call { ptr, i64 } @_ZNK3ozz9animation8Skeleton11joint_namesEv(ptr noundef nonnull align 8 dereferenceable(56) %10)
+  %12 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 0
+  %13 = extractvalue { ptr, i64 } %11, 0
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 1
+  %15 = extractvalue { ptr, i64 } %11, 1
+  store i64 %15, ptr %14, align 8
+  store ptr %7, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  store i64 0, ptr %8, align 8, !tbaa !13
+  br label %16
 
-15:                                               ; preds = %32, %2
-  %16 = load i64, ptr %8, align 8
-  %17 = load ptr, ptr %6, align 8
-  %18 = call noundef i64 @_ZNK3ozz4spanIKPKcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
-  %19 = icmp ult i64 %16, %18
-  br i1 %19, label %20, label %35
+16:                                               ; preds = %34, %2
+  %17 = load i64, ptr %8, align 8, !tbaa !13
+  %18 = load ptr, ptr %6, align 8, !tbaa !11
+  %19 = call noundef i64 @_ZNK3ozz4spanIKPKcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18)
+  %20 = icmp ult i64 %17, %19
+  br i1 %20, label %22, label %21
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr %6, align 8
-  %22 = load i64, ptr %8, align 8
-  %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3ozz4spanIKPKcEixEm(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %22)
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = call i32 @strcmp(ptr noundef %24, ptr noundef %25) #4
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %31
+21:                                               ; preds = %16
+  store i32 2, ptr %9, align 4
+  br label %37
 
-28:                                               ; preds = %20
-  %29 = load i64, ptr %8, align 8
-  %30 = trunc i64 %29 to i32
-  store i32 %30, ptr %3, align 4
-  br label %36
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %6, align 8, !tbaa !11
+  %24 = load i64, ptr %8, align 8, !tbaa !13
+  %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3ozz4spanIKPKcEixEm(ptr noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %24)
+  %26 = load ptr, ptr %25, align 8, !tbaa !9
+  %27 = load ptr, ptr %5, align 8, !tbaa !9
+  %28 = call i32 @strcmp(ptr noundef %26, ptr noundef %27) #10
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %33
 
-31:                                               ; preds = %20
-  br label %32
+30:                                               ; preds = %22
+  %31 = load i64, ptr %8, align 8, !tbaa !13
+  %32 = trunc i64 %31 to i32
+  store i32 %32, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %37
 
-32:                                               ; preds = %31
-  %33 = load i64, ptr %8, align 8
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %8, align 8
-  br label %15, !llvm.loop !5
+33:                                               ; preds = %22
+  br label %34
 
-35:                                               ; preds = %15
+34:                                               ; preds = %33
+  %35 = load i64, ptr %8, align 8, !tbaa !13
+  %36 = add i64 %35, 1
+  store i64 %36, ptr %8, align 8, !tbaa !13
+  br label %16, !llvm.loop !15
+
+37:                                               ; preds = %30, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  %38 = load i32, ptr %9, align 4
+  switch i32 %38, label %40 [
+    i32 2, label %39
+  ]
+
+39:                                               ; preds = %37
   store i32 -1, ptr %3, align 4
-  br label %36
+  store i32 1, ptr %9, align 4
+  br label %40
 
-36:                                               ; preds = %35, %28
-  %37 = load i32, ptr %3, align 4
-  ret i32 %37
+40:                                               ; preds = %39, %37
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %41 = load i32, ptr %3, align 4
+  ret i32 %41
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8Skeleton11joint_namesEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+define linkonce_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8Skeleton11joint_namesEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca %"struct.ozz::span", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"class.ozz::animation::Skeleton", ptr %4, i32 0, i32 2
+  %5 = getelementptr inbounds nuw %"class.ozz::animation::Skeleton", ptr %4, i32 0, i32 3
   %6 = call noundef ptr @_ZNK3ozz4spanIPcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %7 = getelementptr inbounds %"class.ozz::animation::Skeleton", ptr %4, i32 0, i32 2
+  %7 = getelementptr inbounds nuw %"class.ozz::animation::Skeleton", ptr %4, i32 0, i32 3
   %8 = call noundef ptr @_ZNK3ozz4spanIPcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @_ZN3ozz4spanIKPKcEC2EPS3_S5_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %6, ptr noundef %8)
   %9 = load { ptr, i64 }, ptr %2, align 8
@@ -115,540 +151,127 @@ define linkonce_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8Skeleton11joint_n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZNK3ozz4spanIKPKcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNK3ozz4spanIKPKcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.ozz::span", ptr %3, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"struct.ozz::span", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !17
   ret i64 %5
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #2
+declare i32 @strcmp(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3ozz4spanIKPKcEixEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3ozz4spanIKPKcEixEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store i64 %1, ptr %4, align 8, !tbaa !13
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.ozz::span", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %6 = getelementptr inbounds nuw %"struct.ozz::span", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %8 = load i64, ptr %4, align 8, !tbaa !13
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   ret ptr %9
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3ozz9animation21GetJointLocalRestPoseERKNS0_8SkeletonEi(ptr dead_on_unwind noalias writable sret(%"struct.ozz::math::Transform") align 4 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2) #3 {
+define dso_local void @_ZN3ozz9animation21GetJointLocalRestPoseERKNS0_8SkeletonEi(ptr dead_on_unwind noalias writable sret(%"struct.ozz::math::Transform") align 4 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef %2) #4 {
   %4 = alloca ptr, align 8
-  %5 = alloca <4 x float>, align 16
+  %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  %7 = alloca <4 x float>, align 16
-  %8 = alloca ptr, align 8
-  %9 = alloca <4 x float>, align 16
-  %10 = alloca ptr, align 8
-  %11 = alloca <4 x float>, align 16
-  %12 = alloca ptr, align 8
-  %13 = alloca <4 x float>, align 16
-  %14 = alloca ptr, align 8
-  %15 = alloca <4 x float>, align 16
-  %16 = alloca ptr, align 8
-  %17 = alloca <4 x float>, align 16
-  %18 = alloca <4 x float>, align 16
-  %19 = alloca <4 x float>, align 16
-  %20 = alloca <4 x float>, align 16
-  %21 = alloca <4 x float>, align 16
-  %22 = alloca <4 x float>, align 16
-  %23 = alloca <4 x float>, align 16
-  %24 = alloca <4 x float>, align 16
-  %25 = alloca <4 x float>, align 16
-  %26 = alloca <4 x float>, align 16
-  %27 = alloca <4 x float>, align 16
-  %28 = alloca <4 x float>, align 16
-  %29 = alloca <4 x float>, align 16
-  %30 = alloca <4 x float>, align 16
-  %31 = alloca <4 x float>, align 16
-  %32 = alloca <4 x float>, align 16
-  %33 = alloca <4 x float>, align 16
-  %34 = alloca <4 x float>, align 16
-  %35 = alloca <4 x float>, align 16
-  %36 = alloca <4 x float>, align 16
-  %37 = alloca <4 x float>, align 16
-  %38 = alloca <4 x float>, align 16
-  %39 = alloca <4 x float>, align 16
-  %40 = alloca <4 x float>, align 16
-  %41 = alloca <4 x float>, align 16
-  %42 = alloca <4 x float>, align 16
-  %43 = alloca <4 x float>, align 16
-  %44 = alloca <4 x float>, align 16
-  %45 = alloca <4 x float>, align 16
-  %46 = alloca <4 x float>, align 16
-  %47 = alloca <4 x float>, align 16
-  %48 = alloca <4 x float>, align 16
-  %49 = alloca <4 x float>, align 16
-  %50 = alloca <4 x float>, align 16
-  %51 = alloca <4 x float>, align 16
-  %52 = alloca <4 x float>, align 16
-  %53 = alloca <4 x float>, align 16
-  %54 = alloca <4 x float>, align 16
-  %55 = alloca <4 x float>, align 16
-  %56 = alloca <4 x float>, align 16
-  %57 = alloca <4 x float>, align 16
-  %58 = alloca <4 x float>, align 16
-  %59 = alloca <4 x float>, align 16
-  %60 = alloca <4 x float>, align 16
-  %61 = alloca <4 x float>, align 16
-  %62 = alloca <4 x float>, align 16
-  %63 = alloca <4 x float>, align 16
-  %64 = alloca <4 x float>, align 16
-  %65 = alloca <4 x float>, align 16
-  %66 = alloca <4 x float>, align 16
-  %67 = alloca <4 x float>, align 16
-  %68 = alloca <4 x float>, align 16
-  %69 = alloca <4 x float>, align 16
-  %70 = alloca <4 x float>, align 16
-  %71 = alloca <4 x float>, align 16
-  %72 = alloca <4 x float>, align 16
-  %73 = alloca ptr, align 8
-  %74 = alloca <4 x float>, align 16
-  %75 = alloca ptr, align 8
-  %76 = alloca <4 x float>, align 16
-  %77 = alloca ptr, align 8
-  %78 = alloca ptr, align 8
-  %79 = alloca ptr, align 8
-  %80 = alloca <4 x float>, align 16
-  %81 = alloca <4 x float>, align 16
-  %82 = alloca <4 x float>, align 16
-  %83 = alloca <4 x float>, align 16
-  %84 = alloca ptr, align 8
-  %85 = alloca ptr, align 8
-  %86 = alloca <4 x float>, align 16
-  %87 = alloca <4 x float>, align 16
-  %88 = alloca <4 x float>, align 16
-  %89 = alloca <4 x float>, align 16
-  %90 = alloca <4 x float>, align 16
-  %91 = alloca ptr, align 8
-  %92 = alloca ptr, align 8
-  %93 = alloca <4 x float>, align 16
-  %94 = alloca <4 x float>, align 16
-  %95 = alloca <4 x float>, align 16
-  %96 = alloca <4 x float>, align 16
-  %97 = alloca <4 x float>, align 16
-  %98 = alloca ptr, align 8
-  %99 = alloca i32, align 4
-  %100 = alloca ptr, align 8
-  %101 = alloca %"struct.ozz::span.3", align 8
-  %102 = alloca [4 x <4 x float>], align 16
-  %103 = alloca [4 x <4 x float>], align 16
-  %104 = alloca [4 x <4 x float>], align 16
-  %105 = alloca i32, align 4
-  store ptr %1, ptr %98, align 8
-  store i32 %2, ptr %99, align 4
-  %106 = load ptr, ptr %98, align 8
-  %107 = call { ptr, i64 } @_ZNK3ozz9animation8Skeleton16joint_rest_posesEv(ptr noundef nonnull align 8 dereferenceable(48) %106)
-  %108 = getelementptr inbounds { ptr, i64 }, ptr %101, i32 0, i32 0
-  %109 = extractvalue { ptr, i64 } %107, 0
-  store ptr %109, ptr %108, align 8
-  %110 = getelementptr inbounds { ptr, i64 }, ptr %101, i32 0, i32 1
-  %111 = extractvalue { ptr, i64 } %107, 1
-  store i64 %111, ptr %110, align 8
-  %112 = load i32, ptr %99, align 4
-  %113 = sdiv i32 %112, 4
-  %114 = sext i32 %113 to i64
-  %115 = call noundef nonnull align 16 dereferenceable(160) ptr @_ZNK3ozz4spanIKNS_4math12SoaTransformEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %101, i64 noundef %114)
-  store ptr %115, ptr %100, align 8
-  %116 = load ptr, ptr %100, align 8
-  %117 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %116, i32 0, i32 0
-  %118 = getelementptr inbounds %"struct.ozz::math::SoaFloat3", ptr %117, i32 0, i32 0
-  %119 = getelementptr inbounds [4 x <4 x float>], ptr %102, i64 0, i64 0
-  store ptr %118, ptr %84, align 8
-  store ptr %119, ptr %85, align 8
-  store <4 x float> zeroinitializer, ptr %71, align 16
-  %120 = load <4 x float>, ptr %71, align 16
-  store <4 x float> %120, ptr %86, align 16
-  %121 = load ptr, ptr %84, align 8
-  %122 = load <4 x float>, ptr %121, align 16
-  %123 = load ptr, ptr %84, align 8
-  %124 = getelementptr inbounds <4 x float>, ptr %123, i64 1
-  %125 = load <4 x float>, ptr %124, align 16
-  store <4 x float> %122, ptr %58, align 16
-  store <4 x float> %125, ptr %59, align 16
-  %126 = load <4 x float>, ptr %58, align 16
-  %127 = load <4 x float>, ptr %59, align 16
-  %128 = shufflevector <4 x float> %126, <4 x float> %127, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %128, ptr %87, align 16
-  %129 = load ptr, ptr %84, align 8
-  %130 = getelementptr inbounds <4 x float>, ptr %129, i64 2
-  %131 = load <4 x float>, ptr %130, align 16
-  %132 = load <4 x float>, ptr %86, align 16
-  store <4 x float> %131, ptr %60, align 16
-  store <4 x float> %132, ptr %61, align 16
-  %133 = load <4 x float>, ptr %60, align 16
-  %134 = load <4 x float>, ptr %61, align 16
-  %135 = shufflevector <4 x float> %133, <4 x float> %134, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %135, ptr %88, align 16
-  %136 = load ptr, ptr %84, align 8
-  %137 = load <4 x float>, ptr %136, align 16
-  %138 = load ptr, ptr %84, align 8
-  %139 = getelementptr inbounds <4 x float>, ptr %138, i64 1
-  %140 = load <4 x float>, ptr %139, align 16
-  store <4 x float> %137, ptr %42, align 16
-  store <4 x float> %140, ptr %43, align 16
-  %141 = load <4 x float>, ptr %42, align 16
-  %142 = load <4 x float>, ptr %43, align 16
-  %143 = shufflevector <4 x float> %141, <4 x float> %142, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %143, ptr %89, align 16
-  %144 = load ptr, ptr %84, align 8
-  %145 = getelementptr inbounds <4 x float>, ptr %144, i64 2
-  %146 = load <4 x float>, ptr %145, align 16
-  %147 = load <4 x float>, ptr %86, align 16
-  store <4 x float> %146, ptr %44, align 16
-  store <4 x float> %147, ptr %45, align 16
-  %148 = load <4 x float>, ptr %44, align 16
-  %149 = load <4 x float>, ptr %45, align 16
-  %150 = shufflevector <4 x float> %148, <4 x float> %149, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %150, ptr %90, align 16
-  %151 = load <4 x float>, ptr %87, align 16
-  %152 = load <4 x float>, ptr %88, align 16
-  store <4 x float> %151, ptr %34, align 16
-  store <4 x float> %152, ptr %35, align 16
-  %153 = load <4 x float>, ptr %34, align 16
-  %154 = load <4 x float>, ptr %35, align 16
-  %155 = shufflevector <4 x float> %153, <4 x float> %154, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %156 = load ptr, ptr %85, align 8
-  store <4 x float> %155, ptr %156, align 16
-  %157 = load <4 x float>, ptr %88, align 16
-  %158 = load <4 x float>, ptr %87, align 16
-  store <4 x float> %157, ptr %22, align 16
-  store <4 x float> %158, ptr %23, align 16
-  %159 = load <4 x float>, ptr %22, align 16
-  %160 = load <4 x float>, ptr %23, align 16
-  %161 = shufflevector <4 x float> %159, <4 x float> %160, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  %162 = load ptr, ptr %85, align 8
-  %163 = getelementptr inbounds <4 x float>, ptr %162, i64 1
-  store <4 x float> %161, ptr %163, align 16
-  %164 = load <4 x float>, ptr %89, align 16
-  %165 = load <4 x float>, ptr %90, align 16
-  store <4 x float> %164, ptr %36, align 16
-  store <4 x float> %165, ptr %37, align 16
-  %166 = load <4 x float>, ptr %36, align 16
-  %167 = load <4 x float>, ptr %37, align 16
-  %168 = shufflevector <4 x float> %166, <4 x float> %167, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %169 = load ptr, ptr %85, align 8
-  %170 = getelementptr inbounds <4 x float>, ptr %169, i64 2
-  store <4 x float> %168, ptr %170, align 16
-  %171 = load <4 x float>, ptr %90, align 16
-  %172 = load <4 x float>, ptr %89, align 16
-  store <4 x float> %171, ptr %24, align 16
-  store <4 x float> %172, ptr %25, align 16
-  %173 = load <4 x float>, ptr %24, align 16
-  %174 = load <4 x float>, ptr %25, align 16
-  %175 = shufflevector <4 x float> %173, <4 x float> %174, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  %176 = load ptr, ptr %85, align 8
-  %177 = getelementptr inbounds <4 x float>, ptr %176, i64 3
-  store <4 x float> %175, ptr %177, align 16
-  %178 = load ptr, ptr %100, align 8
-  %179 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %178, i32 0, i32 1
-  %180 = getelementptr inbounds %"struct.ozz::math::SoaQuaternion", ptr %179, i32 0, i32 0
-  %181 = getelementptr inbounds [4 x <4 x float>], ptr %103, i64 0, i64 0
-  store ptr %180, ptr %78, align 8
-  store ptr %181, ptr %79, align 8
-  %182 = load ptr, ptr %78, align 8
-  %183 = load <4 x float>, ptr %182, align 16
-  %184 = load ptr, ptr %78, align 8
-  %185 = getelementptr inbounds <4 x float>, ptr %184, i64 2
-  %186 = load <4 x float>, ptr %185, align 16
-  store <4 x float> %183, ptr %62, align 16
-  store <4 x float> %186, ptr %63, align 16
-  %187 = load <4 x float>, ptr %62, align 16
-  %188 = load <4 x float>, ptr %63, align 16
-  %189 = shufflevector <4 x float> %187, <4 x float> %188, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %189, ptr %80, align 16
-  %190 = load ptr, ptr %78, align 8
-  %191 = getelementptr inbounds <4 x float>, ptr %190, i64 1
-  %192 = load <4 x float>, ptr %191, align 16
-  %193 = load ptr, ptr %78, align 8
-  %194 = getelementptr inbounds <4 x float>, ptr %193, i64 3
-  %195 = load <4 x float>, ptr %194, align 16
-  store <4 x float> %192, ptr %64, align 16
-  store <4 x float> %195, ptr %65, align 16
-  %196 = load <4 x float>, ptr %64, align 16
-  %197 = load <4 x float>, ptr %65, align 16
-  %198 = shufflevector <4 x float> %196, <4 x float> %197, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %198, ptr %81, align 16
-  %199 = load ptr, ptr %78, align 8
-  %200 = load <4 x float>, ptr %199, align 16
-  %201 = load ptr, ptr %78, align 8
-  %202 = getelementptr inbounds <4 x float>, ptr %201, i64 2
-  %203 = load <4 x float>, ptr %202, align 16
-  store <4 x float> %200, ptr %46, align 16
-  store <4 x float> %203, ptr %47, align 16
-  %204 = load <4 x float>, ptr %46, align 16
-  %205 = load <4 x float>, ptr %47, align 16
-  %206 = shufflevector <4 x float> %204, <4 x float> %205, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %206, ptr %82, align 16
-  %207 = load ptr, ptr %78, align 8
-  %208 = getelementptr inbounds <4 x float>, ptr %207, i64 1
-  %209 = load <4 x float>, ptr %208, align 16
-  %210 = load ptr, ptr %78, align 8
-  %211 = getelementptr inbounds <4 x float>, ptr %210, i64 3
-  %212 = load <4 x float>, ptr %211, align 16
-  store <4 x float> %209, ptr %48, align 16
-  store <4 x float> %212, ptr %49, align 16
-  %213 = load <4 x float>, ptr %48, align 16
-  %214 = load <4 x float>, ptr %49, align 16
-  %215 = shufflevector <4 x float> %213, <4 x float> %214, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %215, ptr %83, align 16
-  %216 = load <4 x float>, ptr %80, align 16
-  %217 = load <4 x float>, ptr %81, align 16
-  store <4 x float> %216, ptr %66, align 16
-  store <4 x float> %217, ptr %67, align 16
-  %218 = load <4 x float>, ptr %66, align 16
-  %219 = load <4 x float>, ptr %67, align 16
-  %220 = shufflevector <4 x float> %218, <4 x float> %219, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %221 = load ptr, ptr %79, align 8
-  store <4 x float> %220, ptr %221, align 16
-  %222 = load <4 x float>, ptr %80, align 16
-  %223 = load <4 x float>, ptr %81, align 16
-  store <4 x float> %222, ptr %50, align 16
-  store <4 x float> %223, ptr %51, align 16
-  %224 = load <4 x float>, ptr %50, align 16
-  %225 = load <4 x float>, ptr %51, align 16
-  %226 = shufflevector <4 x float> %224, <4 x float> %225, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %227 = load ptr, ptr %79, align 8
-  %228 = getelementptr inbounds <4 x float>, ptr %227, i64 1
-  store <4 x float> %226, ptr %228, align 16
-  %229 = load <4 x float>, ptr %82, align 16
-  %230 = load <4 x float>, ptr %83, align 16
-  store <4 x float> %229, ptr %68, align 16
-  store <4 x float> %230, ptr %69, align 16
-  %231 = load <4 x float>, ptr %68, align 16
-  %232 = load <4 x float>, ptr %69, align 16
-  %233 = shufflevector <4 x float> %231, <4 x float> %232, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %234 = load ptr, ptr %79, align 8
-  %235 = getelementptr inbounds <4 x float>, ptr %234, i64 2
-  store <4 x float> %233, ptr %235, align 16
-  %236 = load <4 x float>, ptr %82, align 16
-  %237 = load <4 x float>, ptr %83, align 16
-  store <4 x float> %236, ptr %52, align 16
-  store <4 x float> %237, ptr %53, align 16
-  %238 = load <4 x float>, ptr %52, align 16
-  %239 = load <4 x float>, ptr %53, align 16
-  %240 = shufflevector <4 x float> %238, <4 x float> %239, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %241 = load ptr, ptr %79, align 8
-  %242 = getelementptr inbounds <4 x float>, ptr %241, i64 3
-  store <4 x float> %240, ptr %242, align 16
-  %243 = load ptr, ptr %100, align 8
-  %244 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %243, i32 0, i32 2
-  %245 = getelementptr inbounds %"struct.ozz::math::SoaFloat3", ptr %244, i32 0, i32 0
-  %246 = getelementptr inbounds [4 x <4 x float>], ptr %104, i64 0, i64 0
-  store ptr %245, ptr %91, align 8
-  store ptr %246, ptr %92, align 8
-  store <4 x float> zeroinitializer, ptr %70, align 16
-  %247 = load <4 x float>, ptr %70, align 16
-  store <4 x float> %247, ptr %93, align 16
-  %248 = load ptr, ptr %91, align 8
-  %249 = load <4 x float>, ptr %248, align 16
-  %250 = load ptr, ptr %91, align 8
-  %251 = getelementptr inbounds <4 x float>, ptr %250, i64 1
-  %252 = load <4 x float>, ptr %251, align 16
-  store <4 x float> %249, ptr %54, align 16
-  store <4 x float> %252, ptr %55, align 16
-  %253 = load <4 x float>, ptr %54, align 16
-  %254 = load <4 x float>, ptr %55, align 16
-  %255 = shufflevector <4 x float> %253, <4 x float> %254, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %255, ptr %94, align 16
-  %256 = load ptr, ptr %91, align 8
-  %257 = getelementptr inbounds <4 x float>, ptr %256, i64 2
-  %258 = load <4 x float>, ptr %257, align 16
-  %259 = load <4 x float>, ptr %93, align 16
-  store <4 x float> %258, ptr %56, align 16
-  store <4 x float> %259, ptr %57, align 16
-  %260 = load <4 x float>, ptr %56, align 16
-  %261 = load <4 x float>, ptr %57, align 16
-  %262 = shufflevector <4 x float> %260, <4 x float> %261, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %262, ptr %95, align 16
-  %263 = load ptr, ptr %91, align 8
-  %264 = load <4 x float>, ptr %263, align 16
-  %265 = load ptr, ptr %91, align 8
-  %266 = getelementptr inbounds <4 x float>, ptr %265, i64 1
-  %267 = load <4 x float>, ptr %266, align 16
-  store <4 x float> %264, ptr %38, align 16
-  store <4 x float> %267, ptr %39, align 16
-  %268 = load <4 x float>, ptr %38, align 16
-  %269 = load <4 x float>, ptr %39, align 16
-  %270 = shufflevector <4 x float> %268, <4 x float> %269, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %270, ptr %96, align 16
-  %271 = load ptr, ptr %91, align 8
-  %272 = getelementptr inbounds <4 x float>, ptr %271, i64 2
-  %273 = load <4 x float>, ptr %272, align 16
-  %274 = load <4 x float>, ptr %93, align 16
-  store <4 x float> %273, ptr %40, align 16
-  store <4 x float> %274, ptr %41, align 16
-  %275 = load <4 x float>, ptr %40, align 16
-  %276 = load <4 x float>, ptr %41, align 16
-  %277 = shufflevector <4 x float> %275, <4 x float> %276, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %277, ptr %97, align 16
-  %278 = load <4 x float>, ptr %94, align 16
-  %279 = load <4 x float>, ptr %95, align 16
-  store <4 x float> %278, ptr %30, align 16
-  store <4 x float> %279, ptr %31, align 16
-  %280 = load <4 x float>, ptr %30, align 16
-  %281 = load <4 x float>, ptr %31, align 16
-  %282 = shufflevector <4 x float> %280, <4 x float> %281, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %283 = load ptr, ptr %92, align 8
-  store <4 x float> %282, ptr %283, align 16
-  %284 = load <4 x float>, ptr %95, align 16
-  %285 = load <4 x float>, ptr %94, align 16
-  store <4 x float> %284, ptr %18, align 16
-  store <4 x float> %285, ptr %19, align 16
-  %286 = load <4 x float>, ptr %18, align 16
-  %287 = load <4 x float>, ptr %19, align 16
-  %288 = shufflevector <4 x float> %286, <4 x float> %287, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  %289 = load ptr, ptr %92, align 8
-  %290 = getelementptr inbounds <4 x float>, ptr %289, i64 1
-  store <4 x float> %288, ptr %290, align 16
-  %291 = load <4 x float>, ptr %96, align 16
-  %292 = load <4 x float>, ptr %97, align 16
-  store <4 x float> %291, ptr %32, align 16
-  store <4 x float> %292, ptr %33, align 16
-  %293 = load <4 x float>, ptr %32, align 16
-  %294 = load <4 x float>, ptr %33, align 16
-  %295 = shufflevector <4 x float> %293, <4 x float> %294, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %296 = load ptr, ptr %92, align 8
-  %297 = getelementptr inbounds <4 x float>, ptr %296, i64 2
-  store <4 x float> %295, ptr %297, align 16
-  %298 = load <4 x float>, ptr %97, align 16
-  %299 = load <4 x float>, ptr %96, align 16
-  store <4 x float> %298, ptr %20, align 16
-  store <4 x float> %299, ptr %21, align 16
-  %300 = load <4 x float>, ptr %20, align 16
-  %301 = load <4 x float>, ptr %21, align 16
-  %302 = shufflevector <4 x float> %300, <4 x float> %301, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  %303 = load ptr, ptr %92, align 8
-  %304 = getelementptr inbounds <4 x float>, ptr %303, i64 3
-  store <4 x float> %302, ptr %304, align 16
+  %7 = alloca %"struct.ozz::span.3", align 8
+  %8 = alloca [4 x <4 x float>], align 16
+  %9 = alloca [4 x <4 x float>], align 16
+  %10 = alloca [4 x <4 x float>], align 16
+  %11 = alloca i32, align 4
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  store i32 %2, ptr %5, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #9
+  %12 = load ptr, ptr %4, align 8, !tbaa !4
+  %13 = call { ptr, i64 } @_ZNK3ozz9animation8Skeleton16joint_rest_posesEv(ptr noundef nonnull align 8 dereferenceable(56) %12)
+  %14 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 0
+  %15 = extractvalue { ptr, i64 } %13, 0
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 1
+  %17 = extractvalue { ptr, i64 } %13, 1
+  store i64 %17, ptr %16, align 8
+  %18 = load i32, ptr %5, align 4, !tbaa !22
+  %19 = sdiv i32 %18, 4
+  %20 = sext i32 %19 to i64
+  %21 = call noundef nonnull align 16 dereferenceable(160) ptr @_ZNK3ozz4spanIKNS_4math12SoaTransformEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %20)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #9
+  store ptr %21, ptr %6, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 64, ptr %8) #9
+  %22 = load ptr, ptr %6, align 8, !tbaa !24
+  %23 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %"struct.ozz::math::SoaFloat3", ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds [4 x <4 x float>], ptr %8, i64 0, i64 0
+  call void @_ZN3ozz4math12Transpose3x4EPKDv4_fPS1_(ptr noundef %24, ptr noundef %25)
+  call void @llvm.lifetime.start.p0(i64 64, ptr %9) #9
+  %26 = load ptr, ptr %6, align 8, !tbaa !24
+  %27 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %26, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %"struct.ozz::math::SoaQuaternion", ptr %27, i32 0, i32 0
+  %29 = getelementptr inbounds [4 x <4 x float>], ptr %9, i64 0, i64 0
+  call void @_ZN3ozz4math12Transpose4x4EPKDv4_fPS1_(ptr noundef %28, ptr noundef %29)
+  call void @llvm.lifetime.start.p0(i64 64, ptr %10) #9
+  %30 = load ptr, ptr %6, align 8, !tbaa !24
+  %31 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %30, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %"struct.ozz::math::SoaFloat3", ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds [4 x <4 x float>], ptr %10, i64 0, i64 0
+  call void @_ZN3ozz4math12Transpose3x4EPKDv4_fPS1_(ptr noundef %32, ptr noundef %33)
   call void @_ZN3ozz4math9TransformC2Ev(ptr noundef nonnull align 4 dereferenceable(40) %0)
-  %305 = load i32, ptr %99, align 4
-  %306 = srem i32 %305, 4
-  store i32 %306, ptr %105, align 4
-  %307 = load i32, ptr %105, align 4
-  %308 = sext i32 %307 to i64
-  %309 = getelementptr inbounds [4 x <4 x float>], ptr %102, i64 0, i64 %308
-  %310 = load <4 x float>, ptr %309, align 16
-  %311 = getelementptr inbounds %"struct.ozz::math::Transform", ptr %0, i32 0, i32 0
-  %312 = getelementptr inbounds %"struct.ozz::math::Float3", ptr %311, i32 0, i32 0
-  store <4 x float> %310, ptr %74, align 16
-  store ptr %312, ptr %75, align 8
-  %313 = load ptr, ptr %75, align 8
-  %314 = load <4 x float>, ptr %74, align 16
-  store ptr %313, ptr %12, align 8
-  store <4 x float> %314, ptr %13, align 16
-  %315 = load <4 x float>, ptr %13, align 16
-  %316 = extractelement <4 x float> %315, i32 0
-  %317 = load ptr, ptr %12, align 8
-  store float %316, ptr %317, align 1
-  %318 = load ptr, ptr %75, align 8
-  %319 = getelementptr inbounds float, ptr %318, i64 1
-  %320 = load <4 x float>, ptr %74, align 16
-  %321 = load <4 x float>, ptr %74, align 16
-  %322 = shufflevector <4 x float> %320, <4 x float> %321, <4 x i32> <i32 1, i32 1, i32 5, i32 5>
-  store ptr %319, ptr %14, align 8
-  store <4 x float> %322, ptr %15, align 16
-  %323 = load <4 x float>, ptr %15, align 16
-  %324 = extractelement <4 x float> %323, i32 0
-  %325 = load ptr, ptr %14, align 8
-  store float %324, ptr %325, align 1
-  %326 = load ptr, ptr %75, align 8
-  %327 = getelementptr inbounds float, ptr %326, i64 2
-  %328 = load <4 x float>, ptr %74, align 16
-  %329 = load <4 x float>, ptr %74, align 16
-  store <4 x float> %328, ptr %28, align 16
-  store <4 x float> %329, ptr %29, align 16
-  %330 = load <4 x float>, ptr %28, align 16
-  %331 = load <4 x float>, ptr %29, align 16
-  %332 = shufflevector <4 x float> %330, <4 x float> %331, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store ptr %327, ptr %16, align 8
-  store <4 x float> %332, ptr %17, align 16
-  %333 = load <4 x float>, ptr %17, align 16
-  %334 = extractelement <4 x float> %333, i32 0
-  %335 = load ptr, ptr %16, align 8
-  store float %334, ptr %335, align 1
-  %336 = load i32, ptr %105, align 4
-  %337 = sext i32 %336 to i64
-  %338 = getelementptr inbounds [4 x <4 x float>], ptr %103, i64 0, i64 %337
-  %339 = load <4 x float>, ptr %338, align 16
-  %340 = getelementptr inbounds %"struct.ozz::math::Transform", ptr %0, i32 0, i32 1
-  %341 = getelementptr inbounds %"struct.ozz::math::Quaternion", ptr %340, i32 0, i32 0
-  store <4 x float> %339, ptr %72, align 16
-  store ptr %341, ptr %73, align 8
-  %342 = load ptr, ptr %73, align 8
-  %343 = load <4 x float>, ptr %72, align 16
-  store ptr %342, ptr %4, align 8
-  store <4 x float> %343, ptr %5, align 16
-  %344 = load <4 x float>, ptr %5, align 16
-  %345 = load ptr, ptr %4, align 8
-  store <4 x float> %344, ptr %345, align 1
-  %346 = load i32, ptr %105, align 4
-  %347 = sext i32 %346 to i64
-  %348 = getelementptr inbounds [4 x <4 x float>], ptr %104, i64 0, i64 %347
-  %349 = load <4 x float>, ptr %348, align 16
-  %350 = getelementptr inbounds %"struct.ozz::math::Transform", ptr %0, i32 0, i32 2
-  %351 = getelementptr inbounds %"struct.ozz::math::Float3", ptr %350, i32 0, i32 0
-  store <4 x float> %349, ptr %76, align 16
-  store ptr %351, ptr %77, align 8
-  %352 = load ptr, ptr %77, align 8
-  %353 = load <4 x float>, ptr %76, align 16
-  store ptr %352, ptr %6, align 8
-  store <4 x float> %353, ptr %7, align 16
-  %354 = load <4 x float>, ptr %7, align 16
-  %355 = extractelement <4 x float> %354, i32 0
-  %356 = load ptr, ptr %6, align 8
-  store float %355, ptr %356, align 1
-  %357 = load ptr, ptr %77, align 8
-  %358 = getelementptr inbounds float, ptr %357, i64 1
-  %359 = load <4 x float>, ptr %76, align 16
-  %360 = load <4 x float>, ptr %76, align 16
-  %361 = shufflevector <4 x float> %359, <4 x float> %360, <4 x i32> <i32 1, i32 1, i32 5, i32 5>
-  store ptr %358, ptr %8, align 8
-  store <4 x float> %361, ptr %9, align 16
-  %362 = load <4 x float>, ptr %9, align 16
-  %363 = extractelement <4 x float> %362, i32 0
-  %364 = load ptr, ptr %8, align 8
-  store float %363, ptr %364, align 1
-  %365 = load ptr, ptr %77, align 8
-  %366 = getelementptr inbounds float, ptr %365, i64 2
-  %367 = load <4 x float>, ptr %76, align 16
-  %368 = load <4 x float>, ptr %76, align 16
-  store <4 x float> %367, ptr %26, align 16
-  store <4 x float> %368, ptr %27, align 16
-  %369 = load <4 x float>, ptr %26, align 16
-  %370 = load <4 x float>, ptr %27, align 16
-  %371 = shufflevector <4 x float> %369, <4 x float> %370, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store ptr %366, ptr %10, align 8
-  store <4 x float> %371, ptr %11, align 16
-  %372 = load <4 x float>, ptr %11, align 16
-  %373 = extractelement <4 x float> %372, i32 0
-  %374 = load ptr, ptr %10, align 8
-  store float %373, ptr %374, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  %34 = load i32, ptr %5, align 4, !tbaa !22
+  %35 = srem i32 %34, 4
+  store i32 %35, ptr %11, align 4, !tbaa !22
+  %36 = load i32, ptr %11, align 4, !tbaa !22
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds [4 x <4 x float>], ptr %8, i64 0, i64 %37
+  %39 = load <4 x float>, ptr %38, align 16, !tbaa !26
+  %40 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %0, i32 0, i32 0
+  %41 = getelementptr inbounds nuw %"struct.ozz::math::Float3", ptr %40, i32 0, i32 0
+  call void @_ZN3ozz4math10Store3PtrUEDv4_fPf(<4 x float> noundef %39, ptr noundef %41)
+  %42 = load i32, ptr %11, align 4, !tbaa !22
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds [4 x <4 x float>], ptr %9, i64 0, i64 %43
+  %45 = load <4 x float>, ptr %44, align 16, !tbaa !26
+  %46 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %0, i32 0, i32 1
+  %47 = getelementptr inbounds nuw %"struct.ozz::math::Quaternion", ptr %46, i32 0, i32 0
+  call void @_ZN3ozz4math9StorePtrUEDv4_fPf(<4 x float> noundef %45, ptr noundef %47)
+  %48 = load i32, ptr %11, align 4, !tbaa !22
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds [4 x <4 x float>], ptr %10, i64 0, i64 %49
+  %51 = load <4 x float>, ptr %50, align 16, !tbaa !26
+  %52 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %0, i32 0, i32 2
+  %53 = getelementptr inbounds nuw %"struct.ozz::math::Float3", ptr %52, i32 0, i32 0
+  call void @_ZN3ozz4math10Store3PtrUEDv4_fPf(<4 x float> noundef %51, ptr noundef %53)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 64, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 64, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 64, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8Skeleton16joint_rest_posesEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+define linkonce_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8Skeleton16joint_rest_posesEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca %"struct.ozz::span.3", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"class.ozz::animation::Skeleton", ptr %4, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.ozz::animation::Skeleton", ptr %4, i32 0, i32 1
   %6 = call { ptr, i64 } @_ZNK3ozz4spanINS_4math12SoaTransformEEcvNS0_IKS2_EEEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %2, i32 0, i32 0
+  %7 = getelementptr inbounds nuw { ptr, i64 }, ptr %2, i32 0, i32 0
   %8 = extractvalue { ptr, i64 } %6, 0
   store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %2, i32 0, i32 1
+  %9 = getelementptr inbounds nuw { ptr, i64 }, ptr %2, i32 0, i32 1
   %10 = extractvalue { ptr, i64 } %6, 1
   store i64 %10, ptr %9, align 8
   %11 = load { ptr, i64 }, ptr %2, align 8
@@ -656,79 +279,266 @@ define linkonce_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8Skeleton16joint_r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 16 dereferenceable(160) ptr @_ZNK3ozz4spanIKNS_4math12SoaTransformEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local noundef nonnull align 16 dereferenceable(160) ptr @_ZNK3ozz4spanIKNS_4math12SoaTransformEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store i64 %1, ptr %4, align 8, !tbaa !13
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.ozz::span.3", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %7, i64 %8
+  %6 = getelementptr inbounds nuw %"struct.ozz::span.3", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %8 = load i64, ptr %4, align 8, !tbaa !13
+  %9 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %7, i64 %8
   ret ptr %9
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz4math9TransformC2Ev(ptr noundef nonnull align 4 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz4math12Transpose3x4EPKDv4_fPS1_(ptr noundef %0, ptr noundef %1) #5 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.ozz::math::Transform", ptr %6, i32 0, i32 0
-  store ptr %7, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.ozz::math::Transform", ptr %6, i32 0, i32 1
-  store ptr %8, ptr %2, align 8
-  %9 = getelementptr inbounds %"struct.ozz::math::Transform", ptr %6, i32 0, i32 2
-  store ptr %9, ptr %3, align 8
+  %5 = alloca <4 x float>, align 16
+  %6 = alloca <4 x float>, align 16
+  %7 = alloca <4 x float>, align 16
+  %8 = alloca <4 x float>, align 16
+  %9 = alloca <4 x float>, align 16
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store ptr %1, ptr %4, align 8, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #9
+  %10 = call noundef <4 x float> @_ZL14_mm_setzero_psv()
+  store <4 x float> %10, ptr %5, align 16, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #9
+  %11 = load ptr, ptr %3, align 8, !tbaa !31
+  %12 = getelementptr inbounds <4 x float>, ptr %11, i64 0
+  %13 = load <4 x float>, ptr %12, align 16, !tbaa !26
+  %14 = load ptr, ptr %3, align 8, !tbaa !31
+  %15 = getelementptr inbounds <4 x float>, ptr %14, i64 1
+  %16 = load <4 x float>, ptr %15, align 16, !tbaa !26
+  %17 = call noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %13, <4 x float> noundef %16)
+  store <4 x float> %17, ptr %6, align 16, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #9
+  %18 = load ptr, ptr %3, align 8, !tbaa !31
+  %19 = getelementptr inbounds <4 x float>, ptr %18, i64 2
+  %20 = load <4 x float>, ptr %19, align 16, !tbaa !26
+  %21 = call noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %20, <4 x float> noundef zeroinitializer)
+  store <4 x float> %21, ptr %7, align 16, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #9
+  %22 = load ptr, ptr %3, align 8, !tbaa !31
+  %23 = getelementptr inbounds <4 x float>, ptr %22, i64 0
+  %24 = load <4 x float>, ptr %23, align 16, !tbaa !26
+  %25 = load ptr, ptr %3, align 8, !tbaa !31
+  %26 = getelementptr inbounds <4 x float>, ptr %25, i64 1
+  %27 = load <4 x float>, ptr %26, align 16, !tbaa !26
+  %28 = call noundef <4 x float> @_ZL15_mm_unpackhi_psDv4_fS_(<4 x float> noundef %24, <4 x float> noundef %27)
+  store <4 x float> %28, ptr %8, align 16, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #9
+  %29 = load ptr, ptr %3, align 8, !tbaa !31
+  %30 = getelementptr inbounds <4 x float>, ptr %29, i64 2
+  %31 = load <4 x float>, ptr %30, align 16, !tbaa !26
+  %32 = call noundef <4 x float> @_ZL15_mm_unpackhi_psDv4_fS_(<4 x float> noundef %31, <4 x float> noundef zeroinitializer)
+  store <4 x float> %32, ptr %9, align 16, !tbaa !26
+  %33 = load <4 x float>, ptr %6, align 16, !tbaa !26
+  %34 = load <4 x float>, ptr %7, align 16, !tbaa !26
+  %35 = call noundef <4 x float> @_ZL13_mm_movelh_psDv4_fS_(<4 x float> noundef %33, <4 x float> noundef %34)
+  %36 = load ptr, ptr %4, align 8, !tbaa !31
+  %37 = getelementptr inbounds <4 x float>, ptr %36, i64 0
+  store <4 x float> %35, ptr %37, align 16, !tbaa !26
+  %38 = load <4 x float>, ptr %7, align 16, !tbaa !26
+  %39 = load <4 x float>, ptr %6, align 16, !tbaa !26
+  %40 = call noundef <4 x float> @_ZL13_mm_movehl_psDv4_fS_(<4 x float> noundef %38, <4 x float> noundef %39)
+  %41 = load ptr, ptr %4, align 8, !tbaa !31
+  %42 = getelementptr inbounds <4 x float>, ptr %41, i64 1
+  store <4 x float> %40, ptr %42, align 16, !tbaa !26
+  %43 = load <4 x float>, ptr %8, align 16, !tbaa !26
+  %44 = load <4 x float>, ptr %9, align 16, !tbaa !26
+  %45 = call noundef <4 x float> @_ZL13_mm_movelh_psDv4_fS_(<4 x float> noundef %43, <4 x float> noundef %44)
+  %46 = load ptr, ptr %4, align 8, !tbaa !31
+  %47 = getelementptr inbounds <4 x float>, ptr %46, i64 2
+  store <4 x float> %45, ptr %47, align 16, !tbaa !26
+  %48 = load <4 x float>, ptr %9, align 16, !tbaa !26
+  %49 = load <4 x float>, ptr %8, align 16, !tbaa !26
+  %50 = call noundef <4 x float> @_ZL13_mm_movehl_psDv4_fS_(<4 x float> noundef %48, <4 x float> noundef %49)
+  %51 = load ptr, ptr %4, align 8, !tbaa !31
+  %52 = getelementptr inbounds <4 x float>, ptr %51, i64 3
+  store <4 x float> %50, ptr %52, align 16, !tbaa !26
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3ozz4math12Transpose4x4EPKDv4_fPS1_(ptr noundef %0, ptr noundef %1) #6 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca <4 x float>, align 16
+  %6 = alloca <4 x float>, align 16
+  %7 = alloca <4 x float>, align 16
+  %8 = alloca <4 x float>, align 16
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store ptr %1, ptr %4, align 8, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #9
+  %9 = load ptr, ptr %3, align 8, !tbaa !31
+  %10 = getelementptr inbounds <4 x float>, ptr %9, i64 0
+  %11 = load <4 x float>, ptr %10, align 16, !tbaa !26
+  %12 = load ptr, ptr %3, align 8, !tbaa !31
+  %13 = getelementptr inbounds <4 x float>, ptr %12, i64 2
+  %14 = load <4 x float>, ptr %13, align 16, !tbaa !26
+  %15 = call noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %11, <4 x float> noundef %14)
+  store <4 x float> %15, ptr %5, align 16, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #9
+  %16 = load ptr, ptr %3, align 8, !tbaa !31
+  %17 = getelementptr inbounds <4 x float>, ptr %16, i64 1
+  %18 = load <4 x float>, ptr %17, align 16, !tbaa !26
+  %19 = load ptr, ptr %3, align 8, !tbaa !31
+  %20 = getelementptr inbounds <4 x float>, ptr %19, i64 3
+  %21 = load <4 x float>, ptr %20, align 16, !tbaa !26
+  %22 = call noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %18, <4 x float> noundef %21)
+  store <4 x float> %22, ptr %6, align 16, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #9
+  %23 = load ptr, ptr %3, align 8, !tbaa !31
+  %24 = getelementptr inbounds <4 x float>, ptr %23, i64 0
+  %25 = load <4 x float>, ptr %24, align 16, !tbaa !26
+  %26 = load ptr, ptr %3, align 8, !tbaa !31
+  %27 = getelementptr inbounds <4 x float>, ptr %26, i64 2
+  %28 = load <4 x float>, ptr %27, align 16, !tbaa !26
+  %29 = call noundef <4 x float> @_ZL15_mm_unpackhi_psDv4_fS_(<4 x float> noundef %25, <4 x float> noundef %28)
+  store <4 x float> %29, ptr %7, align 16, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #9
+  %30 = load ptr, ptr %3, align 8, !tbaa !31
+  %31 = getelementptr inbounds <4 x float>, ptr %30, i64 1
+  %32 = load <4 x float>, ptr %31, align 16, !tbaa !26
+  %33 = load ptr, ptr %3, align 8, !tbaa !31
+  %34 = getelementptr inbounds <4 x float>, ptr %33, i64 3
+  %35 = load <4 x float>, ptr %34, align 16, !tbaa !26
+  %36 = call noundef <4 x float> @_ZL15_mm_unpackhi_psDv4_fS_(<4 x float> noundef %32, <4 x float> noundef %35)
+  store <4 x float> %36, ptr %8, align 16, !tbaa !26
+  %37 = load <4 x float>, ptr %5, align 16, !tbaa !26
+  %38 = load <4 x float>, ptr %6, align 16, !tbaa !26
+  %39 = call noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %37, <4 x float> noundef %38)
+  %40 = load ptr, ptr %4, align 8, !tbaa !31
+  %41 = getelementptr inbounds <4 x float>, ptr %40, i64 0
+  store <4 x float> %39, ptr %41, align 16, !tbaa !26
+  %42 = load <4 x float>, ptr %5, align 16, !tbaa !26
+  %43 = load <4 x float>, ptr %6, align 16, !tbaa !26
+  %44 = call noundef <4 x float> @_ZL15_mm_unpackhi_psDv4_fS_(<4 x float> noundef %42, <4 x float> noundef %43)
+  %45 = load ptr, ptr %4, align 8, !tbaa !31
+  %46 = getelementptr inbounds <4 x float>, ptr %45, i64 1
+  store <4 x float> %44, ptr %46, align 16, !tbaa !26
+  %47 = load <4 x float>, ptr %7, align 16, !tbaa !26
+  %48 = load <4 x float>, ptr %8, align 16, !tbaa !26
+  %49 = call noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %47, <4 x float> noundef %48)
+  %50 = load ptr, ptr %4, align 8, !tbaa !31
+  %51 = getelementptr inbounds <4 x float>, ptr %50, i64 2
+  store <4 x float> %49, ptr %51, align 16, !tbaa !26
+  %52 = load <4 x float>, ptr %7, align 16, !tbaa !26
+  %53 = load <4 x float>, ptr %8, align 16, !tbaa !26
+  %54 = call noundef <4 x float> @_ZL15_mm_unpackhi_psDv4_fS_(<4 x float> noundef %52, <4 x float> noundef %53)
+  %55 = load ptr, ptr %4, align 8, !tbaa !31
+  %56 = getelementptr inbounds <4 x float>, ptr %55, i64 3
+  store <4 x float> %54, ptr %56, align 16, !tbaa !26
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz4math9TransformC2Ev(ptr noundef nonnull align 4 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %3, i32 0, i32 0
+  call void @_ZN3ozz4math6Float3C2Ev(ptr noundef nonnull align 4 dereferenceable(12) %4)
+  %5 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %3, i32 0, i32 1
+  call void @_ZN3ozz4math10QuaternionC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %5)
+  %6 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %3, i32 0, i32 2
+  call void @_ZN3ozz4math6Float3C2Ev(ptr noundef nonnull align 4 dereferenceable(12) %6)
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz4math10Store3PtrUEDv4_fPf(<4 x float> noundef %0, ptr noundef %1) #5 comdat {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca ptr, align 8
+  store <4 x float> %0, ptr %3, align 16, !tbaa !26
+  store ptr %1, ptr %4, align 8, !tbaa !34
+  %5 = load ptr, ptr %4, align 8, !tbaa !34
+  %6 = getelementptr inbounds float, ptr %5, i64 0
+  %7 = load <4 x float>, ptr %3, align 16, !tbaa !26
+  call void @_ZL12_mm_store_ssPfDv4_f(ptr noundef %6, <4 x float> noundef %7)
+  %8 = load ptr, ptr %4, align 8, !tbaa !34
+  %9 = getelementptr inbounds float, ptr %8, i64 1
+  %10 = load <4 x float>, ptr %3, align 16, !tbaa !26
+  %11 = load <4 x float>, ptr %3, align 16, !tbaa !26
+  %12 = shufflevector <4 x float> %10, <4 x float> %11, <4 x i32> <i32 1, i32 1, i32 5, i32 5>
+  call void @_ZL12_mm_store_ssPfDv4_f(ptr noundef %9, <4 x float> noundef %12)
+  %13 = load ptr, ptr %4, align 8, !tbaa !34
+  %14 = getelementptr inbounds float, ptr %13, i64 2
+  %15 = load <4 x float>, ptr %3, align 16, !tbaa !26
+  %16 = load <4 x float>, ptr %3, align 16, !tbaa !26
+  %17 = call noundef <4 x float> @_ZL13_mm_movehl_psDv4_fS_(<4 x float> noundef %15, <4 x float> noundef %16)
+  call void @_ZL12_mm_store_ssPfDv4_f(ptr noundef %14, <4 x float> noundef %17)
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz4math9StorePtrUEDv4_fPf(<4 x float> noundef %0, ptr noundef %1) #5 comdat {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca ptr, align 8
+  store <4 x float> %0, ptr %3, align 16, !tbaa !26
+  store ptr %1, ptr %4, align 8, !tbaa !34
+  %5 = load ptr, ptr %4, align 8, !tbaa !34
+  %6 = load <4 x float>, ptr %3, align 16, !tbaa !26
+  call void @_ZL13_mm_storeu_psPfDv4_f(ptr noundef %5, <4 x float> noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK3ozz4spanIPcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK3ozz4spanIPcE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !36
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.ozz::span.2", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"struct.ozz::span.2", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !38
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK3ozz4spanIPcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK3ozz4spanIPcE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !36
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.ozz::span.2", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"struct.ozz::span.2", ptr %3, i32 0, i32 1
-  %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %4 = getelementptr inbounds nuw %"struct.ozz::span.2", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !38
+  %6 = getelementptr inbounds nuw %"struct.ozz::span.2", ptr %3, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8, !tbaa !40
+  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
   ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3ozz4spanIKPKcEC2EPS3_S5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz4spanIKPKcEC2EPS3_S5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !41
+  store ptr %2, ptr %6, align 8, !tbaa !41
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.ozz::span", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.ozz::span", ptr %7, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %5, align 8
+  %8 = getelementptr inbounds nuw %"struct.ozz::span", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !41
+  store ptr %9, ptr %8, align 8, !tbaa !21
+  %10 = getelementptr inbounds nuw %"struct.ozz::span", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8, !tbaa !41
+  %12 = load ptr, ptr %5, align 8, !tbaa !41
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 8
-  store i64 %16, ptr %10, align 8
+  store i64 %16, ptr %10, align 8, !tbaa !17
   ret void
 }
 
@@ -736,47 +546,195 @@ define linkonce_odr dso_local void @_ZN3ozz4spanIKPKcEC2EPS3_S5_(ptr noundef non
 define linkonce_odr dso_local { ptr, i64 } @_ZNK3ozz4spanINS_4math12SoaTransformEEcvNS0_IKS2_EEEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca %"struct.ozz::span.3", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.ozz::span.0", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.ozz::span.0", ptr %4, i32 0, i32 1
-  %8 = load i64, ptr %7, align 8
+  %5 = getelementptr inbounds nuw %"struct.ozz::span.0", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !44
+  %7 = getelementptr inbounds nuw %"struct.ozz::span.0", ptr %4, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8, !tbaa !46
   call void @_ZN3ozz4spanIKNS_4math12SoaTransformEEC2EPS3_m(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %6, i64 noundef %8)
   %9 = load { ptr, i64 }, ptr %2, align 8
   ret { ptr, i64 } %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3ozz4spanIKNS_4math12SoaTransformEEC2EPS3_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz4spanIKNS_4math12SoaTransformEEC2EPS3_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !27
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store i64 %2, ptr %6, align 8, !tbaa !13
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.ozz::span.3", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.ozz::span.3", ptr %7, i32 0, i32 1
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
+  %8 = getelementptr inbounds nuw %"struct.ozz::span.3", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !24
+  store ptr %9, ptr %8, align 8, !tbaa !29
+  %10 = getelementptr inbounds nuw %"struct.ozz::span.3", ptr %7, i32 0, i32 1
+  %11 = load i64, ptr %6, align 8, !tbaa !13
+  store i64 %11, ptr %10, align 8, !tbaa !47
   ret void
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL14_mm_setzero_psv() #6 {
+  %1 = alloca <4 x float>, align 16
+  store <4 x float> zeroinitializer, ptr %1, align 16, !tbaa !26
+  %2 = load <4 x float>, ptr %1, align 16, !tbaa !26
+  ret <4 x float> %2
+}
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %0, <4 x float> noundef %1) #6 {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !26
+  store <4 x float> %1, ptr %4, align 16, !tbaa !26
+  %5 = load <4 x float>, ptr %3, align 16, !tbaa !26
+  %6 = load <4 x float>, ptr %4, align 16, !tbaa !26
+  %7 = shufflevector <4 x float> %5, <4 x float> %6, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  ret <4 x float> %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL15_mm_unpackhi_psDv4_fS_(<4 x float> noundef %0, <4 x float> noundef %1) #6 {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !26
+  store <4 x float> %1, ptr %4, align 16, !tbaa !26
+  %5 = load <4 x float>, ptr %3, align 16, !tbaa !26
+  %6 = load <4 x float>, ptr %4, align 16, !tbaa !26
+  %7 = shufflevector <4 x float> %5, <4 x float> %6, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  ret <4 x float> %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL13_mm_movelh_psDv4_fS_(<4 x float> noundef %0, <4 x float> noundef %1) #6 {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !26
+  store <4 x float> %1, ptr %4, align 16, !tbaa !26
+  %5 = load <4 x float>, ptr %3, align 16, !tbaa !26
+  %6 = load <4 x float>, ptr %4, align 16, !tbaa !26
+  %7 = shufflevector <4 x float> %5, <4 x float> %6, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  ret <4 x float> %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL13_mm_movehl_psDv4_fS_(<4 x float> noundef %0, <4 x float> noundef %1) #6 {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !26
+  store <4 x float> %1, ptr %4, align 16, !tbaa !26
+  %5 = load <4 x float>, ptr %3, align 16, !tbaa !26
+  %6 = load <4 x float>, ptr %4, align 16, !tbaa !26
+  %7 = shufflevector <4 x float> %5, <4 x float> %6, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  ret <4 x float> %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3ozz4math6Float3C2Ev(ptr noundef nonnull align 4 dereferenceable(12) %0) unnamed_addr #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3ozz4math10QuaternionC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal void @_ZL12_mm_store_ssPfDv4_f(ptr noundef %0, <4 x float> noundef %1) #6 {
+  %3 = alloca ptr, align 8
+  %4 = alloca <4 x float>, align 16
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  store <4 x float> %1, ptr %4, align 16, !tbaa !26
+  %5 = load <4 x float>, ptr %4, align 16, !tbaa !26
+  %6 = extractelement <4 x float> %5, i32 0
+  %7 = load ptr, ptr %3, align 8, !tbaa !34
+  %8 = getelementptr inbounds nuw %struct.__mm_store_ss_struct, ptr %7, i32 0, i32 0
+  store float %6, ptr %8, align 1, !tbaa !26
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal void @_ZL13_mm_storeu_psPfDv4_f(ptr noundef %0, <4 x float> noundef %1) #6 {
+  %3 = alloca ptr, align 8
+  %4 = alloca <4 x float>, align 16
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  store <4 x float> %1, ptr %4, align 16, !tbaa !26
+  %5 = load <4 x float>, ptr %4, align 16, !tbaa !26
+  %6 = load ptr, ptr %3, align 8, !tbaa !34
+  %7 = getelementptr inbounds nuw %struct.__storeu_ps, ptr %6, i32 0, i32 0
+  store <4 x float> %5, ptr %7, align 1, !tbaa !26
+  ret void
+}
+
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { alwaysinline mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTSN3ozz9animation8SkeletonE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTSN3ozz4spanIKPKcEE", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !7, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = !{!18, !14, i64 8}
+!18 = !{!"_ZTSN3ozz4spanIKPKcEE", !19, i64 0, !14, i64 8}
+!19 = !{!"p2 omnipotent char", !20, i64 0}
+!20 = !{!"any p2 pointer", !6, i64 0}
+!21 = !{!18, !19, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"int", !7, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTSN3ozz4math12SoaTransformE", !6, i64 0}
+!26 = !{!7, !7, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTSN3ozz4spanIKNS_4math12SoaTransformEEE", !6, i64 0}
+!29 = !{!30, !25, i64 0}
+!30 = !{!"_ZTSN3ozz4spanIKNS_4math12SoaTransformEEE", !25, i64 0, !14, i64 8}
+!31 = !{!6, !6, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTSN3ozz4math9TransformE", !6, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 float", !6, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTSN3ozz4spanIPcEE", !6, i64 0}
+!38 = !{!39, !19, i64 0}
+!39 = !{!"_ZTSN3ozz4spanIPcEE", !19, i64 0, !14, i64 8}
+!40 = !{!39, !14, i64 8}
+!41 = !{!19, !19, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTSN3ozz4spanINS_4math12SoaTransformEEE", !6, i64 0}
+!44 = !{!45, !25, i64 0}
+!45 = !{!"_ZTSN3ozz4spanINS_4math12SoaTransformEEE", !25, i64 0, !14, i64 8}
+!46 = !{!45, !14, i64 8}
+!47 = !{!30, !14, i64 8}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTSN3ozz4math6Float3E", !6, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTSN3ozz4math10QuaternionE", !6, i64 0}

@@ -10,11 +10,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 $_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_ = comdat any
 
+$_ZN3ozz2io9MakeArrayIfEEKNS0_8internal5ArrayIKT_EEPS5_m = comdat any
+
 $_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_ = comdat any
+
+$_ZN3ozz2io9MakeArrayIfEEKNS0_8internal5ArrayIT_EEPS4_m = comdat any
 
 $_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKiEEEEvRKT_ = comdat any
 
+$_ZN3ozz2io9MakeArrayIiEEKNS0_8internal5ArrayIKT_EEPS5_m = comdat any
+
 $_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIiEEEEvRT_ = comdat any
+
+$_ZN3ozz2io9MakeArrayIiEEKNS0_8internal5ArrayIT_EEPS4_m = comdat any
 
 $_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKfEELb0EE5WriteERNS0_8OArchiveE = comdat any
 
@@ -22,11 +30,17 @@ $_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKfEEEEvv = comdat any
 
 $_ZN3ozz2io6ExternINS0_8internal5ArrayIKfEEE4SaveERNS0_8OArchiveEPKS5_m = comdat any
 
+$_ZNK3ozz2io8internal5ArrayIKfE4SaveERNS0_8OArchiveE = comdat any
+
 $_ZNK3ozz2io8OArchive11endian_swapEv = comdat any
 
 $_ZN3ozz2io8OArchivelsEf = comdat any
 
 $_ZN3ozz2io8OArchive10SaveBinaryEPKvm = comdat any
+
+$_ZN3ozz13EndianSwapperIfLm4EE4SwapEf = comdat any
+
+$_ZN3ozz19_in_place_byte_swapERhS0_ = comdat any
 
 $_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIfEELb0EE8ValidateERNS0_8IArchiveE = comdat any
 
@@ -34,9 +48,13 @@ $_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayIfEEEEjv = comdat any
 
 $_ZN3ozz2io6ExternIKNS0_8internal5ArrayIfEEE4LoadERNS0_8IArchiveEPS5_mj = comdat any
 
+$_ZNK3ozz2io8internal5ArrayIfE4LoadERNS0_8IArchiveEj = comdat any
+
 $_ZN3ozz2io8IArchive10LoadBinaryEPvm = comdat any
 
 $_ZNK3ozz2io8IArchive11endian_swapEv = comdat any
+
+$_ZN3ozz13EndianSwapperIfLm4EE4SwapEPfm = comdat any
 
 $_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKiEELb0EE5WriteERNS0_8OArchiveE = comdat any
 
@@ -44,7 +62,11 @@ $_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKiEEEEvv = comdat any
 
 $_ZN3ozz2io6ExternINS0_8internal5ArrayIKiEEE4SaveERNS0_8OArchiveEPKS5_m = comdat any
 
+$_ZNK3ozz2io8internal5ArrayIKiE4SaveERNS0_8OArchiveE = comdat any
+
 $_ZN3ozz2io8OArchivelsEi = comdat any
+
+$_ZN3ozz13EndianSwapperIiLm4EE4SwapEi = comdat any
 
 $_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIiEELb0EE8ValidateERNS0_8IArchiveE = comdat any
 
@@ -52,37 +74,33 @@ $_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayIiEEEEjv = comdat any
 
 $_ZN3ozz2io6ExternIKNS0_8internal5ArrayIiEEE4LoadERNS0_8IArchiveEPS5_mj = comdat any
 
+$_ZNK3ozz2io8internal5ArrayIiE4LoadERNS0_8IArchiveEj = comdat any
+
+$_ZN3ozz13EndianSwapperIiLm4EE4SwapEPim = comdat any
+
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz2io6ExternIDv4_fE4SaveERNS0_8OArchiveEPKS2_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #0 align 2 {
-  %4 = alloca %"struct.ozz::io::internal::Array", align 8
+  %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca %"struct.ozz::io::internal::Array", align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i64 %2, ptr %9, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = load i64, ptr %9, align 8
-  %14 = mul i64 4, %13
-  store ptr %12, ptr %5, align 8
-  store i64 %14, ptr %6, align 8
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.ozz::io::internal::Array", ptr %4, i32 0, i32 1
-  %17 = load i64, ptr %6, align 8
-  store i64 %17, ptr %16, align 8
-  %18 = load { ptr, i64 }, ptr %4, align 8
-  %19 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
-  %20 = extractvalue { ptr, i64 } %18, 0
-  store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
-  %22 = extractvalue { ptr, i64 } %18, 1
-  store i64 %22, ptr %21, align 8
-  call void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %11, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %7 = alloca %"struct.ozz::io::internal::Array", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #6
+  %9 = load ptr, ptr %5, align 8, !tbaa !9
+  %10 = load i64, ptr %6, align 8, !tbaa !10
+  %11 = mul i64 4, %10
+  %12 = call { ptr, i64 } @_ZN3ozz2io9MakeArrayIfEEKNS0_8internal5ArrayIKT_EEPS5_m(ptr noundef %9, i64 noundef %11)
+  %13 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 0
+  %14 = extractvalue { ptr, i64 } %12, 0
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 1
+  %16 = extractvalue { ptr, i64 } %12, 1
+  store i64 %16, ptr %15, align 8
+  call void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
   ret void
 }
 
@@ -90,49 +108,64 @@ define dso_local void @_ZN3ozz2io6ExternIDv4_fE4SaveERNS0_8OArchiveEPKS2_m(ptr n
 define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !12
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKfEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKfEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
   call void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKfEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local { ptr, i64 } @_ZN3ozz2io9MakeArrayIfEEKNS0_8internal5ArrayIKT_EEPS5_m(ptr noundef %0, i64 noundef %1) #2 comdat {
+  %3 = alloca %"struct.ozz::io::internal::Array", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !14
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  %6 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array", ptr %3, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !14
+  store ptr %7, ptr %6, align 8, !tbaa !16
+  %8 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array", ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %5, align 8, !tbaa !10
+  store i64 %9, ptr %8, align 8, !tbaa !18
+  %10 = load { ptr, i64 }, ptr %3, align 8
+  ret { ptr, i64 } %10
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz2io6ExternIDv4_fE4LoadERNS0_8IArchiveEPS2_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 align 2 {
-  %5 = alloca %"struct.ozz::io::internal::Array.0", align 8
+  %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca %"struct.ozz::io::internal::Array.0", align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
-  %13 = load ptr, ptr %8, align 8
-  %14 = load ptr, ptr %9, align 8
-  %15 = load i64, ptr %10, align 8
-  %16 = mul i64 4, %15
-  store ptr %14, ptr %6, align 8
-  store i64 %16, ptr %7, align 8
-  %17 = load ptr, ptr %6, align 8
-  store ptr %17, ptr %5, align 8
-  %18 = getelementptr inbounds %"struct.ozz::io::internal::Array.0", ptr %5, i32 0, i32 1
-  %19 = load i64, ptr %7, align 8
-  store i64 %19, ptr %18, align 8
-  %20 = load { ptr, i64 }, ptr %5, align 8
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 0
-  %22 = extractvalue { ptr, i64 } %20, 0
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 1
-  %24 = extractvalue { ptr, i64 } %20, 1
-  store i64 %24, ptr %23, align 8
-  call void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %13, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %8 = alloca i32, align 4
+  %9 = alloca %"struct.ozz::io::internal::Array.0", align 8
+  store ptr %0, ptr %5, align 8, !tbaa !19
+  store ptr %1, ptr %6, align 8, !tbaa !9
+  store i64 %2, ptr %7, align 8, !tbaa !10
+  store i32 %3, ptr %8, align 4, !tbaa !21
+  %10 = load ptr, ptr %5, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #6
+  %11 = load ptr, ptr %6, align 8, !tbaa !9
+  %12 = load i64, ptr %7, align 8, !tbaa !10
+  %13 = mul i64 4, %12
+  %14 = call { ptr, i64 } @_ZN3ozz2io9MakeArrayIfEEKNS0_8internal5ArrayIT_EEPS4_m(ptr noundef %11, i64 noundef %13)
+  %15 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 0
+  %16 = extractvalue { ptr, i64 } %14, 0
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 1
+  %18 = extractvalue { ptr, i64 } %14, 1
+  store i64 %18, ptr %17, align 8
+  call void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %10, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #6
   ret void
 }
 
@@ -141,49 +174,60 @@ define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIf
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !23
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIfEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayIfEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !21
+  %9 = load ptr, ptr %4, align 8, !tbaa !23
+  %10 = load i32, ptr %5, align 4, !tbaa !21
   call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayIfEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local { ptr, i64 } @_ZN3ozz2io9MakeArrayIfEEKNS0_8internal5ArrayIT_EEPS4_m(ptr noundef %0, i64 noundef %1) #2 comdat {
+  %3 = alloca %"struct.ozz::io::internal::Array.0", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !14
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  %6 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.0", ptr %3, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !14
+  store ptr %7, ptr %6, align 8, !tbaa !25
+  %8 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.0", ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %5, align 8, !tbaa !10
+  store i64 %9, ptr %8, align 8, !tbaa !27
+  %10 = load { ptr, i64 }, ptr %3, align 8
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz2io6ExternIDv2_xE4SaveERNS0_8OArchiveEPKS2_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #0 align 2 {
-  %4 = alloca %"struct.ozz::io::internal::Array.1", align 8
+  %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca %"struct.ozz::io::internal::Array.1", align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i64 %2, ptr %9, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = load i64, ptr %9, align 8
-  %14 = mul i64 4, %13
-  store ptr %12, ptr %5, align 8
-  store i64 %14, ptr %6, align 8
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.ozz::io::internal::Array.1", ptr %4, i32 0, i32 1
-  %17 = load i64, ptr %6, align 8
-  store i64 %17, ptr %16, align 8
-  %18 = load { ptr, i64 }, ptr %4, align 8
-  %19 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
-  %20 = extractvalue { ptr, i64 } %18, 0
-  store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
-  %22 = extractvalue { ptr, i64 } %18, 1
-  store i64 %22, ptr %21, align 8
-  call void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKiEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %11, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %7 = alloca %"struct.ozz::io::internal::Array.1", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #6
+  %9 = load ptr, ptr %5, align 8, !tbaa !9
+  %10 = load i64, ptr %6, align 8, !tbaa !10
+  %11 = mul i64 4, %10
+  %12 = call { ptr, i64 } @_ZN3ozz2io9MakeArrayIiEEKNS0_8internal5ArrayIKT_EEPS5_m(ptr noundef %9, i64 noundef %11)
+  %13 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 0
+  %14 = extractvalue { ptr, i64 } %12, 0
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 1
+  %16 = extractvalue { ptr, i64 } %12, 1
+  store i64 %16, ptr %15, align 8
+  call void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKiEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
   ret void
 }
 
@@ -191,49 +235,58 @@ define dso_local void @_ZN3ozz2io6ExternIDv2_xE4SaveERNS0_8OArchiveEPKS2_m(ptr n
 define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKiEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !28
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKiEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %5)
   call void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKiEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !28
   call void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKiEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef %6, i64 noundef 1)
   ret void
 }
 
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local { ptr, i64 } @_ZN3ozz2io9MakeArrayIiEEKNS0_8internal5ArrayIKT_EEPS5_m(ptr noundef %0, i64 noundef %1) #2 comdat {
+  %3 = alloca %"struct.ozz::io::internal::Array.1", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !30
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  %6 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.1", ptr %3, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !30
+  store ptr %7, ptr %6, align 8, !tbaa !32
+  %8 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.1", ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %5, align 8, !tbaa !10
+  store i64 %9, ptr %8, align 8, !tbaa !34
+  %10 = load { ptr, i64 }, ptr %3, align 8
+  ret { ptr, i64 } %10
+}
+
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz2io6ExternIDv2_xE4LoadERNS0_8IArchiveEPS2_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 align 2 {
-  %5 = alloca %"struct.ozz::io::internal::Array.2", align 8
+  %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca %"struct.ozz::io::internal::Array.2", align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
-  %13 = load ptr, ptr %8, align 8
-  %14 = load ptr, ptr %9, align 8
-  %15 = load i64, ptr %10, align 8
-  %16 = mul i64 4, %15
-  store ptr %14, ptr %6, align 8
-  store i64 %16, ptr %7, align 8
-  %17 = load ptr, ptr %6, align 8
-  store ptr %17, ptr %5, align 8
-  %18 = getelementptr inbounds %"struct.ozz::io::internal::Array.2", ptr %5, i32 0, i32 1
-  %19 = load i64, ptr %7, align 8
-  store i64 %19, ptr %18, align 8
-  %20 = load { ptr, i64 }, ptr %5, align 8
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 0
-  %22 = extractvalue { ptr, i64 } %20, 0
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 1
-  %24 = extractvalue { ptr, i64 } %20, 1
-  store i64 %24, ptr %23, align 8
-  call void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIiEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %13, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %8 = alloca i32, align 4
+  %9 = alloca %"struct.ozz::io::internal::Array.2", align 8
+  store ptr %0, ptr %5, align 8, !tbaa !19
+  store ptr %1, ptr %6, align 8, !tbaa !9
+  store i64 %2, ptr %7, align 8, !tbaa !10
+  store i32 %3, ptr %8, align 4, !tbaa !21
+  %10 = load ptr, ptr %5, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #6
+  %11 = load ptr, ptr %6, align 8, !tbaa !9
+  %12 = load i64, ptr %7, align 8, !tbaa !10
+  %13 = mul i64 4, %12
+  %14 = call { ptr, i64 } @_ZN3ozz2io9MakeArrayIiEEKNS0_8internal5ArrayIT_EEPS4_m(ptr noundef %11, i64 noundef %13)
+  %15 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 0
+  %16 = extractvalue { ptr, i64 } %14, 0
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 1
+  %18 = extractvalue { ptr, i64 } %14, 1
+  store i64 %18, ptr %17, align 8
+  call void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIiEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %10, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #6
   ret void
 }
 
@@ -242,190 +295,214 @@ define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIi
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !35
   %6 = load ptr, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIiEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
   %8 = call noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayIiEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  store i32 %8, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
+  store i32 %8, ptr %5, align 4, !tbaa !21
+  %9 = load ptr, ptr %4, align 8, !tbaa !35
+  %10 = load i32, ptr %5, align 4, !tbaa !21
   call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayIiEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef %9, i64 noundef 1, i32 noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local { ptr, i64 } @_ZN3ozz2io9MakeArrayIiEEKNS0_8internal5ArrayIT_EEPS4_m(ptr noundef %0, i64 noundef %1) #2 comdat {
+  %3 = alloca %"struct.ozz::io::internal::Array.2", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !30
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  %6 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.2", ptr %3, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !30
+  store ptr %7, ptr %6, align 8, !tbaa !37
+  %8 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.2", ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %5, align 8, !tbaa !10
+  store i64 %9, ptr %8, align 8, !tbaa !39
+  %10 = load { ptr, i64 }, ptr %3, align 8
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz2io6ExternINS_4math8Float4x4EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #0 align 2 {
-  %4 = alloca %"struct.ozz::io::internal::Array", align 8
+  %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca %"struct.ozz::io::internal::Array", align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i64 %2, ptr %9, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = load i64, ptr %9, align 8
-  %14 = mul i64 16, %13
-  store ptr %12, ptr %5, align 8
-  store i64 %14, ptr %6, align 8
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.ozz::io::internal::Array", ptr %4, i32 0, i32 1
-  %17 = load i64, ptr %6, align 8
-  store i64 %17, ptr %16, align 8
-  %18 = load { ptr, i64 }, ptr %4, align 8
-  %19 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
-  %20 = extractvalue { ptr, i64 } %18, 0
-  store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
-  %22 = extractvalue { ptr, i64 } %18, 1
-  store i64 %22, ptr %21, align 8
-  call void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %11, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %7 = alloca %"struct.ozz::io::internal::Array", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !40
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #6
+  %9 = load ptr, ptr %5, align 8, !tbaa !40
+  %10 = load i64, ptr %6, align 8, !tbaa !10
+  %11 = mul i64 16, %10
+  %12 = call { ptr, i64 } @_ZN3ozz2io9MakeArrayIfEEKNS0_8internal5ArrayIKT_EEPS5_m(ptr noundef %9, i64 noundef %11)
+  %13 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 0
+  %14 = extractvalue { ptr, i64 } %12, 0
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 1
+  %16 = extractvalue { ptr, i64 } %12, 1
+  store i64 %16, ptr %15, align 8
+  call void @_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz2io6ExternINS_4math8Float4x4EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 align 2 {
-  %5 = alloca %"struct.ozz::io::internal::Array.0", align 8
+  %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca %"struct.ozz::io::internal::Array.0", align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
-  %13 = load ptr, ptr %8, align 8
-  %14 = load ptr, ptr %9, align 8
-  %15 = load i64, ptr %10, align 8
-  %16 = mul i64 16, %15
-  store ptr %14, ptr %6, align 8
-  store i64 %16, ptr %7, align 8
-  %17 = load ptr, ptr %6, align 8
-  store ptr %17, ptr %5, align 8
-  %18 = getelementptr inbounds %"struct.ozz::io::internal::Array.0", ptr %5, i32 0, i32 1
-  %19 = load i64, ptr %7, align 8
-  store i64 %19, ptr %18, align 8
-  %20 = load { ptr, i64 }, ptr %5, align 8
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 0
-  %22 = extractvalue { ptr, i64 } %20, 0
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 1
-  %24 = extractvalue { ptr, i64 } %20, 1
-  store i64 %24, ptr %23, align 8
-  call void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %13, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %8 = alloca i32, align 4
+  %9 = alloca %"struct.ozz::io::internal::Array.0", align 8
+  store ptr %0, ptr %5, align 8, !tbaa !19
+  store ptr %1, ptr %6, align 8, !tbaa !40
+  store i64 %2, ptr %7, align 8, !tbaa !10
+  store i32 %3, ptr %8, align 4, !tbaa !21
+  %10 = load ptr, ptr %5, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #6
+  %11 = load ptr, ptr %6, align 8, !tbaa !40
+  %12 = load i64, ptr %7, align 8, !tbaa !10
+  %13 = mul i64 16, %12
+  %14 = call { ptr, i64 } @_ZN3ozz2io9MakeArrayIfEEKNS0_8internal5ArrayIT_EEPS4_m(ptr noundef %11, i64 noundef %13)
+  %15 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 0
+  %16 = extractvalue { ptr, i64 } %14, 0
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 1
+  %18 = extractvalue { ptr, i64 } %14, 1
+  store i64 %18, ptr %17, align 8
+  call void @_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %10, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #6
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKfEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKfEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKfEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKfEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKfEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKfEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #4 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca i64, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i64 %2, ptr %9, align 8
-  store i64 0, ptr %10, align 8
-  br label %11
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  store i64 0, ptr %7, align 8, !tbaa !10
+  br label %8
 
-11:                                               ; preds = %46, %3
-  %12 = load i64, ptr %10, align 8
-  %13 = load i64, ptr %9, align 8
-  %14 = icmp ult i64 %12, %13
-  br i1 %14, label %15, label %49
+8:                                                ; preds = %18, %3
+  %9 = load i64, ptr %7, align 8, !tbaa !10
+  %10 = load i64, ptr %6, align 8, !tbaa !10
+  %11 = icmp ult i64 %9, %10
+  br i1 %11, label %13, label %12
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %8, align 8
-  %17 = load i64, ptr %10, align 8
-  %18 = getelementptr inbounds %"struct.ozz::io::internal::Array", ptr %16, i64 %17
-  %19 = load ptr, ptr %7, align 8
-  store ptr %18, ptr %4, align 8
-  store ptr %19, ptr %5, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = load ptr, ptr %5, align 8
-  %22 = call noundef zeroext i1 @_ZNK3ozz2io8OArchive11endian_swapEv(ptr noundef nonnull align 8 dereferenceable(9) %21)
-  br i1 %22, label %23, label %38
+12:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  br label %21
 
-23:                                               ; preds = %15
-  store i64 0, ptr %6, align 8
-  br label %24
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %5, align 8, !tbaa !12
+  %15 = load i64, ptr %7, align 8, !tbaa !10
+  %16 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array", ptr %14, i64 %15
+  %17 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @_ZNK3ozz2io8internal5ArrayIKfE4SaveERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(9) %17)
+  br label %18
 
-24:                                               ; preds = %29, %23
-  %25 = load i64, ptr %6, align 8
-  %26 = getelementptr inbounds %"struct.ozz::io::internal::Array", ptr %20, i32 0, i32 1
-  %27 = load i64, ptr %26, align 8
-  %28 = icmp ult i64 %25, %27
-  br i1 %28, label %29, label %37
+18:                                               ; preds = %13
+  %19 = load i64, ptr %7, align 8, !tbaa !10
+  %20 = add i64 %19, 1
+  store i64 %20, ptr %7, align 8, !tbaa !10
+  br label %8, !llvm.loop !42
 
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %5, align 8
-  %31 = load ptr, ptr %20, align 8
-  %32 = load i64, ptr %6, align 8
-  %33 = getelementptr inbounds float, ptr %31, i64 %32
-  %34 = load float, ptr %33, align 4
-  call void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %30, float noundef %34)
-  %35 = load i64, ptr %6, align 8
-  %36 = add i64 %35, 1
-  store i64 %36, ptr %6, align 8
-  br label %24, !llvm.loop !5
+21:                                               ; preds = %12
+  ret void
+}
 
-37:                                               ; preds = %24
-  br label %45
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK3ozz2io8internal5ArrayIKfE4SaveERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  %8 = call noundef zeroext i1 @_ZNK3ozz2io8OArchive11endian_swapEv(ptr noundef nonnull align 8 dereferenceable(9) %7)
+  br i1 %8, label %9, label %27
 
-38:                                               ; preds = %15
-  %39 = load ptr, ptr %5, align 8
-  %40 = load ptr, ptr %20, align 8
-  %41 = getelementptr inbounds %"struct.ozz::io::internal::Array", ptr %20, i32 0, i32 1
-  %42 = load i64, ptr %41, align 8
-  %43 = mul i64 %42, 4
-  %44 = call noundef i64 @_ZN3ozz2io8OArchive10SaveBinaryEPKvm(ptr noundef nonnull align 8 dereferenceable(9) %39, ptr noundef %40, i64 noundef %43)
-  br label %45
+9:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  store i64 0, ptr %5, align 8, !tbaa !10
+  br label %10
 
-45:                                               ; preds = %38, %37
-  br label %46
+10:                                               ; preds = %23, %9
+  %11 = load i64, ptr %5, align 8, !tbaa !10
+  %12 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array", ptr %6, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !18
+  %14 = icmp ult i64 %11, %13
+  br i1 %14, label %16, label %15
 
-46:                                               ; preds = %45
-  %47 = load i64, ptr %10, align 8
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %10, align 8
-  br label %11, !llvm.loop !7
+15:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  br label %26
 
-49:                                               ; preds = %11
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %4, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array", ptr %6, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !16
+  %20 = load i64, ptr %5, align 8, !tbaa !10
+  %21 = getelementptr inbounds nuw float, ptr %19, i64 %20
+  %22 = load float, ptr %21, align 4, !tbaa !44
+  call void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %17, float noundef %22)
+  br label %23
+
+23:                                               ; preds = %16
+  %24 = load i64, ptr %5, align 8, !tbaa !10
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %5, align 8, !tbaa !10
+  br label %10, !llvm.loop !46
+
+26:                                               ; preds = %15
+  br label %35
+
+27:                                               ; preds = %2
+  %28 = load ptr, ptr %4, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array", ptr %6, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !16
+  %31 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array", ptr %6, i32 0, i32 1
+  %32 = load i64, ptr %31, align 8, !tbaa !18
+  %33 = mul i64 %32, 4
+  %34 = call noundef i64 @_ZN3ozz2io8OArchive10SaveBinaryEPKvm(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef %30, i64 noundef %33)
+  br label %35
+
+35:                                               ; preds = %27, %26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK3ozz2io8OArchive11endian_swapEv(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK3ozz2io8OArchive11endian_swapEv(ptr noundef nonnull align 8 dereferenceable(9) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.ozz::io::OArchive", ptr %3, i32 0, i32 1
-  %5 = load i8, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.ozz::io::OArchive", ptr %3, i32 0, i32 1
+  %5 = load i8, ptr %4, align 8, !tbaa !47, !range !51, !noundef !52
   %6 = trunc i8 %5 to i1
   ret i1 %6
 }
@@ -433,113 +510,36 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3ozz2io8OArchive11endian_s
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsEf(ptr noundef nonnull align 8 dereferenceable(9) %0, float noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca float, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca float, align 4
-  %11 = alloca float, align 4
-  store ptr %0, ptr %9, align 8
-  store float %1, ptr %10, align 4
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds %"class.ozz::io::OArchive", ptr %12, i32 0, i32 1
-  %14 = load i8, ptr %13, align 8
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %80
+  %4 = alloca float, align 4
+  %5 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store float %1, ptr %4, align 4, !tbaa !44
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  %7 = getelementptr inbounds nuw %"class.ozz::io::OArchive", ptr %6, i32 0, i32 1
+  %8 = load i8, ptr %7, align 8, !tbaa !47, !range !51, !noundef !52
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %13
 
-16:                                               ; preds = %2
-  %17 = load float, ptr %10, align 4
-  store float %17, ptr %7, align 4
-  store ptr %7, ptr %8, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 3
-  store ptr %18, ptr %3, align 8
-  store ptr %20, ptr %4, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = load ptr, ptr %4, align 8
-  %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i32
-  %27 = xor i32 %23, %26
-  %28 = trunc i32 %27 to i8
-  %29 = load ptr, ptr %3, align 8
-  store i8 %28, ptr %29, align 1
-  %30 = load ptr, ptr %3, align 8
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  %33 = load ptr, ptr %4, align 8
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = xor i32 %32, %35
-  %37 = trunc i32 %36 to i8
-  %38 = load ptr, ptr %4, align 8
-  store i8 %37, ptr %38, align 1
-  %39 = load ptr, ptr %3, align 8
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = load ptr, ptr %4, align 8
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  %45 = xor i32 %41, %44
-  %46 = trunc i32 %45 to i8
-  %47 = load ptr, ptr %3, align 8
-  store i8 %46, ptr %47, align 1
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1
-  %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 2
-  store ptr %49, ptr %5, align 8
-  store ptr %51, ptr %6, align 8
-  %52 = load ptr, ptr %5, align 8
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = load ptr, ptr %6, align 8
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = xor i32 %54, %57
-  %59 = trunc i32 %58 to i8
-  %60 = load ptr, ptr %5, align 8
-  store i8 %59, ptr %60, align 1
-  %61 = load ptr, ptr %5, align 8
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = load ptr, ptr %6, align 8
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = xor i32 %63, %66
-  %68 = trunc i32 %67 to i8
-  %69 = load ptr, ptr %6, align 8
-  store i8 %68, ptr %69, align 1
-  %70 = load ptr, ptr %5, align 8
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i32
-  %73 = load ptr, ptr %6, align 8
-  %74 = load i8, ptr %73, align 1
-  %75 = zext i8 %74 to i32
-  %76 = xor i32 %72, %75
-  %77 = trunc i32 %76 to i8
-  %78 = load ptr, ptr %5, align 8
-  store i8 %77, ptr %78, align 1
-  %79 = load float, ptr %7, align 4
-  br label %82
+10:                                               ; preds = %2
+  %11 = load float, ptr %4, align 4, !tbaa !44
+  %12 = call noundef float @_ZN3ozz13EndianSwapperIfLm4EE4SwapEf(float noundef %11)
+  br label %15
 
-80:                                               ; preds = %2
-  %81 = load float, ptr %10, align 4
-  br label %82
+13:                                               ; preds = %2
+  %14 = load float, ptr %4, align 4, !tbaa !44
+  br label %15
 
-82:                                               ; preds = %80, %16
-  %83 = phi float [ %79, %16 ], [ %81, %80 ]
-  store float %83, ptr %11, align 4
-  %84 = getelementptr inbounds %"class.ozz::io::OArchive", ptr %12, i32 0, i32 0
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds ptr, ptr %86, i64 2
-  %88 = load ptr, ptr %87, align 8
-  %89 = call noundef i64 %88(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef %11, i64 noundef 4)
+15:                                               ; preds = %13, %10
+  %16 = phi float [ %12, %10 ], [ %14, %13 ]
+  store float %16, ptr %5, align 4, !tbaa !44
+  %17 = getelementptr inbounds nuw %"class.ozz::io::OArchive", ptr %6, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !53
+  %19 = load ptr, ptr %18, align 8, !tbaa !54
+  %20 = getelementptr inbounds ptr, ptr %19, i64 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %5, i64 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
   ret void
 }
 
@@ -548,205 +548,174 @@ define linkonce_odr dso_local noundef i64 @_ZN3ozz2io8OArchive10SaveBinaryEPKvm(
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store i64 %2, ptr %6, align 8, !tbaa !10
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.ozz::io::OArchive", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = load i64, ptr %6, align 8
-  %12 = load ptr, ptr %9, align 8
+  %8 = getelementptr inbounds nuw %"class.ozz::io::OArchive", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !53
+  %10 = load ptr, ptr %5, align 8, !tbaa !9
+  %11 = load i64, ptr %6, align 8, !tbaa !10
+  %12 = load ptr, ptr %9, align 8, !tbaa !54
   %13 = getelementptr inbounds ptr, ptr %12, i64 2
   %14 = load ptr, ptr %13, align 8
   %15 = call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10, i64 noundef %11)
   ret i64 %15
 }
 
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef float @_ZN3ozz13EndianSwapperIfLm4EE4SwapEf(float noundef %0) #5 comdat align 2 {
+  %2 = alloca float, align 4
+  %3 = alloca ptr, align 8
+  store float %0, ptr %2, align 4, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  store ptr %2, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %5 = getelementptr inbounds i8, ptr %4, i64 0
+  %6 = load ptr, ptr %3, align 8, !tbaa !56
+  %7 = getelementptr inbounds i8, ptr %6, i64 3
+  call void @_ZN3ozz19_in_place_byte_swapERhS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %8 = load ptr, ptr %3, align 8, !tbaa !56
+  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %10 = load ptr, ptr %3, align 8, !tbaa !56
+  %11 = getelementptr inbounds i8, ptr %10, i64 2
+  call void @_ZN3ozz19_in_place_byte_swapERhS0_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %12 = load float, ptr %2, align 4, !tbaa !44
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
+  ret float %12
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3ozz19_in_place_byte_swapERhS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %3, align 8, !tbaa !56
+  %6 = load i8, ptr %5, align 1, !tbaa !58
+  %7 = zext i8 %6 to i32
+  %8 = load ptr, ptr %4, align 8, !tbaa !56
+  %9 = load i8, ptr %8, align 1, !tbaa !58
+  %10 = zext i8 %9 to i32
+  %11 = xor i32 %7, %10
+  %12 = trunc i32 %11 to i8
+  %13 = load ptr, ptr %3, align 8, !tbaa !56
+  store i8 %12, ptr %13, align 1, !tbaa !58
+  %14 = load ptr, ptr %3, align 8, !tbaa !56
+  %15 = load i8, ptr %14, align 1, !tbaa !58
+  %16 = zext i8 %15 to i32
+  %17 = load ptr, ptr %4, align 8, !tbaa !56
+  %18 = load i8, ptr %17, align 1, !tbaa !58
+  %19 = zext i8 %18 to i32
+  %20 = xor i32 %16, %19
+  %21 = trunc i32 %20 to i8
+  %22 = load ptr, ptr %4, align 8, !tbaa !56
+  store i8 %21, ptr %22, align 1, !tbaa !58
+  %23 = load ptr, ptr %3, align 8, !tbaa !56
+  %24 = load i8, ptr %23, align 1, !tbaa !58
+  %25 = zext i8 %24 to i32
+  %26 = load ptr, ptr %4, align 8, !tbaa !56
+  %27 = load i8, ptr %26, align 1, !tbaa !58
+  %28 = zext i8 %27 to i32
+  %29 = xor i32 %25, %28
+  %30 = trunc i32 %29 to i8
+  %31 = load ptr, ptr %3, align 8, !tbaa !56
+  store i8 %30, ptr %31, align 1, !tbaa !58
+  ret void
+}
+
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIfEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIfEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayIfEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayIfEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
+  store i32 0, ptr %3, align 4, !tbaa !21
+  %4 = load i32, ptr %3, align 4, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i32 %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayIfEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayIfEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #4 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca i64, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
-  %16 = alloca ptr, align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca i64, align 8
-  %19 = alloca i32, align 4
-  %20 = alloca i64, align 8
-  store ptr %0, ptr %16, align 8
-  store ptr %1, ptr %17, align 8
-  store i64 %2, ptr %18, align 8
-  store i32 %3, ptr %19, align 4
-  store i64 0, ptr %20, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !19
+  store ptr %1, ptr %6, align 8, !tbaa !23
+  store i64 %2, ptr %7, align 8, !tbaa !10
+  store i32 %3, ptr %8, align 4, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  store i64 0, ptr %9, align 8, !tbaa !10
+  br label %10
+
+10:                                               ; preds = %21, %4
+  %11 = load i64, ptr %9, align 8, !tbaa !10
+  %12 = load i64, ptr %7, align 8, !tbaa !10
+  %13 = icmp ult i64 %11, %12
+  br i1 %13, label %15, label %14
+
+14:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  br label %24
+
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %6, align 8, !tbaa !23
+  %17 = load i64, ptr %9, align 8, !tbaa !10
+  %18 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.0", ptr %16, i64 %17
+  %19 = load ptr, ptr %5, align 8, !tbaa !19
+  %20 = load i32, ptr %8, align 4, !tbaa !21
+  call void @_ZNK3ozz2io8internal5ArrayIfE4LoadERNS0_8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(9) %19, i32 noundef %20)
   br label %21
 
-21:                                               ; preds = %124, %4
-  %22 = load i64, ptr %20, align 8
-  %23 = load i64, ptr %18, align 8
-  %24 = icmp ult i64 %22, %23
-  br i1 %24, label %25, label %127
+21:                                               ; preds = %15
+  %22 = load i64, ptr %9, align 8, !tbaa !10
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %9, align 8, !tbaa !10
+  br label %10, !llvm.loop !59
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %17, align 8
-  %27 = load i64, ptr %20, align 8
-  %28 = getelementptr inbounds %"struct.ozz::io::internal::Array.0", ptr %26, i64 %27
-  %29 = load ptr, ptr %16, align 8
-  %30 = load i32, ptr %19, align 4
-  store ptr %28, ptr %13, align 8
-  store ptr %29, ptr %14, align 8
-  store i32 %30, ptr %15, align 4
-  %31 = load ptr, ptr %13, align 8
-  %32 = load ptr, ptr %14, align 8
-  %33 = load ptr, ptr %31, align 8
-  %34 = getelementptr inbounds %"struct.ozz::io::internal::Array.0", ptr %31, i32 0, i32 1
-  %35 = load i64, ptr %34, align 8
-  %36 = mul i64 %35, 4
-  %37 = call noundef i64 @_ZN3ozz2io8IArchive10LoadBinaryEPvm(ptr noundef nonnull align 8 dereferenceable(9) %32, ptr noundef %33, i64 noundef %36)
-  %38 = load ptr, ptr %14, align 8
-  %39 = call noundef zeroext i1 @_ZNK3ozz2io8IArchive11endian_swapEv(ptr noundef nonnull align 8 dereferenceable(9) %38)
-  br i1 %39, label %40, label %123
+24:                                               ; preds = %14
+  ret void
+}
 
-40:                                               ; preds = %25
-  %41 = load ptr, ptr %31, align 8
-  %42 = getelementptr inbounds %"struct.ozz::io::internal::Array.0", ptr %31, i32 0, i32 1
-  %43 = load i64, ptr %42, align 8
-  store ptr %41, ptr %9, align 8
-  store i64 %43, ptr %10, align 8
-  %44 = load ptr, ptr %9, align 8
-  store ptr %44, ptr %11, align 8
-  store i64 0, ptr %12, align 8
-  br label %45
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK3ozz2io8internal5ArrayIfE4LoadERNS0_8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !23
+  store ptr %1, ptr %5, align 8, !tbaa !19
+  store i32 %2, ptr %6, align 4, !tbaa !21
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.0", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !25
+  %11 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.0", ptr %7, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !27
+  %13 = mul i64 %12, 4
+  %14 = call noundef i64 @_ZN3ozz2io8IArchive10LoadBinaryEPvm(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef %10, i64 noundef %13)
+  %15 = load ptr, ptr %5, align 8, !tbaa !19
+  %16 = call noundef zeroext i1 @_ZNK3ozz2io8IArchive11endian_swapEv(ptr noundef nonnull align 8 dereferenceable(9) %15)
+  br i1 %16, label %17, label %22
 
-45:                                               ; preds = %50, %40
-  %46 = load i64, ptr %12, align 8
-  %47 = load i64, ptr %10, align 8
-  %48 = mul i64 %47, 4
-  %49 = icmp ult i64 %46, %48
-  br i1 %49, label %50, label %122
+17:                                               ; preds = %3
+  %18 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.0", ptr %7, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %20 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.0", ptr %7, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8, !tbaa !27
+  call void @_ZN3ozz13EndianSwapperIfLm4EE4SwapEPfm(ptr noundef %19, i64 noundef %21)
+  br label %22
 
-50:                                               ; preds = %45
-  %51 = load ptr, ptr %11, align 8
-  %52 = load i64, ptr %12, align 8
-  %53 = getelementptr inbounds i8, ptr %51, i64 %52
-  %54 = load ptr, ptr %11, align 8
-  %55 = load i64, ptr %12, align 8
-  %56 = add i64 %55, 3
-  %57 = getelementptr inbounds i8, ptr %54, i64 %56
-  store ptr %53, ptr %5, align 8
-  store ptr %57, ptr %6, align 8
-  %58 = load ptr, ptr %5, align 8
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i32
-  %61 = load ptr, ptr %6, align 8
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = xor i32 %60, %63
-  %65 = trunc i32 %64 to i8
-  %66 = load ptr, ptr %5, align 8
-  store i8 %65, ptr %66, align 1
-  %67 = load ptr, ptr %5, align 8
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i32
-  %70 = load ptr, ptr %6, align 8
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i32
-  %73 = xor i32 %69, %72
-  %74 = trunc i32 %73 to i8
-  %75 = load ptr, ptr %6, align 8
-  store i8 %74, ptr %75, align 1
-  %76 = load ptr, ptr %5, align 8
-  %77 = load i8, ptr %76, align 1
-  %78 = zext i8 %77 to i32
-  %79 = load ptr, ptr %6, align 8
-  %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i32
-  %82 = xor i32 %78, %81
-  %83 = trunc i32 %82 to i8
-  %84 = load ptr, ptr %5, align 8
-  store i8 %83, ptr %84, align 1
-  %85 = load ptr, ptr %11, align 8
-  %86 = load i64, ptr %12, align 8
-  %87 = add i64 %86, 1
-  %88 = getelementptr inbounds i8, ptr %85, i64 %87
-  %89 = load ptr, ptr %11, align 8
-  %90 = load i64, ptr %12, align 8
-  %91 = add i64 %90, 2
-  %92 = getelementptr inbounds i8, ptr %89, i64 %91
-  store ptr %88, ptr %7, align 8
-  store ptr %92, ptr %8, align 8
-  %93 = load ptr, ptr %7, align 8
-  %94 = load i8, ptr %93, align 1
-  %95 = zext i8 %94 to i32
-  %96 = load ptr, ptr %8, align 8
-  %97 = load i8, ptr %96, align 1
-  %98 = zext i8 %97 to i32
-  %99 = xor i32 %95, %98
-  %100 = trunc i32 %99 to i8
-  %101 = load ptr, ptr %7, align 8
-  store i8 %100, ptr %101, align 1
-  %102 = load ptr, ptr %7, align 8
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i32
-  %105 = load ptr, ptr %8, align 8
-  %106 = load i8, ptr %105, align 1
-  %107 = zext i8 %106 to i32
-  %108 = xor i32 %104, %107
-  %109 = trunc i32 %108 to i8
-  %110 = load ptr, ptr %8, align 8
-  store i8 %109, ptr %110, align 1
-  %111 = load ptr, ptr %7, align 8
-  %112 = load i8, ptr %111, align 1
-  %113 = zext i8 %112 to i32
-  %114 = load ptr, ptr %8, align 8
-  %115 = load i8, ptr %114, align 1
-  %116 = zext i8 %115 to i32
-  %117 = xor i32 %113, %116
-  %118 = trunc i32 %117 to i8
-  %119 = load ptr, ptr %7, align 8
-  store i8 %118, ptr %119, align 1
-  %120 = load i64, ptr %12, align 8
-  %121 = add i64 %120, 4
-  store i64 %121, ptr %12, align 8
-  br label %45, !llvm.loop !8
-
-122:                                              ; preds = %45
-  br label %123
-
-123:                                              ; preds = %122, %25
-  br label %124
-
-124:                                              ; preds = %123
-  %125 = load i64, ptr %20, align 8
-  %126 = add i64 %125, 1
-  store i64 %126, ptr %20, align 8
-  br label %21, !llvm.loop !9
-
-127:                                              ; preds = %21
+22:                                               ; preds = %17, %3
   ret void
 }
 
@@ -755,15 +724,15 @@ define linkonce_odr dso_local noundef i64 @_ZN3ozz2io8IArchive10LoadBinaryEPvm(p
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store i64 %2, ptr %6, align 8, !tbaa !10
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.ozz::io::IArchive", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = load i64, ptr %6, align 8
-  %12 = load ptr, ptr %9, align 8
+  %8 = getelementptr inbounds nuw %"class.ozz::io::IArchive", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !60
+  %10 = load ptr, ptr %5, align 8, !tbaa !9
+  %11 = load i64, ptr %6, align 8, !tbaa !10
+  %12 = load ptr, ptr %9, align 8, !tbaa !54
   %13 = getelementptr inbounds ptr, ptr %12, i64 1
   %14 = load ptr, ptr %13, align 8
   %15 = call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10, i64 noundef %11)
@@ -771,427 +740,476 @@ define linkonce_odr dso_local noundef i64 @_ZN3ozz2io8IArchive10LoadBinaryEPvm(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK3ozz2io8IArchive11endian_swapEv(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK3ozz2io8IArchive11endian_swapEv(ptr noundef nonnull align 8 dereferenceable(9) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.ozz::io::IArchive", ptr %3, i32 0, i32 1
-  %5 = load i8, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.ozz::io::IArchive", ptr %3, i32 0, i32 1
+  %5 = load i8, ptr %4, align 8, !tbaa !62, !range !51, !noundef !52
   %6 = trunc i8 %5 to i1
   ret i1 %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKiEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3ozz13EndianSwapperIfLm4EE4SwapEPfm(ptr noundef %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %7 = load ptr, ptr %3, align 8, !tbaa !14
+  store ptr %7, ptr %5, align 8, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  store i64 0, ptr %6, align 8, !tbaa !10
+  br label %8
+
+8:                                                ; preds = %31, %2
+  %9 = load i64, ptr %6, align 8, !tbaa !10
+  %10 = load i64, ptr %4, align 8, !tbaa !10
+  %11 = mul i64 %10, 4
+  %12 = icmp ult i64 %9, %11
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  br label %34
+
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %5, align 8, !tbaa !56
+  %16 = load i64, ptr %6, align 8, !tbaa !10
+  %17 = add i64 %16, 0
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %17
+  %19 = load ptr, ptr %5, align 8, !tbaa !56
+  %20 = load i64, ptr %6, align 8, !tbaa !10
+  %21 = add i64 %20, 3
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %21
+  call void @_ZN3ozz19_in_place_byte_swapERhS0_(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 1 dereferenceable(1) %22)
+  %23 = load ptr, ptr %5, align 8, !tbaa !56
+  %24 = load i64, ptr %6, align 8, !tbaa !10
+  %25 = add i64 %24, 1
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %25
+  %27 = load ptr, ptr %5, align 8, !tbaa !56
+  %28 = load i64, ptr %6, align 8, !tbaa !10
+  %29 = add i64 %28, 2
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
+  call void @_ZN3ozz19_in_place_byte_swapERhS0_(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 1 dereferenceable(1) %30)
+  br label %31
+
+31:                                               ; preds = %14
+  %32 = load i64, ptr %6, align 8, !tbaa !10
+  %33 = add i64 %32, 4
+  store i64 %33, ptr %6, align 8, !tbaa !10
+  br label %8, !llvm.loop !63
+
+34:                                               ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKiEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIKiEELb0EE5WriteERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKiEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io8OArchive11SaveVersionINS0_8internal5ArrayIKiEEEEvv(ptr noundef nonnull align 8 dereferenceable(9) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKiEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) #4 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca i64, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i64 %2, ptr %9, align 8
-  store i64 0, ptr %10, align 8
-  br label %11
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  store i64 0, ptr %7, align 8, !tbaa !10
+  br label %8
 
-11:                                               ; preds = %46, %3
-  %12 = load i64, ptr %10, align 8
-  %13 = load i64, ptr %9, align 8
-  %14 = icmp ult i64 %12, %13
-  br i1 %14, label %15, label %49
+8:                                                ; preds = %18, %3
+  %9 = load i64, ptr %7, align 8, !tbaa !10
+  %10 = load i64, ptr %6, align 8, !tbaa !10
+  %11 = icmp ult i64 %9, %10
+  br i1 %11, label %13, label %12
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %8, align 8
-  %17 = load i64, ptr %10, align 8
-  %18 = getelementptr inbounds %"struct.ozz::io::internal::Array.1", ptr %16, i64 %17
-  %19 = load ptr, ptr %7, align 8
-  store ptr %18, ptr %4, align 8
-  store ptr %19, ptr %5, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = load ptr, ptr %5, align 8
-  %22 = call noundef zeroext i1 @_ZNK3ozz2io8OArchive11endian_swapEv(ptr noundef nonnull align 8 dereferenceable(9) %21)
-  br i1 %22, label %23, label %38
+12:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  br label %21
 
-23:                                               ; preds = %15
-  store i64 0, ptr %6, align 8
-  br label %24
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %5, align 8, !tbaa !28
+  %15 = load i64, ptr %7, align 8, !tbaa !10
+  %16 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.1", ptr %14, i64 %15
+  %17 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @_ZNK3ozz2io8internal5ArrayIKiE4SaveERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(9) %17)
+  br label %18
 
-24:                                               ; preds = %29, %23
-  %25 = load i64, ptr %6, align 8
-  %26 = getelementptr inbounds %"struct.ozz::io::internal::Array.1", ptr %20, i32 0, i32 1
-  %27 = load i64, ptr %26, align 8
-  %28 = icmp ult i64 %25, %27
-  br i1 %28, label %29, label %37
+18:                                               ; preds = %13
+  %19 = load i64, ptr %7, align 8, !tbaa !10
+  %20 = add i64 %19, 1
+  store i64 %20, ptr %7, align 8, !tbaa !10
+  br label %8, !llvm.loop !64
 
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %5, align 8
-  %31 = load ptr, ptr %20, align 8
-  %32 = load i64, ptr %6, align 8
-  %33 = getelementptr inbounds i32, ptr %31, i64 %32
-  %34 = load i32, ptr %33, align 4
-  call void @_ZN3ozz2io8OArchivelsEi(ptr noundef nonnull align 8 dereferenceable(9) %30, i32 noundef %34)
-  %35 = load i64, ptr %6, align 8
-  %36 = add i64 %35, 1
-  store i64 %36, ptr %6, align 8
-  br label %24, !llvm.loop !10
+21:                                               ; preds = %12
+  ret void
+}
 
-37:                                               ; preds = %24
-  br label %45
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK3ozz2io8internal5ArrayIKiE4SaveERNS0_8OArchiveE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  %8 = call noundef zeroext i1 @_ZNK3ozz2io8OArchive11endian_swapEv(ptr noundef nonnull align 8 dereferenceable(9) %7)
+  br i1 %8, label %9, label %27
 
-38:                                               ; preds = %15
-  %39 = load ptr, ptr %5, align 8
-  %40 = load ptr, ptr %20, align 8
-  %41 = getelementptr inbounds %"struct.ozz::io::internal::Array.1", ptr %20, i32 0, i32 1
-  %42 = load i64, ptr %41, align 8
-  %43 = mul i64 %42, 4
-  %44 = call noundef i64 @_ZN3ozz2io8OArchive10SaveBinaryEPKvm(ptr noundef nonnull align 8 dereferenceable(9) %39, ptr noundef %40, i64 noundef %43)
-  br label %45
+9:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  store i64 0, ptr %5, align 8, !tbaa !10
+  br label %10
 
-45:                                               ; preds = %38, %37
-  br label %46
+10:                                               ; preds = %23, %9
+  %11 = load i64, ptr %5, align 8, !tbaa !10
+  %12 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.1", ptr %6, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !34
+  %14 = icmp ult i64 %11, %13
+  br i1 %14, label %16, label %15
 
-46:                                               ; preds = %45
-  %47 = load i64, ptr %10, align 8
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %10, align 8
-  br label %11, !llvm.loop !11
+15:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  br label %26
 
-49:                                               ; preds = %11
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %4, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.1", ptr %6, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !32
+  %20 = load i64, ptr %5, align 8, !tbaa !10
+  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %22 = load i32, ptr %21, align 4, !tbaa !21
+  call void @_ZN3ozz2io8OArchivelsEi(ptr noundef nonnull align 8 dereferenceable(9) %17, i32 noundef %22)
+  br label %23
+
+23:                                               ; preds = %16
+  %24 = load i64, ptr %5, align 8, !tbaa !10
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %5, align 8, !tbaa !10
+  br label %10, !llvm.loop !65
+
+26:                                               ; preds = %15
+  br label %35
+
+27:                                               ; preds = %2
+  %28 = load ptr, ptr %4, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.1", ptr %6, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !32
+  %31 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.1", ptr %6, i32 0, i32 1
+  %32 = load i64, ptr %31, align 8, !tbaa !34
+  %33 = mul i64 %32, 4
+  %34 = call noundef i64 @_ZN3ozz2io8OArchive10SaveBinaryEPKvm(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef %30, i64 noundef %33)
+  br label %35
+
+35:                                               ; preds = %27, %26
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3ozz2io8OArchivelsEi(ptr noundef nonnull align 8 dereferenceable(9) %0, i32 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca i32, align 4
-  store ptr %0, ptr %9, align 8
-  store i32 %1, ptr %10, align 4
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds %"class.ozz::io::OArchive", ptr %12, i32 0, i32 1
-  %14 = load i8, ptr %13, align 8
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %80
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !21
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  %7 = getelementptr inbounds nuw %"class.ozz::io::OArchive", ptr %6, i32 0, i32 1
+  %8 = load i8, ptr %7, align 8, !tbaa !47, !range !51, !noundef !52
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %13
 
-16:                                               ; preds = %2
-  %17 = load i32, ptr %10, align 4
-  store i32 %17, ptr %7, align 4
-  store ptr %7, ptr %8, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 3
-  store ptr %18, ptr %3, align 8
-  store ptr %20, ptr %4, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = load ptr, ptr %4, align 8
-  %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i32
-  %27 = xor i32 %23, %26
-  %28 = trunc i32 %27 to i8
-  %29 = load ptr, ptr %3, align 8
-  store i8 %28, ptr %29, align 1
-  %30 = load ptr, ptr %3, align 8
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  %33 = load ptr, ptr %4, align 8
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = xor i32 %32, %35
-  %37 = trunc i32 %36 to i8
-  %38 = load ptr, ptr %4, align 8
-  store i8 %37, ptr %38, align 1
-  %39 = load ptr, ptr %3, align 8
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = load ptr, ptr %4, align 8
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  %45 = xor i32 %41, %44
-  %46 = trunc i32 %45 to i8
-  %47 = load ptr, ptr %3, align 8
-  store i8 %46, ptr %47, align 1
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1
-  %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 2
-  store ptr %49, ptr %5, align 8
-  store ptr %51, ptr %6, align 8
-  %52 = load ptr, ptr %5, align 8
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = load ptr, ptr %6, align 8
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = xor i32 %54, %57
-  %59 = trunc i32 %58 to i8
-  %60 = load ptr, ptr %5, align 8
-  store i8 %59, ptr %60, align 1
-  %61 = load ptr, ptr %5, align 8
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = load ptr, ptr %6, align 8
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = xor i32 %63, %66
-  %68 = trunc i32 %67 to i8
-  %69 = load ptr, ptr %6, align 8
-  store i8 %68, ptr %69, align 1
-  %70 = load ptr, ptr %5, align 8
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i32
-  %73 = load ptr, ptr %6, align 8
-  %74 = load i8, ptr %73, align 1
-  %75 = zext i8 %74 to i32
-  %76 = xor i32 %72, %75
-  %77 = trunc i32 %76 to i8
-  %78 = load ptr, ptr %5, align 8
-  store i8 %77, ptr %78, align 1
-  %79 = load i32, ptr %7, align 4
-  br label %82
+10:                                               ; preds = %2
+  %11 = load i32, ptr %4, align 4, !tbaa !21
+  %12 = call noundef i32 @_ZN3ozz13EndianSwapperIiLm4EE4SwapEi(i32 noundef %11)
+  br label %15
 
-80:                                               ; preds = %2
-  %81 = load i32, ptr %10, align 4
-  br label %82
+13:                                               ; preds = %2
+  %14 = load i32, ptr %4, align 4, !tbaa !21
+  br label %15
 
-82:                                               ; preds = %80, %16
-  %83 = phi i32 [ %79, %16 ], [ %81, %80 ]
-  store i32 %83, ptr %11, align 4
-  %84 = getelementptr inbounds %"class.ozz::io::OArchive", ptr %12, i32 0, i32 0
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds ptr, ptr %86, i64 2
-  %88 = load ptr, ptr %87, align 8
-  %89 = call noundef i64 %88(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef %11, i64 noundef 4)
+15:                                               ; preds = %13, %10
+  %16 = phi i32 [ %12, %10 ], [ %14, %13 ]
+  store i32 %16, ptr %5, align 4, !tbaa !21
+  %17 = getelementptr inbounds nuw %"class.ozz::io::OArchive", ptr %6, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !53
+  %19 = load ptr, ptr %18, align 8, !tbaa !54
+  %20 = getelementptr inbounds ptr, ptr %19, i64 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %5, i64 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
   ret void
 }
 
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZN3ozz13EndianSwapperIiLm4EE4SwapEi(i32 noundef %0) #2 comdat align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store i32 %0, ptr %2, align 4, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  store ptr %2, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %5 = getelementptr inbounds i8, ptr %4, i64 0
+  %6 = load ptr, ptr %3, align 8, !tbaa !56
+  %7 = getelementptr inbounds i8, ptr %6, i64 3
+  call void @_ZN3ozz19_in_place_byte_swapERhS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %8 = load ptr, ptr %3, align 8, !tbaa !56
+  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %10 = load ptr, ptr %3, align 8, !tbaa !56
+  %11 = getelementptr inbounds i8, ptr %10, i64 2
+  call void @_ZN3ozz19_in_place_byte_swapERhS0_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %12 = load i32, ptr %2, align 4, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
+  ret i32 %12
+}
+
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIiEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3ozz2io8internal6TaggerIKNS1_5ArrayIiEELb0EE8ValidateERNS0_8IArchiveE(ptr noundef nonnull align 8 dereferenceable(9) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayIiEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #1 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN3ozz2io8IArchive11LoadVersionIKNS0_8internal5ArrayIiEEEEjv(ptr noundef nonnull align 8 dereferenceable(9) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
+  store i32 0, ptr %3, align 4, !tbaa !21
+  %4 = load i32, ptr %3, align 4, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i32 %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayIiEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayIiEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #4 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca i64, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
-  %16 = alloca ptr, align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca i64, align 8
-  %19 = alloca i32, align 4
-  %20 = alloca i64, align 8
-  store ptr %0, ptr %16, align 8
-  store ptr %1, ptr %17, align 8
-  store i64 %2, ptr %18, align 8
-  store i32 %3, ptr %19, align 4
-  store i64 0, ptr %20, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !19
+  store ptr %1, ptr %6, align 8, !tbaa !35
+  store i64 %2, ptr %7, align 8, !tbaa !10
+  store i32 %3, ptr %8, align 4, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  store i64 0, ptr %9, align 8, !tbaa !10
+  br label %10
+
+10:                                               ; preds = %21, %4
+  %11 = load i64, ptr %9, align 8, !tbaa !10
+  %12 = load i64, ptr %7, align 8, !tbaa !10
+  %13 = icmp ult i64 %11, %12
+  br i1 %13, label %15, label %14
+
+14:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  br label %24
+
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %6, align 8, !tbaa !35
+  %17 = load i64, ptr %9, align 8, !tbaa !10
+  %18 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.2", ptr %16, i64 %17
+  %19 = load ptr, ptr %5, align 8, !tbaa !19
+  %20 = load i32, ptr %8, align 4, !tbaa !21
+  call void @_ZNK3ozz2io8internal5ArrayIiE4LoadERNS0_8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(9) %19, i32 noundef %20)
   br label %21
 
-21:                                               ; preds = %124, %4
-  %22 = load i64, ptr %20, align 8
-  %23 = load i64, ptr %18, align 8
-  %24 = icmp ult i64 %22, %23
-  br i1 %24, label %25, label %127
+21:                                               ; preds = %15
+  %22 = load i64, ptr %9, align 8, !tbaa !10
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %9, align 8, !tbaa !10
+  br label %10, !llvm.loop !66
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %17, align 8
-  %27 = load i64, ptr %20, align 8
-  %28 = getelementptr inbounds %"struct.ozz::io::internal::Array.2", ptr %26, i64 %27
-  %29 = load ptr, ptr %16, align 8
-  %30 = load i32, ptr %19, align 4
-  store ptr %28, ptr %13, align 8
-  store ptr %29, ptr %14, align 8
-  store i32 %30, ptr %15, align 4
-  %31 = load ptr, ptr %13, align 8
-  %32 = load ptr, ptr %14, align 8
-  %33 = load ptr, ptr %31, align 8
-  %34 = getelementptr inbounds %"struct.ozz::io::internal::Array.2", ptr %31, i32 0, i32 1
-  %35 = load i64, ptr %34, align 8
-  %36 = mul i64 %35, 4
-  %37 = call noundef i64 @_ZN3ozz2io8IArchive10LoadBinaryEPvm(ptr noundef nonnull align 8 dereferenceable(9) %32, ptr noundef %33, i64 noundef %36)
-  %38 = load ptr, ptr %14, align 8
-  %39 = call noundef zeroext i1 @_ZNK3ozz2io8IArchive11endian_swapEv(ptr noundef nonnull align 8 dereferenceable(9) %38)
-  br i1 %39, label %40, label %123
-
-40:                                               ; preds = %25
-  %41 = load ptr, ptr %31, align 8
-  %42 = getelementptr inbounds %"struct.ozz::io::internal::Array.2", ptr %31, i32 0, i32 1
-  %43 = load i64, ptr %42, align 8
-  store ptr %41, ptr %9, align 8
-  store i64 %43, ptr %10, align 8
-  %44 = load ptr, ptr %9, align 8
-  store ptr %44, ptr %11, align 8
-  store i64 0, ptr %12, align 8
-  br label %45
-
-45:                                               ; preds = %50, %40
-  %46 = load i64, ptr %12, align 8
-  %47 = load i64, ptr %10, align 8
-  %48 = mul i64 %47, 4
-  %49 = icmp ult i64 %46, %48
-  br i1 %49, label %50, label %122
-
-50:                                               ; preds = %45
-  %51 = load ptr, ptr %11, align 8
-  %52 = load i64, ptr %12, align 8
-  %53 = getelementptr inbounds i8, ptr %51, i64 %52
-  %54 = load ptr, ptr %11, align 8
-  %55 = load i64, ptr %12, align 8
-  %56 = add i64 %55, 3
-  %57 = getelementptr inbounds i8, ptr %54, i64 %56
-  store ptr %53, ptr %5, align 8
-  store ptr %57, ptr %6, align 8
-  %58 = load ptr, ptr %5, align 8
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i32
-  %61 = load ptr, ptr %6, align 8
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = xor i32 %60, %63
-  %65 = trunc i32 %64 to i8
-  %66 = load ptr, ptr %5, align 8
-  store i8 %65, ptr %66, align 1
-  %67 = load ptr, ptr %5, align 8
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i32
-  %70 = load ptr, ptr %6, align 8
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i32
-  %73 = xor i32 %69, %72
-  %74 = trunc i32 %73 to i8
-  %75 = load ptr, ptr %6, align 8
-  store i8 %74, ptr %75, align 1
-  %76 = load ptr, ptr %5, align 8
-  %77 = load i8, ptr %76, align 1
-  %78 = zext i8 %77 to i32
-  %79 = load ptr, ptr %6, align 8
-  %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i32
-  %82 = xor i32 %78, %81
-  %83 = trunc i32 %82 to i8
-  %84 = load ptr, ptr %5, align 8
-  store i8 %83, ptr %84, align 1
-  %85 = load ptr, ptr %11, align 8
-  %86 = load i64, ptr %12, align 8
-  %87 = add i64 %86, 1
-  %88 = getelementptr inbounds i8, ptr %85, i64 %87
-  %89 = load ptr, ptr %11, align 8
-  %90 = load i64, ptr %12, align 8
-  %91 = add i64 %90, 2
-  %92 = getelementptr inbounds i8, ptr %89, i64 %91
-  store ptr %88, ptr %7, align 8
-  store ptr %92, ptr %8, align 8
-  %93 = load ptr, ptr %7, align 8
-  %94 = load i8, ptr %93, align 1
-  %95 = zext i8 %94 to i32
-  %96 = load ptr, ptr %8, align 8
-  %97 = load i8, ptr %96, align 1
-  %98 = zext i8 %97 to i32
-  %99 = xor i32 %95, %98
-  %100 = trunc i32 %99 to i8
-  %101 = load ptr, ptr %7, align 8
-  store i8 %100, ptr %101, align 1
-  %102 = load ptr, ptr %7, align 8
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i32
-  %105 = load ptr, ptr %8, align 8
-  %106 = load i8, ptr %105, align 1
-  %107 = zext i8 %106 to i32
-  %108 = xor i32 %104, %107
-  %109 = trunc i32 %108 to i8
-  %110 = load ptr, ptr %8, align 8
-  store i8 %109, ptr %110, align 1
-  %111 = load ptr, ptr %7, align 8
-  %112 = load i8, ptr %111, align 1
-  %113 = zext i8 %112 to i32
-  %114 = load ptr, ptr %8, align 8
-  %115 = load i8, ptr %114, align 1
-  %116 = zext i8 %115 to i32
-  %117 = xor i32 %113, %116
-  %118 = trunc i32 %117 to i8
-  %119 = load ptr, ptr %7, align 8
-  store i8 %118, ptr %119, align 1
-  %120 = load i64, ptr %12, align 8
-  %121 = add i64 %120, 4
-  store i64 %121, ptr %12, align 8
-  br label %45, !llvm.loop !12
-
-122:                                              ; preds = %45
-  br label %123
-
-123:                                              ; preds = %122, %25
-  br label %124
-
-124:                                              ; preds = %123
-  %125 = load i64, ptr %20, align 8
-  %126 = add i64 %125, 1
-  store i64 %126, ptr %20, align 8
-  br label %21, !llvm.loop !13
-
-127:                                              ; preds = %21
+24:                                               ; preds = %14
   ret void
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK3ozz2io8internal5ArrayIiE4LoadERNS0_8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !35
+  store ptr %1, ptr %5, align 8, !tbaa !19
+  store i32 %2, ptr %6, align 4, !tbaa !21
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.2", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !37
+  %11 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.2", ptr %7, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !39
+  %13 = mul i64 %12, 4
+  %14 = call noundef i64 @_ZN3ozz2io8IArchive10LoadBinaryEPvm(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef %10, i64 noundef %13)
+  %15 = load ptr, ptr %5, align 8, !tbaa !19
+  %16 = call noundef zeroext i1 @_ZNK3ozz2io8IArchive11endian_swapEv(ptr noundef nonnull align 8 dereferenceable(9) %15)
+  br i1 %16, label %17, label %22
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+17:                                               ; preds = %3
+  %18 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.2", ptr %7, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !37
+  %20 = getelementptr inbounds nuw %"struct.ozz::io::internal::Array.2", ptr %7, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8, !tbaa !39
+  call void @_ZN3ozz13EndianSwapperIiLm4EE4SwapEPim(ptr noundef %19, i64 noundef %21)
+  br label %22
+
+22:                                               ; preds = %17, %3
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3ozz13EndianSwapperIiLm4EE4SwapEPim(ptr noundef %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !30
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %7 = load ptr, ptr %3, align 8, !tbaa !30
+  store ptr %7, ptr %5, align 8, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  store i64 0, ptr %6, align 8, !tbaa !10
+  br label %8
+
+8:                                                ; preds = %31, %2
+  %9 = load i64, ptr %6, align 8, !tbaa !10
+  %10 = load i64, ptr %4, align 8, !tbaa !10
+  %11 = mul i64 %10, 4
+  %12 = icmp ult i64 %9, %11
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  br label %34
+
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %5, align 8, !tbaa !56
+  %16 = load i64, ptr %6, align 8, !tbaa !10
+  %17 = add i64 %16, 0
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %17
+  %19 = load ptr, ptr %5, align 8, !tbaa !56
+  %20 = load i64, ptr %6, align 8, !tbaa !10
+  %21 = add i64 %20, 3
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %21
+  call void @_ZN3ozz19_in_place_byte_swapERhS0_(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 1 dereferenceable(1) %22)
+  %23 = load ptr, ptr %5, align 8, !tbaa !56
+  %24 = load i64, ptr %6, align 8, !tbaa !10
+  %25 = add i64 %24, 1
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %25
+  %27 = load ptr, ptr %5, align 8, !tbaa !56
+  %28 = load i64, ptr %6, align 8, !tbaa !10
+  %29 = add i64 %28, 2
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
+  call void @_ZN3ozz19_in_place_byte_swapERhS0_(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 1 dereferenceable(1) %30)
+  br label %31
+
+31:                                               ; preds = %14
+  %32 = load i64, ptr %6, align 8, !tbaa !10
+  %33 = add i64 %32, 4
+  store i64 %33, ptr %6, align 8, !tbaa !10
+  br label %8, !llvm.loop !67
+
+34:                                               ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  ret void
+}
+
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { alwaysinline mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTSN3ozz2io8OArchiveE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!6, !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTSN3ozz2io8internal5ArrayIKfEE", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 float", !6, i64 0}
+!16 = !{!17, !15, i64 0}
+!17 = !{!"_ZTSN3ozz2io8internal5ArrayIKfEE", !15, i64 0, !11, i64 8}
+!18 = !{!17, !11, i64 8}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTSN3ozz2io8IArchiveE", !6, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"int", !7, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTSN3ozz2io8internal5ArrayIfEE", !6, i64 0}
+!25 = !{!26, !15, i64 0}
+!26 = !{!"_ZTSN3ozz2io8internal5ArrayIfEE", !15, i64 0, !11, i64 8}
+!27 = !{!26, !11, i64 8}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTSN3ozz2io8internal5ArrayIKiEE", !6, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 int", !6, i64 0}
+!32 = !{!33, !31, i64 0}
+!33 = !{!"_ZTSN3ozz2io8internal5ArrayIKiEE", !31, i64 0, !11, i64 8}
+!34 = !{!33, !11, i64 8}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTSN3ozz2io8internal5ArrayIiEE", !6, i64 0}
+!37 = !{!38, !31, i64 0}
+!38 = !{!"_ZTSN3ozz2io8internal5ArrayIiEE", !31, i64 0, !11, i64 8}
+!39 = !{!38, !11, i64 8}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTSN3ozz4math8Float4x4E", !6, i64 0}
+!42 = distinct !{!42, !43}
+!43 = !{!"llvm.loop.mustprogress"}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"float", !7, i64 0}
+!46 = distinct !{!46, !43}
+!47 = !{!48, !50, i64 8}
+!48 = !{!"_ZTSN3ozz2io8OArchiveE", !49, i64 0, !50, i64 8}
+!49 = !{!"p1 _ZTSN3ozz2io6StreamE", !6, i64 0}
+!50 = !{!"bool", !7, i64 0}
+!51 = !{i8 0, i8 2}
+!52 = !{}
+!53 = !{!48, !49, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"vtable pointer", !8, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 omnipotent char", !6, i64 0}
+!58 = !{!7, !7, i64 0}
+!59 = distinct !{!59, !43}
+!60 = !{!61, !49, i64 0}
+!61 = !{!"_ZTSN3ozz2io8IArchiveE", !49, i64 0, !50, i64 8}
+!62 = !{!61, !50, i64 8}
+!63 = distinct !{!63, !43}
+!64 = distinct !{!64, !43}
+!65 = distinct !{!65, !43}
+!66 = distinct !{!66, !43}
+!67 = distinct !{!67, !43}

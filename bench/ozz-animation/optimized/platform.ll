@@ -10,7 +10,7 @@ define dso_local noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef %0, ptr
 3:                                                ; preds = %18, %2
   %.016 = phi ptr [ %0, %2 ], [ %19, %18 ]
   %.0 = phi ptr [ %1, %2 ], [ %20, %18 ]
-  %4 = load i8, ptr %.0, align 1
+  %4 = load i8, ptr %.0, align 1, !tbaa !4
   switch i8 %4, label %16 [
     i8 0, label %21
     i8 63, label %5
@@ -18,7 +18,7 @@ define dso_local noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef %0, ptr
   ]
 
 5:                                                ; preds = %3
-  %6 = load i8, ptr %.016, align 1
+  %6 = load i8, ptr %.016, align 1, !tbaa !4
   %.not23 = icmp eq i8 %6, 0
   br i1 %.not23, label %.loopexit, label %18
 
@@ -28,7 +28,7 @@ define dso_local noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef %0, ptr
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %7
-  %11 = load i8, ptr %.016, align 1
+  %11 = load i8, ptr %.016, align 1, !tbaa !4
   %.not22 = icmp eq i8 %11, 0
   br i1 %.not22, label %15, label %12
 
@@ -41,17 +41,17 @@ define dso_local noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef %0, ptr
   br label %.loopexit
 
 16:                                               ; preds = %3
-  %17 = load i8, ptr %.016, align 1
+  %17 = load i8, ptr %.016, align 1, !tbaa !4
   %.not21 = icmp eq i8 %17, %4
   br i1 %.not21, label %18, label %.loopexit
 
 18:                                               ; preds = %5, %16
   %19 = getelementptr inbounds nuw i8, ptr %.016, i64 1
   %20 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %3, !llvm.loop !5
+  br label %3, !llvm.loop !7
 
 21:                                               ; preds = %3
-  %22 = load i8, ptr %.016, align 1
+  %22 = load i8, ptr %.016, align 1, !tbaa !4
   %.not20 = icmp eq i8 %22, 0
   br label %.loopexit
 
@@ -60,14 +60,16 @@ define dso_local noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef %0, ptr
   ret i1 %.017
 }
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}

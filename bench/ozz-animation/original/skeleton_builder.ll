@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.ozz::math::Transform" = type { %"struct.ozz::math::Float3", %"struct.ozz::math::Quaternion", %"struct.ozz::math::Float3" }
 %"struct.ozz::math::Quaternion" = type { float, float, float, float }
 %"struct.ozz::math::Float3" = type { float, float, float }
-%"class.ozz::animation::Skeleton" = type { %"struct.ozz::span", %"struct.ozz::span.8", %"struct.ozz::span.9" }
+%"class.ozz::animation::Skeleton" = type { ptr, %"struct.ozz::span", %"struct.ozz::span.8", %"struct.ozz::span.9" }
 %"struct.ozz::span" = type { ptr, i64 }
 %"struct.ozz::span.8" = type { ptr, i64 }
 %"struct.ozz::span.9" = type { ptr, i64 }
@@ -33,6 +33,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.ozz::math::SoaFloat3" = type { <4 x float>, <4 x float>, <4 x float> }
 %"struct.ozz::animation::offline::RawSkeleton" = type { %"class.std::vector" }
 %"class.std::move_iterator" = type { ptr }
+%struct.__mm_load_ss_struct = type { float }
+%struct.__loadu_ps = type { <4 x float> }
 %"class.__gnu_cxx::__normal_iterator" = type { ptr }
 
 $_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEC2IS4_vEEDn = comdat any
@@ -49,9 +51,25 @@ $_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE5c_strE
 
 $_ZNK3ozz4spanIsEixEm = comdat any
 
+$_ZN3ozz4math11simd_float46w_axisEv = comdat any
+
+$_ZN3ozz4math11simd_float44zeroEv = comdat any
+
+$_ZN3ozz4math11simd_float43oneEv = comdat any
+
 $_ZNK3ozz9animation8Skeleton14num_soa_jointsEv = comdat any
 
+$_ZN3ozz4math11simd_float49Load3PtrUEPKf = comdat any
+
+$_ZN3ozz4math14NormalizeSafe4EDv4_fS1_ = comdat any
+
+$_ZN3ozz4math11simd_float48LoadPtrUEPKf = comdat any
+
+$_ZN3ozz4math12Transpose4x3EPKDv4_fPS1_ = comdat any
+
 $_ZNK3ozz4spanINS_4math12SoaTransformEEixEm = comdat any
+
+$_ZN3ozz4math12Transpose4x4EPKDv4_fPS1_ = comdat any
 
 $_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev = comdat any
 
@@ -79,11 +97,23 @@ $_ZNK3ozz9animation8Skeleton10num_jointsEv = comdat any
 
 $_ZNK3ozz4spanIsE4sizeEv = comdat any
 
+$_ZN3ozz3NewINS_9animation8SkeletonEJEEEPT_DpOT0_ = comdat any
+
+$_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEC2IS4_vEEPS2_ = comdat any
+
+$_ZN3ozz9animation8SkeletonC2Ev = comdat any
+
+$_ZN3ozz4spanINS_4math12SoaTransformEEC2Ev = comdat any
+
+$_ZN3ozz4spanIsEC2Ev = comdat any
+
+$_ZN3ozz4spanIPcEC2Ev = comdat any
+
+$_ZNSt15__uniq_ptr_dataIN3ozz9animation8SkeletonENS0_7DeleterIS2_EELb1ELb1EECI2St15__uniq_ptr_implIS2_S4_EEPS2_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEC2EPS2_ = comdat any
+
 $_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE6_M_ptrEv = comdat any
-
-$_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE11get_deleterEv = comdat any
-
-$_ZNK3ozz7DeleterINS_9animation8SkeletonEEclEPS2_ = comdat any
 
 $_ZSt3getILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSA_ = comdat any
 
@@ -92,6 +122,10 @@ $_ZSt12__get_helperILm0EPN3ozz9animation8SkeletonEJNS0_7DeleterIS2_EEEERT0_RSt11
 $_ZNSt11_Tuple_implILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEE7_M_headERS6_ = comdat any
 
 $_ZNSt10_Head_baseILm0EPN3ozz9animation8SkeletonELb0EE7_M_headERS4_ = comdat any
+
+$_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE11get_deleterEv = comdat any
+
+$_ZNK3ozz7DeleterINS_9animation8SkeletonEEclEPS2_ = comdat any
 
 $_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE10_M_deleterEv = comdat any
 
@@ -104,14 +138,6 @@ $_ZNSt11_Tuple_implILm1EJN3ozz7DeleterINS0_9animation8SkeletonEEEEE7_M_headERS5_
 $_ZNSt10_Head_baseILm1EN3ozz7DeleterINS0_9animation8SkeletonEEELb1EE7_M_headERS5_ = comdat any
 
 $_ZN3ozz6DeleteINS_9animation8SkeletonEEEvPT_ = comdat any
-
-$_ZN3ozz3NewINS_9animation8SkeletonEJEEEPT_DpOT0_ = comdat any
-
-$_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEC2IS4_vEEPS2_ = comdat any
-
-$_ZNSt15__uniq_ptr_dataIN3ozz9animation8SkeletonENS0_7DeleterIS2_EELb1ELb1EECI2St15__uniq_ptr_implIS2_S4_EEPS2_ = comdat any
-
-$_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEC2EPS2_ = comdat any
 
 $_ZNKSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE4sizeEv = comdat any
 
@@ -138,1123 +164,598 @@ $_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_M_dat
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK3ozz9animation7offline15SkeletonBuilderclERKNS1_11RawSkeletonE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca <4 x float>, align 16
-  %5 = alloca <4 x float>, align 16
-  %6 = alloca <4 x float>, align 16
-  %7 = alloca <4 x float>, align 16
-  %8 = alloca <4 x float>, align 16
-  %9 = alloca <4 x float>, align 16
-  %10 = alloca <4 x float>, align 16
-  %11 = alloca <4 x float>, align 16
-  %12 = alloca <4 x float>, align 16
-  %13 = alloca <4 x float>, align 16
-  %14 = alloca <4 x float>, align 16
-  %15 = alloca <4 x float>, align 16
-  %16 = alloca <4 x float>, align 16
-  %17 = alloca <4 x float>, align 16
-  %18 = alloca <4 x float>, align 16
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i1, align 1
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
   %19 = alloca <4 x float>, align 16
   %20 = alloca <4 x float>, align 16
   %21 = alloca <4 x float>, align 16
-  %22 = alloca <4 x float>, align 16
-  %23 = alloca <4 x float>, align 16
-  %24 = alloca ptr, align 8
-  %25 = alloca <4 x float>, align 16
-  %26 = alloca <4 x float>, align 16
-  %27 = alloca <4 x float>, align 16
-  %28 = alloca <4 x float>, align 16
-  %29 = alloca <4 x float>, align 16
-  %30 = alloca <4 x float>, align 16
-  %31 = alloca <4 x float>, align 16
-  %32 = alloca <4 x float>, align 16
-  %33 = alloca <4 x float>, align 16
-  %34 = alloca <4 x float>, align 16
-  %35 = alloca <4 x float>, align 16
-  %36 = alloca <4 x float>, align 16
-  %37 = alloca <4 x float>, align 16
-  %38 = alloca <4 x float>, align 16
-  %39 = alloca <4 x float>, align 16
-  %40 = alloca <4 x float>, align 16
-  %41 = alloca <4 x float>, align 16
-  %42 = alloca <4 x float>, align 16
-  %43 = alloca <4 x float>, align 16
-  %44 = alloca <4 x float>, align 16
-  %45 = alloca <4 x float>, align 16
-  %46 = alloca <4 x float>, align 16
-  %47 = alloca ptr, align 8
-  %48 = alloca float, align 4
-  %49 = alloca <4 x float>, align 16
-  %50 = alloca ptr, align 8
-  %51 = alloca float, align 4
-  %52 = alloca <4 x float>, align 16
-  %53 = alloca ptr, align 8
-  %54 = alloca float, align 4
-  %55 = alloca <4 x float>, align 16
-  %56 = alloca ptr, align 8
-  %57 = alloca float, align 4
-  %58 = alloca <4 x float>, align 16
-  %59 = alloca ptr, align 8
-  %60 = alloca float, align 4
-  %61 = alloca <4 x float>, align 16
-  %62 = alloca ptr, align 8
-  %63 = alloca float, align 4
-  %64 = alloca <4 x float>, align 16
-  %65 = alloca <4 x float>, align 16
-  %66 = alloca <4 x float>, align 16
-  %67 = alloca <4 x float>, align 16
-  %68 = alloca <4 x float>, align 16
-  %69 = alloca <4 x float>, align 16
-  %70 = alloca <4 x float>, align 16
-  %71 = alloca <4 x float>, align 16
-  %72 = alloca <4 x float>, align 16
-  %73 = alloca <4 x float>, align 16
-  %74 = alloca <4 x float>, align 16
-  %75 = alloca <4 x float>, align 16
-  %76 = alloca <4 x float>, align 16
-  %77 = alloca <4 x float>, align 16
-  %78 = alloca <4 x float>, align 16
-  %79 = alloca <4 x float>, align 16
-  %80 = alloca <4 x float>, align 16
-  %81 = alloca <4 x float>, align 16
-  %82 = alloca <4 x float>, align 16
-  %83 = alloca <4 x float>, align 16
-  %84 = alloca <4 x float>, align 16
-  %85 = alloca <4 x float>, align 16
-  %86 = alloca <4 x float>, align 16
-  %87 = alloca <4 x float>, align 16
-  %88 = alloca <4 x float>, align 16
-  %89 = alloca <4 x float>, align 16
-  %90 = alloca <4 x float>, align 16
-  %91 = alloca <4 x float>, align 16
-  %92 = alloca <4 x float>, align 16
-  %93 = alloca <4 x float>, align 16
-  %94 = alloca <4 x float>, align 16
-  %95 = alloca <4 x float>, align 16
-  %96 = alloca <4 x float>, align 16
-  %97 = alloca <4 x float>, align 16
-  %98 = alloca <4 x float>, align 16
-  %99 = alloca <2 x i64>, align 16
-  %100 = alloca <2 x i64>, align 16
-  %101 = alloca <2 x i64>, align 16
-  %102 = alloca <2 x i64>, align 16
-  %103 = alloca <2 x i64>, align 16
-  %104 = alloca <2 x i64>, align 16
-  %105 = alloca <2 x i64>, align 16
-  %106 = alloca <2 x i64>, align 16
-  %107 = alloca <2 x i64>, align 16
-  %108 = alloca <2 x i64>, align 16
-  %109 = alloca <2 x i64>, align 16
-  %110 = alloca <2 x i64>, align 16
-  %111 = alloca i32, align 4
-  %112 = alloca <2 x i64>, align 16
-  %113 = alloca i32, align 4
-  %114 = alloca <2 x i64>, align 16
-  %115 = alloca i32, align 4
-  %116 = alloca <2 x i64>, align 16
-  %117 = alloca i32, align 4
-  %118 = alloca <2 x i64>, align 16
-  %119 = alloca i32, align 4
-  %120 = alloca <2 x i64>, align 16
-  %121 = alloca i32, align 4
-  %122 = alloca <2 x i64>, align 16
-  %123 = alloca <2 x i64>, align 16
-  %124 = alloca <2 x i64>, align 16
-  %125 = alloca ptr, align 8
-  %126 = alloca ptr, align 8
-  %127 = alloca <4 x float>, align 16
-  %128 = alloca <4 x float>, align 16
-  %129 = alloca <4 x float>, align 16
-  %130 = alloca <4 x float>, align 16
-  %131 = alloca ptr, align 8
-  %132 = alloca ptr, align 8
-  %133 = alloca <4 x float>, align 16
-  %134 = alloca <4 x float>, align 16
-  %135 = alloca <4 x float>, align 16
-  %136 = alloca <4 x float>, align 16
-  %137 = alloca ptr, align 8
-  %138 = alloca ptr, align 8
-  %139 = alloca <4 x float>, align 16
-  %140 = alloca <4 x float>, align 16
-  %141 = alloca <4 x float>, align 16
-  %142 = alloca <4 x float>, align 16
-  %143 = alloca ptr, align 8
-  %144 = alloca <2 x i64>, align 16
-  %145 = alloca <4 x float>, align 16
-  %146 = alloca <4 x float>, align 16
-  %147 = alloca <4 x float>, align 16
-  %148 = alloca <4 x float>, align 16
-  %149 = alloca <4 x float>, align 16
-  %150 = alloca <4 x float>, align 16
-  %151 = alloca <4 x float>, align 16
-  %152 = alloca <2 x i64>, align 16
-  %153 = alloca <4 x float>, align 16
-  %154 = alloca ptr, align 8
-  %155 = alloca ptr, align 8
-  %156 = alloca <2 x i64>, align 16
-  %157 = alloca <2 x i64>, align 16
-  %158 = alloca <2 x i64>, align 16
-  %159 = alloca ptr, align 8
-  %160 = alloca ptr, align 8
-  %161 = alloca ptr, align 8
-  %162 = alloca i1, align 1
-  %163 = alloca i32, align 4
-  %164 = alloca ptr, align 8
-  %165 = alloca i32, align 4
-  %166 = alloca %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", align 8
-  %167 = alloca i64, align 8
-  %168 = alloca i32, align 4
-  %169 = alloca ptr, align 8
-  %170 = alloca ptr, align 8
-  %171 = alloca i32, align 4
-  %172 = alloca ptr, align 8
-  %173 = alloca i32, align 4
-  %174 = alloca <4 x float>, align 16
-  %175 = alloca <4 x float>, align 16
-  %176 = alloca <4 x float>, align 16
-  %177 = alloca i32, align 4
-  %178 = alloca [4 x <4 x float>], align 16
-  %179 = alloca [4 x <4 x float>], align 16
-  %180 = alloca [4 x <4 x float>], align 16
-  %181 = alloca i32, align 4
-  %182 = alloca ptr, align 8
-  store ptr %0, ptr %159, align 8
-  store ptr %1, ptr %160, align 8
-  store ptr %2, ptr %161, align 8
-  %183 = load ptr, ptr %161, align 8
-  %184 = call noundef zeroext i1 @_ZNK3ozz9animation7offline11RawSkeleton8ValidateEv(ptr noundef nonnull align 8 dereferenceable(24) %183)
-  br i1 %184, label %186, label %185
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca [4 x <4 x float>], align 16
+  %25 = alloca [4 x <4 x float>], align 16
+  %26 = alloca [4 x <4 x float>], align 16
+  %27 = alloca i32, align 4
+  %28 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !4
+  store ptr %2, ptr %6, align 8, !tbaa !9
+  %29 = load ptr, ptr %6, align 8, !tbaa !9
+  %30 = call noundef zeroext i1 @_ZNK3ozz9animation7offline11RawSkeleton8ValidateEv(ptr noundef nonnull align 8 dereferenceable(24) %29)
+  br i1 %30, label %32, label %31
 
-185:                                              ; preds = %3
-  call void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEC2IS4_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr null) #12
-  br label %796
+31:                                               ; preds = %3
+  call void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEC2IS4_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr null) #16
+  br label %304
 
-186:                                              ; preds = %3
-  store i1 false, ptr %162, align 1
+32:                                               ; preds = %3
+  store i1 false, ptr %7, align 1
   call void @_ZN3ozz11make_uniqueINS_9animation8SkeletonEJEEESt10unique_ptrIT_NS_7DeleterIS4_EEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0)
-  %187 = load ptr, ptr %161, align 8
-  %188 = invoke noundef i32 @_ZNK3ozz9animation7offline11RawSkeleton10num_jointsEv(ptr noundef nonnull align 8 dereferenceable(24) %187)
-          to label %189 unwind label %216
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #16
+  %33 = load ptr, ptr %6, align 8, !tbaa !9
+  %34 = invoke noundef i32 @_ZNK3ozz9animation7offline11RawSkeleton10num_jointsEv(ptr noundef nonnull align 8 dereferenceable(24) %33)
+          to label %35 unwind label %46
 
-189:                                              ; preds = %186
-  store i32 %188, ptr %163, align 4
-  %190 = load i32, ptr %163, align 4
-  invoke void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerC2Ei(ptr noundef nonnull align 8 dereferenceable(24) %166, i32 noundef %190)
-          to label %191 unwind label %216
+35:                                               ; preds = %32
+  store i32 %34, ptr %8, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 24, ptr %11) #16
+  %36 = load i32, ptr %8, align 4, !tbaa !11
+  invoke void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerC2Ei(ptr noundef nonnull align 8 dereferenceable(24) %11, i32 noundef %36)
+          to label %37 unwind label %50
 
-191:                                              ; preds = %189
-  %192 = load ptr, ptr %161, align 8
-  %193 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_(ptr noundef nonnull align 8 dereferenceable(24) %192, ptr noundef nonnull align 8 dereferenceable(24) %166)
-          to label %194 unwind label %220
+37:                                               ; preds = %35
+  %38 = load ptr, ptr %6, align 8, !tbaa !9
+  %39 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %11)
+          to label %40 unwind label %54
 
-194:                                              ; preds = %191
-  store i64 0, ptr %167, align 8
-  store i32 0, ptr %168, align 4
-  br label %195
+40:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #16
+  store i64 0, ptr %12, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #16
+  store i32 0, ptr %13, align 4, !tbaa !11
+  br label %41
 
-195:                                              ; preds = %213, %194
-  %196 = load i32, ptr %168, align 4
-  %197 = load i32, ptr %163, align 4
-  %198 = icmp slt i32 %196, %197
-  br i1 %198, label %199, label %224
+41:                                               ; preds = %72, %40
+  %42 = load i32, ptr %13, align 4, !tbaa !11
+  %43 = load i32, ptr %8, align 4, !tbaa !11
+  %44 = icmp slt i32 %42, %43
+  br i1 %44, label %58, label %45
 
-199:                                              ; preds = %195
-  %200 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %166, i32 0, i32 0
-  %201 = load i32, ptr %168, align 4
-  %202 = sext i32 %201 to i64
-  %203 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %200, i64 noundef %202) #12
-  %204 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %203, i32 0, i32 0
-  %205 = load ptr, ptr %204, align 8
-  store ptr %205, ptr %169, align 8
-  %206 = load ptr, ptr %169, align 8
-  %207 = getelementptr inbounds %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %206, i32 0, i32 1
-  %208 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %207) #12
-  %209 = add i64 %208, 1
-  %210 = mul i64 %209, 1
-  %211 = load i64, ptr %167, align 8
-  %212 = add i64 %211, %210
-  store i64 %212, ptr %167, align 8
-  br label %213
+45:                                               ; preds = %41
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #16
+  br label %75
 
-213:                                              ; preds = %199
-  %214 = load i32, ptr %168, align 4
-  %215 = add nsw i32 %214, 1
-  store i32 %215, ptr %168, align 4
-  br label %195, !llvm.loop !5
-
-216:                                              ; preds = %189, %186
-  %217 = landingpad { ptr, i32 }
+46:                                               ; preds = %32
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %218 = extractvalue { ptr, i32 } %217, 0
-  store ptr %218, ptr %164, align 8
-  %219 = extractvalue { ptr, i32 } %217, 1
-  store i32 %219, ptr %165, align 4
-  br label %795
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %9, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %10, align 4
+  br label %301
 
-220:                                              ; preds = %723, %652, %588, %338, %269, %235, %224, %191
-  %221 = landingpad { ptr, i32 }
+50:                                               ; preds = %35
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %222 = extractvalue { ptr, i32 } %221, 0
-  store ptr %222, ptr %164, align 8
-  %223 = extractvalue { ptr, i32 } %221, 1
-  store i32 %223, ptr %165, align 4
-  call void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %166) #12
-  br label %795
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %9, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %10, align 4
+  br label %300
 
-224:                                              ; preds = %195
-  %225 = call noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
-  %226 = load i64, ptr %167, align 8
-  %227 = load i32, ptr %163, align 4
-  %228 = sext i32 %227 to i64
-  %229 = invoke noundef ptr @_ZN3ozz9animation8Skeleton8AllocateEmm(ptr noundef nonnull align 8 dereferenceable(48) %225, i64 noundef %226, i64 noundef %228)
-          to label %230 unwind label %220
+54:                                               ; preds = %37
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %9, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %10, align 4
+  br label %299
 
-230:                                              ; preds = %224
-  store ptr %229, ptr %170, align 8
-  store i32 0, ptr %171, align 4
-  br label %231
+58:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #16
+  %59 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %11, i32 0, i32 0
+  %60 = load i32, ptr %13, align 4, !tbaa !11
+  %61 = sext i32 %60 to i64
+  %62 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %59, i64 noundef %61) #16
+  %63 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8, !tbaa !15
+  store ptr %64, ptr %14, align 8, !tbaa !19
+  %65 = load ptr, ptr %14, align 8, !tbaa !19
+  %66 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %65, i32 0, i32 1
+  %67 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #16
+  %68 = add i64 %67, 1
+  %69 = mul i64 %68, 1
+  %70 = load i64, ptr %12, align 8, !tbaa !13
+  %71 = add i64 %70, %69
+  store i64 %71, ptr %12, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #16
+  br label %72
 
-231:                                              ; preds = %261, %230
-  %232 = load i32, ptr %171, align 4
-  %233 = load i32, ptr %163, align 4
-  %234 = icmp slt i32 %232, %233
-  br i1 %234, label %235, label %264
+72:                                               ; preds = %58
+  %73 = load i32, ptr %13, align 4, !tbaa !11
+  %74 = add nsw i32 %73, 1
+  store i32 %74, ptr %13, align 4, !tbaa !11
+  br label %41, !llvm.loop !20
 
-235:                                              ; preds = %231
-  %236 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %166, i32 0, i32 0
-  %237 = load i32, ptr %171, align 4
-  %238 = sext i32 %237 to i64
-  %239 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %236, i64 noundef %238) #12
-  %240 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %239, i32 0, i32 0
-  %241 = load ptr, ptr %240, align 8
-  store ptr %241, ptr %172, align 8
-  %242 = load ptr, ptr %170, align 8
-  %243 = call noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
-  %244 = getelementptr inbounds %"class.ozz::animation::Skeleton", ptr %243, i32 0, i32 2
-  %245 = load i32, ptr %171, align 4
-  %246 = sext i32 %245 to i64
-  %247 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3ozz4spanIPcEixEm(ptr noundef nonnull align 8 dereferenceable(16) %244, i64 noundef %246)
-          to label %248 unwind label %220
+75:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #16
+  %76 = call noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  %77 = load i64, ptr %12, align 8, !tbaa !13
+  %78 = load i32, ptr %8, align 4, !tbaa !11
+  %79 = sext i32 %78 to i64
+  %80 = invoke noundef ptr @_ZN3ozz9animation8Skeleton8AllocateEmm(ptr noundef nonnull align 8 dereferenceable(56) %76, i64 noundef %77, i64 noundef %79)
+          to label %81 unwind label %87
 
-248:                                              ; preds = %235
-  store ptr %242, ptr %247, align 8
-  %249 = load ptr, ptr %170, align 8
-  %250 = load ptr, ptr %172, align 8
-  %251 = getelementptr inbounds %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %250, i32 0, i32 1
-  %252 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %251) #12
-  %253 = call ptr @strcpy(ptr noundef %249, ptr noundef %252) #12
-  %254 = load ptr, ptr %172, align 8
-  %255 = getelementptr inbounds %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %254, i32 0, i32 1
-  %256 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %255) #12
-  %257 = add i64 %256, 1
-  %258 = mul i64 %257, 1
-  %259 = load ptr, ptr %170, align 8
-  %260 = getelementptr inbounds i8, ptr %259, i64 %258
-  store ptr %260, ptr %170, align 8
-  br label %261
+81:                                               ; preds = %75
+  store ptr %80, ptr %15, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #16
+  store i32 0, ptr %16, align 4, !tbaa !11
+  br label %82
 
-261:                                              ; preds = %248
-  %262 = load i32, ptr %171, align 4
-  %263 = add nsw i32 %262, 1
-  store i32 %263, ptr %171, align 4
-  br label %231, !llvm.loop !7
+82:                                               ; preds = %117, %81
+  %83 = load i32, ptr %16, align 4, !tbaa !11
+  %84 = load i32, ptr %8, align 4, !tbaa !11
+  %85 = icmp slt i32 %83, %84
+  br i1 %85, label %91, label %86
 
-264:                                              ; preds = %231
-  store i32 0, ptr %173, align 4
-  br label %265
+86:                                               ; preds = %82
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #16
+  br label %124
 
-265:                                              ; preds = %282, %264
-  %266 = load i32, ptr %173, align 4
-  %267 = load i32, ptr %163, align 4
-  %268 = icmp slt i32 %266, %267
-  br i1 %268, label %269, label %285
+87:                                               ; preds = %75
+  %88 = landingpad { ptr, i32 }
+          cleanup
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %9, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %10, align 4
+  br label %298
 
-269:                                              ; preds = %265
-  %270 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %166, i32 0, i32 0
-  %271 = load i32, ptr %173, align 4
-  %272 = sext i32 %271 to i64
-  %273 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %270, i64 noundef %272) #12
-  %274 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %273, i32 0, i32 1
-  %275 = load i16, ptr %274, align 8
-  %276 = call noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
-  %277 = getelementptr inbounds %"class.ozz::animation::Skeleton", ptr %276, i32 0, i32 1
-  %278 = load i32, ptr %173, align 4
-  %279 = sext i32 %278 to i64
-  %280 = invoke noundef nonnull align 2 dereferenceable(2) ptr @_ZNK3ozz4spanIsEixEm(ptr noundef nonnull align 8 dereferenceable(16) %277, i64 noundef %279)
-          to label %281 unwind label %220
+91:                                               ; preds = %82
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #16
+  %92 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %11, i32 0, i32 0
+  %93 = load i32, ptr %16, align 4, !tbaa !11
+  %94 = sext i32 %93 to i64
+  %95 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %92, i64 noundef %94) #16
+  %96 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %95, i32 0, i32 0
+  %97 = load ptr, ptr %96, align 8, !tbaa !15
+  store ptr %97, ptr %17, align 8, !tbaa !19
+  %98 = load ptr, ptr %15, align 8, !tbaa !22
+  %99 = call noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  %100 = getelementptr inbounds nuw %"class.ozz::animation::Skeleton", ptr %99, i32 0, i32 3
+  %101 = load i32, ptr %16, align 4, !tbaa !11
+  %102 = sext i32 %101 to i64
+  %103 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3ozz4spanIPcEixEm(ptr noundef nonnull align 8 dereferenceable(16) %100, i64 noundef %102)
+          to label %104 unwind label %120
 
-281:                                              ; preds = %269
-  store i16 %275, ptr %280, align 2
-  br label %282
+104:                                              ; preds = %91
+  store ptr %98, ptr %103, align 8, !tbaa !22
+  %105 = load ptr, ptr %15, align 8, !tbaa !22
+  %106 = load ptr, ptr %17, align 8, !tbaa !19
+  %107 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %106, i32 0, i32 1
+  %108 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %107) #16
+  %109 = call ptr @strcpy(ptr noundef %105, ptr noundef %108) #16
+  %110 = load ptr, ptr %17, align 8, !tbaa !19
+  %111 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %110, i32 0, i32 1
+  %112 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %111) #16
+  %113 = add i64 %112, 1
+  %114 = mul i64 %113, 1
+  %115 = load ptr, ptr %15, align 8, !tbaa !22
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %114
+  store ptr %116, ptr %15, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #16
+  br label %117
 
-282:                                              ; preds = %281
-  %283 = load i32, ptr %173, align 4
-  %284 = add nsw i32 %283, 1
-  store i32 %284, ptr %173, align 4
-  br label %265, !llvm.loop !8
+117:                                              ; preds = %104
+  %118 = load i32, ptr %16, align 4, !tbaa !11
+  %119 = add nsw i32 %118, 1
+  store i32 %119, ptr %16, align 4, !tbaa !11
+  br label %82, !llvm.loop !24
 
-285:                                              ; preds = %265
-  store <2 x i64> zeroinitializer, ptr %122, align 16
-  %286 = load <2 x i64>, ptr %122, align 16
-  store <2 x i64> %286, ptr %157, align 16
-  %287 = load <2 x i64>, ptr %157, align 16
-  %288 = load <2 x i64>, ptr %157, align 16
-  store <2 x i64> %287, ptr %104, align 16
-  store <2 x i64> %288, ptr %105, align 16
-  %289 = load <2 x i64>, ptr %104, align 16
-  %290 = bitcast <2 x i64> %289 to <4 x i32>
-  %291 = load <2 x i64>, ptr %105, align 16
-  %292 = bitcast <2 x i64> %291 to <4 x i32>
-  %293 = icmp eq <4 x i32> %290, %292
-  %294 = sext <4 x i1> %293 to <4 x i32>
-  %295 = bitcast <4 x i32> %294 to <2 x i64>
-  store <2 x i64> %295, ptr %110, align 16
-  store i32 25, ptr %111, align 4
-  %296 = load <2 x i64>, ptr %110, align 16
-  %297 = bitcast <2 x i64> %296 to <4 x i32>
-  %298 = load i32, ptr %111, align 4
-  %299 = call <4 x i32> @llvm.x86.sse2.pslli.d(<4 x i32> %297, i32 %298)
-  %300 = bitcast <4 x i32> %299 to <2 x i64>
-  store <2 x i64> %300, ptr %116, align 16
-  store i32 2, ptr %117, align 4
-  %301 = load <2 x i64>, ptr %116, align 16
-  %302 = bitcast <2 x i64> %301 to <4 x i32>
-  %303 = load i32, ptr %117, align 4
-  %304 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %302, i32 %303)
-  %305 = bitcast <4 x i32> %304 to <2 x i64>
-  store <2 x i64> %305, ptr %158, align 16
-  %306 = load <2 x i64>, ptr %158, align 16
-  %307 = bitcast <2 x i64> %306 to <16 x i8>
-  %308 = shufflevector <16 x i8> zeroinitializer, <16 x i8> %307, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %309 = bitcast <16 x i8> %308 to <2 x i64>
-  store <2 x i64> %309, ptr %99, align 16
-  %310 = load <2 x i64>, ptr %99, align 16
-  %311 = bitcast <2 x i64> %310 to <4 x float>
-  br label %312
+120:                                              ; preds = %91
+  %121 = landingpad { ptr, i32 }
+          cleanup
+  %122 = extractvalue { ptr, i32 } %121, 0
+  store ptr %122, ptr %9, align 8
+  %123 = extractvalue { ptr, i32 } %121, 1
+  store i32 %123, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #16
+  br label %298
 
-312:                                              ; preds = %285
-  store <4 x float> %311, ptr %174, align 16
-  store <4 x float> zeroinitializer, ptr %97, align 16
-  %313 = load <4 x float>, ptr %97, align 16
-  br label %314
+124:                                              ; preds = %86
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #16
+  store i32 0, ptr %18, align 4, !tbaa !11
+  br label %125
 
-314:                                              ; preds = %312
-  store <4 x float> %313, ptr %175, align 16
-  store <2 x i64> zeroinitializer, ptr %123, align 16
-  %315 = load <2 x i64>, ptr %123, align 16
-  store <2 x i64> %315, ptr %156, align 16
-  %316 = load <2 x i64>, ptr %156, align 16
-  %317 = load <2 x i64>, ptr %156, align 16
-  store <2 x i64> %316, ptr %106, align 16
-  store <2 x i64> %317, ptr %107, align 16
-  %318 = load <2 x i64>, ptr %106, align 16
-  %319 = bitcast <2 x i64> %318 to <4 x i32>
-  %320 = load <2 x i64>, ptr %107, align 16
-  %321 = bitcast <2 x i64> %320 to <4 x i32>
-  %322 = icmp eq <4 x i32> %319, %321
-  %323 = sext <4 x i1> %322 to <4 x i32>
-  %324 = bitcast <4 x i32> %323 to <2 x i64>
-  store <2 x i64> %324, ptr %112, align 16
-  store i32 25, ptr %113, align 4
-  %325 = load <2 x i64>, ptr %112, align 16
-  %326 = bitcast <2 x i64> %325 to <4 x i32>
-  %327 = load i32, ptr %113, align 4
-  %328 = call <4 x i32> @llvm.x86.sse2.pslli.d(<4 x i32> %326, i32 %327)
-  %329 = bitcast <4 x i32> %328 to <2 x i64>
-  store <2 x i64> %329, ptr %118, align 16
-  store i32 2, ptr %119, align 4
-  %330 = load <2 x i64>, ptr %118, align 16
-  %331 = bitcast <2 x i64> %330 to <4 x i32>
-  %332 = load i32, ptr %119, align 4
-  %333 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %331, i32 %332)
-  %334 = bitcast <4 x i32> %333 to <2 x i64>
-  store <2 x i64> %334, ptr %100, align 16
-  %335 = load <2 x i64>, ptr %100, align 16
-  %336 = bitcast <2 x i64> %335 to <4 x float>
-  br label %337
+125:                                              ; preds = %143, %124
+  %126 = load i32, ptr %18, align 4, !tbaa !11
+  %127 = load i32, ptr %8, align 4, !tbaa !11
+  %128 = icmp slt i32 %126, %127
+  br i1 %128, label %130, label %129
 
-337:                                              ; preds = %314
-  store <4 x float> %336, ptr %176, align 16
-  store i32 0, ptr %177, align 4
-  br label %338
+129:                                              ; preds = %125
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #16
+  br label %150
 
-338:                                              ; preds = %788, %337
-  %339 = load i32, ptr %177, align 4
-  %340 = call noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
-  %341 = invoke noundef i32 @_ZNK3ozz9animation8Skeleton14num_soa_jointsEv(ptr noundef nonnull align 8 dereferenceable(48) %340)
-          to label %342 unwind label %220
+130:                                              ; preds = %125
+  %131 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %11, i32 0, i32 0
+  %132 = load i32, ptr %18, align 4, !tbaa !11
+  %133 = sext i32 %132 to i64
+  %134 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %131, i64 noundef %133) #16
+  %135 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %134, i32 0, i32 1
+  %136 = load i16, ptr %135, align 8, !tbaa !25
+  %137 = call noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  %138 = getelementptr inbounds nuw %"class.ozz::animation::Skeleton", ptr %137, i32 0, i32 2
+  %139 = load i32, ptr %18, align 4, !tbaa !11
+  %140 = sext i32 %139 to i64
+  %141 = invoke noundef nonnull align 2 dereferenceable(2) ptr @_ZNK3ozz4spanIsEixEm(ptr noundef nonnull align 8 dereferenceable(16) %138, i64 noundef %140)
+          to label %142 unwind label %146
 
-342:                                              ; preds = %338
-  %343 = icmp slt i32 %339, %341
-  br i1 %343, label %344, label %791
+142:                                              ; preds = %130
+  store i16 %136, ptr %141, align 2, !tbaa !26
+  br label %143
 
-344:                                              ; preds = %342
-  store i32 0, ptr %181, align 4
-  br label %345
+143:                                              ; preds = %142
+  %144 = load i32, ptr %18, align 4, !tbaa !11
+  %145 = add nsw i32 %144, 1
+  store i32 %145, ptr %18, align 4, !tbaa !11
+  br label %125, !llvm.loop !27
 
-345:                                              ; preds = %585, %344
-  %346 = load i32, ptr %181, align 4
-  %347 = icmp slt i32 %346, 4
-  br i1 %347, label %348, label %588
+146:                                              ; preds = %130
+  %147 = landingpad { ptr, i32 }
+          cleanup
+  %148 = extractvalue { ptr, i32 } %147, 0
+  store ptr %148, ptr %9, align 8
+  %149 = extractvalue { ptr, i32 } %147, 1
+  store i32 %149, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #16
+  br label %298
 
-348:                                              ; preds = %345
-  %349 = load i32, ptr %177, align 4
-  %350 = mul nsw i32 %349, 4
-  %351 = load i32, ptr %181, align 4
-  %352 = add nsw i32 %350, %351
-  %353 = load i32, ptr %163, align 4
-  %354 = icmp slt i32 %352, %353
-  br i1 %354, label %355, label %571
+150:                                              ; preds = %129
+  call void @llvm.lifetime.start.p0(i64 16, ptr %19) #16
+  %151 = invoke noundef <4 x float> @_ZN3ozz4math11simd_float46w_axisEv()
+          to label %152 unwind label %164
 
-355:                                              ; preds = %348
-  %356 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %166, i32 0, i32 0
-  %357 = load i32, ptr %177, align 4
-  %358 = mul nsw i32 %357, 4
-  %359 = load i32, ptr %181, align 4
-  %360 = add nsw i32 %358, %359
-  %361 = sext i32 %360 to i64
-  %362 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %356, i64 noundef %361) #12
-  %363 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %362, i32 0, i32 0
-  %364 = load ptr, ptr %363, align 8
-  store ptr %364, ptr %182, align 8
-  %365 = load ptr, ptr %182, align 8
-  %366 = getelementptr inbounds %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %365, i32 0, i32 2
-  %367 = getelementptr inbounds %"struct.ozz::math::Transform", ptr %366, i32 0, i32 0
-  %368 = getelementptr inbounds %"struct.ozz::math::Float3", ptr %367, i32 0, i32 0
-  store ptr %368, ptr %154, align 8
-  %369 = load ptr, ptr %154, align 8
-  store ptr %369, ptr %56, align 8
-  %370 = load ptr, ptr %56, align 8
-  %371 = load float, ptr %370, align 1
-  store float %371, ptr %57, align 4
-  %372 = load float, ptr %57, align 4
-  %373 = insertelement <4 x float> poison, float %372, i32 0
-  %374 = insertelement <4 x float> %373, float 0.000000e+00, i32 1
-  %375 = insertelement <4 x float> %374, float 0.000000e+00, i32 2
-  %376 = insertelement <4 x float> %375, float 0.000000e+00, i32 3
-  store <4 x float> %376, ptr %58, align 16
-  %377 = load <4 x float>, ptr %58, align 16
-  %378 = load ptr, ptr %154, align 8
-  %379 = getelementptr inbounds float, ptr %378, i64 1
-  store ptr %379, ptr %59, align 8
-  %380 = load ptr, ptr %59, align 8
-  %381 = load float, ptr %380, align 1
-  store float %381, ptr %60, align 4
-  %382 = load float, ptr %60, align 4
-  %383 = insertelement <4 x float> poison, float %382, i32 0
-  %384 = insertelement <4 x float> %383, float 0.000000e+00, i32 1
-  %385 = insertelement <4 x float> %384, float 0.000000e+00, i32 2
-  %386 = insertelement <4 x float> %385, float 0.000000e+00, i32 3
-  store <4 x float> %386, ptr %61, align 16
-  %387 = load <4 x float>, ptr %61, align 16
-  store <4 x float> %377, ptr %67, align 16
-  store <4 x float> %387, ptr %68, align 16
-  %388 = load <4 x float>, ptr %67, align 16
-  %389 = load <4 x float>, ptr %68, align 16
-  %390 = shufflevector <4 x float> %388, <4 x float> %389, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %391 = load ptr, ptr %154, align 8
-  %392 = getelementptr inbounds float, ptr %391, i64 2
-  store ptr %392, ptr %62, align 8
-  %393 = load ptr, ptr %62, align 8
-  %394 = load float, ptr %393, align 1
-  store float %394, ptr %63, align 4
-  %395 = load float, ptr %63, align 4
-  %396 = insertelement <4 x float> poison, float %395, i32 0
-  %397 = insertelement <4 x float> %396, float 0.000000e+00, i32 1
-  %398 = insertelement <4 x float> %397, float 0.000000e+00, i32 2
-  %399 = insertelement <4 x float> %398, float 0.000000e+00, i32 3
-  store <4 x float> %399, ptr %64, align 16
-  %400 = load <4 x float>, ptr %64, align 16
-  store <4 x float> %390, ptr %95, align 16
-  store <4 x float> %400, ptr %96, align 16
-  %401 = load <4 x float>, ptr %95, align 16
-  %402 = load <4 x float>, ptr %96, align 16
-  %403 = shufflevector <4 x float> %401, <4 x float> %402, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  br label %404
+152:                                              ; preds = %150
+  store <4 x float> %151, ptr %19, align 16, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #16
+  %153 = invoke noundef <4 x float> @_ZN3ozz4math11simd_float44zeroEv()
+          to label %154 unwind label %168
 
-404:                                              ; preds = %355
-  %405 = load i32, ptr %181, align 4
-  %406 = sext i32 %405 to i64
-  %407 = getelementptr inbounds [4 x <4 x float>], ptr %178, i64 0, i64 %406
-  store <4 x float> %403, ptr %407, align 16
-  %408 = load ptr, ptr %182, align 8
-  %409 = getelementptr inbounds %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %408, i32 0, i32 2
-  %410 = getelementptr inbounds %"struct.ozz::math::Transform", ptr %409, i32 0, i32 1
-  %411 = getelementptr inbounds %"struct.ozz::math::Quaternion", ptr %410, i32 0, i32 0
-  store ptr %411, ptr %143, align 8
-  %412 = load ptr, ptr %143, align 8
-  store ptr %412, ptr %24, align 8
-  %413 = load ptr, ptr %24, align 8
-  %414 = load <4 x float>, ptr %413, align 1
-  br label %415
+154:                                              ; preds = %152
+  store <4 x float> %153, ptr %20, align 16, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #16
+  %155 = invoke noundef <4 x float> @_ZN3ozz4math11simd_float43oneEv()
+          to label %156 unwind label %172
 
-415:                                              ; preds = %404
-  %416 = load <4 x float>, ptr %174, align 16
-  store <4 x float> %414, ptr %145, align 16
-  store <4 x float> %416, ptr %146, align 16
-  %417 = load <4 x float>, ptr %145, align 16
-  %418 = load <4 x float>, ptr %145, align 16
-  store <4 x float> %417, ptr %43, align 16
-  store <4 x float> %418, ptr %44, align 16
-  %419 = load <4 x float>, ptr %43, align 16
-  %420 = load <4 x float>, ptr %44, align 16
-  %421 = fmul <4 x float> %419, %420
-  store <4 x float> %421, ptr %148, align 16
-  %422 = load <4 x float>, ptr %148, align 16
-  %423 = load <4 x float>, ptr %148, align 16
-  %424 = load <4 x float>, ptr %148, align 16
-  store <4 x float> %423, ptr %39, align 16
-  store <4 x float> %424, ptr %40, align 16
-  %425 = load <4 x float>, ptr %39, align 16
-  %426 = load <4 x float>, ptr %40, align 16
-  %427 = shufflevector <4 x float> %425, <4 x float> %426, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %422, ptr %41, align 16
-  store <4 x float> %427, ptr %42, align 16
-  %428 = load <4 x float>, ptr %41, align 16
-  %429 = load <4 x float>, ptr %42, align 16
-  %430 = fadd <4 x float> %428, %429
-  store <4 x float> %430, ptr %149, align 16
-  %431 = load <4 x float>, ptr %149, align 16
-  %432 = load <4 x float>, ptr %149, align 16
-  %433 = load <4 x float>, ptr %149, align 16
-  %434 = shufflevector <4 x float> %432, <4 x float> %433, <4 x i32> <i32 1, i32 1, i32 5, i32 5>
-  store <4 x float> %431, ptr %37, align 16
-  store <4 x float> %434, ptr %38, align 16
-  %435 = load <4 x float>, ptr %38, align 16
-  %436 = extractelement <4 x float> %435, i32 0
-  %437 = load <4 x float>, ptr %37, align 16
-  %438 = extractelement <4 x float> %437, i32 0
-  %439 = fadd float %438, %436
-  %440 = load <4 x float>, ptr %37, align 16
-  %441 = insertelement <4 x float> %440, float %439, i32 0
-  store <4 x float> %441, ptr %37, align 16
-  %442 = load <4 x float>, ptr %37, align 16
-  store <4 x float> %442, ptr %147, align 16
-  store <2 x i64> zeroinitializer, ptr %124, align 16
-  %443 = load <2 x i64>, ptr %124, align 16
-  store <2 x i64> %443, ptr %144, align 16
-  %444 = load <2 x i64>, ptr %144, align 16
-  %445 = load <2 x i64>, ptr %144, align 16
-  store <2 x i64> %444, ptr %108, align 16
-  store <2 x i64> %445, ptr %109, align 16
-  %446 = load <2 x i64>, ptr %108, align 16
-  %447 = bitcast <2 x i64> %446 to <4 x i32>
-  %448 = load <2 x i64>, ptr %109, align 16
-  %449 = bitcast <2 x i64> %448 to <4 x i32>
-  %450 = icmp eq <4 x i32> %447, %449
-  %451 = sext <4 x i1> %450 to <4 x i32>
-  %452 = bitcast <4 x i32> %451 to <2 x i64>
-  store <2 x i64> %452, ptr %114, align 16
-  store i32 25, ptr %115, align 4
-  %453 = load <2 x i64>, ptr %114, align 16
-  %454 = bitcast <2 x i64> %453 to <4 x i32>
-  %455 = load i32, ptr %115, align 4
-  %456 = call <4 x i32> @llvm.x86.sse2.pslli.d(<4 x i32> %454, i32 %455)
-  %457 = bitcast <4 x i32> %456 to <2 x i64>
-  store <2 x i64> %457, ptr %120, align 16
-  store i32 2, ptr %121, align 4
-  %458 = load <2 x i64>, ptr %120, align 16
-  %459 = bitcast <2 x i64> %458 to <4 x i32>
-  %460 = load i32, ptr %121, align 4
-  %461 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %459, i32 %460)
-  %462 = bitcast <4 x i32> %461 to <2 x i64>
-  store <2 x i64> %462, ptr %101, align 16
-  %463 = load <2 x i64>, ptr %101, align 16
-  %464 = bitcast <2 x i64> %463 to <4 x float>
-  %465 = load <4 x float>, ptr %147, align 16
-  store <4 x float> %465, ptr %34, align 16
-  %466 = load <4 x float>, ptr %34, align 16
-  %467 = extractelement <4 x float> %466, i64 0
-  %468 = call float @llvm.sqrt.f32(float %467)
-  %469 = insertelement <4 x float> %466, float %468, i64 0
-  store <4 x float> %464, ptr %35, align 16
-  store <4 x float> %469, ptr %36, align 16
-  %470 = load <4 x float>, ptr %36, align 16
-  %471 = extractelement <4 x float> %470, i32 0
-  %472 = load <4 x float>, ptr %35, align 16
-  %473 = extractelement <4 x float> %472, i32 0
-  %474 = fdiv float %473, %471
-  %475 = load <4 x float>, ptr %35, align 16
-  %476 = insertelement <4 x float> %475, float %474, i32 0
-  store <4 x float> %476, ptr %35, align 16
-  %477 = load <4 x float>, ptr %35, align 16
-  store <4 x float> %477, ptr %150, align 16
-  %478 = load <4 x float>, ptr %150, align 16
-  %479 = load <4 x float>, ptr %150, align 16
-  %480 = shufflevector <4 x float> %478, <4 x float> %479, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
-  store <4 x float> %480, ptr %151, align 16
-  %481 = load <4 x float>, ptr %147, align 16
-  %482 = load <4 x float>, ptr %147, align 16
-  %483 = shufflevector <4 x float> %481, <4 x float> %482, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
-  store <4 x float> zeroinitializer, ptr %98, align 16
-  %484 = load <4 x float>, ptr %98, align 16
-  store <4 x float> %483, ptr %31, align 16
-  store <4 x float> %484, ptr %32, align 16
-  %485 = load <4 x float>, ptr %31, align 16
-  %486 = load <4 x float>, ptr %32, align 16
-  %487 = fcmp ole <4 x float> %485, %486
-  %488 = sext <4 x i1> %487 to <4 x i32>
-  %489 = bitcast <4 x i32> %488 to <4 x float>
-  store <4 x float> %489, ptr %33, align 16
-  %490 = load <4 x float>, ptr %33, align 16
-  %491 = bitcast <4 x float> %490 to <2 x i64>
-  store <2 x i64> %491, ptr %152, align 16
-  %492 = load <4 x float>, ptr %145, align 16
-  %493 = load <4 x float>, ptr %151, align 16
-  store <4 x float> %492, ptr %45, align 16
-  store <4 x float> %493, ptr %46, align 16
-  %494 = load <4 x float>, ptr %45, align 16
-  %495 = load <4 x float>, ptr %46, align 16
-  %496 = fmul <4 x float> %494, %495
-  store <4 x float> %496, ptr %153, align 16
-  %497 = load <4 x float>, ptr %146, align 16
-  %498 = load <2 x i64>, ptr %152, align 16
-  store <2 x i64> %498, ptr %102, align 16
-  %499 = load <2 x i64>, ptr %102, align 16
-  %500 = bitcast <2 x i64> %499 to <4 x float>
-  store <4 x float> %497, ptr %27, align 16
-  store <4 x float> %500, ptr %28, align 16
-  %501 = load <4 x float>, ptr %27, align 16
-  %502 = bitcast <4 x float> %501 to <4 x i32>
-  %503 = load <4 x float>, ptr %28, align 16
-  %504 = bitcast <4 x float> %503 to <4 x i32>
-  %505 = and <4 x i32> %502, %504
-  %506 = bitcast <4 x i32> %505 to <4 x float>
-  %507 = load <2 x i64>, ptr %152, align 16
-  store <2 x i64> %507, ptr %103, align 16
-  %508 = load <2 x i64>, ptr %103, align 16
-  %509 = bitcast <2 x i64> %508 to <4 x float>
-  %510 = load <4 x float>, ptr %153, align 16
-  store <4 x float> %509, ptr %25, align 16
-  store <4 x float> %510, ptr %26, align 16
-  %511 = load <4 x float>, ptr %25, align 16
-  %512 = bitcast <4 x float> %511 to <4 x i32>
-  %513 = xor <4 x i32> %512, <i32 -1, i32 -1, i32 -1, i32 -1>
-  %514 = load <4 x float>, ptr %26, align 16
-  %515 = bitcast <4 x float> %514 to <4 x i32>
-  %516 = and <4 x i32> %513, %515
-  %517 = bitcast <4 x i32> %516 to <4 x float>
-  store <4 x float> %506, ptr %29, align 16
-  store <4 x float> %517, ptr %30, align 16
-  %518 = load <4 x float>, ptr %29, align 16
-  %519 = bitcast <4 x float> %518 to <4 x i32>
-  %520 = load <4 x float>, ptr %30, align 16
-  %521 = bitcast <4 x float> %520 to <4 x i32>
-  %522 = or <4 x i32> %519, %521
-  %523 = bitcast <4 x i32> %522 to <4 x float>
-  br label %524
+156:                                              ; preds = %154
+  store <4 x float> %155, ptr %21, align 16, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #16
+  store i32 0, ptr %22, align 4, !tbaa !11
+  br label %157
 
-524:                                              ; preds = %415
-  %525 = load i32, ptr %181, align 4
-  %526 = sext i32 %525 to i64
-  %527 = getelementptr inbounds [4 x <4 x float>], ptr %180, i64 0, i64 %526
-  store <4 x float> %523, ptr %527, align 16
-  %528 = load ptr, ptr %182, align 8
-  %529 = getelementptr inbounds %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %528, i32 0, i32 2
-  %530 = getelementptr inbounds %"struct.ozz::math::Transform", ptr %529, i32 0, i32 2
-  %531 = getelementptr inbounds %"struct.ozz::math::Float3", ptr %530, i32 0, i32 0
-  store ptr %531, ptr %155, align 8
-  %532 = load ptr, ptr %155, align 8
-  store ptr %532, ptr %47, align 8
-  %533 = load ptr, ptr %47, align 8
-  %534 = load float, ptr %533, align 1
-  store float %534, ptr %48, align 4
-  %535 = load float, ptr %48, align 4
-  %536 = insertelement <4 x float> poison, float %535, i32 0
-  %537 = insertelement <4 x float> %536, float 0.000000e+00, i32 1
-  %538 = insertelement <4 x float> %537, float 0.000000e+00, i32 2
-  %539 = insertelement <4 x float> %538, float 0.000000e+00, i32 3
-  store <4 x float> %539, ptr %49, align 16
-  %540 = load <4 x float>, ptr %49, align 16
-  %541 = load ptr, ptr %155, align 8
-  %542 = getelementptr inbounds float, ptr %541, i64 1
-  store ptr %542, ptr %50, align 8
-  %543 = load ptr, ptr %50, align 8
-  %544 = load float, ptr %543, align 1
-  store float %544, ptr %51, align 4
-  %545 = load float, ptr %51, align 4
-  %546 = insertelement <4 x float> poison, float %545, i32 0
-  %547 = insertelement <4 x float> %546, float 0.000000e+00, i32 1
-  %548 = insertelement <4 x float> %547, float 0.000000e+00, i32 2
-  %549 = insertelement <4 x float> %548, float 0.000000e+00, i32 3
-  store <4 x float> %549, ptr %52, align 16
-  %550 = load <4 x float>, ptr %52, align 16
-  store <4 x float> %540, ptr %65, align 16
-  store <4 x float> %550, ptr %66, align 16
-  %551 = load <4 x float>, ptr %65, align 16
-  %552 = load <4 x float>, ptr %66, align 16
-  %553 = shufflevector <4 x float> %551, <4 x float> %552, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %554 = load ptr, ptr %155, align 8
-  %555 = getelementptr inbounds float, ptr %554, i64 2
-  store ptr %555, ptr %53, align 8
-  %556 = load ptr, ptr %53, align 8
-  %557 = load float, ptr %556, align 1
-  store float %557, ptr %54, align 4
-  %558 = load float, ptr %54, align 4
-  %559 = insertelement <4 x float> poison, float %558, i32 0
-  %560 = insertelement <4 x float> %559, float 0.000000e+00, i32 1
-  %561 = insertelement <4 x float> %560, float 0.000000e+00, i32 2
-  %562 = insertelement <4 x float> %561, float 0.000000e+00, i32 3
-  store <4 x float> %562, ptr %55, align 16
-  %563 = load <4 x float>, ptr %55, align 16
-  store <4 x float> %553, ptr %93, align 16
-  store <4 x float> %563, ptr %94, align 16
-  %564 = load <4 x float>, ptr %93, align 16
-  %565 = load <4 x float>, ptr %94, align 16
-  %566 = shufflevector <4 x float> %564, <4 x float> %565, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  br label %567
+157:                                              ; preds = %284, %156
+  %158 = load i32, ptr %22, align 4, !tbaa !11
+  %159 = call noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  %160 = invoke noundef i32 @_ZNK3ozz9animation8Skeleton14num_soa_jointsEv(ptr noundef nonnull align 8 dereferenceable(56) %159)
+          to label %161 unwind label %176
 
-567:                                              ; preds = %524
-  %568 = load i32, ptr %181, align 4
-  %569 = sext i32 %568 to i64
-  %570 = getelementptr inbounds [4 x <4 x float>], ptr %179, i64 0, i64 %569
-  store <4 x float> %566, ptr %570, align 16
-  br label %584
+161:                                              ; preds = %157
+  %162 = icmp slt i32 %158, %160
+  br i1 %162, label %180, label %163
 
-571:                                              ; preds = %348
-  %572 = load <4 x float>, ptr %175, align 16
-  %573 = load i32, ptr %181, align 4
-  %574 = sext i32 %573 to i64
-  %575 = getelementptr inbounds [4 x <4 x float>], ptr %178, i64 0, i64 %574
-  store <4 x float> %572, ptr %575, align 16
-  %576 = load <4 x float>, ptr %174, align 16
-  %577 = load i32, ptr %181, align 4
-  %578 = sext i32 %577 to i64
-  %579 = getelementptr inbounds [4 x <4 x float>], ptr %180, i64 0, i64 %578
-  store <4 x float> %576, ptr %579, align 16
-  %580 = load <4 x float>, ptr %176, align 16
-  %581 = load i32, ptr %181, align 4
-  %582 = sext i32 %581 to i64
-  %583 = getelementptr inbounds [4 x <4 x float>], ptr %179, i64 0, i64 %582
-  store <4 x float> %580, ptr %583, align 16
-  br label %584
+163:                                              ; preds = %161
+  store i32 11, ptr %23, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #16
+  br label %293
 
-584:                                              ; preds = %571, %567
-  br label %585
+164:                                              ; preds = %150
+  %165 = landingpad { ptr, i32 }
+          cleanup
+  %166 = extractvalue { ptr, i32 } %165, 0
+  store ptr %166, ptr %9, align 8
+  %167 = extractvalue { ptr, i32 } %165, 1
+  store i32 %167, ptr %10, align 4
+  br label %297
 
-585:                                              ; preds = %584
-  %586 = load i32, ptr %181, align 4
-  %587 = add nsw i32 %586, 1
-  store i32 %587, ptr %181, align 4
-  br label %345, !llvm.loop !9
+168:                                              ; preds = %152
+  %169 = landingpad { ptr, i32 }
+          cleanup
+  %170 = extractvalue { ptr, i32 } %169, 0
+  store ptr %170, ptr %9, align 8
+  %171 = extractvalue { ptr, i32 } %169, 1
+  store i32 %171, ptr %10, align 4
+  br label %296
 
-588:                                              ; preds = %345
-  %589 = getelementptr inbounds [4 x <4 x float>], ptr %178, i64 0, i64 0
-  %590 = call noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
-  %591 = getelementptr inbounds %"class.ozz::animation::Skeleton", ptr %590, i32 0, i32 0
-  %592 = load i32, ptr %177, align 4
-  %593 = sext i32 %592 to i64
-  %594 = invoke noundef nonnull align 16 dereferenceable(160) ptr @_ZNK3ozz4spanINS_4math12SoaTransformEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %591, i64 noundef %593)
-          to label %595 unwind label %220
+172:                                              ; preds = %154
+  %173 = landingpad { ptr, i32 }
+          cleanup
+  %174 = extractvalue { ptr, i32 } %173, 0
+  store ptr %174, ptr %9, align 8
+  %175 = extractvalue { ptr, i32 } %173, 1
+  store i32 %175, ptr %10, align 4
+  br label %295
 
-595:                                              ; preds = %588
-  %596 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %594, i32 0, i32 0
-  %597 = getelementptr inbounds %"struct.ozz::math::SoaFloat3", ptr %596, i32 0, i32 0
-  store ptr %589, ptr %131, align 8
-  store ptr %597, ptr %132, align 8
-  %598 = load ptr, ptr %131, align 8
-  %599 = load <4 x float>, ptr %598, align 16
-  %600 = load ptr, ptr %131, align 8
-  %601 = getelementptr inbounds <4 x float>, ptr %600, i64 2
-  %602 = load <4 x float>, ptr %601, align 16
-  store <4 x float> %599, ptr %77, align 16
-  store <4 x float> %602, ptr %78, align 16
-  %603 = load <4 x float>, ptr %77, align 16
-  %604 = load <4 x float>, ptr %78, align 16
-  %605 = shufflevector <4 x float> %603, <4 x float> %604, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %605, ptr %133, align 16
-  %606 = load ptr, ptr %131, align 8
-  %607 = getelementptr inbounds <4 x float>, ptr %606, i64 1
-  %608 = load <4 x float>, ptr %607, align 16
-  %609 = load ptr, ptr %131, align 8
-  %610 = getelementptr inbounds <4 x float>, ptr %609, i64 3
-  %611 = load <4 x float>, ptr %610, align 16
-  store <4 x float> %608, ptr %79, align 16
-  store <4 x float> %611, ptr %80, align 16
-  %612 = load <4 x float>, ptr %79, align 16
-  %613 = load <4 x float>, ptr %80, align 16
-  %614 = shufflevector <4 x float> %612, <4 x float> %613, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %614, ptr %134, align 16
-  %615 = load ptr, ptr %131, align 8
-  %616 = load <4 x float>, ptr %615, align 16
-  %617 = load ptr, ptr %131, align 8
-  %618 = getelementptr inbounds <4 x float>, ptr %617, i64 2
-  %619 = load <4 x float>, ptr %618, align 16
-  store <4 x float> %616, ptr %10, align 16
-  store <4 x float> %619, ptr %11, align 16
-  %620 = load <4 x float>, ptr %10, align 16
-  %621 = load <4 x float>, ptr %11, align 16
-  %622 = shufflevector <4 x float> %620, <4 x float> %621, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %622, ptr %135, align 16
-  %623 = load ptr, ptr %131, align 8
-  %624 = getelementptr inbounds <4 x float>, ptr %623, i64 1
-  %625 = load <4 x float>, ptr %624, align 16
-  %626 = load ptr, ptr %131, align 8
-  %627 = getelementptr inbounds <4 x float>, ptr %626, i64 3
-  %628 = load <4 x float>, ptr %627, align 16
-  store <4 x float> %625, ptr %12, align 16
-  store <4 x float> %628, ptr %13, align 16
-  %629 = load <4 x float>, ptr %12, align 16
-  %630 = load <4 x float>, ptr %13, align 16
-  %631 = shufflevector <4 x float> %629, <4 x float> %630, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %631, ptr %136, align 16
-  %632 = load <4 x float>, ptr %133, align 16
-  %633 = load <4 x float>, ptr %134, align 16
-  store <4 x float> %632, ptr %81, align 16
-  store <4 x float> %633, ptr %82, align 16
-  %634 = load <4 x float>, ptr %81, align 16
-  %635 = load <4 x float>, ptr %82, align 16
-  %636 = shufflevector <4 x float> %634, <4 x float> %635, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %637 = load ptr, ptr %132, align 8
-  store <4 x float> %636, ptr %637, align 16
-  %638 = load <4 x float>, ptr %133, align 16
-  %639 = load <4 x float>, ptr %134, align 16
-  store <4 x float> %638, ptr %14, align 16
-  store <4 x float> %639, ptr %15, align 16
-  %640 = load <4 x float>, ptr %14, align 16
-  %641 = load <4 x float>, ptr %15, align 16
-  %642 = shufflevector <4 x float> %640, <4 x float> %641, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %643 = load ptr, ptr %132, align 8
-  %644 = getelementptr inbounds <4 x float>, ptr %643, i64 1
-  store <4 x float> %642, ptr %644, align 16
-  %645 = load <4 x float>, ptr %135, align 16
-  %646 = load <4 x float>, ptr %136, align 16
-  store <4 x float> %645, ptr %83, align 16
-  store <4 x float> %646, ptr %84, align 16
-  %647 = load <4 x float>, ptr %83, align 16
-  %648 = load <4 x float>, ptr %84, align 16
-  %649 = shufflevector <4 x float> %647, <4 x float> %648, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %650 = load ptr, ptr %132, align 8
-  %651 = getelementptr inbounds <4 x float>, ptr %650, i64 2
-  store <4 x float> %649, ptr %651, align 16
-  br label %652
+176:                                              ; preds = %157
+  %177 = landingpad { ptr, i32 }
+          cleanup
+  %178 = extractvalue { ptr, i32 } %177, 0
+  store ptr %178, ptr %9, align 8
+  %179 = extractvalue { ptr, i32 } %177, 1
+  store i32 %179, ptr %10, align 4
+  br label %292
 
-652:                                              ; preds = %595
-  %653 = getelementptr inbounds [4 x <4 x float>], ptr %180, i64 0, i64 0
-  %654 = call noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
-  %655 = getelementptr inbounds %"class.ozz::animation::Skeleton", ptr %654, i32 0, i32 0
-  %656 = load i32, ptr %177, align 4
-  %657 = sext i32 %656 to i64
-  %658 = invoke noundef nonnull align 16 dereferenceable(160) ptr @_ZNK3ozz4spanINS_4math12SoaTransformEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %655, i64 noundef %657)
-          to label %659 unwind label %220
+180:                                              ; preds = %161
+  call void @llvm.lifetime.start.p0(i64 64, ptr %24) #16
+  call void @llvm.lifetime.start.p0(i64 64, ptr %25) #16
+  call void @llvm.lifetime.start.p0(i64 64, ptr %26) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #16
+  store i32 0, ptr %27, align 4, !tbaa !11
+  br label %181
 
-659:                                              ; preds = %652
-  %660 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %658, i32 0, i32 1
-  %661 = getelementptr inbounds %"struct.ozz::math::SoaQuaternion", ptr %660, i32 0, i32 0
-  store ptr %653, ptr %125, align 8
-  store ptr %661, ptr %126, align 8
-  %662 = load ptr, ptr %125, align 8
-  %663 = load <4 x float>, ptr %662, align 16
-  %664 = load ptr, ptr %125, align 8
-  %665 = getelementptr inbounds <4 x float>, ptr %664, i64 2
-  %666 = load <4 x float>, ptr %665, align 16
-  store <4 x float> %663, ptr %85, align 16
-  store <4 x float> %666, ptr %86, align 16
-  %667 = load <4 x float>, ptr %85, align 16
-  %668 = load <4 x float>, ptr %86, align 16
-  %669 = shufflevector <4 x float> %667, <4 x float> %668, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %669, ptr %127, align 16
-  %670 = load ptr, ptr %125, align 8
-  %671 = getelementptr inbounds <4 x float>, ptr %670, i64 1
-  %672 = load <4 x float>, ptr %671, align 16
-  %673 = load ptr, ptr %125, align 8
-  %674 = getelementptr inbounds <4 x float>, ptr %673, i64 3
-  %675 = load <4 x float>, ptr %674, align 16
-  store <4 x float> %672, ptr %87, align 16
-  store <4 x float> %675, ptr %88, align 16
-  %676 = load <4 x float>, ptr %87, align 16
-  %677 = load <4 x float>, ptr %88, align 16
-  %678 = shufflevector <4 x float> %676, <4 x float> %677, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %678, ptr %128, align 16
-  %679 = load ptr, ptr %125, align 8
-  %680 = load <4 x float>, ptr %679, align 16
-  %681 = load ptr, ptr %125, align 8
-  %682 = getelementptr inbounds <4 x float>, ptr %681, i64 2
-  %683 = load <4 x float>, ptr %682, align 16
-  store <4 x float> %680, ptr %16, align 16
-  store <4 x float> %683, ptr %17, align 16
-  %684 = load <4 x float>, ptr %16, align 16
-  %685 = load <4 x float>, ptr %17, align 16
-  %686 = shufflevector <4 x float> %684, <4 x float> %685, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %686, ptr %129, align 16
-  %687 = load ptr, ptr %125, align 8
-  %688 = getelementptr inbounds <4 x float>, ptr %687, i64 1
-  %689 = load <4 x float>, ptr %688, align 16
-  %690 = load ptr, ptr %125, align 8
-  %691 = getelementptr inbounds <4 x float>, ptr %690, i64 3
-  %692 = load <4 x float>, ptr %691, align 16
-  store <4 x float> %689, ptr %18, align 16
-  store <4 x float> %692, ptr %19, align 16
-  %693 = load <4 x float>, ptr %18, align 16
-  %694 = load <4 x float>, ptr %19, align 16
-  %695 = shufflevector <4 x float> %693, <4 x float> %694, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %695, ptr %130, align 16
-  %696 = load <4 x float>, ptr %127, align 16
-  %697 = load <4 x float>, ptr %128, align 16
-  store <4 x float> %696, ptr %89, align 16
-  store <4 x float> %697, ptr %90, align 16
-  %698 = load <4 x float>, ptr %89, align 16
-  %699 = load <4 x float>, ptr %90, align 16
-  %700 = shufflevector <4 x float> %698, <4 x float> %699, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %701 = load ptr, ptr %126, align 8
-  store <4 x float> %700, ptr %701, align 16
-  %702 = load <4 x float>, ptr %127, align 16
-  %703 = load <4 x float>, ptr %128, align 16
-  store <4 x float> %702, ptr %20, align 16
-  store <4 x float> %703, ptr %21, align 16
-  %704 = load <4 x float>, ptr %20, align 16
-  %705 = load <4 x float>, ptr %21, align 16
-  %706 = shufflevector <4 x float> %704, <4 x float> %705, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %707 = load ptr, ptr %126, align 8
-  %708 = getelementptr inbounds <4 x float>, ptr %707, i64 1
-  store <4 x float> %706, ptr %708, align 16
-  %709 = load <4 x float>, ptr %129, align 16
-  %710 = load <4 x float>, ptr %130, align 16
-  store <4 x float> %709, ptr %91, align 16
-  store <4 x float> %710, ptr %92, align 16
-  %711 = load <4 x float>, ptr %91, align 16
-  %712 = load <4 x float>, ptr %92, align 16
-  %713 = shufflevector <4 x float> %711, <4 x float> %712, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %714 = load ptr, ptr %126, align 8
-  %715 = getelementptr inbounds <4 x float>, ptr %714, i64 2
-  store <4 x float> %713, ptr %715, align 16
-  %716 = load <4 x float>, ptr %129, align 16
-  %717 = load <4 x float>, ptr %130, align 16
-  store <4 x float> %716, ptr %22, align 16
-  store <4 x float> %717, ptr %23, align 16
-  %718 = load <4 x float>, ptr %22, align 16
-  %719 = load <4 x float>, ptr %23, align 16
-  %720 = shufflevector <4 x float> %718, <4 x float> %719, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %721 = load ptr, ptr %126, align 8
-  %722 = getelementptr inbounds <4 x float>, ptr %721, i64 3
-  store <4 x float> %720, ptr %722, align 16
-  br label %723
+181:                                              ; preds = %250, %180
+  %182 = load i32, ptr %27, align 4, !tbaa !11
+  %183 = icmp slt i32 %182, 4
+  br i1 %183, label %185, label %184
 
-723:                                              ; preds = %659
-  %724 = getelementptr inbounds [4 x <4 x float>], ptr %179, i64 0, i64 0
-  %725 = call noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
-  %726 = getelementptr inbounds %"class.ozz::animation::Skeleton", ptr %725, i32 0, i32 0
-  %727 = load i32, ptr %177, align 4
-  %728 = sext i32 %727 to i64
-  %729 = invoke noundef nonnull align 16 dereferenceable(160) ptr @_ZNK3ozz4spanINS_4math12SoaTransformEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %726, i64 noundef %728)
-          to label %730 unwind label %220
+184:                                              ; preds = %181
+  store i32 14, ptr %23, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #16
+  br label %253
 
-730:                                              ; preds = %723
-  %731 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %729, i32 0, i32 2
-  %732 = getelementptr inbounds %"struct.ozz::math::SoaFloat3", ptr %731, i32 0, i32 0
-  store ptr %724, ptr %137, align 8
-  store ptr %732, ptr %138, align 8
-  %733 = load ptr, ptr %137, align 8
-  %734 = load <4 x float>, ptr %733, align 16
-  %735 = load ptr, ptr %137, align 8
-  %736 = getelementptr inbounds <4 x float>, ptr %735, i64 2
-  %737 = load <4 x float>, ptr %736, align 16
-  store <4 x float> %734, ptr %69, align 16
-  store <4 x float> %737, ptr %70, align 16
-  %738 = load <4 x float>, ptr %69, align 16
-  %739 = load <4 x float>, ptr %70, align 16
-  %740 = shufflevector <4 x float> %738, <4 x float> %739, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %740, ptr %139, align 16
-  %741 = load ptr, ptr %137, align 8
-  %742 = getelementptr inbounds <4 x float>, ptr %741, i64 1
-  %743 = load <4 x float>, ptr %742, align 16
-  %744 = load ptr, ptr %137, align 8
-  %745 = getelementptr inbounds <4 x float>, ptr %744, i64 3
-  %746 = load <4 x float>, ptr %745, align 16
-  store <4 x float> %743, ptr %71, align 16
-  store <4 x float> %746, ptr %72, align 16
-  %747 = load <4 x float>, ptr %71, align 16
-  %748 = load <4 x float>, ptr %72, align 16
-  %749 = shufflevector <4 x float> %747, <4 x float> %748, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %749, ptr %140, align 16
-  %750 = load ptr, ptr %137, align 8
-  %751 = load <4 x float>, ptr %750, align 16
-  %752 = load ptr, ptr %137, align 8
-  %753 = getelementptr inbounds <4 x float>, ptr %752, i64 2
-  %754 = load <4 x float>, ptr %753, align 16
-  store <4 x float> %751, ptr %4, align 16
-  store <4 x float> %754, ptr %5, align 16
-  %755 = load <4 x float>, ptr %4, align 16
-  %756 = load <4 x float>, ptr %5, align 16
-  %757 = shufflevector <4 x float> %755, <4 x float> %756, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %757, ptr %141, align 16
-  %758 = load ptr, ptr %137, align 8
-  %759 = getelementptr inbounds <4 x float>, ptr %758, i64 1
-  %760 = load <4 x float>, ptr %759, align 16
-  %761 = load ptr, ptr %137, align 8
-  %762 = getelementptr inbounds <4 x float>, ptr %761, i64 3
-  %763 = load <4 x float>, ptr %762, align 16
-  store <4 x float> %760, ptr %6, align 16
-  store <4 x float> %763, ptr %7, align 16
-  %764 = load <4 x float>, ptr %6, align 16
-  %765 = load <4 x float>, ptr %7, align 16
-  %766 = shufflevector <4 x float> %764, <4 x float> %765, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %766, ptr %142, align 16
-  %767 = load <4 x float>, ptr %139, align 16
-  %768 = load <4 x float>, ptr %140, align 16
-  store <4 x float> %767, ptr %73, align 16
-  store <4 x float> %768, ptr %74, align 16
-  %769 = load <4 x float>, ptr %73, align 16
-  %770 = load <4 x float>, ptr %74, align 16
-  %771 = shufflevector <4 x float> %769, <4 x float> %770, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %772 = load ptr, ptr %138, align 8
-  store <4 x float> %771, ptr %772, align 16
-  %773 = load <4 x float>, ptr %139, align 16
-  %774 = load <4 x float>, ptr %140, align 16
-  store <4 x float> %773, ptr %8, align 16
-  store <4 x float> %774, ptr %9, align 16
-  %775 = load <4 x float>, ptr %8, align 16
-  %776 = load <4 x float>, ptr %9, align 16
-  %777 = shufflevector <4 x float> %775, <4 x float> %776, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %778 = load ptr, ptr %138, align 8
-  %779 = getelementptr inbounds <4 x float>, ptr %778, i64 1
-  store <4 x float> %777, ptr %779, align 16
-  %780 = load <4 x float>, ptr %141, align 16
-  %781 = load <4 x float>, ptr %142, align 16
-  store <4 x float> %780, ptr %75, align 16
-  store <4 x float> %781, ptr %76, align 16
-  %782 = load <4 x float>, ptr %75, align 16
-  %783 = load <4 x float>, ptr %76, align 16
-  %784 = shufflevector <4 x float> %782, <4 x float> %783, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %785 = load ptr, ptr %138, align 8
-  %786 = getelementptr inbounds <4 x float>, ptr %785, i64 2
-  store <4 x float> %784, ptr %786, align 16
-  br label %787
+185:                                              ; preds = %181
+  %186 = load i32, ptr %22, align 4, !tbaa !11
+  %187 = mul nsw i32 %186, 4
+  %188 = load i32, ptr %27, align 4, !tbaa !11
+  %189 = add nsw i32 %187, %188
+  %190 = load i32, ptr %8, align 4, !tbaa !11
+  %191 = icmp slt i32 %189, %190
+  br i1 %191, label %192, label %236
 
-787:                                              ; preds = %730
-  br label %788
+192:                                              ; preds = %185
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #16
+  %193 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %11, i32 0, i32 0
+  %194 = load i32, ptr %22, align 4, !tbaa !11
+  %195 = mul nsw i32 %194, 4
+  %196 = load i32, ptr %27, align 4, !tbaa !11
+  %197 = add nsw i32 %195, %196
+  %198 = sext i32 %197 to i64
+  %199 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %193, i64 noundef %198) #16
+  %200 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %199, i32 0, i32 0
+  %201 = load ptr, ptr %200, align 8, !tbaa !15
+  store ptr %201, ptr %28, align 8, !tbaa !19
+  %202 = load ptr, ptr %28, align 8, !tbaa !19
+  %203 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %202, i32 0, i32 2
+  %204 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %203, i32 0, i32 0
+  %205 = getelementptr inbounds nuw %"struct.ozz::math::Float3", ptr %204, i32 0, i32 0
+  %206 = invoke noundef <4 x float> @_ZN3ozz4math11simd_float49Load3PtrUEPKf(ptr noundef %205)
+          to label %207 unwind label %232
 
-788:                                              ; preds = %787
-  %789 = load i32, ptr %177, align 4
-  %790 = add nsw i32 %789, 1
-  store i32 %790, ptr %177, align 4
-  br label %338, !llvm.loop !10
+207:                                              ; preds = %192
+  %208 = load i32, ptr %27, align 4, !tbaa !11
+  %209 = sext i32 %208 to i64
+  %210 = getelementptr inbounds [4 x <4 x float>], ptr %24, i64 0, i64 %209
+  store <4 x float> %206, ptr %210, align 16, !tbaa !28
+  %211 = load ptr, ptr %28, align 8, !tbaa !19
+  %212 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %211, i32 0, i32 2
+  %213 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %212, i32 0, i32 1
+  %214 = getelementptr inbounds nuw %"struct.ozz::math::Quaternion", ptr %213, i32 0, i32 0
+  %215 = invoke noundef <4 x float> @_ZN3ozz4math11simd_float48LoadPtrUEPKf(ptr noundef %214)
+          to label %216 unwind label %232
 
-791:                                              ; preds = %342
-  store i1 true, ptr %162, align 1
-  call void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %166) #12
-  %792 = load i1, ptr %162, align 1
-  br i1 %792, label %794, label %793
+216:                                              ; preds = %207
+  %217 = load <4 x float>, ptr %19, align 16, !tbaa !28
+  %218 = invoke noundef <4 x float> @_ZN3ozz4math14NormalizeSafe4EDv4_fS1_(<4 x float> noundef %215, <4 x float> noundef %217)
+          to label %219 unwind label %232
 
-793:                                              ; preds = %791
-  call void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
-  br label %794
+219:                                              ; preds = %216
+  %220 = load i32, ptr %27, align 4, !tbaa !11
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds [4 x <4 x float>], ptr %26, i64 0, i64 %221
+  store <4 x float> %218, ptr %222, align 16, !tbaa !28
+  %223 = load ptr, ptr %28, align 8, !tbaa !19
+  %224 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %223, i32 0, i32 2
+  %225 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %224, i32 0, i32 2
+  %226 = getelementptr inbounds nuw %"struct.ozz::math::Float3", ptr %225, i32 0, i32 0
+  %227 = invoke noundef <4 x float> @_ZN3ozz4math11simd_float49Load3PtrUEPKf(ptr noundef %226)
+          to label %228 unwind label %232
 
-794:                                              ; preds = %793, %791
-  br label %796
+228:                                              ; preds = %219
+  %229 = load i32, ptr %27, align 4, !tbaa !11
+  %230 = sext i32 %229 to i64
+  %231 = getelementptr inbounds [4 x <4 x float>], ptr %25, i64 0, i64 %230
+  store <4 x float> %227, ptr %231, align 16, !tbaa !28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #16
+  br label %249
 
-795:                                              ; preds = %220, %216
-  call void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
-  br label %797
+232:                                              ; preds = %219, %216, %207, %192
+  %233 = landingpad { ptr, i32 }
+          cleanup
+  %234 = extractvalue { ptr, i32 } %233, 0
+  store ptr %234, ptr %9, align 8
+  %235 = extractvalue { ptr, i32 } %233, 1
+  store i32 %235, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #16
+  br label %291
 
-796:                                              ; preds = %794, %185
+236:                                              ; preds = %185
+  %237 = load <4 x float>, ptr %20, align 16, !tbaa !28
+  %238 = load i32, ptr %27, align 4, !tbaa !11
+  %239 = sext i32 %238 to i64
+  %240 = getelementptr inbounds [4 x <4 x float>], ptr %24, i64 0, i64 %239
+  store <4 x float> %237, ptr %240, align 16, !tbaa !28
+  %241 = load <4 x float>, ptr %19, align 16, !tbaa !28
+  %242 = load i32, ptr %27, align 4, !tbaa !11
+  %243 = sext i32 %242 to i64
+  %244 = getelementptr inbounds [4 x <4 x float>], ptr %26, i64 0, i64 %243
+  store <4 x float> %241, ptr %244, align 16, !tbaa !28
+  %245 = load <4 x float>, ptr %21, align 16, !tbaa !28
+  %246 = load i32, ptr %27, align 4, !tbaa !11
+  %247 = sext i32 %246 to i64
+  %248 = getelementptr inbounds [4 x <4 x float>], ptr %25, i64 0, i64 %247
+  store <4 x float> %245, ptr %248, align 16, !tbaa !28
+  br label %249
+
+249:                                              ; preds = %236, %228
+  br label %250
+
+250:                                              ; preds = %249
+  %251 = load i32, ptr %27, align 4, !tbaa !11
+  %252 = add nsw i32 %251, 1
+  store i32 %252, ptr %27, align 4, !tbaa !11
+  br label %181, !llvm.loop !29
+
+253:                                              ; preds = %184
+  %254 = getelementptr inbounds [4 x <4 x float>], ptr %24, i64 0, i64 0
+  %255 = call noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  %256 = getelementptr inbounds nuw %"class.ozz::animation::Skeleton", ptr %255, i32 0, i32 1
+  %257 = load i32, ptr %22, align 4, !tbaa !11
+  %258 = sext i32 %257 to i64
+  %259 = invoke noundef nonnull align 16 dereferenceable(160) ptr @_ZNK3ozz4spanINS_4math12SoaTransformEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %256, i64 noundef %258)
+          to label %260 unwind label %287
+
+260:                                              ; preds = %253
+  %261 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %259, i32 0, i32 0
+  %262 = getelementptr inbounds nuw %"struct.ozz::math::SoaFloat3", ptr %261, i32 0, i32 0
+  invoke void @_ZN3ozz4math12Transpose4x3EPKDv4_fPS1_(ptr noundef %254, ptr noundef %262)
+          to label %263 unwind label %287
+
+263:                                              ; preds = %260
+  %264 = getelementptr inbounds [4 x <4 x float>], ptr %26, i64 0, i64 0
+  %265 = call noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  %266 = getelementptr inbounds nuw %"class.ozz::animation::Skeleton", ptr %265, i32 0, i32 1
+  %267 = load i32, ptr %22, align 4, !tbaa !11
+  %268 = sext i32 %267 to i64
+  %269 = invoke noundef nonnull align 16 dereferenceable(160) ptr @_ZNK3ozz4spanINS_4math12SoaTransformEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %266, i64 noundef %268)
+          to label %270 unwind label %287
+
+270:                                              ; preds = %263
+  %271 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %269, i32 0, i32 1
+  %272 = getelementptr inbounds nuw %"struct.ozz::math::SoaQuaternion", ptr %271, i32 0, i32 0
+  invoke void @_ZN3ozz4math12Transpose4x4EPKDv4_fPS1_(ptr noundef %264, ptr noundef %272)
+          to label %273 unwind label %287
+
+273:                                              ; preds = %270
+  %274 = getelementptr inbounds [4 x <4 x float>], ptr %25, i64 0, i64 0
+  %275 = call noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  %276 = getelementptr inbounds nuw %"class.ozz::animation::Skeleton", ptr %275, i32 0, i32 1
+  %277 = load i32, ptr %22, align 4, !tbaa !11
+  %278 = sext i32 %277 to i64
+  %279 = invoke noundef nonnull align 16 dereferenceable(160) ptr @_ZNK3ozz4spanINS_4math12SoaTransformEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %276, i64 noundef %278)
+          to label %280 unwind label %287
+
+280:                                              ; preds = %273
+  %281 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %279, i32 0, i32 2
+  %282 = getelementptr inbounds nuw %"struct.ozz::math::SoaFloat3", ptr %281, i32 0, i32 0
+  invoke void @_ZN3ozz4math12Transpose4x3EPKDv4_fPS1_(ptr noundef %274, ptr noundef %282)
+          to label %283 unwind label %287
+
+283:                                              ; preds = %280
+  call void @llvm.lifetime.end.p0(i64 64, ptr %26) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr %25) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr %24) #16
+  br label %284
+
+284:                                              ; preds = %283
+  %285 = load i32, ptr %22, align 4, !tbaa !11
+  %286 = add nsw i32 %285, 1
+  store i32 %286, ptr %22, align 4, !tbaa !11
+  br label %157, !llvm.loop !30
+
+287:                                              ; preds = %280, %273, %270, %263, %260, %253
+  %288 = landingpad { ptr, i32 }
+          cleanup
+  %289 = extractvalue { ptr, i32 } %288, 0
+  store ptr %289, ptr %9, align 8
+  %290 = extractvalue { ptr, i32 } %288, 1
+  store i32 %290, ptr %10, align 4
+  br label %291
+
+291:                                              ; preds = %287, %232
+  call void @llvm.lifetime.end.p0(i64 64, ptr %26) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr %25) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr %24) #16
+  br label %292
+
+292:                                              ; preds = %291, %176
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #16
+  br label %295
+
+293:                                              ; preds = %163
+  store i1 true, ptr %7, align 1
+  store i32 1, ptr %23, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #16
+  call void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #16
+  %294 = load i1, ptr %7, align 1
+  br i1 %294, label %303, label %302
+
+295:                                              ; preds = %292, %172
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #16
+  br label %296
+
+296:                                              ; preds = %295, %168
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #16
+  br label %297
+
+297:                                              ; preds = %296, %164
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #16
+  br label %298
+
+298:                                              ; preds = %297, %146, %120, %87
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #16
+  br label %299
+
+299:                                              ; preds = %298, %54
+  call void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
+  br label %300
+
+300:                                              ; preds = %299, %50
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #16
+  br label %301
+
+301:                                              ; preds = %300, %46
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #16
+  call void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  br label %305
+
+302:                                              ; preds = %293
+  call void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  br label %303
+
+303:                                              ; preds = %302, %293
+  br label %304
+
+304:                                              ; preds = %303, %31
   ret void
 
-797:                                              ; preds = %795
-  %798 = load ptr, ptr %164, align 8
-  %799 = load i32, ptr %165, align 4
-  %800 = insertvalue { ptr, i32 } poison, ptr %798, 0
-  %801 = insertvalue { ptr, i32 } %800, i32 %799, 1
-  resume { ptr, i32 } %801
+305:                                              ; preds = %301
+  %306 = load ptr, ptr %9, align 8
+  %307 = load i32, ptr %10, align 4
+  %308 = insertvalue { ptr, i32 } poison, ptr %306, 0
+  %309 = insertvalue { ptr, i32 } %308, i32 %307, 1
+  resume { ptr, i32 } %309
 }
 
 declare noundef zeroext i1 @_ZNK3ozz9animation7offline11RawSkeleton8ValidateEv(ptr noundef nonnull align 8 dereferenceable(24)) #1
@@ -1263,10 +764,10 @@ declare noundef zeroext i1 @_ZNK3ozz9animation7offline11RawSkeleton8ValidateEv(p
 define linkonce_odr dso_local void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEC2IS4_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store ptr %1, ptr %4, align 8, !tbaa !33
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
   call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 8, i1 false)
   invoke void @_ZNSt15__uniq_ptr_dataIN3ozz9animation8SkeletonENS0_7DeleterIS2_EELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %7 unwind label %8
@@ -1278,7 +779,7 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonEN
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #13
+  call void @__clang_call_terminate(ptr %10) #17
   unreachable
 }
 
@@ -1287,9 +788,12 @@ define linkonce_odr dso_local void @_ZN3ozz11make_uniqueINS_9animation8SkeletonE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = call noundef ptr @_ZN3ozz3NewINS_9animation8SkeletonEJEEEPT_DpOT0_()
-  call void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3) #12
+  call void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3) #16
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare noundef i32 @_ZNK3ozz9animation7offline11RawSkeleton10num_jointsEv(ptr noundef nonnull align 8 dereferenceable(24)) #1
 
@@ -1301,13 +805,13 @@ define internal void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerC2Ei(p
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store i32 %1, ptr %4, align 4, !tbaa !11
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %7, i32 0, i32 0
-  call void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
-  %9 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %7, i32 0, i32 0
-  %10 = load i32, ptr %4, align 4
+  %8 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %7, i32 0, i32 0
+  call void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #16
+  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %7, i32 0, i32 0
+  %10 = load i32, ptr %4, align 4, !tbaa !11
   %11 = sext i32 %10 to i64
   invoke void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %11)
           to label %12 unwind label %13
@@ -1322,7 +826,7 @@ define internal void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerC2Ei(p
   store ptr %15, ptr %5, align 8
   %16 = extractvalue { ptr, i32 } %14, 1
   store i32 %16, ptr %6, align 4
-  call void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
+  call void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #16
   br label %17
 
 17:                                               ; preds = %13
@@ -1333,17 +837,17 @@ define internal void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerC2Ei(p
   resume { ptr, i32 } %21
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #3 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #5 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.ozz::animation::offline::RawSkeleton", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !35
   call void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHierarchyRecurseDFINS2_11JointListerEEEvRKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS7_EEEPKS7_RT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  %8 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !35
   ret ptr %8
 }
 
@@ -1351,59 +855,62 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZN3ozz9animati
 define internal noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store i64 %1, ptr %4, align 8, !tbaa !13
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %8, i64 %9
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !39
+  %9 = load i64, ptr %4, align 8, !tbaa !13
+  %10 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %8, i64 %9
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !44
   ret i64 %5
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  %4 = call noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   ret ptr %4
 }
 
-declare noundef ptr @_ZN3ozz9animation8Skeleton8AllocateEmm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i64 noundef) #1
+declare noundef ptr @_ZN3ozz9animation8Skeleton8AllocateEmm(ptr noundef nonnull align 8 dereferenceable(56), i64 noundef, i64 noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3ozz4spanIPcEixEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !47
+  store i64 %1, ptr %4, align 8, !tbaa !13
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.ozz::span.9", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %6 = getelementptr inbounds nuw %"struct.ozz::span.9", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !49
+  %8 = load i64, ptr %4, align 8, !tbaa !13
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   ret ptr %9
 }
 
 ; Function Attrs: nounwind
-declare ptr @strcpy(ptr noundef, ptr noundef) #4
+declare ptr @strcpy(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
   %3 = load ptr, ptr %2, align 8
   %4 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %5 unwind label %6
@@ -1415,7 +922,7 @@ define linkonce_odr dso_local noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11cha
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #13
+  call void @__clang_call_terminate(ptr %8) #17
   unreachable
 }
 
@@ -1423,48 +930,358 @@ define linkonce_odr dso_local noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11cha
 define linkonce_odr dso_local noundef nonnull align 2 dereferenceable(2) ptr @_ZNK3ozz4spanIsEixEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store i64 %1, ptr %4, align 8, !tbaa !13
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.ozz::span.8", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds i16, ptr %7, i64 %8
+  %6 = getelementptr inbounds nuw %"struct.ozz::span.8", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %8 = load i64, ptr %4, align 8, !tbaa !13
+  %9 = getelementptr inbounds nuw i16, ptr %7, i64 %8
   ret ptr %9
 }
 
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef <4 x float> @_ZN3ozz4math11simd_float46w_axisEv() #7 comdat {
+  %1 = alloca <2 x i64>, align 16
+  %2 = alloca <2 x i64>, align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr %1) #16
+  %3 = call noundef <2 x i64> @_ZL17_mm_setzero_si128v()
+  store <2 x i64> %3, ptr %1, align 16, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %2) #16
+  %4 = call noundef <2 x i64> @_ZL15_mm_cmpeq_epi32Dv2_xS_(<2 x i64> noundef zeroinitializer, <2 x i64> noundef zeroinitializer)
+  %5 = call noundef <2 x i64> @_ZL14_mm_slli_epi32Dv2_xi(<2 x i64> noundef %4, i32 noundef 25)
+  %6 = call noundef <2 x i64> @_ZL14_mm_srli_epi32Dv2_xi(<2 x i64> noundef %5, i32 noundef 2)
+  store <2 x i64> %6, ptr %2, align 16, !tbaa !28
+  %7 = load <2 x i64>, ptr %2, align 16, !tbaa !28
+  %8 = bitcast <2 x i64> %7 to <16 x i8>
+  %9 = shufflevector <16 x i8> zeroinitializer, <16 x i8> %8, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %10 = bitcast <16 x i8> %9 to <2 x i64>
+  %11 = call noundef <4 x float> @_ZL16_mm_castsi128_psDv2_x(<2 x i64> noundef %10)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %2) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %1) #16
+  ret <4 x float> %11
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef <4 x float> @_ZN3ozz4math11simd_float44zeroEv() #7 comdat {
+  %1 = call noundef <4 x float> @_ZL14_mm_setzero_psv()
+  ret <4 x float> %1
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef <4 x float> @_ZN3ozz4math11simd_float43oneEv() #8 comdat {
+  %1 = alloca <2 x i64>, align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr %1) #16
+  %2 = call noundef <2 x i64> @_ZL17_mm_setzero_si128v()
+  store <2 x i64> %2, ptr %1, align 16, !tbaa !28
+  %3 = call noundef <2 x i64> @_ZL15_mm_cmpeq_epi32Dv2_xS_(<2 x i64> noundef zeroinitializer, <2 x i64> noundef zeroinitializer)
+  %4 = call noundef <2 x i64> @_ZL14_mm_slli_epi32Dv2_xi(<2 x i64> noundef %3, i32 noundef 25)
+  %5 = call noundef <2 x i64> @_ZL14_mm_srli_epi32Dv2_xi(<2 x i64> noundef %4, i32 noundef 2)
+  %6 = call noundef <4 x float> @_ZL16_mm_castsi128_psDv2_x(<2 x i64> noundef %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %1) #16
+  ret <4 x float> %6
+}
+
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK3ozz9animation8Skeleton14num_soa_jointsEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #3 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZNK3ozz9animation8Skeleton14num_soa_jointsEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i32 @_ZNK3ozz9animation8Skeleton10num_jointsEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %4 = call noundef i32 @_ZNK3ozz9animation8Skeleton10num_jointsEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = add nsw i32 %4, 3
   %6 = sdiv i32 %5, 4
   ret i32 %6
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef <4 x float> @_ZN3ozz4math11simd_float49Load3PtrUEPKf(ptr noundef %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !60
+  %3 = load ptr, ptr %2, align 8, !tbaa !60
+  %4 = getelementptr inbounds float, ptr %3, i64 0
+  %5 = call noundef <4 x float> @_ZL11_mm_load_ssPKf(ptr noundef %4)
+  %6 = load ptr, ptr %2, align 8, !tbaa !60
+  %7 = getelementptr inbounds float, ptr %6, i64 1
+  %8 = call noundef <4 x float> @_ZL11_mm_load_ssPKf(ptr noundef %7)
+  %9 = call noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %5, <4 x float> noundef %8)
+  %10 = load ptr, ptr %2, align 8, !tbaa !60
+  %11 = getelementptr inbounds float, ptr %10, i64 2
+  %12 = call noundef <4 x float> @_ZL11_mm_load_ssPKf(ptr noundef %11)
+  %13 = call noundef <4 x float> @_ZL13_mm_movelh_psDv4_fS_(<4 x float> noundef %9, <4 x float> noundef %12)
+  ret <4 x float> %13
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef <4 x float> @_ZN3ozz4math14NormalizeSafe4EDv4_fS1_(<4 x float> noundef %0, <4 x float> noundef %1) #7 comdat {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  %5 = alloca <4 x float>, align 16
+  %6 = alloca <4 x float>, align 16
+  %7 = alloca <4 x float>, align 16
+  %8 = alloca <4 x float>, align 16
+  %9 = alloca <4 x float>, align 16
+  %10 = alloca <2 x i64>, align 16
+  %11 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !28
+  store <4 x float> %1, ptr %4, align 16, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #16
+  br label %12
+
+12:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #16
+  %13 = load <4 x float>, ptr %3, align 16, !tbaa !28
+  %14 = load <4 x float>, ptr %3, align 16, !tbaa !28
+  %15 = call noundef <4 x float> @_ZL10_mm_mul_psDv4_fS_(<4 x float> noundef %13, <4 x float> noundef %14)
+  store <4 x float> %15, ptr %6, align 16, !tbaa !28
+  br label %16
+
+16:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #16
+  %17 = load <4 x float>, ptr %6, align 16, !tbaa !28
+  %18 = load <4 x float>, ptr %6, align 16, !tbaa !28
+  %19 = load <4 x float>, ptr %6, align 16, !tbaa !28
+  %20 = call noundef <4 x float> @_ZL13_mm_movehl_psDv4_fS_(<4 x float> noundef %18, <4 x float> noundef %19)
+  %21 = call noundef <4 x float> @_ZL10_mm_add_psDv4_fS_(<4 x float> noundef %17, <4 x float> noundef %20)
+  store <4 x float> %21, ptr %7, align 16, !tbaa !28
+  %22 = load <4 x float>, ptr %7, align 16, !tbaa !28
+  %23 = load <4 x float>, ptr %7, align 16, !tbaa !28
+  %24 = load <4 x float>, ptr %7, align 16, !tbaa !28
+  %25 = shufflevector <4 x float> %23, <4 x float> %24, <4 x i32> <i32 1, i32 1, i32 5, i32 5>
+  %26 = call noundef <4 x float> @_ZL10_mm_add_ssDv4_fS_(<4 x float> noundef %22, <4 x float> noundef %25)
+  store <4 x float> %26, ptr %5, align 16, !tbaa !28
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #16
+  br label %27
+
+27:                                               ; preds = %16
+  br label %28
+
+28:                                               ; preds = %27
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #16
+  br label %29
+
+29:                                               ; preds = %28
+  br label %30
+
+30:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #16
+  %31 = call noundef <4 x float> @_ZN3ozz4math11simd_float43oneEv()
+  %32 = load <4 x float>, ptr %5, align 16, !tbaa !28
+  %33 = call noundef <4 x float> @_ZL11_mm_sqrt_ssDv4_f(<4 x float> noundef %32)
+  %34 = call noundef <4 x float> @_ZL10_mm_div_ssDv4_fS_(<4 x float> noundef %31, <4 x float> noundef %33)
+  store <4 x float> %34, ptr %8, align 16, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #16
+  %35 = load <4 x float>, ptr %8, align 16, !tbaa !28
+  %36 = load <4 x float>, ptr %8, align 16, !tbaa !28
+  %37 = shufflevector <4 x float> %35, <4 x float> %36, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
+  store <4 x float> %37, ptr %9, align 16, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #16
+  %38 = load <4 x float>, ptr %5, align 16, !tbaa !28
+  %39 = load <4 x float>, ptr %5, align 16, !tbaa !28
+  %40 = shufflevector <4 x float> %38, <4 x float> %39, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
+  %41 = call noundef <4 x float> @_ZL14_mm_setzero_psv()
+  %42 = call noundef <4 x float> @_ZL12_mm_cmple_psDv4_fS_(<4 x float> noundef %40, <4 x float> noundef %41)
+  %43 = call noundef <2 x i64> @_ZL16_mm_castps_si128Dv4_f(<4 x float> noundef %42)
+  store <2 x i64> %43, ptr %10, align 16, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #16
+  %44 = load <4 x float>, ptr %3, align 16, !tbaa !28
+  %45 = load <4 x float>, ptr %9, align 16, !tbaa !28
+  %46 = call noundef <4 x float> @_ZL10_mm_mul_psDv4_fS_(<4 x float> noundef %44, <4 x float> noundef %45)
+  store <4 x float> %46, ptr %11, align 16, !tbaa !28
+  %47 = load <4 x float>, ptr %4, align 16, !tbaa !28
+  %48 = load <2 x i64>, ptr %10, align 16, !tbaa !28
+  %49 = call noundef <4 x float> @_ZL16_mm_castsi128_psDv2_x(<2 x i64> noundef %48)
+  %50 = call noundef <4 x float> @_ZL10_mm_and_psDv4_fS_(<4 x float> noundef %47, <4 x float> noundef %49)
+  %51 = load <2 x i64>, ptr %10, align 16, !tbaa !28
+  %52 = call noundef <4 x float> @_ZL16_mm_castsi128_psDv2_x(<2 x i64> noundef %51)
+  %53 = load <4 x float>, ptr %11, align 16, !tbaa !28
+  %54 = call noundef <4 x float> @_ZL13_mm_andnot_psDv4_fS_(<4 x float> noundef %52, <4 x float> noundef %53)
+  %55 = call noundef <4 x float> @_ZL9_mm_or_psDv4_fS_(<4 x float> noundef %50, <4 x float> noundef %54)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #16
+  ret <4 x float> %55
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef <4 x float> @_ZN3ozz4math11simd_float48LoadPtrUEPKf(ptr noundef %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !60
+  %3 = load ptr, ptr %2, align 8, !tbaa !60
+  %4 = call noundef <4 x float> @_ZL12_mm_loadu_psPKf(ptr noundef %3)
+  ret <4 x float> %4
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz4math12Transpose4x3EPKDv4_fPS1_(ptr noundef %0, ptr noundef %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca <4 x float>, align 16
+  %6 = alloca <4 x float>, align 16
+  %7 = alloca <4 x float>, align 16
+  %8 = alloca <4 x float>, align 16
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #16
+  %9 = load ptr, ptr %3, align 8, !tbaa !62
+  %10 = getelementptr inbounds <4 x float>, ptr %9, i64 0
+  %11 = load <4 x float>, ptr %10, align 16, !tbaa !28
+  %12 = load ptr, ptr %3, align 8, !tbaa !62
+  %13 = getelementptr inbounds <4 x float>, ptr %12, i64 2
+  %14 = load <4 x float>, ptr %13, align 16, !tbaa !28
+  %15 = call noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %11, <4 x float> noundef %14)
+  store <4 x float> %15, ptr %5, align 16, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #16
+  %16 = load ptr, ptr %3, align 8, !tbaa !62
+  %17 = getelementptr inbounds <4 x float>, ptr %16, i64 1
+  %18 = load <4 x float>, ptr %17, align 16, !tbaa !28
+  %19 = load ptr, ptr %3, align 8, !tbaa !62
+  %20 = getelementptr inbounds <4 x float>, ptr %19, i64 3
+  %21 = load <4 x float>, ptr %20, align 16, !tbaa !28
+  %22 = call noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %18, <4 x float> noundef %21)
+  store <4 x float> %22, ptr %6, align 16, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #16
+  %23 = load ptr, ptr %3, align 8, !tbaa !62
+  %24 = getelementptr inbounds <4 x float>, ptr %23, i64 0
+  %25 = load <4 x float>, ptr %24, align 16, !tbaa !28
+  %26 = load ptr, ptr %3, align 8, !tbaa !62
+  %27 = getelementptr inbounds <4 x float>, ptr %26, i64 2
+  %28 = load <4 x float>, ptr %27, align 16, !tbaa !28
+  %29 = call noundef <4 x float> @_ZL15_mm_unpackhi_psDv4_fS_(<4 x float> noundef %25, <4 x float> noundef %28)
+  store <4 x float> %29, ptr %7, align 16, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #16
+  %30 = load ptr, ptr %3, align 8, !tbaa !62
+  %31 = getelementptr inbounds <4 x float>, ptr %30, i64 1
+  %32 = load <4 x float>, ptr %31, align 16, !tbaa !28
+  %33 = load ptr, ptr %3, align 8, !tbaa !62
+  %34 = getelementptr inbounds <4 x float>, ptr %33, i64 3
+  %35 = load <4 x float>, ptr %34, align 16, !tbaa !28
+  %36 = call noundef <4 x float> @_ZL15_mm_unpackhi_psDv4_fS_(<4 x float> noundef %32, <4 x float> noundef %35)
+  store <4 x float> %36, ptr %8, align 16, !tbaa !28
+  %37 = load <4 x float>, ptr %5, align 16, !tbaa !28
+  %38 = load <4 x float>, ptr %6, align 16, !tbaa !28
+  %39 = call noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %37, <4 x float> noundef %38)
+  %40 = load ptr, ptr %4, align 8, !tbaa !62
+  %41 = getelementptr inbounds <4 x float>, ptr %40, i64 0
+  store <4 x float> %39, ptr %41, align 16, !tbaa !28
+  %42 = load <4 x float>, ptr %5, align 16, !tbaa !28
+  %43 = load <4 x float>, ptr %6, align 16, !tbaa !28
+  %44 = call noundef <4 x float> @_ZL15_mm_unpackhi_psDv4_fS_(<4 x float> noundef %42, <4 x float> noundef %43)
+  %45 = load ptr, ptr %4, align 8, !tbaa !62
+  %46 = getelementptr inbounds <4 x float>, ptr %45, i64 1
+  store <4 x float> %44, ptr %46, align 16, !tbaa !28
+  %47 = load <4 x float>, ptr %7, align 16, !tbaa !28
+  %48 = load <4 x float>, ptr %8, align 16, !tbaa !28
+  %49 = call noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %47, <4 x float> noundef %48)
+  %50 = load ptr, ptr %4, align 8, !tbaa !62
+  %51 = getelementptr inbounds <4 x float>, ptr %50, i64 2
+  store <4 x float> %49, ptr %51, align 16, !tbaa !28
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #16
+  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 16 dereferenceable(160) ptr @_ZNK3ozz4spanINS_4math12SoaTransformEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store i64 %1, ptr %4, align 8, !tbaa !13
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.ozz::span", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %7, i64 %8
+  %6 = getelementptr inbounds nuw %"struct.ozz::span", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %8 = load i64, ptr %4, align 8, !tbaa !13
+  %9 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %7, i64 %8
   ret ptr %9
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 align 2 {
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3ozz4math12Transpose4x4EPKDv4_fPS1_(ptr noundef %0, ptr noundef %1) #8 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca <4 x float>, align 16
+  %6 = alloca <4 x float>, align 16
+  %7 = alloca <4 x float>, align 16
+  %8 = alloca <4 x float>, align 16
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #16
+  %9 = load ptr, ptr %3, align 8, !tbaa !62
+  %10 = getelementptr inbounds <4 x float>, ptr %9, i64 0
+  %11 = load <4 x float>, ptr %10, align 16, !tbaa !28
+  %12 = load ptr, ptr %3, align 8, !tbaa !62
+  %13 = getelementptr inbounds <4 x float>, ptr %12, i64 2
+  %14 = load <4 x float>, ptr %13, align 16, !tbaa !28
+  %15 = call noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %11, <4 x float> noundef %14)
+  store <4 x float> %15, ptr %5, align 16, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #16
+  %16 = load ptr, ptr %3, align 8, !tbaa !62
+  %17 = getelementptr inbounds <4 x float>, ptr %16, i64 1
+  %18 = load <4 x float>, ptr %17, align 16, !tbaa !28
+  %19 = load ptr, ptr %3, align 8, !tbaa !62
+  %20 = getelementptr inbounds <4 x float>, ptr %19, i64 3
+  %21 = load <4 x float>, ptr %20, align 16, !tbaa !28
+  %22 = call noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %18, <4 x float> noundef %21)
+  store <4 x float> %22, ptr %6, align 16, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #16
+  %23 = load ptr, ptr %3, align 8, !tbaa !62
+  %24 = getelementptr inbounds <4 x float>, ptr %23, i64 0
+  %25 = load <4 x float>, ptr %24, align 16, !tbaa !28
+  %26 = load ptr, ptr %3, align 8, !tbaa !62
+  %27 = getelementptr inbounds <4 x float>, ptr %26, i64 2
+  %28 = load <4 x float>, ptr %27, align 16, !tbaa !28
+  %29 = call noundef <4 x float> @_ZL15_mm_unpackhi_psDv4_fS_(<4 x float> noundef %25, <4 x float> noundef %28)
+  store <4 x float> %29, ptr %7, align 16, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #16
+  %30 = load ptr, ptr %3, align 8, !tbaa !62
+  %31 = getelementptr inbounds <4 x float>, ptr %30, i64 1
+  %32 = load <4 x float>, ptr %31, align 16, !tbaa !28
+  %33 = load ptr, ptr %3, align 8, !tbaa !62
+  %34 = getelementptr inbounds <4 x float>, ptr %33, i64 3
+  %35 = load <4 x float>, ptr %34, align 16, !tbaa !28
+  %36 = call noundef <4 x float> @_ZL15_mm_unpackhi_psDv4_fS_(<4 x float> noundef %32, <4 x float> noundef %35)
+  store <4 x float> %36, ptr %8, align 16, !tbaa !28
+  %37 = load <4 x float>, ptr %5, align 16, !tbaa !28
+  %38 = load <4 x float>, ptr %6, align 16, !tbaa !28
+  %39 = call noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %37, <4 x float> noundef %38)
+  %40 = load ptr, ptr %4, align 8, !tbaa !62
+  %41 = getelementptr inbounds <4 x float>, ptr %40, i64 0
+  store <4 x float> %39, ptr %41, align 16, !tbaa !28
+  %42 = load <4 x float>, ptr %5, align 16, !tbaa !28
+  %43 = load <4 x float>, ptr %6, align 16, !tbaa !28
+  %44 = call noundef <4 x float> @_ZL15_mm_unpackhi_psDv4_fS_(<4 x float> noundef %42, <4 x float> noundef %43)
+  %45 = load ptr, ptr %4, align 8, !tbaa !62
+  %46 = getelementptr inbounds <4 x float>, ptr %45, i64 1
+  store <4 x float> %44, ptr %46, align 16, !tbaa !28
+  %47 = load <4 x float>, ptr %7, align 16, !tbaa !28
+  %48 = load <4 x float>, ptr %8, align 16, !tbaa !28
+  %49 = call noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %47, <4 x float> noundef %48)
+  %50 = load ptr, ptr %4, align 8, !tbaa !62
+  %51 = getelementptr inbounds <4 x float>, ptr %50, i64 2
+  store <4 x float> %49, ptr %51, align 16, !tbaa !28
+  %52 = load <4 x float>, ptr %7, align 16, !tbaa !28
+  %53 = load <4 x float>, ptr %8, align 16, !tbaa !28
+  %54 = call noundef <4 x float> @_ZL15_mm_unpackhi_psDv4_fS_(<4 x float> noundef %52, <4 x float> noundef %53)
+  %55 = load ptr, ptr %4, align 8, !tbaa !62
+  %56 = getelementptr inbounds <4 x float>, ptr %55, i64 3
+  store <4 x float> %54, ptr %56, align 16, !tbaa !28
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #16
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !35
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %3, i32 0, i32 0
-  call void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  %4 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %3, i32 0, i32 0
+  call void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
   ret void
 }
 
@@ -1472,20 +1289,21 @@ define internal void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev(p
 define linkonce_odr dso_local void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %"class.std::unique_ptr", ptr %4, i32 0, i32 0
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #16
+  %5 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  store ptr %6, ptr %3, align 8, !tbaa !68
+  %7 = load ptr, ptr %3, align 8, !tbaa !68
+  %8 = load ptr, ptr %7, align 8, !tbaa !58
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %1
-  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
-  %12 = load ptr, ptr %3, align 8
-  %13 = load ptr, ptr %12, align 8
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
+  %12 = load ptr, ptr %3, align 8, !tbaa !68
+  %13 = load ptr, ptr %12, align 8, !tbaa !58
   invoke void @_ZNK3ozz7DeleterINS_9animation8SkeletonEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
           to label %14 unwind label %17
 
@@ -1493,34 +1311,35 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonEN
   br label %15
 
 15:                                               ; preds = %14, %1
-  %16 = load ptr, ptr %3, align 8
-  store ptr null, ptr %16, align 8
+  %16 = load ptr, ptr %3, align 8, !tbaa !68
+  store ptr null, ptr %16, align 8, !tbaa !58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #16
   ret void
 
 17:                                               ; preds = %10
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #13
+  call void @__clang_call_terminate(ptr %19) #17
   unreachable
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataIN3ozz9animation8SkeletonENS0_7DeleterIS2_EELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataIN3ozz9animation8SkeletonENS0_7DeleterIS2_EELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #12
-  call void @_ZSt9terminatev() #13
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #16
+  call void @_ZSt9terminatev() #17
   unreachable
 }
 
@@ -1531,9 +1350,9 @@ declare void @_ZSt9terminatev()
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
   call void @_ZNSt5tupleIJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES3_S5_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   ret void
 }
@@ -1541,7 +1360,7 @@ define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_implIN3ozz9animation8Skele
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5tupleIJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES3_S5_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt11_Tuple_implILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
@@ -1550,7 +1369,7 @@ define linkonce_odr dso_local void @_ZNSt5tupleIJPN3ozz9animation8SkeletonENS0_7
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !76
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt11_Tuple_implILm1EJN3ozz7DeleterINS0_9animation8SkeletonEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   call void @_ZNSt10_Head_baseILm0EPN3ozz9animation8SkeletonELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -1560,7 +1379,7 @@ define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJPN3ozz9animation8Ske
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJN3ozz7DeleterINS0_9animation8SkeletonEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !78
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt10_Head_baseILm1EN3ozz7DeleterINS0_9animation8SkeletonEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   ret void
@@ -1569,17 +1388,17 @@ define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJN3ozz7DeleterINS0_9a
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt10_Head_baseILm0EPN3ozz9animation8SkeletonELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !80
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !82
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt10_Head_baseILm1EN3ozz7DeleterINS0_9animation8SkeletonEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !84
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3ozz7DeleterINS_9animation8SkeletonEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   ret void
@@ -1588,16 +1407,16 @@ define linkonce_odr dso_local void @_ZNSt10_Head_baseILm1EN3ozz7DeleterINS0_9ani
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz7DeleterINS_9animation8SkeletonEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !86
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  call void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
   ret void
 }
 
@@ -1609,86 +1428,90 @@ define internal void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointL
   %6 = alloca ptr, align 8
   %7 = alloca %"class.std::move_iterator", align 8
   %8 = alloca %"class.std::move_iterator", align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store i64 %1, ptr %4, align 8, !tbaa !13
   %9 = load ptr, ptr %3, align 8
-  %10 = load i64, ptr %4, align 8
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %10 = load i64, ptr %4, align 8, !tbaa !13
+  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
   %12 = icmp ugt i64 %10, %11
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %2
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str) #14
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str) #18
   unreachable
 
 14:                                               ; preds = %2
-  %15 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  %16 = load i64, ptr %4, align 8
+  %15 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
+  %16 = load i64, ptr %4, align 8, !tbaa !13
   %17 = icmp ult i64 %15, %16
   br i1 %17, label %18, label %71
 
 18:                                               ; preds = %14
-  %19 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  store i64 %19, ptr %5, align 8
-  %20 = load i64, ptr %4, align 8
-  %21 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
-  %22 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #16
+  %19 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
+  store i64 %19, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #16
+  %20 = load i64, ptr %4, align 8, !tbaa !13
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !39
   %24 = call ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt13move_iteratorIPS5_EET0_PT_(ptr noundef %23)
-  %25 = getelementptr inbounds %"class.std::move_iterator", ptr %7, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %7, i32 0, i32 0
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
-  %27 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %26, i32 0, i32 1
-  %28 = load ptr, ptr %27, align 8
+  %26 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !88
   %29 = call ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt13move_iteratorIPS5_EET0_PT_(ptr noundef %28)
-  %30 = getelementptr inbounds %"class.std::move_iterator", ptr %8, i32 0, i32 0
+  %30 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %8, i32 0, i32 0
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds %"class.std::move_iterator", ptr %7, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %7, i32 0, i32 0
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %"class.std::move_iterator", ptr %8, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %8, i32 0, i32 0
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE20_M_allocate_and_copyISt13move_iteratorIPS5_EEESB_mT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %20, ptr %32, ptr %34)
-  store ptr %35, ptr %6, align 8
-  %36 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
-  %37 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %36, i32 0, i32 0
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
-  %40 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %39, i32 0, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  store ptr %35, ptr %6, align 8, !tbaa !89
+  %36 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !39
+  %39 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8, !tbaa !88
+  %42 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
   call void @_ZSt8_DestroyIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEvT_S9_RT0_(ptr noundef %38, ptr noundef %41, ptr noundef nonnull align 1 dereferenceable(1) %42)
-  %43 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
-  %44 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %43, i32 0, i32 0
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
-  %47 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %46, i32 0, i32 2
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
-  %50 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %49, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
+  %43 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !39
+  %46 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %46, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8, !tbaa !90
+  %49 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %49, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8, !tbaa !39
   %52 = ptrtoint ptr %48 to i64
   %53 = ptrtoint ptr %51 to i64
   %54 = sub i64 %52, %53
   %55 = sdiv exact i64 %54, 16
   call void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE13_M_deallocateEPS5_m(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %45, i64 noundef %55)
-  %56 = load ptr, ptr %6, align 8
-  %57 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
-  %58 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %57, i32 0, i32 0
-  store ptr %56, ptr %58, align 8
-  %59 = load ptr, ptr %6, align 8
-  %60 = load i64, ptr %5, align 8
-  %61 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %59, i64 %60
-  %62 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
-  %63 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %62, i32 0, i32 1
-  store ptr %61, ptr %63, align 8
-  %64 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
-  %65 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %64, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = load i64, ptr %4, align 8
-  %68 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %66, i64 %67
-  %69 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
-  %70 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %69, i32 0, i32 2
-  store ptr %68, ptr %70, align 8
+  %56 = load ptr, ptr %6, align 8, !tbaa !89
+  %57 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
+  %58 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %57, i32 0, i32 0
+  store ptr %56, ptr %58, align 8, !tbaa !39
+  %59 = load ptr, ptr %6, align 8, !tbaa !89
+  %60 = load i64, ptr %5, align 8, !tbaa !13
+  %61 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %59, i64 %60
+  %62 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
+  %63 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %62, i32 0, i32 1
+  store ptr %61, ptr %63, align 8, !tbaa !88
+  %64 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
+  %65 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %64, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 8, !tbaa !39
+  %67 = load i64, ptr %4, align 8, !tbaa !13
+  %68 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %66, i64 %67
+  %69 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %9, i32 0, i32 0
+  %70 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %69, i32 0, i32 2
+  store ptr %68, ptr %70, align 8, !tbaa !90
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #16
   br label %71
 
 71:                                               ; preds = %18, %14
@@ -1698,95 +1521,95 @@ define internal void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !39
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !88
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEvT_S9_RT0_(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %11 unwind label %12
 
 11:                                               ; preds = %1
-  call void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  call void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
   ret void
 
 12:                                               ; preds = %1
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #13
+  call void @__clang_call_terminate(ptr %14) #17
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !93
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_111JointLister5JointEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
-  call void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  call void @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_111JointLister5JointEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
+  call void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_111JointLister5JointEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !97
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %3, i32 0, i32 1
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %3, i32 0, i32 2
-  store ptr null, ptr %6, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !39
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8, !tbaa !88
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !90
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
-  %5 = call noundef i64 @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE11_S_max_sizeERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
+  %5 = call noundef i64 @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE11_S_max_sizeERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
   ret i64 %5
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #7
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %4, i32 0, i32 2
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %4, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8, !tbaa !90
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !39
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -1797,14 +1620,14 @@ define internal noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !88
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !39
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -1823,29 +1646,31 @@ define internal noundef ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_11
   %11 = alloca %"class.std::move_iterator", align 8
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
-  %14 = getelementptr inbounds %"class.std::move_iterator", ptr %5, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %5, i32 0, i32 0
   store ptr %2, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.std::move_iterator", ptr %6, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %6, i32 0, i32 0
   store ptr %3, ptr %15, align 8
-  store ptr %0, ptr %7, align 8
-  store i64 %1, ptr %8, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !37
+  store i64 %1, ptr %8, align 8, !tbaa !13
   %16 = load ptr, ptr %7, align 8
-  %17 = load i64, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #16
+  %17 = load i64, ptr %8, align 8, !tbaa !13
   %18 = call noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %17)
-  store ptr %18, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %5, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %6, i64 8, i1 false)
-  %19 = load ptr, ptr %9, align 8
-  %20 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #12
-  %21 = getelementptr inbounds %"class.std::move_iterator", ptr %10, i32 0, i32 0
+  store ptr %18, ptr %9, align 8, !tbaa !89
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !99
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !99
+  %19 = load ptr, ptr %9, align 8, !tbaa !89
+  %20 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #16
+  %21 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %10, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %"class.std::move_iterator", ptr %11, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %11, i32 0, i32 0
   %24 = load ptr, ptr %23, align 8
   %25 = invoke noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEES7_NS1_12StdAllocatorIS6_EEET0_T_SC_SB_RT1_(ptr %22, ptr %24, ptr noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %26 unwind label %28
 
 26:                                               ; preds = %4
-  %27 = load ptr, ptr %9, align 8
+  %27 = load ptr, ptr %9, align 8, !tbaa !89
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #16
   ret ptr %27
 
 28:                                               ; preds = %4
@@ -1859,14 +1684,14 @@ define internal noundef ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_11
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %12, align 8
-  %34 = call ptr @__cxa_begin_catch(ptr %33) #12
-  %35 = load ptr, ptr %9, align 8
-  %36 = load i64, ptr %8, align 8
+  %34 = call ptr @__cxa_begin_catch(ptr %33) #16
+  %35 = load ptr, ptr %9, align 8, !tbaa !89
+  %36 = load i64, ptr %8, align 8, !tbaa !13
   invoke void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE13_M_deallocateEPS5_m(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef %35, i64 noundef %36)
           to label %37 unwind label %38
 
 37:                                               ; preds = %32
-  invoke void @__cxa_rethrow() #14
+  invoke void @__cxa_rethrow() #18
           to label %52 unwind label %38
 
 38:                                               ; preds = %37, %32
@@ -1880,10 +1705,10 @@ define internal noundef ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_11
           to label %42 unwind label %49
 
 42:                                               ; preds = %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #16
   br label %44
 
 43:                                               ; No predecessors!
-  call void @llvm.trap()
   unreachable
 
 44:                                               ; preds = %42
@@ -1897,21 +1722,21 @@ define internal noundef ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_11
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #13
+  call void @__clang_call_terminate(ptr %51) #17
   unreachable
 
 52:                                               ; preds = %37
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt13move_iteratorIPS5_EET0_PT_(ptr noundef %0) #3 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt13move_iteratorIPS5_EET0_PT_(ptr noundef %0) #5 {
   %2 = alloca %"class.std::move_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !89
+  %4 = load ptr, ptr %3, align 8, !tbaa !89
   call void @_ZNSt13move_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEEC2ES6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
-  %5 = getelementptr inbounds %"class.std::move_iterator", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %2, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -1921,28 +1746,28 @@ define internal void @_ZSt8_DestroyIPN3ozz9animation7offline12_GLOBAL__N_111Join
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !89
+  store ptr %1, ptr %5, align 8, !tbaa !89
+  store ptr %2, ptr %6, align 8, !tbaa !95
   br label %7
 
 7:                                                ; preds = %14, %3
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !89
+  %9 = load ptr, ptr %5, align 8, !tbaa !89
   %10 = icmp ne ptr %8, %9
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %6, align 8, !tbaa !95
+  %13 = load ptr, ptr %4, align 8, !tbaa !89
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12_GLOBAL__N_111JointLister5JointEEEE7destroyIS6_EEvRS7_PT_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef %13)
   br label %14
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %15, i32 1
-  store ptr %16, ptr %4, align 8
-  br label %7, !llvm.loop !11
+  %15 = load ptr, ptr %4, align 8, !tbaa !89
+  %16 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %15, i32 1
+  store ptr %16, ptr %4, align 8, !tbaa !89
+  br label %7, !llvm.loop !100
 
 17:                                               ; preds = %7
   ret void
@@ -1951,9 +1776,9 @@ define internal void @_ZSt8_DestroyIPN3ozz9animation7offline12_GLOBAL__N_111Join
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
@@ -1962,18 +1787,18 @@ define internal void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_11
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !91
+  store ptr %1, ptr %5, align 8, !tbaa !89
+  store i64 %2, ptr %6, align 8, !tbaa !13
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !89
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !89
+  %13 = load i64, ptr %6, align 8, !tbaa !13
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12_GLOBAL__N_111JointLister5JointEEEE10deallocateERS7_PS6_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
@@ -1986,40 +1811,44 @@ define internal noundef i64 @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_11
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 576460752303423487, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12_GLOBAL__N_111JointLister5JointEEEE8max_sizeERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
-  store i64 %6, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #16
+  store i64 576460752303423487, ptr %3, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #16
+  %5 = load ptr, ptr %2, align 8, !tbaa !95
+  %6 = call noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12_GLOBAL__N_111JointLister5JointEEEE8max_sizeERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
+  store i64 %6, ptr %4, align 8, !tbaa !13
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %8 unwind label %10
 
 8:                                                ; preds = %1
-  %9 = load i64, ptr %7, align 8
+  %9 = load i64, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #16
   ret i64 %9
 
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #13
+  call void @__clang_call_terminate(ptr %12) #17
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12_GLOBAL__N_111JointLister5JointEEEE8max_sizeERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8, !tbaa !95
   %4 = invoke noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12_GLOBAL__N_111JointLister5JointEEEE11_S_max_sizeIKS7_EEDTcldtfp_8max_sizeEERT_i(ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef 0)
           to label %5 unwind label %6
 
@@ -2030,31 +1859,31 @@ define internal noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9an
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #13
+  call void @__clang_call_terminate(ptr %8) #17
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #9 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %5, align 8
-  %7 = load i64, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i64, ptr %8, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !101
+  store ptr %1, ptr %5, align 8, !tbaa !101
+  %6 = load ptr, ptr %5, align 8, !tbaa !101
+  %7 = load i64, ptr %6, align 8, !tbaa !13
+  %8 = load ptr, ptr %4, align 8, !tbaa !101
+  %9 = load i64, ptr %8, align 8, !tbaa !13
   %10 = icmp ult i64 %7, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !101
   store ptr %12, ptr %3, align 8
   br label %15
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !101
   store ptr %14, ptr %3, align 8
   br label %15
 
@@ -2067,17 +1896,17 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 define internal noundef i64 @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12_GLOBAL__N_111JointLister5JointEEEE11_S_max_sizeIKS7_EEDTcldtfp_8max_sizeEERT_i(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) #2 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_111JointLister5JointEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  store ptr %0, ptr %3, align 8, !tbaa !95
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !95
+  %6 = call noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_111JointLister5JointEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
   ret i64 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_111JointLister5JointEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
   ret i64 1152921504606846975
 }
 
@@ -2085,16 +1914,16 @@ define internal noundef i64 @_ZNK3ozz12StdAllocatorINS_9animation7offline12_GLOB
 define internal noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !91
+  store i64 %1, ptr %4, align 8, !tbaa !13
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !13
   %7 = icmp ne i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %5, i32 0, i32 0
-  %10 = load i64, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !13
   %11 = call noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12_GLOBAL__N_111JointLister5JointEEEE8allocateERS7_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
   br label %13
 
@@ -2115,14 +1944,15 @@ define internal noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3o
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds %"class.std::move_iterator", ptr %5, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %5, i32 0, i32 0
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.std::move_iterator", ptr %6, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %6, i32 0, i32 0
   store ptr %1, ptr %13, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %14 = load ptr, ptr %7, align 8
-  store ptr %14, ptr %9, align 8
+  store ptr %2, ptr %7, align 8, !tbaa !89
+  store ptr %3, ptr %8, align 8, !tbaa !95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #16
+  %14 = load ptr, ptr %7, align 8, !tbaa !89
+  store ptr %14, ptr %9, align 8, !tbaa !89
   br label %15
 
 15:                                               ; preds = %26, %4
@@ -2133,8 +1963,8 @@ define internal noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3o
   br i1 %16, label %18, label %40
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr %8, align 8
-  %20 = load ptr, ptr %9, align 8
+  %19 = load ptr, ptr %8, align 8, !tbaa !95
+  %20 = load ptr, ptr %9, align 8, !tbaa !89
   %21 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %22 unwind label %29
 
@@ -2150,10 +1980,10 @@ define internal noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3o
           to label %26 unwind label %29
 
 26:                                               ; preds = %24
-  %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %27, i32 1
-  store ptr %28, ptr %9, align 8
-  br label %15, !llvm.loop !12
+  %27 = load ptr, ptr %9, align 8, !tbaa !89
+  %28 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %27, i32 1
+  store ptr %28, ptr %9, align 8, !tbaa !89
+  br label %15, !llvm.loop !103
 
 29:                                               ; preds = %24, %22, %18, %15
   %30 = landingpad { ptr, i32 }
@@ -2166,19 +1996,20 @@ define internal noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3o
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %10, align 8
-  %35 = call ptr @__cxa_begin_catch(ptr %34) #12
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = load ptr, ptr %8, align 8
+  %35 = call ptr @__cxa_begin_catch(ptr %34) #16
+  %36 = load ptr, ptr %7, align 8, !tbaa !89
+  %37 = load ptr, ptr %9, align 8, !tbaa !89
+  %38 = load ptr, ptr %8, align 8, !tbaa !95
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEvT_S9_RT0_(ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38)
           to label %39 unwind label %42
 
 39:                                               ; preds = %33
-  invoke void @__cxa_rethrow() #14
+  invoke void @__cxa_rethrow() #18
           to label %56 unwind label %42
 
 40:                                               ; preds = %17
-  %41 = load ptr, ptr %9, align 8
+  %41 = load ptr, ptr %9, align 8, !tbaa !89
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #16
   ret ptr %41
 
 42:                                               ; preds = %39, %33
@@ -2192,10 +2023,10 @@ define internal noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3o
           to label %46 unwind label %53
 
 46:                                               ; preds = %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #16
   br label %48
 
 47:                                               ; No predecessors!
-  call void @llvm.trap()
   unreachable
 
 48:                                               ; preds = %46
@@ -2209,7 +2040,7 @@ define internal noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3o
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #13
+  call void @__clang_call_terminate(ptr %55) #17
   unreachable
 
 56:                                               ; preds = %39
@@ -2217,24 +2048,21 @@ define internal noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3o
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare void @__cxa_rethrow()
 
 declare void @__cxa_end_catch()
 
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #9
-
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12_GLOBAL__N_111JointLister5JointEEEE8allocateERS7_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #2 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = call noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_111JointLister5JointEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6) #12
+  store ptr %0, ptr %3, align 8, !tbaa !95
+  store i64 %1, ptr %4, align 8, !tbaa !13
+  %5 = load ptr, ptr %3, align 8, !tbaa !95
+  %6 = load i64, ptr %4, align 8, !tbaa !13
+  %7 = call noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_111JointLister5JointEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6) #16
   ret ptr %7
 }
 
@@ -2242,15 +2070,15 @@ define internal noundef ptr @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9an
 define internal noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_111JointLister5JointEE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !95
+  store i64 %1, ptr %4, align 8, !tbaa !13
   %5 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
           to label %6 unwind label %14
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr %4, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !13
   %8 = mul i64 16, %7
-  %9 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !104
   %10 = getelementptr inbounds ptr, ptr %9, i64 2
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %8, i64 noundef 8)
@@ -2263,20 +2091,20 @@ define internal noundef ptr @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBA
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #17
   unreachable
 }
 
 declare noundef ptr @_ZN3ozz6memory17default_allocatorEv() #1
 
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZStneIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEEbRKSt13move_iteratorIT_ESB_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef zeroext i1 @_ZStneIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEEbRKSt13move_iteratorIT_ESB_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !106
+  store ptr %1, ptr %4, align 8, !tbaa !106
+  %5 = load ptr, ptr %3, align 8, !tbaa !106
+  %6 = load ptr, ptr %4, align 8, !tbaa !106
   %7 = call noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEEbRKSt13move_iteratorIT_ESB_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %8 = xor i1 %7, true
   ret i1 %8
@@ -2287,12 +2115,12 @@ define internal void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !95
+  store ptr %1, ptr %5, align 8, !tbaa !89
+  store ptr %2, ptr %6, align 8, !tbaa !89
+  %7 = load ptr, ptr %4, align 8, !tbaa !95
+  %8 = load ptr, ptr %5, align 8, !tbaa !89
+  %9 = load ptr, ptr %6, align 8, !tbaa !89
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12_GLOBAL__N_111JointLister5JointEEEE12_S_constructIS6_JS6_EEENSt9enable_ifIXsr6__and_INS8_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS7_PSC_DpOSD_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
   ret void
 }
@@ -2300,34 +2128,34 @@ define internal void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !106
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !108
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13move_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !106
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %5, i32 1
-  store ptr %6, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !108
+  %6 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !108
   ret ptr %3
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEEbRKSt13move_iteratorIT_ESB_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEEbRKSt13move_iteratorIT_ESB_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !106
+  store ptr %1, ptr %4, align 8, !tbaa !106
+  %5 = load ptr, ptr %3, align 8, !tbaa !106
   %6 = call noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !106
   %8 = call noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %9 = icmp eq ptr %6, %8
   ret i1 %9
@@ -2336,10 +2164,10 @@ define internal noundef zeroext i1 @_ZSteqIPN3ozz9animation7offline12_GLOBAL__N_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef ptr @_ZNKSt13move_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !106
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !108
   ret ptr %5
 }
 
@@ -2348,12 +2176,12 @@ define internal void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !95
+  store ptr %1, ptr %5, align 8, !tbaa !89
+  store ptr %2, ptr %6, align 8, !tbaa !89
+  %7 = load ptr, ptr %4, align 8, !tbaa !95
+  %8 = load ptr, ptr %5, align 8, !tbaa !89
+  %9 = load ptr, ptr %6, align 8, !tbaa !89
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_111JointLister5JointEE9constructIS5_JS5_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
   ret void
 }
@@ -2363,12 +2191,12 @@ define internal void @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_11
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 16, i1 false)
+  store ptr %0, ptr %4, align 8, !tbaa !95
+  store ptr %1, ptr %5, align 8, !tbaa !89
+  store ptr %2, ptr %6, align 8, !tbaa !89
+  %7 = load ptr, ptr %5, align 8, !tbaa !89
+  %8 = load ptr, ptr %6, align 8, !tbaa !89
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !110
   ret void
 }
 
@@ -2376,12 +2204,12 @@ define internal void @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_11
 define internal void @_ZNSt13move_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEEC2ES6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !106
+  store ptr %1, ptr %4, align 8, !tbaa !89
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::move_iterator", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !89
+  store ptr %7, ptr %6, align 8, !tbaa !108
   ret void
 }
 
@@ -2389,10 +2217,10 @@ define internal void @_ZNSt13move_iteratorIPN3ozz9animation7offline12_GLOBAL__N_
 define internal void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12_GLOBAL__N_111JointLister5JointEEEE7destroyIS6_EEvRS7_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !95
+  store ptr %1, ptr %4, align 8, !tbaa !89
+  %5 = load ptr, ptr %3, align 8, !tbaa !95
+  %6 = load ptr, ptr %4, align 8, !tbaa !89
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12_GLOBAL__N_111JointLister5JointEEEE10_S_destroyIS7_S6_EEDTcldtfp_7destroyfp0_EERT_PT0_i(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6, i32 noundef 0)
   ret void
 }
@@ -2402,11 +2230,11 @@ define internal void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !95
+  store ptr %1, ptr %5, align 8, !tbaa !89
+  store i32 %2, ptr %6, align 4, !tbaa !11
+  %7 = load ptr, ptr %4, align 8, !tbaa !95
+  %8 = load ptr, ptr %5, align 8, !tbaa !89
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_111JointLister5JointEE7destroyIS5_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8)
   ret void
 }
@@ -2415,8 +2243,8 @@ define internal void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation
 define internal void @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_111JointLister5JointEE7destroyIS5_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !95
+  store ptr %1, ptr %4, align 8, !tbaa !89
   ret void
 }
 
@@ -2425,13 +2253,13 @@ define internal void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
-  call void @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_111JointLister5JointEE10deallocateEPS5_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #12
+  store ptr %0, ptr %4, align 8, !tbaa !95
+  store ptr %1, ptr %5, align 8, !tbaa !89
+  store i64 %2, ptr %6, align 8, !tbaa !13
+  %7 = load ptr, ptr %4, align 8, !tbaa !95
+  %8 = load ptr, ptr %5, align 8, !tbaa !89
+  %9 = load i64, ptr %6, align 8, !tbaa !13
+  call void @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_111JointLister5JointEE10deallocateEPS5_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #16
   ret void
 }
 
@@ -2440,15 +2268,15 @@ define internal void @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_11
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !95
+  store ptr %1, ptr %5, align 8, !tbaa !89
+  store i64 %2, ptr %6, align 8, !tbaa !13
   %7 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
           to label %8 unwind label %14
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !89
+  %10 = load ptr, ptr %7, align 8, !tbaa !104
   %11 = getelementptr inbounds ptr, ptr %10, i64 3
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9)
@@ -2461,24 +2289,24 @@ define internal void @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_11
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #17
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !39
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !90
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !39
   %13 = ptrtoint ptr %9 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -2493,22 +2321,91 @@ define internal void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_11
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #13
+  call void @__clang_call_terminate(ptr %20) #17
   unreachable
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32>, i32) #10
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <2 x i64> @_ZL17_mm_setzero_si128v() #8 {
+  %1 = alloca <2 x i64>, align 16
+  store <2 x i64> zeroinitializer, ptr %1, align 16, !tbaa !28
+  %2 = load <2 x i64>, ptr %1, align 16, !tbaa !28
+  ret <2 x i64> %2
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <2 x i64> @_ZL14_mm_srli_epi32Dv2_xi(<2 x i64> noundef %0, i32 noundef %1) #8 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca i32, align 4
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !28
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !28
+  %6 = bitcast <2 x i64> %5 to <4 x i32>
+  %7 = load i32, ptr %4, align 4, !tbaa !11
+  %8 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %6, i32 %7)
+  %9 = bitcast <4 x i32> %8 to <2 x i64>
+  ret <2 x i64> %9
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <2 x i64> @_ZL14_mm_slli_epi32Dv2_xi(<2 x i64> noundef %0, i32 noundef %1) #8 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca i32, align 4
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !28
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !28
+  %6 = bitcast <2 x i64> %5 to <4 x i32>
+  %7 = load i32, ptr %4, align 4, !tbaa !11
+  %8 = call <4 x i32> @llvm.x86.sse2.pslli.d(<4 x i32> %6, i32 %7)
+  %9 = bitcast <4 x i32> %8 to <2 x i64>
+  ret <2 x i64> %9
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <2 x i64> @_ZL15_mm_cmpeq_epi32Dv2_xS_(<2 x i64> noundef %0, <2 x i64> noundef %1) #8 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !28
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !28
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !28
+  %6 = bitcast <2 x i64> %5 to <4 x i32>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !28
+  %8 = bitcast <2 x i64> %7 to <4 x i32>
+  %9 = icmp eq <4 x i32> %6, %8
+  %10 = sext <4 x i1> %9 to <4 x i32>
+  %11 = bitcast <4 x i32> %10 to <2 x i64>
+  ret <2 x i64> %11
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL16_mm_castsi128_psDv2_x(<2 x i64> noundef %0) #8 {
+  %2 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %2, align 16, !tbaa !28
+  %3 = load <2 x i64>, ptr %2, align 16, !tbaa !28
+  %4 = bitcast <2 x i64> %3 to <4 x float>
+  ret <4 x float> %4
+}
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.pslli.d(<4 x i32>, i32) #10
+declare <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32>, i32) #14
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare <4 x i32> @llvm.x86.sse2.pslli.d(<4 x i32>, i32) #14
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL14_mm_setzero_psv() #8 {
+  %1 = alloca <4 x float>, align 16
+  store <4 x float> zeroinitializer, ptr %1, align 16, !tbaa !28
+  %2 = load <4 x float>, ptr %1, align 16, !tbaa !28
+  ret <4 x float> %2
+}
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK3ozz9animation8Skeleton10num_jointsEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #3 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZNK3ozz9animation8Skeleton10num_jointsEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.ozz::animation::Skeleton", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.ozz::animation::Skeleton", ptr %3, i32 0, i32 2
   %5 = call noundef i64 @_ZNK3ozz4spanIsE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   %6 = trunc i64 %5 to i32
   ret i32 %6
@@ -2517,165 +2414,250 @@ define linkonce_odr dso_local noundef i32 @_ZNK3ozz9animation8Skeleton10num_join
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK3ozz4spanIsE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.ozz::span.8", ptr %3, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"struct.ozz::span.8", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !111
   ret i64 %5
 }
 
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL13_mm_movelh_psDv4_fS_(<4 x float> noundef %0, <4 x float> noundef %1) #8 {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !28
+  store <4 x float> %1, ptr %4, align 16, !tbaa !28
+  %5 = load <4 x float>, ptr %3, align 16, !tbaa !28
+  %6 = load <4 x float>, ptr %4, align 16, !tbaa !28
+  %7 = shufflevector <4 x float> %5, <4 x float> %6, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  ret <4 x float> %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL15_mm_unpacklo_psDv4_fS_(<4 x float> noundef %0, <4 x float> noundef %1) #8 {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !28
+  store <4 x float> %1, ptr %4, align 16, !tbaa !28
+  %5 = load <4 x float>, ptr %3, align 16, !tbaa !28
+  %6 = load <4 x float>, ptr %4, align 16, !tbaa !28
+  %7 = shufflevector <4 x float> %5, <4 x float> %6, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  ret <4 x float> %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL11_mm_load_ssPKf(ptr noundef %0) #8 {
+  %2 = alloca ptr, align 8
+  %3 = alloca float, align 4
+  %4 = alloca <4 x float>, align 16
+  store ptr %0, ptr %2, align 8, !tbaa !60
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #16
+  %5 = load ptr, ptr %2, align 8, !tbaa !60
+  %6 = getelementptr inbounds nuw %struct.__mm_load_ss_struct, ptr %5, i32 0, i32 0
+  %7 = load float, ptr %6, align 1, !tbaa !28
+  store float %7, ptr %3, align 4, !tbaa !112
+  %8 = load float, ptr %3, align 4, !tbaa !112
+  %9 = insertelement <4 x float> poison, float %8, i32 0
+  %10 = insertelement <4 x float> %9, float 0.000000e+00, i32 1
+  %11 = insertelement <4 x float> %10, float 0.000000e+00, i32 2
+  %12 = insertelement <4 x float> %11, float 0.000000e+00, i32 3
+  store <4 x float> %12, ptr %4, align 16, !tbaa !28
+  %13 = load <4 x float>, ptr %4, align 16, !tbaa !28
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #16
+  ret <4 x float> %13
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL10_mm_mul_psDv4_fS_(<4 x float> noundef %0, <4 x float> noundef %1) #8 {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !28
+  store <4 x float> %1, ptr %4, align 16, !tbaa !28
+  %5 = load <4 x float>, ptr %3, align 16, !tbaa !28
+  %6 = load <4 x float>, ptr %4, align 16, !tbaa !28
+  %7 = fmul <4 x float> %5, %6
+  ret <4 x float> %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL10_mm_add_psDv4_fS_(<4 x float> noundef %0, <4 x float> noundef %1) #8 {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !28
+  store <4 x float> %1, ptr %4, align 16, !tbaa !28
+  %5 = load <4 x float>, ptr %3, align 16, !tbaa !28
+  %6 = load <4 x float>, ptr %4, align 16, !tbaa !28
+  %7 = fadd <4 x float> %5, %6
+  ret <4 x float> %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL13_mm_movehl_psDv4_fS_(<4 x float> noundef %0, <4 x float> noundef %1) #8 {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !28
+  store <4 x float> %1, ptr %4, align 16, !tbaa !28
+  %5 = load <4 x float>, ptr %3, align 16, !tbaa !28
+  %6 = load <4 x float>, ptr %4, align 16, !tbaa !28
+  %7 = shufflevector <4 x float> %5, <4 x float> %6, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  ret <4 x float> %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL10_mm_add_ssDv4_fS_(<4 x float> noundef %0, <4 x float> noundef %1) #8 {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !28
+  store <4 x float> %1, ptr %4, align 16, !tbaa !28
+  %5 = load <4 x float>, ptr %4, align 16, !tbaa !28
+  %6 = extractelement <4 x float> %5, i32 0
+  %7 = load <4 x float>, ptr %3, align 16
+  %8 = extractelement <4 x float> %7, i32 0
+  %9 = fadd float %8, %6
+  %10 = load <4 x float>, ptr %3, align 16
+  %11 = insertelement <4 x float> %10, float %9, i32 0
+  store <4 x float> %11, ptr %3, align 16
+  %12 = load <4 x float>, ptr %3, align 16, !tbaa !28
+  ret <4 x float> %12
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL10_mm_div_ssDv4_fS_(<4 x float> noundef %0, <4 x float> noundef %1) #8 {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !28
+  store <4 x float> %1, ptr %4, align 16, !tbaa !28
+  %5 = load <4 x float>, ptr %4, align 16, !tbaa !28
+  %6 = extractelement <4 x float> %5, i32 0
+  %7 = load <4 x float>, ptr %3, align 16
+  %8 = extractelement <4 x float> %7, i32 0
+  %9 = fdiv float %8, %6
+  %10 = load <4 x float>, ptr %3, align 16
+  %11 = insertelement <4 x float> %10, float %9, i32 0
+  store <4 x float> %11, ptr %3, align 16
+  %12 = load <4 x float>, ptr %3, align 16, !tbaa !28
+  ret <4 x float> %12
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL11_mm_sqrt_ssDv4_f(<4 x float> noundef %0) #8 {
+  %2 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %2, align 16, !tbaa !28
+  %3 = load <4 x float>, ptr %2, align 16, !tbaa !28
+  %4 = extractelement <4 x float> %3, i64 0
+  %5 = call float @llvm.sqrt.f32(float %4)
+  %6 = insertelement <4 x float> %3, float %5, i64 0
+  ret <4 x float> %6
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <2 x i64> @_ZL16_mm_castps_si128Dv4_f(<4 x float> noundef %0) #8 {
+  %2 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %2, align 16, !tbaa !28
+  %3 = load <4 x float>, ptr %2, align 16, !tbaa !28
+  %4 = bitcast <4 x float> %3 to <2 x i64>
+  ret <2 x i64> %4
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL12_mm_cmple_psDv4_fS_(<4 x float> noundef %0, <4 x float> noundef %1) #8 {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !28
+  store <4 x float> %1, ptr %4, align 16, !tbaa !28
+  %5 = load <4 x float>, ptr %3, align 16, !tbaa !28
+  %6 = load <4 x float>, ptr %4, align 16, !tbaa !28
+  %7 = fcmp ole <4 x float> %5, %6
+  %8 = sext <4 x i1> %7 to <4 x i32>
+  %9 = bitcast <4 x i32> %8 to <4 x float>
+  ret <4 x float> %9
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL9_mm_or_psDv4_fS_(<4 x float> noundef %0, <4 x float> noundef %1) #8 {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !28
+  store <4 x float> %1, ptr %4, align 16, !tbaa !28
+  %5 = load <4 x float>, ptr %3, align 16, !tbaa !28
+  %6 = bitcast <4 x float> %5 to <4 x i32>
+  %7 = load <4 x float>, ptr %4, align 16, !tbaa !28
+  %8 = bitcast <4 x float> %7 to <4 x i32>
+  %9 = or <4 x i32> %6, %8
+  %10 = bitcast <4 x i32> %9 to <4 x float>
+  ret <4 x float> %10
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL10_mm_and_psDv4_fS_(<4 x float> noundef %0, <4 x float> noundef %1) #8 {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !28
+  store <4 x float> %1, ptr %4, align 16, !tbaa !28
+  %5 = load <4 x float>, ptr %3, align 16, !tbaa !28
+  %6 = bitcast <4 x float> %5 to <4 x i32>
+  %7 = load <4 x float>, ptr %4, align 16, !tbaa !28
+  %8 = bitcast <4 x float> %7 to <4 x i32>
+  %9 = and <4 x i32> %6, %8
+  %10 = bitcast <4 x i32> %9 to <4 x float>
+  ret <4 x float> %10
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL13_mm_andnot_psDv4_fS_(<4 x float> noundef %0, <4 x float> noundef %1) #8 {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !28
+  store <4 x float> %1, ptr %4, align 16, !tbaa !28
+  %5 = load <4 x float>, ptr %3, align 16, !tbaa !28
+  %6 = bitcast <4 x float> %5 to <4 x i32>
+  %7 = xor <4 x i32> %6, splat (i32 -1)
+  %8 = load <4 x float>, ptr %4, align 16, !tbaa !28
+  %9 = bitcast <4 x float> %8 to <4 x i32>
+  %10 = and <4 x i32> %7, %9
+  %11 = bitcast <4 x i32> %10 to <4 x float>
+  ret <4 x float> %11
+}
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #11
+declare float @llvm.sqrt.f32(float) #15
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL12_mm_loadu_psPKf(ptr noundef %0) #8 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
-  ret ptr %5
+  store ptr %0, ptr %2, align 8, !tbaa !60
+  %3 = load ptr, ptr %2, align 8, !tbaa !60
+  %4 = getelementptr inbounds nuw %struct.__loadu_ps, ptr %3, i32 0, i32 0
+  %5 = load <4 x float>, ptr %4, align 1, !tbaa !28
+  ret <4 x float> %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::unique_ptr", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
-  ret ptr %5
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL15_mm_unpackhi_psDv4_fS_(<4 x float> noundef %0, <4 x float> noundef %1) #8 {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  store <4 x float> %0, ptr %3, align 16, !tbaa !28
+  store <4 x float> %1, ptr %4, align 16, !tbaa !28
+  %5 = load <4 x float>, ptr %3, align 16, !tbaa !28
+  %6 = load <4 x float>, ptr %4, align 16, !tbaa !28
+  %7 = shufflevector <4 x float> %5, <4 x float> %6, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  ret <4 x float> %7
 }
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNK3ozz7DeleterINS_9animation8SkeletonEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #3 comdat align 2 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  call void @_ZN3ozz6DeleteINS_9animation8SkeletonEEEvPT_(ptr noundef %5)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ozz9animation8SkeletonEJNS0_7DeleterIS2_EEEERT0_RSt11_Tuple_implIXT_EJS6_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  ret ptr %4
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ozz9animation8SkeletonEJNS0_7DeleterIS2_EEEERT0_RSt11_Tuple_implIXT_EJS6_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEE7_M_headERS6_(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  ret ptr %4
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEE7_M_headERS6_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ozz9animation8SkeletonELb0EE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  ret ptr %4
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ozz9animation8SkeletonELb0EE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
-  ret ptr %4
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1EN3ozz7DeleterINS0_9animation8SkeletonEEEJEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
-  ret ptr %4
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1EN3ozz7DeleterINS0_9animation8SkeletonEEEJEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJN3ozz7DeleterINS0_9animation8SkeletonEEEEE7_M_headERS5_(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
-  ret ptr %4
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJN3ozz7DeleterINS0_9animation8SkeletonEEEEE7_M_headERS5_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1EN3ozz7DeleterINS0_9animation8SkeletonEEELb1EE7_M_headERS5_(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
-  ret ptr %4
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1EN3ozz7DeleterINS0_9animation8SkeletonEEELb1EE7_M_headERS5_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  ret ptr %3
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3ozz6DeleteINS_9animation8SkeletonEEEvPT_(ptr noundef %0) #3 comdat {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = icmp ne ptr %3, null
-  br i1 %4, label %5, label %12
-
-5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
-  call void @_ZN3ozz9animation8SkeletonD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #12
-  %7 = call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-  %8 = load ptr, ptr %2, align 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 3
-  %11 = load ptr, ptr %10, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8)
-  br label %12
-
-12:                                               ; preds = %5, %1
-  ret void
-}
-
-; Function Attrs: nounwind
-declare void @_ZN3ozz9animation8SkeletonD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN3ozz3NewINS_9animation8SkeletonEJEEEPT_DpOT0_() #3 comdat {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #16
   %2 = call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !104
   %4 = getelementptr inbounds ptr, ptr %3, i64 2
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 48, i64 noundef 8)
-  store ptr %6, ptr %1, align 8
-  %7 = load ptr, ptr %1, align 8
-  call void @_ZN3ozz9animation8SkeletonC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7)
+  %6 = call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 56, i64 noundef 8)
+  store ptr %6, ptr %1, align 8, !tbaa !62
+  %7 = load ptr, ptr %1, align 8, !tbaa !62
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 56, i1 false)
+  call void @_ZN3ozz9animation8SkeletonC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #16
   ret ptr %7
 }
 
@@ -2683,11 +2665,11 @@ define linkonce_odr dso_local noundef ptr @_ZN3ozz3NewINS_9animation8SkeletonEJE
 define linkonce_odr dso_local void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store ptr %1, ptr %4, align 8, !tbaa !58
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::unique_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !58
   invoke void @_ZNSt15__uniq_ptr_dataIN3ozz9animation8SkeletonENS0_7DeleterIS2_EELb1ELb1EECI2St15__uniq_ptr_implIS2_S4_EEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
           to label %8 unwind label %9
 
@@ -2698,20 +2680,70 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonEN
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #13
+  call void @__clang_call_terminate(ptr %11) #17
   unreachable
 }
 
-declare void @_ZN3ozz9animation8SkeletonC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
-
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataIN3ozz9animation8SkeletonENS0_7DeleterIS2_EELb1ELb1EECI2St15__uniq_ptr_implIS2_S4_EEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3ozz9animation8SkeletonC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.ozz::animation::Skeleton", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !114
+  %5 = getelementptr inbounds nuw %"class.ozz::animation::Skeleton", ptr %3, i32 0, i32 1
+  call void @_ZN3ozz4spanINS_4math12SoaTransformEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %6 = getelementptr inbounds nuw %"class.ozz::animation::Skeleton", ptr %3, i32 0, i32 2
+  call void @_ZN3ozz4spanIsEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %7 = getelementptr inbounds nuw %"class.ozz::animation::Skeleton", ptr %3, i32 0, i32 3
+  call void @_ZN3ozz4spanIPcEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3ozz4spanINS_4math12SoaTransformEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.ozz::span", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !65
+  %5 = getelementptr inbounds nuw %"struct.ozz::span", ptr %3, i32 0, i32 1
+  store i64 0, ptr %5, align 8, !tbaa !116
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3ozz4spanIsEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.ozz::span.8", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !55
+  %5 = getelementptr inbounds nuw %"struct.ozz::span.8", ptr %3, i32 0, i32 1
+  store i64 0, ptr %5, align 8, !tbaa !111
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3ozz4spanIPcEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.ozz::span.9", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !49
+  %5 = getelementptr inbounds nuw %"struct.ozz::span.9", ptr %3, i32 0, i32 1
+  store i64 0, ptr %5, align 8, !tbaa !117
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataIN3ozz9animation8SkeletonENS0_7DeleterIS2_EELb1ELb1EECI2St15__uniq_ptr_implIS2_S4_EEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !70
+  store ptr %1, ptr %4, align 8, !tbaa !58
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !58
   call void @_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -2720,74 +2752,219 @@ define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataIN3ozz9animation8Skele
 define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  store ptr %1, ptr %4, align 8, !tbaa !58
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %5, i32 0, i32 0
   call void @_ZNSt5tupleIJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES3_S5_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %7 = load ptr, ptr %4, align 8
-  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
-  store ptr %7, ptr %8, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !58
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  store ptr %7, ptr %8, align 8, !tbaa !58
   ret void
 }
 
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !72
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ozz9animation8SkeletonEJNS0_7DeleterIS2_EEEERT0_RSt11_Tuple_implIXT_EJS6_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ozz9animation8SkeletonEJNS0_7DeleterIS2_EEEERT0_RSt11_Tuple_implIXT_EJS6_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8, !tbaa !76
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEE7_M_headERS6_(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEE7_M_headERS6_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8, !tbaa !76
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ozz9animation8SkeletonELb0EE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ozz9animation8SkeletonELb0EE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !80
+  %3 = load ptr, ptr %2, align 8, !tbaa !80
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
+  ret ptr %5
+}
+
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHierarchyRecurseDFINS2_11JointListerEEEvRKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS7_EEEPKS7_RT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #3 {
+define linkonce_odr dso_local void @_ZNK3ozz7DeleterINS_9animation8SkeletonEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !58
+  %5 = load ptr, ptr %4, align 8, !tbaa !58
+  call void @_ZN3ozz6DeleteINS_9animation8SkeletonEEEvPT_(ptr noundef %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !72
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1EN3ozz7DeleterINS0_9animation8SkeletonEEEJEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1EN3ozz7DeleterINS0_9animation8SkeletonEEEJEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !78
+  %3 = load ptr, ptr %2, align 8, !tbaa !78
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJN3ozz7DeleterINS0_9animation8SkeletonEEEEE7_M_headERS5_(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJN3ozz7DeleterINS0_9animation8SkeletonEEEEE7_M_headERS5_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !78
+  %3 = load ptr, ptr %2, align 8, !tbaa !78
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1EN3ozz7DeleterINS0_9animation8SkeletonEEELb1EE7_M_headERS5_(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1EN3ozz7DeleterINS0_9animation8SkeletonEEELb1EE7_M_headERS5_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !84
+  %3 = load ptr, ptr %2, align 8, !tbaa !84
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN3ozz6DeleteINS_9animation8SkeletonEEEvPT_(ptr noundef %0) #3 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8, !tbaa !58
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %12
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !58
+  call void @_ZN3ozz9animation8SkeletonD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #16
+  %7 = call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
+  %8 = load ptr, ptr %2, align 8, !tbaa !58
+  %9 = load ptr, ptr %7, align 8, !tbaa !104
+  %10 = getelementptr inbounds ptr, ptr %9, i64 3
+  %11 = load ptr, ptr %10, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8)
+  br label %12
+
+12:                                               ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZN3ozz9animation8SkeletonD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #6
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHierarchyRecurseDFINS2_11JointListerEEEvRKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS7_EEEPKS7_RT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #5 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  store i64 0, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !118
+  store ptr %1, ptr %5, align 8, !tbaa !19
+  store ptr %2, ptr %6, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #16
+  store i64 0, ptr %7, align 8, !tbaa !13
   br label %9
 
-9:                                                ; preds = %25, %3
-  %10 = load i64, ptr %7, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
+9:                                                ; preds = %26, %3
+  %10 = load i64, ptr %7, align 8, !tbaa !13
+  %11 = load ptr, ptr %4, align 8, !tbaa !118
+  %12 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %13 = icmp ult i64 %10, %12
-  br i1 %13, label %14, label %28
+  br i1 %13, label %15, label %14
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i64, ptr %7, align 8
-  %17 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNKSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %16) #12
-  store ptr %17, ptr %8, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = load ptr, ptr %5, align 8
-  call void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5JointEPS6_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef %20)
-  %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %8, align 8
-  %24 = load ptr, ptr %6, align 8
-  call void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHierarchyRecurseDFINS2_11JointListerEEEvRKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS7_EEEPKS7_RT_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(24) %24)
-  br label %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #16
+  br label %29
 
-25:                                               ; preds = %14
-  %26 = load i64, ptr %7, align 8
-  %27 = add i64 %26, 1
-  store i64 %27, ptr %7, align 8
-  br label %9, !llvm.loop !13
+15:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #16
+  %16 = load ptr, ptr %4, align 8, !tbaa !118
+  %17 = load i64, ptr %7, align 8, !tbaa !13
+  %18 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNKSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %17) #16
+  store ptr %18, ptr %8, align 8, !tbaa !19
+  %19 = load ptr, ptr %6, align 8, !tbaa !35
+  %20 = load ptr, ptr %8, align 8, !tbaa !19
+  %21 = load ptr, ptr %5, align 8, !tbaa !19
+  call void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5JointEPS6_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(96) %20, ptr noundef %21)
+  %22 = load ptr, ptr %8, align 8, !tbaa !19
+  %23 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %8, align 8, !tbaa !19
+  %25 = load ptr, ptr %6, align 8, !tbaa !35
+  call void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHierarchyRecurseDFINS2_11JointListerEEEvRKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS7_EEEPKS7_RT_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(24) %25)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #16
+  br label %26
 
-28:                                               ; preds = %9
+26:                                               ; preds = %15
+  %27 = load i64, ptr %7, align 8, !tbaa !13
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %7, align 8, !tbaa !13
+  br label %9, !llvm.loop !120
+
+29:                                               ; preds = %14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl_data", ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !121
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !123
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -2799,14 +2976,14 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZNKSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !118
+  store i64 %1, ptr %4, align 8, !tbaa !13
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl_data", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %8, i64 %9
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !123
+  %9 = load i64, ptr %4, align 8, !tbaa !13
+  %10 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %8, i64 %9
   ret ptr %10
 }
 
@@ -2818,68 +2995,74 @@ define internal void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKN
   %7 = alloca i16, align 2
   %8 = alloca i16, align 2
   %9 = alloca %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !35
+  store ptr %1, ptr %5, align 8, !tbaa !19
+  store ptr %2, ptr %6, align 8, !tbaa !19
   %10 = load ptr, ptr %4, align 8
-  store i16 -1, ptr %7, align 2
-  %11 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #16
+  store i16 -1, ptr %7, align 2, !tbaa !26
+  %11 = load ptr, ptr %6, align 8, !tbaa !19
   %12 = icmp ne ptr %11, null
   br i1 %12, label %13, label %40
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %10, i32 0, i32 0
-  %15 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
+  call void @llvm.lifetime.start.p0(i64 2, ptr %8) #16
+  %14 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %10, i32 0, i32 0
+  %15 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #16
   %16 = trunc i64 %15 to i16
   %17 = sext i16 %16 to i32
   %18 = sub nsw i32 %17, 1
   %19 = trunc i32 %18 to i16
-  store i16 %19, ptr %8, align 2
+  store i16 %19, ptr %8, align 2, !tbaa !26
   br label %20
 
 20:                                               ; preds = %36, %13
-  %21 = load i16, ptr %8, align 2
+  %21 = load i16, ptr %8, align 2, !tbaa !26
   %22 = sext i16 %21 to i32
   %23 = icmp sge i32 %22, 0
   br i1 %23, label %24, label %39
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %10, i32 0, i32 0
-  %26 = load i16, ptr %8, align 2
+  %25 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %10, i32 0, i32 0
+  %26 = load i16, ptr %8, align 2, !tbaa !26
   %27 = sext i16 %26 to i64
-  %28 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %27) #12
-  %29 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %6, align 8
+  %28 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %27) #16
+  %29 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !15
+  %31 = load ptr, ptr %6, align 8, !tbaa !19
   %32 = icmp eq ptr %30, %31
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %24
-  %34 = load i16, ptr %8, align 2
-  store i16 %34, ptr %7, align 2
+  %34 = load i16, ptr %8, align 2, !tbaa !26
+  store i16 %34, ptr %7, align 2, !tbaa !26
   br label %39
 
 35:                                               ; preds = %24
   br label %36
 
 36:                                               ; preds = %35
-  %37 = load i16, ptr %8, align 2
+  %37 = load i16, ptr %8, align 2, !tbaa !26
   %38 = add i16 %37, -1
-  store i16 %38, ptr %8, align 2
-  br label %20, !llvm.loop !14
+  store i16 %38, ptr %8, align 2, !tbaa !26
+  br label %20, !llvm.loop !124
 
 39:                                               ; preds = %33, %20
+  call void @llvm.lifetime.end.p0(i64 2, ptr %8) #16
   br label %40
 
 40:                                               ; preds = %39, %3
-  %41 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %9, i32 0, i32 0
-  %42 = load ptr, ptr %5, align 8
-  store ptr %42, ptr %41, align 8
-  %43 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %9, i32 0, i32 1
-  %44 = load i16, ptr %7, align 2
-  store i16 %44, ptr %43, align 8
-  %45 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %10, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #16
+  %41 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %9, i32 0, i32 0
+  %42 = load ptr, ptr %5, align 8, !tbaa !19
+  store ptr %42, ptr %41, align 8, !tbaa !15
+  %43 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %9, i32 0, i32 1
+  %44 = load i16, ptr %7, align 2, !tbaa !26
+  store i16 %44, ptr %43, align 8, !tbaa !25
+  %45 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister", ptr %10, i32 0, i32 0
   call void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #16
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #16
   ret void
 }
 
@@ -2888,38 +3071,38 @@ define internal void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointL
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !89
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %6, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !88
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !90
   %13 = icmp ne ptr %9, %12
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %6, i32 0, i32 0
-  %16 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %6, i32 0, i32 0
-  %17 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %6, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %6, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !88
+  %19 = load ptr, ptr %4, align 8, !tbaa !89
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12_GLOBAL__N_111JointLister5JointEEEE9constructIS6_JRKS6_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS7_PT_DpOSC_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(16) %19)
-  %20 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %6, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %22, i32 1
-  store ptr %23, ptr %21, align 8
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %6, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !88
+  %23 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %22, i32 1
+  store ptr %23, ptr %21, align 8, !tbaa !88
   br label %30
 
 24:                                               ; preds = %2
-  %25 = call ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
-  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %25 = call ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #16
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
   store ptr %25, ptr %26, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %27 = load ptr, ptr %4, align 8, !tbaa !89
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
   %29 = load ptr, ptr %28, align 8
   call void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %29, ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %30
@@ -2933,12 +3116,12 @@ define internal void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !95
+  store ptr %1, ptr %5, align 8, !tbaa !89
+  store ptr %2, ptr %6, align 8, !tbaa !89
+  %7 = load ptr, ptr %4, align 8, !tbaa !95
+  %8 = load ptr, ptr %5, align 8, !tbaa !89
+  %9 = load ptr, ptr %6, align 8, !tbaa !89
   call void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12_GLOBAL__N_111JointLister5JointEEEE12_S_constructIS6_JRKS6_EEENSt9enable_ifIXsr6__and_INS8_18__construct_helperIT_JDpT0_EE4typeEEE5valueEvE4typeERS7_PSE_DpOSF_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
   ret void
 }
@@ -2957,64 +3140,72 @@ define internal void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointL
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca i32, align 4
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
   store ptr %1, ptr %16, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !37
+  store ptr %2, ptr %6, align 8, !tbaa !89
   %17 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #16
   %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef 1, ptr noundef @.str.1)
-  store i64 %18, ptr %7, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %17, i32 0, i32 0
-  %20 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %8, align 8
-  %22 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %17, i32 0, i32 0
-  %23 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %22, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %9, align 8
-  %25 = call ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #12
-  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
+  store i64 %18, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #16
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %17, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !39
+  store ptr %21, ptr %8, align 8, !tbaa !89
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #16
+  %22 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %17, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !88
+  store ptr %24, ptr %9, align 8, !tbaa !89
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #16
+  %25 = call ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #16
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
   store ptr %25, ptr %26, align 8
-  %27 = call noundef i64 @_ZN9__gnu_cxxmiIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSF_SI_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #12
-  store i64 %27, ptr %10, align 8
-  %28 = load i64, ptr %7, align 8
+  %27 = call noundef i64 @_ZN9__gnu_cxxmiIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSF_SI_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #16
+  store i64 %27, ptr %10, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #16
+  %28 = load i64, ptr %7, align 8, !tbaa !13
   %29 = call noundef ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %28)
-  store ptr %29, ptr %12, align 8
-  %30 = load ptr, ptr %12, align 8
-  store ptr %30, ptr %13, align 8
-  %31 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %17, i32 0, i32 0
-  %32 = load ptr, ptr %12, align 8
-  %33 = load i64, ptr %10, align 8
-  %34 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %32, i64 %33
-  %35 = load ptr, ptr %6, align 8
+  store ptr %29, ptr %12, align 8, !tbaa !89
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #16
+  %30 = load ptr, ptr %12, align 8, !tbaa !89
+  store ptr %30, ptr %13, align 8, !tbaa !89
+  %31 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %17, i32 0, i32 0
+  %32 = load ptr, ptr %12, align 8, !tbaa !89
+  %33 = load i64, ptr %10, align 8, !tbaa !13
+  %34 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %32, i64 %33
+  %35 = load ptr, ptr %6, align 8, !tbaa !89
   invoke void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12_GLOBAL__N_111JointLister5JointEEEE9constructIS6_JRKS6_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS7_PT_DpOSC_(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef %34, ptr noundef nonnull align 8 dereferenceable(16) %35)
           to label %36 unwind label %53
 
 36:                                               ; preds = %3
-  store ptr null, ptr %13, align 8
-  %37 = load ptr, ptr %8, align 8
-  %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %12, align 8
-  %41 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #12
+  store ptr null, ptr %13, align 8, !tbaa !89
+  %37 = load ptr, ptr %8, align 8, !tbaa !89
+  %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
+  %39 = load ptr, ptr %38, align 8, !tbaa !89
+  %40 = load ptr, ptr %12, align 8, !tbaa !89
+  %41 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #16
   %42 = invoke noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_(ptr noundef %37, ptr noundef %39, ptr noundef %40, ptr noundef nonnull align 1 dereferenceable(1) %41)
           to label %43 unwind label %53
 
 43:                                               ; preds = %36
-  store ptr %42, ptr %13, align 8
-  %44 = load ptr, ptr %13, align 8
-  %45 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %44, i32 1
-  store ptr %45, ptr %13, align 8
-  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %13, align 8
-  %50 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #12
+  store ptr %42, ptr %13, align 8, !tbaa !89
+  %44 = load ptr, ptr %13, align 8, !tbaa !89
+  %45 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %44, i32 1
+  store ptr %45, ptr %13, align 8, !tbaa !89
+  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
+  %47 = load ptr, ptr %46, align 8, !tbaa !89
+  %48 = load ptr, ptr %9, align 8, !tbaa !89
+  %49 = load ptr, ptr %13, align 8, !tbaa !89
+  %50 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #16
   %51 = invoke noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_(ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef nonnull align 1 dereferenceable(1) %50)
           to label %52 unwind label %53
 
 52:                                               ; preds = %43
-  store ptr %51, ptr %13, align 8
+  store ptr %51, ptr %13, align 8, !tbaa !89
   br label %82
 
 53:                                               ; preds = %43, %36, %3
@@ -3028,16 +3219,16 @@ define internal void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointL
 
 57:                                               ; preds = %53
   %58 = load ptr, ptr %14, align 8
-  %59 = call ptr @__cxa_begin_catch(ptr %58) #12
-  %60 = load ptr, ptr %13, align 8
+  %59 = call ptr @__cxa_begin_catch(ptr %58) #16
+  %60 = load ptr, ptr %13, align 8, !tbaa !89
   %61 = icmp ne ptr %60, null
   br i1 %61, label %72, label %62
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %17, i32 0, i32 0
-  %64 = load ptr, ptr %12, align 8
-  %65 = load i64, ptr %10, align 8
-  %66 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %64, i64 %65
+  %63 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %17, i32 0, i32 0
+  %64 = load ptr, ptr %12, align 8, !tbaa !89
+  %65 = load i64, ptr %10, align 8, !tbaa !13
+  %66 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %64, i64 %65
   invoke void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12_GLOBAL__N_111JointLister5JointEEEE7destroyIS6_EEvRS7_PT_(ptr noundef nonnull align 1 dereferenceable(1) %63, ptr noundef %66)
           to label %67 unwind label %68
 
@@ -3055,9 +3246,9 @@ define internal void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointL
           to label %81 unwind label %111
 
 72:                                               ; preds = %57
-  %73 = load ptr, ptr %12, align 8
-  %74 = load ptr, ptr %13, align 8
-  %75 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #12
+  %73 = load ptr, ptr %12, align 8, !tbaa !89
+  %74 = load ptr, ptr %13, align 8, !tbaa !89
+  %75 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #16
   invoke void @_ZSt8_DestroyIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEvT_S9_RT0_(ptr noundef %73, ptr noundef %74, ptr noundef nonnull align 1 dereferenceable(1) %75)
           to label %76 unwind label %68
 
@@ -3065,47 +3256,59 @@ define internal void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointL
   br label %77
 
 77:                                               ; preds = %76, %67
-  %78 = load ptr, ptr %12, align 8
-  %79 = load i64, ptr %7, align 8
+  %78 = load ptr, ptr %12, align 8, !tbaa !89
+  %79 = load i64, ptr %7, align 8, !tbaa !13
   invoke void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE13_M_deallocateEPS5_m(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %78, i64 noundef %79)
           to label %80 unwind label %68
 
 80:                                               ; preds = %77
-  invoke void @__cxa_rethrow() #14
+  invoke void @__cxa_rethrow() #18
           to label %114 unwind label %68
 
 81:                                               ; preds = %68
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #16
   br label %106
 
 82:                                               ; preds = %52
-  %83 = load ptr, ptr %8, align 8
-  %84 = load ptr, ptr %9, align 8
-  %85 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #12
+  %83 = load ptr, ptr %8, align 8, !tbaa !89
+  %84 = load ptr, ptr %9, align 8, !tbaa !89
+  %85 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #16
   call void @_ZSt8_DestroyIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEEvT_S9_RT0_(ptr noundef %83, ptr noundef %84, ptr noundef nonnull align 1 dereferenceable(1) %85)
-  %86 = load ptr, ptr %8, align 8
-  %87 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %17, i32 0, i32 0
-  %88 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %87, i32 0, i32 2
-  %89 = load ptr, ptr %88, align 8
-  %90 = load ptr, ptr %8, align 8
+  %86 = load ptr, ptr %8, align 8, !tbaa !89
+  %87 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %17, i32 0, i32 0
+  %88 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %87, i32 0, i32 2
+  %89 = load ptr, ptr %88, align 8, !tbaa !90
+  %90 = load ptr, ptr %8, align 8, !tbaa !89
   %91 = ptrtoint ptr %89 to i64
   %92 = ptrtoint ptr %90 to i64
   %93 = sub i64 %91, %92
   %94 = sdiv exact i64 %93, 16
   call void @_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE13_M_deallocateEPS5_m(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %86, i64 noundef %94)
-  %95 = load ptr, ptr %12, align 8
-  %96 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %17, i32 0, i32 0
-  %97 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %96, i32 0, i32 0
-  store ptr %95, ptr %97, align 8
-  %98 = load ptr, ptr %13, align 8
-  %99 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %17, i32 0, i32 0
-  %100 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %99, i32 0, i32 1
-  store ptr %98, ptr %100, align 8
-  %101 = load ptr, ptr %12, align 8
-  %102 = load i64, ptr %7, align 8
-  %103 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %101, i64 %102
-  %104 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %17, i32 0, i32 0
-  %105 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %104, i32 0, i32 2
-  store ptr %103, ptr %105, align 8
+  %95 = load ptr, ptr %12, align 8, !tbaa !89
+  %96 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %17, i32 0, i32 0
+  %97 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %96, i32 0, i32 0
+  store ptr %95, ptr %97, align 8, !tbaa !39
+  %98 = load ptr, ptr %13, align 8, !tbaa !89
+  %99 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %17, i32 0, i32 0
+  %100 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %99, i32 0, i32 1
+  store ptr %98, ptr %100, align 8, !tbaa !88
+  %101 = load ptr, ptr %12, align 8, !tbaa !89
+  %102 = load i64, ptr %7, align 8, !tbaa !13
+  %103 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %101, i64 %102
+  %104 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %17, i32 0, i32 0
+  %105 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %104, i32 0, i32 2
+  store ptr %103, ptr %105, align 8, !tbaa !90
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #16
   ret void
 
 106:                                              ; preds = %81
@@ -3119,7 +3322,7 @@ define internal void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointL
   %112 = landingpad { ptr, i32 }
           catch ptr null
   %113 = extractvalue { ptr, i32 } %112, 0
-  call void @__clang_call_terminate(ptr %113) #13
+  call void @__clang_call_terminate(ptr %113) #17
   unreachable
 
 114:                                              ; preds = %80
@@ -3130,12 +3333,12 @@ define internal void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointL
 define internal ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #16
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -3145,12 +3348,12 @@ define internal void @_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !95
+  store ptr %1, ptr %5, align 8, !tbaa !89
+  store ptr %2, ptr %6, align 8, !tbaa !89
+  %7 = load ptr, ptr %4, align 8, !tbaa !95
+  %8 = load ptr, ptr %5, align 8, !tbaa !89
+  %9 = load ptr, ptr %6, align 8, !tbaa !89
   call void @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_111JointLister5JointEE9constructIS5_JRKS5_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
   ret void
 }
@@ -3160,12 +3363,12 @@ define internal void @_ZN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_11
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 16, i1 false)
+  store ptr %0, ptr %4, align 8, !tbaa !95
+  store ptr %1, ptr %5, align 8, !tbaa !89
+  store ptr %2, ptr %6, align 8, !tbaa !89
+  %7 = load ptr, ptr %5, align 8, !tbaa !89
+  %8 = load ptr, ptr %6, align 8, !tbaa !89
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !110
   ret void
 }
 
@@ -3176,66 +3379,70 @@ define internal noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_1
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !37
+  store i64 %1, ptr %5, align 8, !tbaa !13
+  store ptr %2, ptr %6, align 8, !tbaa !22
   %9 = load ptr, ptr %4, align 8
-  %10 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %10 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
+  %11 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
   %12 = sub i64 %10, %11
-  %13 = load i64, ptr %5, align 8
+  %13 = load i64, ptr %5, align 8, !tbaa !13
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %6, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #14
+  %16 = load ptr, ptr %6, align 8, !tbaa !22
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #18
   unreachable
 
 17:                                               ; preds = %3
-  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  %19 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  store i64 %19, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #16
+  %18 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #16
+  %19 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
+  store i64 %19, ptr %8, align 8, !tbaa !13
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !13
   %22 = add i64 %18, %21
-  store i64 %22, ptr %7, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #16
+  store i64 %22, ptr %7, align 8, !tbaa !13
+  %23 = load i64, ptr %7, align 8, !tbaa !13
+  %24 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %17
-  %27 = load i64, ptr %7, align 8
-  %28 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %27 = load i64, ptr %7, align 8, !tbaa !13
+  %28 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
   %29 = icmp ugt i64 %27, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26, %17
-  %31 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %31 = call noundef i64 @_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
   br label %34
 
 32:                                               ; preds = %26
-  %33 = load i64, ptr %7, align 8
+  %33 = load i64, ptr %7, align 8, !tbaa !13
   br label %34
 
 34:                                               ; preds = %32, %30
   %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #16
   ret i64 %35
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i64 @_ZN9__gnu_cxxmiIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSF_SI_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef i64 @_ZN9__gnu_cxxmiIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSF_SI_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #9 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !125
+  store ptr %1, ptr %4, align 8, !tbaa !125
+  %5 = load ptr, ptr %3, align 8, !tbaa !125
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  %7 = load ptr, ptr %6, align 8, !tbaa !89
+  %8 = load ptr, ptr %4, align 8, !tbaa !125
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
+  %10 = load ptr, ptr %9, align 8, !tbaa !89
   %11 = ptrtoint ptr %7 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -3247,41 +3454,41 @@ define internal noundef i64 @_ZN9__gnu_cxxmiIPN3ozz9animation7offline12_GLOBAL__
 define internal ptr @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.3", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.3", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<ozz::animation::offline::(anonymous namespace)::JointLister::Joint, ozz::StdAllocator<ozz::animation::offline::(anonymous namespace)::JointLister::Joint>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #16
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #3 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #5 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.std::move_iterator", align 8
   %10 = alloca %"class.std::move_iterator", align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %11 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !89
+  store ptr %1, ptr %6, align 8, !tbaa !89
+  store ptr %2, ptr %7, align 8, !tbaa !89
+  store ptr %3, ptr %8, align 8, !tbaa !95
+  %11 = load ptr, ptr %5, align 8, !tbaa !89
   %12 = call ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt13move_iteratorIPS5_EET0_PT_(ptr noundef %11)
-  %13 = getelementptr inbounds %"class.std::move_iterator", ptr %9, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %9, i32 0, i32 0
   store ptr %12, ptr %13, align 8
-  %14 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %6, align 8, !tbaa !89
   %15 = call ptr @_ZSt32__make_move_if_noexcept_iteratorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt13move_iteratorIPS5_EET0_PT_(ptr noundef %14)
-  %16 = getelementptr inbounds %"class.std::move_iterator", ptr %10, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %10, i32 0, i32 0
   store ptr %15, ptr %16, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %"class.std::move_iterator", ptr %9, i32 0, i32 0
+  %17 = load ptr, ptr %7, align 8, !tbaa !89
+  %18 = load ptr, ptr %8, align 8, !tbaa !95
+  %19 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %9, i32 0, i32 0
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %"class.std::move_iterator", ptr %10, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %10, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEES7_NS1_12StdAllocatorIS6_EEET0_T_SC_SB_RT1_(ptr %20, ptr %22, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18)
   ret ptr %23
@@ -3290,33 +3497,33 @@ define internal noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9ani
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !125
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #9 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load i64, ptr %6, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %8, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !101
+  store ptr %1, ptr %5, align 8, !tbaa !101
+  %6 = load ptr, ptr %4, align 8, !tbaa !101
+  %7 = load i64, ptr %6, align 8, !tbaa !13
+  %8 = load ptr, ptr %5, align 8, !tbaa !101
+  %9 = load i64, ptr %8, align 8, !tbaa !13
   %10 = icmp ult i64 %7, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !101
   store ptr %12, ptr %3, align 8
   br label %15
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !101
   store ptr %14, ptr %3, align 8
   br label %15
 
@@ -3329,114 +3536,235 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 define internal void @_ZN9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !125
+  store ptr %1, ptr %4, align 8, !tbaa !127
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !127
+  %8 = load ptr, ptr %7, align 8, !tbaa !89
+  store ptr %8, ptr %6, align 8, !tbaa !129
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::unique_ptr", ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKSA_(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
-  %6 = load ptr, ptr %5, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKSA_(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
+  %6 = load ptr, ptr %5, align 8, !tbaa !58
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKSA_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ozz9animation8SkeletonEJNS0_7DeleterIS2_EEEERKT0_RKSt11_Tuple_implIXT_EJS6_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  store ptr %0, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ozz9animation8SkeletonEJNS0_7DeleterIS2_EEEERKT0_RKSt11_Tuple_implIXT_EJS6_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ozz9animation8SkeletonEJNS0_7DeleterIS2_EEEERKT0_RKSt11_Tuple_implIXT_EJS6_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEE7_M_headERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  store ptr %0, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8, !tbaa !76
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEE7_M_headERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEE7_M_headERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ozz9animation8SkeletonELb0EE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  store ptr %0, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8, !tbaa !76
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ozz9animation8SkeletonELb0EE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ozz9animation8SkeletonELb0EE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
+  store ptr %0, ptr %2, align 8, !tbaa !80
+  %3 = load ptr, ptr %2, align 8, !tbaa !80
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>::_Alloc_hider", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !131
   ret ptr %6
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { noreturn }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { alwaysinline mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTSN3ozz9animation7offline15SkeletonBuilderE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTSN3ozz9animation7offline11RawSkeletonE", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !7, i64 0}
+!15 = !{!16, !17, i64 0}
+!16 = !{!"_ZTSN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointE", !17, i64 0, !18, i64 8}
+!17 = !{!"p1 _ZTSN3ozz9animation7offline11RawSkeleton5JointE", !6, i64 0}
+!18 = !{!"short", !7, i64 0}
+!19 = !{!17, !17, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 omnipotent char", !6, i64 0}
+!24 = distinct !{!24, !21}
+!25 = !{!16, !18, i64 8}
+!26 = !{!18, !18, i64 0}
+!27 = distinct !{!27, !21}
+!28 = !{!7, !7, i64 0}
+!29 = distinct !{!29, !21}
+!30 = distinct !{!30, !21}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTSSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE", !6, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"std::nullptr_t", !7, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTSN3ozz9animation7offline12_GLOBAL__N_111JointListerE", !6, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTSSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE", !6, i64 0}
+!39 = !{!40, !41, i64 0}
+!40 = !{!"_ZTSNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE17_Vector_impl_dataE", !41, i64 0, !41, i64 8, !41, i64 16}
+!41 = !{!"p1 _ZTSN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointE", !6, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEE", !6, i64 0}
+!44 = !{!45, !14, i64 8}
+!45 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEE", !46, i64 0, !14, i64 8, !7, i64 16}
+!46 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE12_Alloc_hiderE", !23, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTSN3ozz4spanIPcEE", !6, i64 0}
+!49 = !{!50, !51, i64 0}
+!50 = !{!"_ZTSN3ozz4spanIPcEE", !51, i64 0, !14, i64 8}
+!51 = !{!"p2 omnipotent char", !52, i64 0}
+!52 = !{!"any p2 pointer", !6, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTSN3ozz4spanIsEE", !6, i64 0}
+!55 = !{!56, !57, i64 0}
+!56 = !{!"_ZTSN3ozz4spanIsEE", !57, i64 0, !14, i64 8}
+!57 = !{!"p1 short", !6, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTSN3ozz9animation8SkeletonE", !6, i64 0}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 float", !6, i64 0}
+!62 = !{!6, !6, i64 0}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTSN3ozz4spanINS_4math12SoaTransformEEE", !6, i64 0}
+!65 = !{!66, !67, i64 0}
+!66 = !{!"_ZTSN3ozz4spanINS_4math12SoaTransformEEE", !67, i64 0, !14, i64 8}
+!67 = !{!"p1 _ZTSN3ozz4math12SoaTransformE", !6, i64 0}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"p2 _ZTSN3ozz9animation8SkeletonE", !52, i64 0}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTSSt15__uniq_ptr_dataIN3ozz9animation8SkeletonENS0_7DeleterIS2_EELb1ELb1EE", !6, i64 0}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTSSt15__uniq_ptr_implIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEE", !6, i64 0}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 _ZTSSt5tupleIJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEE", !6, i64 0}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"p1 _ZTSSt11_Tuple_implILm0EJPN3ozz9animation8SkeletonENS0_7DeleterIS2_EEEE", !6, i64 0}
+!78 = !{!79, !79, i64 0}
+!79 = !{!"p1 _ZTSSt11_Tuple_implILm1EJN3ozz7DeleterINS0_9animation8SkeletonEEEEE", !6, i64 0}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"p1 _ZTSSt10_Head_baseILm0EPN3ozz9animation8SkeletonELb0EE", !6, i64 0}
+!82 = !{!83, !59, i64 0}
+!83 = !{!"_ZTSSt10_Head_baseILm0EPN3ozz9animation8SkeletonELb0EE", !59, i64 0}
+!84 = !{!85, !85, i64 0}
+!85 = !{!"p1 _ZTSSt10_Head_baseILm1EN3ozz7DeleterINS0_9animation8SkeletonEEELb1EE", !6, i64 0}
+!86 = !{!87, !87, i64 0}
+!87 = !{!"p1 _ZTSN3ozz7DeleterINS_9animation8SkeletonEEE", !6, i64 0}
+!88 = !{!40, !41, i64 8}
+!89 = !{!41, !41, i64 0}
+!90 = !{!40, !41, i64 16}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"p1 _ZTSSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE", !6, i64 0}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"p1 _ZTSNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE12_Vector_implE", !6, i64 0}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"p1 _ZTSN3ozz12StdAllocatorINS_9animation7offline12_GLOBAL__N_111JointLister5JointEEE", !6, i64 0}
+!97 = !{!98, !98, i64 0}
+!98 = !{!"p1 _ZTSNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE17_Vector_impl_dataE", !6, i64 0}
+!99 = !{i64 0, i64 8, !89}
+!100 = distinct !{!100, !21}
+!101 = !{!102, !102, i64 0}
+!102 = !{!"p1 long", !6, i64 0}
+!103 = distinct !{!103, !21}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"vtable pointer", !8, i64 0}
+!106 = !{!107, !107, i64 0}
+!107 = !{!"p1 _ZTSSt13move_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEE", !6, i64 0}
+!108 = !{!109, !41, i64 0}
+!109 = !{!"_ZTSSt13move_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointEE", !41, i64 0}
+!110 = !{i64 0, i64 8, !19, i64 8, i64 2, !26}
+!111 = !{!56, !14, i64 8}
+!112 = !{!113, !113, i64 0}
+!113 = !{!"float", !7, i64 0}
+!114 = !{!115, !6, i64 0}
+!115 = !{!"_ZTSN3ozz9animation8SkeletonE", !6, i64 0, !66, i64 8, !56, i64 24, !50, i64 40}
+!116 = !{!66, !14, i64 8}
+!117 = !{!50, !14, i64 8}
+!118 = !{!119, !119, i64 0}
+!119 = !{!"p1 _ZTSSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE", !6, i64 0}
+!120 = distinct !{!120, !21}
+!121 = !{!122, !17, i64 8}
+!122 = !{!"_ZTSNSt12_Vector_baseIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE17_Vector_impl_dataE", !17, i64 0, !17, i64 8, !17, i64 16}
+!123 = !{!122, !17, i64 0}
+!124 = distinct !{!124, !21}
+!125 = !{!126, !126, i64 0}
+!126 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEEE", !6, i64 0}
+!127 = !{!128, !128, i64 0}
+!128 = !{!"p2 _ZTSN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointE", !52, i64 0}
+!129 = !{!130, !41, i64 0}
+!130 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointESt6vectorIS6_NS1_12StdAllocatorIS6_EEEEE", !41, i64 0}
+!131 = !{!45, !23, i64 0}

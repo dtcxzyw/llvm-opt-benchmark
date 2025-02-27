@@ -119,6 +119,7 @@ supported_project = [
     "opencv",
     "openexr",
     "oiio",
+    "ozz-animation",
 ]
 
 modify_only = [
@@ -156,6 +157,7 @@ modify_only = [
     "libzmq",
     "nghttp2",
     "opencc",
+    "ozz-animation",
 ]
 
 
