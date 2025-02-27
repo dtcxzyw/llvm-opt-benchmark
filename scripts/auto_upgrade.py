@@ -126,6 +126,7 @@ supported_project = [
     "pugixml",
     "pybind11",
     "quest",
+    "readerwriterqueue",
 ]
 
 modify_only = [
@@ -165,6 +166,7 @@ modify_only = [
     "opencc",
     "ozz-animation",
     "pbrt-v4",
+    "readerwriterqueue",
 ]
 
 
