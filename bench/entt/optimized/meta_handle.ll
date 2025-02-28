@@ -8625,7 +8625,7 @@ _ZN4entt8internal14meta_type_nodeC2ERKS1_.exit.thread: ; preds = %_ZN4entt8inter
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4enttL8meta_argINS_9type_listIJEEEEENS_9meta_typeERKNS_8meta_ctxEm(ptr dead_on_unwind noalias writeonly sret(%"class.entt::meta_type") align 8 captures(none) %0, ptr nonnull align 8 captures(none) %1, i64 %2) #18 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4enttL8meta_argINS_9type_listIJEEEEENS_9meta_typeERKNS_8meta_ctxEm(ptr dead_on_unwind noalias readnone sret(%"class.entt::meta_type") align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) #18 personality ptr @__gxx_personality_v0 {
   unreachable
 }
 

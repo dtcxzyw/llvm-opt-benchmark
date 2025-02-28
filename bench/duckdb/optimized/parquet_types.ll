@@ -7183,7 +7183,7 @@ define void @_ZN14duckdb_parquet10StringTypeD2Ev(ptr noundef nonnull readnone al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet10StringTypeD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet10StringTypeD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -7553,7 +7553,7 @@ define void @_ZN14duckdb_parquet8UUIDTypeD2Ev(ptr noundef nonnull readnone align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet8UUIDTypeD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet8UUIDTypeD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -7923,7 +7923,7 @@ define void @_ZN14duckdb_parquet7MapTypeD2Ev(ptr noundef nonnull readnone align 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet7MapTypeD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet7MapTypeD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -8293,7 +8293,7 @@ define void @_ZN14duckdb_parquet8ListTypeD2Ev(ptr noundef nonnull readnone align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet8ListTypeD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet8ListTypeD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -8663,7 +8663,7 @@ define void @_ZN14duckdb_parquet8EnumTypeD2Ev(ptr noundef nonnull readnone align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet8EnumTypeD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet8EnumTypeD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -9033,7 +9033,7 @@ define void @_ZN14duckdb_parquet8DateTypeD2Ev(ptr noundef nonnull readnone align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet8DateTypeD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet8DateTypeD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -9403,7 +9403,7 @@ define void @_ZN14duckdb_parquet11Float16TypeD2Ev(ptr noundef nonnull readnone a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet11Float16TypeD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet11Float16TypeD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -9773,7 +9773,7 @@ define void @_ZN14duckdb_parquet8NullTypeD2Ev(ptr noundef nonnull readnone align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet8NullTypeD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet8NullTypeD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -10143,7 +10143,7 @@ define void @_ZN14duckdb_parquet11DecimalTypeD2Ev(ptr noundef nonnull readnone a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet11DecimalTypeD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet11DecimalTypeD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -10890,7 +10890,7 @@ define void @_ZN14duckdb_parquet12MilliSecondsD2Ev(ptr noundef nonnull readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet12MilliSecondsD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet12MilliSecondsD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -11260,7 +11260,7 @@ define void @_ZN14duckdb_parquet12MicroSecondsD2Ev(ptr noundef nonnull readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet12MicroSecondsD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet12MicroSecondsD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -11630,7 +11630,7 @@ define void @_ZN14duckdb_parquet11NanoSecondsD2Ev(ptr noundef nonnull readnone a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet11NanoSecondsD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet11NanoSecondsD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -12000,7 +12000,7 @@ define void @_ZN14duckdb_parquet8TimeUnitD2Ev(ptr noundef nonnull readnone align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet8TimeUnitD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet8TimeUnitD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -13206,7 +13206,7 @@ define void @_ZN14duckdb_parquet13TimestampTypeD2Ev(ptr noundef nonnull readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet13TimestampTypeD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet13TimestampTypeD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -13962,7 +13962,7 @@ define void @_ZN14duckdb_parquet8TimeTypeD2Ev(ptr noundef nonnull readnone align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet8TimeTypeD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet8TimeTypeD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -14609,7 +14609,7 @@ define void @_ZN14duckdb_parquet7IntTypeD2Ev(ptr noundef nonnull readnone align 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet7IntTypeD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet7IntTypeD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -15344,7 +15344,7 @@ define void @_ZN14duckdb_parquet8JsonTypeD2Ev(ptr noundef nonnull readnone align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet8JsonTypeD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet8JsonTypeD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -15714,7 +15714,7 @@ define void @_ZN14duckdb_parquet8BsonTypeD2Ev(ptr noundef nonnull readnone align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet8BsonTypeD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet8BsonTypeD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -16084,7 +16084,7 @@ define void @_ZN14duckdb_parquet11LogicalTypeD2Ev(ptr noundef nonnull readnone a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet11LogicalTypeD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet11LogicalTypeD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -24896,7 +24896,7 @@ define void @_ZN14duckdb_parquet15IndexPageHeaderD2Ev(ptr noundef nonnull readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet15IndexPageHeaderD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet15IndexPageHeaderD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -25266,7 +25266,7 @@ define void @_ZN14duckdb_parquet20DictionaryPageHeaderD2Ev(ptr noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet20DictionaryPageHeaderD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet20DictionaryPageHeaderD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -28189,7 +28189,7 @@ define void @_ZN14duckdb_parquet19SplitBlockAlgorithmD2Ev(ptr noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet19SplitBlockAlgorithmD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet19SplitBlockAlgorithmD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -28559,7 +28559,7 @@ define void @_ZN14duckdb_parquet20BloomFilterAlgorithmD2Ev(ptr noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet20BloomFilterAlgorithmD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet20BloomFilterAlgorithmD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -29216,7 +29216,7 @@ define void @_ZN14duckdb_parquet6XxHashD2Ev(ptr noundef nonnull readnone align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet6XxHashD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet6XxHashD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -29586,7 +29586,7 @@ define void @_ZN14duckdb_parquet15BloomFilterHashD2Ev(ptr noundef nonnull readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet15BloomFilterHashD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet15BloomFilterHashD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -30243,7 +30243,7 @@ define void @_ZN14duckdb_parquet12UncompressedD2Ev(ptr noundef nonnull readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet12UncompressedD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet12UncompressedD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -30613,7 +30613,7 @@ define void @_ZN14duckdb_parquet22BloomFilterCompressionD2Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet22BloomFilterCompressionD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet22BloomFilterCompressionD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -31270,7 +31270,7 @@ define void @_ZN14duckdb_parquet17BloomFilterHeaderD2Ev(ptr noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet17BloomFilterHeaderD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet17BloomFilterHeaderD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -36585,7 +36585,7 @@ define void @_ZN14duckdb_parquet13SortingColumnD2Ev(ptr noundef nonnull readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet13SortingColumnD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet13SortingColumnD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -37320,7 +37320,7 @@ define void @_ZN14duckdb_parquet17PageEncodingStatsD2Ev(ptr noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet17PageEncodingStatsD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet17PageEncodingStatsD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -43437,7 +43437,7 @@ define void @_ZN14duckdb_parquet23EncryptionWithFooterKeyD2Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet23EncryptionWithFooterKeyD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet23EncryptionWithFooterKeyD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -51804,7 +51804,7 @@ define void @_ZN14duckdb_parquet16TypeDefinedOrderD2Ev(ptr noundef nonnull readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet16TypeDefinedOrderD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet16TypeDefinedOrderD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -52174,7 +52174,7 @@ define void @_ZN14duckdb_parquet11ColumnOrderD2Ev(ptr noundef nonnull readnone a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet11ColumnOrderD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet11ColumnOrderD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -52831,7 +52831,7 @@ define void @_ZN14duckdb_parquet12PageLocationD2Ev(ptr noundef nonnull readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN14duckdb_parquet12PageLocationD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZN14duckdb_parquet12PageLocationD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 

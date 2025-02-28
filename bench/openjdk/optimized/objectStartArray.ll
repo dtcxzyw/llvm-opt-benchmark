@@ -218,7 +218,7 @@ define hidden void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK16ObjectStartArray16verify_for_blockEPP12HeapWordImplS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZNK16ObjectStartArray16verify_for_blockEPP12HeapWordImplS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #4 align 2 {
   ret void
 }
 

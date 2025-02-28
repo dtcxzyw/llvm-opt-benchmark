@@ -1149,7 +1149,7 @@ declare noundef zeroext i1 @_ZN5folly8Executor16keepAliveAcquireEv(ptr noundef n
 declare void @_ZN5folly8Executor16keepAliveReleaseEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #10
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_118DefaultCPUExecutorD1Ev(ptr nonnull align 8 captures(none) %0) unnamed_addr #11 align 2 {
+define internal void @_ZN12_GLOBAL__N_118DefaultCPUExecutorD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
   ret void
 }
 

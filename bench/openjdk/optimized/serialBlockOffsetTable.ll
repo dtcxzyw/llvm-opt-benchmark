@@ -326,7 +326,7 @@ define hidden noundef ptr @_ZNK22SerialBlockOffsetTable30block_start_reaching_in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK22SerialBlockOffsetTable16verify_for_blockEPP12HeapWordImplS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #5 align 2 {
+define hidden void @_ZNK22SerialBlockOffsetTable16verify_for_blockEPP12HeapWordImplS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #5 align 2 {
   ret void
 }
 

@@ -1345,7 +1345,7 @@ define dso_local void @COVER_best_init(ptr noundef writeonly captures(address_is
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local void @COVER_best_wait(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define dso_local void @COVER_best_wait(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 

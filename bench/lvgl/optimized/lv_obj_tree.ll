@@ -1815,7 +1815,7 @@ define void @lv_obj_dump_tree(ptr noundef readonly captures(address_is_null) %0)
 declare ptr @lv_display_get_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc void @dump_tree_core(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc void @dump_tree_core(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 

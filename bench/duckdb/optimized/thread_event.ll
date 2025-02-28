@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @duckdb_je_opt_stats_interval = external local_unnamed_addr global i64, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @duckdb_je_te_assert_invariants_debug(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+define void @duckdb_je_te_assert_invariants_debug(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
