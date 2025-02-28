@@ -7851,7 +7851,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit.i.i.i: ; preds 
   %61 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store ptr null, ptr %61, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_CopyERKS0_RS0_(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %59)
-          to label %62 unwind label %168
+          to label %62 unwind label %.thread53
 
 62:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit.i.i.i
   %63 = getelementptr inbounds nuw i8, ptr %21, i64 56
@@ -8060,33 +8060,33 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValue
   store ptr %165, ptr %160, align 8
   ret void
 
-166:                                              ; preds = %168
+166:                                              ; preds = %.thread53
   %167 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %172 unwind label %173
+          to label %171 unwind label %172
 
-168:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit.i.i.i
-  %169 = landingpad { ptr, i32 }
+.thread53:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit.i.i.i
+  %168 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %21) #18
-  %170 = extractvalue { ptr, i32 } %169, 0
-  %171 = tail call ptr @__cxa_begin_catch(ptr %170) #18
+  %169 = extractvalue { ptr, i32 } %168, 0
+  %170 = tail call ptr @__cxa_begin_catch(ptr %169) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #19
   invoke void @__cxa_rethrow() #20
-          to label %176 unwind label %166
+          to label %175 unwind label %166
 
-172:                                              ; preds = %166
+171:                                              ; preds = %166
   resume { ptr, i32 } %167
 
-173:                                              ; preds = %166
-  %174 = landingpad { ptr, i32 }
+172:                                              ; preds = %166
+  %173 = landingpad { ptr, i32 }
           catch ptr null
-  %175 = extractvalue { ptr, i32 } %174, 0
-  tail call void @__clang_call_terminate(ptr %175) #17
+  %174 = extractvalue { ptr, i32 } %173, 0
+  tail call void @__clang_call_terminate(ptr %174) #17
   unreachable
 
-176:                                              ; preds = %168
+175:                                              ; preds = %.thread53
   unreachable
 }
 

@@ -1231,7 +1231,7 @@ define hidden void @"_ZN170_$LT$copilot..request.._..$LT$impl$u20$serde..de..Des
   %.pn169.ph = phi { ptr, i32 } [ %42, %41 ], [ %42, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11685156634553254918.exit.i.i1.i.i.i.i.i" ], [ %.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb1f9e6b8d08db604E.exit227" ], [ %.pn, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11685156634553254918.exit.i.i1.i.i" ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit658, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp659, %.loopexit.loopexit.split-lp ]
   %.pr = load i64, ptr %13, align 8
   %.not = icmp eq i64 %.pr, -9223372036854775808
-  br i1 %.not, label %172, label %175
+  br i1 %.not, label %172, label %.thread312
 
 .loopexit.loopexit:                               ; preds = %113, %99, %85, %65, %58
   %.sroa.0240.0513.lcssa619.ph = phi i64 [ %.sroa.0240.0513, %113 ], [ %.sroa.0240.0513, %99 ], [ -9223372036854775808, %85 ], [ %.sroa.0240.0513, %65 ], [ %.sroa.0240.0513, %58 ]
@@ -1700,7 +1700,7 @@ default.unreachable641:                           ; preds = %"_ZN54_$LT$$RF$mut$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb1f9e6b8d08db604E.exit235"
 
-154:                                              ; preds = %175
+154:                                              ; preds = %.thread312
   %155 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #43
@@ -1761,7 +1761,7 @@ switch.early.test:                                ; preds = %"_ZN4core3ptr65drop
   call void @__rust_dealloc(ptr noundef nonnull %158, i64 noundef %171, i64 noundef 8) #37, !noalias !538
   br label %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h0f609ac593dd1196E.exit"
 
-172:                                              ; preds = %175, %.loopexit
+172:                                              ; preds = %.thread312, %.loopexit
   br i1 %.sroa.0123.2.ph, label %switch.early.test326, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb1f9e6b8d08db604E.exit237"
 
 switch.early.test326:                             ; preds = %172
@@ -1803,19 +1803,19 @@ switch.early.test328:                             ; preds = %"_ZN4core3ptr42drop
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb1f9e6b8d08db604E.exit239": ; preds = %switch.early.test328, %switch.early.test328, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb1f9e6b8d08db604E.exit237", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11685156634553254918.exit.i.i1.i.i238"
   resume { ptr, i32 } %.pn169.ph
 
-175:                                              ; preds = %.loopexit
+.thread312:                                       ; preds = %.loopexit
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h0f609ac593dd1196E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #42
           to label %172 unwind label %154
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11685156634553254918.exit.i.i1.i.i236": ; preds = %switch.early.test326
-  %176 = icmp ne ptr %.sroa.14253.0458, null
-  call void @llvm.assume(i1 %176)
+  %175 = icmp ne ptr %.sroa.14253.0458, null
+  call void @llvm.assume(i1 %175)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.14253.0458, i64 noundef %.sroa.0247.0436, i64 noundef 1) #37, !noalias !561
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb1f9e6b8d08db604E.exit237"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11685156634553254918.exit.i.i1.i.i238": ; preds = %switch.early.test328
-  %177 = icmp ne ptr %.sroa.14.0399, null
-  call void @llvm.assume(i1 %177)
+  %176 = icmp ne ptr %.sroa.14.0399, null
+  call void @llvm.assume(i1 %176)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.14.0399, i64 noundef %.sroa.0240.0377, i64 noundef 1) #37, !noalias !570
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb1f9e6b8d08db604E.exit239"
 }

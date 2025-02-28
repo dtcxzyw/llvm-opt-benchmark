@@ -11761,11 +11761,11 @@ _ZNKSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE12_M_check_lenEm
   %vector_.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store ptr null, ptr %vector_.i.i.i, align 8
   %call2.i.i.i = invoke noundef ptr @_ZN8facebook5velox4exec18LocalDecodedVector3getEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr)
-          to label %invoke.cont.i.i.i unwind label %invoke.cont23
+          to label %invoke.cont.i.i.i unwind label %if.end
 
 invoke.cont.i.i.i:                                ; preds = %_ZNKSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE12_M_check_lenEmPKc.exit
   invoke void @_ZN8facebook5velox13DecodedVector6decodeERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEb(ptr noundef nonnull align 8 dereferenceable(120) %call2.i.i.i, ptr noundef nonnull align 8 dereferenceable(99) %__args1, ptr noundef nonnull align 8 dereferenceable(38) %__args3, i1 noundef zeroext true)
-          to label %invoke.cont unwind label %invoke.cont23
+          to label %invoke.cont unwind label %if.end
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i.i
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -11828,13 +11828,13 @@ _ZNSt12_Vector_baseIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE13_M_deall
   store ptr %add.ptr30, ptr %_M_end_of_storage, align 8
   ret void
 
-lpad21:                                           ; preds = %invoke.cont23
+lpad21:                                           ; preds = %if.end
   %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-invoke.cont23:                                    ; preds = %_ZNKSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE12_M_check_lenEmPKc.exit, %invoke.cont.i.i.i
+if.end:                                           ; preds = %_ZNKSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE12_M_check_lenEmPKc.exit, %invoke.cont.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZNSt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vector_.i.i.i) #36
@@ -11854,7 +11854,7 @@ terminate.lpad:                                   ; preds = %lpad21
   tail call void @__clang_call_terminate(ptr %13) #37
   unreachable
 
-unreachable:                                      ; preds = %invoke.cont23
+unreachable:                                      ; preds = %if.end
   unreachable
 }
 
@@ -47459,7 +47459,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %conv.i.i.i.i = zext i32 %3 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #36, !noalias !440
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef %cond.i.i.i.i, i64 noundef %conv.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i)
-          to label %invoke.cont unwind label %invoke.cont19
+          to label %invoke.cont unwind label %if.end
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #36
@@ -47510,13 +47510,13 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8
   ret void
 
-lpad17:                                           ; preds = %invoke.cont19
+lpad17:                                           ; preds = %if.end
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-invoke.cont19:                                    ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
+if.end:                                           ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %6 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #36
@@ -47536,7 +47536,7 @@ terminate.lpad:                                   ; preds = %lpad17
   call void @__clang_call_terminate(ptr %10) #37
   unreachable
 
-unreachable:                                      ; preds = %invoke.cont19
+unreachable:                                      ; preds = %if.end
   unreachable
 }
 

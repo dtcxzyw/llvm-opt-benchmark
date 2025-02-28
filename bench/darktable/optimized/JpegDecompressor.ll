@@ -181,7 +181,7 @@ _ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit: ; preds = %_
 66:                                               ; preds = %._crit_edge
   %67 = landingpad { ptr, i32 }
           cleanup
-  br label %144
+  br label %.thread
 
 .loopexit:                                        ; preds = %52
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -196,7 +196,7 @@ _ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit: ; preds = %_
 68:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  br label %144
+  br label %.thread
 
 69:                                               ; preds = %61
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
@@ -334,23 +334,23 @@ _ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit: ; preds = %_ZNSt6
   call void @llvm.lifetime.end.p0(i64 824, ptr nonnull %4) #19
   ret void
 
-144:                                              ; preds = %68, %66
-  %.pn.pn.ph = phi { ptr, i32 } [ %67, %66 ], [ %lpad.phi, %68 ]
-  %145 = icmp ne ptr %.sroa.13.1, %.sroa.0103.1
-  call void @llvm.assume(i1 %145)
+.thread:                                          ; preds = %66, %68
+  %.pn.pn139 = phi { ptr, i32 } [ %67, %66 ], [ %lpad.phi, %68 ]
+  %144 = icmp ne ptr %.sroa.13.1, %.sroa.0103.1
+  call void @llvm.assume(i1 %144)
   call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %.sroa.0103.1, i64 noundef 16) #19
   br label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43
 
-_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43: ; preds = %144, %.thread141, %16
-  %.pn27 = phi { ptr, i32 } [ %17, %16 ], [ %.pn.pn.ph, %144 ], [ %65, %.thread141 ]
+_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43: ; preds = %.thread, %.thread141, %16
+  %.pn27 = phi { ptr, i32 } [ %17, %16 ], [ %.pn.pn139, %.thread ], [ %65, %.thread141 ]
   invoke void @jpeg_destroy_decompress(ptr noundef nonnull align 8 dereferenceable(824) %4)
-          to label %_ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit44 unwind label %146
+          to label %_ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit44 unwind label %145
 
-146:                                              ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43
-  %147 = landingpad { ptr, i32 }
+145:                                              ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43
+  %146 = landingpad { ptr, i32 }
           catch ptr null
-  %148 = extractvalue { ptr, i32 } %147, 0
-  call void @__clang_call_terminate(ptr %148) #21
+  %147 = extractvalue { ptr, i32 } %146, 0
+  call void @__clang_call_terminate(ptr %147) #21
   unreachable
 
 _ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit44: ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43

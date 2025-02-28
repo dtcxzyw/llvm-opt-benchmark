@@ -8781,7 +8781,7 @@ define void @_ZN4pkpy2VM15parse_int_sliceERKNS_5SliceEiRiS4_S4_(ptr noundef nonn
 
 39:                                               ; preds = %13
   %40 = icmp sgt i32 %16, 0
-  br i1 %40, label %41, label %64
+  br i1 %40, label %41, label %.thread81
 
 41:                                               ; preds = %.thread79, %39
   %42 = load ptr, ptr %1, align 8
@@ -8809,7 +8809,7 @@ define void @_ZN4pkpy2VM15parse_int_sliceERKNS_5SliceEiRiS4_S4_(ptr noundef nonn
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %10, align 8
   %56 = icmp eq ptr %54, %55
-  br i1 %56, label %89, label %57
+  br i1 %56, label %88, label %57
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8821,54 +8821,54 @@ define void @_ZN4pkpy2VM15parse_int_sliceERKNS_5SliceEiRiS4_S4_(ptr noundef nonn
   %63 = icmp slt i32 %spec.select64, 0
   %..i71 = tail call i32 @llvm.smin.i32(i32 %spec.select64, i32 %2)
   %.0.i72 = select i1 %63, i32 0, i32 %..i71
-  br label %89
+  br label %88
 
-64:                                               ; preds = %39
-  %65 = load ptr, ptr %1, align 8
-  %66 = load ptr, ptr %10, align 8
-  %67 = icmp eq ptr %65, %66
-  br i1 %67, label %68, label %70
+.thread81:                                        ; preds = %39
+  %64 = load ptr, ptr %1, align 8
+  %65 = load ptr, ptr %10, align 8
+  %66 = icmp eq ptr %64, %65
+  br i1 %66, label %67, label %69
 
-68:                                               ; preds = %64
-  %69 = add nsw i32 %2, -1
-  br label %77
+67:                                               ; preds = %.thread81
+  %68 = add nsw i32 %2, -1
+  br label %76
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %14, align 8
-  %72 = tail call noundef i32 @_ZN4pkpy18_py_cast__internalIiLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %71, ptr noundef %65)
-  %73 = icmp slt i32 %72, 0
-  %74 = select i1 %73, i32 %2, i32 0
-  %spec.select65 = add nsw i32 %74, %72
+69:                                               ; preds = %.thread81
+  %70 = load ptr, ptr %14, align 8
+  %71 = tail call noundef i32 @_ZN4pkpy18_py_cast__internalIiLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %70, ptr noundef %64)
+  %72 = icmp slt i32 %71, 0
+  %73 = select i1 %72, i32 %2, i32 0
+  %spec.select65 = add nsw i32 %73, %71
   store i32 %spec.select65, ptr %3, align 4
-  %75 = add nsw i32 %2, -1
-  %76 = icmp slt i32 %spec.select65, -1
-  %..i73 = tail call i32 @llvm.smin.i32(i32 %spec.select65, i32 %75)
-  %.0.i74 = select i1 %76, i32 -1, i32 %..i73
-  br label %77
+  %74 = add nsw i32 %2, -1
+  %75 = icmp slt i32 %spec.select65, -1
+  %..i73 = tail call i32 @llvm.smin.i32(i32 %spec.select65, i32 %74)
+  %.0.i74 = select i1 %75, i32 -1, i32 %..i73
+  br label %76
 
-77:                                               ; preds = %70, %68
-  %storemerge59 = phi i32 [ %.0.i74, %70 ], [ %69, %68 ]
+76:                                               ; preds = %69, %67
+  %storemerge59 = phi i32 [ %.0.i74, %69 ], [ %68, %67 ]
   store i32 %storemerge59, ptr %3, align 4
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %10, align 8
-  %81 = icmp eq ptr %79, %80
-  br i1 %81, label %89, label %82
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = load ptr, ptr %10, align 8
+  %80 = icmp eq ptr %78, %79
+  br i1 %80, label %88, label %81
 
-82:                                               ; preds = %77
-  %83 = load ptr, ptr %14, align 8
-  %84 = tail call noundef i32 @_ZN4pkpy18_py_cast__internalIiLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %83, ptr noundef %79)
-  %85 = icmp slt i32 %84, 0
-  %86 = select i1 %85, i32 %2, i32 0
-  %spec.select66 = add nsw i32 %86, %84
-  %87 = add nsw i32 %2, -1
-  %88 = icmp slt i32 %spec.select66, -1
-  %..i75 = tail call i32 @llvm.smin.i32(i32 %spec.select66, i32 %87)
-  %.0.i76 = select i1 %88, i32 -1, i32 %..i75
-  br label %89
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %14, align 8
+  %83 = tail call noundef i32 @_ZN4pkpy18_py_cast__internalIiLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %82, ptr noundef %78)
+  %84 = icmp slt i32 %83, 0
+  %85 = select i1 %84, i32 %2, i32 0
+  %spec.select66 = add nsw i32 %85, %83
+  %86 = add nsw i32 %2, -1
+  %87 = icmp slt i32 %spec.select66, -1
+  %..i75 = tail call i32 @llvm.smin.i32(i32 %spec.select66, i32 %86)
+  %.0.i76 = select i1 %87, i32 -1, i32 %..i75
+  br label %88
 
-89:                                               ; preds = %77, %52, %82, %57
-  %.sink = phi i32 [ %.0.i76, %82 ], [ %.0.i72, %57 ], [ %2, %52 ], [ -1, %77 ]
+88:                                               ; preds = %76, %52, %81, %57
+  %.sink = phi i32 [ %.0.i76, %81 ], [ %.0.i72, %57 ], [ %2, %52 ], [ -1, %76 ]
   store i32 %.sink, ptr %4, align 4
   ret void
 }

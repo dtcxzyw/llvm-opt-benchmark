@@ -5787,19 +5787,19 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = tail call noundef i8 @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17hfa12716ba528b2c6E.llvm.12416795407365802493"(ptr noundef nonnull align 8 %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !range !341, !noalias !1473
   %9 = icmp eq i8 %8, 2
-  br i1 %9, label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heb38423ed219b6bdE.exit", label %10
+  br i1 %9, label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heb38423ed219b6bdE.exit", label %11
 
-10:                                               ; preds = %6
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$17h016011df2725dffcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917.exit.i" unwind label %11
-
-11:                                               ; preds = %10
-  %12 = landingpad { ptr, i32 }
+"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h806569729ea14df3E.llvm.4322463129280257917.exit3.i.i": ; preds = %11
+  %10 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %3, align 8, !alias.scope !1476, !noalias !1471
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %10
 
-"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917.exit.i": ; preds = %10
+11:                                               ; preds = %6
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$17h016011df2725dffcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
+          to label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917.exit.i" unwind label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h806569729ea14df3E.llvm.4322463129280257917.exit3.i.i"
+
+"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917.exit.i": ; preds = %11
   store ptr null, ptr %3, align 8, !alias.scope !1476, !noalias !1471
   br label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heb38423ed219b6bdE.exit"
 
@@ -5893,19 +5893,19 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$
 11:                                               ; preds = %8
   %12 = load i8, ptr %5, align 4, !range !67, !noalias !1511, !noundef !9
   %13 = icmp eq i8 %12, 5
-  br i1 %13, label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h828c1b0078ca2346E.llvm.4322463129280257917.exit.i.i", label %14
+  br i1 %13, label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h828c1b0078ca2346E.llvm.4322463129280257917.exit.i.i", label %15
 
-14:                                               ; preds = %11
-  invoke void @"_ZN4core3ptr116drop_in_place$LT$call..room..Room..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heda116c150600e86E.llvm.4322463129280257917"(ptr noundef nonnull align 8 %4)
-          to label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h828c1b0078ca2346E.llvm.4322463129280257917.exit.i.i" unwind label %15, !noalias !1500
-
-15:                                               ; preds = %14
-  %16 = landingpad { ptr, i32 }
+"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$call..room..Room..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h686bbf063c850866E.llvm.4322463129280257917.exit2.i.i.i": ; preds = %15
+  %14 = landingpad { ptr, i32 }
           cleanup
   store i8 5, ptr %5, align 4, !noalias !1511
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %14
 
-"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h828c1b0078ca2346E.llvm.4322463129280257917.exit.i.i": ; preds = %14, %11
+15:                                               ; preds = %11
+  invoke void @"_ZN4core3ptr116drop_in_place$LT$call..room..Room..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heda116c150600e86E.llvm.4322463129280257917"(ptr noundef nonnull align 8 %4)
+          to label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h828c1b0078ca2346E.llvm.4322463129280257917.exit.i.i" unwind label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$call..room..Room..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h686bbf063c850866E.llvm.4322463129280257917.exit2.i.i.i", !noalias !1500
+
+"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h828c1b0078ca2346E.llvm.4322463129280257917.exit.i.i": ; preds = %15, %11
   store i8 5, ptr %5, align 4, !noalias !1511
   br label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hcc1e016776bafbf0E.llvm.13537110341245814796.exit"
 
@@ -6301,19 +6301,19 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$
 10:                                               ; preds = %7
   %11 = load i8, ptr %4, align 4, !range !67, !noalias !1691, !noundef !9
   %12 = icmp eq i8 %11, 5
-  br i1 %12, label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h828c1b0078ca2346E.llvm.4322463129280257917.exit.i", label %13
+  br i1 %12, label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h828c1b0078ca2346E.llvm.4322463129280257917.exit.i", label %14
 
-13:                                               ; preds = %10
-  invoke void @"_ZN4core3ptr116drop_in_place$LT$call..room..Room..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heda116c150600e86E.llvm.4322463129280257917"(ptr noundef nonnull align 8 %3)
-          to label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h828c1b0078ca2346E.llvm.4322463129280257917.exit.i" unwind label %14
-
-14:                                               ; preds = %13
-  %15 = landingpad { ptr, i32 }
+"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$call..room..Room..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h686bbf063c850866E.llvm.4322463129280257917.exit2.i.i": ; preds = %14
+  %13 = landingpad { ptr, i32 }
           cleanup
   store i8 5, ptr %4, align 4, !noalias !1691
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %13
 
-"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h828c1b0078ca2346E.llvm.4322463129280257917.exit.i": ; preds = %13, %10
+14:                                               ; preds = %10
+  invoke void @"_ZN4core3ptr116drop_in_place$LT$call..room..Room..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heda116c150600e86E.llvm.4322463129280257917"(ptr noundef nonnull align 8 %3)
+          to label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h828c1b0078ca2346E.llvm.4322463129280257917.exit.i" unwind label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$call..room..Room..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h686bbf063c850866E.llvm.4322463129280257917.exit2.i.i"
+
+"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h828c1b0078ca2346E.llvm.4322463129280257917.exit.i": ; preds = %14, %10
   store i8 5, ptr %4, align 4, !noalias !1691
   br label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9ab74d254885fbd7E.exit"
 

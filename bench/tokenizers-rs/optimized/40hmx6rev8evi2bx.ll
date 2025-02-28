@@ -7153,7 +7153,7 @@ define hidden void @_ZN5rayon4iter13from_par_iter16collect_extended17h4f6ecf930a
   %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$$LP$$LP$$LP$u32$C$u32$RP$$C$i32$RP$$C$usize$RP$$GT$$GT$17h3704b2973c6d3938E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #50
-          to label %12 unwind label %10
+          to label %"_ZN4core3ptr192drop_in_place$LT$rayon..iter..flat_map..FlatMap$LT$rayon..collections..hash_set..Iter$LT$usize$GT$$C$tokenizers..models..bpe..trainer..BpeTrainer..do_train..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h90213fcd8c8970cfE.exit" unwind label %10
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
@@ -7167,7 +7167,7 @@ define hidden void @_ZN5rayon4iter13from_par_iter16collect_extended17h4f6ecf930a
   call void @_ZN4core9panicking16panic_in_cleanup17hc8e2b17e1b6d1381E() #51
   unreachable
 
-12:                                               ; preds = %7
+"_ZN4core3ptr192drop_in_place$LT$rayon..iter..flat_map..FlatMap$LT$rayon..collections..hash_set..Iter$LT$usize$GT$$C$tokenizers..models..bpe..trainer..BpeTrainer..do_train..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h90213fcd8c8970cfE.exit": ; preds = %7
   resume { ptr, i32 } %8
 }
 

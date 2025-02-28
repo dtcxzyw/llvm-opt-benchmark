@@ -73,14 +73,14 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hec61148ebf90ef6bE(ptr noalia
   %3 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   store i8 2, ptr %3, align 1, !noalias !8
   %4 = icmp eq ptr %2, null
-  br i1 %4, label %15, label %5
+  br i1 %4, label %__rust_try.llvm.509470019704245047.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i64, ptr %2, align 8, !noalias !11, !noundef !7
   %7 = add i64 %6, -1
   store i64 %7, ptr %2, align 8, !noalias !11
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %15
+  br i1 %8, label %9, label %__rust_try.llvm.509470019704245047.exit
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -88,13 +88,13 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hec61148ebf90ef6bE(ptr noalia
   %12 = add i64 %11, -1
   store i64 %12, ptr %10, align 8, !noalias !11
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %15
+  br i1 %13, label %14, label %__rust_try.llvm.509470019704245047.exit
 
 14:                                               ; preds = %9
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 368, i64 noundef 16) #15, !noalias !11
-  br label %15
+  br label %__rust_try.llvm.509470019704245047.exit
 
-15:                                               ; preds = %14, %9, %5, %1
+__rust_try.llvm.509470019704245047.exit:          ; preds = %14, %9, %5, %1
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 

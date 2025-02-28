@@ -823,7 +823,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit36: ; pre
 170:                                              ; preds = %_ZN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   %171 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit40
+  br label %.body24
 
 172:                                              ; preds = %_ZNSt16allocator_traitsISaISt6vectorIlSaIlEEEE8allocateERS3_m.exit.i.i.i.i, %128
   %173 = landingpad { ptr, i32 }
@@ -834,7 +834,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit36: ; pre
   %eh.lpad-body31 = phi { ptr, i32 } [ %173, %172 ], [ %137, %139 ], [ %137, %136 ]
   %174 = load ptr, ptr %9, align 8
   %.not.i.i.i38 = icmp eq ptr %174, null
-  br i1 %.not.i.i.i38, label %_ZNSt6vectorIlSaIlEED2Ev.exit40, label %175
+  br i1 %.not.i.i.i38, label %.body24, label %175
 
 175:                                              ; preds = %.body30
   %176 = load ptr, ptr %125, align 8
@@ -842,15 +842,15 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit36: ; pre
   %178 = ptrtoint ptr %174 to i64
   %179 = sub i64 %177, %178
   call void @_ZdlPvm(ptr noundef nonnull %174, i64 noundef %179) #24
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit40
+  br label %.body24
 
-_ZNSt6vectorIlSaIlEED2Ev.exit40:                  ; preds = %.body30, %175, %170
-  %.pn.pn = phi { ptr, i32 } [ %171, %170 ], [ %eh.lpad-body31, %175 ], [ %eh.lpad-body31, %.body30 ]
+.body24:                                          ; preds = %.body30, %175, %170
+  %.pn.pn = phi { ptr, i32 } [ %171, %170 ], [ %eh.lpad-body31, %.body30 ], [ %eh.lpad-body31, %175 ]
   call void @_ZNSt6vectorIN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %88) #21
   br label %_ZN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit37
 
-_ZN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit37: ; preds = %169, %.body, %_ZNSt6vectorIlSaIlEED2Ev.exit40, %163
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit40 ], [ %164, %163 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %169 ]
+_ZN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit37: ; preds = %169, %.body, %.body24, %163
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body24 ], [ %164, %163 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %169 ]
   %180 = load ptr, ptr %70, align 8
   %.not.i.i.i41 = icmp eq ptr %180, null
   br i1 %.not.i.i.i41, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %181

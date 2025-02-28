@@ -47130,8 +47130,8 @@ default.unreachable.i.i.i.i.i:                    ; preds = %.noexc
 .noexc81.backedge:                                ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h5b77d64453f0efc9E.exit.sink.split.i.i.i.i.i.i", %43, %338, %270
   br label %.noexc81
 
-"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h5b77d64453f0efc9E.exit": ; preds = %.thread241, %.thread209, %.thread205, %344, %.thread185, %278, %57
-  %.pn67.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp226, %.thread209 ], [ %lpad.thr_comm.split-lp198, %.thread241 ], [ %58, %57 ], [ %.pn70.pn.pn188, %278 ], [ %.pn70.pn.pn188, %.thread185 ], [ %.pn67.pn208, %344 ], [ %.pn67.pn208, %.thread205 ]
+"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h5b77d64453f0efc9E.exit": ; preds = %.thread242, %.thread209, %.thread205, %344, %.thread185, %278, %57
+  %.pn67.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp226, %.thread209 ], [ %lpad.thr_comm.split-lp198, %.thread242 ], [ %58, %57 ], [ %.pn70.pn.pn188, %278 ], [ %.pn70.pn.pn188, %.thread185 ], [ %.pn67.pn208, %344 ], [ %.pn67.pn208, %.thread205 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !12152)
   call void @llvm.experimental.noalias.scope.decl(metadata !12155)
   call void @llvm.experimental.noalias.scope.decl(metadata !12158)
@@ -47499,10 +47499,10 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h7e79296343dfb18bE.exit: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   store i8 13, ptr %10, align 16
   invoke void @_ZN7hir_def8generics22GenericParamsCollector11fill_bounds17h62aa7b6adbe3fa2fE(ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 %1, ptr noundef %176, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(48) %10)
-          to label %178 unwind label %.thread237
+          to label %178 unwind label %.thread238
 
-.thread237:                                       ; preds = %177
-  %lpad.thr_comm.split-lp239 = landingpad { ptr, i32 }
+.thread238:                                       ; preds = %177
+  %lpad.thr_comm.split-lp240 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
@@ -47534,8 +47534,8 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h7e79296343dfb18bE.exit: ; pred
   invoke void @"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #59
           to label %.thread unwind label %182
 
-.thread:                                          ; preds = %.thread172, %181, %.thread237, %127, %133, %121
-  %.pn75.pn167 = phi { ptr, i32 } [ %122, %121 ], [ %128, %133 ], [ %128, %127 ], [ %lpad.thr_comm.split-lp239, %.thread237 ], [ %lpad.thr_comm, %181 ], [ %165, %.thread172 ]
+.thread:                                          ; preds = %.thread172, %181, %.thread238, %127, %133, %121
+  %.pn75.pn167 = phi { ptr, i32 } [ %122, %121 ], [ %128, %133 ], [ %128, %127 ], [ %lpad.thr_comm.split-lp240, %.thread238 ], [ %lpad.thr_comm, %181 ], [ %165, %.thread172 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !12317)
   call void @llvm.experimental.noalias.scope.decl(metadata !12320)
   call void @llvm.experimental.noalias.scope.decl(metadata !12323)
@@ -47570,7 +47570,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h72128ea82d7b1ab5E.exit.thread.
   %194 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..ConstParam$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h58f3a4cd75b3ba34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %22)
           to label %281 unwind label %279
 
-.thread241:                                       ; preds = %268
+.thread242:                                       ; preds = %268
   %lpad.thr_comm.split-lp198 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h5b77d64453f0efc9E.exit"
@@ -47790,10 +47790,10 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h72128ea82d7b1ab5E.exit.thread.
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %23, ptr noundef nonnull align 16 dereferenceable(48) %25, i64 48, i1 false)
   invoke void @_ZN7hir_def8generics22GenericParamsCollector11fill_bounds17h62aa7b6adbe3fa2fE(ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 %1, ptr noundef %266, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(48) %23)
-          to label %268 unwind label %.thread241.thread307
+          to label %268 unwind label %.thread242.thread308
 
-.thread241.thread307:                             ; preds = %267
-  %lpad.thr_comm.split-lp198309 = landingpad { ptr, i32 }
+.thread242.thread308:                             ; preds = %267
+  %lpad.thr_comm.split-lp198310 = landingpad { ptr, i32 }
           cleanup
   br label %.thread185
 
@@ -47801,7 +47801,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h72128ea82d7b1ab5E.exit.thread.
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23)
   %269 = load ptr, ptr %28, align 8, !nonnull !13, !noundef !13
   invoke fastcc void @"_ZN7hir_def9item_tree5lower3Ctx20lower_generic_params28_$u7b$$u7b$closure$u7d$$u7d$17hf0de977384ba7a1cE"(ptr noalias noundef align 8 dereferenceable(32) %3, i32 noundef 0, i32 noundef %249, i64 noundef 2, ptr noundef %269)
-          to label %270 unwind label %.thread241
+          to label %270 unwind label %.thread242
 
 270:                                              ; preds = %268
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25)
@@ -47820,8 +47820,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h72128ea82d7b1ab5E.exit.thread.
   invoke void @"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #59
           to label %.thread185 unwind label %182
 
-.thread185:                                       ; preds = %272, %.thread241.thread307, %271, %245, %203, %209, %195
-  %.pn70.pn.pn188 = phi { ptr, i32 } [ %196, %195 ], [ %204, %209 ], [ %204, %203 ], [ %lpad.thr_comm197, %271 ], [ %246, %245 ], [ %lpad.thr_comm.split-lp198309, %.thread241.thread307 ], [ %.pn70.pn194, %272 ]
+.thread185:                                       ; preds = %272, %.thread242.thread308, %271, %245, %203, %209, %195
+  %.pn70.pn.pn188 = phi { ptr, i32 } [ %196, %195 ], [ %204, %209 ], [ %204, %203 ], [ %lpad.thr_comm197, %271 ], [ %246, %245 ], [ %lpad.thr_comm.split-lp198310, %.thread242.thread308 ], [ %.pn70.pn194, %272 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !12384)
   call void @llvm.experimental.noalias.scope.decl(metadata !12387)
   call void @llvm.experimental.noalias.scope.decl(metadata !12390)

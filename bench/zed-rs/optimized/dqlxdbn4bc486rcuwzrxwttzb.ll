@@ -26849,9 +26849,9 @@ define internal void @"_ZN4gpui6window13WindowContext14on_mouse_event28_$u7b$$u7
   unreachable
 
 .thread12.i:                                      ; preds = %79, %76, %67
-  %lpad.thr_comm.split-lp29.i = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp28.i = landingpad { ptr, i32 }
           cleanup
-  br label %.thread12.thread.i
+  br label %.thread.i
 
 _ZN5alloc2rc10RcInnerPtr10inc_strong17h7e11daa474f5c3daE.exit.i: ; preds = %28
   %47 = load ptr, ptr %41, align 8, !alias.scope !8659, !noalias !8662, !nonnull !7, !noundef !7
@@ -26905,7 +26905,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h7e11daa474f5c3daE.exit.i: ; preds = %28
   %64 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr470drop_in_place$LT$gpui..window..WindowContext..subscribe$LT$ui..components..context_menu..ContextMenu$C$gpui..view..View$LT$ui..components..context_menu..ContextMenu$GT$$C$gpui..window..DismissEvent$C$$LT$ui..components..right_click_menu..RightClickMenu$LT$ui..components..context_menu..ContextMenu$GT$$u20$as$u20$gpui..element..Element$GT$..paint..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5a7099e8ff3d048bE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %6) #38
-          to label %.thread12.thread.i unwind label %65, !noalias !8674
+          to label %.thread.i unwind label %65, !noalias !8674
 
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
@@ -26930,7 +26930,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h7e11daa474f5c3daE.exit.i: ; preds = %28
   %73 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr254drop_in_place$LT$$LT$ui..components..right_click_menu..RightClickMenu$LT$ui..components..context_menu..ContextMenu$GT$$u20$as$u20$gpui..element..Element$GT$..paint..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hec46d69a88b77d21E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #38
-          to label %.thread12.thread.i unwind label %74
+          to label %.thread.i unwind label %74
 
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
@@ -27013,7 +27013,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h7e11daa474f5c3daE.exit.i: ; preds = %28
   %106 = load i64, ptr %82, align 8, !noalias !8698, !noundef !7
   %107 = add i64 %106, 1
   store i64 %107, ptr %82, align 8, !noalias !8698
-  br label %.thread12.thread24.i
+  br label %.thread12.thread23.i
 
 108:                                              ; preds = %101, %97, %93, %85
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
@@ -27078,7 +27078,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h7e11daa474f5c3daE.exit.i: ; preds = %28
 134:                                              ; preds = %105
   unreachable
 
-135:                                              ; preds = %.thread12.thread.i, %139, %137
+135:                                              ; preds = %.thread.i, %139, %137
   %136 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #39
@@ -27088,22 +27088,22 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h7e11daa474f5c3daE.exit.i: ; preds = %28
   %138 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$ui..components..context_menu..ContextMenu$GT$$GT$$GT$17hcaf38798f1c3c6e0E"(ptr noalias noundef align 8 dereferenceable(32) %11) #38
-          to label %.thread12.thread24.i unwind label %135
+          to label %.thread12.thread23.i unwind label %135
 
 139:                                              ; preds = %_ZN5alloc2rc10RcInnerPtr10inc_strong17h7e11daa474f5c3daE.exit.i
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h713d5b2d442ffde7E.llvm.8822578354236523850"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
-          to label %.thread12.thread.i unwind label %135
+          to label %.thread.i unwind label %135
 
-.thread12.thread24.i:                             ; preds = %.thread12.thread.i, %137, %.body15.i
-  %.pn9.pn6.i = phi { ptr, i32 } [ %.pn9.pn23.i, %.thread12.thread.i ], [ %138, %137 ], [ %91, %.body15.i ]
+.thread12.thread23.i:                             ; preds = %.thread.i, %137, %.body15.i
+  %.pn9.pn6.i = phi { ptr, i32 } [ %.pn9.pn7.i, %.thread.i ], [ %138, %137 ], [ %91, %.body15.i ]
   resume { ptr, i32 } %.pn9.pn6.i
 
-.thread12.thread.i:                               ; preds = %139, %72, %63, %.thread12.i
-  %.pn9.pn23.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp29.i, %.thread12.i ], [ %lpad.thr_comm.split-lp.i, %139 ], [ %64, %63 ], [ %73, %72 ]
+.thread.i:                                        ; preds = %139, %72, %63, %.thread12.i
+  %.pn9.pn7.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp28.i, %.thread12.i ], [ %lpad.thr_comm.split-lp.i, %139 ], [ %64, %63 ], [ %73, %72 ]
   invoke void @"_ZN4core3ptr86drop_in_place$LT$gpui..view..View$LT$ui..components..context_menu..ContextMenu$GT$$GT$17hd1f6b9c7a65e61d4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #38
-          to label %.thread12.thread24.i unwind label %135
+          to label %.thread12.thread23.i unwind label %135
 
 "_ZN100_$LT$ui..components..right_click_menu..RightClickMenu$LT$M$GT$$u20$as$u20$gpui..element..Element$GT$5paint28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb45a23664c44ca77E.exit": ; preds = %22, %25, %131
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)

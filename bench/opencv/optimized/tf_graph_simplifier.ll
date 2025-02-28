@@ -22037,7 +22037,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i50.i: ; preds = %.noexc54.
   %wide.trip.count.i = zext nneg i32 %479 to i64
   br label %.lr.ph.i
 
-.lr.ph95.i:                                       ; preds = %.lr.ph.i
+.lr.ph99.i:                                       ; preds = %.lr.ph.i
   %508 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %512
 
@@ -22050,37 +22050,37 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i50.i: ; preds = %.noexc54.
   store i32 %510, ptr %511, align 4, !tbaa !226
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph95.i, label %.lr.ph.i, !llvm.loop !341
+  br i1 %exitcond.not.i, label %.lr.ph99.i, label %.lr.ph.i, !llvm.loop !341
 
 _ZN2cv3dnn14dnn4_v20241223L7permuteEPN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow7NodeDefEEERKSt6vectorIiSaIiEE.exit.thread: ; preds = %533
   call void @_ZdlPv(ptr noundef nonnull %505) #29
   call void @_ZdlPv(ptr noundef nonnull %500) #29
   br label %536
 
-512:                                              ; preds = %533, %.lr.ph95.i
-  %indvars.iv99.i = phi i64 [ 0, %.lr.ph95.i ], [ %indvars.iv.next100.i, %533 ]
-  %513 = getelementptr inbounds nuw i32, ptr %.sroa.0.1.lcssa, i64 %indvars.iv99.i
+512:                                              ; preds = %533, %.lr.ph99.i
+  %indvars.iv103.i = phi i64 [ 0, %.lr.ph99.i ], [ %indvars.iv.next104.i, %533 ]
+  %513 = getelementptr inbounds nuw i32, ptr %.sroa.0.1.lcssa, i64 %indvars.iv103.i
   %514 = load i32, ptr %513, align 4, !tbaa !226
   %515 = sext i32 %514 to i64
   %516 = getelementptr inbounds nuw i32, ptr %500, i64 %515
   %517 = load i32, ptr %516, align 4, !tbaa !226
   %518 = zext i32 %517 to i64
-  %.not.i194 = icmp eq i64 %indvars.iv99.i, %518
+  %.not.i194 = icmp eq i64 %indvars.iv103.i, %518
   br i1 %.not.i194, label %533, label %519
 
 519:                                              ; preds = %512
   %520 = load ptr, ptr %508, align 8, !tbaa !208
   %521 = getelementptr inbounds nuw i8, ptr %520, i64 8
-  %522 = getelementptr inbounds nuw [268435454 x ptr], ptr %521, i64 0, i64 %indvars.iv99.i
+  %522 = getelementptr inbounds nuw [268435454 x ptr], ptr %521, i64 0, i64 %indvars.iv103.i
   %523 = sext i32 %517 to i64
   %524 = getelementptr inbounds [268435454 x ptr], ptr %521, i64 0, i64 %523
   %525 = load ptr, ptr %522, align 8, !tbaa !209
   %526 = load ptr, ptr %524, align 8, !tbaa !209
   store ptr %526, ptr %522, align 8, !tbaa !209
   store ptr %525, ptr %524, align 8, !tbaa !209
-  %527 = getelementptr inbounds nuw i32, ptr %505, i64 %indvars.iv99.i
+  %527 = getelementptr inbounds nuw i32, ptr %505, i64 %indvars.iv103.i
   %528 = load i32, ptr %527, align 4, !tbaa !226
-  %529 = trunc nuw nsw i64 %indvars.iv99.i to i32
+  %529 = trunc nuw nsw i64 %indvars.iv103.i to i32
   store i32 %529, ptr %516, align 4, !tbaa !226
   %530 = sext i32 %528 to i64
   %531 = getelementptr inbounds nuw i32, ptr %500, i64 %530
@@ -22091,9 +22091,9 @@ _ZN2cv3dnn14dnn4_v20241223L7permuteEPN6google8protobuf16RepeatedPtrFieldIN17open
   br label %533
 
 533:                                              ; preds = %519, %512
-  %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 1
-  %exitcond104.not.i = icmp eq i64 %indvars.iv.next100.i, %wide.trip.count.i
-  br i1 %exitcond104.not.i, label %_ZN2cv3dnn14dnn4_v20241223L7permuteEPN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow7NodeDefEEERKSt6vectorIiSaIiEE.exit.thread, label %512, !llvm.loop !342
+  %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 1
+  %exitcond108.not.i = icmp eq i64 %indvars.iv.next104.i, %wide.trip.count.i
+  br i1 %exitcond108.not.i, label %_ZN2cv3dnn14dnn4_v20241223L7permuteEPN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow7NodeDefEEERKSt6vectorIiSaIiEE.exit.thread, label %512, !llvm.loop !342
 
 534:                                              ; preds = %504
   %535 = landingpad { ptr, i32 }

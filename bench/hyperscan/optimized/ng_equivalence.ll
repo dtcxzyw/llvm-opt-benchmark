@@ -606,7 +606,7 @@ _ZNSt6vectorISt10unique_ptrIN3ue212_GLOBAL__N_110VertexInfoESt14default_deleteIS
   %.pn78.i = phi { ptr, i32 } [ %lpad.phi183.i, %148 ], [ %147, %146 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #21, !noalias !9
   %.not.i.i.i125.i = icmp eq ptr %.sroa.0155.1.i, null
-  br i1 %.not.i.i.i125.i, label %.body, label %.thread.i
+  br i1 %.not.i.i.i125.i, label %.body, label %.thread168.i
 
 ._crit_edge203.i:                                 ; preds = %._crit_edge198.i, %83
   %.val44.i507 = phi ptr [ %.promoted328, %83 ], [ %.val92.i, %._crit_edge198.i ]
@@ -817,7 +817,7 @@ _ZN3ue212is_triggeredERKNS_8NGHolderE.exit.i:     ; preds = %_ZN5boost9container
 228:                                              ; preds = %226, %.loopexit.split-lp.i, %.loopexit.i
   %.pn69.i = phi { ptr, i32 } [ %227, %226 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #21, !noalias !9
-  br label %.thread.i
+  br label %.thread168.i
 
 ._crit_edge192.i:                                 ; preds = %_ZN3ue212is_triggeredERKNS_8NGHolderE.exit.i, %150
   %229 = getelementptr inbounds nuw i8, ptr %.sroa.0143.0.copyload.i, i64 136
@@ -883,9 +883,9 @@ _ZN3ue212is_triggeredERKNS_8NGHolderE.exit.i:     ; preds = %_ZN5boost9container
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #21, !noalias !9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #21, !noalias !9
-  br label %.thread.i
+  br label %.thread168.i
 
-.thread.i:                                        ; preds = %259, %228, %149
+.thread168.i:                                     ; preds = %259, %228, %149
   %.pn82.pn.pn.pn162.i = phi { ptr, i32 } [ %.pn78.i, %149 ], [ %260, %259 ], [ %.pn69.i, %228 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0155.1.i) #24, !noalias !9
   br label %.body
@@ -7483,8 +7483,8 @@ _ZN3ue212_GLOBAL__N_19WorkQueueD2Ev.exit:         ; preds = %_ZNSt10_HashtableIj
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50) #21
   br label %.body
 
-.body:                                            ; preds = %88, %.thread164.i, %149, %.thread.i, %.body28
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body28 ], [ %89, %88 ], [ %.pn78.i, %149 ], [ %.pn82.pn.pn.pn162.i, %.thread.i ], [ %90, %.thread164.i ]
+.body:                                            ; preds = %88, %.thread164.i, %149, %.thread168.i, %.body28
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body28 ], [ %89, %88 ], [ %.pn78.i, %149 ], [ %.pn82.pn.pn.pn162.i, %.thread168.i ], [ %90, %.thread164.i ]
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN3ue212_GLOBAL__N_110VertexInfoESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49) #21
   call fastcc void @_ZN3ue212_GLOBAL__N_19WorkQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %48) #21

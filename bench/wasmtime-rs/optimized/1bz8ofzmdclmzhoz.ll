@@ -12477,7 +12477,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$3new17
           to label %40 unwind label %38
 
 36:                                               ; preds = %197
-  br i1 %.1, label %198, label %200
+  br i1 %.1, label %.thread, label %.thread73
 
 37:                                               ; preds = %47, %38
   %.1 = phi i1 [ %.2, %47 ], [ true, %38 ]
@@ -12893,7 +12893,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$3new17
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %29)
   ret void
 
-189:                                              ; preds = %199, %.thread, %198, %197, %196, %195, %194, %193, %192, %191, %160, %148, %139, %130, %121, %111, %102, %93, %83, %74, %65, %56, %47, %37
+189:                                              ; preds = %198, %.thread59, %.thread, %197, %196, %195, %194, %193, %192, %191, %160, %148, %139, %130, %121, %111, %102, %93, %83, %74, %65, %56, %47, %37
   %190 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #43
@@ -12927,19 +12927,19 @@ define hidden void @"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$3new17
   invoke void @"_ZN4core3ptr61drop_in_place$LT$cranelift_codegen..machinst..abi..SigSet$GT$17hf177b0d49c210c0fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %29) #42
           to label %36 unwind label %189
 
-198:                                              ; preds = %36
+.thread:                                          ; preds = %36
   invoke void @"_ZN4core3ptr71drop_in_place$LT$cranelift_codegen..machinst..vcode..VCodeConstants$GT$17h617dd89a67c7f658E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %5) #42
-          to label %.thread unwind label %189
+          to label %.thread59 unwind label %189
 
-.thread:                                          ; preds = %198
+.thread59:                                        ; preds = %.thread
   invoke void @"_ZN4core3ptr80drop_in_place$LT$cranelift_codegen..machinst..blockorder..BlockLoweringOrder$GT$17hfcb4475cacf4a394E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %4) #42
-          to label %199 unwind label %189
+          to label %198 unwind label %189
 
-199:                                              ; preds = %.thread
+198:                                              ; preds = %.thread59
   invoke void @"_ZN4core3ptr120drop_in_place$LT$cranelift_codegen..machinst..abi..Callee$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$GT$$GT$17h7667400d08db297dE"(ptr noalias noundef nonnull align 8 dereferenceable(512) %2) #42
-          to label %200 unwind label %189
+          to label %.thread73 unwind label %189
 
-200:                                              ; preds = %199, %36
+.thread73:                                        ; preds = %198, %36
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 

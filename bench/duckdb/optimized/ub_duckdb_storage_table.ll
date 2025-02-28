@@ -9810,17 +9810,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %177 = icmp ult i64 %176, 16
   call void @llvm.assume(i1 %177)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #44
-  br i1 %.0.i.i.i137, label %178, label %.body140
+  br i1 %.0.i.i.i137, label %178, label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i138: ; preds = %172
   call void @_ZdlPv(ptr noundef %174) #46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #44
-  br i1 %.0.i.i.i137, label %178, label %.body140
+  br i1 %.0.i.i.i137, label %178, label %.body
 
 178:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i138, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i139, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i.i.i134
   %.pn14.i.i.i135 = phi { ptr, i32 } [ %171, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i.i.i134 ], [ %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i138 ], [ %173, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i139 ]
   call void @__cxa_free_exception(ptr %164) #44
-  br label %.body140
+  br label %.body
 
 179:                                              ; preds = %170
   unreachable
@@ -9874,18 +9874,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.assume(i1 %197)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #44
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #44
-  br i1 %.0.i, label %198, label %.body140
+  br i1 %.0.i, label %198, label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %190
   call void @_ZdlPv(ptr noundef %192) #46
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #44
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #44
-  br i1 %.0.i, label %198, label %.body140
+  br i1 %.0.i, label %198, label %.body
 
 198:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i
   %.pn9.i = phi { ptr, i32 } [ %189, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %191, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %191, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
   call void @__cxa_free_exception(ptr %186) #44
-  br label %.body140
+  br label %.body
 
 199:                                              ; preds = %188
   unreachable
@@ -9906,7 +9906,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %190
 .body146:                                         ; preds = %200
   %209 = landingpad { ptr, i32 }
           cleanup
-  br label %.body140
+  br label %.body
 
 210:                                              ; preds = %207
   %211 = icmp ult i64 %206, %.086305
@@ -9984,7 +9984,7 @@ _ZN6duckdb10unique_ptrINS_12AnalyzeStateESt14default_deleteIS1_ELb1EEaSEOS4_.exi
 238:                                              ; preds = %_ZN6duckdb10unique_ptrINS_12AnalyzeStateESt14default_deleteIS1_ELb1EEaSEOS4_.exit._crit_edge
   %239 = landingpad { ptr, i32 }
           cleanup
-  br label %.body140
+  br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151.thread: ; preds = %232
   %240 = landingpad { ptr, i32 }
@@ -10365,15 +10365,15 @@ _ZN6duckdb23CheckpointAnalyzeResultD2Ev.exit184:  ; preds = %345
   call void %368(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0216.1) #44
   br label %_ZNSt10unique_ptrIN6duckdb12AnalyzeStateESt14default_deleteIS1_EED2Ev.exit187
 
-.body140:                                         ; preds = %198, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i138, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i139, %238, %.body146
+.body:                                            ; preds = %198, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i138, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i139, %238, %.body146
   %.sroa.0216.4 = phi ptr [ %.sroa.0216.0301, %.body146 ], [ %.sroa.0216.1, %238 ], [ %.sroa.0216.0301, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i139 ], [ %.sroa.0216.0301, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i138 ], [ %.sroa.0216.0301, %178 ], [ %.sroa.0216.0301, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %.sroa.0216.0301, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.sroa.0216.0301, %198 ]
   %.pn111.pn.pn.pn.pn = phi { ptr, i32 } [ %209, %.body146 ], [ %239, %238 ], [ %173, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i139 ], [ %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i138 ], [ %.pn14.i.i.i135, %178 ], [ %191, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %191, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.pn9.i, %198 ]
   %.not.i185 = icmp eq ptr %.sroa.0216.4, null
   br i1 %.not.i185, label %_ZNSt10unique_ptrIN6duckdb12AnalyzeStateESt14default_deleteIS1_EED2Ev.exit187, label %_ZNKSt14default_deleteIN6duckdb12AnalyzeStateEEclEPS1_.exit.i186
 
-_ZNKSt14default_deleteIN6duckdb12AnalyzeStateEEclEPS1_.exit.i186: ; preds = %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i177, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i178, %319, %.body140
-  %.pn111.pn.pn.pn.pn256 = phi { ptr, i32 } [ %.pn111.pn.pn.pn.pn, %.body140 ], [ %.pn106.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i177 ], [ %.pn106.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i178 ], [ %320, %319 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.sroa.0216.4255 = phi ptr [ %.sroa.0216.4, %.body140 ], [ %.sroa.0216.1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i177 ], [ %.sroa.0216.1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i178 ], [ %.sroa.0216.1, %319 ], [ %.sroa.0216.1, %.loopexit ], [ %.sroa.0216.1, %.loopexit.split-lp ]
+_ZNKSt14default_deleteIN6duckdb12AnalyzeStateEEclEPS1_.exit.i186: ; preds = %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i177, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i178, %319, %.body
+  %.pn111.pn.pn.pn.pn256 = phi { ptr, i32 } [ %.pn111.pn.pn.pn.pn, %.body ], [ %.pn106.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i177 ], [ %.pn106.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i178 ], [ %320, %319 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.0216.4255 = phi ptr [ %.sroa.0216.4, %.body ], [ %.sroa.0216.1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i177 ], [ %.sroa.0216.1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i178 ], [ %.sroa.0216.1, %319 ], [ %.sroa.0216.1, %.loopexit ], [ %.sroa.0216.1, %.loopexit.split-lp ]
   %369 = load ptr, ptr %.sroa.0216.4255, align 8, !tbaa !10
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
   %371 = load ptr, ptr %370, align 8
@@ -10393,8 +10393,8 @@ _ZNSt6vectorIN6duckdb15CompressionTypeESaIS1_EED2Ev.exit: ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #44
   ret void
 
-_ZNSt10unique_ptrIN6duckdb12AnalyzeStateESt14default_deleteIS1_EED2Ev.exit187: ; preds = %_ZN6duckdb23CheckpointAnalyzeResultD2Ev.exit184, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i150, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151, %262, %_ZNKSt14default_deleteIN6duckdb12AnalyzeStateEEclEPS1_.exit.i186, %.body140, %137, %151, %153, %149, %129
-  %.pn111.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %138, %137 ], [ %150, %149 ], [ %152, %151 ], [ %154, %153 ], [ %.pn111.pn.pn.pn.pn, %.body140 ], [ %.pn111.pn.pn.pn.pn256, %_ZNKSt14default_deleteIN6duckdb12AnalyzeStateEEclEPS1_.exit.i186 ], [ %365, %_ZN6duckdb23CheckpointAnalyzeResultD2Ev.exit184 ], [ %242, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i150 ], [ %242, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151 ], [ %.pn103.pn235, %262 ]
+_ZNSt10unique_ptrIN6duckdb12AnalyzeStateESt14default_deleteIS1_EED2Ev.exit187: ; preds = %_ZN6duckdb23CheckpointAnalyzeResultD2Ev.exit184, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i150, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151, %262, %_ZNKSt14default_deleteIN6duckdb12AnalyzeStateEEclEPS1_.exit.i186, %.body, %137, %151, %153, %149, %129
+  %.pn111.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %138, %137 ], [ %150, %149 ], [ %152, %151 ], [ %154, %153 ], [ %.pn111.pn.pn.pn.pn, %.body ], [ %.pn111.pn.pn.pn.pn256, %_ZNKSt14default_deleteIN6duckdb12AnalyzeStateEEclEPS1_.exit.i186 ], [ %365, %_ZN6duckdb23CheckpointAnalyzeResultD2Ev.exit184 ], [ %242, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i150 ], [ %242, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151 ], [ %.pn103.pn235, %262 ]
   call void @_ZNSt6vectorIN6duckdb23CheckpointAnalyzeResultESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #44
   br label %374
 
@@ -13671,7 +13671,7 @@ _ZNSt6vectorIN6duckdb11SegmentNodeINS0_13ColumnSegmentEEESaIS3_EED2Ev.exit44: ; 
           cleanup
   br label %_ZN6duckdb11SegmentLockD2Ev.exit46
 
-_ZN6duckdb11SegmentLockD2Ev.exit46:               ; preds = %159, %.body52, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i5.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %78
+_ZN6duckdb11SegmentLockD2Ev.exit46:               ; preds = %78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i5.i.i, %.body52, %159
   %.pn = phi { ptr, i32 } [ %160, %159 ], [ %73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ], [ %.pn9.i.i, %78 ], [ %73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %lpad.phi, %.body52 ], [ %139, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i5.i.i ]
   %161 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %48) #44
   br label %162

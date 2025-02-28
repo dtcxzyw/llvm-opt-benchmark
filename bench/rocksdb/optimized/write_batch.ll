@@ -6826,7 +6826,15 @@ _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %18
 
 48:                                               ; preds = %39
   invoke void @_ZN7rocksdb6Status9CopyStateEPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.29") align 8 %4, ptr noundef nonnull %.sroa.1626.0)
-          to label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i21 unwind label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i24
+          to label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i21 unwind label %.body.thread36
+
+.body.thread36:                                   ; preds = %48
+  %49 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #37
+  store ptr null, ptr %47, align 8, !tbaa !108
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.1626.0) #35
+  resume { ptr, i32 } %49
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i21: ; preds = %48
   %.pre.i.i = load ptr, ptr %4, align 8, !tbaa !108
@@ -6837,14 +6845,6 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit22:                    ; preds = %.thread, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i21
   ret void
-
-_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i24: ; preds = %48
-  %49 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #37
-  store ptr null, ptr %47, align 8, !tbaa !108
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.1626.0) #35
-  resume { ptr, i32 } %49
 }
 
 declare noundef i32 @_ZN7rocksdb17GetColumnFamilyIDEPNS_18ColumnFamilyHandleE(ptr noundef) local_unnamed_addr #8

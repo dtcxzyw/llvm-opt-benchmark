@@ -12308,7 +12308,7 @@ define hidden void @"_ZN4core3ptr317drop_in_place$LT$futures_util..stream..futur
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !3827, !noundef !5
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %8, label %4
+  br i1 %.not.i, label %7, label %4
 
 4:                                                ; preds = %1
   invoke void @_ZN12futures_util6stream17futures_unordered5abort5abort17hba91951162ba732fE(ptr noalias noundef nonnull readonly align 1 @anon.c6e2c94062fe8082c5c93daaba60e036.3.llvm.11632439649900387884, i64 noundef 31) #30
@@ -12321,35 +12321,35 @@ define hidden void @"_ZN4core3ptr317drop_in_place$LT$futures_util..stream..futur
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr316drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h8d36f7eee6c6a43eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #32
-          to label %7 unwind label %16
+          to label %.body unwind label %15
 
-7:                                                ; preds = %5
+.body:                                            ; preds = %5
   tail call void @"_ZN4core3ptr367drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h455ab7019d611eb1E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) #32
   resume { ptr, i32 } %6
 
-8:                                                ; preds = %1
+7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3830)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3833)
-  %9 = load ptr, ptr %0, align 8, !alias.scope !3836, !nonnull !5, !noundef !5
-  %10 = icmp eq ptr %9, inttoptr (i64 -1 to ptr)
-  br i1 %10, label %"_ZN4core3ptr367drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h455ab7019d611eb1E.llvm.11632439649900387884.exit", label %11
+  %8 = load ptr, ptr %0, align 8, !alias.scope !3836, !nonnull !5, !noundef !5
+  %9 = icmp eq ptr %8, inttoptr (i64 -1 to ptr)
+  br i1 %9, label %"_ZN4core3ptr367drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h455ab7019d611eb1E.llvm.11632439649900387884.exit", label %10
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %13 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !3836
-  %14 = icmp eq i64 %13, 1
-  br i1 %14, label %15, label %"_ZN4core3ptr367drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h455ab7019d611eb1E.llvm.11632439649900387884.exit"
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %12 = atomicrmw sub ptr %11, i64 1 release, align 8, !noalias !3836
+  %13 = icmp eq i64 %12, 1
+  br i1 %13, label %14, label %"_ZN4core3ptr367drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h455ab7019d611eb1E.llvm.11632439649900387884.exit"
 
-15:                                               ; preds = %11
+14:                                               ; preds = %10
   fence acquire
-  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef 64, i64 noundef 8) #31, !noalias !3836
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 64, i64 noundef 8) #31, !noalias !3836
   br label %"_ZN4core3ptr367drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h455ab7019d611eb1E.llvm.11632439649900387884.exit"
 
-"_ZN4core3ptr367drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h455ab7019d611eb1E.llvm.11632439649900387884.exit": ; preds = %8, %11, %15
+"_ZN4core3ptr367drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h455ab7019d611eb1E.llvm.11632439649900387884.exit": ; preds = %7, %10, %14
   ret void
 
-16:                                               ; preds = %5
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %5
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
@@ -12869,7 +12869,7 @@ define hidden void @"_ZN4core3ptr346drop_in_place$LT$alloc..sync..ArcInner$LT$fu
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !alias.scope !4051, !noundef !5
   %.not.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i, label %9, label %5
+  br i1 %.not.i.i, label %8, label %5
 
 5:                                                ; preds = %1
   invoke void @_ZN12futures_util6stream17futures_unordered5abort5abort17hba91951162ba732fE(ptr noalias noundef nonnull readonly align 1 @anon.c6e2c94062fe8082c5c93daaba60e036.3.llvm.11632439649900387884, i64 noundef 31) #30
@@ -12882,37 +12882,37 @@ define hidden void @"_ZN4core3ptr346drop_in_place$LT$alloc..sync..ArcInner$LT$fu
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr316drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h8d36f7eee6c6a43eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #32
-          to label %8 unwind label %17
+          to label %.body.i unwind label %16
 
-8:                                                ; preds = %6
+.body.i:                                          ; preds = %6
   tail call void @"_ZN4core3ptr367drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h455ab7019d611eb1E.llvm.11632439649900387884"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %2) #32
   resume { ptr, i32 } %7
 
-9:                                                ; preds = %1
+8:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4054)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4057)
-  %10 = load ptr, ptr %2, align 8, !alias.scope !4060, !nonnull !5, !noundef !5
-  %11 = icmp eq ptr %10, inttoptr (i64 -1 to ptr)
-  br i1 %11, label %"_ZN4core3ptr317drop_in_place$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$17ha8be2d7db69594bcE.exit", label %12
+  %9 = load ptr, ptr %2, align 8, !alias.scope !4060, !nonnull !5, !noundef !5
+  %10 = icmp eq ptr %9, inttoptr (i64 -1 to ptr)
+  br i1 %10, label %"_ZN4core3ptr317drop_in_place$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$17ha8be2d7db69594bcE.exit", label %11
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = atomicrmw sub ptr %13, i64 1 release, align 8, !noalias !4060
-  %15 = icmp eq i64 %14, 1
-  br i1 %15, label %16, label %"_ZN4core3ptr317drop_in_place$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$17ha8be2d7db69594bcE.exit"
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %13 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !4060
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %15, label %"_ZN4core3ptr317drop_in_place$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$17ha8be2d7db69594bcE.exit"
 
-16:                                               ; preds = %12
+15:                                               ; preds = %11
   fence acquire
-  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef 64, i64 noundef 8) #31, !noalias !4060
+  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef 64, i64 noundef 8) #31, !noalias !4060
   br label %"_ZN4core3ptr317drop_in_place$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$17ha8be2d7db69594bcE.exit"
 
-17:                                               ; preds = %6
-  %18 = landingpad { ptr, i32 }
+16:                                               ; preds = %6
+  %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33, !noalias !4048
   unreachable
 
-"_ZN4core3ptr317drop_in_place$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$17ha8be2d7db69594bcE.exit": ; preds = %9, %12, %16
+"_ZN4core3ptr317drop_in_place$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$17ha8be2d7db69594bcE.exit": ; preds = %8, %11, %15
   ret void
 }
 

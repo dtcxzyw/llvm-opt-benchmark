@@ -49257,7 +49257,7 @@ _ZNSt12_Vector_baseIN5arrow8FieldRefESaIS1_EE11_M_allocateEm.exit: ; preds = %_Z
           catch ptr null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
   invoke void @_ZNSt8__detail9__variant16_Variant_storageILb0EJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS2_8FieldRefESaISB_EEEE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(40) %24)
-          to label %115 unwind label %28
+          to label %_ZSt8_DestroyIPN5arrow8FieldRefES1_EvT_S3_RSaIT0_E.exit unwind label %28
 
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
@@ -49478,31 +49478,31 @@ _ZNSt12_Vector_baseIN5arrow8FieldRefESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds
   store ptr %112, ptr %107, align 8, !tbaa !106
   ret void
 
-113:                                              ; preds = %115
+113:                                              ; preds = %_ZSt8_DestroyIPN5arrow8FieldRefES1_EvT_S3_RSaIT0_E.exit
   %114 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %119 unwind label %120
+          to label %118 unwind label %119
 
-115:                                              ; preds = %26
-  %116 = extractvalue { ptr, i32 } %27, 0
-  %117 = call ptr @__cxa_begin_catch(ptr %116) #32
-  %118 = mul nuw nsw i64 %17, 40
-  call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %118) #33
+_ZSt8_DestroyIPN5arrow8FieldRefES1_EvT_S3_RSaIT0_E.exit: ; preds = %26
+  %115 = extractvalue { ptr, i32 } %27, 0
+  %116 = call ptr @__cxa_begin_catch(ptr %115) #32
+  %117 = mul nuw nsw i64 %17, 40
+  call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %117) #33
   invoke void @__cxa_rethrow() #34
-          to label %123 unwind label %113
+          to label %122 unwind label %113
 
-119:                                              ; preds = %113
+118:                                              ; preds = %113
   resume { ptr, i32 } %114
 
-120:                                              ; preds = %113
-  %121 = landingpad { ptr, i32 }
+119:                                              ; preds = %113
+  %120 = landingpad { ptr, i32 }
           catch ptr null
-  %122 = extractvalue { ptr, i32 } %121, 0
-  call void @__clang_call_terminate(ptr %122) #30
+  %121 = extractvalue { ptr, i32 } %120, 0
+  call void @__clang_call_terminate(ptr %121) #30
   unreachable
 
-123:                                              ; preds = %115
+122:                                              ; preds = %_ZSt8_DestroyIPN5arrow8FieldRefES1_EvT_S3_RSaIT0_E.exit
   unreachable
 }
 
@@ -50901,7 +50901,7 @@ _ZNSt12_Vector_baseIN5arrow5DatumESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
   store ptr %26, ptr %6, align 8, !tbaa !418
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_15_Copy_ctor_baseILb0EJN5arrow5Datum5EmptyESt10shared_ptrINS4_6ScalarEES7_INS4_9ArrayDataEES7_INS4_12ChunkedArrayEES7_INS4_11RecordBatchEES7_INS4_5TableEEEEC1ERKSI_EUlOT_T0_E_JRKSt7variantIJS6_S9_SB_SD_SF_SH_EEEEDcOSN_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %28 unwind label %64
+          to label %28 unwind label %.thread50
 
 28:                                               ; preds = %_ZNSt12_Vector_baseIN5arrow5DatumESaIS1_EE11_M_allocateEm.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
@@ -51023,35 +51023,35 @@ _ZNSt12_Vector_baseIN5arrow5DatumESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = 
   store ptr %61, ptr %56, align 8, !tbaa !417
   ret void
 
-62:                                               ; preds = %64
+62:                                               ; preds = %.thread50
   %63 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %69 unwind label %70
+          to label %68 unwind label %69
 
-64:                                               ; preds = %_ZNSt12_Vector_baseIN5arrow5DatumESaIS1_EE11_M_allocateEm.exit
-  %65 = landingpad { ptr, i32 }
+.thread50:                                        ; preds = %_ZNSt12_Vector_baseIN5arrow5DatumESaIS1_EE11_M_allocateEm.exit
+  %64 = landingpad { ptr, i32 }
           catch ptr null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJN5arrow5Datum5EmptyESt10shared_ptrINS2_6ScalarEES5_INS2_9ArrayDataEES5_INS2_12ChunkedArrayEES5_INS2_11RecordBatchEES5_INS2_5TableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #32
-  %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = call ptr @__cxa_begin_catch(ptr %66) #32
-  %68 = mul nuw nsw i64 %19, 24
-  call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %68) #33
+  %65 = extractvalue { ptr, i32 } %64, 0
+  %66 = call ptr @__cxa_begin_catch(ptr %65) #32
+  %67 = mul nuw nsw i64 %19, 24
+  call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %67) #33
   invoke void @__cxa_rethrow() #34
-          to label %73 unwind label %62
+          to label %72 unwind label %62
 
-69:                                               ; preds = %62
+68:                                               ; preds = %62
   resume { ptr, i32 } %63
 
-70:                                               ; preds = %62
-  %71 = landingpad { ptr, i32 }
+69:                                               ; preds = %62
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #30
+  %71 = extractvalue { ptr, i32 } %70, 0
+  call void @__clang_call_terminate(ptr %71) #30
   unreachable
 
-73:                                               ; preds = %64
+72:                                               ; preds = %.thread50
   unreachable
 }
 

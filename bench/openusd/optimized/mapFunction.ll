@@ -8696,7 +8696,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %23,
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %38)
-          to label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression19ExpressionReferenceEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit unwind label %100
+          to label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression19ExpressionReferenceEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit unwind label %.thread48
 
 _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression19ExpressionReferenceEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i
   %.not11.i.i.i = icmp eq ptr %6, %1
@@ -8834,33 +8834,33 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression19Expr
   store ptr %97, ptr %92, align 8
   ret void
 
-98:                                               ; preds = %100
+98:                                               ; preds = %.thread48
   %99 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %104 unwind label %105
+          to label %103 unwind label %104
 
-100:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i
-  %101 = landingpad { ptr, i32 }
+.thread48:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i
+  %100 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #22
-  %102 = extractvalue { ptr, i32 } %101, 0
-  %103 = tail call ptr @__cxa_begin_catch(ptr %102) #22
+  %101 = extractvalue { ptr, i32 } %100, 0
+  %102 = tail call ptr @__cxa_begin_catch(ptr %101) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #26
   invoke void @__cxa_rethrow() #23
-          to label %108 unwind label %98
+          to label %107 unwind label %98
 
-104:                                              ; preds = %98
+103:                                              ; preds = %98
   resume { ptr, i32 } %99
 
-105:                                              ; preds = %98
-  %106 = landingpad { ptr, i32 }
+104:                                              ; preds = %98
+  %105 = landingpad { ptr, i32 }
           catch ptr null
-  %107 = extractvalue { ptr, i32 } %106, 0
-  tail call void @__clang_call_terminate(ptr %107) #24
+  %106 = extractvalue { ptr, i32 } %105, 0
+  tail call void @__clang_call_terminate(ptr %106) #24
   unreachable
 
-108:                                              ; preds = %100
+107:                                              ; preds = %.thread48
   unreachable
 }
 
@@ -9674,13 +9674,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %23,
 42:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i
   %43 = landingpad { ptr, i32 }
           catch ptr null
-  br label %116
+  br label %.thread46
 
 44:                                               ; preds = %39
   %45 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #22
-  br label %116
+  br label %.thread46
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds nuw i8, ptr %21, i64 56
@@ -9817,32 +9817,32 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternESaIS1_EE
   store ptr %113, ptr %108, align 8
   ret void
 
-114:                                              ; preds = %116
+114:                                              ; preds = %.thread46
   %115 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %119 unwind label %120
+          to label %118 unwind label %119
 
-116:                                              ; preds = %42, %44
+.thread46:                                        ; preds = %42, %44
   %.pn.i.i.i = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %21) #22
-  %117 = extractvalue { ptr, i32 } %.pn.i.i.i, 0
-  %118 = tail call ptr @__cxa_begin_catch(ptr %117) #22
+  %116 = extractvalue { ptr, i32 } %.pn.i.i.i, 0
+  %117 = tail call ptr @__cxa_begin_catch(ptr %116) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #26
   invoke void @__cxa_rethrow() #23
-          to label %123 unwind label %114
+          to label %122 unwind label %114
 
-119:                                              ; preds = %114
+118:                                              ; preds = %114
   resume { ptr, i32 } %115
 
-120:                                              ; preds = %114
-  %121 = landingpad { ptr, i32 }
+119:                                              ; preds = %114
+  %120 = landingpad { ptr, i32 }
           catch ptr null
-  %122 = extractvalue { ptr, i32 } %121, 0
-  tail call void @__clang_call_terminate(ptr %122) #24
+  %121 = extractvalue { ptr, i32 } %120, 0
+  tail call void @__clang_call_terminate(ptr %121) #24
   unreachable
 
-123:                                              ; preds = %116
+122:                                              ; preds = %.thread46
   unreachable
 }
 

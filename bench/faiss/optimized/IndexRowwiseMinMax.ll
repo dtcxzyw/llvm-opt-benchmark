@@ -1493,15 +1493,15 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
   %172 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i82.i = icmp eq ptr %.sroa.095.0106.i, null
-  br i1 %.not.i.i.i82.i, label %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EED2Ev.exit83.i, label %173
+  br i1 %.not.i.i.i82.i, label %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EED2Ev.exit83.i, label %.thread.i
 
-173:                                              ; preds = %171
-  %174 = ptrtoint ptr %.sroa.095.0106.i to i64
-  %175 = sub i64 %.sroa.12.0103.i, %174
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.095.0106.i, i64 noundef %175) #24
+.thread.i:                                        ; preds = %171
+  %173 = ptrtoint ptr %.sroa.095.0106.i to i64
+  %174 = sub i64 %.sroa.12.0103.i, %173
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.095.0106.i, i64 noundef %174) #24
   br label %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EED2Ev.exit83.i
 
-_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EED2Ev.exit83.i: ; preds = %173, %171
+_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EED2Ev.exit83.i: ; preds = %.thread.i, %171
   resume { ptr, i32 } %172
 
 _ZN5faiss12_GLOBAL__N_118train_inplace_implINS0_17StorageMinMaxFP16EEEvPNS_22IndexRowwiseMinMaxBaseElPf.exit: ; preds = %._crit_edge141.i, %._crit_edge141.thread.i

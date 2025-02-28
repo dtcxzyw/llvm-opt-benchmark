@@ -8510,7 +8510,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9operation15OperationMethod15_i
   br label %52
 
 52:                                               ; preds = %.preheader111, %.critedge
-  %.0114 = phi i64 [ 0, %.preheader111 ], [ %76, %.critedge ]
+  %.0114 = phi i64 [ 0, %.preheader111 ], [ %77, %.critedge ]
   %53 = sdiv i64 %.0114, 64
   %54 = getelementptr inbounds i64, ptr %50, i64 %53
   %55 = and i64 %.0114, -9223372036854775745
@@ -8538,22 +8538,22 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9operation15OperationMethod15_i
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
   %74 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef %70, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %75 unwind label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
+          to label %75 unwind label %.thread105
 
 75:                                               ; preds = %61
   br i1 %74, label %78, label %.critedge
 
-.critedge:                                        ; preds = %52, %75
-  %76 = add nuw i64 %.0114, 1
-  %exitcond.not = icmp eq i64 %76, %umax
-  br i1 %exitcond.not, label %.thread.sink.split, label %52, !llvm.loop !255
-
-_ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %61
-  %77 = landingpad { ptr, i32 }
+.thread105:                                       ; preds = %61
+  %76 = landingpad { ptr, i32 }
           cleanup
   %.idx = shl nuw nsw i64 %51, 3
   tail call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %.idx) #47
-  resume { ptr, i32 } %77
+  resume { ptr, i32 } %76
+
+.critedge:                                        ; preds = %52, %75
+  %77 = add nuw i64 %.0114, 1
+  %exitcond.not = icmp eq i64 %77, %umax
+  br i1 %exitcond.not, label %.thread.sink.split, label %52, !llvm.loop !255
 
 78:                                               ; preds = %75
   %storemerge.i.i.i.i.i71.le = getelementptr inbounds i8, ptr %54, i64 %storemerge.idx.i.i.i.i.i70

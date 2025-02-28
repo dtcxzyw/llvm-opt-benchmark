@@ -7615,7 +7615,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal11ProblemImpl8EvaluateERKNS_
   %or.cond3 = and i1 %or.cond, %17
   %18 = icmp eq ptr %5, null
   %or.cond5 = and i1 %or.cond3, %18
-  br i1 %or.cond5, label %500, label %19
+  br i1 %or.cond5, label %499, label %19
 
 19:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #36
@@ -8862,7 +8862,7 @@ _ZNSt6vectorIPN5ceres8internal13ResidualBlockESaIS3_EED2Ev.exit.i: ; preds = %47
 
 _ZN5ceres8internal7ProgramD2Ev.exit:              ; preds = %_ZNSt6vectorIPN5ceres8internal13ResidualBlockESaIS3_EED2Ev.exit.i, %482
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #36
-  br label %500
+  br label %499
 
 488:                                              ; preds = %447, %445
   %.pn92 = phi { ptr, i32 } [ %448, %447 ], [ %446, %445 ]
@@ -8899,22 +8899,22 @@ _ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit177: ; preds = %
   %.sroa.0240.2 = phi ptr [ %.sroa.0240.1, %495 ], [ %.sroa.0240.0, %52 ], [ %.sroa.0240.5, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit175 ], [ %.sroa.0240.5, %331 ]
   %.pn92.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn.pn.pn.pn, %495 ], [ %53, %52 ], [ %.pn.pn, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit175 ], [ %.pn.pn, %331 ]
   %.not.i.i.i198 = icmp eq ptr %.sroa.0240.2, null
-  br i1 %.not.i.i.i198, label %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit199, label %496
+  br i1 %.not.i.i.i198, label %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit199, label %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit177.thread260
 
-496:                                              ; preds = %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit177
-  %497 = ptrtoint ptr %.sroa.17.2 to i64
-  %498 = ptrtoint ptr %.sroa.0240.2 to i64
-  %499 = sub i64 %497, %498
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0240.2, i64 noundef %499) #41
+_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit177.thread260: ; preds = %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit177
+  %496 = ptrtoint ptr %.sroa.17.2 to i64
+  %497 = ptrtoint ptr %.sroa.0240.2 to i64
+  %498 = sub i64 %496, %497
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0240.2, i64 noundef %498) #41
   br label %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit199
 
-_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit199: ; preds = %277, %138, %496, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit177, %50
-  %.pn92.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %.pn92.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit177 ], [ %.pn92.pn.pn.pn.pn.pn.pn, %496 ], [ %278, %277 ], [ %139, %138 ]
+_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit199: ; preds = %277, %138, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit177.thread260, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit177, %50
+  %.pn92.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %.pn92.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit177 ], [ %.pn92.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit177.thread260 ], [ %278, %277 ], [ %139, %138 ]
   call void @_ZN5ceres8internal7ProgramD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #36
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #36
   resume { ptr, i32 } %.pn92.pn.pn.pn.pn.pn.pn.pn
 
-500:                                              ; preds = %6, %_ZN5ceres8internal7ProgramD2Ev.exit
+499:                                              ; preds = %6, %_ZN5ceres8internal7ProgramD2Ev.exit
   %.0 = phi i1 [ %440, %_ZN5ceres8internal7ProgramD2Ev.exit ], [ true, %6 ]
   ret i1 %.0
 }

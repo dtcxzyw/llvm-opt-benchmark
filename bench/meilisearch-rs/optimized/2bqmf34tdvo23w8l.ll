@@ -49773,10 +49773,25 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h11c3ff8935baa
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %12
 
+.thread15.loopexit:                               ; preds = %12
+  %lpad.loopexit = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread15
+
+.thread15.loopexit.split-lp:                      ; preds = %14
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread15
+
+.thread15:                                        ; preds = %.thread15.loopexit.split-lp, %.thread15.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.thread15.loopexit ], [ %lpad.loopexit.split-lp, %.thread15.loopexit.split-lp ]
+  invoke void @"_ZN4core3ptr220drop_in_place$LT$rayon..iter..unzip..UnzipFolder$LT$rayon..iter..unzip..Unzip$C$rayon..iter..extend..ListVecFolder$LT$u32$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$$GT$17h0b5eaf7764f9febdE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1) #58
+          to label %17 unwind label %18
+
 12:                                               ; preds = %16, %3
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7), !noalias !9593
   invoke void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f82527c2308f2a8E.llvm.14059259217783387920"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %7, ptr noalias noundef nonnull align 8 dereferenceable(112) %9)
-          to label %.noexc unwind label %.loopexit
+          to label %.noexc unwind label %.thread15.loopexit
 
 .noexc:                                           ; preds = %12
   %13 = load i64, ptr %10, align 8, !range !10, !noalias !9593, !noundef !9
@@ -49787,7 +49802,7 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h11c3ff8935baa
 
 14:                                               ; preds = %.noexc
   invoke void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880c932b6d26fbcc815883ce24785fc3.94.llvm.784653754634180241) #56
-          to label %.noexc3 unwind label %.loopexit.split-lp
+          to label %.noexc3 unwind label %.thread15.loopexit.split-lp
 
 .noexc3:                                          ; preds = %14
   unreachable
@@ -49825,26 +49840,11 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h11c3ff8935baa
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.56)
   br label %12
 
-17:                                               ; preds = %18
+17:                                               ; preds = %.thread15
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %12
-  %lpad.loopexit = landingpad { ptr, i32 }
-          cleanup
-  br label %18
-
-.loopexit.split-lp:                               ; preds = %14
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
-          cleanup
-  br label %18
-
-18:                                               ; preds = %.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr220drop_in_place$LT$rayon..iter..unzip..UnzipFolder$LT$rayon..iter..unzip..Unzip$C$rayon..iter..extend..ListVecFolder$LT$u32$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$$GT$17h0b5eaf7764f9febdE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1) #58
-          to label %17 unwind label %19
-
-19:                                               ; preds = %18
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %.thread15
+  %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #57
   unreachable
@@ -50078,10 +50078,25 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h2bf7e3fe0b6af
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %12
 
+.thread15.loopexit:                               ; preds = %12
+  %lpad.loopexit = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread15
+
+.thread15.loopexit.split-lp:                      ; preds = %14
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread15
+
+.thread15:                                        ; preds = %.thread15.loopexit.split-lp, %.thread15.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.thread15.loopexit ], [ %lpad.loopexit.split-lp, %.thread15.loopexit.split-lp ]
+  invoke void @"_ZN4core3ptr231drop_in_place$LT$rayon..iter..unzip..UnzipFolder$LT$rayon..iter..unzip..Unzip$C$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$$GT$17hb993e26b1d746834E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1) #58
+          to label %17 unwind label %18
+
 12:                                               ; preds = %16, %3
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7), !noalias !9681
   invoke void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbfd2e8e15bf522dbE.llvm.14059259217783387920"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %7, ptr noalias noundef nonnull align 8 dereferenceable(112) %9)
-          to label %.noexc unwind label %.loopexit
+          to label %.noexc unwind label %.thread15.loopexit
 
 .noexc:                                           ; preds = %12
   %13 = load i64, ptr %10, align 8, !range !10, !noalias !9681, !noundef !9
@@ -50092,7 +50107,7 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h2bf7e3fe0b6af
 
 14:                                               ; preds = %.noexc
   invoke void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880c932b6d26fbcc815883ce24785fc3.94.llvm.784653754634180241) #56
-          to label %.noexc3 unwind label %.loopexit.split-lp
+          to label %.noexc3 unwind label %.thread15.loopexit.split-lp
 
 .noexc3:                                          ; preds = %14
   unreachable
@@ -50130,26 +50145,11 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h2bf7e3fe0b6af
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.56)
   br label %12
 
-17:                                               ; preds = %18
+17:                                               ; preds = %.thread15
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %12
-  %lpad.loopexit = landingpad { ptr, i32 }
-          cleanup
-  br label %18
-
-.loopexit.split-lp:                               ; preds = %14
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
-          cleanup
-  br label %18
-
-18:                                               ; preds = %.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr231drop_in_place$LT$rayon..iter..unzip..UnzipFolder$LT$rayon..iter..unzip..Unzip$C$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$$GT$17hb993e26b1d746834E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1) #58
-          to label %17 unwind label %19
-
-19:                                               ; preds = %18
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %.thread15
+  %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #57
   unreachable
@@ -50587,10 +50587,25 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17ha36714d4e5dd9
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %12
 
+.thread16.loopexit:                               ; preds = %12
+  %lpad.loopexit = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread16
+
+.thread16.loopexit.split-lp:                      ; preds = %14
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread16
+
+.thread16:                                        ; preds = %.thread16.loopexit.split-lp, %.thread16.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.thread16.loopexit ], [ %lpad.loopexit.split-lp, %.thread16.loopexit.split-lp ]
+  invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$arroy..parallel..TmpNodesReader$GT$$GT$17hd4cddbccdc52bf10E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+          to label %"_ZN4core3ptr220drop_in_place$LT$rayon..iter..unzip..UnzipFolder$LT$rayon..iter..unzip..Unzip$C$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$rayon..iter..extend..ListVecFolder$LT$arroy..parallel..TmpNodesReader$GT$$GT$$GT$17hf632a002c64cadcfE.exit" unwind label %17
+
 12:                                               ; preds = %16, %3
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7), !noalias !9847
   invoke void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heb455ab4e5be64bcE.llvm.14059259217783387920"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %7, ptr noalias noundef nonnull align 8 dereferenceable(112) %9)
-          to label %.noexc unwind label %.loopexit
+          to label %.noexc unwind label %.thread16.loopexit
 
 .noexc:                                           ; preds = %12
   %13 = load i64, ptr %10, align 8, !range !10, !noalias !9847, !noundef !9
@@ -50601,7 +50616,7 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17ha36714d4e5dd9
 
 14:                                               ; preds = %.noexc
   invoke void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880c932b6d26fbcc815883ce24785fc3.94.llvm.784653754634180241) #56
-          to label %.noexc3 unwind label %.loopexit.split-lp
+          to label %.noexc3 unwind label %.thread16.loopexit.split-lp
 
 .noexc3:                                          ; preds = %14
   unreachable
@@ -50639,26 +50654,11 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17ha36714d4e5dd9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.57)
   br label %12
 
-"_ZN4core3ptr220drop_in_place$LT$rayon..iter..unzip..UnzipFolder$LT$rayon..iter..unzip..Unzip$C$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$rayon..iter..extend..ListVecFolder$LT$arroy..parallel..TmpNodesReader$GT$$GT$$GT$17hf632a002c64cadcfE.exit": ; preds = %17
+"_ZN4core3ptr220drop_in_place$LT$rayon..iter..unzip..UnzipFolder$LT$rayon..iter..unzip..Unzip$C$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$rayon..iter..extend..ListVecFolder$LT$arroy..parallel..TmpNodesReader$GT$$GT$$GT$17hf632a002c64cadcfE.exit": ; preds = %.thread16
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %12
-  %lpad.loopexit = landingpad { ptr, i32 }
-          cleanup
-  br label %17
-
-.loopexit.split-lp:                               ; preds = %14
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
-          cleanup
-  br label %17
-
-17:                                               ; preds = %.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$arroy..parallel..TmpNodesReader$GT$$GT$17hd4cddbccdc52bf10E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-          to label %"_ZN4core3ptr220drop_in_place$LT$rayon..iter..unzip..UnzipFolder$LT$rayon..iter..unzip..Unzip$C$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$rayon..iter..extend..ListVecFolder$LT$arroy..parallel..TmpNodesReader$GT$$GT$$GT$17hf632a002c64cadcfE.exit" unwind label %18
-
-18:                                               ; preds = %17
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %.thread16
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #57
   unreachable
@@ -50892,10 +50892,25 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hc61aa14133955
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %13
 
+.thread14.loopexit:                               ; preds = %13
+  %lpad.loopexit = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread14
+
+.thread14.loopexit.split-lp:                      ; preds = %15
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread14
+
+.thread14:                                        ; preds = %.thread14.loopexit.split-lp, %.thread14.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.thread14.loopexit ], [ %lpad.loopexit.split-lp, %.thread14.loopexit.split-lp ]
+  invoke void @"_ZN4core3ptr209drop_in_place$LT$rayon..iter..unzip..UnzipFolder$LT$rayon..iter..unzip..Unzip$C$rayon..iter..extend..ListVecFolder$LT$u32$GT$$C$rayon..iter..extend..ListVecFolder$LT$arroy..parallel..TmpNodesReader$GT$$GT$$GT$17h453569a5ec917a31E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1) #58
+          to label %18 unwind label %19
+
 13:                                               ; preds = %17, %3
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7), !noalias !9935
   invoke void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h092ad55a3f2e9418E.llvm.14059259217783387920"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %7, ptr noalias noundef nonnull align 8 dereferenceable(112) %9)
-          to label %.noexc unwind label %.loopexit
+          to label %.noexc unwind label %.thread14.loopexit
 
 .noexc:                                           ; preds = %13
   %14 = load i64, ptr %10, align 8, !range !10, !noalias !9935, !noundef !9
@@ -50906,7 +50921,7 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hc61aa14133955
 
 15:                                               ; preds = %.noexc
   invoke void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880c932b6d26fbcc815883ce24785fc3.94.llvm.784653754634180241) #56
-          to label %.noexc3 unwind label %.loopexit.split-lp
+          to label %.noexc3 unwind label %.thread14.loopexit.split-lp
 
 .noexc3:                                          ; preds = %15
   unreachable
@@ -50941,26 +50956,11 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hc61aa14133955
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.05)
   br label %13
 
-18:                                               ; preds = %19
+18:                                               ; preds = %.thread14
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %13
-  %lpad.loopexit = landingpad { ptr, i32 }
-          cleanup
-  br label %19
-
-.loopexit.split-lp:                               ; preds = %15
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
-          cleanup
-  br label %19
-
-19:                                               ; preds = %.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr209drop_in_place$LT$rayon..iter..unzip..UnzipFolder$LT$rayon..iter..unzip..Unzip$C$rayon..iter..extend..ListVecFolder$LT$u32$GT$$C$rayon..iter..extend..ListVecFolder$LT$arroy..parallel..TmpNodesReader$GT$$GT$$GT$17h453569a5ec917a31E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1) #58
-          to label %18 unwind label %20
-
-20:                                               ; preds = %19
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %.thread14
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #57
   unreachable

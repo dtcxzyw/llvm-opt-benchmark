@@ -36150,10 +36150,10 @@ _ZN3fmt3v106detail11parse_alignEc.exit.thread:    ; preds = %_ZN3fmt3v106detail1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 15
   br label %19
 
-19:                                               ; preds = %107, %_ZN3fmt3v106detail11parse_alignEc.exit.thread
-  %.0196 = phi ptr [ %3, %_ZN3fmt3v106detail11parse_alignEc.exit.thread ], [ %.1197, %107 ]
-  %.sroa.0158.0 = phi i32 [ 0, %_ZN3fmt3v106detail11parse_alignEc.exit.thread ], [ %.sroa.0158.1, %107 ]
-  %.1 = phi i8 [ %.047, %_ZN3fmt3v106detail11parse_alignEc.exit.thread ], [ %108, %107 ]
+19:                                               ; preds = %.thread, %_ZN3fmt3v106detail11parse_alignEc.exit.thread
+  %.0196 = phi ptr [ %3, %_ZN3fmt3v106detail11parse_alignEc.exit.thread ], [ %.1197, %.thread ]
+  %.sroa.0158.0 = phi i32 [ 0, %_ZN3fmt3v106detail11parse_alignEc.exit.thread ], [ %.sroa.0158.1, %.thread ]
+  %.1 = phi i8 [ %.047, %_ZN3fmt3v106detail11parse_alignEc.exit.thread ], [ %107, %.thread ]
   switch i8 %.1, label %72 [
     i8 60, label %20
     i8 62, label %20
@@ -36470,10 +36470,10 @@ _ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit: ; preds = %.lr.
   %.1197 = phi ptr [ %104, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ %60, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65 ], [ %54, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61 ], [ %51, %50 ], [ %42, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57 ], [ %37, %36 ], [ %28, %_ZN3fmt3v106detail11parse_alignEc.exit53 ]
   %.sroa.0158.1 = phi i32 [ 1, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61 ], [ 4, %50 ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57 ], [ 2, %36 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit53 ]
   %106 = icmp eq ptr %.1197, %6
-  br i1 %106, label %.loopexit, label %107
+  br i1 %106, label %.loopexit, label %.thread
 
-107:                                              ; preds = %105
-  %108 = load i8, ptr %.1197, align 1
+.thread:                                          ; preds = %105
+  %107 = load i8, ptr %.1197, align 1
   br label %19, !llvm.loop !261
 
 .loopexit.sink.split.loopexit:                    ; preds = %19
@@ -36484,13 +36484,13 @@ _ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit: ; preds = %.lr.
 
 .loopexit.sink.split:                             ; preds = %19, %.loopexit.sink.split.loopexit322, %.loopexit.sink.split.loopexit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit94, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit76, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit74, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit72
   %.sink = phi i8 [ 4, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit72 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit74 ], [ 6, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit76 ], [ 15, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit94 ], [ 1, %.loopexit.sink.split.loopexit ], [ 2, %.loopexit.sink.split.loopexit322 ], [ 3, %19 ]
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %109, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %.0196, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %108, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %.0196, i64 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %72, %105, %.loopexit.sink.split, %12
-  %.0 = phi ptr [ %3, %12 ], [ %110, %.loopexit.sink.split ], [ %.0196, %19 ], [ %.1197, %105 ], [ %.0196, %72 ]
+  %.0 = phi ptr [ %3, %12 ], [ %109, %.loopexit.sink.split ], [ %.0196, %19 ], [ %.1197, %105 ], [ %.0196, %72 ]
   ret ptr %.0
 }
 

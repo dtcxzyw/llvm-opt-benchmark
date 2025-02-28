@@ -847,7 +847,7 @@ _ZN6icu_7712LocalPointerINS_10TransitionEEC2EPS1_R10UErrorCode.exit215: ; preds 
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %249 = icmp eq ptr %243, null
-  br i1 %249, label %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread321, label %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread321.sink.split
+  br i1 %249, label %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread326, label %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread326.sink.split
 
 250:                                              ; preds = %_ZN6icu_7712LocalPointerINS_10TransitionEEC2EPS1_R10UErrorCode.exit215
   %251 = load double, ptr %6, align 8, !tbaa !34
@@ -947,7 +947,7 @@ _ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit218: ; preds = %280
 _ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread335: ; preds = %271, %261
   %lpad.thr_comm333 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread321.sink.split
+  br label %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread326.sink.split
 
 _ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216: ; preds = %276
   %lpad.thr_comm.split-lp334 = landingpad { ptr, i32 }
@@ -955,18 +955,18 @@ _ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216: ; preds = %276
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %243) #14
   br label %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit219
 
-_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread321.sink.split: ; preds = %248, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread335
+_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread326.sink.split: ; preds = %248, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread335
   %.pn197325.ph = phi { ptr, i32 } [ %lpad.thr_comm333, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread335 ], [ %lpad.thr_comm.split-lp, %248 ]
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %243) #14
-  br label %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread321
+  br label %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread326
 
-_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread321: ; preds = %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread321.sink.split, %248
-  %.pn197325 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %248 ], [ %.pn197325.ph, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread321.sink.split ]
+_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread326: ; preds = %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread326.sink.split, %248
+  %.pn197325 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %248 ], [ %.pn197325.ph, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread326.sink.split ]
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %238) #14
   br label %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit219
 
-_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit219: ; preds = %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread321
-  %.pn197320 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp306, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread ], [ %lpad.thr_comm.split-lp334, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216 ], [ %.pn197325, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread321 ]
+_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit219: ; preds = %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread326
+  %.pn197320 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp306, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread ], [ %lpad.thr_comm.split-lp334, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216 ], [ %.pn197325, %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread326 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
   br label %_ZN6icu_7711LocalMemoryIbED2Ev.exit

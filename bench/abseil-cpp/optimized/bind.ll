@@ -1621,7 +1621,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31.i: ; preds = %_
   %107 = load i64, ptr %58, align 8, !tbaa !82
   %108 = and i64 %107, 1
   %.not.i.i.i.i32.i = icmp eq i64 %108, 0
-  br i1 %.not.i.i.i.i32.i, label %_ZN4absl19str_format_internal10StreamableD2Ev.exit33.i, label %109
+  br i1 %.not.i.i.i.i32.i, label %.body.i, label %109
 
 109:                                              ; preds = %106
   %110 = load ptr, ptr %59, align 8, !tbaa !16
@@ -1629,9 +1629,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31.i: ; preds = %_
   %112 = load i64, ptr %111, align 8, !tbaa !16
   %113 = shl i64 %112, 4
   call void @_ZdlPvm(ptr noundef %110, i64 noundef %113) #18
-  br label %_ZN4absl19str_format_internal10StreamableD2Ev.exit33.i
+  br label %.body.i
 
-_ZN4absl19str_format_internal10StreamableD2Ev.exit33.i: ; preds = %109, %106
+.body.i:                                          ; preds = %109, %106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #15
   br label %213
@@ -1854,8 +1854,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i49
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #15
   br label %213
 
-213:                                              ; preds = %.body41.i, %_ZN4absl19str_format_internal10StreamableD2Ev.exit33.i, %91
-  %.pn20.pn.i = phi { ptr, i32 } [ %.pn20.i, %.body41.i ], [ %92, %91 ], [ %.pn.pn.i, %_ZN4absl19str_format_internal10StreamableD2Ev.exit33.i ]
+213:                                              ; preds = %.body41.i, %.body.i, %91
+  %.pn20.pn.i = phi { ptr, i32 } [ %.pn20.i, %.body41.i ], [ %92, %91 ], [ %.pn.pn.i, %.body.i ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #15
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15

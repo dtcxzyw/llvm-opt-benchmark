@@ -16725,7 +16725,7 @@ define void @"_ZN82_$LT$ockam_core..routing..route..RouteBuilder$u20$as$u20$core
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !noundef !4
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %36, label %8
+  br i1 %.not, label %37, label %8
 
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -16764,8 +16764,8 @@ define void @"_ZN82_$LT$ockam_core..routing..route..RouteBuilder$u20$as$u20$core
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #28, !noalias !6097
   unreachable
 
-common.resume:                                    ; preds = %37, %.thread7, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %38, %37 ], [ %25, %.thread7 ]
+common.resume:                                    ; preds = %.thread, %.thread7, %16
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %34, %.thread ], [ %25, %.thread7 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN91_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc5f794707b7d8365E.exit": ; preds = %18
@@ -16778,7 +16778,7 @@ common.resume:                                    ; preds = %37, %.thread7, %16
 
 23:                                               ; preds = %"_ZN91_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc5f794707b7d8365E.exit"
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.de82f23e1f787a80eff06b0d0e667b5f.40, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.de82f23e1f787a80eff06b0d0e667b5f.42) #25
-          to label %34 unwind label %37
+          to label %35 unwind label %.thread
 
 24:                                               ; preds = %"_ZN91_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc5f794707b7d8365E.exit"
   invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcc323dcfb682d7e2E.llvm.6783306594713324768"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21)
@@ -16806,26 +16806,26 @@ common.resume:                                    ; preds = %37, %.thread7, %16
   call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %32, i64 noundef 8) #27, !noalias !6113
   br label %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17hfc8393f5f475b9c2E.exit"
 
-34:                                               ; preds = %23
+.thread:                                          ; preds = %23
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17hfc8393f5f475b9c2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #26
+          to label %common.resume unwind label %38
+
+35:                                               ; preds = %23
   unreachable
 
 "_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17hfc8393f5f475b9c2E.exit": ; preds = %31, %27
-  %35 = load ptr, ptr %6, align 8, !nonnull !4, !align !5, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  %36 = load ptr, ptr %6, align 8, !nonnull !4, !align !5, !noundef !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  br label %36
+  br label %37
 
-36:                                               ; preds = %1, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17hfc8393f5f475b9c2E.exit"
+37:                                               ; preds = %1, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17hfc8393f5f475b9c2E.exit"
   ret void
 
-37:                                               ; preds = %23
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17hfc8393f5f475b9c2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #26
-          to label %common.resume unwind label %39
-
-39:                                               ; preds = %37
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %.thread
+  %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #28
   unreachable

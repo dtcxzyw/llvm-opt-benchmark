@@ -3885,13 +3885,13 @@ define void @_ZN2cv4gapi5fluid6Buffer6mkViewEib(ptr dead_on_unwind noalias writa
   store ptr null, ptr %6, align 8, !tbaa !174
   store ptr %10, ptr %5, align 8, !tbaa !176
   invoke void @_ZN2cv4gapi5fluid4ViewC1EOSt10unique_ptrINS2_4PrivESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %.critedge51.critedge unwind label %49
+          to label %.critedge51.critedge unwind label %.thread69
 
 22:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #30
   %23 = invoke noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #33
-          to label %24 unwind label %41
+          to label %24 unwind label %43
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -3914,7 +3914,7 @@ define void @_ZN2cv4gapi5fluid6Buffer6mkViewEib(ptr dead_on_unwind noalias writa
   store ptr null, ptr %8, align 8, !tbaa !177
   store ptr %23, ptr %7, align 8, !tbaa !176
   invoke void @_ZN2cv4gapi5fluid4ViewC1EOSt10unique_ptrINS2_4PrivESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %.critedge unwind label %43
+          to label %.critedge unwind label %45
 
 .critedge:                                        ; preds = %24
   %33 = load ptr, ptr %7, align 8, !tbaa !138
@@ -3953,59 +3953,59 @@ _ZNSt10unique_ptrIN2cv4gapi5fluid21ViewPrivWithOwnBorderESt14default_deleteIS3_E
 .critedge52:                                      ; preds = %_ZNSt10unique_ptrIN2cv4gapi5fluid24ViewPrivWithoutOwnBorderESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN2cv4gapi5fluid21ViewPrivWithOwnBorderESt14default_deleteIS3_EED2Ev.exit
   ret void
 
-41:                                               ; preds = %22
-  %42 = landingpad { ptr, i32 }
+.thread69:                                        ; preds = %9
+  %41 = landingpad { ptr, i32 }
           cleanup
-  br label %.critedge54
-
-43:                                               ; preds = %24
-  %44 = landingpad { ptr, i32 }
-          cleanup
-  %45 = load ptr, ptr %7, align 8, !tbaa !138
-  %.not.i63 = icmp eq ptr %45, null
-  br i1 %.not.i63, label %_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit65, label %_ZNKSt14default_deleteIN2cv4gapi5fluid4View4PrivEEclEPS4_.exit.i64
-
-_ZNKSt14default_deleteIN2cv4gapi5fluid4View4PrivEEclEPS4_.exit.i64: ; preds = %43
-  %46 = load ptr, ptr %45, align 8, !tbaa !13
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(108) %45) #30
-  br label %_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit65
-
-_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit65: ; preds = %43, %_ZNKSt14default_deleteIN2cv4gapi5fluid4View4PrivEEclEPS4_.exit.i64
-  store ptr null, ptr %7, align 8, !tbaa !138
-  call void @_ZNSt10unique_ptrIN2cv4gapi5fluid24ViewPrivWithoutOwnBorderESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #30
-  br label %.critedge54
-
-49:                                               ; preds = %9
-  %50 = landingpad { ptr, i32 }
-          cleanup
-  %51 = load ptr, ptr %5, align 8, !tbaa !138
-  %.not.i66 = icmp eq ptr %51, null
+  %42 = load ptr, ptr %5, align 8, !tbaa !138
+  %.not.i66 = icmp eq ptr %42, null
   br i1 %.not.i66, label %_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit68, label %_ZNKSt14default_deleteIN2cv4gapi5fluid4View4PrivEEclEPS4_.exit.i67
 
-_ZNKSt14default_deleteIN2cv4gapi5fluid4View4PrivEEclEPS4_.exit.i67: ; preds = %49
-  %52 = load ptr, ptr %51, align 8, !tbaa !13
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(108) %51) #30
+43:                                               ; preds = %22
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread72
+
+45:                                               ; preds = %24
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  %47 = load ptr, ptr %7, align 8, !tbaa !138
+  %.not.i63 = icmp eq ptr %47, null
+  br i1 %.not.i63, label %_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit65, label %_ZNKSt14default_deleteIN2cv4gapi5fluid4View4PrivEEclEPS4_.exit.i64
+
+_ZNKSt14default_deleteIN2cv4gapi5fluid4View4PrivEEclEPS4_.exit.i64: ; preds = %45
+  %48 = load ptr, ptr %47, align 8, !tbaa !13
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load ptr, ptr %49, align 8
+  call void %50(ptr noundef nonnull align 8 dereferenceable(108) %47) #30
+  br label %_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit65
+
+_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit65: ; preds = %45, %_ZNKSt14default_deleteIN2cv4gapi5fluid4View4PrivEEclEPS4_.exit.i64
+  store ptr null, ptr %7, align 8, !tbaa !138
+  call void @_ZNSt10unique_ptrIN2cv4gapi5fluid24ViewPrivWithoutOwnBorderESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #30
+  br label %.thread72
+
+.thread72:                                        ; preds = %_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit65, %43
+  %.pn.ph = phi { ptr, i32 } [ %44, %43 ], [ %46, %_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit65 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #30
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
+  br label %.critedge56
+
+_ZNKSt14default_deleteIN2cv4gapi5fluid4View4PrivEEclEPS4_.exit.i67: ; preds = %.thread69
+  %51 = load ptr, ptr %42, align 8, !tbaa !13
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %53 = load ptr, ptr %52, align 8
+  call void %53(ptr noundef nonnull align 8 dereferenceable(108) %42) #30
   br label %_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit68
 
-_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit68: ; preds = %49, %_ZNKSt14default_deleteIN2cv4gapi5fluid4View4PrivEEclEPS4_.exit.i67
+_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit68: ; preds = %.thread69, %_ZNKSt14default_deleteIN2cv4gapi5fluid4View4PrivEEclEPS4_.exit.i67
   store ptr null, ptr %5, align 8, !tbaa !138
   call void @_ZNSt10unique_ptrIN2cv4gapi5fluid21ViewPrivWithOwnBorderESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #30
   br label %.critedge56
 
-.critedge54:                                      ; preds = %_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit65, %41
-  %.pn.ph = phi { ptr, i32 } [ %42, %41 ], [ %44, %_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit65 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
-  br label %.critedge56
-
-.critedge56:                                      ; preds = %.critedge54, %_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit68
-  %.pn43.pn76 = phi { ptr, i32 } [ %.pn.ph, %.critedge54 ], [ %50, %_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit68 ]
+.critedge56:                                      ; preds = %.thread72, %_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit68
+  %.pn43.pn76 = phi { ptr, i32 } [ %41, %_ZNSt10unique_ptrIN2cv4gapi5fluid4View4PrivESt14default_deleteIS4_EED2Ev.exit68 ], [ %.pn.ph, %.thread72 ]
   resume { ptr, i32 } %.pn43.pn76
 }
 

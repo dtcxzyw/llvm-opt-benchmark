@@ -11231,11 +11231,11 @@ _ZN8QuantLib6detail3getIddEET_RKSt6vectorIS2_SaIS2_EEmT0_.exit420: ; preds = %in
   %retval.0.i417 = phi double [ %221, %if.then2.i418 ], [ %222, %if.else4.i415 ], [ 0.000000e+00, %invoke.cont444 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp449) #35
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp449)
-          to label %invoke.cont451 unwind label %cleanup.action461
+          to label %invoke.cont451 unwind label %ehcleanup459
 
 invoke.cont451:                                   ; preds = %_ZN8QuantLib6detail3getIddEET_RKSt6vectorIS2_SaIS2_EEmT0_.exit420
   invoke void @_ZN8QuantLib15FixedRateCouponC1ERKNS_4DateEddRKNS_10DayCounterES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(136) %call441, ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, double noundef %retval.0.i405, double noundef %retval.0.i417, ptr noundef nonnull align 8 dereferenceable(16) %paymentDayCounter_, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %refStart, ptr noundef nonnull align 8 dereferenceable(8) %refEnd, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp449)
-          to label %invoke.cont452 unwind label %cleanup.action461
+          to label %invoke.cont452 unwind label %ehcleanup459
 
 invoke.cont452:                                   ; preds = %invoke.cont451
   store ptr %call441, ptr %ref.tmp438, align 8, !tbaa !234
@@ -11360,15 +11360,15 @@ ehcleanup459.thread647:                           ; preds = %lpad455, %lpad.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp449) #35
   br label %ehcleanup463
 
-cleanup.action461:                                ; preds = %invoke.cont451, %_ZN8QuantLib6detail3getIddEET_RKSt6vectorIS2_SaIS2_EEmT0_.exit420
+ehcleanup459:                                     ; preds = %_ZN8QuantLib6detail3getIddEET_RKSt6vectorIS2_SaIS2_EEmT0_.exit420, %invoke.cont451
   %239 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp449) #35
   call void @_ZdlPvm(ptr noundef nonnull %call441, i64 noundef 248) #38
   br label %ehcleanup463
 
-ehcleanup463:                                     ; preds = %ehcleanup459.thread647, %cleanup.action461, %lpad439
-  %.pn66.pn.pn = phi { ptr, i32 } [ %239, %cleanup.action461 ], [ %237, %lpad439 ], [ %.pn66.ph, %ehcleanup459.thread647 ]
+ehcleanup463:                                     ; preds = %ehcleanup459.thread647, %ehcleanup459, %lpad439
+  %.pn66.pn.pn = phi { ptr, i32 } [ %239, %ehcleanup459 ], [ %237, %lpad439 ], [ %.pn66.ph, %ehcleanup459.thread647 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp438) #35
   br label %ehcleanup519
 
@@ -11681,7 +11681,7 @@ if.else5.i546:                                    ; preds = %if.else.i540
 invoke.cont504:                                   ; preds = %if.else5.i546, %if.then3.i549, %invoke.cont500
   %retval.0.i548 = phi double [ %282, %if.then3.i549 ], [ %283, %if.else5.i546 ], [ 0x47EFFFFFE0000000, %invoke.cont500 ]
   invoke void @_ZN8QuantLib26RangeAccrualFloatersCouponC1ERKNS_4DateEdRKN5boost10shared_ptrINS_9IborIndexEEES3_S3_jRKNS_10DayCounterEddS3_S3_NS5_INS_8ScheduleEEEdd(ptr noundef nonnull align 8 dereferenceable(280) %call479, ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, double noundef %retval.0.i473, ptr noundef nonnull align 8 dereferenceable(16) %index_, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, i32 noundef %retval.0.i487, ptr noundef nonnull align 8 dereferenceable(16) %paymentDayCounter_, double noundef %retval.0.i500, double noundef %retval.0.i514, ptr noundef nonnull align 8 dereferenceable(8) %refStart, ptr noundef nonnull align 8 dereferenceable(8) %refEnd, ptr noundef nonnull %agg.tmp495, double noundef %retval.0.i534, double noundef %retval.0.i548)
-          to label %invoke.cont506 unwind label %cleanup.action515
+          to label %invoke.cont506 unwind label %ehcleanup513
 
 invoke.cont506:                                   ; preds = %invoke.cont504
   store ptr %call479, ptr %ref.tmp476, align 8, !tbaa !234
@@ -11871,15 +11871,15 @@ ehcleanup513.thread653:                           ; preds = %lpad509, %lpad.body
   call void @_ZN5boost10shared_ptrIN8QuantLib8ScheduleEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp495) #35
   br label %ehcleanup517
 
-cleanup.action515:                                ; preds = %invoke.cont504
+ehcleanup513:                                     ; preds = %invoke.cont504
   %309 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost10shared_ptrIN8QuantLib8ScheduleEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp495) #35
   call void @_ZdlPvm(ptr noundef nonnull %call479, i64 noundef 392) #38
   br label %ehcleanup517
 
-ehcleanup517:                                     ; preds = %ehcleanup513.thread653, %cleanup.action515, %lpad477
-  %.pn62.pn.pn = phi { ptr, i32 } [ %309, %cleanup.action515 ], [ %307, %lpad477 ], [ %.pn62.ph, %ehcleanup513.thread653 ]
+ehcleanup517:                                     ; preds = %ehcleanup513.thread653, %ehcleanup513, %lpad477
+  %.pn62.pn.pn = phi { ptr, i32 } [ %309, %ehcleanup513 ], [ %307, %lpad477 ], [ %.pn62.ph, %ehcleanup513.thread653 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp476) #35
   br label %ehcleanup519
 

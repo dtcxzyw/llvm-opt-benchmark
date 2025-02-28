@@ -1104,9 +1104,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %1
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #19
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %7, i8 0, i64 %6, i1 false), !tbaa !29
   %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #19
-          to label %.lr.ph75 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit44
+          to label %.lr.ph79 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit44
 
-.lr.ph75:                                         ; preds = %.noexc28
+.lr.ph79:                                         ; preds = %.noexc28
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %8, i8 0, i64 %6, i1 false), !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1122,18 +1122,18 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %1
 _ZNSt6vectorIiSaIiEED2Ev.exit40:                  ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %13
   ret void
 
-14:                                               ; preds = %.lr.ph75, %._crit_edge
-  %15 = phi i32 [ %3, %.lr.ph75 ], [ %38, %._crit_edge ]
-  %indvars.iv78 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next79, %._crit_edge ]
+14:                                               ; preds = %.lr.ph79, %._crit_edge
+  %15 = phi i32 [ %3, %.lr.ph79 ], [ %38, %._crit_edge ]
+  %indvars.iv82 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next83, %._crit_edge ]
   %16 = load ptr, ptr %9, align 8, !tbaa !60
   %17 = load ptr, ptr %10, align 8, !tbaa !61
   %18 = load i64, ptr %17, align 8, !tbaa !58
-  %19 = mul i64 %18, %indvars.iv78
+  %19 = mul i64 %18, %indvars.iv82
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 %19
   %21 = load ptr, ptr %11, align 8, !tbaa !60
   %22 = load ptr, ptr %12, align 8, !tbaa !61
   %23 = load i64, ptr %22, align 8, !tbaa !58
-  %24 = mul i64 %23, %indvars.iv78
+  %24 = mul i64 %23, %indvars.iv82
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 %24
   %26 = sext i32 %15 to i64
   %.idx = shl nsw i64 %26, 2
@@ -1165,18 +1165,18 @@ _ZSt11min_elementIPfET_S1_S1_.exit:               ; preds = %.lr.ph.i.i, %14
   br i1 %36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZSt11min_elementIPfET_S1_S1_.exit
-  %37 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv78
+  %37 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv82
   br label %40
 
 ._crit_edge.loopexit:                             ; preds = %54
-  %.pre81 = sext i32 %55 to i64
+  %.pre85 = sext i32 %55 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZSt11min_elementIPfET_S1_S1_.exit
-  %.pre-phi = phi i64 [ %.pre81, %._crit_edge.loopexit ], [ %26, %_ZSt11min_elementIPfET_S1_S1_.exit ]
+  %.pre-phi = phi i64 [ %.pre85, %._crit_edge.loopexit ], [ %26, %_ZSt11min_elementIPfET_S1_S1_.exit ]
   %38 = phi i32 [ %55, %._crit_edge.loopexit ], [ %15, %_ZSt11min_elementIPfET_S1_S1_.exit ]
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %39 = icmp slt i64 %indvars.iv.next79, %.pre-phi
+  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
+  %39 = icmp slt i64 %indvars.iv.next83, %.pre-phi
   br i1 %39, label %14, label %13, !llvm.loop !84
 
 40:                                               ; preds = %.lr.ph, %54

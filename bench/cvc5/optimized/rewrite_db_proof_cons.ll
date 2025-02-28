@@ -40004,7 +40004,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
           catch ptr null
   %35 = load ptr, ptr %22, align 8, !tbaa !74
   %.not.i.i7.i.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i7.i.i.i, label %71, label %36
+  br i1 %.not.i.i7.i.i.i, label %.thread47, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -40013,7 +40013,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %40 = ptrtoint ptr %35 to i64
   %41 = sub i64 %39, %40
   tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %41) #23
-  br label %71
+  br label %.thread47
 
 42:                                               ; preds = %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -40089,30 +40089,30 @@ _ZNSt12_Vector_baseISt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EESaIS6_
   store ptr %68, ptr %63, align 8, !tbaa !633
   ret void
 
-69:                                               ; preds = %71
+69:                                               ; preds = %.thread47
   %70 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %74 unwind label %75
+          to label %73 unwind label %74
 
-71:                                               ; preds = %33, %36
-  %72 = extractvalue { ptr, i32 } %34, 0
-  %73 = tail call ptr @__cxa_begin_catch(ptr %72) #21
+.thread47:                                        ; preds = %33, %36
+  %71 = extractvalue { ptr, i32 } %34, 0
+  %72 = tail call ptr @__cxa_begin_catch(ptr %71) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %20) #23
   invoke void @__cxa_rethrow() #26
-          to label %78 unwind label %69
+          to label %77 unwind label %69
 
-74:                                               ; preds = %69
+73:                                               ; preds = %69
   resume { ptr, i32 } %70
 
-75:                                               ; preds = %69
-  %76 = landingpad { ptr, i32 }
+74:                                               ; preds = %69
+  %75 = landingpad { ptr, i32 }
           catch ptr null
-  %77 = extractvalue { ptr, i32 } %76, 0
-  tail call void @__clang_call_terminate(ptr %77) #24
+  %76 = extractvalue { ptr, i32 } %75, 0
+  tail call void @__clang_call_terminate(ptr %76) #24
   unreachable
 
-78:                                               ; preds = %71
+77:                                               ; preds = %.thread47
   unreachable
 }
 

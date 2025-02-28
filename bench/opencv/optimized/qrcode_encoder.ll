@@ -2390,13 +2390,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit34:                  ; preds = %_ZNSt6vectorIhSaIhE
   %63 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i35 = icmp eq ptr %19, null
-  br i1 %.not.i.i.i35, label %_ZNSt6vectorIhSaIhEED2Ev.exit37, label %64
+  br i1 %.not.i.i.i35, label %_ZNSt6vectorIhSaIhEED2Ev.exit37, label %.body.thread
 
-64:                                               ; preds = %.body
+.body.thread:                                     ; preds = %.body
   tail call void @_ZdlPv(ptr noundef nonnull %19) #30
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit37
 
-_ZNSt6vectorIhSaIhEED2Ev.exit37:                  ; preds = %.body, %64
+_ZNSt6vectorIhSaIhEED2Ev.exit37:                  ; preds = %.body, %.body.thread
   resume { ptr, i32 } %63
 }
 

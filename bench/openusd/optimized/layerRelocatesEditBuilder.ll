@@ -7105,20 +7105,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
           catch ptr null
   %56 = load ptr, ptr %24, align 8
   %.not.i.i.i12.i.i.i.i = icmp eq ptr %56, null
-  br i1 %.not.i.i.i12.i.i.i.i, label %112, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i.i.i.i
+  br i1 %.not.i.i.i12.i.i.i.i, label %.thread46, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i.i.i.i: ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = atomicrmw sub ptr %57, i32 1 release, align 4
   %59 = icmp eq i32 %58, 1
-  br i1 %59, label %60, label %112
+  br i1 %59, label %60, label %.thread46
 
 60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i.i.i.i
   %61 = load ptr, ptr %56, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(12) %56) #19
-  br label %112
+  br label %.thread46
 
 64:                                               ; preds = %50, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i, %43, %_ZNKSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_8SdfLayerEEES_IS0_INS1_7SdfPathES5_ESaIS6_EEESaIS9_EE12_M_check_lenEmPKc.exit
   %65 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -7222,30 +7222,30 @@ _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_8S
   store ptr %109, ptr %104, align 8
   ret void
 
-110:                                              ; preds = %112
+110:                                              ; preds = %.thread46
   %111 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %115 unwind label %116
+          to label %114 unwind label %115
 
-112:                                              ; preds = %54, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i.i.i.i, %60
-  %113 = extractvalue { ptr, i32 } %55, 0
-  %114 = tail call ptr @__cxa_begin_catch(ptr %113) #19
+.thread46:                                        ; preds = %54, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i.i.i.i, %60
+  %112 = extractvalue { ptr, i32 } %55, 0
+  %113 = tail call ptr @__cxa_begin_catch(ptr %112) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %20) #18
   invoke void @__cxa_rethrow() #16
-          to label %119 unwind label %110
+          to label %118 unwind label %110
 
-115:                                              ; preds = %110
+114:                                              ; preds = %110
   resume { ptr, i32 } %111
 
-116:                                              ; preds = %110
-  %117 = landingpad { ptr, i32 }
+115:                                              ; preds = %110
+  %116 = landingpad { ptr, i32 }
           catch ptr null
-  %118 = extractvalue { ptr, i32 } %117, 0
-  tail call void @__clang_call_terminate(ptr %118) #20
+  %117 = extractvalue { ptr, i32 } %116, 0
+  tail call void @__clang_call_terminate(ptr %117) #20
   unreachable
 
-119:                                              ; preds = %112
+118:                                              ; preds = %.thread46
   unreachable
 }
 

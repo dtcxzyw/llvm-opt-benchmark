@@ -21340,7 +21340,7 @@ define void @_ZN5image2io14free_functions9open_impl17hffc3dd133dd2d0f4E(ptr noal
   unreachable
 
 common.resume:                                    ; preds = %88, %582, %129, %164, %184, %207, %.body.i.i.i.i.i, %.body.i.i258.i.i.i, %323, %327, %366, %444, %448, %459, %514, %520, %534, %561, %571, %78
-  %common.resume.op = phi { ptr, i32 } [ %79, %78 ], [ %572, %571 ], [ %lpad.thr_comm.i.i.i.i, %164 ], [ %185, %184 ], [ %.pn.i.i.i.i.i.i, %207 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %eh.lpad-body.i.i259.i.i.i, %.body.i.i258.i.i.i ], [ %324, %327 ], [ %324, %323 ], [ %367, %366 ], [ %445, %444 ], [ %lpad.thr_comm.i367.i.i.i, %448 ], [ %130, %129 ], [ %460, %459 ], [ %515, %514 ], [ %lpad.thr_comm.i411.i.i.i, %520 ], [ %535, %534 ], [ %562, %561 ], [ %583, %582 ], [ %89, %88 ]
+  %common.resume.op = phi { ptr, i32 } [ %79, %78 ], [ %572, %571 ], [ %562, %561 ], [ %535, %534 ], [ %lpad.thr_comm.i411.i.i.i, %520 ], [ %515, %514 ], [ %460, %459 ], [ %130, %129 ], [ %lpad.thr_comm.i367.i.i.i, %448 ], [ %445, %444 ], [ %367, %366 ], [ %324, %323 ], [ %324, %327 ], [ %eh.lpad-body.i.i259.i.i.i, %.body.i.i258.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i, %207 ], [ %185, %184 ], [ %lpad.thr_comm.i.i.i.i, %164 ], [ %583, %582 ], [ %89, %88 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h85dc8e47c9be1b69E.exit": ; preds = %74
@@ -25676,7 +25676,7 @@ define void @_ZN5image2io14free_functions21image_dimensions_impl17h77a753adfa329
   unreachable
 
 common.resume:                                    ; preds = %110, %128, %165, %.body.i.i.i.i, %.body.i.i179.i.i, %263, %289, %302, %316, %337, %349, %365, %383, %393, %69
-  %common.resume.op = phi { ptr, i32 } [ %70, %69 ], [ %394, %393 ], [ %129, %128 ], [ %.pn.i.i.i.i.i, %165 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i180.i.i, %.body.i.i179.i.i ], [ %264, %263 ], [ %303, %302 ], [ %290, %289 ], [ %111, %110 ], [ %317, %316 ], [ %350, %349 ], [ %338, %337 ], [ %366, %365 ], [ %384, %383 ]
+  %common.resume.op = phi { ptr, i32 } [ %70, %69 ], [ %394, %393 ], [ %384, %383 ], [ %366, %365 ], [ %338, %337 ], [ %350, %349 ], [ %317, %316 ], [ %111, %110 ], [ %290, %289 ], [ %303, %302 ], [ %264, %263 ], [ %eh.lpad-body.i.i180.i.i, %.body.i.i179.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %.pn.i.i.i.i.i, %165 ], [ %129, %128 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h85dc8e47c9be1b69E.exit": ; preds = %67

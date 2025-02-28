@@ -2410,13 +2410,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %48 = load i64, ptr %36, align 8, !tbaa !4
   %49 = icmp ult i64 %48, 16
   tail call void @llvm.assume(i1 %49)
-  br label %63
+  br label %.thread37
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %45
   %50 = load i64, ptr %24, align 8, !tbaa !22
   %51 = add i64 %50, 1
   tail call void @_ZdlPvm(ptr noundef %46, i64 noundef %51) #28
-  br label %63
+  br label %.thread37
 
 _ZNSt16allocator_traitsISaINSt10filesystem7__cxx114pathEEE9constructIS2_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRS3_PT_DpOT0_.exit: ; preds = %38
   %52 = tail call noundef ptr @_ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %22, ptr noundef nonnull align 1 dereferenceable(1) %0) #26
@@ -2440,31 +2440,31 @@ _ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.e
   store ptr %60, ptr %55, align 8, !tbaa !67
   ret void
 
-61:                                               ; preds = %63
+61:                                               ; preds = %.thread37
   %62 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %67 unwind label %68
+          to label %66 unwind label %67
 
-63:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  %64 = extractvalue { ptr, i32 } %.pn.i.i.i, 0
-  %65 = tail call ptr @__cxa_begin_catch(ptr %64) #26
-  %66 = mul nuw nsw i64 %16, 40
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %66) #28
+.thread37:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+  %63 = extractvalue { ptr, i32 } %.pn.i.i.i, 0
+  %64 = tail call ptr @__cxa_begin_catch(ptr %63) #26
+  %65 = mul nuw nsw i64 %16, 40
+  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %65) #28
   invoke void @__cxa_rethrow() #27
-          to label %71 unwind label %61
+          to label %70 unwind label %61
 
-67:                                               ; preds = %61
+66:                                               ; preds = %61
   resume { ptr, i32 } %62
 
-68:                                               ; preds = %61
-  %69 = landingpad { ptr, i32 }
+67:                                               ; preds = %61
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %70 = extractvalue { ptr, i32 } %69, 0
-  tail call void @__clang_call_terminate(ptr %70) #29
+  %69 = extractvalue { ptr, i32 } %68, 0
+  tail call void @__clang_call_terminate(ptr %69) #29
   unreachable
 
-71:                                               ; preds = %63
+70:                                               ; preds = %.thread37
   unreachable
 }
 

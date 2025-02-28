@@ -4761,9 +4761,9 @@ _ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EED2Ev.exit134: ; preds = 
   %.sroa.0148.0184 = phi ptr [ %.sroa.0148.0.lcssa, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EED2Ev.exit134 ], [ %.sroa.0148.0197, %.loopexit172 ], [ %.sroa.0148.0197, %.loopexit.split-lp173 ]
   %.pn80.pn.pn.pn = phi { ptr, i32 } [ %.pn72.pn.pn.pn, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EED2Ev.exit134 ], [ %lpad.loopexit174, %.loopexit172 ], [ %lpad.loopexit.split-lp175, %.loopexit.split-lp173 ]
   %.not.i.i.i135 = icmp eq ptr %.sroa.0148.0184, null
-  br i1 %.not.i.i.i135, label %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EED2Ev.exit136, label %300
+  br i1 %.not.i.i.i135, label %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EED2Ev.exit136, label %.thread164
 
-300:                                              ; preds = %299
+.thread164:                                       ; preds = %299
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0148.0184) #24
   br label %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EED2Ev.exit136
 
@@ -4771,8 +4771,8 @@ _ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EED2Ev.exit132: ; preds = 
   %.0 = phi i1 [ false, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit89 ], [ false, %_ZN3ue2L17hasSameEngineTypeERKNS_15RoseVertexPropsES2_.exit ], [ false, %46 ], [ %209, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EED2Ev.exit ], [ %209, %295 ], [ false, %36 ], [ false, %29 ], [ false, %5 ]
   ret i1 %.0
 
-_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EED2Ev.exit136: ; preds = %300, %299, %91
-  %.pn80.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %91 ], [ %.pn80.pn.pn.pn, %299 ], [ %.pn80.pn.pn.pn, %300 ]
+_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EED2Ev.exit136: ; preds = %.thread164, %299, %91
+  %.pn80.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %91 ], [ %.pn80.pn.pn.pn, %299 ], [ %.pn80.pn.pn.pn, %.thread164 ]
   resume { ptr, i32 } %.pn80.pn.pn.pn.pn
 }
 

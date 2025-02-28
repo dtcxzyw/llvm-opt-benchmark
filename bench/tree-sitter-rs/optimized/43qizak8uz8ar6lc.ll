@@ -28294,7 +28294,7 @@ define hidden void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h31d618b7
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i20": ; preds = %26, %.noexc.i18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !5580
   %.pre = load i64, ptr %1, align 8, !range !1570
-  %.pre31 = add i64 %.pre, 9223372036854775807
+  %.pre32 = add i64 %.pre, 9223372036854775807
   br label %32
 
 .body21:                                          ; preds = %26, %23
@@ -28305,7 +28305,7 @@ define hidden void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h31d618b7
           to label %39 unwind label %37
 
 32:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i20", %18
-  %.pre-phi = phi i64 [ %.pre31, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i20" ], [ %10, %18 ]
+  %.pre-phi = phi i64 [ %.pre32, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i20" ], [ %10, %18 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !alias.scope !5589
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %7, i64 96, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -28386,8 +28386,8 @@ define hidden void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h31d618b7
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$tree_sitter_cli..generate..rules..Rule$GT$17h02400b007e887d48E"(ptr noalias noundef align 8 dereferenceable(104) %1)
   br label %55
 
-57:                                               ; preds = %.body, %.thread, %63
-  %.pn29 = phi { ptr, i32 } [ %31, %63 ], [ %31, %.thread ], [ %51, %.body ]
+57:                                               ; preds = %.thread, %.body, %63
+  %.pn29 = phi { ptr, i32 } [ %31, %63 ], [ %51, %.body ], [ %31, %.thread ]
   resume { ptr, i32 } %.pn29
 
 .thread:                                          ; preds = %39
@@ -28461,7 +28461,7 @@ define hidden void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h608f8e8d
 "_ZN4core3ptr60drop_in_place$LT$tree_sitter_cli..generate..rules..Alias$GT$17h4272a451e12367d6E.exit.i.i20": ; preds = %26, %.noexc.i18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !5606
   %.pre = load i64, ptr %1, align 8, !range !1570
-  %.pre34 = add i64 %.pre, 9223372036854775807
+  %.pre35 = add i64 %.pre, 9223372036854775807
   br label %32
 
 .body22:                                          ; preds = %26, %23
@@ -28474,7 +28474,7 @@ define hidden void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h608f8e8d
           to label %39 unwind label %37
 
 32:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$tree_sitter_cli..generate..rules..Alias$GT$17h4272a451e12367d6E.exit.i.i20", %18
-  %.pre-phi = phi i64 [ %.pre34, %"_ZN4core3ptr60drop_in_place$LT$tree_sitter_cli..generate..rules..Alias$GT$17h4272a451e12367d6E.exit.i.i20" ], [ %10, %18 ]
+  %.pre-phi = phi i64 [ %.pre35, %"_ZN4core3ptr60drop_in_place$LT$tree_sitter_cli..generate..rules..Alias$GT$17h4272a451e12367d6E.exit.i.i20" ], [ %10, %18 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !alias.scope !5617
   %.sroa.52.0..sroa_idx3.i21 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i8 %.sroa.5.0.copyload, ptr %.sroa.52.0..sroa_idx3.i21, align 8, !alias.scope !5600, !noalias !5597
@@ -28562,8 +28562,8 @@ define hidden void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h608f8e8d
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$tree_sitter_cli..generate..rules..Rule$GT$17h02400b007e887d48E"(ptr noalias noundef align 8 dereferenceable(104) %1)
   br label %55
 
-57:                                               ; preds = %.body, %.thread, %63
-  %.pn32 = phi { ptr, i32 } [ %31, %63 ], [ %31, %.thread ], [ %51, %.body ]
+57:                                               ; preds = %.thread, %.body, %63
+  %.pn32 = phi { ptr, i32 } [ %31, %63 ], [ %51, %.body ], [ %31, %.thread ]
   resume { ptr, i32 } %.pn32
 
 .thread:                                          ; preds = %39
@@ -28638,7 +28638,7 @@ define hidden void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h68907909
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i20": ; preds = %27, %.noexc.i18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !5636
   %.pre = load i64, ptr %1, align 8, !range !1570
-  %.pre31 = add i64 %.pre, 9223372036854775807
+  %.pre32 = add i64 %.pre, 9223372036854775807
   br label %33
 
 .body21:                                          ; preds = %27, %24
@@ -28649,7 +28649,7 @@ define hidden void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h68907909
           to label %40 unwind label %38
 
 33:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i20", %18
-  %.pre-phi = phi i64 [ %.pre31, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i20" ], [ %10, %18 ]
+  %.pre-phi = phi i64 [ %.pre32, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i20" ], [ %10, %18 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !alias.scope !5645
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %7, i64 96, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -28731,8 +28731,8 @@ define hidden void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h68907909
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$tree_sitter_cli..generate..rules..Rule$GT$17h02400b007e887d48E"(ptr noalias noundef align 8 dereferenceable(104) %1)
   br label %56
 
-58:                                               ; preds = %.body, %.thread, %64
-  %.pn29 = phi { ptr, i32 } [ %32, %64 ], [ %32, %.thread ], [ %52, %.body ]
+58:                                               ; preds = %.thread, %.body, %64
+  %.pn29 = phi { ptr, i32 } [ %32, %64 ], [ %52, %.body ], [ %32, %.thread ]
   resume { ptr, i32 } %.pn29
 
 .thread:                                          ; preds = %40
@@ -28805,7 +28805,7 @@ define hidden void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h8f4ae02d
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i19": ; preds = %27, %.noexc.i17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !5664
   %.pre = load i64, ptr %1, align 8, !range !1570
-  %.pre30 = add i64 %.pre, 9223372036854775807
+  %.pre31 = add i64 %.pre, 9223372036854775807
   br label %33
 
 .body20:                                          ; preds = %27, %24
@@ -28816,7 +28816,7 @@ define hidden void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h8f4ae02d
           to label %40 unwind label %38
 
 33:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i19", %18
-  %.pre-phi = phi i64 [ %.pre30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i19" ], [ %10, %18 ]
+  %.pre-phi = phi i64 [ %.pre31, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i19" ], [ %10, %18 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !alias.scope !5673
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %7, i64 96, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -28897,8 +28897,8 @@ define hidden void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h8f4ae02d
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$tree_sitter_cli..generate..rules..Rule$GT$17h02400b007e887d48E"(ptr noalias noundef align 8 dereferenceable(104) %1)
   br label %56
 
-58:                                               ; preds = %.body, %.thread, %64
-  %.pn28 = phi { ptr, i32 } [ %32, %64 ], [ %32, %.thread ], [ %52, %.body ]
+58:                                               ; preds = %.thread, %.body, %64
+  %.pn28 = phi { ptr, i32 } [ %32, %64 ], [ %52, %.body ], [ %32, %.thread ]
   resume { ptr, i32 } %.pn28
 
 .thread:                                          ; preds = %40
@@ -28973,7 +28973,7 @@ define hidden void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h8f7f0abe
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i20": ; preds = %27, %.noexc.i18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !5690
   %.pre = load i64, ptr %1, align 8, !range !1570
-  %.pre31 = add i64 %.pre, 9223372036854775807
+  %.pre32 = add i64 %.pre, 9223372036854775807
   br label %33
 
 .body21:                                          ; preds = %27, %24
@@ -28984,7 +28984,7 @@ define hidden void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h8f7f0abe
           to label %40 unwind label %38
 
 33:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i20", %18
-  %.pre-phi = phi i64 [ %.pre31, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i20" ], [ %10, %18 ]
+  %.pre-phi = phi i64 [ %.pre32, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i20" ], [ %10, %18 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !alias.scope !5699
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %7, i64 96, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -29066,8 +29066,8 @@ define hidden void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h8f7f0abe
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$tree_sitter_cli..generate..rules..Rule$GT$17h02400b007e887d48E"(ptr noalias noundef align 8 dereferenceable(104) %1)
   br label %56
 
-58:                                               ; preds = %.body, %.thread, %64
-  %.pn29 = phi { ptr, i32 } [ %32, %64 ], [ %32, %.thread ], [ %52, %.body ]
+58:                                               ; preds = %.thread, %.body, %64
+  %.pn29 = phi { ptr, i32 } [ %32, %64 ], [ %52, %.body ], [ %32, %.thread ]
   resume { ptr, i32 } %.pn29
 
 .thread:                                          ; preds = %40

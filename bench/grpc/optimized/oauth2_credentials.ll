@@ -8678,7 +8678,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %_ZN4absl12lts_20240
   %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13RefCountedPtrINS3_23TokenFetcherCredentials5TokenEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #36
-  br label %169
+  br label %.body.thread
 
 37:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #36
@@ -9017,24 +9017,24 @@ _ZN9grpc_core13RefCountedPtrINS_29Oauth2TokenFetcherCredentials16HttpFetchReques
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #36
   call void @_ZNSt14_Optional_baseIN9grpc_core5SliceELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #36
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #36
-  br label %169
+  br label %.body.thread
 
-169:                                              ; preds = %35, %.body29
-  %.pn12.pn.pn.pn = phi { ptr, i32 } [ %.pn12.pn.pn, %.body29 ], [ %36, %35 ]
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %171 = atomicrmw sub ptr %170, i64 1 acq_rel, align 8
-  %172 = icmp eq i64 %171, 1
-  br i1 %172, label %173, label %_ZN9grpc_core13RefCountedPtrINS_29Oauth2TokenFetcherCredentials16HttpFetchRequestEED2Ev.exit41, !prof !26
+.body.thread:                                     ; preds = %35, %.body29
+  %.pn12.pn.pn.pn54 = phi { ptr, i32 } [ %36, %35 ], [ %.pn12.pn.pn, %.body29 ]
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %170 = atomicrmw sub ptr %169, i64 1 acq_rel, align 8
+  %171 = icmp eq i64 %170, 1
+  br i1 %171, label %172, label %_ZN9grpc_core13RefCountedPtrINS_29Oauth2TokenFetcherCredentials16HttpFetchRequestEED2Ev.exit41, !prof !26
 
-173:                                              ; preds = %169
-  %174 = load ptr, ptr %0, align 8, !tbaa !14
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
-  %176 = load ptr, ptr %175, align 8
-  call void %176(ptr noundef nonnull align 8 dereferenceable(16) %0) #36
+172:                                              ; preds = %.body.thread
+  %173 = load ptr, ptr %0, align 8, !tbaa !14
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
+  %175 = load ptr, ptr %174, align 8
+  call void %175(ptr noundef nonnull align 8 dereferenceable(16) %0) #36
   br label %_ZN9grpc_core13RefCountedPtrINS_29Oauth2TokenFetcherCredentials16HttpFetchRequestEED2Ev.exit41
 
-_ZN9grpc_core13RefCountedPtrINS_29Oauth2TokenFetcherCredentials16HttpFetchRequestEED2Ev.exit41: ; preds = %169, %173
-  resume { ptr, i32 } %.pn12.pn.pn.pn
+_ZN9grpc_core13RefCountedPtrINS_29Oauth2TokenFetcherCredentials16HttpFetchRequestEED2Ev.exit41: ; preds = %.body.thread, %172
+  resume { ptr, i32 } %.pn12.pn.pn.pn54
 }
 
 ; Function Attrs: mustprogress uwtable

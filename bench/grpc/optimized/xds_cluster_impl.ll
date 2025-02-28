@@ -4089,7 +4089,7 @@ _ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerED2Ev.exit59.i: ; pr
   br label %_ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerED2Ev.exit61.i
 
 .body.i:                                          ; preds = %373, %369, %367, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48.i, %340
-  %.pn26.pn88.i = phi { ptr, i32 } [ %368, %373 ], [ %368, %369 ], [ %368, %367 ], [ %341, %340 ], [ %.pn22.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48.i ]
+  %.pn26.pn88.i = phi { ptr, i32 } [ %368, %367 ], [ %368, %369 ], [ %368, %373 ], [ %341, %340 ], [ %.pn22.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #37, !noalias !156
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #37, !noalias !156
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #37

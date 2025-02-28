@@ -18158,16 +18158,16 @@ _ZNSt6vectorIP11_typeobjectSaIS1_EE9push_backEOS1_.exit101: ; preds = %_ZNSt6vec
   %.sroa.0133.1 = phi ptr [ %.sroa.0133.0226, %49 ], [ %.sroa.0133.0.lcssa299, %64 ], [ %.sroa.0133.6241, %188 ], [ %.sroa.0133.2250, %.loopexit ], [ %.sroa.0133.2250, %.loopexit.split-lp.loopexit ], [ %.sroa.0133.2250, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn57.pn.pn.pn = phi { ptr, i32 } [ %lpad.phi177, %49 ], [ %65, %64 ], [ %lpad.phi166, %188 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit168, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp169, %.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i102 = icmp eq ptr %.sroa.0133.1, null
-  br i1 %.not.i.i.i102, label %_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit103, label %195
+  br i1 %.not.i.i.i102, label %_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit103, label %.thread
 
-195:                                              ; preds = %.loopexit.split-lp
-  %196 = ptrtoint ptr %.sroa.23.1 to i64
-  %197 = ptrtoint ptr %.sroa.0133.1 to i64
-  %198 = sub i64 %196, %197
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0133.1, i64 noundef %198) #37
+.thread:                                          ; preds = %.loopexit.split-lp
+  %195 = ptrtoint ptr %.sroa.23.1 to i64
+  %196 = ptrtoint ptr %.sroa.0133.1 to i64
+  %197 = sub i64 %195, %196
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0133.1, i64 noundef %197) #37
   br label %_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit103
 
-_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit103:  ; preds = %.loopexit.split-lp, %195
+_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit103:  ; preds = %.loopexit.split-lp, %.thread
   resume { ptr, i32 } %.pn57.pn.pn.pn
 }
 
@@ -43372,7 +43372,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJbEE4callIvN
 
 10:                                               ; preds = %8
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN8pybind1117error_already_setE, ptr nonnull @_ZN8pybind1117error_already_setD2Ev) #36
-          to label %66 unwind label %13
+          to label %65 unwind label %13
 
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
@@ -43391,7 +43391,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJbEE4callIvN
   %.044.i.i = extractvalue { ptr, i32 } %.pn.i.i, 1
   %16 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #34
   %17 = icmp eq i32 %.044.i.i, %16
-  br i1 %17, label %18, label %62
+  br i1 %17, label %18, label %61
 
 18:                                               ; preds = %15
   %.040.i.i = extractvalue { ptr, i32 } %.pn.i.i, 0
@@ -43412,7 +43412,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJbEE4callIvN
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #34
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #34
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.183, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %.critedge58.i.i unwind label %47
+          to label %.critedge58.i.i unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i.i
 
 .critedge58.i.i:                                  ; preds = %.critedge.i.i
   %25 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %23) #34
@@ -43438,11 +43438,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .critedge60.i.i:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #34
-  br i1 %.not.i.i, label %54, label %43
+  br i1 %.not.i.i, label %53, label %43
 
 .critedge62.i.i:                                  ; preds = %24
   %34 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %23) #34
-  %.not15.i.i = icmp eq i32 %34, 0
+  %.not14.i.i = icmp eq i32 %34, 0
   %35 = load ptr, ptr %1, align 8, !tbaa !11
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = icmp eq ptr %35, %36
@@ -43464,88 +43464,88 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i68
 .critedge64.i.i:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i68.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i69.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #34
-  br i1 %.not15.i.i, label %54, label %43
+  br i1 %.not14.i.i, label %53, label %43
 
 43:                                               ; preds = %.critedge64.i.i, %.critedge60.i.i
   invoke void @PyErr_Clear()
-          to label %44 unwind label %50
+          to label %44 unwind label %49
 
 44:                                               ; preds = %43
   %45 = call ptr @__cxa_allocate_exception(i64 16) #34
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull @.str.184)
-          to label %46 unwind label %52
+          to label %46 unwind label %51
 
 46:                                               ; preds = %44
   invoke void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #36
-          to label %66 unwind label %50
+          to label %65 unwind label %49
 
-47:                                               ; preds = %.critedge.i.i
+.critedge66.i.i:                                  ; preds = %24
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #34
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #34
+  br label %.critedge67.i.i
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i.i: ; preds = %.critedge.i.i
   %48 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #34
   br label %.critedge67.i.i
 
-.critedge66.i.i:                                  ; preds = %24
-  %49 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #34
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #34
-  br label %.critedge67.i.i
-
-50:                                               ; preds = %46, %43
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %46, %43
+  %50 = landingpad { ptr, i32 }
           cleanup
   br label %.critedge67.i.i
 
-52:                                               ; preds = %44
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %44
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr nonnull %45) #34
   br label %.critedge67.i.i
 
-54:                                               ; preds = %.critedge64.i.i, %.critedge60.i.i
+53:                                               ; preds = %.critedge64.i.i, %.critedge60.i.i
   call void @__cxa_end_catch()
   call void @PyErr_Clear()
-  br i1 %5, label %55, label %57
+  br i1 %5, label %54, label %56
 
-55:                                               ; preds = %54
-  %56 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !127
-  call void @PyErr_SetString(ptr noundef %56, ptr noundef nonnull @.str.181)
-  br label %57
+54:                                               ; preds = %53
+  %55 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !127
+  call void @PyErr_SetString(ptr noundef %55, ptr noundef nonnull @.str.181)
+  br label %56
 
-.critedge67.i.i:                                  ; preds = %52, %50, %.critedge66.i.i, %47
-  %.pn55.i.i = phi { ptr, i32 } [ %51, %50 ], [ %53, %52 ], [ %49, %.critedge66.i.i ], [ %48, %47 ]
+.critedge67.i.i:                                  ; preds = %51, %49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i.i, %.critedge66.i.i
+  %.pn55.i.i = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ], [ %47, %.critedge66.i.i ], [ %48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i.i ]
   invoke void @__cxa_end_catch()
-          to label %62 unwind label %63
+          to label %61 unwind label %62
 
-57:                                               ; preds = %55, %54
-  %58 = call ptr @__cxa_allocate_exception(i64 24) #34
-  invoke void @_ZN8pybind1117error_already_setC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %58)
-          to label %59 unwind label %60
+56:                                               ; preds = %54, %53
+  %57 = call ptr @__cxa_allocate_exception(i64 24) #34
+  invoke void @_ZN8pybind1117error_already_setC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %57)
+          to label %58 unwind label %59
 
-59:                                               ; preds = %57
-  call void @__cxa_throw(ptr nonnull %58, ptr nonnull @_ZTIN8pybind1117error_already_setE, ptr nonnull @_ZN8pybind1117error_already_setD2Ev) #36
+58:                                               ; preds = %56
+  call void @__cxa_throw(ptr nonnull %57, ptr nonnull @_ZTIN8pybind1117error_already_setE, ptr nonnull @_ZN8pybind1117error_already_setD2Ev) #36
   unreachable
 
-60:                                               ; preds = %57
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %56
+  %60 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %58) #34
-  br label %62
+  call void @__cxa_free_exception(ptr nonnull %57) #34
+  br label %61
 
-62:                                               ; preds = %60, %.critedge67.i.i, %15
-  %.merged.i.i = phi { ptr, i32 } [ %61, %60 ], [ %.pn.i.i, %15 ], [ %.pn55.i.i, %.critedge67.i.i ]
+61:                                               ; preds = %59, %.critedge67.i.i, %15
+  %.merged.i.i = phi { ptr, i32 } [ %60, %59 ], [ %.pn.i.i, %15 ], [ %.pn55.i.i, %.critedge67.i.i ]
   resume { ptr, i32 } %.merged.i.i
 
-63:                                               ; preds = %.critedge67.i.i
-  %64 = landingpad { ptr, i32 }
+62:                                               ; preds = %.critedge67.i.i
+  %63 = landingpad { ptr, i32 }
           catch ptr null
-  %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #35
+  %64 = extractvalue { ptr, i32 } %63, 0
+  call void @__clang_call_terminate(ptr %64) #35
   unreachable
 
-66:                                               ; preds = %46, %10
+65:                                               ; preds = %46, %10
   unreachable
 }
 

@@ -686,7 +686,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit28: ; pre
 132:                                              ; preds = %.loopexit
   %133 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit31
+  br label %.body
 
 134:                                              ; preds = %_ZNSt16allocator_traitsISaISt6vectorIlSaIlEEEE8allocateERS3_m.exit.i.i.i.i, %97
   %135 = landingpad { ptr, i32 }
@@ -697,7 +697,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit28: ; pre
   %eh.lpad-body23 = phi { ptr, i32 } [ %135, %134 ], [ %106, %108 ], [ %106, %105 ]
   %136 = load ptr, ptr %8, align 8
   %.not.i.i.i29 = icmp eq ptr %136, null
-  br i1 %.not.i.i.i29, label %_ZNSt6vectorIlSaIlEED2Ev.exit31, label %137
+  br i1 %.not.i.i.i29, label %.body, label %137
 
 137:                                              ; preds = %.body22
   %138 = load ptr, ptr %94, align 8
@@ -705,15 +705,15 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit28: ; pre
   %140 = ptrtoint ptr %136 to i64
   %141 = sub i64 %139, %140
   call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef %141) #24
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit31
+  br label %.body
 
-_ZNSt6vectorIlSaIlEED2Ev.exit31:                  ; preds = %.body22, %137, %132
-  %.pn.pn = phi { ptr, i32 } [ %133, %132 ], [ %eh.lpad-body23, %137 ], [ %eh.lpad-body23, %.body22 ]
+.body:                                            ; preds = %.body22, %137, %132
+  %.pn.pn = phi { ptr, i32 } [ %133, %132 ], [ %eh.lpad-body23, %.body22 ], [ %eh.lpad-body23, %137 ]
   %142 = load ptr, ptr %69, align 8
   %.not.i.i.i32 = icmp eq ptr %142, null
   br i1 %.not.i.i.i32, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %143
 
-143:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit31
+143:                                              ; preds = %.body
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %145 = load ptr, ptr %144, align 8
   %146 = ptrtoint ptr %145 to i64
@@ -722,8 +722,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit31:                  ; preds = %.body22, %137, %132
   call void @_ZdlPvm(ptr noundef nonnull %142, i64 noundef %148) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %143, %_ZNSt6vectorIlSaIlEED2Ev.exit31, %130, %128
-  %.pn.pn.pn = phi { ptr, i32 } [ %131, %130 ], [ %129, %128 ], [ %.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit31 ], [ %.pn.pn, %143 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %143, %.body, %130, %128
+  %.pn.pn.pn = phi { ptr, i32 } [ %131, %130 ], [ %129, %128 ], [ %.pn.pn, %.body ], [ %.pn.pn, %143 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #21
   br label %149
 

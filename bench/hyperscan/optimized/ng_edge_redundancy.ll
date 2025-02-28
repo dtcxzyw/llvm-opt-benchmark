@@ -1695,8 +1695,8 @@ define hidden noundef zeroext i1 @_ZN3ue228removeSiblingsOfStartDotStarERNS_8NGH
   br i1 %.not104, label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit, label %.lr.ph109
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %.not121 = icmp ne ptr %.sroa.068.1, %.sroa.10.1
-  br i1 %.not121, label %41, label %44
+  %.not122 = icmp ne ptr %.sroa.068.1, %.sroa.10.1
+  br i1 %.not122, label %41, label %44
 
 .lr.ph109:                                        ; preds = %1, %.loopexit
   %.sroa.063.0108 = phi ptr [ %.sroa.063.0, %.loopexit ], [ %.sroa.063.0103, %1 ]
@@ -1848,20 +1848,20 @@ _ZN3ue212remove_edgesISt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graph
   br label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit
 
 _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit: ; preds = %1, %44, %45
-  %46 = phi i1 [ %.not121, %44 ], [ %.not121, %45 ], [ false, %1 ]
+  %46 = phi i1 [ %.not122, %44 ], [ %.not122, %45 ], [ false, %1 ]
   ret i1 %46
 
 47:                                               ; preds = %.loopexit83, %.loopexit.split-lp, %42
   %.sroa.068.4 = phi ptr [ %.sroa.068.1, %42 ], [ %.sroa.068.299, %.loopexit83 ], [ %.sroa.068.299, %.loopexit.split-lp ]
   %.pn39.pn.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %lpad.loopexit, %.loopexit83 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i50 = icmp eq ptr %.sroa.068.4, null
-  br i1 %.not.i.i.i50, label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit51, label %48
+  br i1 %.not.i.i.i50, label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit51, label %.thread
 
-48:                                               ; preds = %47
+.thread:                                          ; preds = %47
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.068.4) #25
   br label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit51
 
-_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit51: ; preds = %47, %48
+_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit51: ; preds = %47, %.thread
   resume { ptr, i32 } %.pn39.pn.pn.pn
 }
 
@@ -1882,8 +1882,8 @@ define hidden noundef zeroext i1 @_ZN3ue221optimiseVirtualStartsERNS_8NGHolderE(
   br i1 %.not81104, label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit, label %.lr.ph109
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %.not121 = icmp ne ptr %.sroa.067.1, %.sroa.10.1
-  br i1 %.not121, label %42, label %45
+  %.not122 = icmp ne ptr %.sroa.067.1, %.sroa.10.1
+  br i1 %.not122, label %42, label %45
 
 .lr.ph109:                                        ; preds = %1, %.loopexit
   %.sroa.062.0108 = phi ptr [ %.sroa.062.0, %.loopexit ], [ %.sroa.062.0103, %1 ]
@@ -2037,20 +2037,20 @@ _ZN3ue212remove_edgesISt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graph
   br label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit
 
 _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit: ; preds = %1, %45, %46
-  %47 = phi i1 [ %.not121, %45 ], [ %.not121, %46 ], [ false, %1 ]
+  %47 = phi i1 [ %.not122, %45 ], [ %.not122, %46 ], [ false, %1 ]
   ret i1 %47
 
 48:                                               ; preds = %.loopexit83, %.loopexit.split-lp, %43
   %.sroa.067.4 = phi ptr [ %.sroa.067.1, %43 ], [ %.sroa.067.299, %.loopexit83 ], [ %.sroa.067.299, %.loopexit.split-lp ]
   %.pn34.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %lpad.loopexit, %.loopexit83 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i49 = icmp eq ptr %.sroa.067.4, null
-  br i1 %.not.i.i.i49, label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit50, label %49
+  br i1 %.not.i.i.i49, label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit50, label %.thread
 
-49:                                               ; preds = %48
+.thread:                                          ; preds = %48
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.067.4) #25
   br label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit50
 
-_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit50: ; preds = %48, %49
+_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit50: ; preds = %48, %.thread
   resume { ptr, i32 } %.pn34.pn.pn.pn.pn.pn.pn.pn
 }
 

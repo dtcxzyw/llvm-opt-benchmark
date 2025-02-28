@@ -910,19 +910,28 @@ define hidden void @"_ZN104_$LT$futures_util..stream..unfold..Unfold$LT$T$C$F$C$
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %10 = load i8, ptr %9, align 2, !range !26, !noundef !5
   %11 = icmp eq i8 %10, 4
-  br i1 %11, label %12, label %"_ZN12futures_util12unfold_state24UnfoldState$LT$T$C$R$GT$10take_value17hc3976e75d61eb143E.exit.thread"
+  br i1 %11, label %14, label %"_ZN12futures_util12unfold_state24UnfoldState$LT$T$C$R$GT$10take_value17hc3976e75d61eb143E.exit.thread"
 
-12:                                               ; preds = %3
-  %13 = load ptr, ptr %1, align 8, !noalias !27, !nonnull !5, !noundef !5
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !noalias !27, !nonnull !5, !noundef !5
-  store i8 6, ptr %9, align 2, !noalias !31
+12:                                               ; preds = %14
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %15, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !27
+  %.sroa.691.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %17, ptr %.sroa.691.0..sroa_idx, align 8, !noalias !27
+  br label %common.resume.sink.split
+
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %1, align 8, !noalias !30, !nonnull !5, !noundef !5
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %17 = load ptr, ptr %16, align 8, !noalias !30, !nonnull !5, !noundef !5
+  store i8 6, ptr %9, align 2, !noalias !34
   invoke fastcc void @"_ZN4core3ptr296drop_in_place$LT$futures_util..unfold_state..UnfoldState$LT$$LP$tokio..sync..mpsc..unbounded..UnboundedReceiver$LT$alloc..vec..Vec$LT$u8$GT$$GT$$C$meilisearch..routes..logs..HandleGuard$RP$$C$meilisearch..routes..logs..byte_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h134cab4866694e99E"(ptr noundef nonnull align 8 %1)
-          to label %.thread unwind label %16, !noalias !32
+          to label %.thread unwind label %12, !noalias !27
 
-common.resume.sink.split:                         ; preds = %"_ZN4core3ptr101drop_in_place$LT$tokio..sync..mpsc..unbounded..UnboundedReceiver$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h7f0d6545bd6216cdE.exit.i", %89, %16, %100
-  %.sink = phi i8 [ 6, %100 ], [ 0, %16 ], [ 2, %89 ], [ 2, %"_ZN4core3ptr101drop_in_place$LT$tokio..sync..mpsc..unbounded..UnboundedReceiver$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h7f0d6545bd6216cdE.exit.i" ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %101, %100 ], [ %17, %16 ], [ %.pn7.pn.i, %89 ], [ %.pn7.pn.i, %"_ZN4core3ptr101drop_in_place$LT$tokio..sync..mpsc..unbounded..UnboundedReceiver$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h7f0d6545bd6216cdE.exit.i" ]
+common.resume.sink.split:                         ; preds = %"_ZN4core3ptr101drop_in_place$LT$tokio..sync..mpsc..unbounded..UnboundedReceiver$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h7f0d6545bd6216cdE.exit.i", %89, %12, %100
+  %.sink = phi i8 [ 6, %100 ], [ 0, %12 ], [ 2, %89 ], [ 2, %"_ZN4core3ptr101drop_in_place$LT$tokio..sync..mpsc..unbounded..UnboundedReceiver$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h7f0d6545bd6216cdE.exit.i" ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %101, %100 ], [ %13, %12 ], [ %.pn7.pn.i, %89 ], [ %.pn7.pn.i, %"_ZN4core3ptr101drop_in_place$LT$tokio..sync..mpsc..unbounded..UnboundedReceiver$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h7f0d6545bd6216cdE.exit.i" ]
   store i8 %.sink, ptr %9, align 2, !noalias !5
   br label %common.resume
 
@@ -930,21 +939,12 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %98, %.body ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %13, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !32
-  %.sroa.691.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %15, ptr %.sroa.691.0..sroa_idx, align 8, !noalias !32
-  br label %common.resume.sink.split
-
-.thread:                                          ; preds = %12
+.thread:                                          ; preds = %14
   %.sroa.5.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %13, ptr %.sroa.5.0..sroa_idx89, align 8, !noalias !32
+  store ptr %15, ptr %.sroa.5.0..sroa_idx89, align 8, !noalias !27
   %.sroa.691.0..sroa_idx92 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %15, ptr %.sroa.691.0..sroa_idx92, align 8, !noalias !32
-  store i8 0, ptr %9, align 2, !noalias !32
+  store ptr %17, ptr %.sroa.691.0..sroa_idx92, align 8, !noalias !27
+  store i8 0, ptr %9, align 2, !noalias !27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.821.i)
@@ -1329,6 +1329,7 @@ define hidden void @"_ZN104_$LT$futures_util..stream..unfold..Unfold$LT$T$C$F$C$
   %.sroa.5136 = alloca [32 x i8], align 8
   %.sroa.6138 = alloca [64 x i8], align 8
   %.sroa.10141 = alloca [16 x i8], align 8
+  %.sroa.045.sroa.4 = alloca [16 x i8], align 8
   %35 = load i64, ptr %1, align 8, !range !104, !noalias !105, !noundef !5
   %36 = icmp eq i64 %35, -9223372036854775808
   br i1 %36, label %"_ZN12futures_util12unfold_state1_70_$LT$impl$u20$futures_util..unfold_state..UnfoldState$LT$T$C$R$GT$$GT$15project_replace17h912fb75e5a82807fE.exit.i", label %"_ZN12futures_util12unfold_state24UnfoldState$LT$T$C$R$GT$10take_value17h11b65be755efad9aE.exit.thread"
@@ -1338,32 +1339,17 @@ define hidden void @"_ZN104_$LT$futures_util..stream..unfold..Unfold$LT$T$C$F$C$
   %.sroa.068.0.copyload = load i64, ptr %37, align 8, !noalias !108
   store i64 -9223372036854775806, ptr %1, align 8, !noalias !111
   %38 = icmp sgt i64 %.sroa.068.0.copyload, -9223372036854775807
-  br i1 %38, label %40, label %39
+  br i1 %38, label %42, label %39
 
 39:                                               ; preds = %"_ZN12futures_util12unfold_state1_70_$LT$impl$u20$futures_util..unfold_state..UnfoldState$LT$T$C$R$GT$$GT$15project_replace17h912fb75e5a82807fE.exit.i"
   tail call void @_ZN4core9panicking5panic17h75b3c9209f97d725E(ptr noalias noundef nonnull readonly align 1 @anon.123d5b4c89b7d2835246486972274978.29, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.123d5b4c89b7d2835246486972274978.31) #32, !noalias !105
   unreachable
 
-40:                                               ; preds = %"_ZN12futures_util12unfold_state1_70_$LT$impl$u20$futures_util..unfold_state..UnfoldState$LT$T$C$R$GT$$GT$15project_replace17h912fb75e5a82807fE.exit.i"
-  %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.469.0..sroa_idx, i64 16, i1 false)
-  %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx39.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.6.sroa.4.0.copyload = load ptr, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx39.sroa_idx, align 8, !nonnull !5, !noundef !5
-  %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx39.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.6.sroa.5.0.copyload = load ptr, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx39.sroa_idx, align 8, !nonnull !5, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr352drop_in_place$LT$futures_util..unfold_state..UnfoldState$LT$$LP$tokio..sync..mpsc..unbounded..UnboundedReceiver$LT$tracing_trace..entry..Entry$GT$$C$alloc..vec..Vec$LT$tracing_trace..entry..Entry$GT$$C$meilisearch..routes..logs..HandleGuard$RP$$C$meilisearch..routes..logs..entry_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9a224026ad8c6c11E"(ptr noundef nonnull align 8 %1)
-          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h9c3b9cb8f7728ee4E.exit" unwind label %41, !noalias !113
-
-common.resume:                                    ; preds = %414, %.body, %.body159.i, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %.pn86.pn.pn.i, %.body159.i ], [ %415, %414 ], [ %412, %.body ]
-  resume { ptr, i32 } %common.resume.op
-
-41:                                               ; preds = %40
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %42
+  %41 = landingpad { ptr, i32 }
           cleanup
   store i64 %.sroa.068.0.copyload, ptr %1, align 8, !noalias !113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false), !noalias !113
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.045.sroa.4, i64 16, i1 false)
   %.sroa.6105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %.sroa.6.sroa.4.0.copyload, ptr %.sroa.6105.0..sroa_idx, align 8, !noalias !113
   store ptr %.sroa.6.sroa.5.0.copyload, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx39.sroa_idx, align 8, !noalias !113
@@ -1371,7 +1357,24 @@ common.resume:                                    ; preds = %414, %.body, %.body
   store i8 0, ptr %.sroa.9.0..sroa_idx113, align 8, !noalias !113
   br label %common.resume
 
-"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h9c3b9cb8f7728ee4E.exit": ; preds = %40
+42:                                               ; preds = %"_ZN12futures_util12unfold_state1_70_$LT$impl$u20$futures_util..unfold_state..UnfoldState$LT$T$C$R$GT$$GT$15project_replace17h912fb75e5a82807fE.exit.i"
+  %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.045.sroa.4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.045.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.469.0..sroa_idx, i64 16, i1 false)
+  %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx39.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.6.sroa.4.0.copyload = load ptr, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx39.sroa_idx, align 8, !nonnull !5, !noundef !5
+  %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx39.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.sroa.6.sroa.5.0.copyload = load ptr, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx39.sroa_idx, align 8, !nonnull !5, !noundef !5
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.469.0..sroa_idx, i64 16, i1 false)
+  invoke fastcc void @"_ZN4core3ptr352drop_in_place$LT$futures_util..unfold_state..UnfoldState$LT$$LP$tokio..sync..mpsc..unbounded..UnboundedReceiver$LT$tracing_trace..entry..Entry$GT$$C$alloc..vec..Vec$LT$tracing_trace..entry..Entry$GT$$C$meilisearch..routes..logs..HandleGuard$RP$$C$meilisearch..routes..logs..entry_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9a224026ad8c6c11E"(ptr noundef nonnull align 8 %1)
+          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h9c3b9cb8f7728ee4E.exit" unwind label %40, !noalias !113
+
+common.resume:                                    ; preds = %414, %.body, %.body159.i, %40
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %.pn86.pn.pn.i, %.body159.i ], [ %415, %414 ], [ %412, %.body ]
+  resume { ptr, i32 } %common.resume.op
+
+"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h9c3b9cb8f7728ee4E.exit": ; preds = %42
   store i64 %.sroa.068.0.copyload, ptr %1, align 8, !noalias !113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false), !noalias !113
   %.sroa.6105.0..sroa_idx106 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1380,6 +1383,7 @@ common.resume:                                    ; preds = %414, %.body, %.body
   %.sroa.9.0..sroa_idx114 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store i8 0, ptr %.sroa.9.0..sroa_idx114, align 8, !noalias !113
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.045.sroa.4)
   br label %"_ZN12futures_util12unfold_state24UnfoldState$LT$T$C$R$GT$10take_value17h11b65be755efad9aE.exit.thread"
 
 "_ZN12futures_util12unfold_state24UnfoldState$LT$T$C$R$GT$10take_value17h11b65be755efad9aE.exit.thread": ; preds = %3, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h9c3b9cb8f7728ee4E.exit"
@@ -127632,14 +127636,14 @@ attributes #36 = { "function-inline-cost-multiplier"="2" }
 !24 = !{i32 0, i32 3}
 !25 = !{!22}
 !26 = !{i8 0, i8 7}
-!27 = !{!28, !30}
-!28 = distinct !{!28, !29, !"_ZN12futures_util12unfold_state1_70_$LT$impl$u20$futures_util..unfold_state..UnfoldState$LT$T$C$R$GT$$GT$15project_replace17h9953f5bfc7a18811E: argument 0"}
-!29 = distinct !{!29, !"_ZN12futures_util12unfold_state1_70_$LT$impl$u20$futures_util..unfold_state..UnfoldState$LT$T$C$R$GT$$GT$15project_replace17h9953f5bfc7a18811E"}
-!30 = distinct !{!30, !29, !"_ZN12futures_util12unfold_state1_70_$LT$impl$u20$futures_util..unfold_state..UnfoldState$LT$T$C$R$GT$$GT$15project_replace17h9953f5bfc7a18811E: argument 1"}
-!31 = !{!28}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN4core3pin14Pin$LT$Ptr$GT$3set17ha7b52e36b825d07fE: argument 1"}
-!34 = distinct !{!34, !"_ZN4core3pin14Pin$LT$Ptr$GT$3set17ha7b52e36b825d07fE"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZN4core3pin14Pin$LT$Ptr$GT$3set17ha7b52e36b825d07fE: argument 1"}
+!29 = distinct !{!29, !"_ZN4core3pin14Pin$LT$Ptr$GT$3set17ha7b52e36b825d07fE"}
+!30 = !{!31, !33}
+!31 = distinct !{!31, !32, !"_ZN12futures_util12unfold_state1_70_$LT$impl$u20$futures_util..unfold_state..UnfoldState$LT$T$C$R$GT$$GT$15project_replace17h9953f5bfc7a18811E: argument 0"}
+!32 = distinct !{!32, !"_ZN12futures_util12unfold_state1_70_$LT$impl$u20$futures_util..unfold_state..UnfoldState$LT$T$C$R$GT$$GT$15project_replace17h9953f5bfc7a18811E"}
+!33 = distinct !{!33, !32, !"_ZN12futures_util12unfold_state1_70_$LT$impl$u20$futures_util..unfold_state..UnfoldState$LT$T$C$R$GT$$GT$15project_replace17h9953f5bfc7a18811E: argument 1"}
+!34 = !{!31}
 !35 = !{!36, !38}
 !36 = distinct !{!36, !37, !"_ZN11meilisearch6routes4logs11byte_stream28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbcd3868166397b79E: argument 0"}
 !37 = distinct !{!37, !"_ZN11meilisearch6routes4logs11byte_stream28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbcd3868166397b79E"}

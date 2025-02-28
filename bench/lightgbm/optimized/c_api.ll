@@ -8833,7 +8833,7 @@ _ZN8LightGBM12FeatureGroup8PushDataEiiid.exit:    ; preds = %.invoke, %.noexc36
 174:                                              ; preds = %.invoke, %105
   %175 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit44
+  br label %.thread
 
 176:                                              ; preds = %99, %161, %166, %_ZN8LightGBM12FeatureGroup8PushDataEiiid.exit, %96
   %177 = getelementptr inbounds nuw i8, ptr %.sroa.051.072, i64 16
@@ -8860,10 +8860,10 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZN8LightGBM7Datase
 184:                                              ; preds = %.invoke73, %50
   %185 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit44
+  br label %.thread
 
-_ZNSt13_Bvector_baseISaIbEED2Ev.exit44:           ; preds = %184, %174
-  %.pn.pn.ph = phi { ptr, i32 } [ %175, %174 ], [ %185, %184 ]
+.thread:                                          ; preds = %184, %174
+  %.pn.pn67 = phi { ptr, i32 } [ %175, %174 ], [ %185, %184 ]
   %186 = ptrtoint ptr %.sroa.2861.0 to i64
   %187 = ptrtoint ptr %.sroa.055.0 to i64
   %188 = sub i64 %186, %187
@@ -8871,7 +8871,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit44:           ; preds = %184, %174
   %190 = sub nsw i64 0, %189
   %191 = getelementptr inbounds i64, ptr %.sroa.2861.0, i64 %190
   tail call void @_ZdlPv(ptr noundef %191) #39
-  resume { ptr, i32 } %.pn.pn.ph
+  resume { ptr, i32 } %.pn.pn67
 }
 
 ; Function Attrs: mustprogress uwtable

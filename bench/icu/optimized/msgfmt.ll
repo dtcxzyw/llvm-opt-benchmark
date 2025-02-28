@@ -3555,7 +3555,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit: ; preds = %10
 18:                                               ; preds = %20
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread86
+  br label %.thread95
 
 20:                                               ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit
   %21 = invoke noundef ptr @_ZN6icu_777UVector10setDeleterEPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull @uprv_deleteUObject_77)
@@ -3648,7 +3648,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit: ; preds = %_ZN6icu_7712L
 _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit57: ; preds = %_ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit
   %52 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread86
+  br label %.thread95
 
 .critedge:                                        ; preds = %._crit_edge.i
   %53 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 128) #23
@@ -3721,9 +3721,9 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit.thread: ; preds = %_Z
 81:                                               ; preds = %48, %50
   %.pn = phi { ptr, i32 } [ %51, %50 ], [ %49, %48 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #23
-  br label %.thread86
+  br label %.thread95
 
-.thread86:                                        ; preds = %81, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit57, %18
+.thread95:                                        ; preds = %81, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit57, %18
   %.pn5290 = phi { ptr, i32 } [ %.pn, %81 ], [ %52, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit57 ], [ %19, %18 ]
   %82 = load ptr, ptr %8, align 8, !tbaa !15
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -3731,8 +3731,8 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit.thread: ; preds = %_Z
   call void %84(ptr noundef nonnull align 8 dereferenceable(40) %8) #23
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit61
 
-_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit61: ; preds = %.thread86, %.thread92, %16
-  %.pn52.pn = phi { ptr, i32 } [ %17, %16 ], [ %.pn5290, %.thread86 ], [ %71, %.thread92 ]
+_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit61: ; preds = %.thread95, %.thread92, %16
+  %.pn52.pn = phi { ptr, i32 } [ %17, %16 ], [ %.pn5290, %.thread95 ], [ %71, %.thread92 ]
   resume { ptr, i32 } %.pn52.pn
 
 _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit60: ; preds = %14, %11, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit, %66, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit.thread, %2

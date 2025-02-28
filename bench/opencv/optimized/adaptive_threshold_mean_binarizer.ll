@@ -246,7 +246,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %34, %38, %43
   ret void
 
 .body:                                            ; preds = %22, %25, %30
-  br i1 %.not.i.i, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit8, label %47
+  br i1 %.not.i.i, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit8.thread, label %47
 
 47:                                               ; preds = %.body
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -254,7 +254,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %34, %38, %43
   %50 = add i32 %49, -1
   store i32 %50, ptr %48, align 8, !tbaa !9
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit8
+  br i1 %51, label %52, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit8.thread
 
 52:                                               ; preds = %47
   store i32 -559026175, ptr %48, align 8, !tbaa !9
@@ -262,9 +262,9 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %34, %38, %43
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(12) %6) #11
-  br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit8
+  br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit8.thread
 
-_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit8:   ; preds = %.body, %47, %52
+_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit8.thread: ; preds = %.body, %47, %52
   call void @_ZdlPv(ptr noundef nonnull %5) #12
   resume { ptr, i32 } %23
 }

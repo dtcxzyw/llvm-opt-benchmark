@@ -2841,7 +2841,7 @@ if.else.i.i:                                      ; preds = %call.i.noexc
   br label %invoke.cont30
 
 invoke.cont30:                                    ; preds = %if.else.i.i, %if.then.i.i
-  %27 = phi i64 [ %.pre.i, %if.else.i.i ], [ %25, %if.then.i.i ]
+  %27 = phi i64 [ %25, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
   %__promise.reload.addr.i = getelementptr inbounds nuw i8, ptr %call.i21, i64 16
   %_M_string_length.i12.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %_M_string_length.i13.i.i = getelementptr inbounds nuw i8, ptr %call.i21, i64 2616
@@ -51210,7 +51210,7 @@ if.then.i7.i:                                     ; preds = %_ZNSt7__cxx1112basi
   tail call void @llvm.assume(i1 %cmp3.i.i9.i)
   %add.i10.i = add nuw nsw i64 %9, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(1) %8, i64 %add.i10.i, i1 false)
-  br label %AfterCoroEnd
+  br label %CoroSave
 
 if.else.i4.i:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
   store ptr %7, ptr %content.i, align 8
@@ -51218,10 +51218,10 @@ if.else.i4.i:                                     ; preds = %_ZNSt7__cxx1112basi
   store i64 %10, ptr %6, align 8
   %_M_string_length.i12.i5.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %args, i64 40
   %.pre310 = load i64, ptr %_M_string_length.i12.i5.i.phi.trans.insert, align 8
-  br label %AfterCoroEnd
+  br label %CoroSave
 
-AfterCoroEnd:                                     ; preds = %if.then.i7.i, %if.else.i4.i
-  %11 = phi i64 [ %9, %if.then.i7.i ], [ %.pre310, %if.else.i4.i ]
+CoroSave:                                         ; preds = %if.else.i4.i, %if.then.i7.i
+  %11 = phi i64 [ %.pre310, %if.else.i4.i ], [ %9, %if.then.i7.i ]
   %__promise.reload.addr = getelementptr inbounds nuw i8, ptr %call, i64 16
   %_M_string_length.i12.i5.i = getelementptr inbounds nuw i8, ptr %args, i64 40
   %_M_string_length.i13.i6.i = getelementptr inbounds nuw i8, ptr %call, i64 128
@@ -56598,7 +56598,7 @@ if.else.i.i:                                      ; preds = %call.i55.noexc
   br label %invoke.cont91
 
 invoke.cont91:                                    ; preds = %if.else.i.i, %if.then.i.i
-  %47 = phi i64 [ %45, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
+  %47 = phi i64 [ %.pre.i, %if.else.i.i ], [ %45, %if.then.i.i ]
   %__promise.reload.addr.i = getelementptr inbounds nuw i8, ptr %call.i5556, i64 16
   %_M_string_length.i12.i.i = getelementptr inbounds nuw i8, ptr %0, i64 224
   %_M_string_length.i13.i.i = getelementptr inbounds nuw i8, ptr %call.i5556, i64 56
@@ -60900,7 +60900,7 @@ if.else.i.i:                                      ; preds = %call.i28.noexc
   br label %invoke.cont73
 
 invoke.cont73:                                    ; preds = %if.else.i.i, %if.then.i.i
-  %44 = phi i64 [ %42, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
+  %44 = phi i64 [ %.pre.i, %if.else.i.i ], [ %42, %if.then.i.i ]
   %__promise.reload.addr.i = getelementptr inbounds nuw i8, ptr %call.i2829, i64 16
   %_M_string_length.i12.i.i = getelementptr inbounds nuw i8, ptr %0, i64 360
   %_M_string_length.i13.i.i = getelementptr inbounds nuw i8, ptr %call.i2829, i64 56
@@ -64204,7 +64204,7 @@ if.else.i.i:                                      ; preds = %call.i28.noexc
   br label %invoke.cont73
 
 invoke.cont73:                                    ; preds = %if.else.i.i, %if.then.i.i
-  %44 = phi i64 [ %42, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
+  %44 = phi i64 [ %.pre.i, %if.else.i.i ], [ %42, %if.then.i.i ]
   %__promise.reload.addr.i = getelementptr inbounds nuw i8, ptr %call.i2829, i64 16
   %_M_string_length.i12.i.i = getelementptr inbounds nuw i8, ptr %0, i64 360
   %_M_string_length.i13.i.i = getelementptr inbounds nuw i8, ptr %call.i2829, i64 56
@@ -67484,7 +67484,7 @@ if.else.i.i:                                      ; preds = %call.i27.noexc
   br label %invoke.cont73
 
 invoke.cont73:                                    ; preds = %if.else.i.i, %if.then.i.i
-  %40 = phi i64 [ %38, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
+  %40 = phi i64 [ %.pre.i, %if.else.i.i ], [ %38, %if.then.i.i ]
   %__promise.reload.addr.i = getelementptr inbounds nuw i8, ptr %call.i2728, i64 16
   %_M_string_length.i12.i.i = getelementptr inbounds nuw i8, ptr %0, i64 504
   %_M_string_length.i13.i.i = getelementptr inbounds nuw i8, ptr %call.i2728, i64 56
@@ -70944,7 +70944,7 @@ if.else.i.i:                                      ; preds = %call.i30.noexc
   br label %invoke.cont73
 
 invoke.cont73:                                    ; preds = %if.else.i.i, %if.then.i.i
-  %43 = phi i64 [ %41, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
+  %43 = phi i64 [ %.pre.i, %if.else.i.i ], [ %41, %if.then.i.i ]
   %__promise.reload.addr.i = getelementptr inbounds nuw i8, ptr %call.i3031, i64 16
   %_M_string_length.i12.i.i = getelementptr inbounds nuw i8, ptr %0, i64 416
   %_M_string_length.i13.i.i = getelementptr inbounds nuw i8, ptr %call.i3031, i64 56
@@ -71097,7 +71097,7 @@ if.else.i.i52:                                    ; preds = %call.i48.noexc
   br label %CoroSave234
 
 CoroSave234:                                      ; preds = %if.else.i.i52, %if.then.i.i59
-  %69 = phi i64 [ %67, %if.then.i.i59 ], [ %.pre.i54, %if.else.i.i52 ]
+  %69 = phi i64 [ %.pre.i54, %if.else.i.i52 ], [ %67, %if.then.i.i59 ]
   %__promise.reload.addr.i55 = getelementptr inbounds nuw i8, ptr %call.i4863, i64 16
   %_M_string_length.i13.i.i57 = getelementptr inbounds nuw i8, ptr %call.i4863, i64 160
   store i64 %69, ptr %_M_string_length.i13.i.i57, align 8

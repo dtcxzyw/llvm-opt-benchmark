@@ -19803,7 +19803,7 @@ _ZN4entt17scoped_connectionD2Ev.exit337.thread662: ; preds = %_ZNKSt14default_de
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #24
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #24
-  br label %633
+  br label %_ZN4entt17scoped_connectionD2Ev.exit337.thread672
 
 504:                                              ; preds = %.lr.ph.i496
   %505 = landingpad { ptr, i32 }
@@ -20217,40 +20217,40 @@ _ZN4entt17scoped_connectionD2Ev.exit337:          ; preds = %_ZN7testing7Message
   %.sroa.0595.1 = phi ptr [ %.sroa.0621.0.copyload, %_ZN7testing7MessageD2Ev.exit376 ], [ %.sroa.0595.0.copyload, %_ZN7testing7MessageD2Ev.exit215 ]
   %.pn171.pn.pn.pn = phi { ptr, i32 } [ %.pn137.pn.pn, %_ZN7testing7MessageD2Ev.exit376 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit215 ]
   %.not.i.i543 = icmp eq ptr %.sroa.13.1, null
-  br i1 %.not.i.i543, label %_ZN4entt17scoped_connectionD2Ev.exit545, label %633
+  br i1 %.not.i.i543, label %_ZN4entt17scoped_connectionD2Ev.exit545, label %_ZN4entt17scoped_connectionD2Ev.exit337.thread672
 
-633:                                              ; preds = %_ZN4entt17scoped_connectionD2Ev.exit337.thread662, %_ZN4entt17scoped_connectionD2Ev.exit337
+_ZN4entt17scoped_connectionD2Ev.exit337.thread672: ; preds = %_ZN4entt17scoped_connectionD2Ev.exit337.thread662, %_ZN4entt17scoped_connectionD2Ev.exit337
   %.pn171.pn.pn.pn671 = phi { ptr, i32 } [ %.pn145.pn.pn, %_ZN4entt17scoped_connectionD2Ev.exit337.thread662 ], [ %.pn171.pn.pn.pn, %_ZN4entt17scoped_connectionD2Ev.exit337 ]
   %.sroa.0595.1670 = phi ptr [ %.sroa.0621.0.copyload, %_ZN4entt17scoped_connectionD2Ev.exit337.thread662 ], [ %.sroa.0595.1, %_ZN4entt17scoped_connectionD2Ev.exit337 ]
   %.sroa.13.1669 = phi ptr [ %.sroa.4.0.copyload, %_ZN4entt17scoped_connectionD2Ev.exit337.thread662 ], [ %.sroa.13.1, %_ZN4entt17scoped_connectionD2Ev.exit337 ]
   %.sroa.21.1668 = phi ptr [ %.sroa.5.0.copyload, %_ZN4entt17scoped_connectionD2Ev.exit337.thread662 ], [ %.sroa.21.1, %_ZN4entt17scoped_connectionD2Ev.exit337 ]
   invoke void %.sroa.13.1669(ptr noundef %.sroa.0595.1670, ptr noundef %.sroa.21.1668)
-          to label %_ZN4entt17scoped_connectionD2Ev.exit545 unwind label %634
+          to label %_ZN4entt17scoped_connectionD2Ev.exit545 unwind label %633
 
-634:                                              ; preds = %633
-  %635 = landingpad { ptr, i32 }
+633:                                              ; preds = %_ZN4entt17scoped_connectionD2Ev.exit337.thread672
+  %634 = landingpad { ptr, i32 }
           catch ptr null
-  %636 = extractvalue { ptr, i32 } %635, 0
-  call void @__clang_call_terminate(ptr %636) #28
+  %635 = extractvalue { ptr, i32 } %634, 0
+  call void @__clang_call_terminate(ptr %635) #28
   unreachable
 
-_ZN4entt17scoped_connectionD2Ev.exit545:          ; preds = %574, %287, %_ZN7testing7MessageD2Ev.exit237, %_ZN7testing7MessageD2Ev.exit354, %347, %_ZN7testing7MessageD2Ev.exit398, %_ZN7testing7MessageD2Ev.exit533, %_ZN4entt17scoped_connectionD2Ev.exit337, %633, %56
-  %.pn171.pn.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %.pn171.pn.pn.pn, %_ZN4entt17scoped_connectionD2Ev.exit337 ], [ %.pn171.pn.pn.pn671, %633 ], [ %.pn165.pn.pn.pn, %574 ], [ %.pn128.pn.pn.pn626, %287 ], [ %.pn112.pn.pn, %_ZN7testing7MessageD2Ev.exit237 ], [ %.pn133.pn.pn, %_ZN7testing7MessageD2Ev.exit354 ], [ %348, %347 ], [ %.pn141.pn.pn, %_ZN7testing7MessageD2Ev.exit398 ], [ %.pn171.pn.pn, %_ZN7testing7MessageD2Ev.exit533 ]
+_ZN4entt17scoped_connectionD2Ev.exit545:          ; preds = %574, %287, %_ZN7testing7MessageD2Ev.exit237, %_ZN7testing7MessageD2Ev.exit354, %347, %_ZN7testing7MessageD2Ev.exit398, %_ZN7testing7MessageD2Ev.exit533, %_ZN4entt17scoped_connectionD2Ev.exit337, %_ZN4entt17scoped_connectionD2Ev.exit337.thread672, %56
+  %.pn171.pn.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %.pn171.pn.pn.pn, %_ZN4entt17scoped_connectionD2Ev.exit337 ], [ %.pn171.pn.pn.pn671, %_ZN4entt17scoped_connectionD2Ev.exit337.thread672 ], [ %.pn165.pn.pn.pn, %574 ], [ %.pn128.pn.pn.pn626, %287 ], [ %.pn112.pn.pn, %_ZN7testing7MessageD2Ev.exit237 ], [ %.pn133.pn.pn, %_ZN7testing7MessageD2Ev.exit354 ], [ %348, %347 ], [ %.pn141.pn.pn, %_ZN7testing7MessageD2Ev.exit398 ], [ %.pn171.pn.pn, %_ZN7testing7MessageD2Ev.exit533 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  %637 = load ptr, ptr %3, align 8, !tbaa !204
-  %.not.i.i.i.i546 = icmp eq ptr %637, null
-  br i1 %.not.i.i.i.i546, label %_ZN4entt4sighIFviESaIvEED2Ev.exit547, label %638
+  %636 = load ptr, ptr %3, align 8, !tbaa !204
+  %.not.i.i.i.i546 = icmp eq ptr %636, null
+  br i1 %.not.i.i.i.i546, label %_ZN4entt4sighIFviESaIvEED2Ev.exit547, label %637
 
-638:                                              ; preds = %_ZN4entt17scoped_connectionD2Ev.exit545
-  %639 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %640 = load ptr, ptr %639, align 8, !tbaa !215
-  %641 = ptrtoint ptr %640 to i64
-  %642 = ptrtoint ptr %637 to i64
-  %643 = sub i64 %641, %642
-  call void @_ZdlPvm(ptr noundef nonnull %637, i64 noundef %643) #27
+637:                                              ; preds = %_ZN4entt17scoped_connectionD2Ev.exit545
+  %638 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %639 = load ptr, ptr %638, align 8, !tbaa !215
+  %640 = ptrtoint ptr %639 to i64
+  %641 = ptrtoint ptr %636 to i64
+  %642 = sub i64 %640, %641
+  call void @_ZdlPvm(ptr noundef nonnull %636, i64 noundef %642) #27
   br label %_ZN4entt4sighIFviESaIvEED2Ev.exit547
 
-_ZN4entt4sighIFviESaIvEED2Ev.exit547:             ; preds = %_ZN4entt17scoped_connectionD2Ev.exit545, %638
+_ZN4entt4sighIFviESaIvEED2Ev.exit547:             ; preds = %_ZN4entt17scoped_connectionD2Ev.exit545, %637
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #24
   resume { ptr, i32 } %.pn171.pn.pn.pn.pn

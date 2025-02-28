@@ -253,6 +253,11 @@ define hidden noundef zeroext i1 @"_ZN100_$LT$futures_util..future..future..fuse
   %11 = icmp eq i8 %10, 2
   br i1 %11, label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha678d19e2c2144b6E.llvm.6954931580167067417.exit", label %12
 
+"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$$LP$usize$C$core..task..wake..Waker$RP$$GT$$GT$17h4b5b52341600b077E.llvm.14582701375544310392.exit.i.i.i.i": ; preds = %38, %22, %17
+  %eh.lpad-body.i = phi { ptr, i32 } [ %39, %38 ], [ %18, %22 ], [ %18, %17 ]
+  store i8 2, ptr %3, align 1, !noalias !40
+  resume { ptr, i32 } %eh.lpad-body.i
+
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i8, ptr %13, align 8, !range !4, !noalias !40, !noundef !5
@@ -271,7 +276,7 @@ define hidden noundef zeroext i1 @"_ZN100_$LT$futures_util..future..future..fuse
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8, !alias.scope !46, !noalias !40, !noundef !5
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %40, label %22
+  br i1 %21, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$$LP$usize$C$core..task..wake..Waker$RP$$GT$$GT$17h4b5b52341600b077E.llvm.14582701375544310392.exit.i.i.i.i", label %22
 
 22:                                               ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49), !noalias !40
@@ -282,7 +287,7 @@ define hidden noundef zeroext i1 @"_ZN100_$LT$futures_util..future..future..fuse
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8, !alias.scope !59, !noalias !40, !noundef !5
   invoke void %24(ptr noundef %26)
-          to label %40 unwind label %36, !noalias !40
+          to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$$LP$usize$C$core..task..wake..Waker$RP$$GT$$GT$17h4b5b52341600b077E.llvm.14582701375544310392.exit.i.i.i.i" unwind label %36, !noalias !40
 
 27:                                               ; preds = %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60), !noalias !40
@@ -311,12 +316,7 @@ define hidden noundef zeroext i1 @"_ZN100_$LT$futures_util..future..future..fuse
 38:                                               ; preds = %31
   %39 = landingpad { ptr, i32 }
           cleanup
-  br label %40
-
-40:                                               ; preds = %38, %22, %17
-  %eh.lpad-body.i = phi { ptr, i32 } [ %39, %38 ], [ %18, %22 ], [ %18, %17 ]
-  store i8 2, ptr %3, align 1, !noalias !40
-  resume { ptr, i32 } %eh.lpad-body.i
+  br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$$LP$usize$C$core..task..wake..Waker$RP$$GT$$GT$17h4b5b52341600b077E.llvm.14582701375544310392.exit.i.i.i.i"
 
 "_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha678d19e2c2144b6E.llvm.6954931580167067417.exit": ; preds = %9, %12, %27, %31
   store i8 2, ptr %3, align 1, !noalias !40
@@ -888,6 +888,11 @@ define hidden void @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$
   %4 = icmp eq i8 %3, 2
   br i1 %4, label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h10f338120040ce29E.llvm.6954931580167067417.exit", label %5
 
+"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$$LP$usize$C$core..task..wake..Waker$RP$$GT$$GT$17h4b5b52341600b077E.llvm.14582701375544310392.exit.i.i.i": ; preds = %10, %15, %31
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %11, %15 ], [ %11, %10 ]
+  store i8 2, ptr %2, align 1, !noalias !267
+  resume { ptr, i32 } %eh.lpad-body
+
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8, !range !4, !noalias !267, !noundef !5
@@ -906,7 +911,7 @@ define hidden void @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !alias.scope !273, !noalias !267, !noundef !5
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %33, label %15
+  br i1 %14, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$$LP$usize$C$core..task..wake..Waker$RP$$GT$$GT$17h4b5b52341600b077E.llvm.14582701375544310392.exit.i.i.i", label %15
 
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !276), !noalias !267
@@ -917,7 +922,7 @@ define hidden void @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8, !alias.scope !286, !noalias !267, !noundef !5
   invoke void %17(ptr noundef %19)
-          to label %33 unwind label %29, !noalias !267
+          to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$$LP$usize$C$core..task..wake..Waker$RP$$GT$$GT$17h4b5b52341600b077E.llvm.14582701375544310392.exit.i.i.i" unwind label %29, !noalias !267
 
 20:                                               ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !287), !noalias !267
@@ -946,12 +951,7 @@ define hidden void @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$
 31:                                               ; preds = %24
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %33
-
-33:                                               ; preds = %31, %15, %10
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %11, %15 ], [ %11, %10 ]
-  store i8 2, ptr %2, align 1, !noalias !267
-  resume { ptr, i32 } %eh.lpad-body
+  br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$$LP$usize$C$core..task..wake..Waker$RP$$GT$$GT$17h4b5b52341600b077E.llvm.14582701375544310392.exit.i.i.i"
 
 "_ZN4core3pin14Pin$LT$Ptr$GT$3set17h10f338120040ce29E.llvm.6954931580167067417.exit": ; preds = %20, %5, %1, %24
   store i8 2, ptr %2, align 1, !noalias !267
@@ -2615,6 +2615,11 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h10f338120040ce29E.llvm.6
   %6 = icmp eq i8 %5, 2
   br i1 %6, label %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$worktree..BackgroundScanner..progress_timer..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2d619c0041459347E.llvm.6954931580167067417.exit", label %7
 
+"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$$LP$usize$C$core..task..wake..Waker$RP$$GT$$GT$17h4b5b52341600b077E.llvm.14582701375544310392.exit.i.i.i": ; preds = %12, %17, %33
+  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %13, %17 ], [ %13, %12 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
+  resume { ptr, i32 } %eh.lpad-body
+
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i8, ptr %8, align 8, !range !4, !noundef !5
@@ -2633,7 +2638,7 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h10f338120040ce29E.llvm.6
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %15 = load ptr, ptr %14, align 8, !alias.scope !609, !noundef !5
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %35, label %17
+  br i1 %16, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$$LP$usize$C$core..task..wake..Waker$RP$$GT$$GT$17h4b5b52341600b077E.llvm.14582701375544310392.exit.i.i.i", label %17
 
 17:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !612)
@@ -2644,7 +2649,7 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h10f338120040ce29E.llvm.6
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %21 = load ptr, ptr %20, align 8, !alias.scope !622, !noundef !5
   invoke void %19(ptr noundef %21)
-          to label %35 unwind label %31
+          to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$$LP$usize$C$core..task..wake..Waker$RP$$GT$$GT$17h4b5b52341600b077E.llvm.14582701375544310392.exit.i.i.i" unwind label %31
 
 22:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !623)
@@ -2673,16 +2678,11 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h10f338120040ce29E.llvm.6
 33:                                               ; preds = %26
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %35
+  br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$$LP$usize$C$core..task..wake..Waker$RP$$GT$$GT$17h4b5b52341600b077E.llvm.14582701375544310392.exit.i.i.i"
 
 "_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$worktree..BackgroundScanner..progress_timer..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2d619c0041459347E.llvm.6954931580167067417.exit": ; preds = %22, %7, %2, %26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   ret void
-
-35:                                               ; preds = %33, %17, %12
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %13, %17 ], [ %13, %12 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
-  resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
@@ -2692,6 +2692,11 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h26cadb81dd730167E.llvm.6
   %5 = load i8, ptr %4, align 8, !range !4, !noundef !5
   %cond.i = icmp eq i8 %5, 3
   br i1 %cond.i, label %6, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$worktree..BackgroundScanner..next_scan_request..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h169293f9a37736fcE.llvm.6954931580167067417.exit"
+
+"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$GT$$GT$17h0dce879bb9b92e1bE.llvm.14582701375544310392.exit.i.i.i.i.i": ; preds = %11, %16, %24
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %12, %16 ], [ %12, %11 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
+  resume { ptr, i32 } %eh.lpad-body
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2711,12 +2716,12 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h26cadb81dd730167E.llvm.6
   %13 = load ptr, ptr %7, align 8, !alias.scope !652, !nonnull !5, !noundef !5
   %14 = atomicrmw sub ptr %13, i64 1 release, align 8, !noalias !655
   %15 = icmp eq i64 %14, 1
-  br i1 %15, label %16, label %26
+  br i1 %15, label %16, label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$GT$$GT$17h0dce879bb9b92e1bE.llvm.14582701375544310392.exit.i.i.i.i.i"
 
 16:                                               ; preds = %11
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1312becb6474fe14E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-          to label %26 unwind label %22
+          to label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$GT$$GT$17h0dce879bb9b92e1bE.llvm.14582701375544310392.exit.i.i.i.i.i" unwind label %22
 
 17:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !656)
@@ -2740,16 +2745,11 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h26cadb81dd730167E.llvm.6
 24:                                               ; preds = %21
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %26
+  br label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$GT$$GT$17h0dce879bb9b92e1bE.llvm.14582701375544310392.exit.i.i.i.i.i"
 
 "_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$worktree..BackgroundScanner..next_scan_request..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h169293f9a37736fcE.llvm.6954931580167067417.exit": ; preds = %17, %6, %2, %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   ret void
-
-26:                                               ; preds = %24, %16, %11
-  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %12, %16 ], [ %12, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
-  resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
@@ -2758,6 +2758,11 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h30889cbb54952c0aE.llvm.6
   %4 = load ptr, ptr %3, align 8, !alias.scope !667, !noundef !5
   %5 = icmp eq ptr %4, null
   br i1 %5, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$async_channel..Recv$LT$alloc..sync..Arc$LT$std..path..Path$GT$$GT$$GT$$GT$17haddd809ccc65ecadE.llvm.6954931580167067417.exit", label %6
+
+"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$GT$$GT$17h0dce879bb9b92e1bE.llvm.14582701375544310392.exit.i.i.i.i": ; preds = %11, %16, %24
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %12, %16 ], [ %12, %11 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  resume { ptr, i32 } %eh.lpad-body
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2777,12 +2782,12 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h30889cbb54952c0aE.llvm.6
   %13 = load ptr, ptr %7, align 8, !alias.scope !681, !nonnull !5, !noundef !5
   %14 = atomicrmw sub ptr %13, i64 1 release, align 8, !noalias !684
   %15 = icmp eq i64 %14, 1
-  br i1 %15, label %16, label %26
+  br i1 %15, label %16, label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$GT$$GT$17h0dce879bb9b92e1bE.llvm.14582701375544310392.exit.i.i.i.i"
 
 16:                                               ; preds = %11
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1312becb6474fe14E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-          to label %26 unwind label %22
+          to label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$GT$$GT$17h0dce879bb9b92e1bE.llvm.14582701375544310392.exit.i.i.i.i" unwind label %22
 
 17:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !685)
@@ -2806,16 +2811,11 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h30889cbb54952c0aE.llvm.6
 24:                                               ; preds = %21
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %26
+  br label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$GT$$GT$17h0dce879bb9b92e1bE.llvm.14582701375544310392.exit.i.i.i.i"
 
 "_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$async_channel..Recv$LT$alloc..sync..Arc$LT$std..path..Path$GT$$GT$$GT$$GT$17haddd809ccc65ecadE.llvm.6954931580167067417.exit": ; preds = %17, %6, %2, %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
-
-26:                                               ; preds = %24, %16, %11
-  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %12, %16 ], [ %12, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -2839,6 +2839,11 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hb52351ebb7aec353E.llvm.6
   %5 = icmp eq ptr %4, null
   br i1 %5, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$async_channel..Recv$LT$worktree..ScanJob$GT$$GT$$GT$17h3fd354a8ad3f318fE.llvm.6954931580167067417.exit", label %6
 
+"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$GT$$GT$17h0dce879bb9b92e1bE.llvm.14582701375544310392.exit.i.i.i.i": ; preds = %11, %16, %24
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %12, %16 ], [ %12, %11 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  resume { ptr, i32 } %eh.lpad-body
+
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !705, !noundef !5
@@ -2857,12 +2862,12 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hb52351ebb7aec353E.llvm.6
   %13 = load ptr, ptr %7, align 8, !alias.scope !716, !nonnull !5, !noundef !5
   %14 = atomicrmw sub ptr %13, i64 1 release, align 8, !noalias !719
   %15 = icmp eq i64 %14, 1
-  br i1 %15, label %16, label %26
+  br i1 %15, label %16, label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$GT$$GT$17h0dce879bb9b92e1bE.llvm.14582701375544310392.exit.i.i.i.i"
 
 16:                                               ; preds = %11
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1312becb6474fe14E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-          to label %26 unwind label %22
+          to label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$GT$$GT$17h0dce879bb9b92e1bE.llvm.14582701375544310392.exit.i.i.i.i" unwind label %22
 
 17:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !720)
@@ -2886,16 +2891,11 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hb52351ebb7aec353E.llvm.6
 24:                                               ; preds = %21
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %26
+  br label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$GT$$GT$17h0dce879bb9b92e1bE.llvm.14582701375544310392.exit.i.i.i.i"
 
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$async_channel..Recv$LT$worktree..ScanJob$GT$$GT$$GT$17h3fd354a8ad3f318fE.llvm.6954931580167067417.exit": ; preds = %17, %6, %2, %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
-
-26:                                               ; preds = %24, %16, %11
-  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %12, %16 ], [ %12, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
@@ -2904,6 +2904,11 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hc0271fca9c33a818E.llvm.6
   %4 = load ptr, ptr %3, align 8, !alias.scope !731, !noundef !5
   %5 = icmp eq ptr %4, null
   br i1 %5, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$async_channel..Recv$LT$worktree..UpdateIgnoreStatusJob$GT$$GT$$GT$17h892d32570a6355b7E.llvm.6954931580167067417.exit", label %6
+
+"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$GT$$GT$17h0dce879bb9b92e1bE.llvm.14582701375544310392.exit.i.i.i.i": ; preds = %11, %16, %24
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %12, %16 ], [ %12, %11 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  resume { ptr, i32 } %eh.lpad-body
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2923,12 +2928,12 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hc0271fca9c33a818E.llvm.6
   %13 = load ptr, ptr %7, align 8, !alias.scope !745, !nonnull !5, !noundef !5
   %14 = atomicrmw sub ptr %13, i64 1 release, align 8, !noalias !748
   %15 = icmp eq i64 %14, 1
-  br i1 %15, label %16, label %26
+  br i1 %15, label %16, label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$GT$$GT$17h0dce879bb9b92e1bE.llvm.14582701375544310392.exit.i.i.i.i"
 
 16:                                               ; preds = %11
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1312becb6474fe14E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-          to label %26 unwind label %22
+          to label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$GT$$GT$17h0dce879bb9b92e1bE.llvm.14582701375544310392.exit.i.i.i.i" unwind label %22
 
 17:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !749)
@@ -2952,16 +2957,11 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hc0271fca9c33a818E.llvm.6
 24:                                               ; preds = %21
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %26
+  br label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$GT$$GT$17h0dce879bb9b92e1bE.llvm.14582701375544310392.exit.i.i.i.i"
 
 "_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$async_channel..Recv$LT$worktree..UpdateIgnoreStatusJob$GT$$GT$$GT$17h892d32570a6355b7E.llvm.6954931580167067417.exit": ; preds = %17, %6, %2, %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
-
-26:                                               ; preds = %24, %16, %11
-  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %12, %16 ], [ %12, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: nonlazybind uwtable

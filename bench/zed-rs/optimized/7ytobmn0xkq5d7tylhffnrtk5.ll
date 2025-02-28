@@ -111001,7 +111001,7 @@ define hidden void @_ZN8wasmtime7runtime5types8FuncType27with_finality_and_super
 
 66:                                               ; preds = %461, %89
   %67 = trunc nuw i8 %.sroa.015.2 to i1
-  br i1 %67, label %462, label %.thread
+  br i1 %67, label %.thread198, label %.thread
 
 68:                                               ; preds = %7
   br i1 %trunc8.i, label %72, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc8e118a7e6297645E.exit"
@@ -112359,7 +112359,7 @@ _ZN8wasmtime7runtime5types8FuncType12matches_impl17hcac42691b9aefa37E.exit.threa
   call void @__rust_dealloc(ptr noundef nonnull %132, i64 noundef %440, i64 noundef 4) #40, !noalias !30169
   br label %.invoke253
 
-441:                                              ; preds = %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmtime_types..WasmValType$u5d$$GT$$GT$17hf3bc92119fb0fc96E.exit", %462, %461, %.thread207, %"_ZN4core3ptr116drop_in_place$LT$smallvec..SmallVec$LT$$u5b$wasmtime..runtime..type_registry..RegisteredType$u3b$$u20$4$u5d$$GT$$GT$17h8271709abfbdc8a2E.exit", %101
+441:                                              ; preds = %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmtime_types..WasmValType$u5d$$GT$$GT$17hf3bc92119fb0fc96E.exit", %.thread198, %461, %.thread207, %"_ZN4core3ptr116drop_in_place$LT$smallvec..SmallVec$LT$$u5b$wasmtime..runtime..type_registry..RegisteredType$u3b$$u20$4$u5d$$GT$$GT$17h8271709abfbdc8a2E.exit", %101
   %442 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #41
@@ -112477,11 +112477,11 @@ _ZN8wasmtime7runtime5types8FuncType12matches_impl17hcac42691b9aefa37E.exit.threa
   invoke void @"_ZN4core3ptr99drop_in_place$LT$core..array..iter..IntoIter$LT$wasmtime..runtime..types..ValType$C$0_usize$GT$$GT$17h90c1d6e421d2819dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %58) #42
           to label %66 unwind label %441
 
-462:                                              ; preds = %66
+.thread198:                                       ; preds = %66
   invoke void @"_ZN4core3ptr207drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$wasmtime..runtime..types..ValType$GT$$C$core..array..iter..IntoIter$LT$wasmtime..runtime..types..ValType$C$1_usize$GT$$GT$$GT$17h8b35aec6a387b6ddE"(ptr noalias noundef nonnull align 8 dereferenceable(184) %59) #42
           to label %.thread unwind label %441
 
-.thread:                                          ; preds = %66, %462
+.thread:                                          ; preds = %66, %.thread198
   resume { ptr, i32 } %.pn65
 }
 

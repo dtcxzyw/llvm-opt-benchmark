@@ -12873,11 +12873,11 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i
           catch ptr null
   %7 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i.i, label %invoke.cont19, label %if.then.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %if.end, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %lpad.i.i.i
   %call.i.i.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i32 noundef 3)
-          to label %invoke.cont19 unwind label %terminate.lpad.i.i.i.i
+          to label %if.end unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   %8 = landingpad { ptr, i32 }
@@ -12969,13 +12969,13 @@ _ZNSt12_Vector_baseISt8functionIFvPN3euf5enodeES3_EESaIS5_EE13_M_deallocateEPS5_
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8
   ret void
 
-lpad17:                                           ; preds = %invoke.cont19
+lpad17:                                           ; preds = %if.end
   %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-invoke.cont19:                                    ; preds = %lpad.i.i.i, %if.then.i.i.i.i
+if.end:                                           ; preds = %lpad.i.i.i, %if.then.i.i.i.i
   %15 = extractvalue { ptr, i32 } %6, 0
   %16 = tail call ptr @__cxa_begin_catch(ptr %15) #24
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #27
@@ -12992,7 +12992,7 @@ terminate.lpad:                                   ; preds = %lpad17
   tail call void @__clang_call_terminate(ptr %18) #23
   unreachable
 
-unreachable:                                      ; preds = %invoke.cont19
+unreachable:                                      ; preds = %if.end
   unreachable
 }
 

@@ -4421,10 +4421,10 @@ define hidden void @"_ZN2tt16Subtree$LT$S$GT$4push17h6494097438df9f5eE"(ptr noal
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %8, ptr %10, align 8, !alias.scope !1614, !noalias !1617
   %11 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hae0279c67bd16b3dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %8, i64 noundef 1)
-          to label %.noexc unwind label %.thread25
+          to label %.noexc unwind label %.thread26
 
-12:                                               ; preds = %.thread19
-  br i1 %.15.lpad-body23, label %35, label %.thread30
+12:                                               ; preds = %.thread20
+  br i1 %.15.lpad-body24, label %.thread, label %.thread31
 
 .noexc:                                           ; preds = %2
   %13 = extractvalue { i64, i64 } %11, 0
@@ -4435,7 +4435,7 @@ define hidden void @"_ZN2tt16Subtree$LT$S$GT$4push17h6494097438df9f5eE"(ptr noal
 
 14:                                               ; preds = %.noexc
   invoke void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #56
-          to label %.noexc8 unwind label %.thread25
+          to label %.noexc8 unwind label %.thread26
 
 .noexc8:                                          ; preds = %14
   unreachable
@@ -4445,15 +4445,15 @@ define hidden void @"_ZN2tt16Subtree$LT$S$GT$4push17h6494097438df9f5eE"(ptr noal
   %17 = icmp eq i64 %13, -9223372036854775807
   %.sroa.33.0.i.i.i = select i1 %17, i64 undef, i64 %16
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %13, i64 noundef %.sroa.33.0.i.i.i) #56
-          to label %.noexc9 unwind label %.thread25
+          to label %.noexc9 unwind label %.thread26
 
 .noexc9:                                          ; preds = %15
   unreachable
 
-.thread25:                                        ; preds = %2, %14, %15
+.thread26:                                        ; preds = %2, %14, %15
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %.thread19
+  br label %.thread20
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h1c56656b5fdc99bfE.exit": ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
@@ -4475,7 +4475,7 @@ define hidden void @"_ZN2tt16Subtree$LT$S$GT$4push17h6494097438df9f5eE"(ptr noal
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h124fdb5adf2ee635E.llvm.1819014470976533947"(ptr noalias noundef nonnull align 8 dereferenceable(64) %4) #57
-          to label %.thread19 unwind label %24
+          to label %.thread20 unwind label %24
 
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
@@ -4502,24 +4502,24 @@ define hidden void @"_ZN2tt16Subtree$LT$S$GT$4push17h6494097438df9f5eE"(ptr noal
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 
-.thread19:                                        ; preds = %22, %.thread25
-  %eh.lpad-body24 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread25 ], [ %23, %22 ]
-  %.15.lpad-body23 = phi i1 [ true, %.thread25 ], [ false, %22 ]
+.thread20:                                        ; preds = %22, %.thread26
+  %eh.lpad-body25 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread26 ], [ %23, %22 ]
+  %.15.lpad-body24 = phi i1 [ true, %.thread26 ], [ false, %22 ]
   invoke void @"_ZN4core3ptr117drop_in_place$LT$alloc..vec..Vec$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$GT$17h826a0e20a4c72846E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #57
           to label %12 unwind label %33
 
-33:                                               ; preds = %35, %.thread19
+33:                                               ; preds = %.thread, %.thread20
   %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #58
   unreachable
 
-.thread30:                                        ; preds = %35, %12
-  resume { ptr, i32 } %eh.lpad-body24
+.thread31:                                        ; preds = %.thread, %12
+  resume { ptr, i32 } %eh.lpad-body25
 
-35:                                               ; preds = %12
+.thread:                                          ; preds = %12
   invoke void @"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h124fdb5adf2ee635E.llvm.1819014470976533947"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1) #57
-          to label %.thread30 unwind label %33
+          to label %.thread31 unwind label %33
 }
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable

@@ -8284,14 +8284,14 @@ _ZN5boost10shared_ptrINS_9unit_test19test_unit_generatorEEC2ERKS3_.exit.i.i.i: ;
 
 .noexc.i.i.i.i.i:                                 ; preds = %40
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #29
-          to label %.noexc.i.i.i unwind label %95
+          to label %.noexc.i.i.i unwind label %_ZSt8_DestroyIPSt4pairIN5boost10shared_ptrINS1_9unit_test19test_unit_generatorEEESt6vectorINS2_INS3_9decorator4baseEEESaIS9_EEESC_EvT_SE_RSaIT0_E.exit
 
 .noexc.i.i.i:                                     ; preds = %.noexc.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEE8allocateERS6_m.exit.i.i.i.i.i.i.i: ; preds = %40
   %42 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %36) #32
-          to label %.noexc4.i.i.i unwind label %95
+          to label %.noexc4.i.i.i unwind label %_ZSt8_DestroyIPSt4pairIN5boost10shared_ptrINS1_9unit_test19test_unit_generatorEEESt6vectorINS2_INS3_9decorator4baseEEESaIS9_EEESC_EvT_SE_RSaIT0_E.exit
 
 .noexc4.i.i.i:                                    ; preds = %_ZNSt16allocator_traitsISaIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEE8allocateERS6_m.exit.i.i.i.i.i.i.i
   store ptr %42, ptr %29, align 8, !tbaa !95
@@ -8420,33 +8420,33 @@ _ZNSt12_Vector_baseISt4pairIN5boost10shared_ptrINS1_9unit_test19test_unit_genera
   store ptr %92, ptr %87, align 8, !tbaa !141
   ret void
 
-93:                                               ; preds = %95
+93:                                               ; preds = %_ZSt8_DestroyIPSt4pairIN5boost10shared_ptrINS1_9unit_test19test_unit_generatorEEESt6vectorINS2_INS3_9decorator4baseEEESaIS9_EEESC_EvT_SE_RSaIT0_E.exit
   %94 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %99 unwind label %100
+          to label %98 unwind label %99
 
-95:                                               ; preds = %_ZNSt16allocator_traitsISaIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEE8allocateERS6_m.exit.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i
-  %96 = landingpad { ptr, i32 }
+_ZSt8_DestroyIPSt4pairIN5boost10shared_ptrINS1_9unit_test19test_unit_generatorEEESt6vectorINS2_INS3_9decorator4baseEEESaIS9_EEESC_EvT_SE_RSaIT0_E.exit: ; preds = %.noexc.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEE8allocateERS6_m.exit.i.i.i.i.i.i.i
+  %95 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZN5boost10shared_ptrINS_9unit_test19test_unit_generatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #28
-  %97 = extractvalue { ptr, i32 } %96, 0
-  %98 = tail call ptr @__cxa_begin_catch(ptr %97) #28
+  %96 = extractvalue { ptr, i32 } %95, 0
+  %97 = tail call ptr @__cxa_begin_catch(ptr %96) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #30
   invoke void @__cxa_rethrow() #29
-          to label %103 unwind label %93
+          to label %102 unwind label %93
 
-99:                                               ; preds = %93
+98:                                               ; preds = %93
   resume { ptr, i32 } %94
 
-100:                                              ; preds = %93
-  %101 = landingpad { ptr, i32 }
+99:                                               ; preds = %93
+  %100 = landingpad { ptr, i32 }
           catch ptr null
-  %102 = extractvalue { ptr, i32 } %101, 0
-  tail call void @__clang_call_terminate(ptr %102) #31
+  %101 = extractvalue { ptr, i32 } %100, 0
+  tail call void @__clang_call_terminate(ptr %101) #31
   unreachable
 
-103:                                              ; preds = %95
+102:                                              ; preds = %_ZSt8_DestroyIPSt4pairIN5boost10shared_ptrINS1_9unit_test19test_unit_generatorEEESt6vectorINS2_INS3_9decorator4baseEEESaIS9_EEESC_EvT_SE_RSaIT0_E.exit
   unreachable
 }
 

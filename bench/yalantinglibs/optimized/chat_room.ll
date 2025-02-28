@@ -61984,16 +61984,16 @@ CoroSave75:
   %1 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i.i.i.cast, i64 16
   store ptr %call, ptr %1, align 8
   invoke void @_ZN12async_simple4coro6detail8LazyBaseIvLb1EE11AwaiterBase16awaitSuspendImplEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.reload.addr)
-          to label %AfterCoroEnd unwind label %ehcleanup
+          to label %AfterCoroEnd unwind label %lpad23
 
-ehcleanup:                                        ; preds = %CoroSave75
+lpad23:                                           ; preds = %CoroSave75
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = load ptr, ptr %ref.tmp12.reload.addr, align 8
   %cmp.i.not.i.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.not.i.i.i10, label %catch, label %if.then.i.i.i11
 
-if.then.i.i.i11:                                  ; preds = %ehcleanup
+if.then.i.i.i11:                                  ; preds = %lpad23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   invoke fastcc void %5(ptr nonnull %3)
@@ -62010,7 +62010,7 @@ terminate.lpad.i.i.i12:                           ; preds = %if.then.i.i.i11
   tail call void @__clang_call_terminate(ptr %7) #41
   unreachable
 
-catch:                                            ; preds = %invoke.cont.i.i.i13, %ehcleanup
+catch:                                            ; preds = %invoke.cont.i.i.i13, %lpad23
   %exn.slot.1 = extractvalue { ptr, i32 } %2, 0
   %8 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.1) #33
   invoke void @_ZN12async_simple4coro6detail17DetachedCoroutine12promise_type19unhandled_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %__promise.reload.addr)
@@ -78192,7 +78192,7 @@ if.else.i.i:                                      ; preds = %call.i49.noexc
   br label %CoroSave739
 
 CoroSave739:                                      ; preds = %if.else.i.i, %if.then.i.i51
-  %73 = phi i64 [ %71, %if.then.i.i51 ], [ %.pre.i, %if.else.i.i ]
+  %73 = phi i64 [ %.pre.i, %if.else.i.i ], [ %71, %if.then.i.i51 ]
   %__promise.reload.addr.i = getelementptr inbounds nuw i8, ptr %call.i4954, i64 16
   %type4.reload.addr.i = getelementptr inbounds nuw i8, ptr %call.i4954, i64 148
   %open_mode3.reload.addr.i = getelementptr inbounds nuw i8, ptr %call.i4954, i64 144

@@ -274,19 +274,21 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i38: ; preds = %98, %_Z
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h843c47b1cf4c550bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+__rust_try.llvm.8948943988754983405.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !41, !noundef !4
   store i64 0, ptr %.val.i, align 8, !noalias !44
-  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %2, align 1, !noalias !44
+  %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  store i8 2, ptr %1, align 1, !noalias !44
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17haa4c41d68412d3cfE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+__rust_try.llvm.8948943988754983405.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !47, !noundef !4
   store i64 0, ptr %.val.i, align 8, !noalias !50
-  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  store i8 2, ptr %2, align 1, !noalias !50
+  %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
+  store i8 2, ptr %1, align 1, !noalias !50
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 

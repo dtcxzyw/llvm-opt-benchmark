@@ -87,7 +87,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %10
 
 10:                                               ; preds = %.lr.ph, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb7bdfa7874bce89fE.exit"
-  %.sroa.4.016 = phi ptr [ %2, %.lr.ph ], [ %19, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb7bdfa7874bce89fE.exit" ]
+  %.sroa.4.016 = phi ptr [ %2, %.lr.ph ], [ %18, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb7bdfa7874bce89fE.exit" ]
   %11 = phi ptr [ %.promoted, %.lr.ph ], [ %12, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb7bdfa7874bce89fE.exit" ]
   %.sroa.011.0.copyload = load i64, ptr %11, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -104,11 +104,11 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %14 = landingpad { ptr, i32 }
           cleanup
   %15 = icmp eq i64 %.sroa.011.0.copyload, 0
-  br i1 %15, label %18, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.12961896059317320339.exit.i.i1.i.i.i.i"
+  br i1 %15, label %.body.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.12961896059317320339.exit.i.i1.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.12961896059317320339.exit.i.i1.i.i.i.i": ; preds = %13
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.212.0.copyload, i64 noundef %.sroa.011.0.copyload, i64 noundef 1) #23, !noalias !35
-  br label %18
+  br label %.body.i
 
 16:                                               ; preds = %10
   %17 = icmp eq i64 %.sroa.011.0.copyload, 0
@@ -118,22 +118,22 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.212.0.copyload, i64 noundef %.sroa.011.0.copyload, i64 noundef 1) #23, !noalias !47
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb7bdfa7874bce89fE.exit"
 
-18:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.12961896059317320339.exit.i.i1.i.i.i.i", %13
+.body.i:                                          ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.12961896059317320339.exit.i.i1.i.i.i.i", %13
   tail call fastcc void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$alloc..string..String$GT$$GT$17h78ccf6cc72caf725E"(ptr %1, ptr %.sroa.4.016) #24, !noalias !32
   resume { ptr, i32 } %14
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb7bdfa7874bce89fE.exit": ; preds = %16, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.12961896059317320339.exit.i.i1.i.i1.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.016, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !32
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.4.016, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.4.016, i64 24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %.not = icmp eq ptr %12, %8
   br i1 %.not, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb7bdfa7874bce89fE.exit", %5
-  %.sroa.4.0.lcssa = phi ptr [ %2, %5 ], [ %19, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb7bdfa7874bce89fE.exit" ]
-  %20 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %21 = insertvalue { ptr, ptr } %20, ptr %.sroa.4.0.lcssa, 1
-  ret { ptr, ptr } %21
+  %.sroa.4.0.lcssa = phi ptr [ %2, %5 ], [ %18, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb7bdfa7874bce89fE.exit" ]
+  %19 = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %20 = insertvalue { ptr, ptr } %19, ptr %.sroa.4.0.lcssa, 1
+  ret { ptr, ptr } %20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -9520,11 +9520,11 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h52e604
   %15 = landingpad { ptr, i32 }
           cleanup
   %16 = icmp eq i64 %.sroa.011.0.copyload.i.i.i, 0
-  br i1 %16, label %.body, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.12961896059317320339.exit.i.i1.i.i.i.i.i.i.i"
+  br i1 %16, label %.body.i.i.i.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.12961896059317320339.exit.i.i1.i.i.i.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.12961896059317320339.exit.i.i1.i.i.i.i.i.i.i": ; preds = %14
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.212.0.copyload.i.i.i, i64 noundef %.sroa.011.0.copyload.i.i.i, i64 noundef 1) #23, !noalias !4001
-  br label %.body
+  br label %.body.i.i.i.i
 
 17:                                               ; preds = %11
   %18 = icmp eq i64 %.sroa.011.0.copyload.i.i.i, 0
@@ -9534,7 +9534,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h52e604
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.212.0.copyload.i.i.i, i64 noundef %.sroa.011.0.copyload.i.i.i, i64 noundef 1) #23, !noalias !4013
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb7bdfa7874bce89fE.exit.i.i.i"
 
-.body:                                            ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.12961896059317320339.exit.i.i1.i.i.i.i.i.i.i", %14
+.body.i.i.i.i:                                    ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.12961896059317320339.exit.i.i1.i.i.i.i.i.i.i", %14
   tail call fastcc void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$alloc..string..String$GT$$GT$17h78ccf6cc72caf725E"(ptr nonnull %6, ptr nonnull %.sroa.4.016.i.i.i) #24, !noalias !4000
   tail call fastcc void @"_ZN4core3ptr209drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$C$task..vscode_format..VsCodeTaskDefinition..into_zed_format..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7ddba8960c195226E"(ptr noalias noundef align 8 dereferenceable(40) %1) #24
   resume { ptr, i32 } %15

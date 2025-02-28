@@ -2235,10 +2235,10 @@ define hidden void @"_ZN2ui10components12popover_menu20PopoverMenu$LT$M$GT$7trig
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !457
   br label %_ZN2ui10components12popover_menu9show_menu17h810b4845961e34acE.exit
 
-.thread28.i:                                      ; preds = %34, %31, %28
-  %lpad.thr_comm26.i = landingpad { ptr, i32 }
+.thread27.i:                                      ; preds = %34, %31, %28
+  %lpad.thr_comm25.i = landingpad { ptr, i32 }
           cleanup
-  br label %.thread17.i
+  br label %.thread.i
 
 _ZN5alloc2rc10RcInnerPtr10inc_strong17hf2d425d16d46b41aE.exit.i: ; preds = %22
   store ptr %.val2, ptr %7, align 8, !noalias !457
@@ -2252,18 +2252,18 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17hf2d425d16d46b41aE.exit.i: ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !noalias !457
   store ptr %.val2, ptr %5, align 8, !noalias !457
   %30 = invoke { ptr, ptr } @_ZN4gpui6window13WindowContext9subscribe17h6a662647d1186792E(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
-          to label %31 unwind label %.thread28.i
+          to label %31 unwind label %.thread27.i
 
 31:                                               ; preds = %28
   %32 = extractvalue { ptr, ptr } %30, 0
   %33 = extractvalue { ptr, ptr } %30, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !457
   invoke void @_ZN4gpui12subscription12Subscription6detach17hf1558a2443b2cbddE(ptr noundef align 1 %32, ptr %33)
-          to label %34 unwind label %.thread28.i
+          to label %34 unwind label %.thread27.i
 
 34:                                               ; preds = %31
   invoke void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h76bb0ed030c3495bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9)
-          to label %35 unwind label %.thread28.i
+          to label %35 unwind label %.thread27.i
 
 35:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !457
@@ -2322,7 +2322,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17hf2d425d16d46b41aE.exit.i: ; preds = %22
   %54 = load i64, ptr %36, align 8, !noalias !470, !noundef !37
   %55 = add i64 %54, 1
   store i64 %55, ptr %36, align 8, !noalias !470
-  br label %.thread21.i
+  br label %.thread20.i
 
 56:                                               ; preds = %"_ZN4core3ptr86drop_in_place$LT$gpui..view..View$LT$ui..components..context_menu..ContextMenu$GT$$GT$17ha3455657041d914dE.exit.i7._crit_edge.i", %39
   %57 = phi i64 [ %50, %"_ZN4core3ptr86drop_in_place$LT$gpui..view..View$LT$ui..components..context_menu..ContextMenu$GT$$GT$17ha3455657041d914dE.exit.i7._crit_edge.i" ], [ 0, %39 ]
@@ -2334,7 +2334,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17hf2d425d16d46b41aE.exit.i: ; preds = %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !457
   br label %_ZN2ui10components12popover_menu9show_menu17h810b4845961e34acE.exit
 
-58:                                               ; preds = %.thread17.i, %63, %60
+58:                                               ; preds = %.thread.i, %63, %60
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #32
@@ -2344,7 +2344,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17hf2d425d16d46b41aE.exit.i: ; preds = %22
   %61 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$ui..components..context_menu..ContextMenu$GT$$GT$$GT$17h2caf3aff5c1e1320E"(ptr noalias noundef align 8 dereferenceable(32) %4) #31
-          to label %.thread21.i unwind label %58
+          to label %.thread20.i unwind label %58
 
 62:                                               ; preds = %51
   unreachable
@@ -2353,16 +2353,16 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17hf2d425d16d46b41aE.exit.i: ; preds = %22
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr162drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$core..option..Option$LT$gpui..view..View$LT$ui..components..context_menu..ContextMenu$GT$$GT$$GT$$GT$$GT$17h58801840fc9aeac6E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #31
-          to label %.thread17.i unwind label %58
+          to label %.thread.i unwind label %58
 
-.thread21.i:                                      ; preds = %.thread17.i, %60, %.body.i
-  %.pn.pn6.i = phi { ptr, i32 } [ %.pn.pn20.i, %.thread17.i ], [ %61, %60 ], [ %eh.lpad-body.i, %.body.i ]
+.thread20.i:                                      ; preds = %.thread.i, %60, %.body.i
+  %.pn.pn6.i = phi { ptr, i32 } [ %.pn.pn7.i, %.thread.i ], [ %61, %60 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %.pn.pn6.i
 
-.thread17.i:                                      ; preds = %63, %.thread28.i
-  %.pn.pn20.i = phi { ptr, i32 } [ %lpad.thr_comm26.i, %.thread28.i ], [ %lpad.thr_comm.split-lp.i, %63 ]
+.thread.i:                                        ; preds = %63, %.thread27.i
+  %.pn.pn7.i = phi { ptr, i32 } [ %lpad.thr_comm25.i, %.thread27.i ], [ %lpad.thr_comm.split-lp.i, %63 ]
   invoke void @"_ZN4core3ptr86drop_in_place$LT$gpui..view..View$LT$ui..components..context_menu..ContextMenu$GT$$GT$17ha3455657041d914dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #31
-          to label %.thread21.i unwind label %58
+          to label %.thread20.i unwind label %58
 
 _ZN2ui10components12popover_menu9show_menu17h810b4845961e34acE.exit: ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$ui..components..context_menu..ContextMenu$GT$$GT$$GT$17h2caf3aff5c1e1320E.exit.i", %56
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !457

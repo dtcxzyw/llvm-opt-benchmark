@@ -4616,7 +4616,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.3, i64 noundef 752, i64 noundef 8) #42
   br label %"_ZN4core3ptr155drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$alloc..sync..Arc$LT$std..path..Path$GT$$GT$$GT$$GT$$GT$17he23650c6898c7c66E.exit46"
 
-.noexc47:                                         ; preds = %104, %.thread
+"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Arc$LT$std..path..Path$GT$$GT$17ha2dddad29039739bE.llvm.17421949163919709637.exit": ; preds = %.thread, %104
   resume { ptr, i32 } %.pn60
 
 .thread:                                          ; preds = %.thread68, %87, %39
@@ -4626,12 +4626,12 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %101 = load ptr, ptr %7, align 8, !alias.scope !690, !nonnull !4, !noundef !4
   %102 = atomicrmw sub ptr %101, i64 1 release, align 8, !noalias !690
   %103 = icmp eq i64 %102, 1
-  br i1 %103, label %104, label %.noexc47
+  br i1 %103, label %104, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Arc$LT$std..path..Path$GT$$GT$17ha2dddad29039739bE.llvm.17421949163919709637.exit"
 
 104:                                              ; preds = %.thread
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hce9133c355075ec9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-          to label %.noexc47 unwind label %89
+          to label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Arc$LT$std..path..Path$GT$$GT$17ha2dddad29039739bE.llvm.17421949163919709637.exit" unwind label %89
 }
 
 ; Function Attrs: nonlazybind uwtable

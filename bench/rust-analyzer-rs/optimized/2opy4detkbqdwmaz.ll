@@ -11753,7 +11753,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.8855768217806144362.exit: ; preds 
   %164 = icmp ne ptr %163, null
   tail call void @llvm.assume(i1 %164)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(70) %163, ptr noundef nonnull align 1 dereferenceable(70) @anon.c5e1a61762c65cdb2dd6c051083ecde9.427, i64 70, i1 false)
-  br label %171
+  br label %170
 
 165:                                              ; preds = %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h1b667276882acad3E.exit50.sink.split.i", %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.8855768217806144362.exit
   %166 = landingpad { ptr, i32 }
@@ -11763,7 +11763,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.8855768217806144362.exit: ; preds 
 .body:                                            ; preds = %"_ZN4core3ptr114drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Expr$GT$$GT$17h8d38617ec9fb3dedE.exit.i", %55, %165
   %eh.lpad-body = phi { ptr, i32 } [ %166, %165 ], [ %.pn22.i, %55 ], [ %.pn22.i, %"_ZN4core3ptr114drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Expr$GT$$GT$17h8d38617ec9fb3dedE.exit.i" ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb5e32fcecbcfa0dcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #26
-          to label %170 unwind label %168
+          to label %.body23 unwind label %168
 
 167:                                              ; preds = %154, %"_ZN4core3ptr51drop_in_place$LT$hir..semantics..SemanticsScope$GT$17h60ecdb0b02386eadE.exit48.i", %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h1b667276882acad3E.exit50.sink.split.i"
   %.sroa.039.4 = phi i64 [ -9223372036854775808, %154 ], [ %.sroa.039.1, %"_ZN4core3ptr51drop_in_place$LT$hir..semantics..SemanticsScope$GT$17h60ecdb0b02386eadE.exit48.i" ], [ %.sroa.039.2, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h1b667276882acad3E.exit50.sink.split.i" ]
@@ -11776,7 +11776,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.8855768217806144362.exit: ; preds 
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
   %.sroa.415.0.copyload = load i64, ptr %.sroa.415.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
-  br label %171
+  br label %170
 
 168:                                              ; preds = %.body
   %169 = landingpad { ptr, i32 }
@@ -11784,10 +11784,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.8855768217806144362.exit: ; preds 
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #27
   unreachable
 
-170:                                              ; preds = %.body
+.body23:                                          ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 
-171:                                              ; preds = %167, %160
+170:                                              ; preds = %167, %160
   %.sroa.039.0 = phi i64 [ -9223372036854775808, %160 ], [ %.sroa.039.4, %167 ]
   %.sroa.011.0 = phi i64 [ %162, %160 ], [ %.sroa.011.0.copyload, %167 ]
   %.sroa.3.0 = phi ptr [ %163, %160 ], [ %.sroa.3.0.copyload, %167 ]

@@ -923,12 +923,13 @@ define hidden void @_ZN3std9panicking3try17h4e973763d0f5e1c9E(ptr noalias nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h6a4da351e980581fE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
+__rust_try.llvm.13157132225597385975.exit:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
-  %2 = load ptr, ptr %0, align 8, !alias.scope !125, !noalias !126, !noundef !4
-  store i64 0, ptr %2, align 8, !noalias !129
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 2, ptr %3, align 1, !noalias !129
+  %1 = load ptr, ptr %0, align 8, !alias.scope !125, !noalias !126, !noundef !4
+  store i64 0, ptr %1, align 8, !noalias !129
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 2, ptr %2, align 1, !noalias !129
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -1932,49 +1933,49 @@ define hidden void @"_ZN4core3pin12Pin$LT$P$GT$3set17ha10db6df1843f087E.llvm.131
   tail call void @llvm.experimental.noalias.scope.decl(metadata !322)
   %5 = load ptr, ptr %4, align 8, !alias.scope !322, !noundef !4
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %"_ZN4core3ptr243drop_in_place$LT$core..option..Option$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17ha1b6e322fb486d86E.llvm.13157132225597385975.exit", label %7
+  br i1 %6, label %"_ZN4core3ptr243drop_in_place$LT$core..option..Option$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17ha1b6e322fb486d86E.llvm.13157132225597385975.exit", label %8
 
-7:                                                ; preds = %3
+7:                                                ; preds = %12, %16
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %13, %12 ]
+  store ptr %1, ptr %4, align 8
+  store ptr %2, ptr %9, align 8
+  resume { ptr, i32 } %eh.lpad-body
+
+8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !325)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !328)
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %9 = load ptr, ptr %8, align 8, !alias.scope !331, !nonnull !4, !align !14, !noundef !4
-  %10 = load ptr, ptr %9, align 8, !invariant.load !4, !noalias !331, !nonnull !4
-  invoke void %10(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit.i" unwind label %11, !noalias !331
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10 = load ptr, ptr %9, align 8, !alias.scope !331, !nonnull !4, !align !14, !noundef !4
+  %11 = load ptr, ptr %10, align 8, !invariant.load !4, !noalias !331, !nonnull !4
+  invoke void %11(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit.i" unwind label %12, !noalias !331
 
-11:                                               ; preds = %7
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %8
+  %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdba87ae952080671E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #43
-          to label %18 unwind label %13
+          to label %7 unwind label %14
 
-13:                                               ; preds = %11
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %12
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44
   unreachable
 
-"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit.i": ; preds = %7
+"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit.i": ; preds = %8
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdba87ae952080671E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-          to label %"_ZN4core3ptr243drop_in_place$LT$core..option..Option$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17ha1b6e322fb486d86E.llvm.13157132225597385975.exit" unwind label %15
+          to label %"_ZN4core3ptr243drop_in_place$LT$core..option..Option$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17ha1b6e322fb486d86E.llvm.13157132225597385975.exit" unwind label %16
 
-15:                                               ; preds = %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit.i"
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit.i"
+  %17 = landingpad { ptr, i32 }
           cleanup
-  br label %18
+  br label %7
 
 "_ZN4core3ptr243drop_in_place$LT$core..option..Option$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17ha1b6e322fb486d86E.llvm.13157132225597385975.exit": ; preds = %3, %"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h201b5a0a6b45a70cE.exit.i"
   store ptr %1, ptr %4, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %2, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %2, ptr %18, align 8
   ret void
-
-18:                                               ; preds = %15, %11
-  %eh.lpad-body = phi { ptr, i32 } [ %16, %15 ], [ %12, %11 ]
-  store ptr %1, ptr %4, align 8
-  store ptr %2, ptr %8, align 8
-  resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: nonlazybind uwtable

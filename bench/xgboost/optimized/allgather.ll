@@ -2610,7 +2610,7 @@ _ZNSt10shared_ptrIN7xgboost10collective4CollEED2Ev.exit73.thread: ; preds = %_ZN
 86:                                               ; preds = %27
   %87 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit77
+  br label %.thread113
 
 88:                                               ; preds = %39
   %89 = landingpad { ptr, i32 }
@@ -2625,7 +2625,7 @@ _ZNSt10shared_ptrIN7xgboost10collective4CollEED2Ev.exit73.thread: ; preds = %_ZN
 92:                                               ; preds = %90, %88
   %.pn = phi { ptr, i32 } [ %91, %90 ], [ %89, %88 ]
   call void @_ZNSt10shared_ptrIN7xgboost10collective4CollEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #10
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit77
+  br label %.thread113
 
 93:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost10collective4CollEED2Ev.exit
   %94 = add nsw i64 %38, 1
@@ -2929,12 +2929,12 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt10shared_ptrIN
 219:                                              ; preds = %209, %.thread, %207, %205
   %.pn44.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %206, %205 ], [ %208, %207 ], [ %.pn44.pn.pn.pn, %.thread ], [ %210, %209 ]
   call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit77
+  br label %.thread113
 
-_ZNSt6vectorIlSaIlEED2Ev.exit77:                  ; preds = %219, %92, %86
-  %.pn44.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %87, %86 ], [ %.pn, %92 ], [ %.pn44.pn.pn.pn.pn.pn, %219 ]
+.thread113:                                       ; preds = %219, %92, %86
+  %.pn44.pn.pn.pn.pn.pn.pn.pn116 = phi { ptr, i32 } [ %87, %86 ], [ %.pn, %92 ], [ %.pn44.pn.pn.pn.pn.pn, %219 ]
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.090.0, i64 noundef %37) #25
-  resume { ptr, i32 } %.pn44.pn.pn.pn.pn.pn.pn.pn.ph
+  resume { ptr, i32 } %.pn44.pn.pn.pn.pn.pn.pn.pn116
 
 220:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit, %20
   ret void
@@ -3103,7 +3103,7 @@ _ZNSt10shared_ptrIN7xgboost10collective4CollEED2Ev.exit72.thread: ; preds = %_ZN
 85:                                               ; preds = %27
   %86 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit76
+  br label %.thread112
 
 87:                                               ; preds = %38
   %88 = landingpad { ptr, i32 }
@@ -3118,7 +3118,7 @@ _ZNSt10shared_ptrIN7xgboost10collective4CollEED2Ev.exit72.thread: ; preds = %_ZN
 91:                                               ; preds = %89, %87
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
   call void @_ZNSt10shared_ptrIN7xgboost10collective4CollEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #10
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit76
+  br label %.thread112
 
 92:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost10collective4CollEED2Ev.exit
   %93 = add nsw i64 %37, 1
@@ -3421,12 +3421,12 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt10shared_ptrIN
 217:                                              ; preds = %207, %.thread, %205, %203
   %.pn44.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %204, %203 ], [ %206, %205 ], [ %.pn44.pn.pn.pn, %.thread ], [ %208, %207 ]
   call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit76
+  br label %.thread112
 
-_ZNSt6vectorIlSaIlEED2Ev.exit76:                  ; preds = %217, %91, %85
-  %.pn44.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %86, %85 ], [ %.pn, %91 ], [ %.pn44.pn.pn.pn.pn.pn, %217 ]
+.thread112:                                       ; preds = %217, %91, %85
+  %.pn44.pn.pn.pn.pn.pn.pn.pn115 = phi { ptr, i32 } [ %86, %85 ], [ %.pn, %91 ], [ %.pn44.pn.pn.pn.pn.pn, %217 ]
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.089.0, i64 noundef %36) #25
-  resume { ptr, i32 } %.pn44.pn.pn.pn.pn.pn.pn.pn.ph
+  resume { ptr, i32 } %.pn44.pn.pn.pn.pn.pn.pn.pn115
 
 218:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit, %20
   ret void

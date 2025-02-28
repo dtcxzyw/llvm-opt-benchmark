@@ -8940,16 +8940,16 @@ _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit.thread176: ; preds = %22, %_ZN
   %.sroa.0128.2 = phi ptr [ %.sroa.0128.5, %178 ], [ %.sroa.0128.0319, %28 ], [ %.sroa.0128.0319, %24 ], [ %.sroa.0128.0319, %.loopexit212 ], [ %.sroa.0128.0319, %.loopexit.split-lp213 ]
   %.pn45 = phi { ptr, i32 } [ %.pn40.pn.pn, %178 ], [ %29, %28 ], [ %25, %24 ], [ %lpad.loopexit214, %.loopexit212 ], [ %lpad.loopexit.split-lp215, %.loopexit.split-lp213 ]
   %.not.i.i.i100 = icmp eq ptr %.sroa.0128.2, null
-  br i1 %.not.i.i.i100, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, label %240
+  br i1 %.not.i.i.i100, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, label %.thread192
 
-240:                                              ; preds = %239
-  %241 = ptrtoint ptr %.sroa.25.2 to i64
-  %242 = ptrtoint ptr %.sroa.0128.2 to i64
-  %243 = sub i64 %241, %242
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0128.2, i64 noundef %243) #25
+.thread192:                                       ; preds = %239
+  %240 = ptrtoint ptr %.sroa.25.2 to i64
+  %241 = ptrtoint ptr %.sroa.0128.2 to i64
+  %242 = sub i64 %240, %241
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0128.2, i64 noundef %242) #25
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %239, %240
+_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %239, %.thread192
   resume { ptr, i32 } %.pn45
 
 .thread201:                                       ; preds = %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit.thread176, %2
@@ -8957,26 +8957,26 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %239, %240
   %.sroa.14.0.lcssa = phi ptr [ null, %2 ], [ %.sroa.14.1182, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit.thread176 ]
   %.sroa.0128.0.lcssa = phi ptr [ null, %2 ], [ %.sroa.0128.1183, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit.thread176 ]
   store ptr %.sroa.0128.0.lcssa, ptr %0, align 8, !tbaa !46
-  %244 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.14.0.lcssa, ptr %244, align 8, !tbaa !52
-  %245 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.25.0.lcssa, ptr %245, align 8, !tbaa !220
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.14.0.lcssa, ptr %243, align 8, !tbaa !52
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.25.0.lcssa, ptr %244, align 8, !tbaa !220
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit102
 
 .loopexit211:                                     ; preds = %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit67, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit.thread184
   %.sroa.25.10 = phi ptr [ %.sroa.25.0317, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit.thread184 ], [ %.sroa.25.3, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit67 ]
   %.sroa.0128.10 = phi ptr [ %.sroa.0128.0319, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit.thread184 ], [ %.sroa.0128.3, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit67 ]
   %.not.i.i.i101 = icmp eq ptr %.sroa.0128.10, null
-  br i1 %.not.i.i.i101, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit102, label %246
+  br i1 %.not.i.i.i101, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit102, label %245
 
-246:                                              ; preds = %.loopexit211
-  %247 = ptrtoint ptr %.sroa.25.10 to i64
-  %248 = ptrtoint ptr %.sroa.0128.10 to i64
-  %249 = sub i64 %247, %248
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0128.10, i64 noundef %249) #25
+245:                                              ; preds = %.loopexit211
+  %246 = ptrtoint ptr %.sroa.25.10 to i64
+  %247 = ptrtoint ptr %.sroa.0128.10 to i64
+  %248 = sub i64 %246, %247
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0128.10, i64 noundef %248) #25
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit102
 
-_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit102:  ; preds = %.thread201, %.loopexit211, %246
+_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit102:  ; preds = %.thread201, %.loopexit211, %245
   ret void
 }
 

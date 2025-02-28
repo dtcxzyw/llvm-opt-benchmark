@@ -1950,13 +1950,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %38 = load i64, ptr %26, align 8, !tbaa !15
   %39 = icmp ult i64 %38, 16
   call void @llvm.assume(i1 %39)
-  br label %110
+  br label %.thread51
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6.i.i: ; preds = %34
   %40 = load i64, ptr %25, align 8, !tbaa !14
   %41 = add i64 %40, 1
   call void @_ZdlPvm(ptr noundef %36, i64 noundef %41) #32
-  br label %110
+  br label %.thread51
 
 42:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #31
@@ -2113,31 +2113,31 @@ _ZNSt12_Vector_baseI17InteractionOfTypeSaIS0_EE13_M_deallocateEPS0_m.exit: ; pre
   store ptr %107, ptr %102, align 8, !tbaa !43
   ret void
 
-108:                                              ; preds = %110
+108:                                              ; preds = %.thread51
   %109 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %113 unwind label %114
+          to label %112 unwind label %113
 
-110:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6.i.i
+.thread51:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #31
-  %111 = extractvalue { ptr, i32 } %35, 0
-  %112 = call ptr @__cxa_begin_catch(ptr %111) #31
+  %110 = extractvalue { ptr, i32 } %35, 0
+  %111 = call ptr @__cxa_begin_catch(ptr %110) #31
   call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %21) #32
   invoke void @__cxa_rethrow() #30
-          to label %117 unwind label %108
+          to label %116 unwind label %108
 
-113:                                              ; preds = %108
+112:                                              ; preds = %108
   resume { ptr, i32 } %109
 
-114:                                              ; preds = %108
-  %115 = landingpad { ptr, i32 }
+113:                                              ; preds = %108
+  %114 = landingpad { ptr, i32 }
           catch ptr null
-  %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #33
+  %115 = extractvalue { ptr, i32 } %114, 0
+  call void @__clang_call_terminate(ptr %115) #33
   unreachable
 
-117:                                              ; preds = %110
+116:                                              ; preds = %.thread51
   unreachable
 }
 

@@ -1820,7 +1820,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventNodeEED2Ev.exit: ;
           cleanup
   br label %61
 
-61:                                               ; preds = %.thread, %.thread9
+61:                                               ; preds = %.thread9, %.thread
   %.pn8 = phi { ptr, i32 } [ %60, %.thread ], [ %22, %.thread9 ]
   call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 144) #29
   resume { ptr, i32 } %.pn8

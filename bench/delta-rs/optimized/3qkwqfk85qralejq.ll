@@ -525,28 +525,26 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$futures_util..future..maybe_done..
   call void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h006892bb58077648E"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %12 = load i64, ptr %4, align 8, !range !20, !noundef !16
   %13 = icmp eq i64 %12, 47
-  br i1 %13, label %18, label %15
+  br i1 %13, label %18, label %17
 
 14:                                               ; preds = %2
   tail call void @_ZN3std9panicking11begin_panic17hd4cbdd01823ab93fE(ptr noalias noundef nonnull readonly align 1 @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.0.llvm.51275720373526900, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.2.llvm.51275720373526900) #39
   unreachable
 
-15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3)
+15:                                               ; preds = %17
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false)
+  resume { ptr, i32 } %16
+
+17:                                               ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   invoke void @"_ZN4core3ptr196drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17hdfbfaf3a83ffd4b0E.llvm.51275720373526900"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0)
-          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h8d0d15fee11ecd40E.llvm.51275720373526900.exit" unwind label %16, !noalias !21
+          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h8d0d15fee11ecd40E.llvm.51275720373526900.exit" unwind label %15, !noalias !21
 
-16:                                               ; preds = %15
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false), !noalias !21
-  resume { ptr, i32 } %17
-
-"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h8d0d15fee11ecd40E.llvm.51275720373526900.exit": ; preds = %15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false), !noalias !21
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)
+"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h8d0d15fee11ecd40E.llvm.51275720373526900.exit": ; preds = %17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false)
   br label %19
 
 18:                                               ; preds = %10
@@ -581,28 +579,26 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$futures_util..future..maybe_done..
   call void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h00879121c142baffE"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %12 = load i64, ptr %4, align 8, !range !20, !noundef !16
   %13 = icmp eq i64 %12, 47
-  br i1 %13, label %18, label %15
+  br i1 %13, label %18, label %17
 
 14:                                               ; preds = %2
   tail call void @_ZN3std9panicking11begin_panic17hd4cbdd01823ab93fE(ptr noalias noundef nonnull readonly align 1 @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.0.llvm.51275720373526900, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.63bb1fbf181fd6b1d13fb7ab3f383c6c.2.llvm.51275720373526900) #39
   unreachable
 
-15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3)
+15:                                               ; preds = %17
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false)
+  resume { ptr, i32 } %16
+
+17:                                               ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   invoke void @"_ZN4core3ptr249drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..Action$GT$$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17hc51cb66950bb1b72E.llvm.51275720373526900"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0)
-          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hedac41b731657093E.llvm.51275720373526900.exit" unwind label %16, !noalias !24
+          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hedac41b731657093E.llvm.51275720373526900.exit" unwind label %15, !noalias !24
 
-16:                                               ; preds = %15
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false), !noalias !24
-  resume { ptr, i32 } %17
-
-"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hedac41b731657093E.llvm.51275720373526900.exit": ; preds = %15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false), !noalias !24
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)
+"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hedac41b731657093E.llvm.51275720373526900.exit": ; preds = %17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false)
   br label %19
 
 18:                                               ; preds = %10
@@ -30853,34 +30849,34 @@ define internal fastcc void @_ZN4core3ops8function6FnOnce9call_once17h436c50e3bb
 define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h8d0d15fee11ecd40E.llvm.51275720373526900"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %1) unnamed_addr #13 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !alias.scope !3851, !nonnull !16, !align !365, !noundef !16
   invoke void @"_ZN4core3ptr196drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17hdfbfaf3a83ffd4b0E.llvm.51275720373526900"(ptr noalias noundef nonnull align 8 dereferenceable(88) %3)
-          to label %4 unwind label %5
+          to label %6 unwind label %4
 
 4:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
-  ret void
-
-5:                                                ; preds = %2
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %5
+
+6:                                                ; preds = %2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
+  ret void
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hedac41b731657093E.llvm.51275720373526900"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %1) unnamed_addr #13 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !alias.scope !3854, !nonnull !16, !align !365, !noundef !16
   invoke void @"_ZN4core3ptr249drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..Action$GT$$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17hc51cb66950bb1b72E.llvm.51275720373526900"(ptr noalias noundef nonnull align 8 dereferenceable(88) %3)
-          to label %4 unwind label %5
+          to label %6 unwind label %4
 
 4:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
-  ret void
-
-5:                                                ; preds = %2
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %5
+
+6:                                                ; preds = %2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable

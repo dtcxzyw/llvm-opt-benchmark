@@ -3658,7 +3658,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE11_M_allocateEm.exit.i.i35: ; preds
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body26 ], [ %82, %84 ], [ %82, %81 ]
   %117 = load ptr, ptr %76, align 8
   %.not.i.i.i40 = icmp eq ptr %117, null
-  br i1 %.not.i.i.i40, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %118
+  br i1 %.not.i.i.i40, label %.body, label %118
 
 118:                                              ; preds = %.body16
   %119 = load ptr, ptr %77, align 8
@@ -3666,14 +3666,14 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE11_M_allocateEm.exit.i.i35: ; preds
   %121 = ptrtoint ptr %117 to i64
   %122 = sub i64 %120, %121
   call void @_ZdlPvm(ptr noundef nonnull %117, i64 noundef %122) #35
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit
+  br label %.body
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %118, %.body16
+.body:                                            ; preds = %118, %.body16
   call void @_ZN10open_spiel5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #32
   br label %123
 
-123:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %115
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %116, %115 ]
+123:                                              ; preds = %.body, %115
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %116, %115 ]
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -7369,7 +7369,7 @@ _ZN10open_spiel11negotiation15NegotiationGame24ConstructLegalUtterancesEv.exit: 
 .body:                                            ; preds = %156, %49, %158
   %.pn15 = phi { ptr, i32 } [ %159, %158 ], [ %157, %156 ], [ %50, %49 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #32
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br label %.body58
 
 160:                                              ; preds = %.noexc33, %52
   %161 = landingpad { ptr, i32 }
@@ -7385,7 +7385,7 @@ _ZN10open_spiel11negotiation15NegotiationGame24ConstructLegalUtterancesEv.exit: 
 .body35:                                          ; preds = %160, %56, %162
   %.pn17 = phi { ptr, i32 } [ %163, %162 ], [ %161, %160 ], [ %57, %56 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #32
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br label %.body58
 
 164:                                              ; preds = %.noexc38, %59
   %165 = landingpad { ptr, i32 }
@@ -7401,7 +7401,7 @@ _ZN10open_spiel11negotiation15NegotiationGame24ConstructLegalUtterancesEv.exit: 
 .body40:                                          ; preds = %164, %63, %166
   %.pn19 = phi { ptr, i32 } [ %167, %166 ], [ %165, %164 ], [ %64, %63 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #32
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br label %.body58
 
 168:                                              ; preds = %.noexc43, %66
   %169 = landingpad { ptr, i32 }
@@ -7417,7 +7417,7 @@ _ZN10open_spiel11negotiation15NegotiationGame24ConstructLegalUtterancesEv.exit: 
 .body45:                                          ; preds = %168, %69, %170
   %.pn21 = phi { ptr, i32 } [ %171, %170 ], [ %169, %168 ], [ %70, %69 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #32
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br label %.body58
 
 172:                                              ; preds = %.noexc48, %72
   %173 = landingpad { ptr, i32 }
@@ -7433,7 +7433,7 @@ _ZN10open_spiel11negotiation15NegotiationGame24ConstructLegalUtterancesEv.exit: 
 .body50:                                          ; preds = %172, %75, %174
   %.pn23 = phi { ptr, i32 } [ %175, %174 ], [ %173, %172 ], [ %76, %75 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #32
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br label %.body58
 
 176:                                              ; preds = %.noexc53, %78
   %177 = landingpad { ptr, i32 }
@@ -7449,12 +7449,12 @@ _ZN10open_spiel11negotiation15NegotiationGame24ConstructLegalUtterancesEv.exit: 
 .body55:                                          ; preds = %176, %81, %178
   %.pn25 = phi { ptr, i32 } [ %179, %178 ], [ %177, %176 ], [ %82, %81 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #32
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br label %.body58
 
 .thread:                                          ; preds = %84
   %180 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br label %.body58
 
 181:                                              ; preds = %120
   %182 = landingpad { ptr, i32 }
@@ -7471,7 +7471,7 @@ _ZNKSt14default_deleteISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567
   store ptr null, ptr %88, align 8
   %.pre = load ptr, ptr %85, align 8
   %.not.i.i.i62 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i.i62, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %185
+  br i1 %.not.i.i.i62, label %.body58, label %185
 
 185:                                              ; preds = %184
   %186 = load ptr, ptr %86, align 8
@@ -7479,15 +7479,15 @@ _ZNKSt14default_deleteISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567
   %188 = ptrtoint ptr %.pre to i64
   %189 = sub i64 %187, %188
   call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef %189) #35
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br label %.body58
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %.thread, %185, %184, %.body55, %.body50, %.body45, %.body40, %.body35, %.body
+.body58:                                          ; preds = %.thread, %185, %184, %.body55, %.body50, %.body45, %.body40, %.body35, %.body
   %.pn27.pn = phi { ptr, i32 } [ %.pn25, %.body55 ], [ %.pn23, %.body50 ], [ %.pn21, %.body45 ], [ %.pn19, %.body40 ], [ %.pn17, %.body35 ], [ %.pn15, %.body ], [ %182, %184 ], [ %182, %185 ], [ %180, %.thread ]
   call void @_ZN10open_spiel4GameD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) #32
   br label %190
 
-190:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit, %155
-  %.pn27.pn.pn = phi { ptr, i32 } [ %.pn27.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit ], [ %.pn, %155 ]
+190:                                              ; preds = %.body58, %155
+  %.pn27.pn.pn = phi { ptr, i32 } [ %.pn27.pn, %.body58 ], [ %.pn, %155 ]
   resume { ptr, i32 } %.pn27.pn.pn
 }
 

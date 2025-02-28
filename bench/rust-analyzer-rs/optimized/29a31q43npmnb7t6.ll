@@ -21265,7 +21265,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h3a46d251bb65cf8dE(p
 
 37:                                               ; preds = %23
   invoke void @"_ZN4core3ptr57drop_in_place$LT$serde_json..value..ser..SerializeVec$GT$17h4de89fe1a0cad18bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #51
-          to label %40 unwind label %38
+          to label %.body unwind label %38
 
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
@@ -21273,7 +21273,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h3a46d251bb65cf8dE(p
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #52
   unreachable
 
-40:                                               ; preds = %37
+.body:                                            ; preds = %37
   resume { ptr, i32 } %24
 }
 
@@ -23201,7 +23201,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h6893b3107fae30aaE(p
 
 37:                                               ; preds = %23
   invoke void @"_ZN4core3ptr57drop_in_place$LT$serde_json..value..ser..SerializeVec$GT$17h4de89fe1a0cad18bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #51
-          to label %40 unwind label %38
+          to label %.body unwind label %38
 
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
@@ -23209,7 +23209,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h6893b3107fae30aaE(p
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #52
   unreachable
 
-40:                                               ; preds = %37
+.body:                                            ; preds = %37
   resume { ptr, i32 } %24
 }
 
@@ -26440,7 +26440,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17haeecb7ffbcc7364cE(p
 
 37:                                               ; preds = %23
   invoke void @"_ZN4core3ptr57drop_in_place$LT$serde_json..value..ser..SerializeVec$GT$17h4de89fe1a0cad18bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #51
-          to label %40 unwind label %38
+          to label %.body unwind label %38
 
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
@@ -26448,7 +26448,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17haeecb7ffbcc7364cE(p
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #52
   unreachable
 
-40:                                               ; preds = %37
+.body:                                            ; preds = %37
   resume { ptr, i32 } %24
 }
 

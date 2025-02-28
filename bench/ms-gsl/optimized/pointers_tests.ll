@@ -287,12 +287,12 @@ _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit:
 3:                                                ; preds = %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit
   %4 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN3gsl8not_nullISt10unique_ptrIiSt14default_deleteIiEEED2Ev.exit219
+  br label %_ZNKSt14default_deleteIiEclEPi.exit.i.i218
 
 _ZN7testing15AssertionResultD2Ev.exit181:         ; preds = %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit
   store i32 1, ptr %2, align 4, !noalias !7
   %5 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %6 unwind label %_ZN3gsl8not_nullISt10unique_ptrIiSt14default_deleteIiEEED2Ev.exit216
+          to label %6 unwind label %_ZNKSt14default_deleteIiEclEPi.exit.i.i215
 
 6:                                                ; preds = %_ZN7testing15AssertionResultD2Ev.exit181
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -348,17 +348,17 @@ _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit207: ; preds = %13, %_ZN9__gnu
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 4) #17
   ret void
 
-_ZN3gsl8not_nullISt10unique_ptrIiSt14default_deleteIiEEED2Ev.exit216: ; preds = %_ZN7testing15AssertionResultD2Ev.exit181
+_ZNKSt14default_deleteIiEclEPi.exit.i.i215:       ; preds = %_ZN7testing15AssertionResultD2Ev.exit181
   %28 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 4) #17
-  br label %_ZN3gsl8not_nullISt10unique_ptrIiSt14default_deleteIiEEED2Ev.exit219
+  br label %_ZNKSt14default_deleteIiEclEPi.exit.i.i218
 
-_ZN3gsl8not_nullISt10unique_ptrIiSt14default_deleteIiEEED2Ev.exit219: ; preds = %_ZN3gsl8not_nullISt10unique_ptrIiSt14default_deleteIiEEED2Ev.exit216, %3
-  %.sroa.0444.0 = phi ptr [ %2, %_ZN3gsl8not_nullISt10unique_ptrIiSt14default_deleteIiEEED2Ev.exit216 ], [ %1, %3 ]
-  %.pn71.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %28, %_ZN3gsl8not_nullISt10unique_ptrIiSt14default_deleteIiEEED2Ev.exit216 ], [ %4, %3 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0444.0, i64 noundef 4) #17
-  resume { ptr, i32 } %.pn71.pn.pn.pn.pn.pn
+_ZNKSt14default_deleteIiEclEPi.exit.i.i218:       ; preds = %3, %_ZNKSt14default_deleteIiEclEPi.exit.i.i215
+  %.sroa.0444.0.ph = phi ptr [ %2, %_ZNKSt14default_deleteIiEclEPi.exit.i.i215 ], [ %1, %3 ]
+  %.pn71.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %28, %_ZNKSt14default_deleteIiEclEPi.exit.i.i215 ], [ %4, %3 ]
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0444.0.ph, i64 noundef 4) #17
+  resume { ptr, i32 } %.pn71.pn.pn.pn.pn.pn.ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

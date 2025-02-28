@@ -180,26 +180,26 @@ define noundef i32 @_ZN3gmx18nonbondedMtsFactorERK10t_inputrec(ptr noundef nonnu
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = icmp eq i64 %12, 32
-  br i1 %13, label %15, label %14
+  br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %5
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18nonbondedMtsFactorERK10t_inputrecENK3$_0clEv", ptr noundef nonnull @.str.10, i32 noundef 53) #25
   unreachable
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !112
-  %18 = and i64 %17, 2
-  %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %.thread5, label %19
+.thread:                                          ; preds = %5
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %16 = load i64, ptr %15, align 8, !tbaa !112
+  %17 = and i64 %16, 2
+  %.not = icmp eq i64 %17, 0
+  br i1 %.not, label %.thread5, label %18
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %21 = load i32, ptr %20, align 8, !tbaa !114
+18:                                               ; preds = %.thread
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %20 = load i32, ptr %19, align 8, !tbaa !114
   br label %.thread5
 
-.thread5:                                         ; preds = %1, %15, %19
-  %.0 = phi i32 [ %21, %19 ], [ 1, %15 ], [ 1, %1 ]
+.thread5:                                         ; preds = %1, %.thread, %18
+  %.0 = phi i32 [ %20, %18 ], [ 1, %.thread ], [ 1, %1 ]
   ret i32 %.0
 }
 

@@ -20524,7 +20524,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h6fa4aa1bfd145ea8E(p
 
 37:                                               ; preds = %24
   invoke void @"_ZN4core3ptr57drop_in_place$LT$serde_json..value..ser..SerializeVec$GT$17ha40e6cead01d8befE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #34
-          to label %40 unwind label %38
+          to label %.body unwind label %38
 
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
@@ -20532,7 +20532,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h6fa4aa1bfd145ea8E(p
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 
-40:                                               ; preds = %37
+.body:                                            ; preds = %37
   resume { ptr, i32 } %25
 }
 
@@ -45047,7 +45047,7 @@ define hidden void @"_ZN207_$LT$language..language_settings.._..$LT$impl$u20$ser
   store i64 %.sroa.12.376115, ptr %.sroa.7.0..sroa_idx21, align 8
   store i64 %.sroa.060.17494102, ptr %5, align 8
   %23 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17h6b85189acc200edaE(ptr noalias noundef nonnull readonly align 1 @anon.d79e8776f441beca623c92039bf906b2.99, i64 noundef 14)
-          to label %39 unwind label %55
+          to label %39 unwind label %.thread82
 
 24:                                               ; preds = %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14013)
@@ -45184,7 +45184,7 @@ define hidden void @"_ZN207_$LT$language..language_settings.._..$LT$impl$u20$ser
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 
-55:                                               ; preds = %22
+.thread82:                                        ; preds = %22
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   call fastcc void @"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h274db8931d1d692aE"(ptr noalias noundef align 8 dereferenceable(24) %5) #34

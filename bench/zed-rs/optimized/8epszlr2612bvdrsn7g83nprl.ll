@@ -55624,7 +55624,7 @@ default.unreachable35:                            ; preds = %37, %3
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  br label %163
+  br label %.body10
 
 27:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -56072,7 +56072,7 @@ common.ret:                                       ; preds = %157, %153
   %.pn2 = phi { ptr, i32 } [ %149, %148 ], [ %.pn24.i, %141 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.924)
   invoke fastcc void @"_ZN4core3ptr1021drop_in_place$LT$wasmtime..runtime..store..$LT$impl$u20$wasmtime..runtime..store..context..StoreContextMut$LT$extension..wasm_host..WasmState$GT$$GT$..on_fiber$LT$core..result..Result$LT$$LP$core..result..Result$LT$alloc..vec..Vec$LT$extension..wasm_host..wit..since_v0_2_0..zed..extension..slash_command..SlashCommandArgumentCompletion$GT$$C$alloc..string..String$GT$$C$$RP$$C$anyhow..Error$GT$$C$wasmtime..runtime..component..func..typed..TypedFunc$LT$$LP$$RF$extension..wasm_host..wit..since_v0_2_0..zed..extension..slash_command..SlashCommand$C$$RF$$u5b$alloc..string..String$u5d$$RP$$C$$LP$core..result..Result$LT$alloc..vec..Vec$LT$extension..wasm_host..wit..since_v0_2_0..zed..extension..slash_command..SlashCommandArgumentCompletion$GT$$C$alloc..string..String$GT$$C$$RP$$GT$..call_async$LT$extension..wasm_host..WasmState$C$wasmtime..runtime..store..context..StoreContextMut$LT$extension..wasm_host..WasmState$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h519fb2210290ecc0E"(ptr noundef nonnull align 8 %1) #43
-          to label %163 unwind label %161
+          to label %.body10 unwind label %161
 
 161:                                              ; preds = %.body
   %162 = landingpad { ptr, i32 }
@@ -56080,10 +56080,10 @@ common.ret:                                       ; preds = %157, %153
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-163:                                              ; preds = %.body, %25
+.body10:                                          ; preds = %.body, %25
   %.pn4.pn = phi { ptr, i32 } [ %26, %25 ], [ %.pn2, %.body ]
-  %164 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  store i8 0, ptr %164, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  store i8 0, ptr %163, align 8
   store i8 2, ptr %11, align 1
   resume { ptr, i32 } %.pn4.pn
 }
@@ -56645,7 +56645,7 @@ default.unreachable35:                            ; preds = %40, %3
   %29 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  br label %169
+  br label %.body9
 
 30:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -57090,7 +57090,7 @@ common.ret:                                       ; preds = %162, %158
   %.pn2 = phi { ptr, i32 } [ %154, %153 ], [ %.pn24.i, %145 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.924)
   invoke fastcc void @"_ZN4core3ptr743drop_in_place$LT$wasmtime..runtime..store..$LT$impl$u20$wasmtime..runtime..store..context..StoreContextMut$LT$extension..wasm_host..WasmState$GT$$GT$..on_fiber$LT$core..result..Result$LT$$LP$core..result..Result$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$C$alloc..string..String$GT$$C$$RP$$C$anyhow..Error$GT$$C$wasmtime..runtime..component..func..typed..TypedFunc$LT$$LP$$RF$str$C$$RP$$C$$LP$core..result..Result$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$C$alloc..string..String$GT$$C$$RP$$GT$..call_async$LT$extension..wasm_host..WasmState$C$wasmtime..runtime..store..context..StoreContextMut$LT$extension..wasm_host..WasmState$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h09df77d36f1fbfd1E"(ptr noundef nonnull align 8 %166) #43
-          to label %169 unwind label %167
+          to label %.body9 unwind label %167
 
 167:                                              ; preds = %.body
   %168 = landingpad { ptr, i32 }
@@ -57098,10 +57098,10 @@ common.ret:                                       ; preds = %162, %158
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-169:                                              ; preds = %.body, %28
+.body9:                                           ; preds = %.body, %28
   %.pn4.pn = phi { ptr, i32 } [ %29, %28 ], [ %.pn2, %.body ]
-  %170 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  store i8 0, ptr %170, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  store i8 0, ptr %169, align 8
   store i8 2, ptr %11, align 1
   resume { ptr, i32 } %.pn4.pn
 }

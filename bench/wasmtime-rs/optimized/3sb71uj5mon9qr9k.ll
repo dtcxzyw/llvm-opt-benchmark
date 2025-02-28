@@ -2265,10 +2265,11 @@ define hidden void @_ZN3std9panicking3try17h879e1956b297f1d1E(ptr noalias nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h895f64e53782125dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+__rust_try.llvm.7073302902749960574.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !231, !noundef !4
   store i64 0, ptr %.val.i, align 8, !noalias !234
-  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %2, align 1, !noalias !234
+  %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  store i8 2, ptr %1, align 1, !noalias !234
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 

@@ -79696,7 +79696,7 @@ define hidden { ptr, i64 } @"_ZN97_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$cor
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54ea9deff95c8a8dE.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
-          to label %13 unwind label %11
+          to label %"_ZN4core3ptr153drop_in_place$LT$core..iter..adapters..map..Map$LT$regex..regex..string..Split$C$typst..foundations..str..Str..split..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf4d8d33da62d6d98E.exit" unwind label %11
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
@@ -79712,7 +79712,7 @@ define hidden { ptr, i64 } @"_ZN97_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$cor
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #78
   unreachable
 
-13:                                               ; preds = %4
+"_ZN4core3ptr153drop_in_place$LT$core..iter..adapters..map..Map$LT$regex..regex..string..Split$C$typst..foundations..str..Str..split..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf4d8d33da62d6d98E.exit": ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -81210,7 +81210,7 @@ define hidden { ptr, i64 } @"_ZN97_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$cor
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54ea9deff95c8a8dE.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
-          to label %13 unwind label %11
+          to label %"_ZN4core3ptr342drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..array..Array..map..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$17h18627c96e5b8a385E.exit" unwind label %11
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
@@ -81226,7 +81226,7 @@ define hidden { ptr, i64 } @"_ZN97_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$cor
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #78
   unreachable
 
-13:                                               ; preds = %4
+"_ZN4core3ptr342drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..array..Array..map..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$17h18627c96e5b8a385E.exit": ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -81577,7 +81577,7 @@ define hidden { ptr, i64 } @"_ZN97_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$cor
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54ea9deff95c8a8dE.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
-          to label %13 unwind label %11
+          to label %"_ZN4core3ptr367drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$GT$$C$typst..foundations..array..Array..enumerate..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h6a7de33b472071d3E.exit" unwind label %11
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
@@ -81593,7 +81593,7 @@ define hidden { ptr, i64 } @"_ZN97_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$cor
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #78
   unreachable
 
-13:                                               ; preds = %4
+"_ZN4core3ptr367drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$GT$$C$typst..foundations..array..Array..enumerate..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h6a7de33b472071d3E.exit": ; preds = %4
   resume { ptr, i32 } %5
 }
 

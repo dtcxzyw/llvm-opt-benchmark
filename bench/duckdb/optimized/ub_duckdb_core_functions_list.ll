@@ -103663,14 +103663,14 @@ _ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i.i.i: ; preds = %28
           catch ptr null
   %35 = load ptr, ptr %6, align 8, !tbaa !94
   %.not.i5.i.i = icmp eq ptr %35, null
-  br i1 %.not.i5.i.i, label %64, label %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i6.i.i
+  br i1 %.not.i5.i.i, label %.thread47, label %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i6.i.i
 
 _ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i6.i.i: ; preds = %33
   %36 = load ptr, ptr %35, align 8, !tbaa !87
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(88) %35) #27
-  br label %64
+  br label %.thread47
 
 39:                                               ; preds = %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i.i.i, %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -103744,30 +103744,30 @@ _ZNSt12_Vector_baseIN6duckdb16BoundOrderByNodeESaIS1_EE13_M_deallocateEPS1_m.exi
   store ptr %61, ptr %60, align 8, !tbaa !784
   ret void
 
-62:                                               ; preds = %64
+62:                                               ; preds = %.thread47
   %63 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %67 unwind label %68
+          to label %66 unwind label %67
 
-64:                                               ; preds = %33, %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i6.i.i
-  %65 = extractvalue { ptr, i32 } %34, 0
-  %66 = call ptr @__cxa_begin_catch(ptr %65) #27
+.thread47:                                        ; preds = %33, %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i6.i.i
+  %64 = extractvalue { ptr, i32 } %34, 0
+  %65 = call ptr @__cxa_begin_catch(ptr %64) #27
   call void @_ZdlPv(ptr noundef nonnull %23) #31
   invoke void @__cxa_rethrow() #29
-          to label %71 unwind label %62
+          to label %70 unwind label %62
 
-67:                                               ; preds = %62
+66:                                               ; preds = %62
   resume { ptr, i32 } %63
 
-68:                                               ; preds = %62
-  %69 = landingpad { ptr, i32 }
+67:                                               ; preds = %62
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #30
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #30
   unreachable
 
-71:                                               ; preds = %64
+70:                                               ; preds = %.thread47
   unreachable
 }
 
@@ -103829,14 +103829,14 @@ _ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i.i.i: ; preds = %28
           catch ptr null
   %35 = load ptr, ptr %6, align 8, !tbaa !94
   %.not.i5.i.i = icmp eq ptr %35, null
-  br i1 %.not.i5.i.i, label %64, label %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i6.i.i
+  br i1 %.not.i5.i.i, label %.thread47, label %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i6.i.i
 
 _ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i6.i.i: ; preds = %33
   %36 = load ptr, ptr %35, align 8, !tbaa !87
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(88) %35) #27
-  br label %64
+  br label %.thread47
 
 39:                                               ; preds = %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i.i.i, %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -103910,30 +103910,30 @@ _ZNSt12_Vector_baseIN6duckdb16BoundOrderByNodeESaIS1_EE13_M_deallocateEPS1_m.exi
   store ptr %61, ptr %60, align 8, !tbaa !784
   ret void
 
-62:                                               ; preds = %64
+62:                                               ; preds = %.thread47
   %63 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %67 unwind label %68
+          to label %66 unwind label %67
 
-64:                                               ; preds = %33, %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i6.i.i
-  %65 = extractvalue { ptr, i32 } %34, 0
-  %66 = call ptr @__cxa_begin_catch(ptr %65) #27
+.thread47:                                        ; preds = %33, %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i6.i.i
+  %64 = extractvalue { ptr, i32 } %34, 0
+  %65 = call ptr @__cxa_begin_catch(ptr %64) #27
   call void @_ZdlPv(ptr noundef nonnull %23) #31
   invoke void @__cxa_rethrow() #29
-          to label %71 unwind label %62
+          to label %70 unwind label %62
 
-67:                                               ; preds = %62
+66:                                               ; preds = %62
   resume { ptr, i32 } %63
 
-68:                                               ; preds = %62
-  %69 = landingpad { ptr, i32 }
+67:                                               ; preds = %62
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #30
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #30
   unreachable
 
-71:                                               ; preds = %64
+70:                                               ; preds = %.thread47
   unreachable
 }
 

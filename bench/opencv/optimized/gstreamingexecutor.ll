@@ -4429,7 +4429,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i9.i.i.i: ; preds = %1
 1173:                                             ; preds = %.body320, %1169
   %.pn = phi { ptr, i32 } [ %eh.lpad-body321, %.body320 ], [ %1170, %1169 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %125) #30
-  br label %_ZN3ade6passes19TopologicalSortDataD2Ev.exit1627
+  br label %.body310
 
 1174:                                             ; preds = %._crit_edge.thread, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %127) #30
@@ -4472,7 +4472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn121 = phi { ptr, i32 } [ %1178, %1177 ], [ %1180, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %1180, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %128) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %127) #30
-  br label %_ZN3ade6passes19TopologicalSortDataD2Ev.exit1627
+  br label %.body310
 
 1187:                                             ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %129) #30
@@ -4515,7 +4515,7 @@ _ZN2cv4util8any_castINS_4gapi9streaming11sync_policyEEEPKT_PKNS0_3anyE.exit.thre
   call void @_ZNSt8bad_castD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %96) #30, !noalias !226
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %96) #30, !noalias !226
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %129) #30
-  br label %_ZN3ade6passes19TopologicalSortDataD2Ev.exit1627
+  br label %.body310
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
   %1199 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i.i, i64 72
@@ -5016,33 +5016,33 @@ _ZNK3ade6passes19TopologicalSortData5nodesEv.exit: ; preds = %_ZNK3ade6passes19T
 1474:                                             ; preds = %_ZN2cv4util8optionalINS_4gapi9streaming11sync_policyEED2Ev.exit
   %1475 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN3ade6passes19TopologicalSortDataD2Ev.exit1627
+  br label %.body310
 
 1476:                                             ; preds = %.noexc326, %1212
   %1477 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %1211) #31
-  br label %_ZN3ade6passes19TopologicalSortDataD2Ev.exit1627
+  br label %.body310
 
 1478:                                             ; preds = %_ZN3ade10TypedGraphIJN2cv5gimpl8NodeKindENS2_11FusedIslandENS2_8DataSlotENS2_10IslandExecENS2_7EmitterENS2_4SinkENS2_15IslandsCompiledENS2_13DesyncIslEdgeENS_6passes19TopologicalSortDataEEE8metadataEv.exit, %_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutor12SynchronizerESt14default_deleteIS3_EE5resetEPS3_.exit
   %1479 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN3ade6passes19TopologicalSortDataD2Ev.exit1627
+  br label %.body310
 
 .loopexit2154:                                    ; preds = %1241
   %lpad.loopexit2156 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN3ade6passes19TopologicalSortDataD2Ev.exit1627
+  br label %.body310
 
 .loopexit.split-lp2155.loopexit:                  ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ade7details10MetadataIdESt4pairIKS3_St10unique_ptrINS2_8Metadata18MetadataHolderBaseESt14default_deleteIS8_EEENS_10_Select1stESt8equal_toIS3_ENS7_6IdHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.i.i.i.i.i.i342
   %lpad.loopexit2160 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN3ade6passes19TopologicalSortDataD2Ev.exit1627
+  br label %.body310
 
 .loopexit.split-lp2155.loopexit.split-lp:         ; preds = %_ZNSt16allocator_traitsISaIN3ade6HandleINS0_4NodeEEEEE8allocateERS4_m.exit.i.i.i.i.i, %.noexc.i.i.i354, %1244, %1232
   %lpad.loopexit.split-lp2161 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN3ade6passes19TopologicalSortDataD2Ev.exit1627
+  br label %.body310
 
 1480:                                             ; preds = %.lr.ph4588, %_ZN3ade4util5Range13IterableRangeINS1_11FilterRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKNS_6HandleINS_4NodeEEESt6vectorIS9_SaIS9_EEEESF_EENS_6passes19TopologicalSortData11NodesFilterEEEE8iteratorppEv.exit
   %.sroa.01935.04587 = phi ptr [ %.sroa.01940.1, %.lr.ph4588 ], [ %.sroa.01935.2, %_ZN3ade4util5Range13IterableRangeINS1_11FilterRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKNS_6HandleINS_4NodeEEESt6vectorIS9_SaIS9_EEEESF_EENS_6passes19TopologicalSortData11NodesFilterEEEE8iteratorppEv.exit ]
@@ -16610,13 +16610,13 @@ _ZSt8_DestroyIN3ade6HandleINS0_4NodeEEEEvPT_.exit.i.i.i.i.i1621: ; preds = %5918
 
 _ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exit.i.i1625: ; preds = %_ZSt8_DestroyIN3ade6HandleINS0_4NodeEEEEvPT_.exit.i.i.i.i.i1621, %_ZN3ade6HandleINS_4NodeEED2Ev.exit1527
   %.not.i.i.i.i1626 = icmp eq ptr %1280, null
-  br i1 %.not.i.i.i.i1626, label %_ZN3ade6passes19TopologicalSortDataD2Ev.exit1627, label %5923
+  br i1 %.not.i.i.i.i1626, label %.body310, label %5923
 
 5923:                                             ; preds = %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exit.i.i1625
   call void @_ZdlPv(ptr noundef nonnull %1280) #31
-  br label %_ZN3ade6passes19TopologicalSortDataD2Ev.exit1627
+  br label %.body310
 
-_ZN3ade6passes19TopologicalSortDataD2Ev.exit1627: ; preds = %.loopexit2154, %.loopexit.split-lp2155.loopexit.split-lp, %.loopexit.split-lp2155.loopexit, %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exit.i.i1625, %5923, %.body324, %1474, %1476, %1478, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %1173
+.body310:                                         ; preds = %.loopexit2154, %.loopexit.split-lp2155.loopexit.split-lp, %.loopexit.split-lp2155.loopexit, %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exit.i.i1625, %5923, %.body324, %1474, %1476, %1478, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %1173
   %.pn208.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn121, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %1173 ], [ %1477, %1476 ], [ %1475, %1474 ], [ %1198, %.body324 ], [ %1479, %1478 ], [ %.pn208.pn.pn.pn.pn.pn, %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exit.i.i1625 ], [ %.pn208.pn.pn.pn.pn.pn, %5923 ], [ %lpad.loopexit2156, %.loopexit2154 ], [ %lpad.loopexit2160, %.loopexit.split-lp2155.loopexit ], [ %lpad.loopexit.split-lp2161, %.loopexit.split-lp2155.loopexit.split-lp ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #30
   store ptr @_ZN2cv4util7variantIJNS0_8optionalINS_4gapi9streaming14queue_capacityEE7nothingES5_EE6dtor_hIS7_E4helpEPNSt15aligned_storageILm8ELm8EE4typeE, ptr %5, align 8
@@ -16629,14 +16629,14 @@ _ZN3ade6passes19TopologicalSortDataD2Ev.exit1627: ; preds = %.loopexit2154, %.lo
   invoke void %5927(ptr noundef nonnull %5928)
           to label %_ZN2cv4util8optionalINS_4gapi9streaming14queue_capacityEED2Ev.exit1628 unwind label %5929
 
-5929:                                             ; preds = %_ZN3ade6passes19TopologicalSortDataD2Ev.exit1627
+5929:                                             ; preds = %.body310
   %5930 = landingpad { ptr, i32 }
           catch ptr null
   %5931 = extractvalue { ptr, i32 } %5930, 0
   call void @__clang_call_terminate(ptr %5931) #34
   unreachable
 
-_ZN2cv4util8optionalINS_4gapi9streaming14queue_capacityEED2Ev.exit1628: ; preds = %_ZN3ade6passes19TopologicalSortDataD2Ev.exit1627
+_ZN2cv4util8optionalINS_4gapi9streaming14queue_capacityEED2Ev.exit1628: ; preds = %.body310
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #30
   br label %.body308
 
@@ -30536,7 +30536,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_5gimpl6stream5StartENS4_4StopENS_7GRunArg
   %546 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.48, i64 0, i64 %545
   %547 = load ptr, ptr %546, align 8, !tbaa !35
   invoke void %547(ptr noundef nonnull %119)
-          to label %_ZN2cv4util7variantIJNS0_9monostateENS_5gimpl6stream5StartENS4_4StopENS_7GRunArgENS4_6ResultENS3_9ExceptionEEED2Ev.exit74 unwind label %548
+          to label %.body70 unwind label %548
 
 548:                                              ; preds = %543
   %549 = landingpad { ptr, i32 }
@@ -30545,7 +30545,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_5gimpl6stream5StartENS4_4StopENS_7GRunArg
   call void @__clang_call_terminate(ptr %550) #34
   unreachable
 
-_ZN2cv4util7variantIJNS0_9monostateENS_5gimpl6stream5StartENS4_4StopENS_7GRunArgENS4_6ResultENS3_9ExceptionEEED2Ev.exit74: ; preds = %543
+.body70:                                          ; preds = %543
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %29) #30
   br label %584
 
@@ -30640,8 +30640,8 @@ _ZN2cv4util7variantIJSt6vectorINS_7GRunArgESaIS3_EENS_5gimpl6stream4StopENS6_9Ex
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #30
   br label %.split, !llvm.loop !1039
 
-584:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN2cv4util7variantIJNS0_9monostateENS_5gimpl6stream5StartENS4_4StopENS_7GRunArgENS4_6ResultENS3_9ExceptionEEED2Ev.exit74, %530, %471
-  %.pn40.pn = phi { ptr, i32 } [ %.pn40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %544, %_ZN2cv4util7variantIJNS0_9monostateENS_5gimpl6stream5StartENS4_4StopENS_7GRunArgENS4_6ResultENS3_9ExceptionEEED2Ev.exit74 ], [ %.pn32.pn, %530 ], [ %.pn35.pn.pn.pn, %471 ]
+584:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.body70, %530, %471
+  %.pn40.pn = phi { ptr, i32 } [ %.pn40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %544, %.body70 ], [ %.pn32.pn, %530 ], [ %.pn35.pn.pn.pn, %471 ]
   %585 = load i64, ptr %22, align 8, !tbaa !1026
   %586 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.115, i64 0, i64 %585
   %587 = load ptr, ptr %586, align 8, !tbaa !35

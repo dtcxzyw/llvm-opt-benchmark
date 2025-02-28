@@ -63033,21 +63033,21 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi6
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !318
   invoke void @_ZN5Eigen8internal32product_triangular_matrix_matrixIdlLi6ELb1ELi1ELb0ELi0ELb0ELi0ELi1ELi0EE3runElllPKdlS4_lPdllRS3_RNS0_15level3_blockingIddEE(i64 noundef %.sroa.speculated46, i64 noundef %10, i64 noundef %.sroa.552.0.copyload, ptr noundef nonnull %.sroa.051.0.copyload, i64 noundef %22, ptr noundef nonnull %23, i64 noundef %27, ptr noundef nonnull %28, i64 noundef 1, i64 noundef %30, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(40) %7)
-          to label %31 unwind label %35
+          to label %36 unwind label %31
 
 31:                                               ; preds = %4
-  %32 = load ptr, ptr %7, align 8, !tbaa !750
-  call void @free(ptr noundef %32) #40
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !751
-  call void @free(ptr noundef %34) #40
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = load ptr, ptr %7, align 8, !tbaa !750
+  call void @free(ptr noundef %33) #40
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !751
+  call void @free(ptr noundef %35) #40
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #40
-  ret void
+  resume { ptr, i32 } %32
 
-35:                                               ; preds = %4
-  %36 = landingpad { ptr, i32 }
-          cleanup
+36:                                               ; preds = %4
   %37 = load ptr, ptr %7, align 8, !tbaa !750
   call void @free(ptr noundef %37) #40
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -63055,7 +63055,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi6
   call void @free(ptr noundef %39) #40
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #40
-  resume { ptr, i32 } %36
+  ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
@@ -63518,21 +63518,21 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi5
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !318
   invoke void @_ZN5Eigen8internal32product_triangular_matrix_matrixIdlLi5ELb1ELi0ELb0ELi0ELb0ELi0ELi1ELi0EE3runElllPKdlS4_lPdllRS3_RNS0_15level3_blockingIddEE(i64 noundef %10, i64 noundef %12, i64 noundef %.sroa.speculated48, ptr noundef nonnull %25, i64 noundef %29, ptr noundef nonnull %30, i64 noundef %32, ptr noundef nonnull %33, i64 noundef 1, i64 noundef %37, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(40) %7)
-          to label %38 unwind label %42
+          to label %43 unwind label %38
 
 38:                                               ; preds = %4
-  %39 = load ptr, ptr %7, align 8, !tbaa !750
-  call void @free(ptr noundef %39) #40
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !751
-  call void @free(ptr noundef %41) #40
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = load ptr, ptr %7, align 8, !tbaa !750
+  call void @free(ptr noundef %40) #40
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !751
+  call void @free(ptr noundef %42) #40
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #40
-  ret void
+  resume { ptr, i32 } %39
 
-42:                                               ; preds = %4
-  %43 = landingpad { ptr, i32 }
-          cleanup
+43:                                               ; preds = %4
   %44 = load ptr, ptr %7, align 8, !tbaa !750
   call void @free(ptr noundef %44) #40
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -63540,7 +63540,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi5
   call void @free(ptr noundef %46) #40
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #40
-  resume { ptr, i32 } %43
+  ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable

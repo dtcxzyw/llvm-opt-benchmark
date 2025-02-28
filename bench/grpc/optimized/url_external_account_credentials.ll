@@ -335,92 +335,92 @@ define void @_ZN9grpc_core29UrlExternalAccountCredentials6CreateENS_26ExternalAc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
   store ptr %5, ptr %7, align 8, !tbaa !8
   invoke void @_ZN9grpc_core14MakeRefCountedINS_29UrlExternalAccountCredentialsEJNS_26ExternalAccountCredentials7OptionsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEPN4absl12lts_202407226StatusEEEENS_13RefCountedPtrIT_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::RefCountedPtr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(384) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %8 unwind label %38
+          to label %8 unwind label %11
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
   %9 = load i64, ptr %5, align 8, !tbaa !3
   %10 = icmp eq i64 %9, 1
-  br i1 %10, label %.thread, label %13
+  br i1 %10, label %.thread, label %15
 
-.thread:                                          ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %6, align 8, !tbaa !11
-  store ptr %12, ptr %11, align 8, !tbaa !11
-  store i64 1, ptr %0, align 8, !tbaa !3
-  br label %_ZN9grpc_core13RefCountedPtrINS_29UrlExternalAccountCredentialsEED2Ev.exit
-
-13:                                               ; preds = %8
-  store i64 %9, ptr %0, align 8, !tbaa !3
-  store i64 55, ptr %5, align 8, !tbaa !3
-  %.pr = load ptr, ptr %6, align 8, !tbaa !11
-  %.not.i = icmp eq ptr %.pr, null
-  br i1 %.not.i, label %_ZN9grpc_core13RefCountedPtrINS_29UrlExternalAccountCredentialsEED2Ev.exit, label %14
-
-14:                                               ; preds = %13
-  %15 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
-  %16 = atomicrmw add ptr %15, i64 -4294967295 acq_rel, align 8
-  %.mask.i.i = and i64 %16, -4294967296
-  %17 = icmp eq i64 %.mask.i.i, 4294967296
-  br i1 %17, label %18, label %.noexc.i, !prof !14
-
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %.pr, align 8, !tbaa !15
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8
-  invoke void %21(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
-          to label %.noexc.i unwind label %28
-
-.noexc.i:                                         ; preds = %18, %14
-  %22 = atomicrmw sub ptr %15, i64 1 acq_rel, align 8
-  %23 = icmp eq i64 %22, 1
-  br i1 %23, label %24, label %_ZN9grpc_core13RefCountedPtrINS_29UrlExternalAccountCredentialsEED2Ev.exit, !prof !14
-
-24:                                               ; preds = %.noexc.i
-  %25 = load ptr, ptr %.pr, align 8, !tbaa !15
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(20) %.pr) #26
-  br label %_ZN9grpc_core13RefCountedPtrINS_29UrlExternalAccountCredentialsEED2Ev.exit
-
-28:                                               ; preds = %18
-  %29 = landingpad { ptr, i32 }
-          catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #27
-  unreachable
-
-_ZN9grpc_core13RefCountedPtrINS_29UrlExternalAccountCredentialsEED2Ev.exit: ; preds = %.thread, %13, %.noexc.i, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
-  %31 = load i64, ptr %5, align 8, !tbaa !3
-  %32 = and i64 %31, 1
-  %.not.i.i = icmp eq i64 %32, 0
-  br i1 %.not.i.i, label %33, label %_ZN4absl12lts_202407226StatusD2Ev.exit
-
-33:                                               ; preds = %_ZN9grpc_core13RefCountedPtrINS_29UrlExternalAccountCredentialsEED2Ev.exit
-  %34 = inttoptr i64 %31 to ptr
-  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %34)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit unwind label %35
-
-35:                                               ; preds = %33
-  %36 = landingpad { ptr, i32 }
-          catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #27
-  unreachable
-
-_ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %_ZN9grpc_core13RefCountedPtrINS_29UrlExternalAccountCredentialsEED2Ev.exit, %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
-  ret void
-
-38:                                               ; preds = %4
-  %39 = landingpad { ptr, i32 }
+11:                                               ; preds = %4
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
-  resume { ptr, i32 } %39
+  resume { ptr, i32 } %12
+
+.thread:                                          ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %6, align 8, !tbaa !11
+  store ptr %14, ptr %13, align 8, !tbaa !11
+  store i64 1, ptr %0, align 8, !tbaa !3
+  br label %_ZN9grpc_core13RefCountedPtrINS_29UrlExternalAccountCredentialsEED2Ev.exit
+
+15:                                               ; preds = %8
+  store i64 %9, ptr %0, align 8, !tbaa !3
+  store i64 55, ptr %5, align 8, !tbaa !3
+  %.pr = load ptr, ptr %6, align 8, !tbaa !11
+  %.not.i = icmp eq ptr %.pr, null
+  br i1 %.not.i, label %_ZN9grpc_core13RefCountedPtrINS_29UrlExternalAccountCredentialsEED2Ev.exit, label %16
+
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
+  %18 = atomicrmw add ptr %17, i64 -4294967295 acq_rel, align 8
+  %.mask.i.i = and i64 %18, -4294967296
+  %19 = icmp eq i64 %.mask.i.i, 4294967296
+  br i1 %19, label %20, label %.noexc.i, !prof !14
+
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %.pr, align 8, !tbaa !15
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = load ptr, ptr %22, align 8
+  invoke void %23(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
+          to label %.noexc.i unwind label %30
+
+.noexc.i:                                         ; preds = %20, %16
+  %24 = atomicrmw sub ptr %17, i64 1 acq_rel, align 8
+  %25 = icmp eq i64 %24, 1
+  br i1 %25, label %26, label %_ZN9grpc_core13RefCountedPtrINS_29UrlExternalAccountCredentialsEED2Ev.exit, !prof !14
+
+26:                                               ; preds = %.noexc.i
+  %27 = load ptr, ptr %.pr, align 8, !tbaa !15
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8
+  call void %29(ptr noundef nonnull align 8 dereferenceable(20) %.pr) #26
+  br label %_ZN9grpc_core13RefCountedPtrINS_29UrlExternalAccountCredentialsEED2Ev.exit
+
+30:                                               ; preds = %20
+  %31 = landingpad { ptr, i32 }
+          catch ptr null
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #27
+  unreachable
+
+_ZN9grpc_core13RefCountedPtrINS_29UrlExternalAccountCredentialsEED2Ev.exit: ; preds = %.thread, %15, %.noexc.i, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
+  %33 = load i64, ptr %5, align 8, !tbaa !3
+  %34 = and i64 %33, 1
+  %.not.i.i = icmp eq i64 %34, 0
+  br i1 %.not.i.i, label %35, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+
+35:                                               ; preds = %_ZN9grpc_core13RefCountedPtrINS_29UrlExternalAccountCredentialsEED2Ev.exit
+  %36 = inttoptr i64 %33 to ptr
+  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %36)
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit unwind label %37
+
+37:                                               ; preds = %35
+  %38 = landingpad { ptr, i32 }
+          catch ptr null
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #27
+  unreachable
+
+_ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %_ZN9grpc_core13RefCountedPtrINS_29UrlExternalAccountCredentialsEED2Ev.exit, %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

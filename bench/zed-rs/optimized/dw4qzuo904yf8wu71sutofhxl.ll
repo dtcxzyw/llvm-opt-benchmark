@@ -28292,8 +28292,8 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
 76:                                               ; preds = %46
   %cond.i.i42.i.i = icmp ne i8 %47, 1
   %77 = icmp eq i64 %.sroa.5.sroa.8.0.copyload.i.i, 0
-  %or.cond75.i.i = select i1 %cond.i.i42.i.i, i1 true, i1 %77
-  br i1 %or.cond75.i.i, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$gif..reader..decoder..Decoded$GT$$GT$17h98685f2865ccc29dE.exit45.i.i", label %78
+  %or.cond78.i.i = select i1 %cond.i.i42.i.i, i1 true, i1 %77
+  br i1 %or.cond78.i.i, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$gif..reader..decoder..Decoded$GT$$GT$17h98685f2865ccc29dE.exit45.i.i", label %78
 
 78:                                               ; preds = %76
   %79 = icmp ne ptr %.sroa.5.sroa.7.0.copyload.i.i, null

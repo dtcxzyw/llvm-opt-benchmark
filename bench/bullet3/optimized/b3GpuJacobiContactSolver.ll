@@ -1848,7 +1848,7 @@ _ZNK20b3AlignedObjectArrayI16b3GpuConstraint4E4copyEiiPS0_.exit15.i.i: ; preds =
 130:                                              ; preds = %103, %.noexc329, %_ZNK20b3AlignedObjectArrayIjE4copyEiiPj.exit15.i.i327, %_ZN20b3AlignedObjectArrayIjE8allocateEi.exit.i.i315
   %131 = landingpad { ptr, i32 }
           cleanup
-  br label %1027
+  br label %1026
 
 132:                                              ; preds = %.loopexit580
   %133 = landingpad { ptr, i32 }
@@ -3300,94 +3300,94 @@ _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %_ZN20b3AlignedObjec
 _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit428: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit426.thread, %1018
   %.pn270.pn.pn771 = phi { ptr, i32 } [ %198, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit426.thread ], [ %1019, %1018 ]
   %.not.i.i.i429 = icmp eq ptr %.sroa.15515.2738, null
-  br i1 %.not.i.i.i429, label %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit430, label %1023
+  br i1 %.not.i.i.i429, label %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit430, label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit428.thread561
 
-1023:                                             ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit428
+_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit428.thread561: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit428
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %.sroa.15515.2738)
-          to label %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit430 unwind label %1024
+          to label %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit430 unwind label %1023
 
-1024:                                             ; preds = %1023
-  %1025 = landingpad { ptr, i32 }
+1023:                                             ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit428.thread561
+  %1024 = landingpad { ptr, i32 }
           catch ptr null
-  %1026 = extractvalue { ptr, i32 } %1025, 0
-  call void @__clang_call_terminate(ptr %1026) #23
+  %1025 = extractvalue { ptr, i32 } %1024, 0
+  call void @__clang_call_terminate(ptr %1025) #23
   unreachable
 
-_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit430: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit428.thread, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit428, %1023, %132
-  %.pn276.pn.pn = phi { ptr, i32 } [ %133, %132 ], [ %134, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit428.thread ], [ %.pn270.pn.pn771, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit428 ], [ %.pn270.pn.pn771, %1023 ]
+_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit430: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit428.thread, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit428, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit428.thread561, %132
+  %.pn276.pn.pn = phi { ptr, i32 } [ %133, %132 ], [ %134, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit428.thread ], [ %.pn270.pn.pn771, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit428 ], [ %.pn270.pn.pn771, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit428.thread561 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #21
-  br label %1027
+  br label %1026
 
-1027:                                             ; preds = %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit430, %130
+1026:                                             ; preds = %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit430, %130
   %.pn276.pn.pn.pn = phi { ptr, i32 } [ %.pn276.pn.pn, %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit430 ], [ %131, %130 ]
-  %1028 = load ptr, ptr %86, align 8, !tbaa !97
-  %.not.i.i.i431 = icmp eq ptr %1028, null
-  br i1 %.not.i.i.i431, label %_ZN20b3AlignedObjectArrayIjED2Ev.exit432, label %1029
+  %1027 = load ptr, ptr %86, align 8, !tbaa !97
+  %.not.i.i.i431 = icmp eq ptr %1027, null
+  br i1 %.not.i.i.i431, label %_ZN20b3AlignedObjectArrayIjED2Ev.exit432, label %1028
 
-1029:                                             ; preds = %1027
-  %1030 = load i8, ptr %85, align 8, !tbaa !104, !range !73, !noundef !74
-  %1031 = trunc nuw i8 %1030 to i1
-  br i1 %1031, label %1032, label %_ZN20b3AlignedObjectArrayIjED2Ev.exit432
+1028:                                             ; preds = %1026
+  %1029 = load i8, ptr %85, align 8, !tbaa !104, !range !73, !noundef !74
+  %1030 = trunc nuw i8 %1029 to i1
+  br i1 %1030, label %1031, label %_ZN20b3AlignedObjectArrayIjED2Ev.exit432
 
-1032:                                             ; preds = %1029
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %1028)
-          to label %_ZN20b3AlignedObjectArrayIjED2Ev.exit432 unwind label %1033
+1031:                                             ; preds = %1028
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %1027)
+          to label %_ZN20b3AlignedObjectArrayIjED2Ev.exit432 unwind label %1032
 
-1033:                                             ; preds = %1032
-  %1034 = landingpad { ptr, i32 }
+1032:                                             ; preds = %1031
+  %1033 = landingpad { ptr, i32 }
           catch ptr null
-  %1035 = extractvalue { ptr, i32 } %1034, 0
-  call void @__clang_call_terminate(ptr %1035) #23
+  %1034 = extractvalue { ptr, i32 } %1033, 0
+  call void @__clang_call_terminate(ptr %1034) #23
   unreachable
 
-_ZN20b3AlignedObjectArrayIjED2Ev.exit432:         ; preds = %1027, %1029, %1032
+_ZN20b3AlignedObjectArrayIjED2Ev.exit432:         ; preds = %1026, %1028, %1031
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #21
   %.not.i.i.i433 = icmp eq ptr %.sroa.15537.2728, null
-  br i1 %.not.i.i.i433, label %_ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit434, label %1036
+  br i1 %.not.i.i.i433, label %_ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit434, label %1035
 
-1036:                                             ; preds = %_ZN20b3AlignedObjectArrayIjED2Ev.exit432
+1035:                                             ; preds = %_ZN20b3AlignedObjectArrayIjED2Ev.exit432
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %.sroa.15537.2728)
-          to label %_ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit434 unwind label %1037
+          to label %_ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit434 unwind label %1036
 
-1037:                                             ; preds = %1036
-  %1038 = landingpad { ptr, i32 }
+1036:                                             ; preds = %1035
+  %1037 = landingpad { ptr, i32 }
           catch ptr null
-  %1039 = extractvalue { ptr, i32 } %1038, 0
-  call void @__clang_call_terminate(ptr %1039) #23
+  %1038 = extractvalue { ptr, i32 } %1037, 0
+  call void @__clang_call_terminate(ptr %1038) #23
   unreachable
 
-_ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit434:   ; preds = %.thread, %_ZN20b3AlignedObjectArrayIjED2Ev.exit432, %1036, %42
-  %.pn276.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %49, %.thread ], [ %.pn276.pn.pn.pn, %_ZN20b3AlignedObjectArrayIjED2Ev.exit432 ], [ %.pn276.pn.pn.pn, %1036 ]
-  %1040 = load ptr, ptr %21, align 8, !tbaa !97
-  %.not.i.i.i435 = icmp eq ptr %1040, null
-  br i1 %.not.i.i.i435, label %_ZN20b3AlignedObjectArrayIjED2Ev.exit436, label %1041
+_ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit434:   ; preds = %.thread, %_ZN20b3AlignedObjectArrayIjED2Ev.exit432, %1035, %42
+  %.pn276.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %49, %.thread ], [ %.pn276.pn.pn.pn, %_ZN20b3AlignedObjectArrayIjED2Ev.exit432 ], [ %.pn276.pn.pn.pn, %1035 ]
+  %1039 = load ptr, ptr %21, align 8, !tbaa !97
+  %.not.i.i.i435 = icmp eq ptr %1039, null
+  br i1 %.not.i.i.i435, label %_ZN20b3AlignedObjectArrayIjED2Ev.exit436, label %1040
 
-1041:                                             ; preds = %_ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit434
-  %1042 = load i8, ptr %20, align 8, !tbaa !104, !range !73, !noundef !74
-  %1043 = trunc nuw i8 %1042 to i1
-  br i1 %1043, label %1044, label %_ZN20b3AlignedObjectArrayIjED2Ev.exit436
+1040:                                             ; preds = %_ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit434
+  %1041 = load i8, ptr %20, align 8, !tbaa !104, !range !73, !noundef !74
+  %1042 = trunc nuw i8 %1041 to i1
+  br i1 %1042, label %1043, label %_ZN20b3AlignedObjectArrayIjED2Ev.exit436
 
-1044:                                             ; preds = %1041
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %1040)
-          to label %_ZN20b3AlignedObjectArrayIjED2Ev.exit436 unwind label %1045
+1043:                                             ; preds = %1040
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %1039)
+          to label %_ZN20b3AlignedObjectArrayIjED2Ev.exit436 unwind label %1044
 
-1045:                                             ; preds = %1044
-  %1046 = landingpad { ptr, i32 }
+1044:                                             ; preds = %1043
+  %1045 = landingpad { ptr, i32 }
           catch ptr null
-  %1047 = extractvalue { ptr, i32 } %1046, 0
-  call void @__clang_call_terminate(ptr %1047) #23
+  %1046 = extractvalue { ptr, i32 } %1045, 0
+  call void @__clang_call_terminate(ptr %1046) #23
   unreachable
 
-_ZN20b3AlignedObjectArrayIjED2Ev.exit436:         ; preds = %_ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit434, %1041, %1044
+_ZN20b3AlignedObjectArrayIjED2Ev.exit436:         ; preds = %_ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit434, %1040, %1043
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #21
   invoke void @b3LeaveProfileZone()
-          to label %_ZN13b3ProfileZoneD2Ev.exit437 unwind label %1048
+          to label %_ZN13b3ProfileZoneD2Ev.exit437 unwind label %1047
 
-1048:                                             ; preds = %_ZN20b3AlignedObjectArrayIjED2Ev.exit436
-  %1049 = landingpad { ptr, i32 }
+1047:                                             ; preds = %_ZN20b3AlignedObjectArrayIjED2Ev.exit436
+  %1048 = landingpad { ptr, i32 }
           catch ptr null
-  %1050 = extractvalue { ptr, i32 } %1049, 0
-  call void @__clang_call_terminate(ptr %1050) #23
+  %1049 = extractvalue { ptr, i32 } %1048, 0
+  call void @__clang_call_terminate(ptr %1049) #23
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit437:                   ; preds = %_ZN20b3AlignedObjectArrayIjED2Ev.exit436

@@ -7586,7 +7586,7 @@ define linkonce_odr hidden void @_ZN2cv4goutIJNS_3MatES1_St6vectorIS2_INS_6Point
   tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   %15 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #34
-          to label %.noexc unwind label %.thread
+          to label %.noexc unwind label %.thread65
 
 .noexc:                                           ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -7599,7 +7599,7 @@ define linkonce_odr hidden void @_ZN2cv4goutIJNS_3MatES1_St6vectorIS2_INS_6Point
   store ptr %15, ptr %8, align 8, !tbaa !263, !alias.scope !255
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv6detail10VectorRefTISt6vectorINS4_6Point_IiEESaIS9_EEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %15)
-          to label %20 unwind label %.thread
+          to label %20 unwind label %.thread65
 
 20:                                               ; preds = %.noexc
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -7620,7 +7620,7 @@ define linkonce_odr hidden void @_ZN2cv4goutIJNS_3MatES1_St6vectorIS2_INS_6Point
   call void @llvm.experimental.noalias.scope.decl(metadata !270)
   call void @llvm.experimental.noalias.scope.decl(metadata !273)
   %28 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #34
-          to label %.noexc41 unwind label %.thread71
+          to label %.noexc41 unwind label %.thread72
 
 .noexc41:                                         ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -7633,7 +7633,7 @@ define linkonce_odr hidden void @_ZN2cv4goutIJNS_3MatES1_St6vectorIS2_INS_6Point
   store ptr %28, ptr %9, align 8, !tbaa !263, !alias.scope !276
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
   invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv6detail10VectorRefTISt6vectorINS4_6Point_IiEESaIS9_EEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull %28)
-          to label %33 unwind label %.thread71
+          to label %33 unwind label %.thread72
 
 33:                                               ; preds = %.noexc41
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -7877,12 +7877,12 @@ _ZN2cv6detail9VectorRefD2Ev.exit56:               ; preds = %_ZN2cv6detail9Vecto
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7) #30
   ret void
 
-.thread:                                          ; preds = %6, %.noexc
+.thread65:                                        ; preds = %6, %.noexc
   %135 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader.sink.split
 
-.thread71:                                        ; preds = %20, %.noexc41
+.thread72:                                        ; preds = %20, %.noexc41
   %136 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #30
@@ -7927,21 +7927,21 @@ _ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFra
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #30
   call void @_ZN2cv6detail9VectorRefD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %8) #30
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #30
-  br i1 %.6, label %.loopexit, label %.preheader.preheader
+  br i1 %.6, label %.thread, label %.preheader.preheader
 
-.preheader.preheader.sink.split:                  ; preds = %.thread, %.thread71
-  %.pn.pn.pn.pn.pn.pn69.ph = phi { ptr, i32 } [ %136, %.thread71 ], [ %135, %.thread ]
-  %.22768.ph = phi ptr [ %27, %.thread71 ], [ %14, %.thread ]
+.preheader.preheader.sink.split:                  ; preds = %.thread65, %.thread72
+  %.pn.pn.pn.pn.pn.pn70.ph = phi { ptr, i32 } [ %136, %.thread72 ], [ %135, %.thread65 ]
+  %.22769.ph = phi ptr [ %27, %.thread72 ], [ %14, %.thread65 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #30
   br label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.preheader.sink.split, %150
-  %.pn.pn.pn.pn.pn.pn69 = phi { ptr, i32 } [ %.pn.pn, %150 ], [ %.pn.pn.pn.pn.pn.pn69.ph, %.preheader.preheader.sink.split ]
-  %.22768 = phi ptr [ %40, %150 ], [ %.22768.ph, %.preheader.preheader.sink.split ]
+  %.pn.pn.pn.pn.pn.pn70 = phi { ptr, i32 } [ %.pn.pn, %150 ], [ %.pn.pn.pn.pn.pn.pn70.ph, %.preheader.preheader.sink.split ]
+  %.22769 = phi ptr [ %40, %150 ], [ %.22769.ph, %.preheader.preheader.sink.split ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEED2Ev.exit58
-  %151 = phi ptr [ %152, %_ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEED2Ev.exit58 ], [ %.22768, %.preheader.preheader ]
+  %151 = phi ptr [ %152, %_ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEED2Ev.exit58 ], [ %.22769, %.preheader.preheader ]
   %152 = getelementptr inbounds i8, ptr %151, i64 -32
   %153 = load i64, ptr %152, align 8, !tbaa !63
   %154 = getelementptr inbounds nuw [7 x ptr], ptr @constinit.100, i64 0, i64 %153
@@ -7959,12 +7959,12 @@ _ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFra
 
 _ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEED2Ev.exit58: ; preds = %.preheader
   %160 = icmp eq ptr %152, %7
-  br i1 %160, label %.loopexit, label %.preheader
+  br i1 %160, label %.thread, label %.preheader
 
-.loopexit:                                        ; preds = %_ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEED2Ev.exit58, %150
-  %.pn.pn.pn.pn.pn.pn70 = phi { ptr, i32 } [ %.pn.pn, %150 ], [ %.pn.pn.pn.pn.pn.pn69, %_ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEED2Ev.exit58 ]
+.thread:                                          ; preds = %_ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEED2Ev.exit58, %150
+  %.pn.pn.pn.pn.pn.pn71 = phi { ptr, i32 } [ %.pn.pn, %150 ], [ %.pn.pn.pn.pn.pn.pn70, %_ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEED2Ev.exit58 ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7) #30
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn70
+  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn71
 }
 
 declare void @_ZN2cv18GStreamingCompiled5startEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0

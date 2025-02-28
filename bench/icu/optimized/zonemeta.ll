@@ -2184,7 +2184,7 @@ define internal fastcc void @_ZN6icu_77L24initAvailableMetaZoneIDsEv() unnamed_a
 49:                                               ; preds = %51
   %50 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit
+  br label %.body
 
 51:                                               ; preds = %43
   invoke void @u_charsToUChars_77(ptr noundef nonnull %36, ptr noundef nonnull %42, i32 noundef %39)
@@ -2235,7 +2235,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit: ; preds 
           cleanup
   call void @_ZN6icu_7711ReplaceableD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %55) #14
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %55) #14
-  br label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit
+  br label %.body
 
 70:                                               ; preds = %_ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit
   %71 = load ptr, ptr @_ZL16gMetaZoneIDTable, align 8, !tbaa !18
@@ -2260,7 +2260,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit: ; preds 
   %.sroa.056.4.ph = phi ptr [ %42, %75 ], [ null, %78 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit
+  br label %.body
 
 80:                                               ; preds = %70
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -2269,7 +2269,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit: ; preds 
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   call void %83(ptr noundef nonnull align 8 dereferenceable(64) %55) #14
-  br label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit
+  br label %.body
 
 84:                                               ; preds = %73, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit
   %85 = load ptr, ptr %55, align 8, !tbaa !42
@@ -2297,13 +2297,13 @@ _ZN6icu_7711LocalMemoryIDsED2Ev.exit:             ; preds = %_ZN6icu_7712LocalPo
   %or.cond87 = select i1 %.021, i1 true, i1 %92
   br i1 %or.cond87, label %.critedge, label %.preheader
 
-_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit: ; preds = %68, %.thread74, %80, %49
+.body:                                            ; preds = %68, %.thread74, %80, %49
   %.sroa.056.1 = phi ptr [ %42, %49 ], [ %42, %68 ], [ %.sroa.056.4.ph, %.thread74 ], [ %42, %80 ]
   %.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %69, %68 ], [ %lpad.thr_comm, %.thread74 ], [ %lpad.thr_comm.split-lp, %80 ]
   invoke void @uprv_free_77(ptr noundef %.sroa.056.1)
           to label %_ZN6icu_7711LocalMemoryIDsED2Ev.exit52 unwind label %93
 
-93:                                               ; preds = %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit
+93:                                               ; preds = %.body
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
@@ -2354,8 +2354,8 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit: ; preds = %68, %.thread7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #14
   ret void
 
-_ZN6icu_7711LocalMemoryIDsED2Ev.exit52:           ; preds = %.loopexit, %.loopexit.split-lp, %47, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit, %45
-  %.pn48 = phi { ptr, i32 } [ %46, %45 ], [ %48, %47 ], [ %.pn.pn, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+_ZN6icu_7711LocalMemoryIDsED2Ev.exit52:           ; preds = %.loopexit, %.loopexit.split-lp, %47, %.body, %45
+  %.pn48 = phi { ptr, i32 } [ %46, %45 ], [ %48, %47 ], [ %.pn.pn, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7720StackUResourceBundleD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %2) #14
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #14
   br label %112

@@ -572,18 +572,18 @@ define hidden void @_ZN3fmt3v1113buffered_fileC2ENS0_18basic_cstring_viewIcEES3_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
   store ptr %1, ptr %4, align 8, !tbaa !22
   invoke void @_ZN3fmt3v1112system_errorIJPKcEEESt12system_erroriNS0_7fstringIJDpT_EE1tEDpOS6_(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %13, i32 noundef %14, ptr nonnull @.str.46, i64 19, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %15 unwind label %16
+          to label %16 unwind label %.thread16
 
-15:                                               ; preds = %12
-  call void @__cxa_throw(ptr %13, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #35
-  unreachable
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
+.thread16:                                        ; preds = %12
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
   call void @__cxa_free_exception(ptr %13) #32
-  resume { ptr, i32 } %17
+  resume { ptr, i32 } %15
+
+16:                                               ; preds = %12
+  call void @__cxa_throw(ptr %13, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #35
+  unreachable
 
 .critedge:                                        ; preds = %5
   ret void
@@ -819,18 +819,18 @@ define hidden void @_ZN3fmt3v114fileC2ENS0_18basic_cstring_viewIcEEi(ptr noundef
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
   store ptr %1, ptr %4, align 8, !tbaa !22
   invoke void @_ZN3fmt3v1112system_errorIJPKcEEESt12system_erroriNS0_7fstringIJDpT_EE1tEDpOS6_(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %13, i32 noundef %14, ptr nonnull @.str.46, i64 19, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %15 unwind label %16
+          to label %16 unwind label %.thread16
 
-15:                                               ; preds = %12
-  call void @__cxa_throw(ptr %13, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #35
-  unreachable
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
+.thread16:                                        ; preds = %12
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
   call void @__cxa_free_exception(ptr %13) #32
-  resume { ptr, i32 } %17
+  resume { ptr, i32 } %15
+
+16:                                               ; preds = %12
+  call void @__cxa_throw(ptr %13, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #35
+  unreachable
 
 .critedge:                                        ; preds = %5
   ret void

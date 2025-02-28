@@ -3681,37 +3681,37 @@ _ZN3fmt3v116detail6bigintD2Ev.exit268:            ; preds = %_ZN3fmt3v116detail6
   %.pn70.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn70.pn.pn.pn, %.body195 ], [ %.pn58.pn.pn, %341 ], [ %.pn52.pn.pn, %269 ]
   %462 = load ptr, ptr %14, align 8, !tbaa !23
   %.not.i.i.i272 = icmp eq ptr %462, %174
-  br i1 %.not.i.i.i272, label %_ZN3fmt3v116detail6bigintD2Ev.exit274, label %463
+  br i1 %.not.i.i.i272, label %.body127, label %463
 
 463:                                              ; preds = %461
   call void @free(ptr noundef %462) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit274
+  br label %.body127
 
-_ZN3fmt3v116detail6bigintD2Ev.exit274:            ; preds = %463, %461
+.body127:                                         ; preds = %463, %461
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %14) #32
   br label %464
 
-464:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit274, %200, %131
-  %.pn70.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn70.pn.pn.pn.pn.pn, %_ZN3fmt3v116detail6bigintD2Ev.exit274 ], [ %.pn46.pn.pn, %200 ], [ %.pn40.pn.pn, %131 ]
+464:                                              ; preds = %.body127, %200, %131
+  %.pn70.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn70.pn.pn.pn.pn.pn, %.body127 ], [ %.pn46.pn.pn, %200 ], [ %.pn40.pn.pn, %131 ]
   %465 = load ptr, ptr %3, align 8, !tbaa !23
   %.not.i.i.i275 = icmp eq ptr %465, %44
-  br i1 %.not.i.i.i275, label %_ZN3fmt3v116detail6bigintD2Ev.exit277, label %466
+  br i1 %.not.i.i.i275, label %.body, label %466
 
 466:                                              ; preds = %464
   call void @free(ptr noundef %465) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit277
+  br label %.body
 
-_ZN3fmt3v116detail6bigintD2Ev.exit277:            ; preds = %466, %464
+.body:                                            ; preds = %466, %464
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3) #32
   %467 = load ptr, ptr %2, align 8, !tbaa !23
   %.not.i.i.i278 = icmp eq ptr %467, %39
   br i1 %.not.i.i.i278, label %_ZN3fmt3v116detail6bigintD2Ev.exit280, label %468
 
-468:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit277
+468:                                              ; preds = %.body
   call void @free(ptr noundef %467) #32
   br label %_ZN3fmt3v116detail6bigintD2Ev.exit280
 
-_ZN3fmt3v116detail6bigintD2Ev.exit280:            ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit277, %468
+_ZN3fmt3v116detail6bigintD2Ev.exit280:            ; preds = %.body, %468
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %2) #32
   resume { ptr, i32 } %.pn70.pn.pn.pn.pn.pn.pn.pn
 }
@@ -3972,33 +3972,33 @@ _ZN3fmt3v116detail6bigintD2Ev.exit206:            ; preds = %_ZN3fmt3v116detail6
           cleanup
   %114 = load ptr, ptr %5, align 8, !tbaa !23
   %.not.i.i.i207 = icmp eq ptr %114, %103
-  br i1 %.not.i.i.i207, label %_ZN3fmt3v116detail6bigintD2Ev.exit209, label %115
+  br i1 %.not.i.i.i207, label %.body195, label %115
 
 115:                                              ; preds = %112
   call void @free(ptr noundef %114) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit209
+  br label %.body195
 
-_ZN3fmt3v116detail6bigintD2Ev.exit209:            ; preds = %115, %112
+.body195:                                         ; preds = %115, %112
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #32
   %116 = load ptr, ptr %4, align 8, !tbaa !23
   %.not.i.i.i210 = icmp eq ptr %116, %98
-  br i1 %.not.i.i.i210, label %_ZN3fmt3v116detail6bigintD2Ev.exit212, label %117
+  br i1 %.not.i.i.i210, label %.body, label %117
 
-117:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit209
+117:                                              ; preds = %.body195
   call void @free(ptr noundef %116) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit212
+  br label %.body
 
-_ZN3fmt3v116detail6bigintD2Ev.exit212:            ; preds = %117, %_ZN3fmt3v116detail6bigintD2Ev.exit209
+.body:                                            ; preds = %117, %.body195
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4) #32
   %118 = load ptr, ptr %3, align 8, !tbaa !23
   %.not.i.i.i213 = icmp eq ptr %118, %93
   br i1 %.not.i.i.i213, label %_ZN3fmt3v116detail6bigintD2Ev.exit215, label %119
 
-119:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit212
+119:                                              ; preds = %.body
   call void @free(ptr noundef %118) #32
   br label %_ZN3fmt3v116detail6bigintD2Ev.exit215
 
-_ZN3fmt3v116detail6bigintD2Ev.exit215:            ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit212, %119
+_ZN3fmt3v116detail6bigintD2Ev.exit215:            ; preds = %.body, %119
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3) #32
   br label %179
 
@@ -4197,33 +4197,33 @@ _ZN3fmt3v116detail6bigintD2Ev.exit277:            ; preds = %_ZN3fmt3v116detail6
           cleanup
   %182 = load ptr, ptr %11, align 8, !tbaa !23
   %.not.i.i.i278 = icmp eq ptr %182, %170
-  br i1 %.not.i.i.i278, label %_ZN3fmt3v116detail6bigintD2Ev.exit280, label %183
+  br i1 %.not.i.i.i278, label %.body244, label %183
 
 183:                                              ; preds = %180
   call void @free(ptr noundef %182) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit280
+  br label %.body244
 
-_ZN3fmt3v116detail6bigintD2Ev.exit280:            ; preds = %183, %180
+.body244:                                         ; preds = %183, %180
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %11) #32
   %184 = load ptr, ptr %10, align 8, !tbaa !23
   %.not.i.i.i281 = icmp eq ptr %184, %165
-  br i1 %.not.i.i.i281, label %_ZN3fmt3v116detail6bigintD2Ev.exit283, label %185
+  br i1 %.not.i.i.i281, label %.body235, label %185
 
-185:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit280
+185:                                              ; preds = %.body244
   call void @free(ptr noundef %184) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit283
+  br label %.body235
 
-_ZN3fmt3v116detail6bigintD2Ev.exit283:            ; preds = %185, %_ZN3fmt3v116detail6bigintD2Ev.exit280
+.body235:                                         ; preds = %185, %.body244
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %10) #32
   %186 = load ptr, ptr %9, align 8, !tbaa !23
   %.not.i.i.i284 = icmp eq ptr %186, %160
   br i1 %.not.i.i.i284, label %_ZN3fmt3v116detail6bigintD2Ev.exit286, label %187
 
-187:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit283
+187:                                              ; preds = %.body235
   call void @free(ptr noundef %186) #32
   br label %_ZN3fmt3v116detail6bigintD2Ev.exit286
 
-_ZN3fmt3v116detail6bigintD2Ev.exit286:            ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit283, %187
+_ZN3fmt3v116detail6bigintD2Ev.exit286:            ; preds = %.body235, %187
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %9) #32
   br label %246
 
@@ -4422,33 +4422,33 @@ _ZN3fmt3v116detail6bigintD2Ev.exit354:            ; preds = %_ZN3fmt3v116detail6
           cleanup
   %249 = load ptr, ptr %17, align 8, !tbaa !23
   %.not.i.i.i355 = icmp eq ptr %249, %237
-  br i1 %.not.i.i.i355, label %_ZN3fmt3v116detail6bigintD2Ev.exit357, label %250
+  br i1 %.not.i.i.i355, label %.body322, label %250
 
 250:                                              ; preds = %247
   call void @free(ptr noundef %249) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit357
+  br label %.body322
 
-_ZN3fmt3v116detail6bigintD2Ev.exit357:            ; preds = %250, %247
+.body322:                                         ; preds = %250, %247
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %17) #32
   %251 = load ptr, ptr %16, align 8, !tbaa !23
   %.not.i.i.i358 = icmp eq ptr %251, %232
-  br i1 %.not.i.i.i358, label %_ZN3fmt3v116detail6bigintD2Ev.exit360, label %252
+  br i1 %.not.i.i.i358, label %.body313, label %252
 
-252:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit357
+252:                                              ; preds = %.body322
   call void @free(ptr noundef %251) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit360
+  br label %.body313
 
-_ZN3fmt3v116detail6bigintD2Ev.exit360:            ; preds = %252, %_ZN3fmt3v116detail6bigintD2Ev.exit357
+.body313:                                         ; preds = %252, %.body322
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %16) #32
   %253 = load ptr, ptr %15, align 8, !tbaa !23
   %.not.i.i.i361 = icmp eq ptr %253, %227
   br i1 %.not.i.i.i361, label %_ZN3fmt3v116detail6bigintD2Ev.exit363, label %254
 
-254:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit360
+254:                                              ; preds = %.body313
   call void @free(ptr noundef %253) #32
   br label %_ZN3fmt3v116detail6bigintD2Ev.exit363
 
-_ZN3fmt3v116detail6bigintD2Ev.exit363:            ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit360, %254
+_ZN3fmt3v116detail6bigintD2Ev.exit363:            ; preds = %.body313, %254
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %15) #32
   br label %313
 
@@ -4647,33 +4647,33 @@ _ZN3fmt3v116detail6bigintD2Ev.exit432:            ; preds = %_ZN3fmt3v116detail6
           cleanup
   %316 = load ptr, ptr %23, align 8, !tbaa !23
   %.not.i.i.i433 = icmp eq ptr %316, %304
-  br i1 %.not.i.i.i433, label %_ZN3fmt3v116detail6bigintD2Ev.exit435, label %317
+  br i1 %.not.i.i.i433, label %.body399, label %317
 
 317:                                              ; preds = %314
   call void @free(ptr noundef %316) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit435
+  br label %.body399
 
-_ZN3fmt3v116detail6bigintD2Ev.exit435:            ; preds = %317, %314
+.body399:                                         ; preds = %317, %314
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %23) #32
   %318 = load ptr, ptr %22, align 8, !tbaa !23
   %.not.i.i.i436 = icmp eq ptr %318, %299
-  br i1 %.not.i.i.i436, label %_ZN3fmt3v116detail6bigintD2Ev.exit438, label %319
+  br i1 %.not.i.i.i436, label %.body390, label %319
 
-319:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit435
+319:                                              ; preds = %.body399
   call void @free(ptr noundef %318) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit438
+  br label %.body390
 
-_ZN3fmt3v116detail6bigintD2Ev.exit438:            ; preds = %319, %_ZN3fmt3v116detail6bigintD2Ev.exit435
+.body390:                                         ; preds = %319, %.body399
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %22) #32
   %320 = load ptr, ptr %21, align 8, !tbaa !23
   %.not.i.i.i439 = icmp eq ptr %320, %294
   br i1 %.not.i.i.i439, label %_ZN3fmt3v116detail6bigintD2Ev.exit441, label %321
 
-321:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit438
+321:                                              ; preds = %.body390
   call void @free(ptr noundef %320) #32
   br label %_ZN3fmt3v116detail6bigintD2Ev.exit441
 
-_ZN3fmt3v116detail6bigintD2Ev.exit441:            ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit438, %321
+_ZN3fmt3v116detail6bigintD2Ev.exit441:            ; preds = %.body390, %321
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %21) #32
   br label %390
 
@@ -4899,33 +4899,33 @@ _ZN3fmt3v116detail6bigintD2Ev.exit510:            ; preds = %_ZN3fmt3v116detail6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #32
   %393 = load ptr, ptr %30, align 8, !tbaa !23
   %.not.i.i.i511 = icmp eq ptr %393, %371
-  br i1 %.not.i.i.i511, label %_ZN3fmt3v116detail6bigintD2Ev.exit513, label %394
+  br i1 %.not.i.i.i511, label %.body477, label %394
 
 394:                                              ; preds = %391
   call void @free(ptr noundef %393) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit513
+  br label %.body477
 
-_ZN3fmt3v116detail6bigintD2Ev.exit513:            ; preds = %394, %391
+.body477:                                         ; preds = %394, %391
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %30) #32
   %395 = load ptr, ptr %29, align 8, !tbaa !23
   %.not.i.i.i514 = icmp eq ptr %395, %366
-  br i1 %.not.i.i.i514, label %_ZN3fmt3v116detail6bigintD2Ev.exit516, label %396
+  br i1 %.not.i.i.i514, label %.body468, label %396
 
-396:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit513
+396:                                              ; preds = %.body477
   call void @free(ptr noundef %395) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit516
+  br label %.body468
 
-_ZN3fmt3v116detail6bigintD2Ev.exit516:            ; preds = %396, %_ZN3fmt3v116detail6bigintD2Ev.exit513
+.body468:                                         ; preds = %396, %.body477
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %29) #32
   %397 = load ptr, ptr %28, align 8, !tbaa !23
   %.not.i.i.i517 = icmp eq ptr %397, %361
   br i1 %.not.i.i.i517, label %_ZN3fmt3v116detail6bigintD2Ev.exit519, label %398
 
-398:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit516
+398:                                              ; preds = %.body468
   call void @free(ptr noundef %397) #32
   br label %_ZN3fmt3v116detail6bigintD2Ev.exit519
 
-_ZN3fmt3v116detail6bigintD2Ev.exit519:            ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit516, %398
+_ZN3fmt3v116detail6bigintD2Ev.exit519:            ; preds = %.body468, %398
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %28) #32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #32
   br label %467
@@ -5152,33 +5152,33 @@ _ZN3fmt3v116detail6bigintD2Ev.exit588:            ; preds = %_ZN3fmt3v116detail6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #32
   %470 = load ptr, ptr %38, align 8, !tbaa !23
   %.not.i.i.i589 = icmp eq ptr %470, %448
-  br i1 %.not.i.i.i589, label %_ZN3fmt3v116detail6bigintD2Ev.exit591, label %471
+  br i1 %.not.i.i.i589, label %.body555, label %471
 
 471:                                              ; preds = %468
   call void @free(ptr noundef %470) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit591
+  br label %.body555
 
-_ZN3fmt3v116detail6bigintD2Ev.exit591:            ; preds = %471, %468
+.body555:                                         ; preds = %471, %468
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %38) #32
   %472 = load ptr, ptr %37, align 8, !tbaa !23
   %.not.i.i.i592 = icmp eq ptr %472, %443
-  br i1 %.not.i.i.i592, label %_ZN3fmt3v116detail6bigintD2Ev.exit594, label %473
+  br i1 %.not.i.i.i592, label %.body546, label %473
 
-473:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit591
+473:                                              ; preds = %.body555
   call void @free(ptr noundef %472) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit594
+  br label %.body546
 
-_ZN3fmt3v116detail6bigintD2Ev.exit594:            ; preds = %473, %_ZN3fmt3v116detail6bigintD2Ev.exit591
+.body546:                                         ; preds = %473, %.body555
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %37) #32
   %474 = load ptr, ptr %36, align 8, !tbaa !23
   %.not.i.i.i595 = icmp eq ptr %474, %438
   br i1 %.not.i.i.i595, label %_ZN3fmt3v116detail6bigintD2Ev.exit597, label %475
 
-475:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit594
+475:                                              ; preds = %.body546
   call void @free(ptr noundef %474) #32
   br label %_ZN3fmt3v116detail6bigintD2Ev.exit597
 
-_ZN3fmt3v116detail6bigintD2Ev.exit597:            ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit594, %475
+_ZN3fmt3v116detail6bigintD2Ev.exit597:            ; preds = %.body546, %475
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %36) #32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #32
   br label %550
@@ -5422,33 +5422,33 @@ _ZN3fmt3v116detail6bigintD2Ev.exit666:            ; preds = %_ZN3fmt3v116detail6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47) #32
   %553 = load ptr, ptr %46, align 8, !tbaa !23
   %.not.i.i.i667 = icmp eq ptr %553, %525
-  br i1 %.not.i.i.i667, label %_ZN3fmt3v116detail6bigintD2Ev.exit669, label %554
+  br i1 %.not.i.i.i667, label %.body633, label %554
 
 554:                                              ; preds = %551
   call void @free(ptr noundef %553) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit669
+  br label %.body633
 
-_ZN3fmt3v116detail6bigintD2Ev.exit669:            ; preds = %554, %551
+.body633:                                         ; preds = %554, %551
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %46) #32
   %555 = load ptr, ptr %45, align 8, !tbaa !23
   %.not.i.i.i670 = icmp eq ptr %555, %520
-  br i1 %.not.i.i.i670, label %_ZN3fmt3v116detail6bigintD2Ev.exit672, label %556
+  br i1 %.not.i.i.i670, label %.body624, label %556
 
-556:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit669
+556:                                              ; preds = %.body633
   call void @free(ptr noundef %555) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit672
+  br label %.body624
 
-_ZN3fmt3v116detail6bigintD2Ev.exit672:            ; preds = %556, %_ZN3fmt3v116detail6bigintD2Ev.exit669
+.body624:                                         ; preds = %556, %.body633
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %45) #32
   %557 = load ptr, ptr %44, align 8, !tbaa !23
   %.not.i.i.i673 = icmp eq ptr %557, %515
   br i1 %.not.i.i.i673, label %_ZN3fmt3v116detail6bigintD2Ev.exit675, label %558
 
-558:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit672
+558:                                              ; preds = %.body624
   call void @free(ptr noundef %557) #32
   br label %_ZN3fmt3v116detail6bigintD2Ev.exit675
 
-_ZN3fmt3v116detail6bigintD2Ev.exit675:            ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit672, %558
+_ZN3fmt3v116detail6bigintD2Ev.exit675:            ; preds = %.body624, %558
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %44) #32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #32
   br label %659
@@ -9802,18 +9802,18 @@ _ZN3fmt3v116detail6bigintD2Ev.exit325:            ; preds = %_ZN3fmt3v116detail6
   %.pn93.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn81.pn.pn, %506 ], [ %.pn87.pn.pn, %610 ], [ %.pn93.pn.pn, %663 ], [ %lpad.loopexit337, %.loopexit335 ], [ %lpad.loopexit.split-lp338, %.loopexit.split-lp336 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %665 = load ptr, ptr %19, align 8, !tbaa !23
   %.not.i.i.i326 = icmp eq ptr %665, %385
-  br i1 %.not.i.i.i326, label %_ZN3fmt3v116detail6bigintD2Ev.exit328, label %666
+  br i1 %.not.i.i.i326, label %.body208, label %666
 
 666:                                              ; preds = %664
   call void @free(ptr noundef %665) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit328
+  br label %.body208
 
-_ZN3fmt3v116detail6bigintD2Ev.exit328:            ; preds = %666, %664
+.body208:                                         ; preds = %666, %664
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %19) #32
   br label %667
 
-667:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit328, %403, %333, %248, %162, %_ZN7testing8internal14TrueWithStringD2Ev.exit119
-  %.pn93.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn93.pn.pn.pn.pn.pn, %_ZN3fmt3v116detail6bigintD2Ev.exit328 ], [ %.pn75.pn.pn, %403 ], [ %163, %162 ], [ %.pn69.pn.pn, %333 ], [ %.pn63.pn.pn, %248 ], [ %.pn57.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit119 ]
+667:                                              ; preds = %.body208, %403, %333, %248, %162, %_ZN7testing8internal14TrueWithStringD2Ev.exit119
+  %.pn93.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn93.pn.pn.pn.pn.pn, %.body208 ], [ %.pn75.pn.pn, %403 ], [ %163, %162 ], [ %.pn69.pn.pn, %333 ], [ %.pn63.pn.pn, %248 ], [ %.pn57.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit119 ]
   %668 = load ptr, ptr %2, align 8, !tbaa !23
   %.not.i.i.i329 = icmp eq ptr %668, %35
   br i1 %.not.i.i.i329, label %_ZN3fmt3v116detail6bigintD2Ev.exit331, label %669
@@ -11417,18 +11417,18 @@ _ZN3fmt3v116detail6bigintD2Ev.exit212:            ; preds = %412, %410
   %.pn63.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn63.pn.pn.pn.pn.pn.pn.pn, %.body119 ], [ %.pn45.pn.pn, %197 ], [ %121, %120 ]
   %420 = load ptr, ptr %6, align 8, !tbaa !23
   %.not.i.i.i219 = icmp eq ptr %420, %101
-  br i1 %.not.i.i.i219, label %_ZN3fmt3v116detail6bigintD2Ev.exit221, label %421
+  br i1 %.not.i.i.i219, label %.body, label %421
 
 421:                                              ; preds = %419
   call void @free(ptr noundef %420) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit221
+  br label %.body
 
-_ZN3fmt3v116detail6bigintD2Ev.exit221:            ; preds = %421, %419
+.body:                                            ; preds = %421, %419
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %6) #32
   br label %422
 
-422:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit221, %119, %47
-  %.pn63.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn63.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN3fmt3v116detail6bigintD2Ev.exit221 ], [ %.pn39.pn.pn, %119 ], [ %48, %47 ]
+422:                                              ; preds = %.body, %119, %47
+  %.pn63.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn63.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %.pn39.pn.pn, %119 ], [ %48, %47 ]
   %423 = load ptr, ptr %1, align 8, !tbaa !23
   %.not.i.i.i222 = icmp eq ptr %423, %29
   br i1 %.not.i.i.i222, label %_ZN3fmt3v116detail6bigintD2Ev.exit224, label %424
@@ -11997,18 +11997,18 @@ _ZN3fmt3v116detail6bigintD2Ev.exit:               ; preds = %30, %32
           catch ptr null
   %37 = load ptr, ptr %4, align 8, !tbaa !23
   %.not.i.i.i82 = icmp eq ptr %37, %27
-  br i1 %.not.i.i.i82, label %_ZN3fmt3v116detail6bigintD2Ev.exit84, label %38
+  br i1 %.not.i.i.i82, label %.body, label %38
 
 38:                                               ; preds = %35
   call void @free(ptr noundef %37) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit84
+  br label %.body
 
-_ZN3fmt3v116detail6bigintD2Ev.exit84:             ; preds = %38, %35
+.body:                                            ; preds = %38, %35
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4) #32
   br label %39
 
-39:                                               ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit84, %33
-  %.pn.pn = phi { ptr, i32 } [ %36, %_ZN3fmt3v116detail6bigintD2Ev.exit84 ], [ %34, %33 ]
+39:                                               ; preds = %.body, %33
+  %.pn.pn = phi { ptr, i32 } [ %36, %.body ], [ %34, %33 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.118 = extractvalue { ptr, i32 } %.pn.pn, 1
   %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI17assertion_failure) #32
@@ -12322,18 +12322,18 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit105: ; preds = %_ZNKSt7__cxx1112bas
           catch ptr null
   %156 = load ptr, ptr %9, align 8, !tbaa !23
   %.not.i.i.i106 = icmp eq ptr %156, %139
-  br i1 %.not.i.i.i106, label %_ZN3fmt3v116detail6bigintD2Ev.exit108, label %157
+  br i1 %.not.i.i.i106, label %.body97, label %157
 
 157:                                              ; preds = %154
   call void @free(ptr noundef %156) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit108
+  br label %.body97
 
-_ZN3fmt3v116detail6bigintD2Ev.exit108:            ; preds = %157, %154
+.body97:                                          ; preds = %157, %154
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %9) #32
   br label %158
 
-158:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit108, %152
-  %.pn54.pn = phi { ptr, i32 } [ %155, %_ZN3fmt3v116detail6bigintD2Ev.exit108 ], [ %153, %152 ]
+158:                                              ; preds = %.body97, %152
+  %.pn54.pn = phi { ptr, i32 } [ %155, %.body97 ], [ %153, %152 ]
   %.11 = extractvalue { ptr, i32 } %.pn54.pn, 0
   %.1128 = extractvalue { ptr, i32 } %.pn54.pn, 1
   %159 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI17assertion_failure) #32
@@ -13685,13 +13685,13 @@ _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integra
           cleanup
   %52 = load ptr, ptr %4, align 8, !tbaa !23
   %.not.i.i.i80 = icmp eq ptr %52, %39
-  br i1 %.not.i.i.i80, label %_ZN3fmt3v116detail6bigintD2Ev.exit82, label %53
+  br i1 %.not.i.i.i80, label %.body, label %53
 
 53:                                               ; preds = %50
   call void @free(ptr noundef %52) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit82
+  br label %.body
 
-_ZN3fmt3v116detail6bigintD2Ev.exit82:             ; preds = %53, %50
+.body:                                            ; preds = %53, %50
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4) #32
   br label %408
 
@@ -14068,13 +14068,13 @@ _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integra
           cleanup
   %177 = load ptr, ptr %13, align 8, !tbaa !23
   %.not.i.i.i121 = icmp eq ptr %177, %160
-  br i1 %.not.i.i.i121, label %_ZN3fmt3v116detail6bigintD2Ev.exit123, label %178
+  br i1 %.not.i.i.i121, label %.body112, label %178
 
 178:                                              ; preds = %175
   call void @free(ptr noundef %177) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit123
+  br label %.body112
 
-_ZN3fmt3v116detail6bigintD2Ev.exit123:            ; preds = %178, %175
+.body112:                                         ; preds = %178, %175
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %13) #32
   br label %408
 
@@ -14771,18 +14771,18 @@ _ZN3fmt3v116detail6bigintD2Ev.exit209:            ; preds = %_ZN3fmt3v116detail6
   %.pn64.pn.pn.pn = phi { ptr, i32 } [ %.pn64.pn.pn, %404 ], [ %.pn58.pn.pn, %351 ], [ %297, %296 ]
   %406 = load ptr, ptr %22, align 8, !tbaa !23
   %.not.i.i.i210 = icmp eq ptr %406, %285
-  br i1 %.not.i.i.i210, label %_ZN3fmt3v116detail6bigintD2Ev.exit212, label %407
+  br i1 %.not.i.i.i210, label %.body164, label %407
 
 407:                                              ; preds = %405
   call void @free(ptr noundef %406) #32
-  br label %_ZN3fmt3v116detail6bigintD2Ev.exit212
+  br label %.body164
 
-_ZN3fmt3v116detail6bigintD2Ev.exit212:            ; preds = %407, %405
+.body164:                                         ; preds = %407, %405
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %22) #32
   br label %408
 
-408:                                              ; preds = %_ZN3fmt3v116detail6bigintD2Ev.exit212, %295, %232, %_ZN3fmt3v116detail6bigintD2Ev.exit123, %173, %172, %107, %_ZN3fmt3v116detail6bigintD2Ev.exit82
-  %.pn64.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn64.pn.pn.pn, %_ZN3fmt3v116detail6bigintD2Ev.exit212 ], [ %.pn54.pn.pn, %295 ], [ %.pn48.pn.pn, %232 ], [ %176, %_ZN3fmt3v116detail6bigintD2Ev.exit123 ], [ %174, %173 ], [ %.pn42.pn.pn, %172 ], [ %.pn36.pn.pn, %107 ], [ %51, %_ZN3fmt3v116detail6bigintD2Ev.exit82 ]
+408:                                              ; preds = %.body164, %295, %232, %.body112, %173, %172, %107, %.body
+  %.pn64.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn64.pn.pn.pn, %.body164 ], [ %.pn54.pn.pn, %295 ], [ %.pn48.pn.pn, %232 ], [ %176, %.body112 ], [ %174, %173 ], [ %.pn42.pn.pn, %172 ], [ %.pn36.pn.pn, %107 ], [ %51, %.body ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #32
   %409 = load ptr, ptr %2, align 8, !tbaa !23
   %.not.i.i.i213 = icmp eq ptr %409, %34

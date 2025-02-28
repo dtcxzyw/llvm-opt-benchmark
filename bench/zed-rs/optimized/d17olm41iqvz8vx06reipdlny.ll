@@ -29087,12 +29087,12 @@ thread-pre-split:                                 ; preds = %"_ZN4core3ptr92drop
   br label %.thread58.thread
 
 35:                                               ; preds = %.lr.ph, %49
-  %.sroa.0.096 = phi ptr [ %22, %.lr.ph ], [ %36, %49 ]
-  %.sroa.7.095 = phi i64 [ 0, %.lr.ph ], [ %37, %49 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.096, i64 16
-  %37 = add nuw nsw i64 %.sroa.7.095, 1
-  %38 = load ptr, ptr %.sroa.0.096, align 8, !nonnull !9, !align !5442, !noundef !9
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.096, i64 8
+  %.sroa.0.099 = phi ptr [ %22, %.lr.ph ], [ %36, %49 ]
+  %.sroa.7.098 = phi i64 [ 0, %.lr.ph ], [ %37, %49 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.099, i64 16
+  %37 = add nuw nsw i64 %.sroa.7.098, 1
+  %38 = load ptr, ptr %.sroa.0.099, align 8, !nonnull !9, !align !5442, !noundef !9
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.099, i64 8
   %40 = load ptr, ptr %39, align 8, !nonnull !9, !align !39, !noundef !9
   %41 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
           to label %42 unwind label %.loopexit
@@ -29264,16 +29264,16 @@ thread-pre-split:                                 ; preds = %"_ZN4core3ptr92drop
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %100 = load i32, ptr %99, align 4, !noundef !9
   %101 = load i64, ptr %23, align 8, !noundef !9
-  %102 = icmp ult i64 %.sroa.7.095, %101
+  %102 = icmp ult i64 %.sroa.7.098, %101
   br i1 %102, label %104, label %103
 
 103:                                              ; preds = %98, %118, %115, %124, %92
-  invoke void @_ZN9workspace4pane4Pane13activate_item17h6c551fa8f1d0d317E(ptr noalias noundef nonnull align 8 dereferenceable(432) %0, i64 noundef %.sroa.7.095, i1 noundef zeroext %3, i1 noundef zeroext %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
+  invoke void @_ZN9workspace4pane4Pane13activate_item17h6c551fa8f1d0d317E(ptr noalias noundef nonnull align 8 dereferenceable(432) %0, i64 noundef %.sroa.7.098, i1 noundef zeroext %3, i1 noundef zeroext %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %194 unwind label %113
 
 104:                                              ; preds = %98
   %105 = load ptr, ptr %21, align 8, !nonnull !9, !noundef !9
-  %106 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %105, i64 %.sroa.7.095
+  %106 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %105, i64 %.sroa.7.098
   %107 = load ptr, ptr %106, align 8, !nonnull !9, !align !5442, !noundef !9
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %109 = load ptr, ptr %108, align 8, !nonnull !9, !align !39, !noundef !9

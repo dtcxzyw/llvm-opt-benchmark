@@ -3756,7 +3756,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit613: ; preds = %_Z
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %101) #23
   br label %1067
 
-1067:                                             ; preds = %1060, %1066
+1067:                                             ; preds = %1066, %1060
   %.pn331.pn = phi { ptr, i32 } [ %.pn331, %1066 ], [ %1061, %1060 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %101) #23
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %95) #23

@@ -11772,7 +11772,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %11)
   br label %35
 
-"_ZN4core3ptr61drop_in_place$LT$$LP$usize$C$exr..block..chunk..Chunk$RP$$GT$17h3a621ed47ec20aa8E.llvm.17224713629878502917.exit": ; preds = %38
+.thread:                                          ; preds = %38
   resume { ptr, i32 } %lpad.phi
 
 .loopexit:                                        ; preds = %22, %20
@@ -11789,7 +11789,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @"_ZN4core3ptr55drop_in_place$LT$exr..block..chunk..CompressedBlock$GT$17ha21e37cad37ff9a9E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(96) %39)
-          to label %"_ZN4core3ptr61drop_in_place$LT$$LP$usize$C$exr..block..chunk..Chunk$RP$$GT$17h3a621ed47ec20aa8E.llvm.17224713629878502917.exit" unwind label %40
+          to label %.thread unwind label %40
 
 40:                                               ; preds = %38
   %41 = landingpad { ptr, i32 }
@@ -11926,26 +11926,26 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   br label %33
 
-35:                                               ; preds = %36
+.thread:                                          ; preds = %35
   resume { ptr, i32 } %lpad.phi
 
 .loopexit:                                        ; preds = %22, %20
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %36
+  br label %35
 
 .loopexit.split-lp:                               ; preds = %14
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %36
+  br label %35
 
-36:                                               ; preds = %.loopexit.split-lp, %.loopexit
+35:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$tiff..encoder..DirectoryEntry$LT$u32$GT$$GT$17hbe057994cbb1d472E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #36
-          to label %35 unwind label %37
+          to label %.thread unwind label %36
 
-37:                                               ; preds = %36
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %35
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #38
   unreachable

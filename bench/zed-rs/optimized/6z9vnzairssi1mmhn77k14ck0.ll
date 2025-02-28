@@ -19040,8 +19040,8 @@ _ZN4gpui4view7AnyView8downcast17h9af5e5c2c0874169E.exit.i.i.i: ; preds = %.noexc
   %.sroa.0.1 = phi i32 [ %.sroa.0.0, %164 ], [ %.sroa.0.0, %171 ], [ 0, %102 ]
   %183 = load ptr, ptr %15, align 8, !noalias !3654, !noundef !4
   %184 = icmp ne ptr %183, null
-  %brmerge.not33.i = and i1 %or.cond.i, %184
-  br i1 %brmerge.not33.i, label %185, label %194
+  %brmerge.not30.i = and i1 %or.cond.i, %184
+  br i1 %brmerge.not30.i, label %185, label %194
 
 185:                                              ; preds = %"_ZN9workspace9Workspace17find_project_item28_$u7b$$u7b$closure$u7d$$u7d$17h8c66194ade54eb8fE.exit.i"
   %186 = atomicrmw sub ptr %183, i64 1 release, align 8, !noalias !3727

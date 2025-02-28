@@ -18461,11 +18461,11 @@ _ZNKSt6vectorIN5vcpkg11SpecSummaryESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %
           catch ptr null
   %30 = load i8, ptr %21, align 8
   %31 = trunc i8 %30 to i1
-  br i1 %31, label %32, label %47
+  br i1 %31, label %32, label %_ZNSt16allocator_traitsISaIN5vcpkg11SpecSummaryEEE7destroyIS1_EEvRS2_PT_.exit
 
 32:                                               ; preds = %28
   tail call void @_ZN5vcpkg19ExtendedBuildResultD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %22) #24
-  br label %47
+  br label %_ZNSt16allocator_traitsISaIN5vcpkg11SpecSummaryEEE7destroyIS1_EEvRS2_PT_.exit
 
 33:                                               ; preds = %_ZNKSt6vectorIN5vcpkg11SpecSummaryESaIS1_EE12_M_check_lenEmPKc.exit
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 168
@@ -18516,30 +18516,30 @@ _ZNSt12_Vector_baseIN5vcpkg11SpecSummaryESaIS1_EE13_M_deallocateEPS1_m.exit: ; p
   store ptr %44, ptr %43, align 8
   ret void
 
-45:                                               ; preds = %47
+45:                                               ; preds = %_ZNSt16allocator_traitsISaIN5vcpkg11SpecSummaryEEE7destroyIS1_EEvRS2_PT_.exit
   %46 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %50 unwind label %51
+          to label %49 unwind label %50
 
-47:                                               ; preds = %28, %32
-  %48 = extractvalue { ptr, i32 } %29, 0
-  %49 = tail call ptr @__cxa_begin_catch(ptr %48) #24
+_ZNSt16allocator_traitsISaIN5vcpkg11SpecSummaryEEE7destroyIS1_EEvRS2_PT_.exit: ; preds = %28, %32
+  %47 = extractvalue { ptr, i32 } %29, 0
+  %48 = tail call ptr @__cxa_begin_catch(ptr %47) #24
   tail call void @_ZdlPv(ptr noundef nonnull %20) #26
   invoke void @__cxa_rethrow() #27
-          to label %54 unwind label %45
+          to label %53 unwind label %45
 
-50:                                               ; preds = %45
+49:                                               ; preds = %45
   resume { ptr, i32 } %46
 
-51:                                               ; preds = %45
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %45
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %53 = extractvalue { ptr, i32 } %52, 0
-  tail call void @__clang_call_terminate(ptr %53) #29
+  %52 = extractvalue { ptr, i32 } %51, 0
+  tail call void @__clang_call_terminate(ptr %52) #29
   unreachable
 
-54:                                               ; preds = %47
+53:                                               ; preds = %_ZNSt16allocator_traitsISaIN5vcpkg11SpecSummaryEEE7destroyIS1_EEvRS2_PT_.exit
   unreachable
 }
 
@@ -26107,11 +26107,11 @@ _ZNKSt6vectorIN5vcpkg11SpecSummaryESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %
           catch ptr null
   %30 = load i8, ptr %21, align 8
   %31 = trunc i8 %30 to i1
-  br i1 %31, label %32, label %47
+  br i1 %31, label %32, label %_ZNSt16allocator_traitsISaIN5vcpkg11SpecSummaryEEE7destroyIS1_EEvRS2_PT_.exit
 
 32:                                               ; preds = %28
   tail call void @_ZN5vcpkg19ExtendedBuildResultD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %22) #24
-  br label %47
+  br label %_ZNSt16allocator_traitsISaIN5vcpkg11SpecSummaryEEE7destroyIS1_EEvRS2_PT_.exit
 
 33:                                               ; preds = %_ZNKSt6vectorIN5vcpkg11SpecSummaryESaIS1_EE12_M_check_lenEmPKc.exit
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 168
@@ -26162,30 +26162,30 @@ _ZNSt12_Vector_baseIN5vcpkg11SpecSummaryESaIS1_EE13_M_deallocateEPS1_m.exit: ; p
   store ptr %44, ptr %43, align 8
   ret void
 
-45:                                               ; preds = %47
+45:                                               ; preds = %_ZNSt16allocator_traitsISaIN5vcpkg11SpecSummaryEEE7destroyIS1_EEvRS2_PT_.exit
   %46 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %50 unwind label %51
+          to label %49 unwind label %50
 
-47:                                               ; preds = %28, %32
-  %48 = extractvalue { ptr, i32 } %29, 0
-  %49 = tail call ptr @__cxa_begin_catch(ptr %48) #24
+_ZNSt16allocator_traitsISaIN5vcpkg11SpecSummaryEEE7destroyIS1_EEvRS2_PT_.exit: ; preds = %28, %32
+  %47 = extractvalue { ptr, i32 } %29, 0
+  %48 = tail call ptr @__cxa_begin_catch(ptr %47) #24
   tail call void @_ZdlPv(ptr noundef nonnull %20) #26
   invoke void @__cxa_rethrow() #27
-          to label %54 unwind label %45
+          to label %53 unwind label %45
 
-50:                                               ; preds = %45
+49:                                               ; preds = %45
   resume { ptr, i32 } %46
 
-51:                                               ; preds = %45
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %45
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %53 = extractvalue { ptr, i32 } %52, 0
-  tail call void @__clang_call_terminate(ptr %53) #29
+  %52 = extractvalue { ptr, i32 } %51, 0
+  tail call void @__clang_call_terminate(ptr %52) #29
   unreachable
 
-54:                                               ; preds = %47
+53:                                               ; preds = %_ZNSt16allocator_traitsISaIN5vcpkg11SpecSummaryEEE7destroyIS1_EEvRS2_PT_.exit
   unreachable
 }
 

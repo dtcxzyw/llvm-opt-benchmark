@@ -6841,12 +6841,6 @@ common.ret:                                       ; preds = %69, %41
   store i8 0, ptr %.sroa.994.0..sroa_idx, align 8
   br label %49
 
-.body52:                                          ; preds = %51, %65, %70, %199, %200, %201, %203
-  %.pn20.pn = phi { ptr, i32 } [ %.pn31.pn, %201 ], [ %.pn31.pn, %199 ], [ %.pn31.pn, %203 ], [ %.pn31.pn, %200 ], [ %52, %51 ], [ %71, %70 ], [ %66, %65 ]
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %37)
-  store i8 2, ptr %38, align 8
-  resume { ptr, i32 } %.pn20.pn
-
 47:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @str.1, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5994e10fffdafa843df54943a4559014.135) #30
   unreachable
@@ -7495,6 +7489,12 @@ _ZN6digest11FixedOutput14finalize_fixed17h93c960ed3c11944eE.llvm.793950472229766
 
 200:                                              ; preds = %119
   br i1 %trunc22, label %.body52, label %203
+
+.body52:                                          ; preds = %51, %65, %70, %203, %201, %200, %199
+  %.pn20.pn = phi { ptr, i32 } [ %.pn31.pn, %201 ], [ %.pn31.pn, %199 ], [ %.pn31.pn, %203 ], [ %.pn31.pn, %200 ], [ %52, %51 ], [ %71, %70 ], [ %66, %65 ]
+  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %37)
+  store i8 2, ptr %38, align 8
+  resume { ptr, i32 } %.pn20.pn
 
 201:                                              ; preds = %199
   %202 = getelementptr inbounds nuw i8, ptr %37, i64 1

@@ -163108,19 +163108,19 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$
   unreachable
 
 "_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6d3df36704e4ce02E.exit.i": ; preds = %10
-  br i1 %13, label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17had7e3e6f37c75443E.exit", label %17
+  br i1 %13, label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17had7e3e6f37c75443E.exit", label %18
 
-17:                                               ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6d3df36704e4ce02E.exit.i"
-  invoke void @"_ZN77_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea3a1469784e7500E.llvm.17862517299867782409"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
-          to label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h53480fea0024988aE.llvm.11704451251615781814.exit.i" unwind label %18, !noalias !35753
-
-18:                                               ; preds = %17
-  %19 = landingpad { ptr, i32 }
+"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17hf619ff07d150cc3fE.llvm.11704451251615781814.exit2.i.i": ; preds = %18
+  %17 = landingpad { ptr, i32 }
           cleanup
   store i8 2, ptr %3, align 8, !alias.scope !35766, !noalias !35769
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %17
 
-"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h53480fea0024988aE.llvm.11704451251615781814.exit.i": ; preds = %17, %7
+18:                                               ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6d3df36704e4ce02E.exit.i"
+  invoke void @"_ZN77_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea3a1469784e7500E.llvm.17862517299867782409"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
+          to label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h53480fea0024988aE.llvm.11704451251615781814.exit.i" unwind label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17hf619ff07d150cc3fE.llvm.11704451251615781814.exit2.i.i", !noalias !35753
+
+"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h53480fea0024988aE.llvm.11704451251615781814.exit.i": ; preds = %18, %7
   store i8 2, ptr %3, align 8, !alias.scope !35766, !noalias !35769
   br label %"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17had7e3e6f37c75443E.exit"
 

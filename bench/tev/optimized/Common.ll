@@ -14564,7 +14564,7 @@ define linkonce_odr dso_local void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcE
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__113__empty_stateIcEE, i64 16), ptr %8, align 8
   store ptr null, ptr %11, align 8
   %14 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #32
-          to label %15 unwind label %_ZNKSt3__114default_deleteINS_13__empty_stateIcEEEclB8ne190000EPS2_.exit.i.i19
+          to label %15 unwind label %.thread33
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -14610,32 +14610,32 @@ _ZNSt3__110unique_ptrINS_13__empty_stateIcEENS_14default_deleteIS2_EEED2B8ne1900
   store i32 %37, ptr %16, align 8
   ret void
 
-.thread:                                          ; preds = %15
+.thread33:                                        ; preds = %7
   %38 = landingpad { ptr, i32 }
+          cleanup
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %8, align 8
+  %39 = icmp eq ptr %12, null
+  br i1 %39, label %_ZNSt3__113__empty_stateIcED0Ev.exit, label %40
+
+40:                                               ; preds = %.thread33
+  %41 = load ptr, ptr %12, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(8) %12) #29
+  br label %_ZNSt3__113__empty_stateIcED0Ev.exit
+
+_ZNSt3__113__empty_stateIcED0Ev.exit:             ; preds = %.thread33, %40
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(16) %8) #30
+  br label %_ZNSt3__110unique_ptrINS_13__empty_stateIcEENS_14default_deleteIS2_EEED2B8ne190000Ev.exit20
+
+.thread:                                          ; preds = %15
+  %44 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt3__16__loopIcED0Ev(ptr noundef nonnull align 8 dereferenceable(53) %14) #29
   br label %_ZNSt3__110unique_ptrINS_13__empty_stateIcEENS_14default_deleteIS2_EEED2B8ne190000Ev.exit20
 
-_ZNKSt3__114default_deleteINS_13__empty_stateIcEEEclB8ne190000EPS2_.exit.i.i19: ; preds = %7
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i64 16), ptr %8, align 8
-  %40 = icmp eq ptr %12, null
-  br i1 %40, label %_ZNSt3__113__empty_stateIcED0Ev.exit, label %41
-
-41:                                               ; preds = %_ZNKSt3__114default_deleteINS_13__empty_stateIcEEEclB8ne190000EPS2_.exit.i.i19
-  %42 = load ptr, ptr %12, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef nonnull align 8 dereferenceable(8) %12) #29
-  br label %_ZNSt3__113__empty_stateIcED0Ev.exit
-
-_ZNSt3__113__empty_stateIcED0Ev.exit:             ; preds = %_ZNKSt3__114default_deleteINS_13__empty_stateIcEEEclB8ne190000EPS2_.exit.i.i19, %41
-  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(16) %8) #30
-  br label %_ZNSt3__110unique_ptrINS_13__empty_stateIcEENS_14default_deleteIS2_EEED2B8ne190000Ev.exit20
-
 _ZNSt3__110unique_ptrINS_13__empty_stateIcEENS_14default_deleteIS2_EEED2B8ne190000Ev.exit20: ; preds = %_ZNSt3__113__empty_stateIcED0Ev.exit, %.thread
-  %.pn.pn = phi { ptr, i32 } [ %38, %.thread ], [ %39, %_ZNSt3__113__empty_stateIcED0Ev.exit ]
+  %.pn.pn = phi { ptr, i32 } [ %44, %.thread ], [ %38, %_ZNSt3__113__empty_stateIcED0Ev.exit ]
   resume { ptr, i32 } %.pn.pn
 }
 

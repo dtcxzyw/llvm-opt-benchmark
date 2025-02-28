@@ -28956,7 +28956,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$13decode_planes1
 .thread196:                                       ; preds = %181
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %293
+  br label %292
 
 36:                                               ; preds = %154
   unreachable
@@ -29252,7 +29252,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$13decode_planes1
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.4145.0.copyload, i64 noundef %.sroa.0144.0.copyload, i64 noundef 1) #39, !noalias !6050
   br label %.thread
 
-159:                                              ; preds = %293, %.thread, %268
+159:                                              ; preds = %292, %.thread, %268
   %160 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #46
@@ -29545,7 +29545,7 @@ switch.lookup:                                    ; preds = %205
   ret void
 
 267:                                              ; preds = %.thread
-  br i1 %.sroa.032.0153, label %293, label %292
+  br i1 %.sroa.032.0153, label %292, label %.thread201
 
 268:                                              ; preds = %192
   %269 = landingpad { ptr, i32 }
@@ -29629,14 +29629,14 @@ switch.lookup:                                    ; preds = %205
   invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h2c5f30b48114656bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #47
           to label %267 unwind label %159
 
-292:                                              ; preds = %293, %267
-  %.pn66199 = phi { ptr, i32 } [ %.pn66200, %293 ], [ %.pn64154, %267 ]
+.thread201:                                       ; preds = %292, %267
+  %.pn66199 = phi { ptr, i32 } [ %.pn66200, %292 ], [ %.pn64154, %267 ]
   resume { ptr, i32 } %.pn66199
 
-293:                                              ; preds = %.thread196, %267
+292:                                              ; preds = %.thread196, %267
   %.pn66200 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.thread196 ], [ %.pn64154, %267 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h223a70c6d3128912E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #47
-          to label %292 unwind label %159
+          to label %.thread201 unwind label %159
 }
 
 ; Function Attrs: nonlazybind uwtable

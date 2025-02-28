@@ -1421,12 +1421,13 @@ define hidden void @_ZN3std9panicking3try17h34f0e175a42acfa3E(ptr noalias nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h3c7e2904081c4ae8E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #12 personality ptr @rust_eh_personality {
+__rust_try.llvm.16910215836284360165.exit:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
-  %2 = load ptr, ptr %0, align 8, !alias.scope !196, !noalias !197, !noundef !4
-  store i64 0, ptr %2, align 8, !noalias !200
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i8 2, ptr %3, align 1, !noalias !200
+  %1 = load ptr, ptr %0, align 8, !alias.scope !196, !noalias !197, !noundef !4
+  store i64 0, ptr %1, align 8, !noalias !200
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i8 2, ptr %2, align 1, !noalias !200
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -2339,12 +2340,13 @@ __rust_try.llvm.16910215836284360165.exit:        ; preds = %14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17hd1de9bac1ac5c353E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #12 personality ptr @rust_eh_personality {
+__rust_try.llvm.16910215836284360165.exit:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !384)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !387)
-  %2 = load ptr, ptr %0, align 8, !alias.scope !390, !noalias !391, !noundef !4
-  store i64 0, ptr %2, align 8, !noalias !394
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 2, ptr %3, align 1, !noalias !394
+  %1 = load ptr, ptr %0, align 8, !alias.scope !390, !noalias !391, !noundef !4
+  store i64 0, ptr %1, align 8, !noalias !394
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 2, ptr %2, align 1, !noalias !394
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 

@@ -33895,7 +33895,7 @@ _ZNKSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EE12_M_check_lenEmPKc.exit: ; 
   %36 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %66 unwind label %37
+          to label %.thread46 unwind label %37
 
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
@@ -33981,30 +33981,30 @@ _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5FieldEESaIS3_EE13_M_deallocateEPS3_m.
   store ptr %63, ptr %58, align 8, !tbaa !927
   ret void
 
-64:                                               ; preds = %66
+64:                                               ; preds = %.thread46
   %65 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %69 unwind label %70
+          to label %68 unwind label %69
 
-66:                                               ; preds = %35
-  %67 = extractvalue { ptr, i32 } %36, 0
-  %68 = tail call ptr @__cxa_begin_catch(ptr %67) #27
+.thread46:                                        ; preds = %35
+  %66 = extractvalue { ptr, i32 } %36, 0
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #25
   invoke void @__cxa_rethrow() #23
-          to label %73 unwind label %64
+          to label %72 unwind label %64
 
-69:                                               ; preds = %64
+68:                                               ; preds = %64
   resume { ptr, i32 } %65
 
-70:                                               ; preds = %64
-  %71 = landingpad { ptr, i32 }
+69:                                               ; preds = %64
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #26
+  %71 = extractvalue { ptr, i32 } %70, 0
+  tail call void @__clang_call_terminate(ptr %71) #26
   unreachable
 
-73:                                               ; preds = %66
+72:                                               ; preds = %.thread46
   unreachable
 }
 

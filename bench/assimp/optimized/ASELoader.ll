@@ -7498,16 +7498,16 @@ _ZNSt6vectorIP6aiNodeSaIS1_EED2Ev.exit:           ; preds = %.loopexit, %.loopex
   %.sroa.0141.3 = phi ptr [ %.sroa.0141.0.lcssa, %323 ], [ %.sroa.0141.4, %314 ], [ %.sroa.0141.0258, %207 ], [ %.sroa.0141.0258, %.loopexit169 ], [ %.sroa.0141.0258, %.loopexit.split-lp ]
   %.pn83.pn.pn = phi { ptr, i32 } [ %324, %323 ], [ %.pn83, %314 ], [ %208, %207 ], [ %lpad.loopexit, %.loopexit169 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i101 = icmp eq ptr %.sroa.0141.3, null
-  br i1 %.not.i.i.i101, label %_ZNSt6vectorIP6aiNodeSaIS1_EED2Ev.exit102, label %336
+  br i1 %.not.i.i.i101, label %_ZNSt6vectorIP6aiNodeSaIS1_EED2Ev.exit102, label %.thread
 
-336:                                              ; preds = %335
-  %337 = ptrtoint ptr %.sroa.20.3 to i64
-  %338 = ptrtoint ptr %.sroa.0141.3 to i64
-  %339 = sub i64 %337, %338
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0141.3, i64 noundef %339) #25
+.thread:                                          ; preds = %335
+  %336 = ptrtoint ptr %.sroa.20.3 to i64
+  %337 = ptrtoint ptr %.sroa.0141.3 to i64
+  %338 = sub i64 %336, %337
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0141.3, i64 noundef %338) #25
   br label %_ZNSt6vectorIP6aiNodeSaIS1_EED2Ev.exit102
 
-_ZNSt6vectorIP6aiNodeSaIS1_EED2Ev.exit102:        ; preds = %335, %336
+_ZNSt6vectorIP6aiNodeSaIS1_EED2Ev.exit102:        ; preds = %335, %.thread
   resume { ptr, i32 } %.pn83.pn.pn
 }
 

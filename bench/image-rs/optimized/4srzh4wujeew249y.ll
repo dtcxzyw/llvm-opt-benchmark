@@ -29464,12 +29464,12 @@ define void @"_ZN5image6codecs4tiff42_$LT$impl$u20$image..error..ImageError$GT$1
   %15 = add nsw i64 %14, -20
   %16 = select i1 %13, i64 %15, i64 0
   switch i64 %16, label %17 [
-    i64 0, label %48
-    i64 1, label %23
+    i64 0, label %47
+    i64 1, label %22
     i64 2, label %18
-    i64 3, label %46
-    i64 4, label %48
-    i64 5, label %48
+    i64 3, label %45
+    i64 4, label %47
+    i64 5, label %47
   ]
 
 17:                                               ; preds = %2
@@ -29481,20 +29481,20 @@ define void @"_ZN5image6codecs4tiff42_$LT$impl$u20$image..error..ImageError$GT$1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %21, align 8
   store i8 9, ptr %0, align 8
-  br label %58
+  br label %57
 
-22:                                               ; preds = %43
+.body:                                            ; preds = %42
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E"(ptr noalias noundef align 8 dereferenceable(32) %8) #23
-          to label %60 unwind label %44
+          to label %59 unwind label %43
 
-23:                                               ; preds = %2
+22:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.019)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 5, ptr %25, align 1, !alias.scope !3569
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i8 5, ptr %24, align 1, !alias.scope !3569
   store i8 0, ptr %7, align 8, !alias.scope !3569
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.022)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !3572
@@ -29504,46 +29504,46 @@ define void @"_ZN5image6codecs4tiff42_$LT$impl$u20$image..error..ImageError$GT$1
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !3572
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !3572
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  store i32 0, ptr %26, align 4, !noalias !3572
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 32, ptr %27, align 8, !noalias !3572
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i8 3, ptr %28, align 8, !noalias !3572
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 52
+  store i32 0, ptr %25, align 4, !noalias !3572
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i32 32, ptr %26, align 8, !noalias !3572
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i8 3, ptr %27, align 8, !noalias !3572
   store i64 0, ptr %5, align 8, !noalias !3572
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %29, align 8, !noalias !3572
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %6, ptr %30, align 8, !noalias !3572
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr @anon.60689fdbfa59ae5f463a599edb886518.156, ptr %31, align 8, !noalias !3572
-  %32 = invoke noundef zeroext i1 @"_ZN72_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Display$GT$3fmt17hc18277c3d98d14f4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %5)
-          to label %35 unwind label %33, !noalias !3576
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 0, ptr %28, align 8, !noalias !3572
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr %6, ptr %29, align 8, !noalias !3572
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store ptr @anon.60689fdbfa59ae5f463a599edb886518.156, ptr %30, align 8, !noalias !3572
+  %31 = invoke noundef zeroext i1 @"_ZN72_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Display$GT$3fmt17hc18277c3d98d14f4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %5)
+          to label %34 unwind label %32, !noalias !3576
 
-33:                                               ; preds = %36, %23
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %35, %22
+  %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbefa171b5dae5d08E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #23
-          to label %43 unwind label %37, !noalias !3576
+          to label %42 unwind label %36, !noalias !3576
 
-35:                                               ; preds = %23
+34:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !3572
-  br i1 %32, label %36, label %39
+  br i1 %31, label %35, label %38
 
-36:                                               ; preds = %35
+35:                                               ; preds = %34
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.60689fdbfa59ae5f463a599edb886518.157, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.60689fdbfa59ae5f463a599edb886518.171, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.60689fdbfa59ae5f463a599edb886518.159) #22
-          to label %.noexc.i unwind label %33, !noalias !3576
+          to label %.noexc.i unwind label %32, !noalias !3576
 
-.noexc.i:                                         ; preds = %36
+.noexc.i:                                         ; preds = %35
   unreachable
 
-37:                                               ; preds = %33
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %32
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #24, !noalias !3576
   unreachable
 
-39:                                               ; preds = %35
+38:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !3572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.022, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !3577
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !3572
@@ -29560,36 +29560,36 @@ define void @"_ZN5image6codecs4tiff42_$LT$impl$u20$image..error..ImageError$GT$1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.521.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.418, i64 31, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.019)
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E"(ptr noalias noundef align 8 dereferenceable(32) %8)
-          to label %42 unwind label %40
+          to label %41 unwind label %39
 
-40:                                               ; preds = %39
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %38
+  %40 = landingpad { ptr, i32 }
           cleanup
-  br label %60
+  br label %59
 
-42:                                               ; preds = %39
+41:                                               ; preds = %38
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %.pre = load i16, ptr %1, align 8, !range !2252
   %.pre35 = add nsw i16 %.pre, -21
-  br label %58
+  br label %57
 
-43:                                               ; preds = %33
+42:                                               ; preds = %32
   invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.86838146618072286"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #23
-          to label %22 unwind label %44
+          to label %.body unwind label %43
 
-44:                                               ; preds = %63, %43, %22
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %62, %42, %.body
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #24
   unreachable
 
-46:                                               ; preds = %2
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 3, ptr %47, align 8
+45:                                               ; preds = %2
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 3, ptr %46, align 8
   store i8 7, ptr %0, align 8
-  br label %58
+  br label %57
 
-48:                                               ; preds = %2, %2, %2
+47:                                               ; preds = %2, %2, %2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
@@ -29598,73 +29598,73 @@ define void @"_ZN5image6codecs4tiff42_$LT$impl$u20$image..error..ImageError$GT$1
   store i8 0, ptr %4, align 8, !noalias !3589
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 5, ptr %.sroa.516.0..sroa_idx, align 1, !noalias !3589
-  %49 = invoke noundef ptr @_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.9742654456972663382(i64 noundef 40, i64 noundef 8)
-          to label %.critedge unwind label %50, !noalias !3590
+  %48 = invoke noundef ptr @_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.9742654456972663382(i64 noundef 40, i64 noundef 8)
+          to label %.critedge unwind label %49, !noalias !3590
 
-50:                                               ; preds = %48
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %47
+  %50 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$tiff..error..TiffError$GT$17hda6d551b8c0189a7E.llvm.9742654456972663382"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9) #23
-          to label %.body.i unwind label %52, !noalias !3597
+          to label %.body.i unwind label %51, !noalias !3597
 
-52:                                               ; preds = %50
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %49
+  %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #24, !noalias !3597
   unreachable
 
-.body.i:                                          ; preds = %50
+.body.i:                                          ; preds = %49
   invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #23
-          to label %.body12 unwind label %54, !noalias !3597
+          to label %.body12 unwind label %53, !noalias !3597
 
-54:                                               ; preds = %.body.i
-  %55 = landingpad { ptr, i32 }
+53:                                               ; preds = %.body.i
+  %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #24, !noalias !3597
   unreachable
 
-.critedge:                                        ; preds = %48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
+.critedge:                                        ; preds = %47
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !3584
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %56, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %55, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 5, ptr %.sroa.0.sroa.4.0..sroa_idx, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %49, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %48, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @anon.1f4c41b43b6b1ec3b0d7299236cb1468.34.llvm.9742654456972663382, ptr %.sroa.5.0..sroa_idx, align 8
   store i8 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
-  br label %57
+  br label %56
 
-57:                                               ; preds = %58, %.critedge, %59
+56:                                               ; preds = %57, %.critedge, %58
   ret void
 
-58:                                               ; preds = %18, %42, %46
-  %.pre-phi = phi i16 [ %12, %18 ], [ %.pre35, %42 ], [ %12, %46 ]
+57:                                               ; preds = %18, %41, %45
+  %.pre-phi = phi i16 [ %12, %18 ], [ %.pre35, %41 ], [ %12, %45 ]
   %switch = icmp ult i16 %.pre-phi, 2
-  br i1 %switch, label %57, label %59
+  br i1 %switch, label %56, label %58
 
-59:                                               ; preds = %58
+58:                                               ; preds = %57
   call fastcc void @"_ZN4core3ptr43drop_in_place$LT$tiff..error..TiffError$GT$17hda6d551b8c0189a7E"(ptr noalias noundef align 8 dereferenceable(40) %1)
-  br label %57
+  br label %56
 
-.body12:                                          ; preds = %.body.i, %60, %63
-  %.pn831 = phi { ptr, i32 } [ %.pn8.ph, %60 ], [ %.pn8.ph, %63 ], [ %51, %.body.i ]
+.body12:                                          ; preds = %.body.i, %59, %62
+  %.pn831 = phi { ptr, i32 } [ %.pn8.ph, %59 ], [ %.pn8.ph, %62 ], [ %50, %.body.i ]
   resume { ptr, i32 } %.pn831
 
-60:                                               ; preds = %40, %22
-  %.pn8.ph = phi { ptr, i32 } [ %34, %22 ], [ %41, %40 ]
-  %61 = load i16, ptr %1, align 8, !range !2252, !noundef !14
-  %62 = add nsw i16 %61, -21
-  %switch11 = icmp ult i16 %62, 2
-  br i1 %switch11, label %.body12, label %63
+59:                                               ; preds = %39, %.body
+  %.pn8.ph = phi { ptr, i32 } [ %33, %.body ], [ %40, %39 ]
+  %60 = load i16, ptr %1, align 8, !range !2252, !noundef !14
+  %61 = add nsw i16 %60, -21
+  %switch11 = icmp ult i16 %61, 2
+  br i1 %switch11, label %.body12, label %62
 
-63:                                               ; preds = %60
+62:                                               ; preds = %59
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$tiff..error..TiffError$GT$17hda6d551b8c0189a7E"(ptr noalias noundef align 8 dereferenceable(40) %1) #23
-          to label %.body12 unwind label %44
+          to label %.body12 unwind label %43
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -29687,12 +29687,12 @@ define void @"_ZN5image6codecs4tiff42_$LT$impl$u20$image..error..ImageError$GT$1
   %15 = add nsw i64 %14, -20
   %16 = select i1 %13, i64 %15, i64 0
   switch i64 %16, label %17 [
-    i64 0, label %48
-    i64 1, label %23
+    i64 0, label %47
+    i64 1, label %22
     i64 2, label %18
-    i64 3, label %46
-    i64 4, label %48
-    i64 5, label %48
+    i64 3, label %45
+    i64 4, label %47
+    i64 5, label %47
   ]
 
 17:                                               ; preds = %2
@@ -29704,20 +29704,20 @@ define void @"_ZN5image6codecs4tiff42_$LT$impl$u20$image..error..ImageError$GT$1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %21, align 8
   store i8 9, ptr %0, align 8
-  br label %58
+  br label %57
 
-22:                                               ; preds = %43
+.body:                                            ; preds = %42
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E"(ptr noalias noundef align 8 dereferenceable(32) %8) #23
-          to label %60 unwind label %44
+          to label %59 unwind label %43
 
-23:                                               ; preds = %2
+22:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.019)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 5, ptr %25, align 1, !alias.scope !3598
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i8 5, ptr %24, align 1, !alias.scope !3598
   store i8 0, ptr %7, align 8, !alias.scope !3598
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.022)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !3601
@@ -29727,46 +29727,46 @@ define void @"_ZN5image6codecs4tiff42_$LT$impl$u20$image..error..ImageError$GT$1
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !3601
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !3601
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  store i32 0, ptr %26, align 4, !noalias !3601
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 32, ptr %27, align 8, !noalias !3601
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i8 3, ptr %28, align 8, !noalias !3601
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 52
+  store i32 0, ptr %25, align 4, !noalias !3601
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i32 32, ptr %26, align 8, !noalias !3601
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i8 3, ptr %27, align 8, !noalias !3601
   store i64 0, ptr %5, align 8, !noalias !3601
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %29, align 8, !noalias !3601
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %6, ptr %30, align 8, !noalias !3601
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr @anon.60689fdbfa59ae5f463a599edb886518.156, ptr %31, align 8, !noalias !3601
-  %32 = invoke noundef zeroext i1 @"_ZN72_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Display$GT$3fmt17hc18277c3d98d14f4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %5)
-          to label %35 unwind label %33, !noalias !3605
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 0, ptr %28, align 8, !noalias !3601
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr %6, ptr %29, align 8, !noalias !3601
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store ptr @anon.60689fdbfa59ae5f463a599edb886518.156, ptr %30, align 8, !noalias !3601
+  %31 = invoke noundef zeroext i1 @"_ZN72_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Display$GT$3fmt17hc18277c3d98d14f4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %5)
+          to label %34 unwind label %32, !noalias !3605
 
-33:                                               ; preds = %36, %23
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %35, %22
+  %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbefa171b5dae5d08E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #23
-          to label %43 unwind label %37, !noalias !3605
+          to label %42 unwind label %36, !noalias !3605
 
-35:                                               ; preds = %23
+34:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !3601
-  br i1 %32, label %36, label %39
+  br i1 %31, label %35, label %38
 
-36:                                               ; preds = %35
+35:                                               ; preds = %34
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.60689fdbfa59ae5f463a599edb886518.157, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.60689fdbfa59ae5f463a599edb886518.171, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.60689fdbfa59ae5f463a599edb886518.159) #22
-          to label %.noexc.i unwind label %33, !noalias !3605
+          to label %.noexc.i unwind label %32, !noalias !3605
 
-.noexc.i:                                         ; preds = %36
+.noexc.i:                                         ; preds = %35
   unreachable
 
-37:                                               ; preds = %33
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %32
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #24, !noalias !3605
   unreachable
 
-39:                                               ; preds = %35
+38:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !3601
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.022, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !3606
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !3601
@@ -29783,36 +29783,36 @@ define void @"_ZN5image6codecs4tiff42_$LT$impl$u20$image..error..ImageError$GT$1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.521.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.418, i64 31, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.019)
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E"(ptr noalias noundef align 8 dereferenceable(32) %8)
-          to label %42 unwind label %40
+          to label %41 unwind label %39
 
-40:                                               ; preds = %39
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %38
+  %40 = landingpad { ptr, i32 }
           cleanup
-  br label %60
+  br label %59
 
-42:                                               ; preds = %39
+41:                                               ; preds = %38
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %.pre = load i16, ptr %1, align 8, !range !2252
   %.pre35 = add nsw i16 %.pre, -21
-  br label %58
+  br label %57
 
-43:                                               ; preds = %33
+42:                                               ; preds = %32
   invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.86838146618072286"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #23
-          to label %22 unwind label %44
+          to label %.body unwind label %43
 
-44:                                               ; preds = %63, %43, %22
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %62, %42, %.body
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #24
   unreachable
 
-46:                                               ; preds = %2
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 3, ptr %47, align 8
+45:                                               ; preds = %2
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 3, ptr %46, align 8
   store i8 7, ptr %0, align 8
-  br label %58
+  br label %57
 
-48:                                               ; preds = %2, %2, %2
+47:                                               ; preds = %2, %2, %2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
@@ -29821,73 +29821,73 @@ define void @"_ZN5image6codecs4tiff42_$LT$impl$u20$image..error..ImageError$GT$1
   store i8 0, ptr %4, align 8, !noalias !3618
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 5, ptr %.sroa.516.0..sroa_idx, align 1, !noalias !3618
-  %49 = invoke noundef ptr @_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.9742654456972663382(i64 noundef 40, i64 noundef 8)
-          to label %.critedge unwind label %50, !noalias !3619
+  %48 = invoke noundef ptr @_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.9742654456972663382(i64 noundef 40, i64 noundef 8)
+          to label %.critedge unwind label %49, !noalias !3619
 
-50:                                               ; preds = %48
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %47
+  %50 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$tiff..error..TiffError$GT$17hda6d551b8c0189a7E.llvm.9742654456972663382"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9) #23
-          to label %.body.i unwind label %52, !noalias !3626
+          to label %.body.i unwind label %51, !noalias !3626
 
-52:                                               ; preds = %50
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %49
+  %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #24, !noalias !3626
   unreachable
 
-.body.i:                                          ; preds = %50
+.body.i:                                          ; preds = %49
   invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #23
-          to label %.body12 unwind label %54, !noalias !3626
+          to label %.body12 unwind label %53, !noalias !3626
 
-54:                                               ; preds = %.body.i
-  %55 = landingpad { ptr, i32 }
+53:                                               ; preds = %.body.i
+  %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #24, !noalias !3626
   unreachable
 
-.critedge:                                        ; preds = %48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
+.critedge:                                        ; preds = %47
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !3613
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %56, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %55, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 5, ptr %.sroa.0.sroa.4.0..sroa_idx, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %49, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %48, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @anon.1f4c41b43b6b1ec3b0d7299236cb1468.34.llvm.9742654456972663382, ptr %.sroa.5.0..sroa_idx, align 8
   store i8 5, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
-  br label %57
+  br label %56
 
-57:                                               ; preds = %58, %.critedge, %59
+56:                                               ; preds = %57, %.critedge, %58
   ret void
 
-58:                                               ; preds = %18, %42, %46
-  %.pre-phi = phi i16 [ %12, %18 ], [ %.pre35, %42 ], [ %12, %46 ]
+57:                                               ; preds = %18, %41, %45
+  %.pre-phi = phi i16 [ %12, %18 ], [ %.pre35, %41 ], [ %12, %45 ]
   %switch = icmp ult i16 %.pre-phi, 2
-  br i1 %switch, label %57, label %59
+  br i1 %switch, label %56, label %58
 
-59:                                               ; preds = %58
+58:                                               ; preds = %57
   call fastcc void @"_ZN4core3ptr43drop_in_place$LT$tiff..error..TiffError$GT$17hda6d551b8c0189a7E"(ptr noalias noundef align 8 dereferenceable(40) %1)
-  br label %57
+  br label %56
 
-.body12:                                          ; preds = %.body.i, %60, %63
-  %.pn831 = phi { ptr, i32 } [ %.pn8.ph, %60 ], [ %.pn8.ph, %63 ], [ %51, %.body.i ]
+.body12:                                          ; preds = %.body.i, %59, %62
+  %.pn831 = phi { ptr, i32 } [ %.pn8.ph, %59 ], [ %.pn8.ph, %62 ], [ %50, %.body.i ]
   resume { ptr, i32 } %.pn831
 
-60:                                               ; preds = %40, %22
-  %.pn8.ph = phi { ptr, i32 } [ %34, %22 ], [ %41, %40 ]
-  %61 = load i16, ptr %1, align 8, !range !2252, !noundef !14
-  %62 = add nsw i16 %61, -21
-  %switch11 = icmp ult i16 %62, 2
-  br i1 %switch11, label %.body12, label %63
+59:                                               ; preds = %39, %.body
+  %.pn8.ph = phi { ptr, i32 } [ %33, %.body ], [ %40, %39 ]
+  %60 = load i16, ptr %1, align 8, !range !2252, !noundef !14
+  %61 = add nsw i16 %60, -21
+  %switch11 = icmp ult i16 %61, 2
+  br i1 %switch11, label %.body12, label %62
 
-63:                                               ; preds = %60
+62:                                               ; preds = %59
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$tiff..error..TiffError$GT$17hda6d551b8c0189a7E"(ptr noalias noundef align 8 dereferenceable(40) %1) #23
-          to label %.body12 unwind label %44
+          to label %.body12 unwind label %43
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -40755,57 +40755,57 @@ _ZN4Luau8TypePackD2Ev.exit355.thread:             ; preds = %382, %_ZNSt6vectorI
   %.sroa.0397.0 = phi ptr [ %.sroa.0397.3.lcssa, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit318 ], [ %.sroa.0397.3.lcssa, %825 ], [ %.sroa.0397.3.lcssa, %785 ], [ %.sroa.0397.3.lcssa, %779 ], [ %.sroa.0397.3600, %.loopexit.split-lp ], [ %.sroa.0397.6, %_ZN4Luau16FunctionArgumentD2Ev.exit289 ], [ %.sroa.0397.6, %772 ], [ %.sroa.0397.6, %770 ], [ %.sroa.0397.6, %768 ], [ %.sroa.0397.6, %766 ], [ %.sroa.0397.3600, %.loopexit ], [ %446, %_ZN4Luau16FunctionArgumentD2Ev.exit245 ], [ %446, %590 ], [ %446, %588 ], [ %446, %586 ], [ %446, %584 ], [ null, %572 ], [ null, %311 ]
   %.pn143.pn.pn = phi { ptr, i32 } [ %.pn134.pn.pn.pn, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit318 ], [ %826, %825 ], [ %786, %785 ], [ %780, %779 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn141, %_ZN4Luau16FunctionArgumentD2Ev.exit289 ], [ %773, %772 ], [ %771, %770 ], [ %769, %768 ], [ %767, %766 ], [ %lpad.loopexit, %.loopexit ], [ %.pn124, %_ZN4Luau16FunctionArgumentD2Ev.exit245 ], [ %591, %590 ], [ %589, %588 ], [ %587, %586 ], [ %585, %584 ], [ %573, %572 ], [ %312, %311 ]
   %.not.i.i.i.i354 = icmp eq ptr %.sroa.0389.1, null
-  br i1 %.not.i.i.i.i354, label %_ZN4Luau8TypePackD2Ev.exit355, label %1235
+  br i1 %.not.i.i.i.i354, label %_ZN4Luau8TypePackD2Ev.exit355, label %.thread475
 
-1235:                                             ; preds = %1234
-  %1236 = ptrtoint ptr %.sroa.12.1 to i64
-  %1237 = ptrtoint ptr %.sroa.0389.1 to i64
-  %1238 = sub i64 %1236, %1237
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0389.1, i64 noundef %1238) #30
+.thread475:                                       ; preds = %1234
+  %1235 = ptrtoint ptr %.sroa.12.1 to i64
+  %1236 = ptrtoint ptr %.sroa.0389.1 to i64
+  %1237 = sub i64 %1235, %1236
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0389.1, i64 noundef %1237) #30
   br label %_ZN4Luau8TypePackD2Ev.exit355
 
-_ZN4Luau8TypePackD2Ev.exit355:                    ; preds = %1234, %1235
+_ZN4Luau8TypePackD2Ev.exit355:                    ; preds = %1234, %.thread475
   call void @_ZNSt6vectorISt8optionalIN4Luau16FunctionArgumentEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #28
   %.not.i.i.i356 = icmp eq ptr %.sroa.0397.0, null
-  br i1 %.not.i.i.i356, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit357, label %1239
+  br i1 %.not.i.i.i356, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit357, label %1238
 
-1239:                                             ; preds = %_ZN4Luau8TypePackD2Ev.exit355
-  %1240 = ptrtoint ptr %.sroa.20.0 to i64
-  %1241 = ptrtoint ptr %.sroa.0397.0 to i64
-  %1242 = sub i64 %1240, %1241
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0397.0, i64 noundef %1242) #30
+1238:                                             ; preds = %_ZN4Luau8TypePackD2Ev.exit355
+  %1239 = ptrtoint ptr %.sroa.20.0 to i64
+  %1240 = ptrtoint ptr %.sroa.0397.0 to i64
+  %1241 = sub i64 %1239, %1240
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0397.0, i64 noundef %1241) #30
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit357
 
-_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit357:  ; preds = %1239, %_ZN4Luau8TypePackD2Ev.exit355, %267
-  %.sroa.0.0 = phi ptr [ %.sroa.0.4, %_ZN4Luau8TypePackD2Ev.exit355 ], [ %.sroa.0.4, %1239 ], [ %.sroa.0.1, %267 ]
-  %.sroa.23.0 = phi ptr [ %.sroa.23.7, %_ZN4Luau8TypePackD2Ev.exit355 ], [ %.sroa.23.7, %1239 ], [ %.sroa.23.1, %267 ]
-  %.sroa.23681.0 = phi ptr [ %.sroa.23681.8, %_ZN4Luau8TypePackD2Ev.exit355 ], [ %.sroa.23681.8, %1239 ], [ %.sroa.23681.3, %267 ]
-  %.sroa.0673.0 = phi ptr [ %.sroa.0673.5, %_ZN4Luau8TypePackD2Ev.exit355 ], [ %.sroa.0673.5, %1239 ], [ %.sroa.0673.1, %267 ]
-  %.pn147.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn143.pn.pn, %_ZN4Luau8TypePackD2Ev.exit355 ], [ %.pn143.pn.pn, %1239 ], [ %.pn147.pn.pn, %267 ]
+_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit357:  ; preds = %1238, %_ZN4Luau8TypePackD2Ev.exit355, %267
+  %.sroa.0.0 = phi ptr [ %.sroa.0.4, %_ZN4Luau8TypePackD2Ev.exit355 ], [ %.sroa.0.4, %1238 ], [ %.sroa.0.1, %267 ]
+  %.sroa.23.0 = phi ptr [ %.sroa.23.7, %_ZN4Luau8TypePackD2Ev.exit355 ], [ %.sroa.23.7, %1238 ], [ %.sroa.23.1, %267 ]
+  %.sroa.23681.0 = phi ptr [ %.sroa.23681.8, %_ZN4Luau8TypePackD2Ev.exit355 ], [ %.sroa.23681.8, %1238 ], [ %.sroa.23681.3, %267 ]
+  %.sroa.0673.0 = phi ptr [ %.sroa.0673.5, %_ZN4Luau8TypePackD2Ev.exit355 ], [ %.sroa.0673.5, %1238 ], [ %.sroa.0673.1, %267 ]
+  %.pn147.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn143.pn.pn, %_ZN4Luau8TypePackD2Ev.exit355 ], [ %.pn143.pn.pn, %1238 ], [ %.pn147.pn.pn, %267 ]
   %.not.i.i.i358 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i.i.i358, label %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit359, label %1243
+  br i1 %.not.i.i.i358, label %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit359, label %1242
 
-1243:                                             ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit357
-  %1244 = ptrtoint ptr %.sroa.23.0 to i64
-  %1245 = ptrtoint ptr %.sroa.0.0 to i64
-  %1246 = sub i64 %1244, %1245
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %1246) #30
+1242:                                             ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit357
+  %1243 = ptrtoint ptr %.sroa.23.0 to i64
+  %1244 = ptrtoint ptr %.sroa.0.0 to i64
+  %1245 = sub i64 %1243, %1244
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %1245) #30
   br label %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit359
 
-_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit359: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit357, %1243
+_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit359: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit357, %1242
   %.not.i.i.i360 = icmp eq ptr %.sroa.0673.0, null
-  br i1 %.not.i.i.i360, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit361, label %1247
+  br i1 %.not.i.i.i360, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit361, label %1246
 
-1247:                                             ; preds = %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit359
-  %1248 = ptrtoint ptr %.sroa.23681.0 to i64
-  %1249 = ptrtoint ptr %.sroa.0673.0 to i64
-  %1250 = sub i64 %1248, %1249
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0673.0, i64 noundef %1250) #30
+1246:                                             ; preds = %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit359
+  %1247 = ptrtoint ptr %.sroa.23681.0 to i64
+  %1248 = ptrtoint ptr %.sroa.0673.0 to i64
+  %1249 = sub i64 %1247, %1248
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0673.0, i64 noundef %1249) #30
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit361
 
-_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit361:  ; preds = %_ZN4Luau8TypePackD2Ev.exit355.thread, %175, %173, %171, %45, %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit359, %1247
-  %.pn147.pn.pn.pn.pn716721 = phi { ptr, i32 } [ %.pn147.pn.pn.pn.pn, %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit359 ], [ %.pn147.pn.pn.pn.pn, %1247 ], [ %46, %45 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %.pn143.pn.pn.ph, %_ZN4Luau8TypePackD2Ev.exit355.thread ]
+_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit361:  ; preds = %_ZN4Luau8TypePackD2Ev.exit355.thread, %175, %173, %171, %45, %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit359, %1246
+  %.pn147.pn.pn.pn.pn716721 = phi { ptr, i32 } [ %.pn147.pn.pn.pn.pn, %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit359 ], [ %.pn147.pn.pn.pn.pn, %1246 ], [ %46, %45 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %.pn143.pn.pn.ph, %_ZN4Luau8TypePackD2Ev.exit355.thread ]
   call void @_ZNSt12__shared_ptrIN4Luau5ScopeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #28
   call void @_ZNSt12__shared_ptrIN4Luau5ScopeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #28

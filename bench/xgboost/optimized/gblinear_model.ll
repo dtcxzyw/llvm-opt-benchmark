@@ -441,8 +441,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %_ZNKSt6vector
   tail call void @llvm.memset.p0.i64(ptr align 4 %18, i8 0, i64 %19, i1 false)
   br label %20
 
-common.resume:                                    ; preds = %86, %_ZN7xgboost4JsonD2Ev.exit33, %82, %79
-  %common.resume.op = phi { ptr, i32 } [ %.pn, %_ZN7xgboost4JsonD2Ev.exit33 ], [ %.pn, %86 ], [ %.pn14, %82 ], [ %.pn14, %79 ]
+common.resume:                                    ; preds = %_ZN7xgboost4JsonD2Ev.exit33.thread63, %_ZN7xgboost4JsonD2Ev.exit33, %82, %79
+  %common.resume.op = phi { ptr, i32 } [ %.pn, %_ZN7xgboost4JsonD2Ev.exit33 ], [ %.pn, %_ZN7xgboost4JsonD2Ev.exit33.thread63 ], [ %.pn14, %82 ], [ %.pn14, %79 ]
   resume { ptr, i32 } %common.resume.op
 
 20:                                               ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
@@ -622,13 +622,13 @@ _ZN7xgboost4JsonD2Ev.exit33:                      ; preds = %73, %23, %71
   %.pn = phi { ptr, i32 } [ %74, %73 ], [ %72, %71 ], [ %24, %23 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   %.not.i.i.i.i34 = icmp eq ptr %.sroa.5.175, null
-  br i1 %.not.i.i.i.i34, label %common.resume, label %86
+  br i1 %.not.i.i.i.i34, label %common.resume, label %_ZN7xgboost4JsonD2Ev.exit33.thread63
 
-86:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit33
-  %87 = ptrtoint ptr %.sroa.18.173 to i64
-  %88 = ptrtoint ptr %.sroa.5.175 to i64
-  %89 = sub i64 %87, %88
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.5.175, i64 noundef %89) #28
+_ZN7xgboost4JsonD2Ev.exit33.thread63:             ; preds = %_ZN7xgboost4JsonD2Ev.exit33
+  %86 = ptrtoint ptr %.sroa.18.173 to i64
+  %87 = ptrtoint ptr %.sroa.5.175 to i64
+  %88 = sub i64 %86, %87
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.5.175, i64 noundef %88) #28
   br label %common.resume
 }
 

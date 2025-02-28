@@ -5470,22 +5470,22 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
   %15 = load ptr, ptr %2, align 8, !tbaa !155
   %.not.i.i31 = icmp eq ptr %15, null
-  br i1 %.not.i.i31, label %20, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i32
+  br i1 %.not.i.i31, label %_ZN7testing7MessageD2Ev.exit33, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i32
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i32: ; preds = %14
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(128) %15) #23
-  br label %20
+  br label %_ZN7testing7MessageD2Ev.exit33
+
+_ZN7testing7MessageD2Ev.exit33:                   ; preds = %14, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #23
+  resume { ptr, i32 } %.pn24
 
 19:                                               ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #23
   ret void
-
-20:                                               ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i32, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #23
-  resume { ptr, i32 } %.pn24
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -5562,22 +5562,22 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
   %15 = load ptr, ptr %2, align 8, !tbaa !155
   %.not.i.i31 = icmp eq ptr %15, null
-  br i1 %.not.i.i31, label %20, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i32
+  br i1 %.not.i.i31, label %_ZN7testing7MessageD2Ev.exit33, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i32
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i32: ; preds = %14
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(128) %15) #23
-  br label %20
+  br label %_ZN7testing7MessageD2Ev.exit33
+
+_ZN7testing7MessageD2Ev.exit33:                   ; preds = %14, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #23
+  resume { ptr, i32 } %.pn24
 
 19:                                               ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #23
   ret void
-
-20:                                               ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i32, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #23
-  resume { ptr, i32 } %.pn24
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -5654,22 +5654,22 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
   %15 = load ptr, ptr %2, align 8, !tbaa !155
   %.not.i.i31 = icmp eq ptr %15, null
-  br i1 %.not.i.i31, label %20, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i32
+  br i1 %.not.i.i31, label %_ZN7testing7MessageD2Ev.exit33, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i32
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i32: ; preds = %14
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(128) %15) #23
-  br label %20
+  br label %_ZN7testing7MessageD2Ev.exit33
+
+_ZN7testing7MessageD2Ev.exit33:                   ; preds = %14, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #23
+  resume { ptr, i32 } %.pn24
 
 19:                                               ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #23
   ret void
-
-20:                                               ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i32, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #23
-  resume { ptr, i32 } %.pn24
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

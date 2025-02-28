@@ -334,26 +334,26 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$futures_util..future..maybe_done..
   %12 = tail call { i64, ptr } @"_ZN9workspace11persistence11WorkspaceDb22delete_workspace_by_id28_$u7b$$u7b$closure$u7d$$u7d$17h827d49841a9726edE.llvm.2029774997167018338"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %13 = extractvalue { i64, ptr } %12, 0
   %switch = icmp eq i64 %13, 0
-  br i1 %switch, label %15, label %19
+  br i1 %switch, label %17, label %19
 
 14:                                               ; preds = %2
   tail call void @_ZN3std9panicking11begin_panic17hdde5dde4e77f575cE(ptr noalias noundef nonnull readonly align 1 @anon.de5bf129989e88be9af7f5e765f9c71a.5.llvm.2029774997167018338, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.de5bf129989e88be9af7f5e765f9c71a.7.llvm.2029774997167018338) #39
   unreachable
 
-15:                                               ; preds = %11
-  %16 = extractvalue { i64, ptr } %12, 1
-  invoke void @"_ZN4core3ptr160drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h416cae9aa0a83349E.llvm.2029774997167018338"(ptr noundef nonnull align 8 %0)
-          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17ha12193ad26f6ec22E.llvm.2029774997167018338.exit" unwind label %17, !noalias !61
-
-17:                                               ; preds = %15
-  %18 = landingpad { ptr, i32 }
+15:                                               ; preds = %17
+  %16 = landingpad { ptr, i32 }
           cleanup
-  store ptr %16, ptr %0, align 8, !noalias !61
+  store ptr %18, ptr %0, align 8, !noalias !61
   store i8 4, ptr %3, align 8, !noalias !61
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %16
 
-"_ZN4core3pin14Pin$LT$Ptr$GT$3set17ha12193ad26f6ec22E.llvm.2029774997167018338.exit": ; preds = %15
-  store ptr %16, ptr %0, align 8, !noalias !61
+17:                                               ; preds = %11
+  %18 = extractvalue { i64, ptr } %12, 1
+  invoke void @"_ZN4core3ptr160drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h416cae9aa0a83349E.llvm.2029774997167018338"(ptr noundef nonnull align 8 %0)
+          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17ha12193ad26f6ec22E.llvm.2029774997167018338.exit" unwind label %15, !noalias !61
+
+"_ZN4core3pin14Pin$LT$Ptr$GT$3set17ha12193ad26f6ec22E.llvm.2029774997167018338.exit": ; preds = %17
+  store ptr %18, ptr %0, align 8, !noalias !61
   store i8 4, ptr %3, align 8, !noalias !61
   br label %19
 
@@ -1222,17 +1222,17 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
 define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17ha12193ad26f6ec22E.llvm.2029774997167018338"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !alias.scope !203, !nonnull !4, !align !95, !noundef !4
   invoke void @"_ZN4core3ptr160drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h416cae9aa0a83349E.llvm.2029774997167018338"(ptr noundef nonnull align 8 %3)
-          to label %4 unwind label %5
+          to label %6 unwind label %4
 
 4:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  ret void
-
-5:                                                ; preds = %2
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %5
+
+6:                                                ; preds = %2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable

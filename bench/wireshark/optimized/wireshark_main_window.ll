@@ -46234,7 +46234,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i26: ; preds = %93
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %65, i64 noundef 8, i64 noundef 8) #33
   br label %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i30
 
-_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i30: ; preds = %96, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i26
+_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i30: ; preds = %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i26, %96
   %97 = atomicrmw sub ptr %65, i32 1 seq_cst, align 4
   %.not.i.i31 = icmp eq i32 %97, 1
   br i1 %.not.i.i31, label %98, label %_ZN5QListIP7QActionED2Ev.exit32

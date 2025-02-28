@@ -31555,7 +31555,7 @@ _ZN4entt14basic_registryINS_6entityESaIS1_EE6createEv.exit: ; preds = %1
   %38 = load ptr, ptr %37, align 8, !tbaa !259
   %39 = load ptr, ptr %34, align 8, !tbaa !260
   %.not5.i.i.i.i = icmp eq ptr %38, %39
-  br i1 %.not5.i.i.i.i, label %.loopexit213, label %.lr.ph.preheader.i.i.i.i
+  br i1 %.not5.i.i.i.i, label %.loopexit217, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %.noexc84
   %40 = ptrtoint ptr %38 to i64
@@ -31577,14 +31577,14 @@ _ZN4entt14basic_registryINS_6entityESaIS1_EE6createEv.exit: ; preds = %1
 
 .noexc85:                                         ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i = icmp eq i64 %44, 0
-  br i1 %.not.i.i.i.i, label %.loopexit213, label %.lr.ph.i.i.i.i, !llvm.loop !264
+  br i1 %.not.i.i.i.i, label %.loopexit217, label %.lr.ph.i.i.i.i, !llvm.loop !264
 
-.loopexit213:                                     ; preds = %.noexc85, %.noexc84
+.loopexit217:                                     ; preds = %.noexc85, %.noexc84
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
   %50 = invoke noundef nonnull align 8 dereferenceable(184) ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE6assureIiEERDaj(ptr noundef nonnull align 8 dereferenceable(336) %3, i32 noundef -1779859874)
           to label %_ZN4entt14basic_registryINS_6entityESaIS1_EE7storageIiEERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj.exit unwind label %62
 
-_ZN4entt14basic_registryINS_6entityESaIS1_EE7storageIiEERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj.exit: ; preds = %.loopexit213
+_ZN4entt14basic_registryINS_6entityESaIS1_EE7storageIiEERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj.exit: ; preds = %.loopexit217
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %52 = load ptr, ptr %51, align 8, !tbaa !148
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 40
@@ -31616,7 +31616,7 @@ _ZN4entt14basic_registryINS_6entityESaIS1_EE7storageIiEERNS_11storage_forIT_S1_S
           cleanup
   br label %_ZNKSt14default_deleteIN4entt12basic_handleINS0_14basic_registryINS0_6entityESaIS3_EEEJEEEEclEPS6_.exit.i182
 
-62:                                               ; preds = %.loopexit213
+62:                                               ; preds = %.loopexit217
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %120
@@ -31950,8 +31950,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #26
   %169 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %170 = load i64, ptr %114, align 8, !tbaa !159, !noalias !524
-  %.not214 = icmp eq i64 %170, 0
-  br i1 %.not214, label %_ZNSt10unique_ptrIN4entt12basic_handleINS0_14basic_registryINS0_6entityESaIS3_EEEJEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %.lr.ph
+  %.not218 = icmp eq i64 %170, 0
+  br i1 %.not218, label %_ZNSt10unique_ptrIN4entt12basic_handleINS0_14basic_registryINS0_6entityESaIS3_EEEJEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %168
   %171 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -31963,11 +31963,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZNKSt14default_deleteIN4entt12basic_handleINS0_14basic_registryINS0_6entityESaIS3_EEEJEEEEclEPS6_.exit.i182
 
 173:                                              ; preds = %.lr.ph, %229
-  %.sroa.6.0215 = phi i64 [ %170, %.lr.ph ], [ %230, %229 ]
+  %.sroa.6.0219 = phi i64 [ %170, %.lr.ph ], [ %230, %229 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #26
   call void @llvm.experimental.noalias.scope.decl(metadata !529)
   %174 = load ptr, ptr %169, align 8, !tbaa !180, !noalias !529
-  %175 = getelementptr i32, ptr %174, i64 %.sroa.6.0215
+  %175 = getelementptr i32, ptr %174, i64 %.sroa.6.0219
   %176 = getelementptr i8, ptr %175, i64 -4
   %177 = load i32, ptr %176, align 4, !tbaa !143, !noalias !529
   store i32 %177, ptr %13, align 4, !tbaa !532, !alias.scope !529
@@ -32132,7 +32132,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 229:                                              ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i135, %.critedge79
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #26
-  %230 = add nsw i64 %.sroa.6.0215, -1
+  %230 = add nsw i64 %.sroa.6.0219, -1
   %.not = icmp eq i64 %230, 0
   br i1 %.not, label %_ZNSt10unique_ptrIN4entt12basic_handleINS0_14basic_registryINS0_6entityESaIS3_EEEJEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %173
 
@@ -32483,13 +32483,13 @@ _ZNSt10unique_ptrIN4entt12basic_handleINS0_14basic_registryINS0_6entityESaIS3_EE
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #26
   br label %_ZNSt10unique_ptrIN4entt12basic_handleINS0_14basic_registryINS0_6entityESaIS3_EEEJEEESt14default_deleteIS6_EED2Ev.exit183
 
-_ZNKSt14default_deleteIN4entt12basic_handleINS0_14basic_registryINS0_6entityESaIS3_EEEJEEEEclEPS6_.exit.i182: ; preds = %.loopexit, %.loopexit.split-lp, %231, %172, %120
-  %.pn69.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn57.pn.pn, %231 ], [ %.pn.pn.pn.pn, %120 ], [ %.pn53.pn.pn, %172 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+_ZNKSt14default_deleteIN4entt12basic_handleINS0_14basic_registryINS0_6entityESaIS3_EEEJEEEEclEPS6_.exit.i182: ; preds = %.loopexit, %.loopexit.split-lp, %120, %172, %231
+  %.pn69.pn.pn.pn205 = phi { ptr, i32 } [ %.pn57.pn.pn, %231 ], [ %.pn.pn.pn.pn, %120 ], [ %.pn53.pn.pn, %172 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZdlPvm(ptr noundef nonnull %29, i64 noundef 16) #30
   br label %_ZNSt10unique_ptrIN4entt12basic_handleINS0_14basic_registryINS0_6entityESaIS3_EEEJEEESt14default_deleteIS6_EED2Ev.exit183
 
 _ZNSt10unique_ptrIN4entt12basic_handleINS0_14basic_registryINS0_6entityESaIS3_EEEJEEESt14default_deleteIS6_EED2Ev.exit183: ; preds = %298, %337, %60, %_ZNKSt14default_deleteIN4entt12basic_handleINS0_14basic_registryINS0_6entityESaIS3_EEEJEEEEclEPS6_.exit.i182, %58
-  %.pn69.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %61, %60 ], [ %.pn69.pn.pn.pn.ph, %_ZNKSt14default_deleteIN4entt12basic_handleINS0_14basic_registryINS0_6entityESaIS3_EEEJEEEEclEPS6_.exit.i182 ], [ %.pn62.pn.pn.pn, %298 ], [ %.pn69.pn.pn, %337 ]
+  %.pn69.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %61, %60 ], [ %.pn69.pn.pn.pn205, %_ZNKSt14default_deleteIN4entt12basic_handleINS0_14basic_registryINS0_6entityESaIS3_EEEJEEEEclEPS6_.exit.i182 ], [ %.pn62.pn.pn.pn, %298 ], [ %.pn69.pn.pn, %337 ]
   call void @_ZN4entt14basic_registryINS_6entityESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(336) %3) #26
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %3) #26
   resume { ptr, i32 } %.pn69.pn.pn.pn.pn.pn

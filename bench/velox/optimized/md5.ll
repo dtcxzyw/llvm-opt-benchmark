@@ -1086,9 +1086,9 @@ call.i.i.noexc.i.i:                               ; preds = %.noexc.i.i
   %call4.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull %buffer.i.i.i.i, i64 noundef %call.i.i1.i.i)
           to label %_ZN8facebook5velox6crypto10MD5Context14DigestToBase10B5cxx11EPKh.exit unwind label %lpad.i.i
 
-common.resume:                                    ; preds = %cleanup.action7, %lpad.body.thread28, %lpad.i.i
-  %ref.tmp2.sink = phi ptr [ %ref.tmp2, %cleanup.action7 ], [ %dec, %lpad.body.thread28 ], [ %ref.tmp2, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %12, %cleanup.action7 ], [ %11, %lpad.body.thread28 ], [ %6, %lpad.i.i ]
+common.resume:                                    ; preds = %lpad.body.thread, %lpad.body.thread28, %lpad.i.i
+  %ref.tmp2.sink = phi ptr [ %ref.tmp2, %lpad.body.thread ], [ %dec, %lpad.body.thread28 ], [ %ref.tmp2, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %8, %lpad.body.thread ], [ %12, %lpad.body.thread28 ], [ %6, %lpad.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.sink) #19
   resume { ptr, i32 } %common.resume.op
 
@@ -1111,16 +1111,23 @@ _ZN8facebook5velox6crypto10MD5Context14DigestToBase10B5cxx11EPKh.exit: ; preds =
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %appender.i.i.i), !noalias !20
   store ptr %dec, ptr %appender.i.i.i, align 8, !noalias !20
   invoke void @_ZNK5folly13BaseFormatterINS_9FormatterILb0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEELb0EJiS7_EEclIZNKS9_8appendToIS7_EENSt9enable_ifIXsr12IsSomeStringIT_EE5valueEvE4typeERSD_EUlNS_5RangeIPKcEEE_EEvSG_(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i)
-          to label %cleanup.action unwind label %cleanup.action7
+          to label %cleanup.action unwind label %lpad.body.thread
+
+lpad.body.thread:                                 ; preds = %_ZN8facebook5velox6crypto10MD5Context14DigestToBase10B5cxx11EPKh.exit
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dec) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %values_.i.i.i) #19
+  br label %common.resume
 
 for.body.i5:                                      ; preds = %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit, %for.body.i5
   %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i10, %for.body.i5 ], [ 0, %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit ]
   %val.08.i7 = phi i128 [ %or9.i9, %for.body.i5 ], [ 0, %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit ]
   %arrayidx.i8 = getelementptr inbounds nuw i8, ptr %digest, i64 %indvars.iv.i6
-  %8 = load i8, ptr %arrayidx.i8, align 1, !noalias !23
-  %9 = shl i128 %val.08.i7, 8
-  %10 = zext i8 %8 to i128
-  %or9.i9 = or disjoint i128 %9, %10
+  %9 = load i8, ptr %arrayidx.i8, align 1, !noalias !23
+  %10 = shl i128 %val.08.i7, 8
+  %11 = zext i8 %9 to i128
+  %or9.i9 = or disjoint i128 %10, %11
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 16
   br i1 %exitcond.not.i11, label %for.end.i12, label %for.body.i5, !llvm.loop !7
@@ -1132,7 +1139,7 @@ for.end.i12:                                      ; preds = %for.body.i5
 
 .noexc.i.i14:                                     ; preds = %for.end.i12
   %coerce.sroa.0.0.extract.trunc.i.i.i15 = trunc i128 %or9.i9 to i64
-  %coerce.sroa.2.0.extract.shift.i.i.i16 = lshr i128 %9, 64
+  %coerce.sroa.2.0.extract.shift.i.i.i16 = lshr i128 %10, 64
   %coerce.sroa.2.0.extract.trunc.i.i.i17 = trunc nuw i128 %coerce.sroa.2.0.extract.shift.i.i.i16 to i64
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %buffer.i.i.i.i4), !noalias !26
   %add.ptr.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i4, i64 39
@@ -1144,7 +1151,7 @@ call.i.i.noexc.i.i20:                             ; preds = %.noexc.i.i14
           to label %cond.end unwind label %lpad.body.thread28
 
 lpad.body.thread28:                               ; preds = %for.end.i12, %.noexc.i.i14, %call.i.i.noexc.i.i20
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -1168,13 +1175,6 @@ cleanup.done:                                     ; preds = %cond.end, %cleanup.
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out_digest, ptr align 1 %call9, i64 %conv10, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dec) #19
   ret i32 %conv
-
-cleanup.action7:                                  ; preds = %_ZN8facebook5velox6crypto10MD5Context14DigestToBase10B5cxx11EPKh.exit
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dec) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %values_.i.i.i) #19
-  br label %common.resume
 }
 
 declare i32 @__gxx_personality_v0(...)

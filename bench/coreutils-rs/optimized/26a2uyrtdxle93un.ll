@@ -6088,8 +6088,8 @@ define void @_ZN10uu_hashsum13uu_app_custom17h32b8ab8c66f2158fE(ptr noalias noun
   unreachable
 
 .thread:                                          ; preds = %48, %54
-  %eh.lpad-body26 = phi { ptr, i32 } [ %eh.lpad-body.ph, %54 ], [ %49, %48 ]
-  resume { ptr, i32 } %eh.lpad-body26
+  %.pn21 = phi { ptr, i32 } [ %eh.lpad-body.ph, %54 ], [ %49, %48 ]
+  resume { ptr, i32 } %.pn21
 }
 
 ; Function Attrs: nonlazybind uwtable

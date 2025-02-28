@@ -15949,31 +15949,31 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %_ZNSt6vectorIPKN4Lu
   %.sroa.17.0110120 = phi ptr [ %.sroa.17.0110.lcssa, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.loopexit ], [ %.sroa.12.0111, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.loopexit ], [ %lpad.loopexit.split-lp, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.loopexit.split-lp ]
   %.not.i.i.i54 = icmp eq ptr %.sroa.0.0112, null
-  br i1 %.not.i.i.i54, label %_ZN4Luau8TypePackD2Ev.exit38, label %135
+  br i1 %.not.i.i.i54, label %_ZN4Luau8TypePackD2Ev.exit38, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.thread87
 
-135:                                              ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit
-  %136 = ptrtoint ptr %.sroa.17.0110120 to i64
-  %137 = ptrtoint ptr %.sroa.0.0112 to i64
-  %138 = sub i64 %136, %137
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0112, i64 noundef %138) #31
+_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.thread87: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit
+  %135 = ptrtoint ptr %.sroa.17.0110120 to i64
+  %136 = ptrtoint ptr %.sroa.0.0112 to i64
+  %137 = sub i64 %135, %136
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0112, i64 noundef %137) #31
   br label %_ZN4Luau8TypePackD2Ev.exit38
 
 _ZN4Luau8TypePackD2Ev.exit.sink.split:            ; preds = %16, %94, %119
   %.sink134 = phi ptr [ %120, %119 ], [ %95, %94 ], [ %18, %16 ]
   %.sink133 = phi ptr [ %118, %119 ], [ %93, %94 ], [ %15, %16 ]
   %.017.ph = phi ptr [ %116, %119 ], [ %91, %94 ], [ %13, %16 ]
-  %139 = ptrtoint ptr %.sink134 to i64
-  %140 = ptrtoint ptr %.sink133 to i64
-  %141 = sub i64 %139, %140
-  call void @_ZdlPvm(ptr noundef nonnull %.sink133, i64 noundef %141) #31
+  %138 = ptrtoint ptr %.sink134 to i64
+  %139 = ptrtoint ptr %.sink133 to i64
+  %140 = sub i64 %138, %139
+  call void @_ZdlPvm(ptr noundef nonnull %.sink133, i64 noundef %140) #31
   br label %_ZN4Luau8TypePackD2Ev.exit
 
 _ZN4Luau8TypePackD2Ev.exit:                       ; preds = %_ZN4Luau8TypePackD2Ev.exit.sink.split, %117, %92, %14
   %.017 = phi ptr [ %13, %14 ], [ %91, %92 ], [ %116, %117 ], [ %.017.ph, %_ZN4Luau8TypePackD2Ev.exit.sink.split ]
   ret ptr %.017
 
-_ZN4Luau8TypePackD2Ev.exit38:                     ; preds = %124, %121, %99, %96, %131, %129, %106, %104, %135, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, %22, %19
-  %.pn35 = phi { ptr, i32 } [ %20, %19 ], [ %20, %22 ], [ %lpad.phi, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit ], [ %lpad.phi, %135 ], [ %130, %131 ], [ %130, %129 ], [ %105, %106 ], [ %105, %104 ], [ %97, %96 ], [ %97, %99 ], [ %122, %121 ], [ %122, %124 ]
+_ZN4Luau8TypePackD2Ev.exit38:                     ; preds = %124, %121, %99, %96, %131, %129, %106, %104, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.thread87, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, %22, %19
+  %.pn35 = phi { ptr, i32 } [ %20, %19 ], [ %20, %22 ], [ %lpad.phi, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit ], [ %lpad.phi, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.thread87 ], [ %130, %131 ], [ %130, %129 ], [ %105, %106 ], [ %105, %104 ], [ %97, %96 ], [ %97, %99 ], [ %122, %121 ], [ %122, %124 ]
   resume { ptr, i32 } %.pn35
 }
 

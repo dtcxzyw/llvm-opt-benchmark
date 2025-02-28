@@ -4357,13 +4357,13 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.173, i64 noundef 504, i64 noundef 8) #37
   br label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$async_task..runnable..Runnable$GT$$GT$$GT$$GT$17hf93a3d2f68f7587fE.exit46"
 
-95:                                               ; preds = %.thread
+"_ZN4core3ptr51drop_in_place$LT$async_task..runnable..Runnable$GT$17h5f58c9e9069834bdE.exit": ; preds = %.thread
   resume { ptr, i32 } %.pn60
 
 .thread:                                          ; preds = %.thread80, %86, %35
   %.pn60 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %35 ], [ %lpad.phi, %86 ], [ %lpad.phi, %.thread80 ]
   invoke void @"_ZN81_$LT$async_task..runnable..Runnable$LT$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ec5830152408337E.llvm.16563453502491001324"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-          to label %95 unwind label %88
+          to label %"_ZN4core3ptr51drop_in_place$LT$async_task..runnable..Runnable$GT$17h5f58c9e9069834bdE.exit" unwind label %88
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

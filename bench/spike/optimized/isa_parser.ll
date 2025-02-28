@@ -432,7 +432,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %_ZNSt7__cxx1112basi
 
 .body:                                            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #27
-  br label %1443
+  br label %1441
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i400:  ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
   %bcmp1439 = call i32 @bcmp(ptr %110, ptr nonnull @.str.2, i64 %spec.select.i.i)
@@ -800,7 +800,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit447: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
-  br label %1443
+  br label %1441
 
 233:                                              ; preds = %112
   br label %284
@@ -1035,7 +1035,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit487: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #27
-  br label %1443
+  br label %1441
 
 .preheader._crit_edge:                            ; preds = %.preheader, %299
   %memchr315 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str, i32 %295, i64 11)
@@ -1210,7 +1210,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit522: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #27
-  br label %1443
+  br label %1441
 
 380:                                              ; preds = %.preheader._crit_edge
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #27
@@ -1390,7 +1390,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #27
-  br label %1443
+  br label %1441
 
 .critedge2:                                       ; preds = %.lr.ph
   switch i8 %296, label %458 [
@@ -3214,7 +3214,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit733: ; preds = %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i731, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i732
   %.merged327 = phi { ptr, i32 } [ %.merged328, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i732 ], [ %.merged328, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i731 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #27
-  br label %1443
+  br label %1441
 
 ._crit_edge1655:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit730, %.critedge
   %.3270.lcssa = phi ptr [ %.0267.lcssa, %.critedge ], [ %513, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit730 ]
@@ -3352,7 +3352,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit757: ; preds = %_Z
   %.pn287.pn = phi { ptr, i32 } [ %1244, %1243 ], [ %1246, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i756 ], [ %1246, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i755 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #27
-  br label %1443
+  br label %1441
 
 1253:                                             ; preds = %._crit_edge1655
   %1254 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3432,110 +3432,110 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit757: ; preds = %_Z
 .critedge339:                                     ; preds = %1284
   %1287 = and i64 %1285, 549755813888
   %.not1450 = icmp eq i64 %1287, 0
-  br i1 %.not1450, label %1289, label %1288
+  br i1 %.not1450, label %.thread1268, label %1290
 
-1288:                                             ; preds = %.critedge339
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.117)
-  unreachable
-
-1289:                                             ; preds = %.critedge339
-  %1290 = and i64 %1285, 68719476736
-  %.not1451 = icmp eq i64 %1290, 0
-  %1291 = and i64 %1265, 128
-  %.not1452 = icmp eq i64 %1291, 0
+.thread1268:                                      ; preds = %.critedge339
+  %1288 = and i64 %1285, 68719476736
+  %.not1451 = icmp eq i64 %1288, 0
+  %1289 = and i64 %1265, 128
+  %.not1452 = icmp eq i64 %1289, 0
   %or.cond1751 = select i1 %.not1451, i1 true, i1 %.not1452
   br i1 %or.cond1751, label %.critedge343.thread, label %.critedge343.thread1275
 
-.critedge343.thread:                              ; preds = %1289
+1290:                                             ; preds = %.critedge339
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.117)
+  unreachable
+
+.critedge343.thread:                              ; preds = %.thread1268
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.118)
   unreachable
 
-.critedge343.thread1275:                          ; preds = %1289, %1284
-  %1292 = and i64 %1285, 4611686018427387968
-  %or.cond1504.not.not = icmp eq i64 %1292, 4611686018427387904
-  br i1 %or.cond1504.not.not, label %1293, label %.critedge345.thread
+.critedge343.thread1275:                          ; preds = %.thread1268, %1284
+  %1291 = and i64 %1285, 4611686018427387968
+  %or.cond1504.not.not = icmp eq i64 %1291, 4611686018427387904
+  br i1 %or.cond1504.not.not, label %1292, label %.critedge345.thread
 
-1293:                                             ; preds = %.critedge343.thread1275
+1292:                                             ; preds = %.critedge343.thread1275
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.119)
   unreachable
 
 .critedge345.thread:                              ; preds = %.critedge343.thread1275
-  %1294 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %1295 = and i64 %1265, 1024
-  %.not1455 = icmp eq i64 %1295, 0
-  br i1 %.not1455, label %1296, label %.critedge347
+  %1293 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %1294 = and i64 %1265, 1024
+  %.not1455 = icmp eq i64 %1294, 0
+  br i1 %.not1455, label %1295, label %.critedge347
 
-1296:                                             ; preds = %.critedge345.thread
-  %1297 = and i64 %1265, 2048
-  %.not1456 = icmp ne i64 %1297, 0
-  %1298 = and i64 %1285, 4194304
-  %.not1457 = icmp eq i64 %1298, 0
+1295:                                             ; preds = %.critedge345.thread
+  %1296 = and i64 %1265, 2048
+  %.not1456 = icmp ne i64 %1296, 0
+  %1297 = and i64 %1285, 4194304
+  %.not1457 = icmp eq i64 %1297, 0
   %or.cond1506 = and i1 %.not1457, %.not1456
-  br i1 %or.cond1506, label %1300, label %.critedge349.thread
+  br i1 %or.cond1506, label %1299, label %.critedge349.thread
 
 .critedge347:                                     ; preds = %.critedge345.thread
-  %1299 = and i64 %1285, 4194304
-  %.not1459 = icmp eq i64 %1299, 0
-  br i1 %.not1459, label %1300, label %.critedge353.thread
+  %1298 = and i64 %1285, 4194304
+  %.not1459 = icmp eq i64 %1298, 0
+  br i1 %.not1459, label %1299, label %.critedge353.thread
 
-1300:                                             ; preds = %1296, %.critedge347
+1299:                                             ; preds = %1295, %.critedge347
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.120)
   unreachable
 
-.critedge349.thread:                              ; preds = %1296
-  %1301 = and i64 %1285, 4611686018695823360
-  %or.cond1508 = icmp eq i64 %1301, 0
-  br i1 %or.cond1508, label %1303, label %.critedge353.thread
+.critedge349.thread:                              ; preds = %1295
+  %1300 = and i64 %1285, 4611686018695823360
+  %or.cond1508 = icmp eq i64 %1300, 0
+  br i1 %or.cond1508, label %1302, label %.critedge353.thread
 
 .critedge353.thread:                              ; preds = %.critedge347, %.critedge349.thread
-  %1302 = or i64 %1265, 16777216
-  store i64 %1302, ptr %1294, align 8, !tbaa !58
-  br label %1303
+  %1301 = or i64 %1265, 16777216
+  store i64 %1301, ptr %1293, align 8, !tbaa !58
+  br label %1302
 
-1303:                                             ; preds = %.critedge349.thread, %.critedge353.thread
-  %1304 = phi i64 [ %1265, %.critedge349.thread ], [ %1302, %.critedge353.thread ]
-  %1305 = and i64 %1285, -9223372036854775744
-  %or.cond1510.not = icmp eq i64 %1305, -9223372036854775744
-  br i1 %or.cond1510.not, label %1306, label %.critedge355.thread
+1302:                                             ; preds = %.critedge349.thread, %.critedge353.thread
+  %1303 = phi i64 [ %1265, %.critedge349.thread ], [ %1301, %.critedge353.thread ]
+  %1304 = and i64 %1285, -9223372036854775744
+  %or.cond1510.not = icmp eq i64 %1304, -9223372036854775744
+  br i1 %or.cond1510.not, label %1305, label %.critedge355.thread
 
-1306:                                             ; preds = %1303
+1305:                                             ; preds = %1302
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.121)
   unreachable
 
-.critedge355.thread:                              ; preds = %1303
-  %1307 = and i64 %1285, 549755813888
-  %.not1462.not = icmp eq i64 %1307, 0
-  %1308 = and i64 %1285, 549755813952
-  %or.cond1512 = icmp eq i64 %1308, 549755813888
-  br i1 %or.cond1512, label %1309, label %.critedge357.thread
+.critedge355.thread:                              ; preds = %1302
+  %1306 = and i64 %1285, 549755813888
+  %.not1462.not = icmp eq i64 %1306, 0
+  %1307 = and i64 %1285, 549755813952
+  %or.cond1512 = icmp eq i64 %1307, 549755813888
+  br i1 %or.cond1512, label %1308, label %.critedge357.thread
 
-1309:                                             ; preds = %.critedge355.thread
+1308:                                             ; preds = %.critedge355.thread
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.122)
   unreachable
 
 .critedge357.thread:                              ; preds = %.critedge355.thread
-  %1310 = and i64 %1285, 274877906944
-  %.not1464 = icmp eq i64 %1310, 0
+  %1309 = and i64 %1285, 274877906944
+  %.not1464 = icmp eq i64 %1309, 0
   br i1 %.not1464, label %.critedge359.thread.thread, label %.critedge359
 
 .critedge359:                                     ; preds = %.critedge357.thread
-  %1311 = and i64 %1285, 16
-  %.not1472 = icmp eq i64 %1311, 0
-  br i1 %.not1472, label %1312, label %.critedge359.thread.thread1391
+  %1310 = and i64 %1285, 16
+  %.not1472 = icmp eq i64 %1310, 0
+  br i1 %.not1472, label %1311, label %.critedge359.thread.thread1391
 
-1312:                                             ; preds = %.critedge359
+1311:                                             ; preds = %.critedge359
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.123)
   unreachable
 
 .critedge359.thread.thread1391:                   ; preds = %.critedge359
-  %1313 = and i64 %1285, 6597069766656
-  %or.cond1536 = icmp eq i64 %1313, 0
+  %1312 = and i64 %1285, 6597069766656
+  %or.cond1536 = icmp eq i64 %1312, 0
   br i1 %or.cond1536, label %.critedge363.thread.thread, label %.critedge361.thread1392
 
 .critedge359.thread.thread:                       ; preds = %.critedge357.thread
-  %1314 = and i64 %1285, 2199023255552
-  %.not1465.not = icmp eq i64 %1314, 0
-  br i1 %.not1462.not, label %1315, label %.critedge371
+  %1313 = and i64 %1285, 2199023255552
+  %.not1465.not = icmp eq i64 %1313, 0
+  br i1 %.not1462.not, label %1314, label %.critedge371
 
 .critedge361.thread1392:                          ; preds = %.critedge359.thread.thread1391
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.124)
@@ -3544,285 +3544,285 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit757: ; preds = %_Z
 .critedge363.thread.thread:                       ; preds = %.critedge359.thread.thread1391
   br i1 %.not1462.not, label %.critedge373, label %.critedge371
 
-1315:                                             ; preds = %.critedge359.thread.thread
-  %1316 = and i64 %1285, 137438953472
-  %.not1467 = icmp eq i64 %1316, 0
-  br i1 %.not1467, label %1317, label %.critedge369
+1314:                                             ; preds = %.critedge359.thread.thread
+  %1315 = and i64 %1285, 137438953472
+  %.not1467 = icmp eq i64 %1315, 0
+  br i1 %.not1467, label %1316, label %.critedge369
 
-1317:                                             ; preds = %1315
-  br i1 %.not1465.not, label %1318, label %.critedge367
+1316:                                             ; preds = %1314
+  br i1 %.not1465.not, label %1317, label %.critedge367
 
-1318:                                             ; preds = %1317
-  %1319 = and i64 %1285, 4466765987840
-  %or.cond1516 = icmp eq i64 %1319, 4398046511104
-  br i1 %or.cond1516, label %1324, label %.critedge371.thread.thread
+1317:                                             ; preds = %1316
+  %1318 = and i64 %1285, 4466765987840
+  %or.cond1516 = icmp eq i64 %1318, 4398046511104
+  br i1 %or.cond1516, label %1323, label %.critedge371.thread.thread
 
-.critedge367:                                     ; preds = %1317
+.critedge367:                                     ; preds = %1316
+  %1319 = and i64 %1285, 68719476736
+  %.not1470 = icmp eq i64 %1319, 0
+  br i1 %.not1470, label %1323, label %.critedge371.thread.thread
+
+.critedge369:                                     ; preds = %1314
   %1320 = and i64 %1285, 68719476736
-  %.not1470 = icmp eq i64 %1320, 0
-  br i1 %.not1470, label %1324, label %.critedge371.thread.thread
-
-.critedge369:                                     ; preds = %1315
-  %1321 = and i64 %1285, 68719476736
-  %.not1471 = icmp eq i64 %1321, 0
-  br i1 %.not1471, label %1324, label %.critedge371.thread.thread
+  %.not1471 = icmp eq i64 %1320, 0
+  br i1 %.not1471, label %1323, label %.critedge371.thread.thread
 
 .critedge371:                                     ; preds = %.critedge363.thread.thread, %.critedge359.thread.thread
-  %1322 = and i64 %1285, 68719476736
-  %.not1476 = icmp eq i64 %1322, 0
-  br i1 %.not1476, label %1324, label %.critedge371.thread.thread
+  %1321 = and i64 %1285, 68719476736
+  %.not1476 = icmp eq i64 %1321, 0
+  br i1 %.not1476, label %1323, label %.critedge371.thread.thread
 
 .critedge373:                                     ; preds = %.critedge363.thread.thread
-  %1323 = and i64 %1285, 68719476736
-  %.not1475 = icmp eq i64 %1323, 0
-  br i1 %.not1475, label %1324, label %.critedge371.thread.thread
+  %1322 = and i64 %1285, 68719476736
+  %.not1475 = icmp eq i64 %1322, 0
+  br i1 %.not1475, label %1323, label %.critedge371.thread.thread
 
-1324:                                             ; preds = %1318, %.critedge367, %.critedge369, %.critedge371, %.critedge373
+1323:                                             ; preds = %1317, %.critedge367, %.critedge369, %.critedge371, %.critedge373
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.125)
   unreachable
 
-.critedge371.thread.thread:                       ; preds = %1318, %.critedge367, %.critedge369, %.critedge371, %.critedge373
-  %1325 = and i64 %1304, 2621440
-  %or.cond1518 = icmp eq i64 %1325, 2097152
-  br i1 %or.cond1518, label %1326, label %.critedge375.thread
+.critedge371.thread.thread:                       ; preds = %1317, %.critedge367, %.critedge369, %.critedge371, %.critedge373
+  %1324 = and i64 %1303, 2621440
+  %or.cond1518 = icmp eq i64 %1324, 2097152
+  br i1 %or.cond1518, label %1325, label %.critedge375.thread
 
-1326:                                             ; preds = %.critedge371.thread.thread
+1325:                                             ; preds = %.critedge371.thread.thread
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.126)
   unreachable
 
 .critedge375.thread:                              ; preds = %.critedge371.thread.thread
-  %1327 = and i64 %1304, 4718592
-  %or.cond1520 = icmp eq i64 %1327, 4194304
-  br i1 %or.cond1520, label %1328, label %.critedge377.thread
+  %1326 = and i64 %1303, 4718592
+  %or.cond1520 = icmp eq i64 %1326, 4194304
+  br i1 %or.cond1520, label %1327, label %.critedge377.thread
 
-1328:                                             ; preds = %.critedge375.thread
+1327:                                             ; preds = %.critedge375.thread
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.127)
   unreachable
 
 .critedge377.thread:                              ; preds = %.critedge375.thread
-  %1329 = and i64 %1304, 9437184
-  %or.cond1522 = icmp eq i64 %1329, 8388608
-  br i1 %or.cond1522, label %1330, label %.critedge379.thread
+  %1328 = and i64 %1303, 9437184
+  %or.cond1522 = icmp eq i64 %1328, 8388608
+  br i1 %or.cond1522, label %1329, label %.critedge379.thread
 
-1330:                                             ; preds = %.critedge377.thread
+1329:                                             ; preds = %.critedge377.thread
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.128)
   unreachable
 
 .critedge379.thread:                              ; preds = %.critedge377.thread
-  %1331 = and i64 %1304, 8589934592
-  %.not1483 = icmp eq i64 %1331, 0
+  %1330 = and i64 %1303, 8589934592
+  %.not1483 = icmp eq i64 %1330, 0
   br i1 %.not1483, label %.critedge385.thread, label %.critedge381
 
 .critedge381:                                     ; preds = %.critedge379.thread
-  %1332 = and i64 %1304, 268435456
-  %.not1484 = icmp eq i64 %1332, 0
-  br i1 %.not1484, label %1333, label %1334
+  %1331 = and i64 %1303, 268435456
+  %.not1484 = icmp eq i64 %1331, 0
+  br i1 %.not1484, label %1334, label %.thread1360
 
-1333:                                             ; preds = %.critedge381
+.thread1360:                                      ; preds = %.critedge381
+  %1332 = and i64 %1285, 68719476736
+  %.not1485 = icmp ne i64 %1332, 0
+  %1333 = and i64 %1303, 536870912
+  %.not1486 = icmp eq i64 %1333, 0
+  %or.cond1524 = and i1 %.not1485, %.not1486
+  br i1 %or.cond1524, label %1335, label %.critedge385.thread
+
+1334:                                             ; preds = %.critedge381
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.129)
   unreachable
 
-1334:                                             ; preds = %.critedge381
-  %1335 = and i64 %1285, 68719476736
-  %.not1485 = icmp ne i64 %1335, 0
-  %1336 = and i64 %1304, 536870912
-  %.not1486 = icmp eq i64 %1336, 0
-  %or.cond1524 = and i1 %.not1485, %.not1486
-  br i1 %or.cond1524, label %1337, label %.critedge385.thread
-
-1337:                                             ; preds = %1334
+1335:                                             ; preds = %.thread1360
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.130)
   unreachable
 
-.critedge385.thread:                              ; preds = %.critedge379.thread, %1334
-  %1338 = load i64, ptr %113, align 8, !tbaa !72
-  %1339 = icmp ugt i64 %1338, 4096
-  br i1 %1339, label %1340, label %1341
+.critedge385.thread:                              ; preds = %.critedge379.thread, %.thread1360
+  %1336 = load i64, ptr %113, align 8, !tbaa !72
+  %1337 = icmp ugt i64 %1336, 4096
+  br i1 %1337, label %1338, label %1339
 
-1340:                                             ; preds = %.critedge385.thread
+1338:                                             ; preds = %.critedge385.thread
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.131)
   unreachable
 
-1341:                                             ; preds = %.critedge385.thread
-  %1342 = icmp ne i64 %1338, 0
-  %1343 = load i64, ptr %114, align 8, !tbaa !73
-  %1344 = icmp ne i64 %1343, 0
-  %1345 = xor i1 %1342, %1344
-  br i1 %1345, label %1346, label %1347
+1339:                                             ; preds = %.critedge385.thread
+  %1340 = icmp ne i64 %1336, 0
+  %1341 = load i64, ptr %114, align 8, !tbaa !73
+  %1342 = icmp ne i64 %1341, 0
+  %1343 = xor i1 %1340, %1342
+  br i1 %1343, label %1344, label %1345
 
-1346:                                             ; preds = %1341
+1344:                                             ; preds = %1339
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.132)
   unreachable
 
-1347:                                             ; preds = %1341
-  %1348 = and i64 %1285, 2251799813685248
-  %.not1487 = icmp ne i64 %1348, 0
-  br i1 %.not1487, label %1349, label %.critedge15
+1345:                                             ; preds = %1339
+  %1346 = and i64 %1285, 2251799813685248
+  %.not1487 = icmp ne i64 %1346, 0
+  br i1 %.not1487, label %1347, label %.critedge15
 
-1349:                                             ; preds = %1347
-  %1350 = icmp eq i64 %1338, 0
-  %1351 = icmp eq i64 %1343, 0
-  %or.cond387 = or i1 %1350, %1351
-  br i1 %or.cond387, label %.critedge17, label %1352
+1347:                                             ; preds = %1345
+  %1348 = icmp eq i64 %1336, 0
+  %1349 = icmp eq i64 %1341, 0
+  %or.cond387 = or i1 %1348, %1349
+  br i1 %or.cond387, label %.critedge17, label %1350
 
-1352:                                             ; preds = %1349
-  %1353 = load i8, ptr %115, align 8, !tbaa !74, !range !85, !noundef !86
-  %1354 = trunc nuw i8 %1353 to i1
-  br i1 %1354, label %.critedge15, label %.critedge17
+1350:                                             ; preds = %1347
+  %1351 = load i8, ptr %115, align 8, !tbaa !74, !range !85, !noundef !86
+  %1352 = trunc nuw i8 %1351 to i1
+  br i1 %1352, label %.critedge15, label %.critedge17
 
-.critedge17:                                      ; preds = %1349, %1352
+.critedge17:                                      ; preds = %1347, %1350
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.133)
   unreachable
 
-.critedge15:                                      ; preds = %1347, %1352
-  %1355 = and i64 %1285, 1125899906842624
-  %.not1488 = icmp eq i64 %1355, 0
-  br i1 %.not1488, label %.thread1368, label %1356
+.critedge15:                                      ; preds = %1345, %1350
+  %1353 = and i64 %1285, 1125899906842624
+  %.not1488 = icmp eq i64 %1353, 0
+  br i1 %.not1488, label %.thread1368, label %1354
 
-1356:                                             ; preds = %.critedge15
-  %1357 = icmp ne i64 %1338, 0
-  %1358 = icmp ne i64 %1343, 0
-  %or.cond389.not1760 = and i1 %1357, %1358
-  %1359 = load i8, ptr %115, align 8, !range !85
-  %1360 = trunc nuw i8 %1359 to i1
-  %brmerge.not = and i1 %.not1487, %1360
+1354:                                             ; preds = %.critedge15
+  %1355 = icmp ne i64 %1336, 0
+  %1356 = icmp ne i64 %1341, 0
+  %or.cond389.not1760 = and i1 %1355, %1356
+  %1357 = load i8, ptr %115, align 8, !range !85
+  %1358 = trunc nuw i8 %1357 to i1
+  %brmerge.not = and i1 %.not1487, %1358
   %or.cond1753 = select i1 %or.cond389.not1760, i1 %brmerge.not, i1 false
   br i1 %or.cond1753, label %.thread1368, label %.thread1368.thread
 
-.thread1368.thread:                               ; preds = %1356
+.thread1368.thread:                               ; preds = %1354
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.134)
   unreachable
 
-.thread1368:                                      ; preds = %1356, %.critedge15
-  %1361 = load i8, ptr %116, align 1, !tbaa !75, !range !85, !noundef !86
-  %1362 = trunc nuw i8 %1361 to i1
-  br i1 %1362, label %1363, label %.critedge393.thread
+.thread1368:                                      ; preds = %1354, %.critedge15
+  %1359 = load i8, ptr %116, align 1, !tbaa !75, !range !85, !noundef !86
+  %1360 = trunc nuw i8 %1359 to i1
+  br i1 %1360, label %1361, label %.critedge393.thread
 
-1363:                                             ; preds = %.thread1368
-  %1364 = and i64 %1285, 16
-  %1365 = icmp eq i64 %1364, 0
-  %1366 = icmp ult i64 %1343, 64
-  %or.cond1432 = and i1 %1365, %1366
-  br i1 %or.cond1432, label %1367, label %.critedge393.thread
+1361:                                             ; preds = %.thread1368
+  %1362 = and i64 %1285, 16
+  %1363 = icmp eq i64 %1362, 0
+  %1364 = icmp ult i64 %1341, 64
+  %or.cond1432 = and i1 %1363, %1364
+  br i1 %or.cond1432, label %1365, label %.critedge393.thread
 
-1367:                                             ; preds = %1363
+1365:                                             ; preds = %1361
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.135)
   unreachable
 
-.critedge393.thread:                              ; preds = %1363, %.thread1368
-  %1368 = load i8, ptr %115, align 8, !tbaa !74, !range !85, !noundef !86
-  %1369 = trunc nuw i8 %1368 to i1
-  %1370 = and i64 %1285, 64
-  %.not1489 = icmp eq i64 %1370, 0
-  %or.cond1527 = and i1 %.not1489, %1369
-  br i1 %or.cond1527, label %1371, label %.critedge395.thread
+.critedge393.thread:                              ; preds = %1361, %.thread1368
+  %1366 = load i8, ptr %115, align 8, !tbaa !74, !range !85, !noundef !86
+  %1367 = trunc nuw i8 %1366 to i1
+  %1368 = and i64 %1285, 64
+  %.not1489 = icmp eq i64 %1368, 0
+  %or.cond1527 = and i1 %.not1489, %1367
+  br i1 %or.cond1527, label %1369, label %.critedge395.thread
 
-1371:                                             ; preds = %.critedge393.thread
+1369:                                             ; preds = %.critedge393.thread
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.136)
   unreachable
 
 .critedge395.thread:                              ; preds = %.critedge393.thread
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34) #27
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  %1372 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %1372, ptr %34, align 8, !tbaa !3, !alias.scope !87
-  %1373 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i64 0, ptr %1373, align 8, !tbaa !9, !alias.scope !87
-  store i8 0, ptr %1372, align 8, !tbaa !12, !alias.scope !87
-  %1374 = load i8, ptr %2, align 1, !tbaa !12, !noalias !87
-  %.not7.i778 = icmp eq i8 %1374, 0
+  %1370 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  store ptr %1370, ptr %34, align 8, !tbaa !3, !alias.scope !87
+  %1371 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i64 0, ptr %1371, align 8, !tbaa !9, !alias.scope !87
+  store i8 0, ptr %1370, align 8, !tbaa !12, !alias.scope !87
+  %1372 = load i8, ptr %2, align 1, !tbaa !12, !noalias !87
+  %.not7.i778 = icmp eq i8 %1372, 0
   br i1 %.not7.i778, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit814.thread, label %.lr.ph.i779
 
-.lr.ph.i779:                                      ; preds = %.critedge395.thread, %1389
-  %1375 = phi i8 [ %1395, %1389 ], [ %1374, %.critedge395.thread ]
-  %.08.i780 = phi ptr [ %1394, %1389 ], [ %2, %.critedge395.thread ]
-  %1376 = sext i8 %1375 to i32
-  %1377 = call i32 @tolower(i32 noundef %1376) #28
-  %1378 = trunc i32 %1377 to i8
-  %1379 = load i64, ptr %1373, align 8, !tbaa !9, !alias.scope !87
-  %1380 = add i64 %1379, 1
-  %1381 = load ptr, ptr %34, align 8, !tbaa !25, !alias.scope !87
-  %1382 = icmp eq ptr %1381, %1372
-  br i1 %1382, label %1383, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i781
+.lr.ph.i779:                                      ; preds = %.critedge395.thread, %1387
+  %1373 = phi i8 [ %1393, %1387 ], [ %1372, %.critedge395.thread ]
+  %.08.i780 = phi ptr [ %1392, %1387 ], [ %2, %.critedge395.thread ]
+  %1374 = sext i8 %1373 to i32
+  %1375 = call i32 @tolower(i32 noundef %1374) #28
+  %1376 = trunc i32 %1375 to i8
+  %1377 = load i64, ptr %1371, align 8, !tbaa !9, !alias.scope !87
+  %1378 = add i64 %1377, 1
+  %1379 = load ptr, ptr %34, align 8, !tbaa !25, !alias.scope !87
+  %1380 = icmp eq ptr %1379, %1370
+  br i1 %1380, label %1381, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i781
 
-1383:                                             ; preds = %.lr.ph.i779
-  %1384 = icmp ult i64 %1379, 16
-  call void @llvm.assume(i1 %1384)
+1381:                                             ; preds = %.lr.ph.i779
+  %1382 = icmp ult i64 %1377, 16
+  call void @llvm.assume(i1 %1382)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i781
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i781: ; preds = %1383, %.lr.ph.i779
-  %1385 = load i64, ptr %1372, align 8, !alias.scope !87
-  %1386 = select i1 %1382, i64 15, i64 %1385
-  %1387 = icmp ugt i64 %1380, %1386
-  br i1 %1387, label %1388, label %1389
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i781: ; preds = %1381, %.lr.ph.i779
+  %1383 = load i64, ptr %1370, align 8, !alias.scope !87
+  %1384 = select i1 %1380, i64 15, i64 %1383
+  %1385 = icmp ugt i64 %1378, %1384
+  br i1 %1385, label %1386, label %1387
 
-1388:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i781
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %34, i64 noundef %1379, i64 noundef 0, ptr noundef null, i64 noundef 1)
-          to label %.noexc.i786 unwind label %1396
+1386:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i781
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %34, i64 noundef %1377, i64 noundef 0, ptr noundef null, i64 noundef 1)
+          to label %.noexc.i786 unwind label %1394
 
-.noexc.i786:                                      ; preds = %1388
+.noexc.i786:                                      ; preds = %1386
   %.pre.i.i.i787 = load ptr, ptr %34, align 8, !tbaa !25, !alias.scope !87
-  br label %1389
+  br label %1387
 
-1389:                                             ; preds = %.noexc.i786, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i781
-  %1390 = phi ptr [ %.pre.i.i.i787, %.noexc.i786 ], [ %1381, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i781 ]
-  %1391 = getelementptr inbounds nuw i8, ptr %1390, i64 %1379
-  store i8 %1378, ptr %1391, align 1, !tbaa !12
-  store i64 %1380, ptr %1373, align 8, !tbaa !9, !alias.scope !87
-  %1392 = load ptr, ptr %34, align 8, !tbaa !25, !alias.scope !87
-  %1393 = getelementptr inbounds nuw i8, ptr %1392, i64 %1380
-  store i8 0, ptr %1393, align 1, !tbaa !12
-  %1394 = getelementptr inbounds nuw i8, ptr %.08.i780, i64 1
-  %1395 = load i8, ptr %1394, align 1, !tbaa !12, !noalias !87
-  %.not.i782 = icmp eq i8 %1395, 0
+1387:                                             ; preds = %.noexc.i786, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i781
+  %1388 = phi ptr [ %.pre.i.i.i787, %.noexc.i786 ], [ %1379, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i781 ]
+  %1389 = getelementptr inbounds nuw i8, ptr %1388, i64 %1377
+  store i8 %1376, ptr %1389, align 1, !tbaa !12
+  store i64 %1378, ptr %1371, align 8, !tbaa !9, !alias.scope !87
+  %1390 = load ptr, ptr %34, align 8, !tbaa !25, !alias.scope !87
+  %1391 = getelementptr inbounds nuw i8, ptr %1390, i64 %1378
+  store i8 0, ptr %1391, align 1, !tbaa !12
+  %1392 = getelementptr inbounds nuw i8, ptr %.08.i780, i64 1
+  %1393 = load i8, ptr %1392, align 1, !tbaa !12, !noalias !87
+  %.not.i782 = icmp eq i8 %1393, 0
   br i1 %.not.i782, label %_ZL10strtolowerB5cxx11PKc.exit790, label %.lr.ph.i779, !llvm.loop !26
 
-1396:                                             ; preds = %1388
-  %1397 = landingpad { ptr, i32 }
+1394:                                             ; preds = %1386
+  %1395 = landingpad { ptr, i32 }
           cleanup
-  %1398 = load ptr, ptr %34, align 8, !tbaa !25, !alias.scope !87
-  %1399 = icmp eq ptr %1398, %1372
-  br i1 %1399, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i785, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i783
+  %1396 = load ptr, ptr %34, align 8, !tbaa !25, !alias.scope !87
+  %1397 = icmp eq ptr %1396, %1370
+  br i1 %1397, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i785, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i783
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i785: ; preds = %1396
-  %1400 = load i64, ptr %1373, align 8, !tbaa !9, !alias.scope !87
-  %1401 = icmp ult i64 %1400, 16
-  call void @llvm.assume(i1 %1401)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i785: ; preds = %1394
+  %1398 = load i64, ptr %1371, align 8, !tbaa !9, !alias.scope !87
+  %1399 = icmp ult i64 %1398, 16
+  call void @llvm.assume(i1 %1399)
   br label %.body788
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i783: ; preds = %1396
-  %1402 = load i64, ptr %1372, align 8, !tbaa !12, !alias.scope !87
-  %1403 = add i64 %1402, 1
-  call void @_ZdlPvm(ptr noundef %1398, i64 noundef %1403) #29
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i783: ; preds = %1394
+  %1400 = load i64, ptr %1370, align 8, !tbaa !12, !alias.scope !87
+  %1401 = add i64 %1400, 1
+  call void @_ZdlPvm(ptr noundef %1396, i64 noundef %1401) #29
   br label %.body788
 
-_ZL10strtolowerB5cxx11PKc.exit790:                ; preds = %1389
-  %.pre1697 = load i64, ptr %1373, align 8, !tbaa !9
+_ZL10strtolowerB5cxx11PKc.exit790:                ; preds = %1387
+  %.pre1697 = load i64, ptr %1371, align 8, !tbaa !9
   %cond1537 = icmp eq i64 %.pre1697, 0
   br i1 %cond1537, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit814.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i792
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i792: ; preds = %_ZL10strtolowerB5cxx11PKc.exit790
-  %1404 = load ptr, ptr %34, align 8, !tbaa !25
-  %lhsc = load i8, ptr %1404, align 1
+  %1402 = load ptr, ptr %34, align 8, !tbaa !25
+  %lhsc = load i8, ptr %1402, align 1
   %.not.i.i794 = icmp eq i8 %lhsc, 109
-  %1405 = icmp eq i64 %.pre1697, 1
-  %or.cond1434 = and i1 %1405, %.not.i.i794
+  %1403 = icmp eq i64 %.pre1697, 1
+  %or.cond1434 = and i1 %1403, %.not.i.i794
   br i1 %or.cond1434, label %_ZNSt6bitsetILm167EE9referenceaSEb.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i802
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i802: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i792
   %.sroa.speculated.i.i801 = call i64 @llvm.umin.i64(i64 %.pre1697, i64 2)
-  %bcmp.i803 = call i32 @bcmp(ptr nonnull %1404, ptr nonnull @.str.138, i64 %.sroa.speculated.i.i801)
+  %bcmp.i803 = call i32 @bcmp(ptr nonnull %1402, ptr nonnull @.str.138, i64 %.sroa.speculated.i.i801)
   %.not.i.i804 = icmp eq i32 %bcmp.i803, 0
-  %1406 = icmp eq i64 %.pre1697, 2
-  %or.cond1436 = and i1 %1406, %.not.i.i804
+  %1404 = icmp eq i64 %.pre1697, 2
+  %or.cond1436 = and i1 %1404, %.not.i.i804
   br i1 %or.cond1436, label %_ZNSt6bitsetILm167EE9referenceaSEb.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i809
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i809: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i802
   %.sroa.speculated.i.i808 = call i64 @llvm.umin.i64(i64 %.pre1697, i64 3)
-  %bcmp.i810 = call i32 @bcmp(ptr nonnull %1404, ptr nonnull @.str.139, i64 %.sroa.speculated.i.i808)
+  %bcmp.i810 = call i32 @bcmp(ptr nonnull %1402, ptr nonnull @.str.139, i64 %.sroa.speculated.i.i808)
   %.not.i.i811 = icmp eq i32 %bcmp.i810, 0
-  %1407 = icmp eq i64 %.pre1697, 3
-  %or.cond1438 = and i1 %1407, %.not.i.i811
+  %1405 = icmp eq i64 %.pre1697, 3
+  %or.cond1438 = and i1 %1405, %.not.i.i811
   br i1 %or.cond1438, label %_ZNSt6bitsetILm167EE9referenceaSEb.exit815.thread, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit814.thread
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit814.thread: ; preds = %.critedge395.thread, %_ZL10strtolowerB5cxx11PKc.exit790, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i809
@@ -3830,108 +3830,108 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   unreachable
 
 _ZNSt6bitsetILm167EE9referenceaSEb.exit.thread:   ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i792
-  %1408 = load i64, ptr %1254, align 8, !tbaa !58
-  %1409 = and i64 %1408, -2097153
+  %1406 = load i64, ptr %1254, align 8, !tbaa !58
+  %1407 = and i64 %1406, -2097153
   br label %_ZNSt6bitsetILm167EE9referenceaSEb.exit815
 
 _ZNSt6bitsetILm167EE9referenceaSEb.exit:          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i802
-  %1410 = load i64, ptr %1254, align 8, !tbaa !58
-  %1411 = or i64 %1410, 2097152
+  %1408 = load i64, ptr %1254, align 8, !tbaa !58
+  %1409 = or i64 %1408, 2097152
   br label %_ZNSt6bitsetILm167EE9referenceaSEb.exit815
 
 _ZNSt6bitsetILm167EE9referenceaSEb.exit815.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i809
-  %1412 = load i64, ptr %1254, align 8, !tbaa !58
-  %1413 = or i64 %1412, 2621440
-  store i64 %1413, ptr %1254, align 8, !tbaa !58
-  br label %1417
+  %1410 = load i64, ptr %1254, align 8, !tbaa !58
+  %1411 = or i64 %1410, 2621440
+  store i64 %1411, ptr %1254, align 8, !tbaa !58
+  br label %1415
 
 _ZNSt6bitsetILm167EE9referenceaSEb.exit815:       ; preds = %_ZNSt6bitsetILm167EE9referenceaSEb.exit.thread, %_ZNSt6bitsetILm167EE9referenceaSEb.exit
-  %storemerge1491 = phi i64 [ %1411, %_ZNSt6bitsetILm167EE9referenceaSEb.exit ], [ %1409, %_ZNSt6bitsetILm167EE9referenceaSEb.exit.thread ]
-  %1414 = and i64 %storemerge1491, -524289
-  store i64 %1414, ptr %1254, align 8, !tbaa !58
-  %1415 = and i64 %storemerge1491, 256
-  %.not1492 = icmp eq i64 %1415, 0
-  br i1 %.not1492, label %1417, label %1416
+  %storemerge1491 = phi i64 [ %1409, %_ZNSt6bitsetILm167EE9referenceaSEb.exit ], [ %1407, %_ZNSt6bitsetILm167EE9referenceaSEb.exit.thread ]
+  %1412 = and i64 %storemerge1491, -524289
+  store i64 %1412, ptr %1254, align 8, !tbaa !58
+  %1413 = and i64 %storemerge1491, 256
+  %.not1492 = icmp eq i64 %1413, 0
+  br i1 %.not1492, label %1415, label %1414
 
-1416:                                             ; preds = %_ZNSt6bitsetILm167EE9referenceaSEb.exit815
+1414:                                             ; preds = %_ZNSt6bitsetILm167EE9referenceaSEb.exit815
   call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.140)
   unreachable
 
-1417:                                             ; preds = %_ZNSt6bitsetILm167EE9referenceaSEb.exit815.thread, %_ZNSt6bitsetILm167EE9referenceaSEb.exit815
-  %1418 = phi i64 [ 3, %_ZNSt6bitsetILm167EE9referenceaSEb.exit815.thread ], [ %.pre1697, %_ZNSt6bitsetILm167EE9referenceaSEb.exit815 ]
-  %1419 = load i32, ptr %0, align 8, !tbaa !29
-  %1420 = icmp eq i32 %1419, 32
-  %1421 = select i1 %1420, i64 1073741824, i64 -9223372036854775808
-  %1422 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1421, ptr %1422, align 8, !tbaa !90
-  br label %1428
+1415:                                             ; preds = %_ZNSt6bitsetILm167EE9referenceaSEb.exit815.thread, %_ZNSt6bitsetILm167EE9referenceaSEb.exit815
+  %1416 = phi i64 [ 3, %_ZNSt6bitsetILm167EE9referenceaSEb.exit815.thread ], [ %.pre1697, %_ZNSt6bitsetILm167EE9referenceaSEb.exit815 ]
+  %1417 = load i32, ptr %0, align 8, !tbaa !29
+  %1418 = icmp eq i32 %1417, 32
+  %1419 = select i1 %1418, i64 1073741824, i64 -9223372036854775808
+  %1420 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %1419, ptr %1420, align 8, !tbaa !90
+  br label %1426
 
-1423:                                             ; preds = %1441
-  %1424 = icmp eq ptr %1404, %1372
-  br i1 %1424, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i818, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i817
+1421:                                             ; preds = %1439
+  %1422 = icmp eq ptr %1402, %1370
+  br i1 %1422, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i818, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i817
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i818: ; preds = %1423
-  %1425 = icmp ult i64 %1418, 16
-  call void @llvm.assume(i1 %1425)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i818: ; preds = %1421
+  %1423 = icmp ult i64 %1416, 16
+  call void @llvm.assume(i1 %1423)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit819
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i817: ; preds = %1423
-  %1426 = load i64, ptr %1372, align 8, !tbaa !12
-  %1427 = add i64 %1426, 1
-  call void @_ZdlPvm(ptr noundef %1404, i64 noundef %1427) #29
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i817: ; preds = %1421
+  %1424 = load i64, ptr %1370, align 8, !tbaa !12
+  %1425 = add i64 %1424, 1
+  call void @_ZdlPvm(ptr noundef %1402, i64 noundef %1425) #29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit819
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit819: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i818, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i817
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34) #27
   ret void
 
-1428:                                             ; preds = %1417, %1441
-  %indvars.iv = phi i64 [ 65, %1417 ], [ %indvars.iv.next, %1441 ]
-  %1429 = phi i64 [ %1421, %1417 ], [ %1442, %1441 ]
-  %1430 = lshr i64 %indvars.iv, 6
-  %1431 = getelementptr inbounds nuw [3 x i64], ptr %35, i64 0, i64 %1430
-  %1432 = and i64 %indvars.iv, 63
-  %1433 = load i64, ptr %1431, align 8, !tbaa !58
-  %1434 = shl nuw i64 1, %1432
-  %1435 = and i64 %1433, %1434
-  %.not1493 = icmp eq i64 %1435, 0
-  br i1 %.not1493, label %1441, label %1436
+1426:                                             ; preds = %1415, %1439
+  %indvars.iv = phi i64 [ 65, %1415 ], [ %indvars.iv.next, %1439 ]
+  %1427 = phi i64 [ %1419, %1415 ], [ %1440, %1439 ]
+  %1428 = lshr i64 %indvars.iv, 6
+  %1429 = getelementptr inbounds nuw [3 x i64], ptr %35, i64 0, i64 %1428
+  %1430 = and i64 %indvars.iv, 63
+  %1431 = load i64, ptr %1429, align 8, !tbaa !58
+  %1432 = shl nuw i64 1, %1430
+  %1433 = and i64 %1431, %1432
+  %.not1493 = icmp eq i64 %1433, 0
+  br i1 %.not1493, label %1439, label %1434
 
-1436:                                             ; preds = %1428
-  %1437 = add nuw nsw i64 %indvars.iv, 4294967231
-  %1438 = and i64 %1437, 4294967295
-  %1439 = shl nuw i64 1, %1438
-  %1440 = or i64 %1429, %1439
-  store i64 %1440, ptr %1422, align 8, !tbaa !90
-  br label %1441
+1434:                                             ; preds = %1426
+  %1435 = add nuw nsw i64 %indvars.iv, 4294967231
+  %1436 = and i64 %1435, 4294967295
+  %1437 = shl nuw i64 1, %1436
+  %1438 = or i64 %1427, %1437
+  store i64 %1438, ptr %1420, align 8, !tbaa !90
+  br label %1439
 
-1441:                                             ; preds = %1428, %1436
-  %1442 = phi i64 [ %1429, %1428 ], [ %1440, %1436 ]
+1439:                                             ; preds = %1426, %1434
+  %1440 = phi i64 [ %1427, %1426 ], [ %1438, %1434 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 91
-  br i1 %exitcond.not, label %1423, label %1428, !llvm.loop !91
+  br i1 %exitcond.not, label %1421, label %1426, !llvm.loop !91
 
 .body788:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i783, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i785
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34) #27
-  br label %1443
+  br label %1441
 
-1443:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit447, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit487, %.body788, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit757, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit733, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit522, %.body
-  %.merged = phi { ptr, i32 } [ %70, %.body ], [ %.pn280.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit487 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit447 ], [ %.pn321.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit522 ], [ %.pn317.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557 ], [ %.merged327, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit733 ], [ %1397, %.body788 ], [ %.pn287.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit757 ]
+1441:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit447, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit487, %.body788, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit757, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit733, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit522, %.body
+  %.merged = phi { ptr, i32 } [ %70, %.body ], [ %.pn280.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit487 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit447 ], [ %.pn321.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit522 ], [ %.pn317.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557 ], [ %.merged327, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit733 ], [ %1395, %.body788 ], [ %.pn287.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit757 ]
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %39) #27
-  %1444 = load ptr, ptr %36, align 8, !tbaa !25
-  %1445 = icmp eq ptr %1444, %37
-  br i1 %1445, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i821, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i820
+  %1442 = load ptr, ptr %36, align 8, !tbaa !25
+  %1443 = icmp eq ptr %1442, %37
+  br i1 %1443, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i821, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i820
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i821: ; preds = %1443
-  %1446 = load i64, ptr %38, align 8, !tbaa !9
-  %1447 = icmp ult i64 %1446, 16
-  call void @llvm.assume(i1 %1447)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i821: ; preds = %1441
+  %1444 = load i64, ptr %38, align 8, !tbaa !9
+  %1445 = icmp ult i64 %1444, 16
+  call void @llvm.assume(i1 %1445)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit822
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i820: ; preds = %1443
-  %1448 = load i64, ptr %37, align 8, !tbaa !12
-  %1449 = add i64 %1448, 1
-  call void @_ZdlPvm(ptr noundef %1444, i64 noundef %1449) #29
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i820: ; preds = %1441
+  %1446 = load i64, ptr %37, align 8, !tbaa !12
+  %1447 = add i64 %1446, 1
+  call void @_ZdlPvm(ptr noundef %1442, i64 noundef %1447) #29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit822
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit822: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i821, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i820

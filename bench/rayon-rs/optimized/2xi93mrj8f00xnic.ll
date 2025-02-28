@@ -719,28 +719,28 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
   br i1 %or.cond, label %18, label %28
 
 .lr.ph:                                           ; preds = %.outer, %59
-  %.066 = phi i32 [ %.142, %59 ], [ %.0.ph, %.outer ]
-  %12 = icmp ult i32 %.066, 7
+  %.071 = phi i32 [ %.142, %59 ], [ %.0.ph, %.outer ]
+  %12 = icmp ult i32 %.071, 7
   br i1 %12, label %.preheader.i, label %13
 
 13:                                               ; preds = %.lr.ph
   invoke void @_ZN3std6thread9yield_now17h7997a258d0252531E()
-          to label %.thread.i unwind label %65
+          to label %.thread.i unwind label %.thread
 
 .thread.i:                                        ; preds = %13
-  %14 = icmp ult i32 %.066, 11
+  %14 = icmp ult i32 %.071, 11
   br i1 %14, label %.thread.i.thread, label %59
 
 .preheader.i:                                     ; preds = %.lr.ph, %.preheader.i
   %.sroa.01.08.i = phi i32 [ %15, %.preheader.i ], [ 0, %.lr.ph ]
   %15 = add nuw nsw i32 %.sroa.01.08.i, 1
   tail call void @llvm.x86.sse2.pause() #14
-  %.sroa.01.0.highbits.i = lshr i32 %15, %.066
+  %.sroa.01.0.highbits.i = lshr i32 %15, %.071
   %16 = icmp eq i32 %.sroa.01.0.highbits.i, 0
   br i1 %16, label %.preheader.i, label %.thread.i.thread
 
 .thread.i.thread:                                 ; preds = %.preheader.i, %.thread.i
-  %17 = add nuw nsw i32 %.066, 1
+  %17 = add nuw nsw i32 %.071, 1
   br label %59
 
 18:                                               ; preds = %._crit_edge
@@ -847,7 +847,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %5
   br i1 %58, label %56, label %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
 
 59:                                               ; preds = %.thread.i, %.thread.i.thread
-  %.142 = phi i32 [ %17, %.thread.i.thread ], [ %.066, %.thread.i ]
+  %.142 = phi i32 [ %17, %.thread.i.thread ], [ %.071, %.thread.i ]
   %60 = load atomic i64, ptr %5 acquire, align 128
   %61 = load atomic i64, ptr %7 acquire, align 8
   %62 = lshr i64 %60, 1
@@ -855,17 +855,17 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %5
   %64 = icmp eq i64 %63, 63
   br i1 %64, label %.lr.ph, label %._crit_edge
 
-65:                                               ; preds = %13
+.thread:                                          ; preds = %13
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  %66 = icmp eq ptr %.043.ph, null
-  br i1 %66, label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_deque..deque..Block$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h97ef277e5ed1365fE.exit37", label %67
+  %65 = icmp eq ptr %.043.ph, null
+  br i1 %65, label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_deque..deque..Block$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h97ef277e5ed1365fE.exit37", label %.thread.thread
 
-67:                                               ; preds = %65
+.thread.thread:                                   ; preds = %.thread
   tail call void @__rust_dealloc(ptr noundef nonnull %.043.ph, i64 noundef 1520, i64 noundef 8) #14
   br label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_deque..deque..Block$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h97ef277e5ed1365fE.exit37"
 
-"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_deque..deque..Block$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h97ef277e5ed1365fE.exit37": ; preds = %67, %65
+"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_deque..deque..Block$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h97ef277e5ed1365fE.exit37": ; preds = %.thread.thread, %.thread
   resume { ptr, i32 } %lpad.loopexit
 }
 

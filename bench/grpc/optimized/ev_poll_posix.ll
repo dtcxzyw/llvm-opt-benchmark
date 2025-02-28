@@ -2797,34 +2797,34 @@ define internal noundef zeroext i1 @"_ZN3$_08__invokeEb"(i1 zeroext %0) #7 align
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #29
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.5, i32 noundef 1400) #31
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 38, ptr nonnull @.str.18)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit.i unwind label %9
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit.i unwind label %5
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit.i: ; preds = %4
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #29
   br label %"_ZNK3$_0clEb.exit"
 
-_ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %1
-  %5 = tail call noundef zeroext i1 @_ZN9grpc_core4Fork7EnabledEv()
-  br i1 %5, label %6, label %"_ZNK3$_0clEb.exit"
+5:                                                ; preds = %4
+  %6 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #34
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #29
+  resume { ptr, i32 } %6
 
-6:                                                ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i
-  %7 = tail call noundef zeroext i1 @_ZN9grpc_core4Fork35RegisterResetChildPollingEngineFuncEPFvvE(ptr noundef nonnull @_ZL27reset_event_manager_on_forkv)
+_ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %1
+  %7 = tail call noundef zeroext i1 @_ZN9grpc_core4Fork7EnabledEv()
   br i1 %7, label %8, label %"_ZNK3$_0clEb.exit"
 
-8:                                                ; preds = %6
+8:                                                ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i
+  %9 = tail call noundef zeroext i1 @_ZN9grpc_core4Fork35RegisterResetChildPollingEngineFuncEPFvvE(ptr noundef nonnull @_ZL27reset_event_manager_on_forkv)
+  br i1 %9, label %10, label %"_ZNK3$_0clEb.exit"
+
+10:                                               ; preds = %8
   store i1 true, ptr @_ZL18track_fds_for_fork, align 1
   tail call void @gpr_mu_init(ptr noundef nonnull @_ZL15fork_fd_list_mu)
   br label %"_ZNK3$_0clEb.exit"
 
-9:                                                ; preds = %4
-  %10 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #29
-  resume { ptr, i32 } %10
-
-"_ZNK3$_0clEb.exit":                              ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i, %6, %8
+"_ZNK3$_0clEb.exit":                              ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i, %8, %10
   ret i1 %.not.i
 }
 
@@ -2869,34 +2869,34 @@ define internal noundef zeroext i1 @"_ZZNK3$_3clEvENUlbE_8__invokeEb"(i1 noundef
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #29
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.5, i32 noundef 1400) #31
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 38, ptr nonnull @.str.18)
-          to label %"_ZN3$_08__invokeEb.exit.i" unwind label %10
+          to label %"_ZN3$_08__invokeEb.exit.i" unwind label %6
 
-_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i:     ; preds = %3
-  %6 = tail call noundef zeroext i1 @_ZN9grpc_core4Fork7EnabledEv()
-  br i1 %6, label %7, label %12
-
-7:                                                ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i
-  %8 = tail call noundef zeroext i1 @_ZN9grpc_core4Fork35RegisterResetChildPollingEngineFuncEPFvvE(ptr noundef nonnull @_ZL27reset_event_manager_on_forkv)
-  br i1 %8, label %9, label %12
-
-9:                                                ; preds = %7
-  store i1 true, ptr @_ZL18track_fds_for_fork, align 1
-  tail call void @gpr_mu_init(ptr noundef nonnull @_ZL15fork_fd_list_mu)
-  br label %12
-
-10:                                               ; preds = %5
-  %11 = landingpad { ptr, i32 }
+6:                                                ; preds = %5
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #29
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %7
+
+_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i:     ; preds = %3
+  %8 = tail call noundef zeroext i1 @_ZN9grpc_core4Fork7EnabledEv()
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i
+  %10 = tail call noundef zeroext i1 @_ZN9grpc_core4Fork35RegisterResetChildPollingEngineFuncEPFvvE(ptr noundef nonnull @_ZL27reset_event_manager_on_forkv)
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %9
+  store i1 true, ptr @_ZL18track_fds_for_fork, align 1
+  tail call void @gpr_mu_init(ptr noundef nonnull @_ZL15fork_fd_list_mu)
+  br label %12
 
 "_ZN3$_08__invokeEb.exit.i":                      ; preds = %5
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #29
   br label %"_ZZNK3$_3clEvENKUlbE_clEb.exit"
 
-12:                                               ; preds = %9, %7, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i
+12:                                               ; preds = %11, %9, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i
   %13 = load ptr, ptr @grpc_poll_function, align 8, !tbaa !109
   store ptr %13, ptr @_ZN12_GLOBAL__N_118real_poll_functionE, align 8, !tbaa !109
   store ptr @_ZN12_GLOBAL__N_110phony_pollEP6pollfdmi, ptr @grpc_poll_function, align 8, !tbaa !109

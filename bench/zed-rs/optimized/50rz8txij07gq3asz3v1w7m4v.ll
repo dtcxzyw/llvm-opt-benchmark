@@ -2366,7 +2366,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %8 = load i8, ptr %7, align 1, !range !373, !alias.scope !374, !noalias !375, !noundef !4
   store i8 0, ptr %7, align 1, !alias.scope !374, !noalias !375
   %trunc3.i.i.i.i.i = trunc nuw i8 %8 to i1
-  br i1 %trunc3.i.i.i.i.i, label %19, label %15
+  br i1 %trunc3.i.i.i.i.i, label %18, label %15
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2385,24 +2385,24 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   unreachable
 
 "_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0711f38f07c09b86E.exit.i.i.i.i": ; preds = %9
-  br i1 %12, label %_ZN4core3ops8function6FnOnce9call_once17h9597a7e72722c440E.exit, label %16
+  br i1 %12, label %_ZN4core3ops8function6FnOnce9call_once17h9597a7e72722c440E.exit, label %17
 
-16:                                               ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0711f38f07c09b86E.exit.i.i.i.i"
-  invoke void @"_ZN77_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcff7de3d6aca806bE.llvm.15652623448996909339"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
-          to label %19 unwind label %17, !noalias !387
-
-17:                                               ; preds = %16
-  %18 = landingpad { ptr, i32 }
+"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17h0ce0722df478cd17E.llvm.10327530529093878171.exit2.i.i.i.i.i": ; preds = %17
+  %16 = landingpad { ptr, i32 }
           cleanup
-  store i8 2, ptr %4, align 8, !alias.scope !388, !noalias !391
-  resume { ptr, i32 } %18
+  store i8 2, ptr %4, align 8, !alias.scope !387, !noalias !390
+  resume { ptr, i32 } %16
 
-19:                                               ; preds = %16, %6
-  store i8 2, ptr %4, align 8, !alias.scope !388, !noalias !391
+17:                                               ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0711f38f07c09b86E.exit.i.i.i.i"
+  invoke void @"_ZN77_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcff7de3d6aca806bE.llvm.15652623448996909339"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
+          to label %18 unwind label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17h0ce0722df478cd17E.llvm.10327530529093878171.exit2.i.i.i.i.i", !noalias !393
+
+18:                                               ; preds = %17, %6
+  store i8 2, ptr %4, align 8, !alias.scope !387, !noalias !390
   br label %_ZN4core3ops8function6FnOnce9call_once17h9597a7e72722c440E.exit
 
-_ZN4core3ops8function6FnOnce9call_once17h9597a7e72722c440E.exit: ; preds = %3, %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0711f38f07c09b86E.exit.i.i.i.i", %19
-  %storemerge.i.i = phi i64 [ 5, %3 ], [ 3, %19 ], [ 4, %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0711f38f07c09b86E.exit.i.i.i.i" ]
+_ZN4core3ops8function6FnOnce9call_once17h9597a7e72722c440E.exit: ; preds = %3, %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0711f38f07c09b86E.exit.i.i.i.i", %18
+  %storemerge.i.i = phi i64 [ 5, %3 ], [ 3, %18 ], [ 4, %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0711f38f07c09b86E.exit.i.i.i.i" ]
   store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !394, !noalias !395
   ret void
 }
@@ -9204,7 +9204,7 @@ define internal void @"_ZN15context_servers6client6Client7request28_$u7b$$u7b$cl
   %8 = load i8, ptr %7, align 1, !range !373, !alias.scope !1849, !noalias !1850, !noundef !4
   store i8 0, ptr %7, align 1, !alias.scope !1849, !noalias !1850
   %trunc3.i.i.i = trunc nuw i8 %8 to i1
-  br i1 %trunc3.i.i.i, label %19, label %15
+  br i1 %trunc3.i.i.i, label %18, label %15
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -9223,24 +9223,24 @@ define internal void @"_ZN15context_servers6client6Client7request28_$u7b$$u7b$cl
   unreachable
 
 "_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0711f38f07c09b86E.exit.i.i": ; preds = %9
-  br i1 %12, label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h15375620a92854a7E.exit", label %16
+  br i1 %12, label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h15375620a92854a7E.exit", label %17
 
-16:                                               ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0711f38f07c09b86E.exit.i.i"
-  invoke void @"_ZN77_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcff7de3d6aca806bE.llvm.15652623448996909339"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
-          to label %19 unwind label %17, !noalias !1862
-
-17:                                               ; preds = %16
-  %18 = landingpad { ptr, i32 }
+"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17h0ce0722df478cd17E.llvm.10327530529093878171.exit2.i.i.i": ; preds = %17
+  %16 = landingpad { ptr, i32 }
           cleanup
-  store i8 2, ptr %4, align 8, !alias.scope !1863, !noalias !1866
-  resume { ptr, i32 } %18
+  store i8 2, ptr %4, align 8, !alias.scope !1862, !noalias !1865
+  resume { ptr, i32 } %16
 
-19:                                               ; preds = %6, %16
-  store i8 2, ptr %4, align 8, !alias.scope !1863, !noalias !1866
+17:                                               ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0711f38f07c09b86E.exit.i.i"
+  invoke void @"_ZN77_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcff7de3d6aca806bE.llvm.15652623448996909339"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
+          to label %18 unwind label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17h0ce0722df478cd17E.llvm.10327530529093878171.exit2.i.i.i", !noalias !1868
+
+18:                                               ; preds = %6, %17
+  store i8 2, ptr %4, align 8, !alias.scope !1862, !noalias !1865
   br label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h15375620a92854a7E.exit"
 
-"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h15375620a92854a7E.exit": ; preds = %19, %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0711f38f07c09b86E.exit.i.i", %3
-  %storemerge = phi i64 [ 5, %3 ], [ 3, %19 ], [ 4, %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0711f38f07c09b86E.exit.i.i" ]
+"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h15375620a92854a7E.exit": ; preds = %18, %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0711f38f07c09b86E.exit.i.i", %3
+  %storemerge = phi i64 [ 5, %3 ], [ 3, %18 ], [ 4, %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0711f38f07c09b86E.exit.i.i" ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -10762,13 +10762,13 @@ attributes #31 = { noreturn nounwind }
 !384 = distinct !{!384, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h70dd2ffc4b2fdde4E"}
 !385 = distinct !{!385, !384, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h70dd2ffc4b2fdde4E: argument 1"}
 !386 = !{!371, !376, !368, !377, !378, !380, !360, !364, !365, !355, !358, !366}
-!387 = !{!377, !378, !380, !360, !364, !365, !355, !366}
-!388 = !{!389, !368, !358}
-!389 = distinct !{!389, !390, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h469d62187e09a18eE.llvm.10327530529093878171: argument 0"}
-!390 = distinct !{!390, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h469d62187e09a18eE.llvm.10327530529093878171"}
-!391 = !{!392, !377, !378, !380, !360, !364, !365, !355, !366}
-!392 = distinct !{!392, !393, !"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h0ea74b2abed1bf4fE.llvm.10327530529093878171: argument 1"}
-!393 = distinct !{!393, !"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h0ea74b2abed1bf4fE.llvm.10327530529093878171"}
+!387 = !{!388, !368, !358}
+!388 = distinct !{!388, !389, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h469d62187e09a18eE.llvm.10327530529093878171: argument 0"}
+!389 = distinct !{!389, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h469d62187e09a18eE.llvm.10327530529093878171"}
+!390 = !{!391, !377, !378, !380, !360, !364, !365, !355, !366}
+!391 = distinct !{!391, !392, !"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h0ea74b2abed1bf4fE.llvm.10327530529093878171: argument 1"}
+!392 = distinct !{!392, !"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h0ea74b2abed1bf4fE.llvm.10327530529093878171"}
+!393 = !{!377, !378, !380, !360, !364, !365, !355, !366}
 !394 = !{!360, !355}
 !395 = !{!364, !365, !358, !366}
 !396 = !{!397}
@@ -12237,13 +12237,13 @@ attributes #31 = { noreturn nounwind }
 !1859 = distinct !{!1859, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h70dd2ffc4b2fdde4E"}
 !1860 = distinct !{!1860, !1859, !"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h70dd2ffc4b2fdde4E: argument 1"}
 !1861 = !{!1847, !1851, !1844, !1852, !1853, !1855}
-!1862 = !{!1852, !1853, !1855}
-!1863 = !{!1864, !1844}
-!1864 = distinct !{!1864, !1865, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h469d62187e09a18eE.llvm.10327530529093878171: argument 0"}
-!1865 = distinct !{!1865, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h469d62187e09a18eE.llvm.10327530529093878171"}
-!1866 = !{!1867, !1852, !1853, !1855}
-!1867 = distinct !{!1867, !1868, !"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h0ea74b2abed1bf4fE.llvm.10327530529093878171: argument 1"}
-!1868 = distinct !{!1868, !"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h0ea74b2abed1bf4fE.llvm.10327530529093878171"}
+!1862 = !{!1863, !1844}
+!1863 = distinct !{!1863, !1864, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h469d62187e09a18eE.llvm.10327530529093878171: argument 0"}
+!1864 = distinct !{!1864, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h469d62187e09a18eE.llvm.10327530529093878171"}
+!1865 = !{!1866, !1852, !1853, !1855}
+!1866 = distinct !{!1866, !1867, !"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h0ea74b2abed1bf4fE.llvm.10327530529093878171: argument 1"}
+!1867 = distinct !{!1867, !"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h0ea74b2abed1bf4fE.llvm.10327530529093878171"}
+!1868 = !{!1852, !1853, !1855}
 !1869 = !{!1870, !1872}
 !1870 = distinct !{!1870, !1871, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9323bba052e344e5E.llvm.17430517288059667537: argument 0"}
 !1871 = distinct !{!1871, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9323bba052e344e5E.llvm.17430517288059667537"}

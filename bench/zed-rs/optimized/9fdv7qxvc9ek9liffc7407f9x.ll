@@ -94709,12 +94709,12 @@ define hidden { ptr, ptr } @_ZN9workspace4pane4Pane9open_item17h1f92c68ba367861c
   br label %.thread120
 
 38:                                               ; preds = %.lr.ph, %52
-  %.sroa.085.0149 = phi ptr [ %23, %.lr.ph ], [ %39, %52 ]
-  %.sroa.7.0148 = phi i64 [ 0, %.lr.ph ], [ %40, %52 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.085.0149, i64 16
-  %40 = add nuw nsw i64 %.sroa.7.0148, 1
-  %41 = load ptr, ptr %.sroa.085.0149, align 8, !nonnull !10, !align !667, !noundef !10
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.085.0149, i64 8
+  %.sroa.085.0157 = phi ptr [ %23, %.lr.ph ], [ %39, %52 ]
+  %.sroa.7.0156 = phi i64 [ 0, %.lr.ph ], [ %40, %52 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.085.0157, i64 16
+  %40 = add nuw nsw i64 %.sroa.7.0156, 1
+  %41 = load ptr, ptr %.sroa.085.0157, align 8, !nonnull !10, !align !667, !noundef !10
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.085.0157, i64 8
   %43 = load ptr, ptr %42, align 8, !nonnull !10, !align !100, !noundef !10
   %44 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
           to label %45 unwind label %.loopexit
@@ -94883,16 +94883,16 @@ define hidden { ptr, ptr } @_ZN9workspace4pane4Pane9open_item17h1f92c68ba367861c
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %102 = load i32, ptr %101, align 4, !noundef !10
   %103 = load i64, ptr %24, align 8, !noundef !10
-  %104 = icmp ult i64 %.sroa.7.0148, %103
+  %104 = icmp ult i64 %.sroa.7.0156, %103
   br i1 %104, label %105, label %_ZN9workspace4pane4Pane19set_preview_item_id17h60f53c4ae5b3d894E.exit
 
 _ZN9workspace4pane4Pane19set_preview_item_id17h60f53c4ae5b3d894E.exit: ; preds = %130, %.noexc58, %100, %119, %116, %95
-  invoke void @_ZN9workspace4pane4Pane13activate_item17h6c551fa8f1d0d317E(ptr noalias noundef nonnull align 8 dereferenceable(432) %0, i64 noundef %.sroa.7.0148, i1 noundef zeroext %3, i1 noundef zeroext %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
+  invoke void @_ZN9workspace4pane4Pane13activate_item17h6c551fa8f1d0d317E(ptr noalias noundef nonnull align 8 dereferenceable(432) %0, i64 noundef %.sroa.7.0156, i1 noundef zeroext %3, i1 noundef zeroext %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %217 unwind label %114
 
 105:                                              ; preds = %100
   %106 = load ptr, ptr %22, align 8, !nonnull !10, !noundef !10
-  %107 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %106, i64 %.sroa.7.0148
+  %107 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %106, i64 %.sroa.7.0156
   %108 = load ptr, ptr %107, align 8, !nonnull !10, !align !667, !noundef !10
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %110 = load ptr, ptr %109, align 8, !nonnull !10, !align !100, !noundef !10
@@ -95043,7 +95043,7 @@ _ZN9workspace4pane4Pane19set_preview_item_id17h60f53c4ae5b3d894E.exit74: ; preds
   %.sroa.8.0 = phi ptr [ %172, %"_ZN90_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..FnOnce$LT$Args$GT$$GT$9call_once17hd339b7eebf1443f1E.exit" ], [ %198, %.noexc73 ], [ %198, %213 ]
   %.sroa.024.0 = phi i64 [ 0, %"_ZN90_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..FnOnce$LT$Args$GT$$GT$9call_once17hd339b7eebf1443f1E.exit" ], [ %.sroa.0.0.i61, %.noexc73 ], [ %.sroa.0.0.i61, %213 ]
   %.sroa.325.0 = phi i64 [ undef, %"_ZN90_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..FnOnce$LT$Args$GT$$GT$9call_once17hd339b7eebf1443f1E.exit" ], [ %.sroa.4.0.i, %.noexc73 ], [ %.sroa.4.0.i, %213 ]
-  %.merged138 = phi { ptr, ptr } [ %134, %"_ZN90_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..FnOnce$LT$Args$GT$$GT$9call_once17hd339b7eebf1443f1E.exit" ], [ %181, %.noexc73 ], [ %181, %213 ]
+  %.merged146 = phi { ptr, ptr } [ %134, %"_ZN90_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..FnOnce$LT$Args$GT$$GT$9call_once17hd339b7eebf1443f1E.exit" ], [ %181, %.noexc73 ], [ %181, %213 ]
   %173 = icmp ne ptr %.sroa.089.0, null
   call void @llvm.assume(i1 %173)
   %174 = icmp ne ptr %.sroa.8.0, null
@@ -95144,7 +95144,7 @@ _ZN9workspace4pane4Pane19set_preview_item_id17h60f53c4ae5b3d894E.exit74: ; preds
           to label %"_ZN4core3ptr252drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$GT$17h857b32ada889a7e9E.exit" unwind label %202
 
 "_ZN4core3ptr252drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$GT$17h857b32ada889a7e9E.exit": ; preds = %"_ZN9workspace4item109_$LT$impl$u20$core..clone..Clone$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$5clone17h7974e4f1910db8a4E.exit", %227, %220
-  %.merged = phi { ptr, ptr } [ %92, %227 ], [ %92, %220 ], [ %.merged138, %"_ZN9workspace4item109_$LT$impl$u20$core..clone..Clone$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$5clone17h7974e4f1910db8a4E.exit" ]
+  %.merged = phi { ptr, ptr } [ %92, %227 ], [ %92, %220 ], [ %.merged146, %"_ZN9workspace4item109_$LT$impl$u20$core..clone..Clone$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$5clone17h7974e4f1910db8a4E.exit" ]
   ret { ptr, ptr } %.merged
 
 217:                                              ; preds = %_ZN9workspace4pane4Pane19set_preview_item_id17h60f53c4ae5b3d894E.exit

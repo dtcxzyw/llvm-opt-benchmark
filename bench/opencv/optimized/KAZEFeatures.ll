@@ -2483,13 +2483,13 @@ _ZNSt16allocator_traitsISaIN2cv8KeyPointEEE8allocateERS2_m.exit.i.i.i.i: ; preds
 
 ._crit_edge.loopexit:                             ; preds = %261
   %.pre = load ptr, ptr %1, align 8, !tbaa !95
-  %.pre249 = load ptr, ptr %38, align 8, !tbaa !137
+  %.pre252 = load ptr, ptr %38, align 8, !tbaa !137
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit176, %._crit_edge.loopexit
   %71 = phi i64 [ %53, %._crit_edge.loopexit ], [ 0, %_ZNK2cv7MatExprcvNS_3MatEEv.exit176 ]
   %72 = phi ptr [ %47, %._crit_edge.loopexit ], [ null, %_ZNK2cv7MatExprcvNS_3MatEEv.exit176 ]
-  %73 = phi ptr [ %.pre249, %._crit_edge.loopexit ], [ %39, %_ZNK2cv7MatExprcvNS_3MatEEv.exit176 ]
+  %73 = phi ptr [ %.pre252, %._crit_edge.loopexit ], [ %39, %_ZNK2cv7MatExprcvNS_3MatEEv.exit176 ]
   %74 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %40, %_ZNK2cv7MatExprcvNS_3MatEEv.exit176 ]
   %.not.i.i = icmp eq ptr %73, %74
   br i1 %.not.i.i, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit, label %75
@@ -2500,11 +2500,11 @@ _ZNSt16allocator_traitsISaIN2cv8KeyPointEEE8allocateERS2_m.exit.i.i.i.i: ; preds
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %._crit_edge, %75
   %76 = phi ptr [ %73, %._crit_edge ], [ %74, %75 ]
-  br i1 %.not.i.i.i.i, label %._crit_edge244, label %.lr.ph243
+  br i1 %.not.i.i.i.i, label %._crit_edge247, label %.lr.ph246
 
-.lr.ph243:                                        ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit
+.lr.ph246:                                        ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %umax247 = call i64 @llvm.umax.i64(i64 %71, i64 1)
+  %umax250 = call i64 @llvm.umax.i64(i64 %71, i64 1)
   br label %263
 
 78:                                               ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit
@@ -2533,8 +2533,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %._crit_edge, %75
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit182
 
 86:                                               ; preds = %.lr.ph, %261
-  %.0147241 = phi i64 [ 0, %.lr.ph ], [ %262, %261 ]
-  %87 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %47, i64 %.0147241
+  %.0147244 = phi i64 [ 0, %.lr.ph ], [ %262, %261 ]
+  %87 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %47, i64 %.0147244
   %88 = load float, ptr %87, align 4, !tbaa !157
   %89 = fptosi float %88 to i32
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 4
@@ -2763,19 +2763,19 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %._crit_edge, %75
   br label %261
 
 261:                                              ; preds = %237, %259
-  %262 = add nuw i64 %.0147241, 1
+  %262 = add nuw i64 %.0147244, 1
   %exitcond.not = icmp eq i64 %262, %umax
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %86, !llvm.loop !179
 
-._crit_edge244:                                   ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit
+._crit_edge247:                                   ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit
   %.not.i.i.i = icmp eq ptr %72, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit, label %._crit_edge244.thread
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit, label %._crit_edge247.thread
 
-._crit_edge244.thread:                            ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit, %._crit_edge244
+._crit_edge247.thread:                            ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit, %._crit_edge247
   call void @_ZdlPv(ptr noundef nonnull %72) #22
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit:     ; preds = %._crit_edge244, %._crit_edge244.thread
+_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit:     ; preds = %._crit_edge247, %._crit_edge247.thread
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #23
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #23
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #23
@@ -2784,10 +2784,10 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit:     ; preds = %._crit_edge244, %._
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #23
   ret void
 
-263:                                              ; preds = %.lr.ph243, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit
-  %264 = phi ptr [ %76, %.lr.ph243 ], [ %294, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit ]
-  %.0242 = phi i64 [ 0, %.lr.ph243 ], [ %295, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit ]
-  %265 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %72, i64 %.0242
+263:                                              ; preds = %.lr.ph246, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit
+  %264 = phi ptr [ %76, %.lr.ph246 ], [ %294, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit ]
+  %.0245 = phi i64 [ 0, %.lr.ph246 ], [ %295, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit ]
+  %265 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %72, i64 %.0245
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 16
   %267 = load float, ptr %266, align 4, !tbaa !156
   %268 = fcmp une float %267, -1.000000e+00
@@ -2877,9 +2877,9 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %271, %263
   %294 = phi ptr [ %291, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %273, %271 ], [ %264, %263 ]
-  %295 = add nuw i64 %.0242, 1
-  %exitcond248.not = icmp eq i64 %295, %umax247
-  br i1 %exitcond248.not, label %._crit_edge244.thread, label %263, !llvm.loop !184
+  %295 = add nuw i64 %.0245, 1
+  %exitcond251.not = icmp eq i64 %295, %umax250
+  br i1 %exitcond251.not, label %._crit_edge247.thread, label %263, !llvm.loop !184
 
 .thread:                                          ; preds = %.thread.loopexit, %.thread.loopexit.split-lp, %.thread235
   %296 = phi ptr [ %47, %.thread235 ], [ %72, %.thread.loopexit ], [ %72, %.thread.loopexit.split-lp ]

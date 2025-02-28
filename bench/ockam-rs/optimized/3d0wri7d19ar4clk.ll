@@ -1279,12 +1279,13 @@ __rust_try.llvm.9869116895621829908.exit:         ; preds = %.body
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h2bd711fa30b33555E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+__rust_try.llvm.9869116895621829908.exit:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !398)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !401)
-  %2 = load ptr, ptr %0, align 8, !alias.scope !404, !noalias !405, !noundef !14
-  store i64 0, ptr %2, align 8, !noalias !408
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i8 2, ptr %3, align 1, !noalias !408
+  %1 = load ptr, ptr %0, align 8, !alias.scope !404, !noalias !405, !noundef !14
+  store i64 0, ptr %1, align 8, !noalias !408
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i8 2, ptr %2, align 1, !noalias !408
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 

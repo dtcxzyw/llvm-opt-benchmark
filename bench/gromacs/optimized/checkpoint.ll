@@ -10951,46 +10951,46 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE10St
   %15 = icmp ne ptr %4, null
   %16 = icmp eq ptr %5, null
   %or.cond = and i1 %15, %16
-  br i1 %or.cond, label %21, label %17
+  br i1 %or.cond, label %.thread, label %17
 
 17:                                               ; preds = %14
   %18 = icmp eq ptr %4, null
   %19 = icmp ne ptr %5, null
   %or.cond3 = and i1 %18, %19
-  br i1 %or.cond3, label %.thread95, label %20
+  br i1 %or.cond3, label %.thread.thread, label %20
 
 20:                                               ; preds = %17
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.92, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 743) #26
   unreachable
 
-21:                                               ; preds = %14
+.thread:                                          ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #25
+  %21 = icmp sgt i64 %3, -1
+  br i1 %21, label %23, label %27
+
+.thread.thread:                                   ; preds = %17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #25
   %22 = icmp sgt i64 %3, -1
-  br i1 %22, label %24, label %28
+  br i1 %22, label %23, label %28
 
-.thread95:                                        ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #25
-  %23 = icmp sgt i64 %3, -1
-  br i1 %23, label %24, label %.thread96
-
-24:                                               ; preds = %.thread95, %21
+23:                                               ; preds = %.thread.thread, %.thread
   %.not73 = icmp samesign ugt i64 %3, 4294967295
-  br i1 %.not73, label %25, label %26
+  br i1 %.not73, label %24, label %25
 
-25:                                               ; preds = %24
+24:                                               ; preds = %23
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.94, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 754) #26
   unreachable
 
-26:                                               ; preds = %24
-  %27 = trunc nuw i64 %3 to i32
-  store i32 %27, ptr %9, align 4, !tbaa !33
+25:                                               ; preds = %23
+  %26 = trunc nuw i64 %3 to i32
+  store i32 %26, ptr %9, align 4, !tbaa !33
   br label %39
 
-28:                                               ; preds = %21
+27:                                               ; preds = %.thread
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.96, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 760) #26
   unreachable
 
-.thread96:                                        ; preds = %.thread95
+28:                                               ; preds = %.thread.thread
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !276
   %31 = load ptr, ptr %5, align 8, !tbaa !266
@@ -11001,16 +11001,16 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE10St
   %.not72 = icmp ugt i64 %35, 4294967295
   br i1 %.not72, label %36, label %37
 
-36:                                               ; preds = %.thread96
+36:                                               ; preds = %28
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.94, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 764) #26
   unreachable
 
-37:                                               ; preds = %.thread96
+37:                                               ; preds = %28
   %38 = trunc nuw i64 %35 to i32
   store i32 %38, ptr %9, align 4, !tbaa !33
   br label %39
 
-39:                                               ; preds = %.thread94, %26, %37
+39:                                               ; preds = %.thread94, %25, %37
   %40 = call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef %0, ptr noundef nonnull %9)
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %120, label %42
@@ -11168,8 +11168,8 @@ _ZL13sizeOfXdrType11XdrDataType.exit.thread:      ; preds = %.split63
 _ZL7xdrProc11XdrDataType.exit.thread:             ; preds = %100
   %108 = load i32, ptr %9, align 4, !tbaa !33
   %109 = call noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef %0, ptr noundef %.0, i32 noundef %108, i32 noundef 4, ptr noundef nonnull @_Z9xdr_floatP3XDRPf)
-  %.not78104 = icmp eq i32 %109, 0
-  %spec.select = sext i1 %.not78104 to i32
+  %.not78102 = icmp eq i32 %109, 0
+  %spec.select = sext i1 %.not78102 to i32
   br label %.critedge
 
 110:                                              ; preds = %_ZL13sizeOfXdrType11XdrDataType.exit.thread
@@ -11468,38 +11468,38 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE10St
   %14 = icmp ne ptr %4, null
   %15 = icmp eq ptr %5, null
   %or.cond = and i1 %14, %15
-  br i1 %or.cond, label %20, label %16
+  br i1 %or.cond, label %.thread, label %16
 
 16:                                               ; preds = %13
   %17 = icmp eq ptr %4, null
   %18 = icmp ne ptr %5, null
   %or.cond3 = and i1 %17, %18
-  br i1 %or.cond3, label %.thread95, label %19
+  br i1 %or.cond3, label %.thread.thread, label %19
 
 19:                                               ; preds = %16
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.92, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 743) #26
   unreachable
 
-20:                                               ; preds = %13
+.thread:                                          ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #25
+  %20 = icmp sgt i64 %3, -1
+  br i1 %20, label %22, label %24
+
+.thread.thread:                                   ; preds = %16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #25
   %21 = icmp sgt i64 %3, -1
-  br i1 %21, label %23, label %25
+  br i1 %21, label %22, label %25
 
-.thread95:                                        ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #25
-  %22 = icmp sgt i64 %3, -1
-  br i1 %22, label %23, label %.thread96
-
-23:                                               ; preds = %.thread95, %20
-  %24 = trunc nuw nsw i64 %3 to i32
-  store i32 %24, ptr %8, align 4, !tbaa !33
+22:                                               ; preds = %.thread.thread, %.thread
+  %23 = trunc nuw nsw i64 %3 to i32
+  store i32 %23, ptr %8, align 4, !tbaa !33
   br label %36
 
-25:                                               ; preds = %20
+24:                                               ; preds = %.thread
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.96, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 760) #26
   unreachable
 
-.thread96:                                        ; preds = %.thread95
+25:                                               ; preds = %.thread.thread
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !257
   %28 = load ptr, ptr %5, align 8, !tbaa !258
@@ -11510,16 +11510,16 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE10St
   %.not72 = icmp ugt i64 %32, 4294967295
   br i1 %.not72, label %33, label %34
 
-33:                                               ; preds = %.thread96
+33:                                               ; preds = %25
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.94, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 764) #26
   unreachable
 
-34:                                               ; preds = %.thread96
+34:                                               ; preds = %25
   %35 = trunc nuw i64 %32 to i32
   store i32 %35, ptr %8, align 4, !tbaa !33
   br label %36
 
-36:                                               ; preds = %.thread94, %23, %34
+36:                                               ; preds = %.thread94, %22, %34
   %37 = call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef %0, ptr noundef nonnull %8)
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %117, label %39
@@ -11670,17 +11670,17 @@ _ZL13sizeOfXdrType11XdrDataType.exit:             ; preds = %.split63
   %101 = zext i32 %100 to i64
   %102 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.3, i32 noundef 856, i64 noundef range(i64 0, 4294967296) %101, i64 noundef 1)
   %103 = load i32, ptr %8, align 4, !tbaa !33
-  %switch109 = icmp eq i32 %41, 0
-  %spec.select110 = select i1 %switch109, ptr @_Z7xdr_intP3XDRPi, ptr @_Z9xdr_floatP3XDRPf
-  %104 = call noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef %0, ptr noundef %102, i32 noundef %103, i32 noundef 4, ptr noundef nonnull %spec.select110)
+  %switch107 = icmp eq i32 %41, 0
+  %spec.select108 = select i1 %switch107, ptr @_Z7xdr_intP3XDRPi, ptr @_Z9xdr_floatP3XDRPf
+  %104 = call noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef %0, ptr noundef %102, i32 noundef %103, i32 noundef 4, ptr noundef nonnull %spec.select108)
   %.not78 = icmp eq i32 %104, 0
   br i1 %.not78, label %.critedge, label %107
 
 _ZL7xdrProc11XdrDataType.exit.thread:             ; preds = %97
   %105 = load i32, ptr %8, align 4, !tbaa !33
   %106 = call noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef %0, ptr noundef %.0, i32 noundef %105, i32 noundef 8, ptr noundef nonnull @_Z10xdr_doubleP3XDRPd)
-  %.not78104 = icmp eq i32 %106, 0
-  %spec.select = sext i1 %.not78104 to i32
+  %.not78102 = icmp eq i32 %106, 0
+  %spec.select = sext i1 %.not78102 to i32
   br label %.critedge
 
 107:                                              ; preds = %_ZL13sizeOfXdrType11XdrDataType.exit
@@ -12756,38 +12756,38 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE16St
   %14 = icmp ne ptr %4, null
   %15 = icmp eq ptr %5, null
   %or.cond = and i1 %14, %15
-  br i1 %or.cond, label %20, label %16
+  br i1 %or.cond, label %.thread, label %16
 
 16:                                               ; preds = %13
   %17 = icmp eq ptr %4, null
   %18 = icmp ne ptr %5, null
   %or.cond3 = and i1 %17, %18
-  br i1 %or.cond3, label %.thread95, label %19
+  br i1 %or.cond3, label %.thread.thread, label %19
 
 19:                                               ; preds = %16
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.92, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL11doVectorLowIdSaIdE16StateEnergyEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 743) #26
   unreachable
 
-20:                                               ; preds = %13
+.thread:                                          ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #25
+  %20 = icmp sgt i64 %3, -1
+  br i1 %20, label %22, label %24
+
+.thread.thread:                                   ; preds = %16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #25
   %21 = icmp sgt i64 %3, -1
-  br i1 %21, label %23, label %25
+  br i1 %21, label %22, label %25
 
-.thread95:                                        ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #25
-  %22 = icmp sgt i64 %3, -1
-  br i1 %22, label %23, label %.thread96
-
-23:                                               ; preds = %.thread95, %20
-  %24 = trunc nuw nsw i64 %3 to i32
-  store i32 %24, ptr %8, align 4, !tbaa !33
+22:                                               ; preds = %.thread.thread, %.thread
+  %23 = trunc nuw nsw i64 %3 to i32
+  store i32 %23, ptr %8, align 4, !tbaa !33
   br label %36
 
-25:                                               ; preds = %20
+24:                                               ; preds = %.thread
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.96, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL11doVectorLowIdSaIdE16StateEnergyEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 760) #26
   unreachable
 
-.thread96:                                        ; preds = %.thread95
+25:                                               ; preds = %.thread.thread
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !257
   %28 = load ptr, ptr %5, align 8, !tbaa !258
@@ -12798,16 +12798,16 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE16St
   %.not72 = icmp ugt i64 %32, 4294967295
   br i1 %.not72, label %33, label %34
 
-33:                                               ; preds = %.thread96
+33:                                               ; preds = %25
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.94, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL11doVectorLowIdSaIdE16StateEnergyEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 764) #26
   unreachable
 
-34:                                               ; preds = %.thread96
+34:                                               ; preds = %25
   %35 = trunc nuw i64 %32 to i32
   store i32 %35, ptr %8, align 4, !tbaa !33
   br label %36
 
-36:                                               ; preds = %.thread94, %23, %34
+36:                                               ; preds = %.thread94, %22, %34
   %37 = call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef %0, ptr noundef nonnull %8)
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %117, label %39
@@ -12958,17 +12958,17 @@ _ZL13sizeOfXdrType11XdrDataType.exit:             ; preds = %.split63
   %101 = zext i32 %100 to i64
   %102 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.3, i32 noundef 856, i64 noundef range(i64 0, 4294967296) %101, i64 noundef 1)
   %103 = load i32, ptr %8, align 4, !tbaa !33
-  %switch109 = icmp eq i32 %41, 0
-  %spec.select110 = select i1 %switch109, ptr @_Z7xdr_intP3XDRPi, ptr @_Z9xdr_floatP3XDRPf
-  %104 = call noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef %0, ptr noundef %102, i32 noundef %103, i32 noundef 4, ptr noundef nonnull %spec.select110)
+  %switch107 = icmp eq i32 %41, 0
+  %spec.select108 = select i1 %switch107, ptr @_Z7xdr_intP3XDRPi, ptr @_Z9xdr_floatP3XDRPf
+  %104 = call noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef %0, ptr noundef %102, i32 noundef %103, i32 noundef 4, ptr noundef nonnull %spec.select108)
   %.not78 = icmp eq i32 %104, 0
   br i1 %.not78, label %.critedge, label %107
 
 _ZL7xdrProc11XdrDataType.exit.thread:             ; preds = %97
   %105 = load i32, ptr %8, align 4, !tbaa !33
   %106 = call noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef %0, ptr noundef %.0, i32 noundef %105, i32 noundef 8, ptr noundef nonnull @_Z10xdr_doubleP3XDRPd)
-  %.not78104 = icmp eq i32 %106, 0
-  %spec.select = sext i1 %.not78104 to i32
+  %.not78102 = icmp eq i32 %106, 0
+  %spec.select = sext i1 %.not78102 to i32
   br label %.critedge
 
 107:                                              ; preds = %_ZL13sizeOfXdrType11XdrDataType.exit

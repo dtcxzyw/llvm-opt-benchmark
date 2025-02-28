@@ -204,7 +204,7 @@ define hidden void @_ZN2cv7GOriginC2ENS_6GShapeENS_4util7variantIJNS2_9monostate
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   invoke void %8(ptr noundef nonnull %9, ptr noundef nonnull %10)
-          to label %_ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEEC2ERKS8_.exit unwind label %20
+          to label %_ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEEC2ERKS8_.exit unwind label %_ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEED2Ev.exit
 
 _ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEEC2ERKS8_.exit: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -226,11 +226,11 @@ _ZN2cv4util3getINS_6detail9VectorRefEJNS0_9monostateENS_7Scalar_IdEES3_NS_3MatEE
   store i32 %18, ptr %19, align 8, !tbaa !28
   ret void
 
-20:                                               ; preds = %3
-  %21 = landingpad { ptr, i32 }
+_ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEED2Ev.exit: ; preds = %3
+  %20 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN2cv5GNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %20
 }
 
 declare void @_ZN2cv5GNode5ConstEv(ptr dead_on_unwind writable sret(%"class.cv::GNode") align 8) local_unnamed_addr #0

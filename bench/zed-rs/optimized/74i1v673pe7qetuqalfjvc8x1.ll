@@ -5881,6 +5881,12 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %.not.i = icmp ult i64 %11, %5
   br i1 %.not.i, label %12, label %28
 
+.thread45:                                        ; preds = %21, %.thread49, %26
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr376drop_in_place$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$gpui..elements..surface..Surface$GT$$C$$LT$gpui..elements..div..Focusable$LT$gpui..elements..div..Div$GT$$u20$as$u20$gpui..element..ParentElement$GT$..children$LT$gpui..elements..surface..Surface$C$core..option..Option$LT$gpui..elements..surface..Surface$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h05756ed72e4d9822E"(ptr noalias noundef nonnull align 8 dereferenceable(576) %3) #28
+          to label %common.resume unwind label %39
+
 12:                                               ; preds = %2
   %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %5)
   %14 = extractvalue { i64, i1 } %13, 1
@@ -5899,7 +5905,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 21:                                               ; preds = %15
   %22 = add nuw i64 %.sroa.01.0.i.i.i, 1
   %23 = invoke { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h6b162b5b097a71daE.llvm.7294768934753845228"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %22)
-          to label %24 unwind label %41
+          to label %24 unwind label %.thread45
 
 24:                                               ; preds = %21
   %25 = extractvalue { i64, i64 } %23, 0
@@ -5915,7 +5921,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 
 .thread49:                                        ; preds = %15, %12, %24
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.a70d8ebad099a614fc692634f24baa01.124.llvm.7294768934753845228, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a70d8ebad099a614fc692634f24baa01.125.llvm.7294768934753845228) #27
-          to label %.noexc10 unwind label %41
+          to label %.noexc10 unwind label %.thread45
 
 .noexc10:                                         ; preds = %.thread49
   unreachable
@@ -5923,7 +5929,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 26:                                               ; preds = %24
   %27 = extractvalue { i64, i64 } %23, 1
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef %25, i64 noundef %27) #27
-          to label %.noexc11 unwind label %41
+          to label %.noexc11 unwind label %.thread45
 
 .noexc11:                                         ; preds = %26
   unreachable
@@ -5957,24 +5963,18 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @llvm.lifetime.end.p0(i64 576, ptr nonnull %3)
   ret void
 
-39:                                               ; preds = %41
+39:                                               ; preds = %.thread45
   %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
-common.resume:                                    ; preds = %41
+common.resume:                                    ; preds = %.thread45
   resume { ptr, i32 } %lpad.thr_comm
 
 "_ZN4core3ptr376drop_in_place$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$gpui..elements..surface..Surface$GT$$C$$LT$gpui..elements..div..Focusable$LT$gpui..elements..div..Div$GT$$u20$as$u20$gpui..element..ParentElement$GT$..children$LT$gpui..elements..surface..Surface$C$core..option..Option$LT$gpui..elements..surface..Surface$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h05756ed72e4d9822E.exit22": ; preds = %34
   store i64 %31, ptr %.sink9.i, align 8
   br label %38
-
-41:                                               ; preds = %26, %.thread49, %21
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr376drop_in_place$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$gpui..elements..surface..Surface$GT$$C$$LT$gpui..elements..div..Focusable$LT$gpui..elements..div..Div$GT$$u20$as$u20$gpui..element..ParentElement$GT$..children$LT$gpui..elements..surface..Surface$C$core..option..Option$LT$gpui..elements..surface..Surface$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h05756ed72e4d9822E"(ptr noalias noundef nonnull align 8 dereferenceable(576) %3) #28
-          to label %common.resume unwind label %39
 }
 
 ; Function Attrs: nonlazybind uwtable

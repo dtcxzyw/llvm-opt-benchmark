@@ -21804,7 +21804,7 @@ define hidden void @"_ZN136_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr171drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc3c72de4bac92f58E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #57
-          to label %10 unwind label %8
+          to label %"_ZN4core3ptr564drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..chain..Chain$LT$std..collections..hash..map..Iter$LT$alloc..string..String$C$alloc..string..String$GT$$C$std..collections..hash..map..Iter$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$C$rust_analyzer..reload..$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$..switch_workspaces..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..IntoIter$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$$GT$$GT$17hfcb2dcb7bac7c44aE.exit" unwind label %8
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3)
@@ -21818,7 +21818,7 @@ define hidden void @"_ZN136_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #58
   unreachable
 
-10:                                               ; preds = %5
+"_ZN4core3ptr564drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..chain..Chain$LT$std..collections..hash..map..Iter$LT$alloc..string..String$C$alloc..string..String$GT$$C$std..collections..hash..map..Iter$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$C$rust_analyzer..reload..$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$..switch_workspaces..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..IntoIter$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$$GT$$GT$17hfcb2dcb7bac7c44aE.exit": ; preds = %5
   resume { ptr, i32 } %6
 }
 

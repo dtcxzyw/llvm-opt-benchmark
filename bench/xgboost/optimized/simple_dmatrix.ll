@@ -1934,13 +1934,13 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_
 47:                                               ; preds = %21
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorImSaImEED2Ev.exit15
+  br label %.thread
 
 49:                                               ; preds = %55, %51, %37
   %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  br label %_ZNSt6vectorImSaImEED2Ev.exit15
+  br label %.thread
 
 51:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_S8_.exit
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -1970,12 +1970,12 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZSt10accumulateIN9
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.016.0, i64 noundef %59) #27
   br label %62
 
-_ZNSt6vectorImSaImEED2Ev.exit15:                  ; preds = %47, %49
-  %.pn.ph = phi { ptr, i32 } [ %48, %47 ], [ %50, %49 ]
+.thread:                                          ; preds = %47, %49
+  %.pn30 = phi { ptr, i32 } [ %48, %47 ], [ %50, %49 ]
   %60 = ptrtoint ptr %.sroa.12.0 to i64
   %61 = sub i64 %60, %27
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.016.0, i64 noundef %61) #27
-  resume { ptr, i32 } %.pn.ph
+  resume { ptr, i32 } %.pn30
 
 62:                                               ; preds = %_ZNSt6vectorImSaImEED2Ev.exit, %8, %2
   ret void

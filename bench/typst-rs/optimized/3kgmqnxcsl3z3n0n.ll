@@ -53231,7 +53231,7 @@ define hidden void @"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$cor
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$smallvec..SmallVec$LT$$u5b$usize$u3b$$u20$3$u5d$$GT$$GT$17hd0d5e46e562c080bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #48
-          to label %10 unwind label %8, !noalias !14981
+          to label %"_ZN4core3ptr296drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..value..Value..cast$LT$usize$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17hffe2a5c86724bb51E.exit.i" unwind label %8, !noalias !14981
 
 8:                                                ; preds = %6
   %9 = landingpad { ptr, i32 }
@@ -53239,7 +53239,7 @@ define hidden void @"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$cor
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #49, !noalias !14981
   unreachable
 
-10:                                               ; preds = %6
+"_ZN4core3ptr296drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..value..Value..cast$LT$usize$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17hffe2a5c86724bb51E.exit.i": ; preds = %6
   resume { ptr, i32 } %7
 
 "_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$9from_iter17h425d8ee19baacd2aE.llvm.10579729455205085779.exit": ; preds = %3
@@ -53311,7 +53311,7 @@ define hidden void @"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$cor
   %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr100drop_in_place$LT$smallvec..SmallVec$LT$$u5b$typst..layout..container..Sizing$u3b$$u20$4$u5d$$GT$$GT$17h41b0ef78be3a0fc8E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %5) #48
-          to label %11 unwind label %9, !noalias !15030
+          to label %"_ZN4core3ptr323drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..value..Value..cast$LT$typst..layout..container..Sizing$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h408e92637a8d8859E.exit.i" unwind label %9, !noalias !15030
 
 9:                                                ; preds = %7
   %10 = landingpad { ptr, i32 }
@@ -53319,7 +53319,7 @@ define hidden void @"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$cor
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #49, !noalias !15030
   unreachable
 
-11:                                               ; preds = %7
+"_ZN4core3ptr323drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..value..Value..cast$LT$typst..layout..container..Sizing$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h408e92637a8d8859E.exit.i": ; preds = %7
   resume { ptr, i32 } %8
 
 "_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$9from_iter17h9c63a36415ff5d1fE.llvm.10579729455205085779.exit": ; preds = %3
@@ -53448,7 +53448,7 @@ define hidden void @"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$cor
   %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h39c60074b630448aE.llvm.16845035774076767816"(ptr noalias noundef nonnull align 16 dereferenceable(64) %5)
-          to label %11 unwind label %9, !noalias !15136
+          to label %"_ZN4core3ptr317drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..value..Value..cast$LT$typst..introspection..Meta$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17he9492e8d54de4484E.exit.i" unwind label %9, !noalias !15136
 
 9:                                                ; preds = %7
   %10 = landingpad { ptr, i32 }
@@ -53456,7 +53456,7 @@ define hidden void @"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$cor
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #49, !noalias !15136
   unreachable
 
-11:                                               ; preds = %7
+"_ZN4core3ptr317drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..value..Value..cast$LT$typst..introspection..Meta$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17he9492e8d54de4484E.exit.i": ; preds = %7
   resume { ptr, i32 } %8
 
 "_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$9from_iter17h7cd79f6806309340E.llvm.10579729455205085779.exit": ; preds = %3
@@ -53515,7 +53515,7 @@ define hidden void @"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$cor
   %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$smallvec..SmallVec$LT$$u5b$isize$u3b$$u20$1$u5d$$GT$$GT$17h4b4e73327b851de7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #48
-          to label %11 unwind label %9, !noalias !15172
+          to label %"_ZN4core3ptr296drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..value..Value..cast$LT$isize$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h7eb6ceded4eb7812E.exit.i" unwind label %9, !noalias !15172
 
 9:                                                ; preds = %7
   %10 = landingpad { ptr, i32 }
@@ -53523,7 +53523,7 @@ define hidden void @"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$cor
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #49, !noalias !15172
   unreachable
 
-11:                                               ; preds = %7
+"_ZN4core3ptr296drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..value..Value..cast$LT$isize$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h7eb6ceded4eb7812E.exit.i": ; preds = %7
   resume { ptr, i32 } %8
 
 "_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$9from_iter17h3a3005b0c7f1deefE.llvm.10579729455205085779.exit": ; preds = %3
@@ -53582,7 +53582,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$smallvec..SmallVec$LT$$u5b$isize$u3b$$u20$1$u5d$$GT$$GT$17h4b4e73327b851de7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #48
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr296drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..value..Value..cast$LT$isize$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h7eb6ceded4eb7812E.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
@@ -53596,7 +53596,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #49
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr296drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..value..Value..cast$LT$isize$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h7eb6ceded4eb7812E.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -53615,7 +53615,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$smallvec..SmallVec$LT$$u5b$usize$u3b$$u20$3$u5d$$GT$$GT$17hd0d5e46e562c080bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #48
-          to label %10 unwind label %8
+          to label %"_ZN4core3ptr296drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..value..Value..cast$LT$usize$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17hffe2a5c86724bb51E.exit" unwind label %8
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
@@ -53629,7 +53629,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #49
   unreachable
 
-10:                                               ; preds = %5
+"_ZN4core3ptr296drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..value..Value..cast$LT$usize$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17hffe2a5c86724bb51E.exit": ; preds = %5
   resume { ptr, i32 } %6
 }
 
@@ -53649,7 +53649,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h39c60074b630448aE.llvm.16845035774076767816"(ptr noalias noundef nonnull align 16 dereferenceable(64) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr317drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..value..Value..cast$LT$typst..introspection..Meta$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17he9492e8d54de4484E.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
@@ -53663,7 +53663,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #49
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr317drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..value..Value..cast$LT$typst..introspection..Meta$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17he9492e8d54de4484E.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -53683,7 +53683,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr100drop_in_place$LT$smallvec..SmallVec$LT$$u5b$typst..layout..container..Sizing$u3b$$u20$4$u5d$$GT$$GT$17h41b0ef78be3a0fc8E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %4) #48
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr323drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..value..Value..cast$LT$typst..layout..container..Sizing$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h408e92637a8d8859E.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
@@ -53697,7 +53697,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #49
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr323drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$ecow..vec..IntoIter$LT$typst..foundations..value..Value$GT$$C$typst..foundations..value..Value..cast$LT$typst..layout..container..Sizing$GT$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h408e92637a8d8859E.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 

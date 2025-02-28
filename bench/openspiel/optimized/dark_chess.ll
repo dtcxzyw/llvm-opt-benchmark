@@ -2037,7 +2037,7 @@ define void @_ZNK10open_spiel10dark_chess14DarkChessState7ReturnsEv(ptr dead_on_
   call void @_ZNK10open_spiel10dark_chess14DarkChessState17MaybeFinalReturnsEv(ptr dead_on_unwind nonnull writable sret(%"class.absl::debian2::optional.46") align 8 %3, ptr noundef nonnull align 8 dereferenceable(496) %1)
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %24
+  br i1 %5, label %6, label %25
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2057,7 +2057,7 @@ define void @_ZNK10open_spiel10dark_chess14DarkChessState7ReturnsEv(ptr dead_on_
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr %15, ptr %16, align 8
-  br label %29
+  br label %30
 
 17:                                               ; preds = %6
   %18 = icmp ugt i64 %13, 9223372036854775800
@@ -2065,14 +2065,14 @@ define void @_ZNK10open_spiel10dark_chess14DarkChessState7ReturnsEv(ptr dead_on_
 
 .noexc.i.i:                                       ; preds = %17
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #29
-          to label %.noexc unwind label %37
+          to label %.noexc unwind label %.body.thread10
 
 .noexc:                                           ; preds = %.noexc.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %17
   %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #31
-          to label %20 unwind label %37
+          to label %20 unwind label %.body.thread10
 
 20:                                               ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
   store ptr %19, ptr %0, align 8
@@ -2082,54 +2082,54 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %23, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %19, ptr align 8 %10, i64 %13, i1 false)
-  br label %29
+  br label %30
 
-24:                                               ; preds = %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %25 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
-  store ptr %25, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  store ptr %26, ptr %28, align 8
-  br label %_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit
-
-29:                                               ; preds = %20, %.noexc4.thread
-  %30 = phi ptr [ %15, %.noexc4.thread ], [ %22, %20 ]
-  %31 = phi ptr [ %14, %.noexc4.thread ], [ %21, %20 ]
-  store ptr %30, ptr %31, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit, label %32
-
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = sub i64 %35, %12
-  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %36) #32
-  br label %_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit
-
-_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit: ; preds = %29, %32, %24
-  ret void
-
-37:                                               ; preds = %.noexc.i.i, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
-  %38 = landingpad { ptr, i32 }
+.body.thread10:                                   ; preds = %.noexc.i.i, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
+  %24 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i.i.i.i.i.i5 = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i.i.i.i5, label %_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit7, label %39
+  br i1 %.not.i.i.i.i.i.i.i.i5, label %_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit7, label %38
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %41 = load ptr, ptr %40, align 8
-  %42 = ptrtoint ptr %41 to i64
-  %43 = sub i64 %42, %12
-  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %43) #32
+25:                                               ; preds = %2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %26 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
+  store ptr %26, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
+  store ptr %27, ptr %29, align 8
+  br label %_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit
+
+30:                                               ; preds = %20, %.noexc4.thread
+  %31 = phi ptr [ %15, %.noexc4.thread ], [ %22, %20 ]
+  %32 = phi ptr [ %14, %.noexc4.thread ], [ %21, %20 ]
+  store ptr %31, ptr %32, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit, label %33
+
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %35 = load ptr, ptr %34, align 8
+  %36 = ptrtoint ptr %35 to i64
+  %37 = sub i64 %36, %12
+  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %37) #32
+  br label %_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit
+
+_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit: ; preds = %30, %33, %25
+  ret void
+
+38:                                               ; preds = %.body.thread10
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %40 = load ptr, ptr %39, align 8
+  %41 = ptrtoint ptr %40 to i64
+  %42 = sub i64 %41, %12
+  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %42) #32
   br label %_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit7
 
-_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit7: ; preds = %37, %39
-  resume { ptr, i32 } %38
+_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit7: ; preds = %.body.thread10, %38
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress uwtable

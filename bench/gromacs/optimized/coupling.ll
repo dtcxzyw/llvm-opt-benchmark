@@ -8502,150 +8502,150 @@ define void @_Z28update_annealing_target_tempRK10t_inputrecfP14gmx_ekindata_tPN3
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit ]
   %19 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !423
-  switch i32 %20, label %21 [
+  switch i32 %20, label %39 [
     i32 0, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
-    i32 2, label %35
-    i32 1, label %52
+    i32 2, label %.thread.i
+    i32 1, label %.thread62.i
   ]
 
-21:                                               ; preds = %18
-  %22 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
-  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.46, i32 noundef %22)
-  %23 = load ptr, ptr %5, align 8, !tbaa !145
-  invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.45, ptr noundef %23, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL33computeAnnealingTargetTemperatureRK10t_inputrecifENK3$_0clEv", ptr noundef nonnull @.str, i32 noundef 2309) #27
-          to label %24 unwind label %25
+.thread62.i:                                      ; preds = %18
+  %21 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %22 = load i32, ptr %21, align 4, !tbaa !134
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
+  br label %53
 
-24:                                               ; preds = %21
+.thread.i:                                        ; preds = %18
+  %23 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %24 = load i32, ptr %23, align 4, !tbaa !134
+  %25 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %26 = load ptr, ptr %25, align 8, !tbaa !199
+  %27 = sext i32 %24 to i64
+  %28 = getelementptr float, ptr %26, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 -4
+  %30 = load float, ptr %29, align 4, !tbaa !114
+  %31 = fdiv float %1, %30
+  %32 = fptosi float %31 to i32
+  %33 = sitofp i32 %32 to float
+  %34 = fneg float %33
+  %35 = tail call float @llvm.fmuladd.f32(float %34, float %30, float %1)
+  %36 = fsub float %35, %30
+  %37 = tail call noundef float @llvm.fabs.f32(float %36)
+  %38 = fcmp olt float %37, 0x3EE9000000000000
+  %.047.i = select i1 %38, float 0.000000e+00, float %35
+  br label %53
+
+39:                                               ; preds = %18
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.46, i32 noundef %40)
+  %41 = load ptr, ptr %5, align 8, !tbaa !145
+  invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.45, ptr noundef %41, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL33computeAnnealingTargetTemperatureRK10t_inputrecifENK3$_0clEv", ptr noundef nonnull @.str, i32 noundef 2309) #27
+          to label %42 unwind label %43
+
+42:                                               ; preds = %39
   unreachable
 
-25:                                               ; preds = %21
-  %26 = landingpad { ptr, i32 }
+43:                                               ; preds = %39
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %27 = load ptr, ptr %5, align 8, !tbaa !145
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %29 = icmp eq ptr %27, %28
-  br i1 %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+  %45 = load ptr, ptr %5, align 8, !tbaa !145
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %47 = icmp eq ptr %45, %46
+  br i1 %47, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !148
-  %32 = icmp ult i64 %31, 16
-  call void @llvm.assume(i1 %32)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %43
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %49 = load i64, ptr %48, align 8, !tbaa !148
+  %50 = icmp ult i64 %49, 16
+  call void @llvm.assume(i1 %50)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %25
-  %33 = load i64, ptr %28, align 8, !tbaa !147
-  %34 = add i64 %33, 1
-  call void @_ZdlPvm(ptr noundef %27, i64 noundef %34) #28
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %43
+  %51 = load i64, ptr %46, align 8, !tbaa !147
+  %52 = add i64 %51, 1
+  call void @_ZdlPvm(ptr noundef %45, i64 noundef %52) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
-  resume { ptr, i32 } %26
+  resume { ptr, i32 } %44
 
-35:                                               ; preds = %18
-  %36 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
-  %37 = load i32, ptr %36, align 4, !tbaa !134
-  %38 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
-  %39 = load ptr, ptr %38, align 8, !tbaa !199
-  %40 = sext i32 %37 to i64
-  %41 = getelementptr float, ptr %39, i64 %40
-  %42 = getelementptr i8, ptr %41, i64 -4
-  %43 = load float, ptr %42, align 4, !tbaa !114
-  %44 = fdiv float %1, %43
-  %45 = fptosi float %44 to i32
-  %46 = sitofp i32 %45 to float
-  %47 = fneg float %46
-  %48 = tail call float @llvm.fmuladd.f32(float %47, float %43, float %1)
-  %49 = fsub float %48, %43
-  %50 = tail call noundef float @llvm.fabs.f32(float %49)
-  %51 = fcmp olt float %50, 0x3EE9000000000000
-  %.047.i = select i1 %51, float 0.000000e+00, float %48
-  br label %55
-
-52:                                               ; preds = %18
-  %53 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
-  %54 = load i32, ptr %53, align 4, !tbaa !134
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %55
-
-55:                                               ; preds = %52, %35
-  %56 = phi ptr [ %13, %35 ], [ %.pre.i, %52 ]
-  %57 = phi i32 [ %37, %35 ], [ %54, %52 ]
-  %.1.i = phi float [ %.047.i, %35 ], [ %1, %52 ]
-  %58 = add nsw i32 %57, -1
-  %59 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %58, i32 0)
+53:                                               ; preds = %.thread.i, %.thread62.i
+  %54 = phi ptr [ %13, %.thread.i ], [ %.pre.i, %.thread62.i ]
+  %55 = phi i32 [ %24, %.thread.i ], [ %22, %.thread62.i ]
+  %.1.i = phi float [ %.047.i, %.thread.i ], [ %1, %.thread62.i ]
+  %56 = add nsw i32 %55, -1
+  %57 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %56, i32 0)
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
-  br label %60
+  br label %58
 
-60:                                               ; preds = %61, %55
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %61 ], [ 0, %55 ]
+58:                                               ; preds = %59, %53
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %59 ], [ 0, %53 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge51.i, label %61
+  br i1 %exitcond.not.i, label %.critedge51.i, label %59
 
-61:                                               ; preds = %60
-  %62 = load ptr, ptr %59, align 8, !tbaa !199
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %57, align 8, !tbaa !199
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %63 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv.next.i
-  %64 = load float, ptr %63, align 4, !tbaa !114
-  %65 = fcmp ogt float %.1.i, %64
-  br i1 %65, label %60, label %.critedge.i, !llvm.loop !425
+  %61 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv.next.i
+  %62 = load float, ptr %61, align 4, !tbaa !114
+  %63 = fcmp ogt float %.1.i, %62
+  br i1 %63, label %58, label %.critedge.i, !llvm.loop !425
 
-.critedge.i:                                      ; preds = %61
-  %66 = and i64 %indvars.iv.i, 4294967295
-  %67 = getelementptr inbounds nuw float, ptr %62, i64 %66
-  %68 = load float, ptr %67, align 4, !tbaa !114
-  %69 = fsub float %64, %68
-  %70 = fcmp olt float %69, 0x3EE9000000000000
-  br i1 %70, label %71, label %76
+.critedge.i:                                      ; preds = %59
+  %64 = and i64 %indvars.iv.i, 4294967295
+  %65 = getelementptr inbounds nuw float, ptr %60, i64 %64
+  %66 = load float, ptr %65, align 4, !tbaa !114
+  %67 = fsub float %62, %66
+  %68 = fcmp olt float %67, 0x3EE9000000000000
+  br i1 %68, label %69, label %74
 
-71:                                               ; preds = %.critedge.i
-  %72 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
-  %73 = load ptr, ptr %72, align 8, !tbaa !199
-  %74 = getelementptr inbounds nuw float, ptr %73, i64 %indvars.iv.next.i
-  %75 = load float, ptr %74, align 4, !tbaa !114
+69:                                               ; preds = %.critedge.i
+  %70 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %71 = load ptr, ptr %70, align 8, !tbaa !199
+  %72 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv.next.i
+  %73 = load float, ptr %72, align 4, !tbaa !114
   br label %_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit
 
-76:                                               ; preds = %.critedge.i
-  %77 = fsub float %.1.i, %68
-  %78 = fdiv float %77, %69
-  %79 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
-  %80 = load ptr, ptr %79, align 8, !tbaa !199
-  %81 = getelementptr inbounds nuw float, ptr %80, i64 %indvars.iv.next.i
-  %82 = load float, ptr %81, align 4, !tbaa !114
-  %83 = fsub float 1.000000e+00, %78
-  %84 = getelementptr inbounds nuw float, ptr %80, i64 %66
-  %85 = load float, ptr %84, align 4, !tbaa !114
-  %86 = fmul float %83, %85
-  %87 = tail call float @llvm.fmuladd.f32(float %78, float %82, float %86)
+74:                                               ; preds = %.critedge.i
+  %75 = fsub float %.1.i, %66
+  %76 = fdiv float %75, %67
+  %77 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %78 = load ptr, ptr %77, align 8, !tbaa !199
+  %79 = getelementptr inbounds nuw float, ptr %78, i64 %indvars.iv.next.i
+  %80 = load float, ptr %79, align 4, !tbaa !114
+  %81 = fsub float 1.000000e+00, %76
+  %82 = getelementptr inbounds nuw float, ptr %78, i64 %64
+  %83 = load float, ptr %82, align 4, !tbaa !114
+  %84 = fmul float %81, %83
+  %85 = tail call float @llvm.fmuladd.f32(float %76, float %80, float %84)
   br label %_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit
 
-.critedge51.i:                                    ; preds = %60
-  %88 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
-  %89 = load ptr, ptr %88, align 8, !tbaa !199
-  %90 = sext i32 %58 to i64
-  %91 = getelementptr inbounds float, ptr %89, i64 %90
-  %92 = load float, ptr %91, align 4, !tbaa !114
+.critedge51.i:                                    ; preds = %58
+  %86 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %87 = load ptr, ptr %86, align 8, !tbaa !199
+  %88 = sext i32 %56 to i64
+  %89 = getelementptr inbounds float, ptr %87, i64 %88
+  %90 = load float, ptr %89, align 4, !tbaa !114
   br label %_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit
 
-_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit: ; preds = %71, %76, %.critedge51.i
-  %.0.i = phi float [ %75, %71 ], [ %87, %76 ], [ %92, %.critedge51.i ]
-  %93 = load ptr, ptr %2, align 8, !tbaa !110
-  %94 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv
-  store float %.0.i, ptr %94, align 4, !tbaa !114
-  %95 = load i32, ptr %16, align 8, !tbaa !426
-  %96 = icmp eq i32 %95, 2
-  %97 = icmp eq i64 %indvars.iv, 0
-  %or.cond.i12 = and i1 %97, %96
-  br i1 %or.cond.i12, label %98, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
+_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit: ; preds = %69, %74, %.critedge51.i
+  %.0.i = phi float [ %73, %69 ], [ %85, %74 ], [ %90, %.critedge51.i ]
+  %91 = load ptr, ptr %2, align 8, !tbaa !110
+  %92 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv
+  store float %.0.i, ptr %92, align 4, !tbaa !114
+  %93 = load i32, ptr %16, align 8, !tbaa !426
+  %94 = icmp eq i32 %93, 2
+  %95 = icmp eq i64 %indvars.iv, 0
+  %or.cond.i12 = and i1 %95, %94
+  br i1 %or.cond.i12, label %96, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
 
-98:                                               ; preds = %_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit
+96:                                               ; preds = %_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit
   store float %.0.i, ptr %17, align 4, !tbaa !361
   br label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
 
-_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit: ; preds = %18, %98, %_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit
+_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit: ; preds = %18, %96, %_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !427

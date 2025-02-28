@@ -7307,7 +7307,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h4565c9b3aeb239b0E.exit: ; preds
   invoke void @"_ZN4core3ptr101drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$indexed_docs..store..PackageName$GT$$GT$17hb36ec5e0012155feE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #30
           to label %254 unwind label %245
 
-247:                                              ; preds = %.noexc81, %160
+247:                                              ; preds = %160, %.noexc81
   %248 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @"_ZN115_$LT$indexed_docs..providers..rustdoc..LocalRustdocProvider$u20$as$u20$indexed_docs..store..IndexedDocsProvider$GT$16suggest_packages28_$u7b$$u7b$closure$u7d$$u7d$16WORKSPACE_CRATES17hb3178d35c24df291E", i64 8), ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false)

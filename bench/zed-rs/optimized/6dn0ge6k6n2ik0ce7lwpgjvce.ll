@@ -9107,7 +9107,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %16, ptr noundef nonnull align 8 dereferenceable(240) %3, i64 240, i1 false)
   br label %13
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hb5a4fbaf27847bc4E.llvm.12324841863366181129.exit": ; preds = %17, %21
+.thread:                                          ; preds = %17, %21
   resume { ptr, i32 } %18
 
 17:                                               ; preds = %4
@@ -9115,11 +9115,11 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
           cleanup
   %19 = load i64, ptr %3, align 8, !range !786, !alias.scope !1395, !noundef !4
   %20 = icmp eq i64 %19, -9223372036854775807
-  br i1 %20, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hb5a4fbaf27847bc4E.llvm.12324841863366181129.exit", label %21
+  br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %17
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h2e9f52afbdaea07cE"(ptr noalias noundef nonnull align 8 dereferenceable(240) %3)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hb5a4fbaf27847bc4E.llvm.12324841863366181129.exit" unwind label %22
+          to label %.thread unwind label %22
 
 22:                                               ; preds = %21
   %23 = landingpad { ptr, i32 }

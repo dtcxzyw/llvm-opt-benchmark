@@ -453,26 +453,26 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 8:                                                ; preds = %6
   %9 = load i8, ptr %5, align 1, !range !64, !noalias !67, !noundef !4
   %10 = icmp eq i8 %9, 2
-  br i1 %10, label %14, label %11
+  br i1 %10, label %13, label %12
 
-11:                                               ; preds = %8
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$worktree..BackgroundScanner..progress_timer..$u7b$$u7b$closure$u7d$$u7d$$GT$17h612360e85f62699dE.llvm.6954931580167067417"(ptr noundef nonnull align 8 %.val.i.i)
-          to label %14 unwind label %12, !noalias !66
-
-12:                                               ; preds = %11
-  %13 = landingpad { ptr, i32 }
+"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$worktree..BackgroundScanner..progress_timer..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2d619c0041459347E.llvm.6954931580167067417.exit2.i.i.i.i.i.i": ; preds = %12
+  %11 = landingpad { ptr, i32 }
           cleanup
   store i8 2, ptr %5, align 1, !noalias !67
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %11
 
-14:                                               ; preds = %11, %8
+12:                                               ; preds = %8
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$worktree..BackgroundScanner..progress_timer..$u7b$$u7b$closure$u7d$$u7d$$GT$17h612360e85f62699dE.llvm.6954931580167067417"(ptr noundef nonnull align 8 %.val.i.i)
+          to label %13 unwind label %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$worktree..BackgroundScanner..progress_timer..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2d619c0041459347E.llvm.6954931580167067417.exit2.i.i.i.i.i.i", !noalias !66
+
+13:                                               ; preds = %12, %8
   store i8 2, ptr %5, align 1, !noalias !67
   br label %_ZN4core3ops8function6FnOnce9call_once17hdfdcb393cad810d7E.exit
 
-_ZN4core3ops8function6FnOnce9call_once17hdfdcb393cad810d7E.exit: ; preds = %3, %6, %14
-  %.sink.i = phi i8 [ 6, %3 ], [ 4, %14 ], [ 5, %6 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 %.sink.i, ptr %15, align 8, !alias.scope !74, !noalias !75
+_ZN4core3ops8function6FnOnce9call_once17hdfdcb393cad810d7E.exit: ; preds = %3, %6, %13
+  %.sink.i = phi i8 [ 6, %3 ], [ 4, %13 ], [ 5, %6 ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i8 %.sink.i, ptr %14, align 8, !alias.scope !74, !noalias !75
   ret void
 }
 
@@ -15523,24 +15523,24 @@ define internal void @"_ZN8worktree17BackgroundScanner9scan_dirs28_$u7b$$u7b$clo
 8:                                                ; preds = %6
   %9 = load i8, ptr %5, align 1, !range !64, !noalias !3836, !noundef !4
   %10 = icmp eq i8 %9, 2
-  br i1 %10, label %14, label %11
+  br i1 %10, label %13, label %12
 
-11:                                               ; preds = %8
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$worktree..BackgroundScanner..progress_timer..$u7b$$u7b$closure$u7d$$u7d$$GT$17h612360e85f62699dE.llvm.6954931580167067417"(ptr noundef nonnull align 8 %.val)
-          to label %14 unwind label %12
-
-12:                                               ; preds = %11
-  %13 = landingpad { ptr, i32 }
+"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$worktree..BackgroundScanner..progress_timer..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2d619c0041459347E.llvm.6954931580167067417.exit2.i.i.i.i": ; preds = %12
+  %11 = landingpad { ptr, i32 }
           cleanup
   store i8 2, ptr %5, align 1, !noalias !3836
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %11
 
-14:                                               ; preds = %8, %11
+12:                                               ; preds = %8
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$worktree..BackgroundScanner..progress_timer..$u7b$$u7b$closure$u7d$$u7d$$GT$17h612360e85f62699dE.llvm.6954931580167067417"(ptr noundef nonnull align 8 %.val)
+          to label %13 unwind label %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$worktree..BackgroundScanner..progress_timer..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2d619c0041459347E.llvm.6954931580167067417.exit2.i.i.i.i"
+
+13:                                               ; preds = %8, %12
   store i8 2, ptr %5, align 1, !noalias !3836
   br label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0b5dd3a14e23e7ebE.exit"
 
-"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0b5dd3a14e23e7ebE.exit": ; preds = %14, %6, %3
-  %.sroa.4.0.sink = phi i8 [ 6, %3 ], [ 4, %14 ], [ 5, %6 ]
+"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0b5dd3a14e23e7ebE.exit": ; preds = %13, %6, %3
+  %.sroa.4.0.sink = phi i8 [ 6, %3 ], [ 4, %13 ], [ 5, %6 ]
   %.sroa.4.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i8 %.sroa.4.0.sink, ptr %.sroa.4.0..sroa_idx1, align 8
   ret void

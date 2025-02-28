@@ -17502,7 +17502,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17h3da266657a605
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr220drop_in_place$LT$$LP$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$17hce96e6528023f891E.llvm.17651247297929507582"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4) #31
-          to label %10 unwind label %8
+          to label %"_ZN4core3ptr549drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..copy_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8828eb0938e4c228E.exit" unwind label %8
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
@@ -17516,7 +17516,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17h3da266657a605
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #32
   unreachable
 
-10:                                               ; preds = %5
+"_ZN4core3ptr549drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..copy_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8828eb0938e4c228E.exit": ; preds = %5
   resume { ptr, i32 } %6
 }
 
@@ -17543,7 +17543,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17h4e863dfa7b826
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr220drop_in_place$LT$$LP$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$17hce96e6528023f891E.llvm.17651247297929507582"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4) #31
-          to label %10 unwind label %8
+          to label %"_ZN4core3ptr548drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..ord_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h792bced873693809E.exit" unwind label %8
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
@@ -17557,7 +17557,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17h4e863dfa7b826
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #32
   unreachable
 
-10:                                               ; preds = %5
+"_ZN4core3ptr548drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..ord_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h792bced873693809E.exit": ; preds = %5
   resume { ptr, i32 } %6
 }
 
@@ -17584,7 +17584,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17h7c55622cb47d7
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr220drop_in_place$LT$$LP$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$17hce96e6528023f891E.llvm.17651247297929507582"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4) #31
-          to label %10 unwind label %8
+          to label %"_ZN4core3ptr555drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..partial_eq_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h33acdde916827a71E.exit" unwind label %8
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
@@ -17598,7 +17598,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17h7c55622cb47d7
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #32
   unreachable
 
-10:                                               ; preds = %5
+"_ZN4core3ptr555drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..partial_eq_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h33acdde916827a71E.exit": ; preds = %5
   resume { ptr, i32 } %6
 }
 
@@ -17625,7 +17625,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17h82b5d954ef482
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr220drop_in_place$LT$$LP$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$17hce96e6528023f891E.llvm.17651247297929507582"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4) #31
-          to label %10 unwind label %8
+          to label %"_ZN4core3ptr547drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..eq_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6e44d16a99c789bfE.exit" unwind label %8
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
@@ -17639,7 +17639,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17h82b5d954ef482
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #32
   unreachable
 
-10:                                               ; preds = %5
+"_ZN4core3ptr547drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..eq_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6e44d16a99c789bfE.exit": ; preds = %5
   resume { ptr, i32 } %6
 }
 
@@ -17666,7 +17666,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17h8db84027bf99d
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr220drop_in_place$LT$$LP$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$17hce96e6528023f891E.llvm.17651247297929507582"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4) #31
-          to label %10 unwind label %8
+          to label %"_ZN4core3ptr549drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..hash_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h46f96c9b3128f5b8E.exit" unwind label %8
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
@@ -17680,7 +17680,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17h8db84027bf99d
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #32
   unreachable
 
-10:                                               ; preds = %5
+"_ZN4core3ptr549drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..hash_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h46f96c9b3128f5b8E.exit": ; preds = %5
   resume { ptr, i32 } %6
 }
 
@@ -17707,7 +17707,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17h93fbf9af9743a
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr220drop_in_place$LT$$LP$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$17hce96e6528023f891E.llvm.17651247297929507582"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4) #31
-          to label %10 unwind label %8
+          to label %"_ZN4core3ptr556drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..partial_ord_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h34538e5b6b2f9b9aE.exit" unwind label %8
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
@@ -17721,7 +17721,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17h93fbf9af9743a
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #32
   unreachable
 
-10:                                               ; preds = %5
+"_ZN4core3ptr556drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..partial_ord_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h34538e5b6b2f9b9aE.exit": ; preds = %5
   resume { ptr, i32 } %6
 }
 
@@ -17748,7 +17748,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17hbb11efa7db5b7
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr220drop_in_place$LT$$LP$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$17hce96e6528023f891E.llvm.17651247297929507582"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4) #31
-          to label %10 unwind label %8
+          to label %"_ZN4core3ptr550drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..clone_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1da8ef9b832c0f29E.exit" unwind label %8
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
@@ -17762,7 +17762,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17hbb11efa7db5b7
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #32
   unreachable
 
-10:                                               ; preds = %5
+"_ZN4core3ptr550drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..clone_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1da8ef9b832c0f29E.exit": ; preds = %5
   resume { ptr, i32 } %6
 }
 
@@ -17789,7 +17789,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17hd4468dd531d5b
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr220drop_in_place$LT$$LP$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$17hce96e6528023f891E.llvm.17651247297929507582"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4) #31
-          to label %10 unwind label %8
+          to label %"_ZN4core3ptr550drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..debug_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h51597427018b0388E.exit" unwind label %8
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
@@ -17803,7 +17803,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17hd4468dd531d5b
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #32
   unreachable
 
-10:                                               ; preds = %5
+"_ZN4core3ptr550drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..debug_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h51597427018b0388E.exit": ; preds = %5
   resume { ptr, i32 } %6
 }
 
@@ -17830,7 +17830,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17hd946d209e4aef
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr220drop_in_place$LT$$LP$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$alloc..vec..Vec$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$17hce96e6528023f891E.llvm.17651247297929507582"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4) #31
-          to label %10 unwind label %8
+          to label %"_ZN4core3ptr552drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..default_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2ff78e432464b06cE.exit" unwind label %8
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
@@ -17844,7 +17844,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator5unzip17hd946d209e4aef
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #32
   unreachable
 
-10:                                               ; preds = %5
+"_ZN4core3ptr552drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$C$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$GT$$C$hir_expand..builtin_derive_macro..expand_simple_derive$LT$hir_expand..builtin_derive_macro..default_expand..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2ff78e432464b06cE.exit": ; preds = %5
   resume { ptr, i32 } %6
 }
 

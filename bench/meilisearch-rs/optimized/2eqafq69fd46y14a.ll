@@ -54009,13 +54009,13 @@ define hidden void @_ZN11meilisearch6routes4logs10make_layer17hdbd8f0f34e721e85E
   store ptr %2, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 465
   %24 = load i8, ptr %23, align 1, !range !121, !noundef !5
-  switch i8 %24, label %default.unreachable158 [
+  switch i8 %24, label %default.unreachable159 [
     i8 0, label %25
     i8 1, label %27
     i8 2, label %29
   ]
 
-default.unreachable158:                           ; preds = %3
+default.unreachable159:                           ; preds = %3
   unreachable
 
 25:                                               ; preds = %3
@@ -54204,11 +54204,11 @@ default.unreachable158:                           ; preds = %3
   store i8 4, ptr %.sroa.53.0..sroa_idx.i64, align 2, !alias.scope !7962
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   store ptr %70, ptr %13, align 8
-  %.sroa.4152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i8 0, ptr %.sroa.4152.0..sroa_idx, align 8
-  %.sroa.5153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 9
+  %.sroa.4153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i8 0, ptr %.sroa.4153.0..sroa_idx, align 8
+  %.sroa.5154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 9
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.5153.0..sroa_idx, i8 1, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.5154.0..sroa_idx, i8 1, i64 5, i1 false)
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 18
   store i32 0, ptr %.sroa.10.0..sroa_idx, align 2
   store i8 2, ptr %.sroa.14.0..sroa_idx, align 2

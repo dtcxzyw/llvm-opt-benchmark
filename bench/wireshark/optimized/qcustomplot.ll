@@ -15174,7 +15174,7 @@ _ZN3QCP14setMarginValueER8QMarginsNS_10MarginSideEi.exit43: ; preds = %_ZN3QCP14
   %.not102 = icmp eq ptr %164, %32
   br i1 %.not102, label %._crit_edge, label %70, !llvm.loop !91
 
-_ZN17QArrayDataPointerIN3QCP10MarginSideEE5derefEv.exit.i.i45: ; preds = %146, %_ZN17QArrayDataPointerIN3QCP10MarginSideEE5derefEv.exit.i.i.i28
+_ZN17QArrayDataPointerIN3QCP10MarginSideEE5derefEv.exit.i.i45: ; preds = %_ZN17QArrayDataPointerIN3QCP10MarginSideEE5derefEv.exit.i.i.i28, %146
   %165 = atomicrmw sub ptr %22, i32 1 seq_cst, align 4
   %.not.i.i46 = icmp eq i32 %165, 1
   br i1 %.not.i.i46, label %166, label %_ZN5QListIN3QCP10MarginSideEED2Ev.exit47
@@ -124320,7 +124320,7 @@ _ZN17QArrayDataPointerIN7QCPAxis8AxisTypeEE5derefEv.exit.i.i.i41: ; preds = %91
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %16, i64 noundef 4, i64 noundef 8) #51
   br label %_ZN17QArrayDataPointerIN7QCPAxis8AxisTypeEE5derefEv.exit.i.i45
 
-_ZN17QArrayDataPointerIN7QCPAxis8AxisTypeEE5derefEv.exit.i.i45: ; preds = %93, %_ZN17QArrayDataPointerIN7QCPAxis8AxisTypeEE5derefEv.exit.i.i.i41
+_ZN17QArrayDataPointerIN7QCPAxis8AxisTypeEE5derefEv.exit.i.i45: ; preds = %_ZN17QArrayDataPointerIN7QCPAxis8AxisTypeEE5derefEv.exit.i.i.i41, %93
   %94 = atomicrmw sub ptr %16, i32 1 seq_cst, align 4
   %.not.i.i46 = icmp eq i32 %94, 1
   br i1 %.not.i.i46, label %95, label %_ZN5QListIN7QCPAxis8AxisTypeEED2Ev.exit47
@@ -124636,7 +124636,7 @@ _ZN17QArrayDataPointerIN7QCPAxis8AxisTypeEE5derefEv.exit.i.i.i41: ; preds = %91
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %16, i64 noundef 4, i64 noundef 8) #51
   br label %_ZN17QArrayDataPointerIN7QCPAxis8AxisTypeEE5derefEv.exit.i.i45
 
-_ZN17QArrayDataPointerIN7QCPAxis8AxisTypeEE5derefEv.exit.i.i45: ; preds = %93, %_ZN17QArrayDataPointerIN7QCPAxis8AxisTypeEE5derefEv.exit.i.i.i41
+_ZN17QArrayDataPointerIN7QCPAxis8AxisTypeEE5derefEv.exit.i.i45: ; preds = %_ZN17QArrayDataPointerIN7QCPAxis8AxisTypeEE5derefEv.exit.i.i.i41, %93
   %94 = atomicrmw sub ptr %16, i32 1 seq_cst, align 4
   %.not.i.i46 = icmp eq i32 %94, 1
   br i1 %.not.i.i46, label %95, label %_ZN5QListIN7QCPAxis8AxisTypeEED2Ev.exit47
@@ -151450,7 +151450,7 @@ _ZN17QArrayDataPointerIP7QCPBarsE5derefEv.exit.i.i.i8: ; preds = %25
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 8) #51
   br label %_ZN17QArrayDataPointerIP7QCPBarsE5derefEv.exit.i.i12
 
-_ZN17QArrayDataPointerIP7QCPBarsE5derefEv.exit.i.i12: ; preds = %28, %_ZN17QArrayDataPointerIP7QCPBarsE5derefEv.exit.i.i.i8
+_ZN17QArrayDataPointerIP7QCPBarsE5derefEv.exit.i.i12: ; preds = %_ZN17QArrayDataPointerIP7QCPBarsE5derefEv.exit.i.i.i8, %28
   %29 = atomicrmw sub ptr %4, i32 1 seq_cst, align 4
   %.not.i.i13 = icmp eq i32 %29, 1
   br i1 %.not.i.i13, label %30, label %_ZN5QListIP7QCPBarsED2Ev.exit14

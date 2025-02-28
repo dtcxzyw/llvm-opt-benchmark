@@ -604,10 +604,11 @@ define hidden { ptr, i64 } @"_ZN3std3ffi6os_str85_$LT$impl$u20$core..convert..As
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17hc60d8dc18da5b35dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
+__rust_try.llvm.301977472033518439.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !91, !noundef !4
   store i64 0, ptr %.val.i, align 8, !noalias !94
-  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %2, align 1, !noalias !94
+  %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  store i8 2, ptr %1, align 1, !noalias !94
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 

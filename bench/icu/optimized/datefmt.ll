@@ -1962,7 +1962,7 @@ _ZN6icu_7718DateFmtBestPatternC2ERKNS_13UnicodeStringE.exit: ; preds = %9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #13
   %.pre = load i32, ptr %2, align 4, !tbaa !6
   %20 = icmp slt i32 %.pre, 1
-  br i1 %20, label %22, label %23
+  br i1 %20, label %22, label %24
 
 .thread:                                          ; preds = %11
   %21 = landingpad { ptr, i32 }
@@ -1977,38 +1977,38 @@ _ZN6icu_7718DateFmtBestPatternC2ERKNS_13UnicodeStringE.exit: ; preds = %9
 
 22:                                               ; preds = %.critedge
   invoke void @_ZNK6icu_7712SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35.thread unwind label %27
+          to label %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35.thread unwind label %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit
 
-23:                                               ; preds = %.critedge
-  %24 = load ptr, ptr %10, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(88) %10) #13
-  br label %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35.thread
-
-27:                                               ; preds = %22
-  %28 = landingpad { ptr, i32 }
+_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit: ; preds = %22
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN6icu_7712LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit
 
-_ZN6icu_7712LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit: ; preds = %.thread53, %27
-  %.pn3355 = phi { ptr, i32 } [ %.pn45, %.thread53 ], [ %28, %27 ]
-  %29 = load ptr, ptr %6, align 8, !tbaa !3
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(4796) %6) #13
+24:                                               ; preds = %.critedge
+  %25 = load ptr, ptr %10, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(88) %10) #13
+  br label %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35.thread
+
+_ZN6icu_7712LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit: ; preds = %.thread53, %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit
+  %.pn3355 = phi { ptr, i32 } [ %.pn45, %.thread53 ], [ %23, %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit ]
+  %28 = load ptr, ptr %6, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(4796) %6) #13
   resume { ptr, i32 } %.pn3355
 
 _ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35: ; preds = %19, %_ZN6icu_7718DateFmtBestPatternC2ERKNS_13UnicodeStringE.exit, %3
-  %32 = icmp eq ptr %6, null
-  br i1 %32, label %_ZN6icu_7712LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit36, label %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35.thread
+  %31 = icmp eq ptr %6, null
+  br i1 %31, label %_ZN6icu_7712LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit36, label %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35.thread
 
-_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35.thread: ; preds = %23, %22, %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35
-  %.059 = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35 ], [ %10, %22 ], [ null, %23 ]
-  %33 = load ptr, ptr %6, align 8, !tbaa !3
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(4796) %6) #13
+_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35.thread: ; preds = %24, %22, %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35
+  %.059 = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35 ], [ %10, %22 ], [ null, %24 ]
+  %32 = load ptr, ptr %6, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load ptr, ptr %33, align 8
+  call void %34(ptr noundef nonnull align 8 dereferenceable(4796) %6) #13
   br label %_ZN6icu_7712LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit36
 
 _ZN6icu_7712LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit36: ; preds = %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35, %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35.thread

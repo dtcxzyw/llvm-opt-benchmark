@@ -8642,51 +8642,51 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3gmx12_GLOBAL__N
   %32 = getelementptr i8, ptr %.0.lcssa, i64 64
   %.val17 = load i64, ptr %32, align 8, !tbaa !92
   %33 = icmp eq i64 %.val17, 0
-  br i1 %33, label %34, label %39
+  br i1 %33, label %34, label %43
 
 34:                                               ; preds = %.thread
   %35 = load ptr, ptr %.0.lcssa, align 8, !tbaa !40
   %36 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !40
   %38 = icmp eq ptr %35, %37
-  br i1 %38, label %39, label %40
+  br i1 %38, label %43, label %.thread27
 
-39:                                               ; preds = %34, %.thread
+.thread27:                                        ; preds = %34
+  %39 = ptrtoint ptr %37 to i64
+  %40 = ptrtoint ptr %35 to i64
+  %41 = sub i64 %39, %40
+  %42 = icmp ugt i64 %41, 9223372036854775776
+  br i1 %42, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i.i, !prof !21
+
+43:                                               ; preds = %34, %.thread
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZNK3gmx12_GLOBAL__N_123KeyValueTreeBackMapping12originalPathERKNS_16KeyValueTreePathEENKUlvE_clEv, ptr noundef nonnull @.str.2, i32 noundef 179) #32
   unreachable
 
-40:                                               ; preds = %34
-  %41 = ptrtoint ptr %37 to i64
-  %42 = ptrtoint ptr %35 to i64
-  %43 = sub i64 %41, %42
-  %44 = icmp ugt i64 %43, 9223372036854775776
-  br i1 %44, label %.noexc.i.i.i, label %45, !prof !21
-
-.noexc.i.i.i:                                     ; preds = %40
+.noexc.i.i.i:                                     ; preds = %.thread27
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #32
   unreachable
 
-45:                                               ; preds = %40
-  %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #31
-  store ptr %46, ptr %0, align 8, !tbaa !20
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %46, ptr %47, align 8, !tbaa !19
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %43
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %48, ptr %49, align 8, !tbaa !22
-  %50 = load ptr, ptr %.0.lcssa, align 8, !tbaa !40
-  %51 = load ptr, ptr %36, align 8, !tbaa !40
-  %52 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_(ptr %50, ptr %51, ptr noundef nonnull %46)
+_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i.i: ; preds = %.thread27
+  %44 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %41) #31
+  store ptr %44, ptr %0, align 8, !tbaa !20
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %44, ptr %45, align 8, !tbaa !19
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %41
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %46, ptr %47, align 8, !tbaa !22
+  %48 = load ptr, ptr %.0.lcssa, align 8, !tbaa !40
+  %49 = load ptr, ptr %36, align 8, !tbaa !40
+  %50 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_(ptr %48, ptr %49, ptr noundef nonnull %44)
           to label %_ZN3gmx16KeyValueTreePathC2ERKS0_.exit unwind label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i: ; preds = %45
-  %53 = landingpad { ptr, i32 }
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i.i
+  %51 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef %43) #33
-  resume { ptr, i32 } %53
+  tail call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %41) #33
+  resume { ptr, i32 } %51
 
-_ZN3gmx16KeyValueTreePathC2ERKS0_.exit:           ; preds = %45
-  store ptr %52, ptr %47, align 8, !tbaa !19
+_ZN3gmx16KeyValueTreePathC2ERKS0_.exit:           ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i.i
+  store ptr %50, ptr %45, align 8, !tbaa !19
   ret void
 }
 

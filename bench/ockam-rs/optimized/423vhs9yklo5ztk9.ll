@@ -732,7 +732,7 @@ define noalias noundef nonnull ptr @"_ZN78_$LT$ockam_multiaddr..registry..Regist
   unreachable
 
 .body:                                            ; preds = %67
-  br i1 %.1, label %71, label %.body.thread21
+  br i1 %.1, label %.thread, label %.body.thread21
 
 8:                                                ; preds = %0
   store i64 1, ptr %5, align 8
@@ -910,17 +910,17 @@ define noalias noundef nonnull ptr @"_ZN78_$LT$ockam_multiaddr..registry..Regist
   invoke void @"_ZN4core3ptr63drop_in_place$LT$ockam_multiaddr..registry..RegistryBuilder$GT$17hddd4f950fb10f611E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2) #26
           to label %.body unwind label %69
 
-69:                                               ; preds = %71, %67
+69:                                               ; preds = %.thread, %67
   %70 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #27
   unreachable
 
-.body.thread21:                                   ; preds = %62, %71, %.body
-  %.pn14 = phi { ptr, i32 } [ %68, %71 ], [ %68, %.body ], [ %63, %62 ]
+.body.thread21:                                   ; preds = %62, %.thread, %.body
+  %.pn14 = phi { ptr, i32 } [ %68, %.thread ], [ %68, %.body ], [ %63, %62 ]
   resume { ptr, i32 } %.pn14
 
-71:                                               ; preds = %.body
+.thread:                                          ; preds = %.body
   invoke void @"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$ockam_multiaddr..codec..StdCodec$GT$$GT$17hfa130059237c98ecE.llvm.7733538834157869159"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3) #26
           to label %.body.thread21 unwind label %69
 }
@@ -1364,7 +1364,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN15ockam_multia
   tail call void @llvm.trap()
   unreachable
 
-.body.thread24:                                   ; preds = %22, %36
+.body.thread25:                                   ; preds = %22, %36
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -1387,7 +1387,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN15ockam_multia
 22:                                               ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !noalias !177
   %23 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h20652cecc03bb425E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %9, ptr noundef nonnull %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.df372cf810b2c58c7b8b8065ad4d0c9a.12.llvm.7733538834157869159)
-          to label %.thread unwind label %.body.thread24
+          to label %.thread unwind label %.body.thread25
 
 .thread:                                          ; preds = %22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !177
@@ -1431,7 +1431,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN15ockam_multia
 36:                                               ; preds = %28
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf26e4832381bfd89E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
-          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$$GT$17h162f02a227bacc1dE.llvm.7733538834157869159.exit" unwind label %.body.thread24
+          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$$GT$17h162f02a227bacc1dE.llvm.7733538834157869159.exit" unwind label %.body.thread25
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$$GT$17h162f02a227bacc1dE.llvm.7733538834157869159.exit": ; preds = %28, %.thread, %36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
@@ -1450,21 +1450,21 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN15ockam_multia
 40:                                               ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$$GT$17h162f02a227bacc1dE.llvm.7733538834157869159.exit"
   %41 = load ptr, ptr %7, align 8, !noalias !192, !noundef !7
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %48, label %.thread30
+  br i1 %42, label %48, label %.thread31
 
-.thread30:                                        ; preds = %40
+.thread31:                                        ; preds = %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !noalias !192
   %43 = call noundef align 8 dereferenceable(16) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17hbfc887bbe4e079f6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.df372cf810b2c58c7b8b8065ad4d0c9a.12.llvm.7733538834157869159)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !192
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$$GT$17h162f02a227bacc1dE.llvm.7733538834157869159.exit16"
+  br label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$$GT$17h162f02a227bacc1dE.llvm.7733538834157869159.exit17"
 
 44:                                               ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$$GT$17h162f02a227bacc1dE.llvm.7733538834157869159.exit"
   %45 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$17h54b9d7184040fb61E.llvm.10434947143724502075"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #26
-          to label %.body.thread21 unwind label %46
+          to label %.body.thread22 unwind label %46
 
 46:                                               ; preds = %44
   %47 = landingpad { ptr, i32 }
@@ -1474,11 +1474,11 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN15ockam_multia
 
 48:                                               ; preds = %40
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.0.0.copyload.i8 = load ptr, ptr %49, align 8, !noalias !192, !nonnull !7, !noundef !7
-  %.sroa.43.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sroa.43.0.copyload.i10 = load i64, ptr %.sroa.43.0..sroa_idx.i9, align 8, !noalias !192
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i8, i64 176
-  %51 = getelementptr inbounds { ptr, ptr }, ptr %50, i64 %.sroa.43.0.copyload.i10
+  %.sroa.0.0.copyload.i9 = load ptr, ptr %49, align 8, !noalias !192, !nonnull !7, !noundef !7
+  %.sroa.43.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sroa.43.0.copyload.i11 = load i64, ptr %.sroa.43.0..sroa_idx.i10, align 8, !noalias !192
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i9, i64 176
+  %51 = getelementptr inbounds { ptr, ptr }, ptr %50, i64 %.sroa.43.0.copyload.i11
   %52 = load ptr, ptr %51, align 8, !noalias !197, !nonnull !7, !noundef !7
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %54 = load ptr, ptr %53, align 8, !noalias !197, !nonnull !7, !align !37, !noundef !7
@@ -1492,25 +1492,25 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN15ockam_multia
   store ptr %54, ptr %.fca.1.gep4, align 8
   %55 = atomicrmw sub ptr %52, i64 1 release, align 8, !noalias !201
   %56 = icmp eq i64 %55, 1
-  br i1 %56, label %57, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$$GT$17h162f02a227bacc1dE.llvm.7733538834157869159.exit16"
+  br i1 %56, label %57, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$$GT$17h162f02a227bacc1dE.llvm.7733538834157869159.exit17"
 
 57:                                               ; preds = %48
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf26e4832381bfd89E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
-  br label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$$GT$17h162f02a227bacc1dE.llvm.7733538834157869159.exit16"
+  br label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$$GT$17h162f02a227bacc1dE.llvm.7733538834157869159.exit17"
 
-"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$$GT$17h162f02a227bacc1dE.llvm.7733538834157869159.exit16": ; preds = %57, %48, %.thread30
+"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$$GT$17h162f02a227bacc1dE.llvm.7733538834157869159.exit17": ; preds = %57, %48, %.thread31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   ret ptr %0
 
-.body.thread21:                                   ; preds = %44, %.body.thread
-  %eh.lpad-body19 = phi { ptr, i32 } [ %eh.lpad-body20, %.body.thread ], [ %45, %44 ]
-  resume { ptr, i32 } %eh.lpad-body19
+.body.thread22:                                   ; preds = %44, %.body.thread
+  %eh.lpad-body20 = phi { ptr, i32 } [ %eh.lpad-body21, %.body.thread ], [ %45, %44 ]
+  resume { ptr, i32 } %eh.lpad-body20
 
-.body.thread:                                     ; preds = %24, %.body.thread24
-  %eh.lpad-body20 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread24 ], [ %25, %24 ]
+.body.thread:                                     ; preds = %24, %.body.thread25
+  %eh.lpad-body21 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread25 ], [ %25, %24 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$ockam_multiaddr..codec..StdCodec$GT$$GT$17hfa130059237c98ecE.llvm.7733538834157869159"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14) #26
-          to label %.body.thread21 unwind label %58
+          to label %.body.thread22 unwind label %58
 
 58:                                               ; preds = %.body.thread
   %59 = landingpad { ptr, i32 }

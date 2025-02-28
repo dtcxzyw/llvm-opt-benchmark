@@ -111,7 +111,7 @@ define hidden { ptr, i64 } @"_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_box_in17h16412d9ffb31a5feE"(ptr noalias noundef nonnull align 1 %0, i64 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = invoke { i64, i64 } @_ZN5alloc4sync32arcinner_layout_for_value_layout17hf168f00b9c620642E(i64 noundef 1, i64 noundef %1)
-          to label %.noexc unwind label %26
+          to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %2
   %4 = extractvalue { i64, i64 } %3, 0
@@ -141,7 +141,7 @@ define hidden { ptr, i64 } @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_box_in17h164
 
 17:                                               ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17hd273ff969fb7bdc7E.exit.i"
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %4, i64 noundef %5) #12
-          to label %.noexc25 unwind label %26
+          to label %.noexc25 unwind label %25
 
 .noexc25:                                         ; preds = %17
   unreachable
@@ -164,18 +164,18 @@ define hidden { ptr, i64 } @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_box_in17h164
   %24 = insertvalue { ptr, i64 } %23, i64 %1, 1
   ret { ptr, i64 } %24
 
-25:                                               ; preds = %29, %26
-  resume { ptr, i32 } %27
+"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hc8ba008a90171d90E.exit": ; preds = %28, %25
+  resume { ptr, i32 } %26
 
-26:                                               ; preds = %17, %2
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %17, %2
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %28 = icmp eq i64 %1, 0
-  br i1 %28, label %25, label %29
+  %27 = icmp eq i64 %1, 0
+  br i1 %27, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hc8ba008a90171d90E.exit", label %28
 
-29:                                               ; preds = %26
+28:                                               ; preds = %25
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef range(i64 1, 0) %1, i64 noundef 1) #13
-  br label %25
+  br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hc8ba008a90171d90E.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -54833,12 +54833,12 @@ define void @_ZN6hir_ty3mir4eval9Evaluator3new17h5765fd9a357b2534E(ptr noalias n
           to label %38 unwind label %.thread
 
 .noexc87:                                         ; preds = %73, %69
-  br i1 %.2, label %228, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$triomphe..arc..Arc$LT$hir_ty..traits..TraitEnvironment$GT$$GT$$GT$17h4c6774ed3e013c49E.exit113"
+  br i1 %.2, label %.noexc87.thread, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$triomphe..arc..Arc$LT$hir_ty..traits..TraitEnvironment$GT$$GT$$GT$17h4c6774ed3e013c49E.exit113"
 
 .thread:                                          ; preds = %7, %38, %41, %43
   %37 = landingpad { ptr, i32 }
           cleanup
-  br label %228
+  br label %.noexc87.thread
 
 38:                                               ; preds = %7
   %39 = extractvalue { ptr, ptr } %36, 0
@@ -55434,7 +55434,7 @@ define void @_ZN6hir_ty3mir4eval9Evaluator3new17h5765fd9a357b2534E(ptr noalias n
 "_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$triomphe..arc..Arc$LT$hir_ty..traits..TraitEnvironment$GT$$GT$$GT$17h4c6774ed3e013c49E.exit": ; preds = %58, %55, %50, %.thread128
   ret void
 
-209:                                              ; preds = %234, %221, %212, %73, %227, %226, %225, %224, %216, %215, %214, %211, %.body, %"_ZN4core3ptr172drop_in_place$LT$core..cell..RefCell$LT$std..collections..hash..set..HashSet$LT$hir_def..FunctionId$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h2b2149b581771578E.exit", %"_ZN4core3ptr79drop_in_place$LT$triomphe..arc..Arc$LT$hir_ty..traits..TraitEnvironment$GT$$GT$17h3c3163f23dfa49a4E.exit", %85
+209:                                              ; preds = %233, %221, %212, %73, %227, %226, %225, %224, %216, %215, %214, %211, %.body, %"_ZN4core3ptr172drop_in_place$LT$core..cell..RefCell$LT$std..collections..hash..set..HashSet$LT$hir_def..FunctionId$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h2b2149b581771578E.exit", %"_ZN4core3ptr79drop_in_place$LT$triomphe..arc..Arc$LT$hir_ty..traits..TraitEnvironment$GT$$GT$17h3c3163f23dfa49a4E.exit", %85
   %210 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #66
@@ -55491,27 +55491,27 @@ define void @_ZN6hir_ty3mir4eval9Evaluator3new17h5765fd9a357b2534E(ptr noalias n
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h73a7f0709cefc3c8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #65
           to label %85 unwind label %209
 
-"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$triomphe..arc..Arc$LT$hir_ty..traits..TraitEnvironment$GT$$GT$$GT$17h4c6774ed3e013c49E.exit113": ; preds = %231, %228, %234, %.noexc87
-  %.pn.pn.pn.pn.pn.pn116 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %.noexc87 ], [ %.pn.pn.pn.pn.pn.pn117, %234 ], [ %.pn.pn.pn.pn.pn.pn117, %228 ], [ %.pn.pn.pn.pn.pn.pn117, %231 ]
+"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$triomphe..arc..Arc$LT$hir_ty..traits..TraitEnvironment$GT$$GT$$GT$17h4c6774ed3e013c49E.exit113": ; preds = %230, %.noexc87.thread, %233, %.noexc87
+  %.pn.pn.pn.pn.pn.pn116 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %.noexc87 ], [ %.pn.pn.pn.pn.pn.pn117, %233 ], [ %.pn.pn.pn.pn.pn.pn117, %.noexc87.thread ], [ %.pn.pn.pn.pn.pn.pn117, %230 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn116
 
-228:                                              ; preds = %.thread, %.noexc87
+.noexc87.thread:                                  ; preds = %.thread, %.noexc87
   %.pn.pn.pn.pn.pn.pn117 = phi { ptr, i32 } [ %37, %.thread ], [ %.pn.pn.pn.pn, %.noexc87 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !10622)
-  %229 = load ptr, ptr %31, align 8, !alias.scope !10622, !noundef !4
-  %230 = icmp eq ptr %229, null
-  br i1 %230, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$triomphe..arc..Arc$LT$hir_ty..traits..TraitEnvironment$GT$$GT$$GT$17h4c6774ed3e013c49E.exit113", label %231
+  %228 = load ptr, ptr %31, align 8, !alias.scope !10622, !noundef !4
+  %229 = icmp eq ptr %228, null
+  br i1 %229, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$triomphe..arc..Arc$LT$hir_ty..traits..TraitEnvironment$GT$$GT$$GT$17h4c6774ed3e013c49E.exit113", label %230
 
-231:                                              ; preds = %228
+230:                                              ; preds = %.noexc87.thread
   call void @llvm.experimental.noalias.scope.decl(metadata !10625)
   call void @llvm.experimental.noalias.scope.decl(metadata !10628)
-  %232 = atomicrmw sub ptr %229, i64 1 release, align 8, !noalias !10631
-  %233 = icmp eq i64 %232, 1
-  br i1 %233, label %234, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$triomphe..arc..Arc$LT$hir_ty..traits..TraitEnvironment$GT$$GT$$GT$17h4c6774ed3e013c49E.exit113"
+  %231 = atomicrmw sub ptr %228, i64 1 release, align 8, !noalias !10631
+  %232 = icmp eq i64 %231, 1
+  br i1 %232, label %233, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$triomphe..arc..Arc$LT$hir_ty..traits..TraitEnvironment$GT$$GT$$GT$17h4c6774ed3e013c49E.exit113"
 
-234:                                              ; preds = %231
-  %235 = load ptr, ptr %31, align 8, !alias.scope !10631, !nonnull !4, !noundef !4
-  %236 = load atomic i64, ptr %235 acquire, align 8, !noalias !10631
+233:                                              ; preds = %230
+  %234 = load ptr, ptr %31, align 8, !alias.scope !10631, !nonnull !4, !noundef !4
+  %235 = load atomic i64, ptr %234 acquire, align 8, !noalias !10631
   invoke void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hbf8ff332cd412726E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %31)
           to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$triomphe..arc..Arc$LT$hir_ty..traits..TraitEnvironment$GT$$GT$$GT$17h4c6774ed3e013c49E.exit113" unwind label %209
 }

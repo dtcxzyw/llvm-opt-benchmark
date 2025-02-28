@@ -15906,7 +15906,7 @@ _ZNKSt6vectorIN6Assimp4D3DS4MeshESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %3
 
 .noexc.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIN6Assimp4D3DS4MeshESaIS2_EE12_M_check_lenEmPKc.exit
   %29 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-          to label %.noexc.i.i.i unwind label %59
+          to label %.noexc.i.i.i unwind label %.thread37
 
 .noexc.i.i.i:                                     ; preds = %.noexc.i.i.i.i
   store ptr %29, ptr %23, align 8
@@ -15975,33 +15975,33 @@ _ZNSt12_Vector_baseIN6Assimp4D3DS4MeshESaIS2_EE13_M_deallocateEPS2_m.exit: ; pre
   store ptr %56, ptr %51, align 8
   ret void
 
-57:                                               ; preds = %59
+57:                                               ; preds = %.thread37
   %58 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %63 unwind label %64
+          to label %62 unwind label %63
 
-59:                                               ; preds = %.noexc.i.i.i.i
-  %60 = landingpad { ptr, i32 }
+.thread37:                                        ; preds = %.noexc.i.i.i.i
+  %59 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN23MeshWithSmoothingGroupsIN6Assimp4D3DS4FaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %22) #30
-  %61 = extractvalue { ptr, i32 } %60, 0
-  %62 = call ptr @__cxa_begin_catch(ptr %61) #30
+  %60 = extractvalue { ptr, i32 } %59, 0
+  %61 = call ptr @__cxa_begin_catch(ptr %60) #30
   call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %20) #31
   invoke void @__cxa_rethrow() #32
-          to label %67 unwind label %57
+          to label %66 unwind label %57
 
-63:                                               ; preds = %57
+62:                                               ; preds = %57
   resume { ptr, i32 } %58
 
-64:                                               ; preds = %57
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %57
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #34
+  %65 = extractvalue { ptr, i32 } %64, 0
+  call void @__clang_call_terminate(ptr %65) #34
   unreachable
 
-67:                                               ; preds = %59
+66:                                               ; preds = %.thread37
   unreachable
 }
 

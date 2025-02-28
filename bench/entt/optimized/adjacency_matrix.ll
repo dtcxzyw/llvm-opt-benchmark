@@ -1308,13 +1308,13 @@ _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.i: ; preds = %
 .lr.ph.i.preheader:                               ; preds = %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.i
   %129 = lshr i64 %.sroa.311.0.i.i, 1
   %130 = and i64 %.sroa.311.0.i.i, 1
-  %.idx171 = mul i64 %129, 24
-  %131 = getelementptr i8, ptr %123, i64 %.idx171
+  %.idx176 = mul i64 %129, 24
+  %131 = getelementptr i8, ptr %123, i64 %.idx176
   %132 = getelementptr i64, ptr %131, i64 %130
   store i64 1, ptr %132, align 8, !tbaa !20, !noalias !51
   %133 = add nuw i64 %.sroa.311.0.i.i, 1
-  %.not2.i.i.i77172 = icmp eq i64 %133, 4
-  br i1 %.not2.i.i.i77172, label %.loopexit, label %.lr.ph.i.i.i78
+  %.not2.i.i.i77177 = icmp eq i64 %133, 4
+  br i1 %.not2.i.i.i77177, label %.loopexit, label %.lr.ph.i.i.i78
 
 .lr.ph.i.loopexit:                                ; preds = %.lr.ph.i.i.i78
   %134 = lshr i64 %.sroa.624.1.i, 1
@@ -1677,7 +1677,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit: ; preds = %_ZN7tes
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0127.1, i64 noundef %251) #26
   ret void
 
-_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit124: ; preds = %72, %_ZN7testing7MessageD2Ev.exit71, %145, %199, %_ZN7testing7MessageD2Ev.exit116
+_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit124: ; preds = %_ZN7testing7MessageD2Ev.exit116, %199, %145, %_ZN7testing7MessageD2Ev.exit71, %72
   %.sroa.20.0.ph = phi ptr [ %18, %72 ], [ %18, %_ZN7testing7MessageD2Ev.exit71 ], [ %18, %145 ], [ %124, %199 ], [ %124, %_ZN7testing7MessageD2Ev.exit116 ]
   %.sroa.0127.0.ph = phi ptr [ %16, %72 ], [ %16, %_ZN7testing7MessageD2Ev.exit71 ], [ %16, %145 ], [ %123, %199 ], [ %123, %_ZN7testing7MessageD2Ev.exit116 ]
   %.pn37.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn.pn, %72 ], [ %.pn29.pn.pn, %_ZN7testing7MessageD2Ev.exit71 ], [ %146, %145 ], [ %.pn33.pn.pn, %199 ], [ %.pn37.pn.pn, %_ZN7testing7MessageD2Ev.exit116 ]
@@ -2097,7 +2097,7 @@ _ZN7testing7MessageD2Ev.exit127:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #24
-  br label %410
+  br label %.thread388
 
 136:                                              ; preds = %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5emptyEv.exit, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5emptyEv.exit.thread
   %137 = phi ptr [ %82, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5emptyEv.exit.thread ], [ %85, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5emptyEv.exit ]
@@ -2289,7 +2289,7 @@ _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5emptyEv.exit160: ; preds = 
 196:                                              ; preds = %_ZN7testing7MessageD2Ev.exit148, %140
   %.pn58.pn.pn = phi { ptr, i32 } [ %.pn58.pn, %_ZN7testing7MessageD2Ev.exit148 ], [ %141, %140 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #24
-  br label %410
+  br label %.thread388
 
 197:                                              ; preds = %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5emptyEv.exit160.thread, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5emptyEv.exit160
   %198 = phi ptr [ %192, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5emptyEv.exit160.thread ], [ %195, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5emptyEv.exit160 ]
@@ -2441,7 +2441,7 @@ _ZN7testing7MessageD2Ev.exit177:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #24
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #24
-  br label %410
+  br label %.thread388
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5emptyEv.exit160
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #24
@@ -2961,13 +2961,13 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit290: ; preds = %_ZN7
   call void @_ZdlPvm(ptr noundef nonnull %76, i64 noundef 72) #26
   br label %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit292
 
-410:                                              ; preds = %_ZN7testing7MessageD2Ev.exit177, %196, %_ZN7testing7MessageD2Ev.exit127
-  %.pn78.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn54.pn.pn, %_ZN7testing7MessageD2Ev.exit127 ], [ %.pn58.pn.pn, %196 ], [ %.pn62.pn.pn, %_ZN7testing7MessageD2Ev.exit177 ]
+.thread388:                                       ; preds = %_ZN7testing7MessageD2Ev.exit127, %196, %_ZN7testing7MessageD2Ev.exit177
+  %.pn78.pn.pn.pn.pn.pn379 = phi { ptr, i32 } [ %.pn54.pn.pn, %_ZN7testing7MessageD2Ev.exit127 ], [ %.pn58.pn.pn, %196 ], [ %.pn62.pn.pn, %_ZN7testing7MessageD2Ev.exit177 ]
   call void @_ZdlPvm(ptr noundef nonnull %76, i64 noundef 72) #26
   br label %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit292
 
-_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit292: ; preds = %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit290, %86, %410
-  %.pn78.pn.pn.pn.pn.pn380 = phi { ptr, i32 } [ %.pn78.pn.pn.pn.pn.pn.ph, %410 ], [ %.pn78.pn.pn.pn, %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit290 ], [ %.pn.pn.pn, %86 ]
+_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit292: ; preds = %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit290, %86, %.thread388
+  %.pn78.pn.pn.pn.pn.pn380 = phi { ptr, i32 } [ %.pn78.pn.pn.pn.pn.pn379, %.thread388 ], [ %.pn78.pn.pn.pn, %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit290 ], [ %.pn.pn.pn, %86 ]
   resume { ptr, i32 } %.pn78.pn.pn.pn.pn.pn380
 }
 
@@ -7008,7 +7008,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit411: ; preds = %_ZN7
   call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef 72) #26
   ret void
 
-_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit415: ; preds = %_ZN7testing7MessageD2Ev.exit233, %_ZN7testing7MessageD2Ev.exit188, %136, %84, %_ZN7testing7MessageD2Ev.exit403, %405, %357, %_ZN7testing7MessageD2Ev.exit320
+_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit415: ; preds = %_ZN7testing7MessageD2Ev.exit233, %_ZN7testing7MessageD2Ev.exit188, %136, %84, %_ZN7testing7MessageD2Ev.exit320, %357, %405, %_ZN7testing7MessageD2Ev.exit403
   %.pn117.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn101.pn.pn, %_ZN7testing7MessageD2Ev.exit320 ], [ %.pn105.pn.pn, %357 ], [ %.pn109.pn.pn, %405 ], [ %.pn117.pn.pn, %_ZN7testing7MessageD2Ev.exit403 ], [ %.pn.pn.pn, %84 ], [ %.pn77.pn.pn, %136 ], [ %.pn81.pn.pn, %_ZN7testing7MessageD2Ev.exit188 ], [ %.pn89.pn.pn, %_ZN7testing7MessageD2Ev.exit233 ]
   call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef 72) #26
   resume { ptr, i32 } %.pn117.pn.pn.pn.pn

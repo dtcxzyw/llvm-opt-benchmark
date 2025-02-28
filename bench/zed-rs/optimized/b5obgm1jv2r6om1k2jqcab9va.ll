@@ -3988,7 +3988,7 @@ define hidden void @_ZN7reqwest10async_impl7request14RequestBuilder11bearer_auth
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !991, !noalias !994, !nonnull !7, !noundef !7
   call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %11, i64 noundef 1) #28, !noalias !996
-  br i1 %.sroa.0.0, label %24, label %23
+  br i1 %.sroa.0.0, label %23, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h568195a07d5bab21E.exit.thread"
 
 15:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !970
@@ -4018,23 +4018,23 @@ define hidden void @_ZN7reqwest10async_impl7request14RequestBuilder11bearer_auth
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h568195a07d5bab21E.exit7"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h568195a07d5bab21E.exit": ; preds = %9
-  br i1 %.sroa.0.0, label %24, label %23
+  br i1 %.sroa.0.0, label %23, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h568195a07d5bab21E.exit.thread"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h568195a07d5bab21E.exit7": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i.i6", %16
   ret void
 
-21:                                               ; preds = %24
+21:                                               ; preds = %23
   %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #26
   unreachable
 
-23:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i.i", %24, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h568195a07d5bab21E.exit"
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h568195a07d5bab21E.exit.thread": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i.i", %23, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h568195a07d5bab21E.exit"
   resume { ptr, i32 } %10
 
-24:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h568195a07d5bab21E.exit"
+23:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h568195a07d5bab21E.exit"
   invoke void @"_ZN4core3ptr65drop_in_place$LT$reqwest..async_impl..request..RequestBuilder$GT$17h0388446079fa569cE"(ptr noalias noundef nonnull align 8 dereferenceable(304) %1) #27
-          to label %23 unwind label %21
+          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h568195a07d5bab21E.exit.thread" unwind label %21
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4305,12 +4305,12 @@ define hidden void @_ZN7reqwest10async_impl7request14RequestBuilder16header_sens
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb5ae3b2b2ac0b331E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %87)
           to label %.noexc52 unwind label %62
 
-92:                                               ; preds = %.noexc52
+.thread110:                                       ; preds = %.noexc52
   resume { ptr, i32 } %.pn29.ph
 
 .noexc52:                                         ; preds = %91, %.thread74
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$reqwest..async_impl..request..Request$C$reqwest..error..Error$GT$$GT$17h376b39e72d5c3f50E"(ptr noalias noundef align 8 dereferenceable(296) %1) #27
-          to label %92 unwind label %62
+          to label %.thread110 unwind label %62
 }
 
 ; Function Attrs: nonlazybind uwtable

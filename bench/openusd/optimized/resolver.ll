@@ -23672,7 +23672,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_R
   %32 = load ptr, ptr %3, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 56
   store ptr %33, ptr %3, align 8
-  br label %109
+  br label %108
 
 34:                                               ; preds = %2
   %.val.i = load ptr, ptr %0, align 8
@@ -23728,20 +23728,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEEC2ERKS2_.exit.i
           catch ptr null
   %63 = load ptr, ptr %50, align 8
   %.not.i.i.i.i6.i.i.i.i = icmp eq ptr %63, null
-  br i1 %.not.i.i.i.i6.i.i.i.i, label %101, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i6.i.i.i.i, label %.thread49.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i: ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = atomicrmw sub ptr %64, i32 1 release, align 4
   %66 = icmp eq i32 %65, 1
-  br i1 %66, label %67, label %101
+  br i1 %66, label %67, label %.thread49.i
 
 67:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i
   %68 = load ptr, ptr %63, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   tail call void %70(ptr noundef nonnull align 8 dereferenceable(12) %63) #15
-  br label %101
+  br label %.thread49.i
 
 71:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEEC2ERKS2_.exit.i.i.i.i
   %72 = getelementptr inbounds nuw i8, ptr %48, i64 48
@@ -23799,37 +23799,37 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ResolverInfoESa
   tail call void @_ZdlPvm(ptr noundef nonnull %.val.i, i64 noundef %98) #35
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ResolverInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
 
-99:                                               ; preds = %101
+99:                                               ; preds = %.thread49.i
   %100 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %104
+          to label %common.resume unwind label %103
 
-101:                                              ; preds = %67, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i, %61
-  %102 = extractvalue { ptr, i32 } %62, 0
-  %103 = tail call ptr @__cxa_begin_catch(ptr %102) #15
+.thread49.i:                                      ; preds = %67, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i, %61
+  %101 = extractvalue { ptr, i32 } %62, 0
+  %102 = tail call ptr @__cxa_begin_catch(ptr %101) #15
   tail call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef %46) #35
   invoke void @__cxa_rethrow() #37
-          to label %107 unwind label %99
+          to label %106 unwind label %99
 
-104:                                              ; preds = %99
-  %105 = landingpad { ptr, i32 }
+103:                                              ; preds = %99
+  %104 = landingpad { ptr, i32 }
           catch ptr null
-  %106 = extractvalue { ptr, i32 } %105, 0
-  tail call void @__clang_call_terminate(ptr %106) #36
+  %105 = extractvalue { ptr, i32 } %104, 0
+  tail call void @__clang_call_terminate(ptr %105) #36
   unreachable
 
-107:                                              ; preds = %101
+106:                                              ; preds = %.thread49.i
   unreachable
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ResolverInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ResolverInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i, %95
   store ptr %47, ptr %0, align 8
   store ptr %94, ptr %3, align 8
-  %108 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_ResolverInfo", ptr %47, i64 %45
-  store ptr %108, ptr %5, align 8
-  br label %109
+  %107 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_ResolverInfo", ptr %47, i64 %45
+  store ptr %107, ptr %5, align 8
+  br label %108
 
-109:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ResolverInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ResolverInfoEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
+108:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ResolverInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ResolverInfoEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
   ret void
 }
 

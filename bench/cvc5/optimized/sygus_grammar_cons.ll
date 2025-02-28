@@ -6271,7 +6271,7 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE9push_backERKS2_.exit942: ; preds 
           cleanup
   br label %859
 
-857:                                              ; preds = %847, %848
+857:                                              ; preds = %848, %847
   %858 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #22
@@ -6498,7 +6498,7 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit969: ; preds = %_ZSt8_Des
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41) #22
   br label %932
 
-932:                                              ; preds = %928, %930
+932:                                              ; preds = %930, %928
   %.pn456 = phi { ptr, i32 } [ %931, %930 ], [ %929, %928 ]
   call void @_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40) #22
@@ -6604,7 +6604,7 @@ _ZNSt6vectorIN4cvc58internal4kind6Kind_tESaIS3_EED2Ev.exit1005: ; preds = %954, 
   call void @_ZdlPvm(ptr noundef nonnull %940, i64 noundef 12) #25
   br label %956
 
-956:                                              ; preds = %945, %_ZNSt6vectorIN4cvc58internal4kind6Kind_tESaIS3_EED2Ev.exit1005, %947
+956:                                              ; preds = %947, %_ZNSt6vectorIN4cvc58internal4kind6Kind_tESaIS3_EED2Ev.exit1005, %945
   %.pn441.pn.pn.pn = phi { ptr, i32 } [ %946, %945 ], [ %.pn441.pn, %_ZNSt6vectorIN4cvc58internal4kind6Kind_tESaIS3_EED2Ev.exit1005 ], [ %948, %947 ]
   call void @_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43) #22
@@ -9996,7 +9996,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZNSt6vectorIN4cvc5
           cleanup
   br label %410
 
-408:                                              ; preds = %368, %346, %363, %367
+408:                                              ; preds = %367, %363, %346, %368
   %409 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #22

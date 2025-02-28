@@ -13481,7 +13481,7 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail18signal_set_service11add_
 8:                                                ; preds = %7
   %9 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit29
+  br label %.thread47
 
 10:                                               ; preds = %7
   %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost4asio6detail16get_signal_stateEvE5state, i64 56), align 8, !tbaa !503
@@ -13538,7 +13538,7 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail18signal_set_service11add_
 31:                                               ; preds = %29, %27
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
-  br label %_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit29
+  br label %.thread47
 
 32:                                               ; preds = %18
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -13621,10 +13621,10 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit.i: ; pr
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #32
   ret void
 
-_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit29: ; preds = %31, %8
-  %.pn26.pn.ph = phi { ptr, i32 } [ %9, %8 ], [ %.pn, %31 ]
+.thread47:                                        ; preds = %8, %31
+  %.pn26.pn43 = phi { ptr, i32 } [ %9, %8 ], [ %.pn, %31 ]
   %72 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5boost4asio6detail16get_signal_stateEvE5state) #32
-  resume { ptr, i32 } %.pn26.pn.ph
+  resume { ptr, i32 } %.pn26.pn43
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -14070,13 +14070,13 @@ _ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit: ; preds 
 
 147:                                              ; preds = %144, %141
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %6) #32
-  br i1 %.sroa.9.2, label %148, label %_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit41
+  br i1 %.sroa.9.2, label %.thread54, label %_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit41
 
-148:                                              ; preds = %147
-  %149 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5boost4asio6detail16get_signal_stateEvE5state) #32
+.thread54:                                        ; preds = %147
+  %148 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5boost4asio6detail16get_signal_stateEvE5state) #32
   br label %_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit41
 
-_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit41: ; preds = %147, %148
+_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit41: ; preds = %147, %.thread54
   resume { ptr, i32 } %.pn.pn
 }
 

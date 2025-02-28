@@ -1251,7 +1251,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @_ZN5audio5Audio20e
   %29 = select i1 %28, ptr null, ptr %5
   br label %12
 
-30:                                               ; preds = %20, %26
+30:                                               ; preds = %26, %20
   %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %21, %20 ]
   store ptr %9, ptr %0, align 8
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -6186,7 +6186,7 @@ common.ret:                                       ; preds = %611, %615
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 123
   br label %62
 
-56:                                               ; preds = %613, %.body14
+56:                                               ; preds = %.body14, %613
   %.pn10 = phi { ptr, i32 } [ %614, %613 ], [ %.pn, %.body14 ]
   store i8 2, ptr %50, align 8
   resume { ptr, i32 } %.pn10
@@ -8839,7 +8839,7 @@ common.ret:                                       ; preds = %474, %478
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 122
   br label %46
 
-40:                                               ; preds = %476, %.body14
+40:                                               ; preds = %.body14, %476
   %.pn10 = phi { ptr, i32 } [ %477, %476 ], [ %.pn, %.body14 ]
   store i8 2, ptr %34, align 8
   resume { ptr, i32 } %.pn10

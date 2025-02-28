@@ -979,10 +979,11 @@ __rust_try.llvm.15938600225882126526.exit:        ; preds = %16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h13ee34ead521a1a1E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+__rust_try.llvm.15938600225882126526.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !159, !noundef !21
   store i64 0, ptr %.val.i, align 8, !noalias !162
-  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %2, align 1, !noalias !162
+  %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  store i8 2, ptr %1, align 1, !noalias !162
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -1086,10 +1087,11 @@ __rust_try.llvm.15938600225882126526.exit:        ; preds = %14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h2b3914551ef7c503E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+__rust_try.llvm.15938600225882126526.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !186, !noundef !21
   store i64 0, ptr %.val.i, align 8, !noalias !189
-  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  store i8 2, ptr %2, align 1, !noalias !189
+  %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  store i8 2, ptr %1, align 1, !noalias !189
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -4040,26 +4042,26 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %34
 
-36:                                               ; preds = %37
+.thread:                                          ; preds = %36
   resume { ptr, i32 } %lpad.phi
 
 .loopexit:                                        ; preds = %22, %20
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %37
+  br label %36
 
 .loopexit.split-lp:                               ; preds = %14
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %37
+  br label %36
 
-37:                                               ; preds = %.loopexit.split-lp, %.loopexit
+36:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$mini_lsm_mvcc..mvcc..CommittedTxnData$GT$17hfd1c1122fb69a84dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3) #39
-          to label %36 unwind label %38
+          to label %.thread unwind label %37
 
-38:                                               ; preds = %37
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %36
+  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #38
   unreachable

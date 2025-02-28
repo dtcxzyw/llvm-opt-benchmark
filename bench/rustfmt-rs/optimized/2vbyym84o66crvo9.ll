@@ -20839,7 +20839,7 @@ _ZN15rustfmt_nightly6config6Config6ignore17h2457051b36015329E.exit: ; preds = %2
 .noexc30:                                         ; preds = %84
   unreachable
 
-.noexc31:                                         ; preds = %93, %.thread51
+.noexc31:                                         ; preds = %93, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$rustc_span..source_map..SourceMap$GT$$GT$17h4640602c4d321f14E.exit"
   br i1 %.2, label %.noexc31._crit_edge, label %.body28
 
 .noexc31._crit_edge:                              ; preds = %.noexc31
@@ -20866,7 +20866,7 @@ _ZN15rustfmt_nightly6config6Config6ignore17h2457051b36015329E.exit: ; preds = %2
   call void @llvm.trap()
   unreachable
 
-.thread51:                                        ; preds = %102, %199, %.critedge.i, %161, %94
+"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$rustc_span..source_map..SourceMap$GT$$GT$17h4640602c4d321f14E.exit": ; preds = %102, %199, %.critedge.i, %161, %94
   %.2 = phi i1 [ false, %94 ], [ true, %161 ], [ true, %.critedge.i ], [ true, %199 ], [ true, %102 ]
   %.pn20 = phi { ptr, i32 } [ %95, %94 ], [ %162, %161 ], [ %.pn31.i, %.critedge.i ], [ %.pn31.i, %199 ], [ %103, %102 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3456)
@@ -20876,7 +20876,7 @@ _ZN15rustfmt_nightly6config6Config6ignore17h2457051b36015329E.exit: ; preds = %2
   %92 = icmp eq i64 %91, 1
   br i1 %92, label %93, label %.noexc31
 
-93:                                               ; preds = %.thread51
+93:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$rustc_span..source_map..SourceMap$GT$$GT$17h4640602c4d321f14E.exit"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b2d8757942b039aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
           to label %.noexc31 unwind label %203
@@ -20884,7 +20884,7 @@ _ZN15rustfmt_nightly6config6Config6ignore17h2457051b36015329E.exit: ; preds = %2
 94:                                               ; preds = %200
   %95 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread51
+  br label %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$rustc_span..source_map..SourceMap$GT$$GT$17h4640602c4d321f14E.exit"
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8f6fd97c33ae8325E.exit": ; preds = %86
   %96 = atomicrmw add ptr %50, i64 1 monotonic, align 8
@@ -20907,7 +20907,7 @@ _ZN15rustfmt_nightly6config6Config6ignore17h2457051b36015329E.exit: ; preds = %2
 102:                                              ; preds = %186
   %103 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread51
+  br label %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$rustc_span..source_map..SourceMap$GT$$GT$17h4640602c4d321f14E.exit"
 
 104:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf65f98540a7a75a8E.exit"
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 818
@@ -21053,7 +21053,7 @@ switch.lookup:                                    ; preds = %143, %"_ZN4core6opt
   %162 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr81drop_in_place$LT$rustfmt_nightly..parse..session..SilentOnIgnoredFilesEmitter$GT$17h35fd87f42b1099ebE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %3) #44
-          to label %.thread51 unwind label %163, !noalias !3463
+          to label %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$rustc_span..source_map..SourceMap$GT$$GT$17h4640602c4d321f14E.exit" unwind label %163, !noalias !3463
 
 163:                                              ; preds = %161
   %164 = landingpad { ptr, i32 }
@@ -21169,12 +21169,12 @@ switch.lookup:                                    ; preds = %143, %"_ZN4core6opt
   %196 = load ptr, ptr %9, align 8, !alias.scope !3501, !noalias !3463, !nonnull !10, !noundef !10
   %197 = atomicrmw sub ptr %196, i64 1 release, align 8, !noalias !3502
   %198 = icmp eq i64 %197, 1
-  br i1 %198, label %199, label %.thread51
+  br i1 %198, label %199, label %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$rustc_span..source_map..SourceMap$GT$$GT$17h4640602c4d321f14E.exit"
 
 199:                                              ; preds = %.critedge.i
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7b764c081bd3c715E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
-          to label %.thread51 unwind label %187, !noalias !3463
+          to label %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$rustc_span..source_map..SourceMap$GT$$GT$17h4640602c4d321f14E.exit" unwind label %187, !noalias !3463
 
 200:                                              ; preds = %186
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)

@@ -17539,12 +17539,12 @@ _ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm6
 .loopexit.i.i.i:                                  ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i, %38
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
           catch ptr null
-  br label %71
+  br label %.thread46
 
 .loopexit.split-lp.i.i.i:                         ; preds = %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           catch ptr null
-  br label %71
+  br label %.thread46
 
 43:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %4)
@@ -17620,32 +17620,32 @@ _ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3
   store ptr %68, ptr %63, align 8
   ret void
 
-69:                                               ; preds = %71
+69:                                               ; preds = %.thread46
   %70 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %74 unwind label %75
+          to label %73 unwind label %74
 
-71:                                               ; preds = %.loopexit.i.i.i, %.loopexit.split-lp.i.i.i
+.thread46:                                        ; preds = %.loopexit.i.i.i, %.loopexit.split-lp.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
   call void @_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #34
-  %72 = extractvalue { ptr, i32 } %lpad.phi.i.i.i, 0
-  %73 = call ptr @__cxa_begin_catch(ptr %72) #34
+  %71 = extractvalue { ptr, i32 } %lpad.phi.i.i.i, 0
+  %72 = call ptr @__cxa_begin_catch(ptr %71) #34
   call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %21) #40
   invoke void @__cxa_rethrow() #35
-          to label %78 unwind label %69
+          to label %77 unwind label %69
 
-74:                                               ; preds = %69
+73:                                               ; preds = %69
   resume { ptr, i32 } %70
 
-75:                                               ; preds = %69
-  %76 = landingpad { ptr, i32 }
+74:                                               ; preds = %69
+  %75 = landingpad { ptr, i32 }
           catch ptr null
-  %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #38
+  %76 = extractvalue { ptr, i32 } %75, 0
+  call void @__clang_call_terminate(ptr %76) #38
   unreachable
 
-78:                                               ; preds = %71
+77:                                               ; preds = %.thread46
   unreachable
 }
 
@@ -18214,12 +18214,12 @@ _ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm6
 .loopexit.i.i.i:                                  ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i, %38
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
           catch ptr null
-  br label %71
+  br label %.thread46
 
 .loopexit.split-lp.i.i.i:                         ; preds = %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           catch ptr null
-  br label %71
+  br label %.thread46
 
 43:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %4)
@@ -18295,32 +18295,32 @@ _ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3
   store ptr %68, ptr %63, align 8
   ret void
 
-69:                                               ; preds = %71
+69:                                               ; preds = %.thread46
   %70 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %74 unwind label %75
+          to label %73 unwind label %74
 
-71:                                               ; preds = %.loopexit.i.i.i, %.loopexit.split-lp.i.i.i
+.thread46:                                        ; preds = %.loopexit.i.i.i, %.loopexit.split-lp.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
   call void @_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #34
-  %72 = extractvalue { ptr, i32 } %lpad.phi.i.i.i, 0
-  %73 = call ptr @__cxa_begin_catch(ptr %72) #34
+  %71 = extractvalue { ptr, i32 } %lpad.phi.i.i.i, 0
+  %72 = call ptr @__cxa_begin_catch(ptr %71) #34
   call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %21) #40
   invoke void @__cxa_rethrow() #35
-          to label %78 unwind label %69
+          to label %77 unwind label %69
 
-74:                                               ; preds = %69
+73:                                               ; preds = %69
   resume { ptr, i32 } %70
 
-75:                                               ; preds = %69
-  %76 = landingpad { ptr, i32 }
+74:                                               ; preds = %69
+  %75 = landingpad { ptr, i32 }
           catch ptr null
-  %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #38
+  %76 = extractvalue { ptr, i32 } %75, 0
+  call void @__clang_call_terminate(ptr %76) #38
   unreachable
 
-78:                                               ; preds = %71
+77:                                               ; preds = %.thread46
   unreachable
 }
 

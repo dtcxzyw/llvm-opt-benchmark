@@ -2831,7 +2831,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value
   store i8 -1, ptr %25, align 8
   store ptr %24, ptr %4, align 8
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_15_Copy_ctor_baseILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENSA_12SdfAssetPathEEEC1ERKSD_EUlOT_T0_E_JRKSt7variantIJmldS9_SB_SC_EEEEDcOSI_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(72) %2)
-          to label %26 unwind label %42
+          to label %26 unwind label %.thread46
 
 26:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueESaIS2_EE11_M_allocateEm.exit
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -2885,34 +2885,34 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value
   store ptr %39, ptr %34, align 8
   ret void
 
-40:                                               ; preds = %42
+40:                                               ; preds = %.thread46
   %41 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %47 unwind label %48
+          to label %46 unwind label %47
 
-42:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueESaIS2_EE11_M_allocateEm.exit
-  %43 = landingpad { ptr, i32 }
+.thread46:                                        ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueESaIS2_EE11_M_allocateEm.exit
+  %42 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS8_12SdfAssetPathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %24) #20
-  %44 = extractvalue { ptr, i32 } %43, 0
-  %45 = call ptr @__cxa_begin_catch(ptr %44) #20
-  %46 = mul nuw nsw i64 %17, 72
-  call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %46) #24
+  %43 = extractvalue { ptr, i32 } %42, 0
+  %44 = call ptr @__cxa_begin_catch(ptr %43) #20
+  %45 = mul nuw nsw i64 %17, 72
+  call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %45) #24
   invoke void @__cxa_rethrow() #22
-          to label %51 unwind label %40
+          to label %50 unwind label %40
 
-47:                                               ; preds = %40
+46:                                               ; preds = %40
   resume { ptr, i32 } %41
 
-48:                                               ; preds = %40
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %40
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #21
+  %49 = extractvalue { ptr, i32 } %48, 0
+  call void @__clang_call_terminate(ptr %49) #21
   unreachable
 
-51:                                               ; preds = %42
+50:                                               ; preds = %.thread46
   unreachable
 }
 

@@ -10840,7 +10840,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %_ZNSt11unique_lockI
   %67 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN11OpenImageIO6v3_1_03pvt13imageio_mutexE) #27
   ret i1 %.sroa.0.0.i.i
 
-_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit16: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
+_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit16: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i11
   resume { ptr, i32 } %37
 }
 

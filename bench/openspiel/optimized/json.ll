@@ -4093,7 +4093,7 @@ _ZNSt12_Vector_baseIN10open_spiel4json5ValueESaIS2_EE11_M_allocateEm.exit: ; pre
   store i8 -1, ptr %27, align 8
   store ptr %26, ptr %6, align 8
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_15_Copy_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS5_5ValueESaISE_EESt3mapISC_SE_St4lessISC_ESaISt4pairIKSC_SE_EEEEEC1ERKSP_EUlOT_T0_E_JRKSt7variantIJS6_bldSC_SG_SO_EEEEDcOSU_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(49) %2)
-          to label %28 unwind label %56
+          to label %28 unwind label %.thread48
 
 28:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel4json5ValueESaIS2_EE11_M_allocateEm.exit
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -4195,34 +4195,34 @@ _ZNSt12_Vector_baseIN10open_spiel4json5ValueESaIS2_EE13_M_deallocateEPS2_m.exit:
   store ptr %53, ptr %48, align 8
   ret void
 
-54:                                               ; preds = %56
+54:                                               ; preds = %.thread48
   %55 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %61 unwind label %62
+          to label %60 unwind label %61
 
-56:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel4json5ValueESaIS2_EE11_M_allocateEm.exit
-  %57 = landingpad { ptr, i32 }
+.thread48:                                        ; preds = %_ZNSt12_Vector_baseIN10open_spiel4json5ValueESaIS2_EE11_M_allocateEm.exit
+  %56 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS3_5ValueESaISC_EESt3mapISA_SC_St4lessISA_ESaISt4pairIKSA_SC_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %26) #22
-  %58 = extractvalue { ptr, i32 } %57, 0
-  %59 = call ptr @__cxa_begin_catch(ptr %58) #22
-  %60 = mul nuw nsw i64 %19, 56
-  call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %60) #26
+  %57 = extractvalue { ptr, i32 } %56, 0
+  %58 = call ptr @__cxa_begin_catch(ptr %57) #22
+  %59 = mul nuw nsw i64 %19, 56
+  call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %59) #26
   invoke void @__cxa_rethrow() #23
-          to label %65 unwind label %54
+          to label %64 unwind label %54
 
-61:                                               ; preds = %54
+60:                                               ; preds = %54
   resume { ptr, i32 } %55
 
-62:                                               ; preds = %54
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %54
+  %62 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #25
+  %63 = extractvalue { ptr, i32 } %62, 0
+  call void @__clang_call_terminate(ptr %63) #25
   unreachable
 
-65:                                               ; preds = %56
+64:                                               ; preds = %.thread48
   unreachable
 }
 

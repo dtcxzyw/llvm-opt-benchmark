@@ -790,18 +790,18 @@ _ZN4test5fopenEPKcS1_.exit._crit_edge:            ; preds = %_ZN4test5fopenEPKcS
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29, !noalias !14
   store ptr %1, ptr %4, align 16, !tbaa !17, !noalias !14
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %16, i32 noundef %17, ptr nonnull @.str.109, i64 19, i64 12, ptr nonnull %4)
-          to label %18 unwind label %19
+          to label %19 unwind label %.thread17
 
-18:                                               ; preds = %15
+.thread17:                                        ; preds = %15
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr %16) #29
+  resume { ptr, i32 } %18
+
+19:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29, !noalias !14
   call void @__cxa_throw(ptr %16, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #31
   unreachable
-
-19:                                               ; preds = %15
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr %16) #29
-  resume { ptr, i32 } %20
 
 .critedge:                                        ; preds = %_ZN4test5fopenEPKcS1_.exit
   ret void
@@ -1019,18 +1019,18 @@ _ZN4test4openEPKcii.exit._crit_edge:              ; preds = %_ZN4test4openEPKcii
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29, !noalias !27
   store ptr %1, ptr %4, align 16, !tbaa !17, !noalias !27
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %16, i32 noundef %17, ptr nonnull @.str.109, i64 19, i64 12, ptr nonnull %4)
-          to label %18 unwind label %19
+          to label %19 unwind label %.thread17
 
-18:                                               ; preds = %15
+.thread17:                                        ; preds = %15
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr %16) #29
+  resume { ptr, i32 } %18
+
+19:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29, !noalias !27
   call void @__cxa_throw(ptr %16, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #31
   unreachable
-
-19:                                               ; preds = %15
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr %16) #29
-  resume { ptr, i32 } %20
 
 .critedge:                                        ; preds = %_ZN4test4openEPKcii.exit
   ret void

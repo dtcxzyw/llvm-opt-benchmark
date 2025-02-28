@@ -1603,9 +1603,9 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit62:            ; preds = %.thread.thread, %10
   %.pn.pn = phi { ptr, i32 } [ %117, %116 ], [ %121, %120 ], [ %119, %118 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  br i1 %42, label %123, label %.critedge58
+  br i1 %42, label %.thread66, label %.critedge58
 
-123:                                              ; preds = %122
+.thread66:                                        ; preds = %122
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
   br label %.critedge58
@@ -1614,7 +1614,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit62:            ; preds = %.thread.thread, %10
   %.045 = phi i1 [ %20, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ %45, %43 ], [ true, %12 ], [ %88, %.critedge54 ], [ %103, %_ZN4cvc58internal8TypeNodeD2Ev.exit62 ], [ true, %2 ], [ true, %2 ], [ true, %.thread.thread72 ], [ false, %54 ]
   ret i1 %.045
 
-.critedge58:                                      ; preds = %122, %123
+.critedge58:                                      ; preds = %122, %.thread66
   resume { ptr, i32 } %.pn.pn
 }
 

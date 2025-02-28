@@ -5917,7 +5917,7 @@ common.ret:                                       ; preds = %118, %26
   call void @llvm.lifetime.end.p0(i64 1464, ptr nonnull %21)
   br label %136
 
-101:                                              ; preds = %36, %136, %140
+101:                                              ; preds = %140, %136, %36
   %.pn55.pn.pn = phi { ptr, i32 } [ %.pn55.pn, %140 ], [ %.pn55.pn, %136 ], [ %37, %36 ]
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   store i8 0, ptr %102, align 8

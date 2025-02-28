@@ -5137,12 +5137,12 @@ _ZN2cv6detail9VectorRefD2Ev.exit:                 ; preds = %35, %42, %_ZN9__gnu
 
 _ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEED2Ev.exit19: ; preds = %.body
   %67 = icmp eq ptr %59, %4
-  br i1 %67, label %.thread, label %.body
+  br i1 %67, label %.thread26, label %.body
 
-.thread:                                          ; preds = %_ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEED2Ev.exit19
+.thread26:                                        ; preds = %_ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEED2Ev.exit19
   call void @_ZN2cv6detail9VectorRefD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %5) #26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26
-  br label %.loopexit
+  br label %.thread
 
 .preheader.preheader:                             ; preds = %.noexc, %3
   %68 = landingpad { ptr, i32 }
@@ -5153,7 +5153,7 @@ _ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFra
   %71 = load ptr, ptr %70, align 8, !tbaa !80
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void %71(ptr noundef nonnull %72)
-          to label %.loopexit unwind label %73
+          to label %.thread unwind label %73
 
 73:                                               ; preds = %.preheader.preheader
   %74 = landingpad { ptr, i32 }
@@ -5162,10 +5162,10 @@ _ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFra
   call void @__clang_call_terminate(ptr %75) #29
   unreachable
 
-.loopexit:                                        ; preds = %.preheader.preheader, %.thread
-  %.pn.pn28 = phi { ptr, i32 } [ %22, %.thread ], [ %68, %.preheader.preheader ]
+.thread:                                          ; preds = %.preheader.preheader, %.thread26
+  %.pn.pn29 = phi { ptr, i32 } [ %22, %.thread26 ], [ %68, %.preheader.preheader ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #26
-  resume { ptr, i32 } %.pn.pn28
+  resume { ptr, i32 } %.pn.pn29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

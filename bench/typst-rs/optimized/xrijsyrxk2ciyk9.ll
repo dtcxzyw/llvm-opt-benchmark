@@ -3784,7 +3784,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.011)
   br label %37
 
-"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit": ; preds = %40, %44
+.thread:                                          ; preds = %40, %44
   resume { ptr, i32 } %lpad.phi
 
 .loopexit:                                        ; preds = %24, %21
@@ -3802,11 +3802,11 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 15
   %42 = load i8, ptr %41, align 1, !alias.scope !757, !noundef !4
   %43 = icmp sgt i8 %42, -1
-  br i1 %43, label %44, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit"
+  br i1 %43, label %44, label %.thread
 
 44:                                               ; preds = %40
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h666d9eefed63d937E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
-          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit" unwind label %45
+          to label %.thread unwind label %45
 
 45:                                               ; preds = %44
   %46 = landingpad { ptr, i32 }

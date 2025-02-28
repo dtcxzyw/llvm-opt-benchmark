@@ -22965,7 +22965,7 @@ _ZNSt12_Vector_baseIPN6Assimp3IFC11TempOpeningESaIS3_EE11_M_allocateEm.exit.thre
           catch ptr null
   %36 = load ptr, ptr %22, align 8
   %.not.i.i6.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i6.i.i.i, label %73, label %37
+  br i1 %.not.i.i6.i.i.i, label %_ZNSt16allocator_traitsISaISt6vectorIPN6Assimp3IFC11TempOpeningESaIS4_EEEE7destroyIS6_EEvRS7_PT_.exit, label %37
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -22974,7 +22974,7 @@ _ZNSt12_Vector_baseIPN6Assimp3IFC11TempOpeningESaIS3_EE11_M_allocateEm.exit.thre
   %41 = ptrtoint ptr %36 to i64
   %42 = sub i64 %40, %41
   tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %42) #28
-  br label %73
+  br label %_ZNSt16allocator_traitsISaISt6vectorIPN6Assimp3IFC11TempOpeningESaIS4_EEEE7destroyIS6_EEvRS7_PT_.exit
 
 43:                                               ; preds = %.noexc5.i.i.i, %_ZNSt12_Vector_baseIPN6Assimp3IFC11TempOpeningESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i
   %44 = phi ptr [ %28, %_ZNSt12_Vector_baseIPN6Assimp3IFC11TempOpeningESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i ], [ %32, %.noexc5.i.i.i ]
@@ -23051,30 +23051,30 @@ _ZNSt12_Vector_baseISt6vectorIPN6Assimp3IFC11TempOpeningESaIS4_EESaIS6_EE13_M_de
   store ptr %70, ptr %65, align 8
   ret void
 
-71:                                               ; preds = %73
+71:                                               ; preds = %_ZNSt16allocator_traitsISaISt6vectorIPN6Assimp3IFC11TempOpeningESaIS4_EEEE7destroyIS6_EEvRS7_PT_.exit
   %72 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %76 unwind label %77
+          to label %75 unwind label %76
 
-73:                                               ; preds = %34, %37
-  %74 = extractvalue { ptr, i32 } %35, 0
-  %75 = tail call ptr @__cxa_begin_catch(ptr %74) #29
+_ZNSt16allocator_traitsISaISt6vectorIPN6Assimp3IFC11TempOpeningESaIS4_EEEE7destroyIS6_EEvRS7_PT_.exit: ; preds = %34, %37
+  %73 = extractvalue { ptr, i32 } %35, 0
+  %74 = tail call ptr @__cxa_begin_catch(ptr %73) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %20) #28
   invoke void @__cxa_rethrow() #26
-          to label %80 unwind label %71
+          to label %79 unwind label %71
 
-76:                                               ; preds = %71
+75:                                               ; preds = %71
   resume { ptr, i32 } %72
 
-77:                                               ; preds = %71
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %71
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  tail call void @__clang_call_terminate(ptr %79) #30
+  %78 = extractvalue { ptr, i32 } %77, 0
+  tail call void @__clang_call_terminate(ptr %78) #30
   unreachable
 
-80:                                               ; preds = %73
+79:                                               ; preds = %_ZNSt16allocator_traitsISaISt6vectorIPN6Assimp3IFC11TempOpeningESaIS4_EEEE7destroyIS6_EEvRS7_PT_.exit
   unreachable
 }
 

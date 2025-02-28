@@ -2072,7 +2072,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b4cb288adc7e406E.llvm.18266587286026290509"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
-          to label %10 unwind label %8
+          to label %"_ZN4core3ptr82drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir_expand..name..Name$GT$$GT$17h435bc75099222c57E.exit" unwind label %8
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -2086,7 +2086,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #54
   unreachable
 
-10:                                               ; preds = %5
+"_ZN4core3ptr82drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir_expand..name..Name$GT$$GT$17h435bc75099222c57E.exit": ; preds = %5
   resume { ptr, i32 } %6
 }
 
@@ -7679,7 +7679,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator7collect17heaa647d4f4a
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b4cb288adc7e406E.llvm.18266587286026290509"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
-          to label %9 unwind label %7, !noalias !1970
+          to label %"_ZN4core3ptr82drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir_expand..name..Name$GT$$GT$17h435bc75099222c57E.exit.i" unwind label %7, !noalias !1970
 
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
@@ -7687,7 +7687,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator7collect17heaa647d4f4a
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #54, !noalias !1970
   unreachable
 
-9:                                                ; preds = %5
+"_ZN4core3ptr82drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir_expand..name..Name$GT$$GT$17h435bc75099222c57E.exit.i": ; preds = %5
   resume { ptr, i32 } %6
 
 "_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$9from_iter17he5af738f1a1b1e6aE.llvm.11603491536561601675.exit": ; preds = %2

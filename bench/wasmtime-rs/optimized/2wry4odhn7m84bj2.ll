@@ -11217,28 +11217,31 @@ __rust_try.llvm.17514045976136648023.exit:        ; preds = %16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h1ad54b214077d682E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #20 personality ptr @rust_eh_personality {
+__rust_try.llvm.17514045976136648023.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1715, !noundef !4
   store i64 0, ptr %.val.i, align 8, !noalias !1718
-  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %2, align 1, !noalias !1718
+  %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  store i8 2, ptr %1, align 1, !noalias !1718
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h2561bf86d27d89b5E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #20 personality ptr @rust_eh_personality {
+__rust_try.llvm.17514045976136648023.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1721, !noundef !4
   store i8 0, ptr %.val.i, align 1, !noalias !1724
-  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 2
-  store i8 2, ptr %2, align 1, !noalias !1724
+  %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 2
+  store i8 2, ptr %1, align 1, !noalias !1724
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h41171522ed4e064dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #20 personality ptr @rust_eh_personality {
+__rust_try.llvm.17514045976136648023.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1727, !noundef !4
   store i32 0, ptr %.val.i, align 4, !noalias !1730
-  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  store i8 2, ptr %2, align 1, !noalias !1730
+  %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
+  store i8 2, ptr %1, align 1, !noalias !1730
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -24289,7 +24292,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit
   store ptr %46, ptr %31, align 8
   br label %34
 
-47:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17514045976136648023.exit.i.i.i, %44
+47:                                               ; preds = %44, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17514045976136648023.exit.i.i.i
   %48 = landingpad { ptr, i32 }
           cleanup
   %49 = load i64, ptr %4, align 8, !range !414, !noundef !4

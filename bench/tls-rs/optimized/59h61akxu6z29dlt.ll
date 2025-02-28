@@ -3747,7 +3747,7 @@ _ZN6rustls5tls1312key_schedule11KeySchedule13set_decrypter17h4aaf29770fa38ecfE.l
   %46 = icmp eq i64 %.add.i.i.i, 64
   br i1 %46, label %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit", label %.lr.ph.i.i.i.i
 
-47:                                               ; preds = %.lr.ph.i.i.i.i6
+"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit10": ; preds = %.lr.ph.i.i.i.i6
   resume { ptr, i32 } %eh.lpad-body
 
 .thread:                                          ; preds = %.body.i.i.i, %33
@@ -3760,8 +3760,8 @@ _ZN6rustls5tls1312key_schedule11KeySchedule13set_decrypter17h4aaf29770fa38ecfE.l
   %.add.i.i.i9 = add nuw nsw i64 %.idx.i.i.i7, 1
   store volatile i8 0, ptr %.ptr.i.i.i8, align 1, !alias.scope !647, !noalias !656
   fence syncscope("singlethread") seq_cst
-  %48 = icmp eq i64 %.add.i.i.i9, 64
-  br i1 %48, label %47, label %.lr.ph.i.i.i.i6
+  %47 = icmp eq i64 %.add.i.i.i9, 64
+  br i1 %47, label %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit10", label %.lr.ph.i.i.i.i6
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -31803,7 +31803,7 @@ _ZNKSt6vectorIN7rocksdb10autovectorIPNS0_11VersionEditELm8EEESaIS4_EE12_M_check_
           catch ptr null
   %37 = load ptr, ptr %22, align 8, !tbaa !1279
   %.not.i.i.i.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i.i.i.i.i, label %95, label %38
+  br i1 %.not.i.i.i.i.i.i, label %.thread52, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 96
@@ -31812,7 +31812,7 @@ _ZNKSt6vectorIN7rocksdb10autovectorIPNS0_11VersionEditELm8EEESaIS4_EE12_M_check_
   %42 = ptrtoint ptr %37 to i64
   %43 = sub i64 %41, %42
   tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef %43) #31
-  br label %95
+  br label %.thread52
 
 _ZNSt16allocator_traitsISaIN7rocksdb10autovectorIPNS0_11VersionEditELm8EEEEE9constructIS4_JRS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %30, %.noexc.i.i.i
   %.not10.i.i.i = icmp eq ptr %6, %1
@@ -31942,30 +31942,30 @@ _ZNSt12_Vector_baseIN7rocksdb10autovectorIPNS0_11VersionEditELm8EEESaIS4_EE13_M_
   store ptr %92, ptr %87, align 8, !tbaa !1286
   ret void
 
-93:                                               ; preds = %95
+93:                                               ; preds = %.thread52
   %94 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %98 unwind label %99
+          to label %97 unwind label %98
 
-95:                                               ; preds = %35, %38
-  %96 = extractvalue { ptr, i32 } %36, 0
-  %97 = tail call ptr @__cxa_begin_catch(ptr %96) #33
+.thread52:                                        ; preds = %35, %38
+  %95 = extractvalue { ptr, i32 } %36, 0
+  %96 = tail call ptr @__cxa_begin_catch(ptr %95) #33
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #31
   invoke void @__cxa_rethrow() #35
-          to label %102 unwind label %93
+          to label %101 unwind label %93
 
-98:                                               ; preds = %93
+97:                                               ; preds = %93
   resume { ptr, i32 } %94
 
-99:                                               ; preds = %93
-  %100 = landingpad { ptr, i32 }
+98:                                               ; preds = %93
+  %99 = landingpad { ptr, i32 }
           catch ptr null
-  %101 = extractvalue { ptr, i32 } %100, 0
-  tail call void @__clang_call_terminate(ptr %101) #34
+  %100 = extractvalue { ptr, i32 } %99, 0
+  tail call void @__clang_call_terminate(ptr %100) #34
   unreachable
 
-102:                                              ; preds = %95
+101:                                              ; preds = %.thread52
   unreachable
 }
 

@@ -89386,7 +89386,7 @@ define hidden void @_ZN3oo74dbus3api6secret6Secret13new_encrypted17h64bd54282b90
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit11"
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i", %.noexc14
-  br i1 %.sroa.01.0, label %54, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$oo7..dbus..api..session..Session$GT$$GT$17h34e80c0124ea369bE.llvm.1447634141393705755.exit18"
+  br i1 %.sroa.01.0, label %54, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit.thread"
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit11": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i10", %34
   ret void
@@ -89433,7 +89433,7 @@ define hidden void @_ZN3oo74dbus3api6secret6Secret13new_encrypted17h64bd54282b90
   call void @__rust_dealloc(ptr noundef nonnull %53, i64 noundef %50, i64 noundef 1) #40, !noalias !25180
   br label %.noexc14
 
-"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$oo7..dbus..api..session..Session$GT$$GT$17h34e80c0124ea369bE.llvm.1447634141393705755.exit18": ; preds = %54, %58, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit"
+"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit.thread": ; preds = %54, %58, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit"
   resume { ptr, i32 } %.pn.pn
 
 54:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit"
@@ -89442,12 +89442,12 @@ define hidden void @_ZN3oo74dbus3api6secret6Secret13new_encrypted17h64bd54282b90
   %55 = load ptr, ptr %11, align 8, !alias.scope !25187, !nonnull !5, !noundef !5
   %56 = atomicrmw sub ptr %55, i64 1 release, align 8, !noalias !25187
   %57 = icmp eq i64 %56, 1
-  br i1 %57, label %58, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$oo7..dbus..api..session..Session$GT$$GT$17h34e80c0124ea369bE.llvm.1447634141393705755.exit18"
+  br i1 %57, label %58, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit.thread"
 
 58:                                               ; preds = %54
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h75d75b52e702593eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
-          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$oo7..dbus..api..session..Session$GT$$GT$17h34e80c0124ea369bE.llvm.1447634141393705755.exit18" unwind label %41
+          to label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit.thread" unwind label %41
 }
 
 ; Function Attrs: nonlazybind uwtable

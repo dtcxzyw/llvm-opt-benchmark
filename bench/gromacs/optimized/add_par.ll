@@ -1263,13 +1263,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %51 = load i64, ptr %39, align 8, !tbaa !32
   %52 = icmp ult i64 %51, 16
   call void @llvm.assume(i1 %52)
-  br label %123
+  br label %.thread51
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6.i.i: ; preds = %47
   %53 = load i64, ptr %38, align 8, !tbaa !31
   %54 = add i64 %53, 1
   call void @_ZdlPvm(ptr noundef %49, i64 noundef %54) #20
-  br label %123
+  br label %.thread51
 
 55:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
@@ -1426,31 +1426,31 @@ _ZNSt12_Vector_baseI17InteractionOfTypeSaIS0_EE13_M_deallocateEPS0_m.exit: ; pre
   store ptr %120, ptr %115, align 8, !tbaa !24
   ret void
 
-121:                                              ; preds = %123
+121:                                              ; preds = %.thread51
   %122 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %126 unwind label %127
+          to label %125 unwind label %126
 
-123:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6.i.i
+.thread51:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
-  %124 = extractvalue { ptr, i32 } %48, 0
-  %125 = call ptr @__cxa_begin_catch(ptr %124) #17
+  %123 = extractvalue { ptr, i32 } %48, 0
+  %124 = call ptr @__cxa_begin_catch(ptr %123) #17
   call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %21) #20
   invoke void @__cxa_rethrow() #18
-          to label %130 unwind label %121
+          to label %129 unwind label %121
 
-126:                                              ; preds = %121
+125:                                              ; preds = %121
   resume { ptr, i32 } %122
 
-127:                                              ; preds = %121
-  %128 = landingpad { ptr, i32 }
+126:                                              ; preds = %121
+  %127 = landingpad { ptr, i32 }
           catch ptr null
-  %129 = extractvalue { ptr, i32 } %128, 0
-  call void @__clang_call_terminate(ptr %129) #21
+  %128 = extractvalue { ptr, i32 } %127, 0
+  call void @__clang_call_terminate(ptr %128) #21
   unreachable
 
-130:                                              ; preds = %123
+129:                                              ; preds = %.thread51
   unreachable
 }
 
@@ -1810,13 +1810,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %44 = load i64, ptr %32, align 8, !tbaa !32
   %45 = icmp ult i64 %44, 16
   call void @llvm.assume(i1 %45)
-  br label %116
+  br label %.thread51
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6.i.i: ; preds = %40
   %46 = load i64, ptr %31, align 8, !tbaa !31
   %47 = add i64 %46, 1
   call void @_ZdlPvm(ptr noundef %42, i64 noundef %47) #20
-  br label %116
+  br label %.thread51
 
 48:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
@@ -1973,31 +1973,31 @@ _ZNSt12_Vector_baseI17InteractionOfTypeSaIS0_EE13_M_deallocateEPS0_m.exit: ; pre
   store ptr %113, ptr %108, align 8, !tbaa !24
   ret void
 
-114:                                              ; preds = %116
+114:                                              ; preds = %.thread51
   %115 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %119 unwind label %120
+          to label %118 unwind label %119
 
-116:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6.i.i
+.thread51:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
-  %117 = extractvalue { ptr, i32 } %41, 0
-  %118 = call ptr @__cxa_begin_catch(ptr %117) #17
+  %116 = extractvalue { ptr, i32 } %41, 0
+  %117 = call ptr @__cxa_begin_catch(ptr %116) #17
   call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %21) #20
   invoke void @__cxa_rethrow() #18
-          to label %123 unwind label %114
+          to label %122 unwind label %114
 
-119:                                              ; preds = %114
+118:                                              ; preds = %114
   resume { ptr, i32 } %115
 
-120:                                              ; preds = %114
-  %121 = landingpad { ptr, i32 }
+119:                                              ; preds = %114
+  %120 = landingpad { ptr, i32 }
           catch ptr null
-  %122 = extractvalue { ptr, i32 } %121, 0
-  call void @__clang_call_terminate(ptr %122) #21
+  %121 = extractvalue { ptr, i32 } %120, 0
+  call void @__clang_call_terminate(ptr %121) #21
   unreachable
 
-123:                                              ; preds = %116
+122:                                              ; preds = %.thread51
   unreachable
 }
 

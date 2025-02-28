@@ -27282,7 +27282,7 @@ define internal void @_ZN4absl12_GLOBAL__N_140CordzTest_MakeCordFromEmptyExterna
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  br label %62
+  br label %.body
 
 15:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
@@ -27361,7 +27361,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %_ZNKSt14default_del
   %.pn7.pn = phi { ptr, i32 } [ %29, %28 ], [ %.pn7, %34 ], [ %.pn7, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i14 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  br label %62
+  br label %.body
 
 39:                                               ; preds = %10, %_ZN7testing7MessageD2Ev.exit
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -27431,7 +27431,7 @@ _ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %57
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   ret void
 
-62:                                               ; preds = %13, %_ZN7testing7MessageD2Ev.exit15
+.body:                                            ; preds = %_ZN7testing7MessageD2Ev.exit15, %13
   %.pn7.pn.pn = phi { ptr, i32 } [ %.pn7.pn, %_ZN7testing7MessageD2Ev.exit15 ], [ %14, %13 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17

@@ -10820,7 +10820,7 @@ _ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i:      ; preds = %_ZN7xgboost4JsonC2E
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %32 = atomicrmw sub ptr %31, i32 1 release, align 4
   %33 = icmp eq i32 %32, 1
-  br i1 %33, label %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i, label %87
+  br i1 %33, label %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i, label %.body.thread
 
 34:                                               ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN7xgboost10JsonWriterE, i64 16), ptr %5, align 8
@@ -10849,7 +10849,7 @@ _ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i:    ; preds = %_ZN7xgboost4JsonC2E
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %47 = atomicrmw sub ptr %46, i32 1 release, align 4
   %48 = icmp eq i32 %47, 1
-  br i1 %48, label %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i, label %87
+  br i1 %48, label %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i, label %.body.thread
 
 _ZN7xgboost4JsonD2Ev.exit.sink.split.i:           ; preds = %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i, %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i
   %49 = phi ptr [ %37, %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i ], [ %22, %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i ]
@@ -10867,7 +10867,7 @@ _ZN7xgboost4JsonD2Ev.exit14.sink.split.i:         ; preds = %44, %29
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
-  br label %87
+  br label %.body.thread
 
 56:                                               ; preds = %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i, %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i, %_ZN7xgboost4JsonD2Ev.exit.sink.split.i
   %57 = phi ptr [ %22, %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i ], [ %37, %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i ], [ %49, %_ZN7xgboost4JsonD2Ev.exit.sink.split.i ]
@@ -10932,23 +10932,23 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZSt4copyIN9__gnu_c
           cleanup
   br label %_ZN7xgboost4JsonD2Ev.exit13
 
-87:                                               ; preds = %29, %44, %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i
-  %eh.lpad-body.ph = phi { ptr, i32 } [ %.pn9.pn.ph.i, %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i ], [ %45, %44 ], [ %30, %29 ]
-  %88 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %89 = atomicrmw sub ptr %88, i32 1 release, align 4
-  %90 = icmp eq i32 %89, 1
-  br i1 %90, label %91, label %_ZN7xgboost4JsonD2Ev.exit13
+.body.thread:                                     ; preds = %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i, %44, %29
+  %eh.lpad-body18 = phi { ptr, i32 } [ %.pn9.pn.ph.i, %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i ], [ %45, %44 ], [ %30, %29 ]
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %88 = atomicrmw sub ptr %87, i32 1 release, align 4
+  %89 = icmp eq i32 %88, 1
+  br i1 %89, label %90, label %_ZN7xgboost4JsonD2Ev.exit13
 
-91:                                               ; preds = %87
+90:                                               ; preds = %.body.thread
   fence acquire
-  %92 = load ptr, ptr %7, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load ptr, ptr %93, align 8
-  call void %94(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  %91 = load ptr, ptr %7, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = load ptr, ptr %92, align 8
+  call void %93(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   br label %_ZN7xgboost4JsonD2Ev.exit13
 
-_ZN7xgboost4JsonD2Ev.exit13:                      ; preds = %91, %87, %85
-  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %eh.lpad-body.ph, %87 ], [ %eh.lpad-body.ph, %91 ]
+_ZN7xgboost4JsonD2Ev.exit13:                      ; preds = %90, %.body.thread, %85
+  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %eh.lpad-body18, %.body.thread ], [ %eh.lpad-body18, %90 ]
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
   resume { ptr, i32 } %.pn
 }

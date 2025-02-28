@@ -60663,8 +60663,8 @@ if.end:                                           ; preds = %entry
   store i64 0, ptr %childrenStringSize, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %childrenAsJson, i8 0, i64 24, i1 false)
   store i32 0, ptr %i, align 4
-  %cmp3534.not = icmp eq i64 %2, 0
-  br i1 %cmp3534.not, label %for.end, label %for.body.lr.ph
+  %cmp3537.not = icmp eq i64 %2, 0
+  br i1 %cmp3537.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %childrenAsJson, i64 8
@@ -60683,9 +60683,9 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %storemerge535 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %storemerge538 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %inputRow, align 8
-  %conv.i = zext i32 %storemerge535 to i64
+  %conv.i = zext i32 %storemerge538 to i64
   %childrenSize_.i8 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %4 = load i64, ptr %childrenSize_.i8, align 8
   %cmp.not.i = icmp ugt i64 %4, %conv.i
@@ -60793,7 +60793,7 @@ _ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_M_allocateE
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i391)
   store ptr null, ptr %ref.tmp.i391, align 8
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_16AsJsonC2ERNS0_4exec7EvalCtxERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEEb(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(104) %context, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i391, i1 noundef zeroext false)
-          to label %invoke.cont.i393 unwind label %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE13_M_deallocateEPS3_m.exit43.i
+          to label %invoke.cont.i393 unwind label %if.end.i
 
 invoke.cont.i393:                                 ; preds = %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_M_allocateEm.exit.i
   %18 = load ptr, ptr %ref.tmp.i391, align 8
@@ -60876,13 +60876,13 @@ if.then.i37.i:                                    ; preds = %_ZNSt6vectorIN8face
   call void @_ZdlPv(ptr noundef nonnull %this.val.i301) #39
   br label %.noexc11
 
-lpad23.i:                                         ; preds = %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE13_M_deallocateEPS3_m.exit43.i
+lpad23.i:                                         ; preds = %if.end.i
   %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %lpad.body unwind label %terminate.lpad.i
 
-_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE13_M_deallocateEPS3_m.exit43.i: ; preds = %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_M_allocateEm.exit.i
+if.end.i:                                         ; preds = %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_M_allocateEm.exit.i
   %31 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i391) #35
@@ -60899,7 +60899,7 @@ terminate.lpad.i:                                 ; preds = %lpad23.i
   call void @__clang_call_terminate(ptr %35) #37
   unreachable
 
-unreachable.i:                                    ; preds = %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE13_M_deallocateEPS3_m.exit43.i
+unreachable.i:                                    ; preds = %if.end.i
   unreachable
 
 .noexc11:                                         ; preds = %if.then.i37.i, %_ZNSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit36.i
@@ -61054,14 +61054,14 @@ if.then4.i.i.i:                                   ; preds = %if.end.i.i.i325
   br i1 %tobool.i.not.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i
 
 if.then4.i.i.i.thread:                            ; preds = %lor.lhs.false.i.i.i
-  %div2.i.i.i.i.i581 = lshr i64 %indvars.iv, 6
-  %arrayidx.i.i.i.i.i582 = getelementptr inbounds nuw i64, ptr %61, i64 %div2.i.i.i.i.i581
-  %64 = load i64, ptr %arrayidx.i.i.i.i.i582, align 8
-  %and.i.i.i.i.i583 = and i64 %indvars.iv, 63
-  %shl.i.i.i.i.i584 = shl nuw i64 1, %and.i.i.i.i.i583
-  %and2.i.i.i.i.i585 = and i64 %64, %shl.i.i.i.i.i584
-  %tobool.i.not.i.i.i.i586 = icmp eq i64 %and2.i.i.i.i.i585, 0
-  br i1 %tobool.i.not.i.i.i.i586, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i, label %if.end.i.i.i.i
+  %div2.i.i.i.i.i584 = lshr i64 %indvars.iv, 6
+  %arrayidx.i.i.i.i.i585 = getelementptr inbounds nuw i64, ptr %61, i64 %div2.i.i.i.i.i584
+  %64 = load i64, ptr %arrayidx.i.i.i.i.i585, align 8
+  %and.i.i.i.i.i586 = and i64 %indvars.iv, 63
+  %shl.i.i.i.i.i587 = shl nuw i64 1, %and.i.i.i.i.i586
+  %and2.i.i.i.i.i588 = and i64 %64, %shl.i.i.i.i.i587
+  %tobool.i.not.i.i.i.i589 = icmp eq i64 %and2.i.i.i.i.i588, 0
+  br i1 %tobool.i.not.i.i.i.i589, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i, label %if.end.i.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   %isConstantMapping_.i.i.i = getelementptr inbounds nuw i8, ptr %call2.val.i, i64 59
@@ -61867,47 +61867,47 @@ for.inc:                                          ; preds = %for.inc.i.i, %"_ZN8
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !314
 
 lpad.loopexit:                                    ; preds = %for.inc.sink.split.i.i238
-  %lpad.loopexit467 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.body
-
-lpad.loopexit.split-lp.loopexit:                  ; preds = %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.sink.split.i.i.i.i.i.i"
   %lpad.loopexit470 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
+lpad.loopexit.split-lp.loopexit:                  ; preds = %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.sink.split.i.i.i.i.i.i"
+  %lpad.loopexit473 = landingpad { ptr, i32 }
+          cleanup
+  br label %lpad.body
+
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i99.invoke
-  %lpad.loopexit474 = landingpad { ptr, i32 }
+  %lpad.loopexit477 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.sink.split.i.i.i.i.i.i"
-  %lpad.loopexit479 = landingpad { ptr, i32 }
+  %lpad.loopexit482 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i.invoke
-  %lpad.loopexit483 = landingpad { ptr, i32 }
+  %lpad.loopexit486 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.inc.sink.split.i.i
-  %lpad.loopexit488 = landingpad { ptr, i32 }
+  %lpad.loopexit491 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then3.i.i.i.i.i.invoke, %if.then10.i.i.i.i.i, %_ZNKSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE12_M_check_lenEmPKc.exit.i
-  %lpad.loopexit494 = landingpad { ptr, i32 }
+  %lpad.loopexit497 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then3.i.i.i.i.i206.invoke, %for.end, %invoke.cont8, %if.then10.i.i.i.i.i52, %if.then.i.i313
-  %lpad.loopexit.split-lp495 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp498 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %catch.fallthrough.i.i.i, %catch.fallthrough.i21.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i, %catch.fallthrough.i21.i.i.i.i.i.i90, %catch.fallthrough.i.i.i.i.i.i.i177, %catch.fallthrough.i.i.i226, %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i232, %ehcleanup.i.i.i246, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit32.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i107, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit49.i.i.i.i.i.i183, %ehcleanup.i.i.i.i.i.i.i194, %lpad.i.i, %lpad23.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i, %ehcleanup.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit31.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit49.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i, %ehcleanup.i.i.i ], [ %87, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i ], [ %.pn19.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i ], [ %139, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit31.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i ], [ %180, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit49.i.i.i.i.i.i ], [ %30, %lpad23.i ], [ %8, %lpad.i.i ], [ %.pn.i.i247, %ehcleanup.i.i.i246 ], [ %214, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i232 ], [ %.pn19.i.i.i.i.i.i108, %ehcleanup.i35.i.i.i.i.i.i107 ], [ %301, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit32.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i195, %ehcleanup.i.i.i.i.i.i.i194 ], [ %317, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit49.i.i.i.i.i.i183 ], [ %lpad.loopexit467, %lpad.loopexit ], [ %lpad.loopexit470, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit474, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit479, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit483, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit488, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit494, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp495, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %206, %catch.fallthrough.i.i.i226 ], [ %309, %catch.fallthrough.i.i.i.i.i.i.i177 ], [ %eh.lpad-body.i.i.i.i.i.i, %catch.fallthrough.i21.i.i.i.i.i.i90 ], [ %172, %catch.fallthrough.i.i.i.i.i.i.i ], [ %131, %catch.fallthrough.i21.i.i.i.i.i.i ], [ %79, %catch.fallthrough.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i, %ehcleanup.i.i.i ], [ %87, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i ], [ %.pn19.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i ], [ %139, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit31.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i ], [ %180, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit49.i.i.i.i.i.i ], [ %30, %lpad23.i ], [ %8, %lpad.i.i ], [ %.pn.i.i247, %ehcleanup.i.i.i246 ], [ %214, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i232 ], [ %.pn19.i.i.i.i.i.i108, %ehcleanup.i35.i.i.i.i.i.i107 ], [ %301, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit32.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i195, %ehcleanup.i.i.i.i.i.i.i194 ], [ %317, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit49.i.i.i.i.i.i183 ], [ %lpad.loopexit470, %lpad.loopexit ], [ %lpad.loopexit473, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit477, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit482, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit486, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit491, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit497, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp498, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %206, %catch.fallthrough.i.i.i226 ], [ %309, %catch.fallthrough.i.i.i.i.i.i.i177 ], [ %eh.lpad-body.i.i.i.i.i.i, %catch.fallthrough.i21.i.i.i.i.i.i90 ], [ %172, %catch.fallthrough.i.i.i.i.i.i.i ], [ %131, %catch.fallthrough.i21.i.i.i.i.i.i ], [ %79, %catch.fallthrough.i.i.i ]
   call fastcc void @_ZNSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %childrenAsJson) #35
   resume { ptr, i32 } %eh.lpad-body
 

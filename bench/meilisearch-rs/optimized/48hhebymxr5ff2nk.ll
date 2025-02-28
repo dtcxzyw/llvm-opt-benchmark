@@ -69845,7 +69845,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %7 = alloca [56 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h4b9e0b19a56f2cb1E.llvm.18177661807337663391"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2)
-          to label %8 unwind label %19
+          to label %8 unwind label %18
 
 8:                                                ; preds = %4
   %9 = load i64, ptr %7, align 8, !range !214, !noundef !4
@@ -69876,17 +69876,17 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   br label %13
 
-18:                                               ; preds = %19
-  resume { ptr, i32 } %20
+.thread:                                          ; preds = %18
+  resume { ptr, i32 } %19
 
-19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %4
+  %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr84drop_in_place$LT$alloc..vec..Vec$LT$milli..search..new..matches..MatchBounds$GT$$GT$17h3bdd343b443a5831E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #44
-          to label %18 unwind label %21
+          to label %.thread unwind label %20
 
-21:                                               ; preds = %19
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %18
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #42
   unreachable
@@ -70154,7 +70154,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %7 = alloca [56 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17hd74bd583b3d5a9e6E.llvm.18177661807337663391"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2)
-          to label %8 unwind label %20
+          to label %8 unwind label %19
 
 8:                                                ; preds = %4
   %9 = load i64, ptr %7, align 8, !range !214, !noundef !4
@@ -70186,17 +70186,17 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   br label %14
 
-19:                                               ; preds = %20
-  resume { ptr, i32 } %21
+.thread:                                          ; preds = %19
+  resume { ptr, i32 } %20
 
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %4
+  %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr61drop_in_place$LT$meilisearch..routes..indexes..IndexStats$GT$17hdc7454a9ca2afe13E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #44
-          to label %19 unwind label %22
+          to label %.thread unwind label %21
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %19
+  %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #42
   unreachable

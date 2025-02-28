@@ -13171,16 +13171,16 @@ _ZNSt6vectorIP11_typeobjectSaIS1_EE9push_backEOS1_.exit101: ; preds = %_ZNSt6vec
   %.sroa.0133.1 = phi ptr [ %.sroa.0133.0226, %49 ], [ %.sroa.0133.0.lcssa299, %64 ], [ %.sroa.0133.6241, %188 ], [ %.sroa.0133.2250, %.loopexit ], [ %.sroa.0133.2250, %.loopexit.split-lp.loopexit ], [ %.sroa.0133.2250, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn57.pn.pn.pn = phi { ptr, i32 } [ %lpad.phi177, %49 ], [ %65, %64 ], [ %lpad.phi166, %188 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit168, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp169, %.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i102 = icmp eq ptr %.sroa.0133.1, null
-  br i1 %.not.i.i.i102, label %_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit103, label %195
+  br i1 %.not.i.i.i102, label %_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit103, label %.thread
 
-195:                                              ; preds = %.loopexit.split-lp
-  %196 = ptrtoint ptr %.sroa.23.1 to i64
-  %197 = ptrtoint ptr %.sroa.0133.1 to i64
-  %198 = sub i64 %196, %197
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0133.1, i64 noundef %198) #34
+.thread:                                          ; preds = %.loopexit.split-lp
+  %195 = ptrtoint ptr %.sroa.23.1 to i64
+  %196 = ptrtoint ptr %.sroa.0133.1 to i64
+  %197 = sub i64 %195, %196
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0133.1, i64 noundef %197) #34
   br label %_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit103
 
-_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit103:  ; preds = %.loopexit.split-lp, %195
+_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit103:  ; preds = %.loopexit.split-lp, %.thread
   resume { ptr, i32 } %.pn57.pn.pn.pn
 }
 

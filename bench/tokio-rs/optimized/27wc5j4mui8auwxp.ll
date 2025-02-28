@@ -12199,25 +12199,25 @@ define hidden void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker11do_register1
   br i1 %.sroa.18.0.in.i93, label %39, label %.thread249
 
 "_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit114": ; preds = %31, %126, %124, %73
-  %.sroa.11.0 = phi ptr [ %.sroa.11.1185256, %73 ], [ %.sroa.11.1185256, %124 ], [ %.sroa.11.1185256, %126 ], [ %.sroa.11.1184302, %31 ]
-  %.sroa.0119.0 = phi ptr [ %.sroa.0119.1191255, %73 ], [ %.sroa.0119.1191255, %124 ], [ %.sroa.0119.1191255, %126 ], [ %.sroa.0119.1190301, %31 ]
-  %.sroa.0122.1 = phi ptr [ %.sroa.0122.6, %73 ], [ %.sroa.0122.6, %124 ], [ %.sroa.0122.6, %126 ], [ %.sroa.0122.4303, %31 ]
-  %.sroa.15.1 = phi ptr [ %.sroa.15.6, %73 ], [ %.sroa.15.6, %124 ], [ %.sroa.15.6, %126 ], [ %.sroa.15.4304, %31 ]
+  %.sroa.11.0 = phi ptr [ %.sroa.11.1185256, %73 ], [ %.sroa.11.1185256, %124 ], [ %.sroa.11.1185256, %126 ], [ %.sroa.11.1184319, %31 ]
+  %.sroa.0119.0 = phi ptr [ %.sroa.0119.1191255, %73 ], [ %.sroa.0119.1191255, %124 ], [ %.sroa.0119.1191255, %126 ], [ %.sroa.0119.1190318, %31 ]
+  %.sroa.0122.1 = phi ptr [ %.sroa.0122.6, %73 ], [ %.sroa.0122.6, %124 ], [ %.sroa.0122.6, %126 ], [ %.sroa.0122.4320, %31 ]
+  %.sroa.15.1 = phi ptr [ %.sroa.15.6, %73 ], [ %.sroa.15.6, %124 ], [ %.sroa.15.6, %126 ], [ %.sroa.15.4321, %31 ]
   %.150 = phi i1 [ false, %73 ], [ false, %124 ], [ false, %126 ], [ %115, %31 ]
-  %.146 = phi i8 [ 0, %73 ], [ %.8, %124 ], [ 0, %126 ], [ %.5306, %31 ]
+  %.146 = phi i8 [ 0, %73 ], [ %.8, %124 ], [ 0, %126 ], [ %.5323, %31 ]
   %.043.not = phi i1 [ false, %73 ], [ false, %124 ], [ false, %126 ], [ true, %31 ]
   %.pn69 = phi { ptr, i32 } [ %96, %73 ], [ %125, %124 ], [ %96, %126 ], [ %32, %31 ]
   %.not71 = icmp eq ptr %.sroa.0122.1, null
   %or.cond80 = or i1 %.150, %.not71
-  br i1 %or.cond80, label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit116", label %129
+  br i1 %or.cond80, label %.thread, label %129
 
-29:                                               ; preds = %131, %126, %134
+29:                                               ; preds = %131, %126, %.thread293
   %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #30
   unreachable
 
-31:                                               ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit.thread293"
+31:                                               ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit.thread310"
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit114"
@@ -12234,7 +12234,7 @@ define hidden void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker11do_register1
   tail call void @llvm.assume(i1 %37)
   %38 = cmpxchg ptr %3, i64 1, i64 0 acq_rel acquire, align 8
   %.sroa.18.0.in.i93180 = extractvalue { i64, i1 } %38, 1
-  br i1 %.sroa.18.0.in.i93180, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit.thread293", label %74
+  br i1 %.sroa.18.0.in.i93180, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit.thread310", label %74
 
 39:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1718)
@@ -12282,11 +12282,11 @@ define hidden void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker11do_register1
   %62 = icmp ult i64 %61, -9223372036854775807
   tail call void @llvm.assume(i1 %62)
   %63 = icmp eq i64 %59, 0
-  br i1 %63, label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit116.thread", label %64
+  br i1 %63, label %.thread.thread, label %64
 
 64:                                               ; preds = %56
   tail call void @__rust_dealloc(ptr noundef nonnull %51, i64 noundef range(i64 1, -9223372036854775808) %59, i64 noundef range(i64 1, -9223372036854775807) %61) #24
-  br label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit116.thread"
+  br label %.thread.thread
 
 65:                                               ; preds = %50
   %66 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -12304,7 +12304,7 @@ define hidden void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker11do_register1
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit": ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit106", %112
   %.not67 = icmp eq ptr %.sroa.0119.1191255, null
-  br i1 %.not67, label %117, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit.thread293"
+  br i1 %.not67, label %117, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit.thread310"
 
 73:                                               ; preds = %95, %103
   %.not65 = icmp eq ptr %.sroa.0140.1, null
@@ -12401,22 +12401,22 @@ define hidden void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker11do_register1
   invoke void %114(ptr noundef %79)
           to label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" unwind label %124
 
-"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit.thread293": ; preds = %.thread175, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit"
-  %.5306 = phi i8 [ %.8, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ 0, %.thread175 ]
+"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit.thread310": ; preds = %.thread175, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit"
+  %.5323 = phi i8 [ %.8, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ 0, %.thread175 ]
   %115 = phi i1 [ false, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ true, %.thread175 ]
-  %.sroa.15.4304 = phi ptr [ %.sroa.15.6, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ undef, %.thread175 ]
-  %.sroa.0122.4303 = phi ptr [ %.sroa.0122.6, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ null, %.thread175 ]
-  %.sroa.11.1184302 = phi ptr [ %.sroa.11.1185256, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ %36, %.thread175 ]
-  %.sroa.0119.1190301 = phi ptr [ %.sroa.0119.1191255, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ %35, %.thread175 ]
-  %116 = icmp ne ptr %.sroa.11.1184302, null
+  %.sroa.15.4321 = phi ptr [ %.sroa.15.6, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ undef, %.thread175 ]
+  %.sroa.0122.4320 = phi ptr [ %.sroa.0122.6, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ null, %.thread175 ]
+  %.sroa.11.1184319 = phi ptr [ %.sroa.11.1185256, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ %36, %.thread175 ]
+  %.sroa.0119.1190318 = phi ptr [ %.sroa.0119.1191255, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ %35, %.thread175 ]
+  %116 = icmp ne ptr %.sroa.11.1184319, null
   tail call void @llvm.assume(i1 %116)
-  invoke void @_ZN3std5panic13resume_unwind17h637c86fe8b0e9ce2E(ptr noundef nonnull align 1 %.sroa.0119.1190301, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.11.1184302) #31
+  invoke void @_ZN3std5panic13resume_unwind17h637c86fe8b0e9ce2E(ptr noundef nonnull align 1 %.sroa.0119.1190318, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.11.1184319) #31
           to label %118 unwind label %31
 
 117:                                              ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit"
   br i1 %.not61, label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6a062c4d195284ceE.exit110", label %119
 
-118:                                              ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit.thread293"
+118:                                              ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit.thread310"
   unreachable
 
 119:                                              ; preds = %117
@@ -12429,10 +12429,10 @@ define hidden void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker11do_register1
   tail call void %123(ptr noundef %.sroa.15.6)
   br label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6a062c4d195284ceE.exit110"
 
-"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit116": ; preds = %131, %129, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit114"
+.thread:                                          ; preds = %131, %129, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit114"
   %.not73 = icmp eq ptr %.sroa.0119.0, null
   %brmerge = or i1 %.not73, %.043.not
-  br i1 %brmerge, label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit116.thread", label %134
+  br i1 %brmerge, label %.thread.thread, label %.thread293
 
 124:                                              ; preds = %112
   %125 = landingpad { ptr, i32 }
@@ -12447,26 +12447,26 @@ define hidden void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker11do_register1
 
 129:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit114"
   %130 = trunc nuw i8 %.146 to i1
-  br i1 %130, label %131, label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit116"
+  br i1 %130, label %131, label %.thread
 
 131:                                              ; preds = %129
   %132 = getelementptr inbounds nuw i8, ptr %.sroa.0122.1, i64 24
   %133 = load ptr, ptr %132, align 8, !noalias !1746, !nonnull !4, !noundef !4
   invoke void %133(ptr noundef %.sroa.15.1)
-          to label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit116" unwind label %29
+          to label %.thread unwind label %29
 
-134:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit116"
-  %135 = icmp ne ptr %.sroa.11.0, null
-  tail call void @llvm.assume(i1 %135)
+.thread293:                                       ; preds = %.thread
+  %134 = icmp ne ptr %.sroa.11.0, null
+  tail call void @llvm.assume(i1 %134)
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17hbe25155ee28996c3E"(ptr nonnull %.sroa.0119.0, ptr nonnull %.sroa.11.0) #32
-          to label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit116.thread" unwind label %29
+          to label %.thread.thread unwind label %29
 
 "_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6a062c4d195284ceE.exit110": ; preds = %121, %39, %41, %65, %72, %119, %117, %2, %15
   ret void
 
-"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit116.thread": ; preds = %64, %56, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit116", %134
-  %.pn69328335 = phi { ptr, i32 } [ %.pn69, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit116" ], [ %.pn69, %134 ], [ %57, %56 ], [ %57, %64 ]
-  resume { ptr, i32 } %.pn69328335
+.thread.thread:                                   ; preds = %64, %56, %.thread, %.thread293
+  %.pn69345352 = phi { ptr, i32 } [ %.pn69, %.thread ], [ %.pn69, %.thread293 ], [ %57, %56 ], [ %57, %64 ]
+  resume { ptr, i32 } %.pn69345352
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

@@ -29881,7 +29881,7 @@ define hidden void @_ZN3ide11inlay_hints14InlayHintLabel6simple17hc702d570f39561
   ]
 
 11:                                               ; preds = %.body
-  br i1 %.1.lpad-body, label %66, label %67
+  br i1 %.1.lpad-body, label %.thread, label %.thread16
 
 default.unreachable:                              ; preds = %4
   unreachable
@@ -30026,17 +30026,17 @@ default.unreachable:                              ; preds = %4
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   ret void
 
-64:                                               ; preds = %66, %.body
+64:                                               ; preds = %.thread, %.body
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #52
   unreachable
 
-66:                                               ; preds = %11
+.thread:                                          ; preds = %11
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$ide..inlay_hints..InlayTooltip$GT$$GT$17h963950e654e5185fE.llvm.2875332049115192089"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2) #54
-          to label %67 unwind label %64
+          to label %.thread16 unwind label %64
 
-67:                                               ; preds = %11, %66
+.thread16:                                        ; preds = %.thread, %11
   resume { ptr, i32 } %eh.lpad-body
 }
 

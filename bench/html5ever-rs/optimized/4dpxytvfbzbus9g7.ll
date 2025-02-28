@@ -136,7 +136,7 @@ define void @_ZN8xml5ever12tree_builder17NamespaceMapStack3new17hc3a8cb62050dbe0
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #14, !noalias !10
   unreachable
 
-27:                                               ; preds = %.noexc41.i, %90, %71, %.noexc28.i, %66, %47, %.noexc16.i, %42, %21
+27:                                               ; preds = %.noexc43.i, %90, %71, %.noexc29.i, %66, %47, %.noexc16.i, %42, %21
   %28 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -195,13 +195,13 @@ define void @_ZN8xml5ever12tree_builder17NamespaceMapStack3new17hc3a8cb62050dbe0
 47:                                               ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !noalias !20
   %48 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h2e6229bae5d59897E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5, i64 noundef 8589934594)
-          to label %.thread50.i unwind label %27, !noalias !10
+          to label %.thread52.i unwind label %27, !noalias !10
 
-.thread50.i:                                      ; preds = %47
+.thread52.i:                                      ; preds = %47
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !10
-  br label %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$$GT$17h5086ba46550f2bc6E.exit30.i"
+  br label %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$$GT$17h5086ba46550f2bc6E.exit31.i"
 
 49:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$$GT$17h5086ba46550f2bc6E.exit.i"
   %50 = landingpad { ptr, i32 }
@@ -217,11 +217,11 @@ define void @_ZN8xml5ever12tree_builder17NamespaceMapStack3new17hc3a8cb62050dbe0
 
 53:                                               ; preds = %44
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.0.0.copyload.i20.i = load ptr, ptr %54, align 8, !noalias !20, !nonnull !16, !noundef !16
-  %.sroa.43.0..sroa_idx.i21.i = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.43.0.copyload.i22.i = load i64, ptr %.sroa.43.0..sroa_idx.i21.i, align 8, !noalias !20
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i20.i, i64 96
-  %56 = getelementptr inbounds i64, ptr %55, i64 %.sroa.43.0.copyload.i22.i
+  %.sroa.0.0.copyload.i21.i = load ptr, ptr %54, align 8, !noalias !20, !nonnull !16, !noundef !16
+  %.sroa.43.0..sroa_idx.i22.i = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sroa.43.0.copyload.i23.i = load i64, ptr %.sroa.43.0..sroa_idx.i22.i, align 8, !noalias !20
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i21.i, i64 96
+  %56 = getelementptr inbounds i64, ptr %55, i64 %.sroa.43.0.copyload.i23.i
   %57 = load i64, ptr %56, align 8, !noalias !23, !noundef !16
   store i64 8589934594, ptr %56, align 8, !noalias !23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !20
@@ -230,25 +230,25 @@ define void @_ZN8xml5ever12tree_builder17NamespaceMapStack3new17hc3a8cb62050dbe0
   %58 = icmp ne i64 %57, 0
   %59 = and i64 %57, 3
   %60 = icmp eq i64 %59, 0
-  %or.cond.i.i27.i = and i1 %58, %60
-  br i1 %or.cond.i.i27.i, label %61, label %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$$GT$17h5086ba46550f2bc6E.exit30.i"
+  %or.cond.i.i28.i = and i1 %58, %60
+  br i1 %or.cond.i.i28.i, label %61, label %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$$GT$17h5086ba46550f2bc6E.exit31.i"
 
 61:                                               ; preds = %53
   %62 = inttoptr i64 %57 to ptr
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = atomicrmw sub ptr %63, i64 1 seq_cst, align 8, !noalias !10
   %65 = icmp eq i64 %64, 1
-  br i1 %65, label %66, label %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$$GT$17h5086ba46550f2bc6E.exit30.i"
+  br i1 %65, label %66, label %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$$GT$17h5086ba46550f2bc6E.exit31.i"
 
 66:                                               ; preds = %61
   %67 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E"(ptr noundef nonnull align 8 @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, ptr noundef nonnull align 8 @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE)
-          to label %.noexc28.i unwind label %27, !noalias !10
+          to label %.noexc29.i unwind label %27, !noalias !10
 
-.noexc28.i:                                       ; preds = %66
+.noexc29.i:                                       ; preds = %66
   invoke void @_ZN12string_cache11dynamic_set3Set6remove17h355379461556d4f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %67, ptr noundef nonnull %62)
-          to label %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$$GT$17h5086ba46550f2bc6E.exit30.i" unwind label %27, !noalias !10
+          to label %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$$GT$17h5086ba46550f2bc6E.exit31.i" unwind label %27, !noalias !10
 
-"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$$GT$17h5086ba46550f2bc6E.exit30.i": ; preds = %.noexc28.i, %61, %53, %.thread50.i
+"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$$GT$17h5086ba46550f2bc6E.exit31.i": ; preds = %.noexc29.i, %61, %53, %.thread52.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2), !noalias !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !10
   store i64 21474836482, ptr %4, align 8, !noalias !26
@@ -256,7 +256,7 @@ define void @_ZN8xml5ever12tree_builder17NamespaceMapStack3new17hc3a8cb62050dbe0
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17hdedc5ecc53409f79E.llvm.3526042320029563352"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef 30064771074)
           to label %68 unwind label %73, !noalias !10
 
-68:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$$GT$17h5086ba46550f2bc6E.exit30.i"
+68:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$$GT$17h5086ba46550f2bc6E.exit31.i"
   %69 = load ptr, ptr %3, align 8, !noalias !26, !noundef !16
   %70 = icmp eq ptr %69, null
   br i1 %70, label %77, label %71
@@ -264,15 +264,15 @@ define void @_ZN8xml5ever12tree_builder17NamespaceMapStack3new17hc3a8cb62050dbe0
 71:                                               ; preds = %68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !26
   %72 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h2e6229bae5d59897E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %2, i64 noundef 21474836482)
-          to label %.thread53.i unwind label %27, !noalias !10
+          to label %.thread55.i unwind label %27, !noalias !10
 
-.thread53.i:                                      ; preds = %71
+.thread55.i:                                      ; preds = %71
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !26
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !10
   br label %94
 
-73:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$$GT$17h5086ba46550f2bc6E.exit30.i"
+73:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$$GT$17h5086ba46550f2bc6E.exit31.i"
   %74 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$17h202c196bc3f765b9E.llvm.3526042320029563352"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #13
@@ -286,11 +286,11 @@ define void @_ZN8xml5ever12tree_builder17NamespaceMapStack3new17hc3a8cb62050dbe0
 
 77:                                               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.0.0.copyload.i33.i = load ptr, ptr %78, align 8, !noalias !26, !nonnull !16, !noundef !16
-  %.sroa.43.0..sroa_idx.i34.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sroa.43.0.copyload.i35.i = load i64, ptr %.sroa.43.0..sroa_idx.i34.i, align 8, !noalias !26
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i33.i, i64 96
-  %80 = getelementptr inbounds i64, ptr %79, i64 %.sroa.43.0.copyload.i35.i
+  %.sroa.0.0.copyload.i35.i = load ptr, ptr %78, align 8, !noalias !26, !nonnull !16, !noundef !16
+  %.sroa.43.0..sroa_idx.i36.i = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sroa.43.0.copyload.i37.i = load i64, ptr %.sroa.43.0..sroa_idx.i36.i, align 8, !noalias !26
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i35.i, i64 96
+  %80 = getelementptr inbounds i64, ptr %79, i64 %.sroa.43.0.copyload.i37.i
   %81 = load i64, ptr %80, align 8, !noalias !29, !noundef !16
   store i64 21474836482, ptr %80, align 8, !noalias !29
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !26
@@ -299,8 +299,8 @@ define void @_ZN8xml5ever12tree_builder17NamespaceMapStack3new17hc3a8cb62050dbe0
   %82 = icmp ne i64 %81, 0
   %83 = and i64 %81, 3
   %84 = icmp eq i64 %83, 0
-  %or.cond.i.i40.i = and i1 %82, %84
-  br i1 %or.cond.i.i40.i, label %85, label %94
+  %or.cond.i.i42.i = and i1 %82, %84
+  br i1 %or.cond.i.i42.i, label %85, label %94
 
 85:                                               ; preds = %77
   %86 = inttoptr i64 %81 to ptr
@@ -311,9 +311,9 @@ define void @_ZN8xml5ever12tree_builder17NamespaceMapStack3new17hc3a8cb62050dbe0
 
 90:                                               ; preds = %85
   %91 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E"(ptr noundef nonnull align 8 @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, ptr noundef nonnull align 8 @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE)
-          to label %.noexc41.i unwind label %27, !noalias !10
+          to label %.noexc43.i unwind label %27, !noalias !10
 
-.noexc41.i:                                       ; preds = %90
+.noexc43.i:                                       ; preds = %90
   invoke void @_ZN12string_cache11dynamic_set3Set6remove17h355379461556d4f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %91, ptr noundef nonnull %86)
           to label %94 unwind label %27, !noalias !10
 
@@ -328,7 +328,7 @@ define void @_ZN8xml5ever12tree_builder17NamespaceMapStack3new17hc3a8cb62050dbe0
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$xml5ever..tree_builder..NamespaceMap$GT$$GT$17h85d9915b486d8918E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #13
           to label %111 unwind label %109
 
-94:                                               ; preds = %.noexc41.i, %85, %77, %.thread53.i
+94:                                               ; preds = %.noexc43.i, %85, %77, %.thread55.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !10
   %95 = load i64, ptr %16, align 8, !alias.scope !32, !noalias !35, !noundef !16

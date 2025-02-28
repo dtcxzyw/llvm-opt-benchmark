@@ -1121,16 +1121,16 @@ _ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit72: ; preds = %.thread140, %168
   %.pn58.pn.pn.pn145 = phi { ptr, i32 } [ %23, %.thread140 ], [ %.pn58.pn.pn.pn, %168 ], [ %.pn58.pn.pn.pn, %166 ]
   %.sroa.089.2144 = phi ptr [ %.sroa.089.1, %.thread140 ], [ %.sroa.089.2, %168 ], [ %.sroa.089.2, %166 ]
   %172 = icmp eq ptr %.sroa.089.2144, null
-  br i1 %172, label %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit73, label %173
+  br i1 %172, label %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit73, label %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit72.thread109
 
-173:                                              ; preds = %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit72
-  %174 = load ptr, ptr %.sroa.089.2144, align 8, !tbaa !19
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  %176 = load ptr, ptr %175, align 8
-  call void %176(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.089.2144) #16
+_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit72.thread109: ; preds = %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit72
+  %173 = load ptr, ptr %.sroa.089.2144, align 8, !tbaa !19
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  %175 = load ptr, ptr %174, align 8
+  call void %175(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.089.2144) #16
   br label %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit73
 
-_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit73: ; preds = %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit72, %173
+_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit73: ; preds = %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit72, %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit72.thread109
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
   resume { ptr, i32 } %.pn58.pn.pn.pn145
 }

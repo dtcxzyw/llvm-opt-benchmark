@@ -27563,26 +27563,26 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   br label %40
 
-43:                                               ; preds = %44
+.thread:                                          ; preds = %43
   resume { ptr, i32 } %lpad.phi
 
 .loopexit:                                        ; preds = %25, %22
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %44
+  br label %43
 
 .loopexit.split-lp:                               ; preds = %14
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %44
+  br label %43
 
-44:                                               ; preds = %.loopexit.split-lp, %.loopexit
+43:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr84drop_in_place$LT$$LP$usize$C$wasmtime..runtime..module..registry..LoadedCode$RP$$GT$17h872336068421f8afE.llvm.7452288157325931747"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #40
-          to label %43 unwind label %45
+          to label %.thread unwind label %44
 
-45:                                               ; preds = %44
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %43
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #41
   unreachable
@@ -27823,7 +27823,7 @@ define hidden { i64, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   store ptr %3, ptr %44, align 8, !noalias !13340
   br label %39
 
-"_ZN4core3ptr103drop_in_place$LT$$LP$usize$C$alloc..sync..Arc$LT$wasmtime..runtime..code_memory..CodeMemory$GT$$RP$$GT$17h330631ea363f592fE.llvm.7452288157325931747.exit": ; preds = %46, %49
+.thread:                                          ; preds = %46, %49
   resume { ptr, i32 } %lpad.phi
 
 .loopexit:                                        ; preds = %25, %22
@@ -27840,12 +27840,12 @@ define hidden { i64, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %47 = atomicrmw sub ptr %3, i64 1 release, align 8, !noalias !13343
   %48 = icmp eq i64 %47, 1
-  br i1 %48, label %49, label %"_ZN4core3ptr103drop_in_place$LT$$LP$usize$C$alloc..sync..Arc$LT$wasmtime..runtime..code_memory..CodeMemory$GT$$RP$$GT$17h330631ea363f592fE.llvm.7452288157325931747.exit"
+  br i1 %48, label %49, label %.thread
 
 49:                                               ; preds = %46
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc033d8dc032aa2e9E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
-          to label %"_ZN4core3ptr103drop_in_place$LT$$LP$usize$C$alloc..sync..Arc$LT$wasmtime..runtime..code_memory..CodeMemory$GT$$RP$$GT$17h330631ea363f592fE.llvm.7452288157325931747.exit" unwind label %50
+          to label %.thread unwind label %50
 
 50:                                               ; preds = %49
   %51 = landingpad { ptr, i32 }

@@ -187917,7 +187917,7 @@ _ZNKSt6vectorIN4CGAL13SM_Face_indexESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; pred
 .thread:                                          ; preds = %_ZNKSt6vectorIN4CGAL13SM_Face_indexESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %43 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIbSaIbEED2Ev.exit80
+  br label %_ZNSt6vectorIN4CGAL13SM_Face_indexESaIS1_EED2Ev.exit.thread
 
 _ZNSt6vectorIN4CGAL13SM_Face_indexESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vectorIN4CGAL13SM_Face_indexESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   store i32 %.sroa.0126.0196, ptr %42, align 4
@@ -187967,7 +187967,7 @@ _ZNSt6vectorIN4CGAL13SM_Face_indexESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZN
 57:                                               ; preds = %.loopexit170, %.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit170 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0106.4192) #39
-  br label %_ZNSt6vectorIbSaIbEED2Ev.exit80
+  br label %_ZNSt6vectorIN4CGAL13SM_Face_indexESaIS1_EED2Ev.exit.thread
 
 58:                                               ; preds = %47
   %59 = getelementptr inbounds nuw i64, ptr %.sroa.0134.0, i64 %.zext160
@@ -188162,8 +188162,8 @@ _ZN5boost9iterators6detail20iterator_facade_baseIN4CGAL12Surface_meshINS3_7Point
 _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %._crit_edge, %131
   ret i64 %.0.lcssa
 
-_ZNSt6vectorIbSaIbEED2Ev.exit80:                  ; preds = %.thread, %57
-  %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %57 ], [ %43, %.thread ]
+_ZNSt6vectorIN4CGAL13SM_Face_indexESaIS1_EED2Ev.exit.thread: ; preds = %.thread, %57
+  %.pn157 = phi { ptr, i32 } [ %lpad.phi, %57 ], [ %43, %.thread ]
   %138 = ptrtoint ptr %.sroa.27.0 to i64
   %139 = ptrtoint ptr %.sroa.0134.0 to i64
   %140 = sub i64 %138, %139
@@ -188171,7 +188171,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit80:                  ; preds = %.thread, %57
   %142 = sub nsw i64 0, %141
   %143 = getelementptr inbounds i64, ptr %.sroa.27.0, i64 %142
   tail call void @_ZdlPv(ptr noundef %143) #39
-  resume { ptr, i32 } %.pn.ph
+  resume { ptr, i32 } %.pn157
 }
 
 ; Function Attrs: mustprogress uwtable

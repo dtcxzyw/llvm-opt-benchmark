@@ -32031,7 +32031,7 @@ _ZNKSt6vectorIN4Luau10ParseErrorESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
 
 .noexc.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIN4Luau10ParseErrorESaIS1_EE12_M_check_lenEmPKc.exit
   %32 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-          to label %.noexc.i.i.i unwind label %94
+          to label %.noexc.i.i.i unwind label %.thread50
 
 .noexc.i.i.i:                                     ; preds = %.noexc.i.i.i.i
   store ptr %32, ptr %25, align 8, !tbaa !15
@@ -32194,33 +32194,33 @@ _ZNSt12_Vector_baseIN4Luau10ParseErrorESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   store ptr %91, ptr %86, align 8, !tbaa !25
   ret void
 
-92:                                               ; preds = %94
+92:                                               ; preds = %.thread50
   %93 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %98 unwind label %99
+          to label %97 unwind label %98
 
-94:                                               ; preds = %.noexc.i.i.i.i
-  %95 = landingpad { ptr, i32 }
+.thread50:                                        ; preds = %.noexc.i.i.i.i
+  %94 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #29
-  %96 = extractvalue { ptr, i32 } %95, 0
-  %97 = call ptr @__cxa_begin_catch(ptr %96) #29
+  %95 = extractvalue { ptr, i32 } %94, 0
+  %96 = call ptr @__cxa_begin_catch(ptr %95) #29
   call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %20) #31
   invoke void @__cxa_rethrow() #30
-          to label %102 unwind label %92
+          to label %101 unwind label %92
 
-98:                                               ; preds = %92
+97:                                               ; preds = %92
   resume { ptr, i32 } %93
 
-99:                                               ; preds = %92
-  %100 = landingpad { ptr, i32 }
+98:                                               ; preds = %92
+  %99 = landingpad { ptr, i32 }
           catch ptr null
-  %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #32
+  %100 = extractvalue { ptr, i32 } %99, 0
+  call void @__clang_call_terminate(ptr %100) #32
   unreachable
 
-102:                                              ; preds = %94
+101:                                              ; preds = %.thread50
   unreachable
 }
 
@@ -32885,7 +32885,7 @@ _ZNKSt6vectorIN4Luau10ParseErrorESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %4
 
 .noexc.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIN4Luau10ParseErrorESaIS1_EE12_M_check_lenEmPKc.exit
   %31 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
-          to label %.noexc.i.i.i unwind label %93
+          to label %.noexc.i.i.i unwind label %.thread51
 
 .noexc.i.i.i:                                     ; preds = %.noexc.i.i.i.i
   store ptr %31, ptr %25, align 8, !tbaa !15
@@ -33048,33 +33048,33 @@ _ZNSt12_Vector_baseIN4Luau10ParseErrorESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   store ptr %90, ptr %85, align 8, !tbaa !25
   ret void
 
-91:                                               ; preds = %93
+91:                                               ; preds = %.thread51
   %92 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %97 unwind label %98
+          to label %96 unwind label %97
 
-93:                                               ; preds = %.noexc.i.i.i.i
-  %94 = landingpad { ptr, i32 }
+.thread51:                                        ; preds = %.noexc.i.i.i.i
+  %93 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %23) #29
-  %95 = extractvalue { ptr, i32 } %94, 0
-  %96 = call ptr @__cxa_begin_catch(ptr %95) #29
+  %94 = extractvalue { ptr, i32 } %93, 0
+  %95 = call ptr @__cxa_begin_catch(ptr %94) #29
   call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %21) #31
   invoke void @__cxa_rethrow() #30
-          to label %101 unwind label %91
+          to label %100 unwind label %91
 
-97:                                               ; preds = %91
+96:                                               ; preds = %91
   resume { ptr, i32 } %92
 
-98:                                               ; preds = %91
-  %99 = landingpad { ptr, i32 }
+97:                                               ; preds = %91
+  %98 = landingpad { ptr, i32 }
           catch ptr null
-  %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #32
+  %99 = extractvalue { ptr, i32 } %98, 0
+  call void @__clang_call_terminate(ptr %99) #32
   unreachable
 
-101:                                              ; preds = %93
+100:                                              ; preds = %.thread51
   unreachable
 }
 

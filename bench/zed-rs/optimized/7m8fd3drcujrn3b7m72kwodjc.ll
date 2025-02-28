@@ -5034,7 +5034,7 @@ define hidden void @"_ZN120_$LT$futures_util..stream..stream..filter_map..Filter
   %15 = load ptr, ptr %14, align 8, !invariant.load !4, !noalias !1421, !nonnull !4
   call void %15(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %4, ptr noundef nonnull align 1 %.val12, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %16 = load i64, ptr %4, align 8, !range !1425, !noundef !4
-  switch i64 %16, label %40 [
+  switch i64 %16, label %41 [
     i64 -9223372036854775804, label %39
     i64 -9223372036854775805, label %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$$GT$17hff1c92bc7a796039E.exit"
   ]
@@ -5115,9 +5115,9 @@ default.unreachable:                              ; preds = %17
   tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %31, i64 noundef 1) #45, !noalias !1488
   br label %.thread
 
-common.resume:                                    ; preds = %47, %34
-  %storemerge = phi i8 [ 2, %34 ], [ 0, %47 ]
-  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %48, %47 ]
+common.resume:                                    ; preds = %"_ZN4core3ptr253drop_in_place$LT$core..option..Option$LT$semantic_index..summary_index..SummaryIndex..summarize_code..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf21dd4f37c0eca02E.exit17", %34
+  %storemerge = phi i8 [ 2, %34 ], [ 0, %"_ZN4core3ptr253drop_in_place$LT$core..option..Option$LT$semantic_index..summary_index..SummaryIndex..summarize_code..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf21dd4f37c0eca02E.exit17" ]
+  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %40, %"_ZN4core3ptr253drop_in_place$LT$core..option..Option$LT$semantic_index..summary_index..SummaryIndex..summarize_code..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf21dd4f37c0eca02E.exit17" ]
   store i8 %storemerge, ptr %6, align 8, !noalias !4
   resume { ptr, i32 } %common.resume.op
 
@@ -5139,8 +5139,8 @@ common.resume:                                    ; preds = %47, %34
   store i64 -9223372036854775805, ptr %1, align 8, !noalias !1489
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hbe8083c9823e739dE.exit23.backedge"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hbe8083c9823e739dE.exit23.backedge": ; preds = %.thread, %49, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hd659bb78284f3141E.exit"
-  %.be = phi i64 [ %16, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hd659bb78284f3141E.exit" ], [ -9223372036854775805, %49 ], [ -9223372036854775805, %.thread ]
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hbe8083c9823e739dE.exit23.backedge": ; preds = %.thread, %48, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hd659bb78284f3141E.exit"
+  %.be = phi i64 [ %16, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hd659bb78284f3141E.exit" ], [ -9223372036854775805, %48 ], [ -9223372036854775805, %.thread ]
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hbe8083c9823e739dE.exit23"
 
 "_ZN14semantic_index13summary_index12SummaryIndex14summarize_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9b8899c57ec5754cE.exit": ; preds = %19
@@ -5149,35 +5149,35 @@ common.resume:                                    ; preds = %47, %34
   %.sroa.3.i.sroa.4.0.copyload = load i64, ptr %.sroa.3.i.sroa.4.0..sroa.2.0..sroa_idx.i.sroa_idx, align 8, !noalias !1426
   store i8 1, ptr %6, align 8, !noalias !1426
   %38 = icmp eq i64 %.sroa.04.0.copyload.i, -9223372036854775807
-  br i1 %38, label %51, label %49
+  br i1 %38, label %50, label %48
 
 39:                                               ; preds = %13
   store i64 -9223372036854775807, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4)
-  br label %52
+  br label %51
 
-40:                                               ; preds = %13
-  %41 = load i64, ptr %1, align 8, !range !1420, !noalias !1492, !noundef !4
-  %42 = icmp eq i64 %41, -9223372036854775805
-  br i1 %42, label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hd659bb78284f3141E.exit", label %43
-
-43:                                               ; preds = %40
-  %44 = load i8, ptr %6, align 8, !range !1339, !noalias !1492, !noundef !4
-  %45 = icmp eq i8 %44, 0
-  br i1 %45, label %46, label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hd659bb78284f3141E.exit"
-
-46:                                               ; preds = %43
-  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$17h3fb7cb3a3348dbd6E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %1)
-          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hd659bb78284f3141E.exit" unwind label %47
-
-47:                                               ; preds = %46
-  %48 = landingpad { ptr, i32 }
+"_ZN4core3ptr253drop_in_place$LT$core..option..Option$LT$semantic_index..summary_index..SummaryIndex..summarize_code..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf21dd4f37c0eca02E.exit17": ; preds = %47
+  %40 = landingpad { ptr, i32 }
           cleanup
   store i64 %16, ptr %1, align 8, !noalias !1492
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.4.0..sroa_idx, i64 112, i1 false)
   br label %common.resume
 
-"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hd659bb78284f3141E.exit": ; preds = %43, %40, %46
+41:                                               ; preds = %13
+  %42 = load i64, ptr %1, align 8, !range !1420, !noalias !1492, !noundef !4
+  %43 = icmp eq i64 %42, -9223372036854775805
+  br i1 %43, label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hd659bb78284f3141E.exit", label %44
+
+44:                                               ; preds = %41
+  %45 = load i8, ptr %6, align 8, !range !1339, !noalias !1492, !noundef !4
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %47, label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hd659bb78284f3141E.exit"
+
+47:                                               ; preds = %44
+  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$17h3fb7cb3a3348dbd6E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %1)
+          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hd659bb78284f3141E.exit" unwind label %"_ZN4core3ptr253drop_in_place$LT$core..option..Option$LT$semantic_index..summary_index..SummaryIndex..summarize_code..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf21dd4f37c0eca02E.exit17"
+
+"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hd659bb78284f3141E.exit": ; preds = %44, %41, %47
   store i64 %16, ptr %1, align 8, !noalias !1492
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.4.0..sroa_idx, i64 112, i1 false)
   store i8 0, ptr %6, align 8, !noalias !1492
@@ -5188,27 +5188,27 @@ common.resume:                                    ; preds = %47, %34
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %49, %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$$GT$17hff1c92bc7a796039E.exit"
-  %.sroa.6.sroa.0.0 = phi ptr [ undef, %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$$GT$17hff1c92bc7a796039E.exit" ], [ %.sroa.3.i.sroa.0.0.copyload, %49 ]
-  %.sroa.6.sroa.5.0 = phi i64 [ undef, %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$$GT$17hff1c92bc7a796039E.exit" ], [ %.sroa.3.i.sroa.4.0.copyload, %49 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775808, %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$$GT$17hff1c92bc7a796039E.exit" ], [ %.sroa.04.0.copyload.i, %49 ]
+.loopexit:                                        ; preds = %48, %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$$GT$17hff1c92bc7a796039E.exit"
+  %.sroa.6.sroa.0.0 = phi ptr [ undef, %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$$GT$17hff1c92bc7a796039E.exit" ], [ %.sroa.3.i.sroa.0.0.copyload, %48 ]
+  %.sroa.6.sroa.5.0 = phi i64 [ undef, %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$$GT$17hff1c92bc7a796039E.exit" ], [ %.sroa.3.i.sroa.4.0.copyload, %48 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775808, %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$$GT$17hff1c92bc7a796039E.exit" ], [ %.sroa.04.0.copyload.i, %48 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6.sroa.0.0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.6.sroa.5.0, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx, align 8
-  br label %52
+  br label %51
 
-49:                                               ; preds = %"_ZN14semantic_index13summary_index12SummaryIndex14summarize_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9b8899c57ec5754cE.exit"
+48:                                               ; preds = %"_ZN14semantic_index13summary_index12SummaryIndex14summarize_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9b8899c57ec5754cE.exit"
   store i64 -9223372036854775805, ptr %1, align 8, !noalias !1489
-  %50 = icmp eq i64 %.sroa.04.0.copyload.i, -9223372036854775808
-  br i1 %50, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hbe8083c9823e739dE.exit23.backedge", label %.loopexit
+  %49 = icmp eq i64 %.sroa.04.0.copyload.i, -9223372036854775808
+  br i1 %49, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hbe8083c9823e739dE.exit23.backedge", label %.loopexit
 
-51:                                               ; preds = %"_ZN14semantic_index13summary_index12SummaryIndex14summarize_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9b8899c57ec5754cE.exit"
+50:                                               ; preds = %"_ZN14semantic_index13summary_index12SummaryIndex14summarize_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9b8899c57ec5754cE.exit"
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %52
+  br label %51
 
-52:                                               ; preds = %39, %51, %.loopexit
+51:                                               ; preds = %39, %50, %.loopexit
   ret void
 }
 

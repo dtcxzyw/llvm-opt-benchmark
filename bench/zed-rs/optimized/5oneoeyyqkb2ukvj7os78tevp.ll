@@ -1479,7 +1479,7 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17hf2c570d
 
 15:                                               ; preds = %11
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.27c4a1a8681bb8fc8e04a67213d99c7f.9, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.27c4a1a8681bb8fc8e04a67213d99c7f.11) #31
-          to label %16 unwind label %34
+          to label %16 unwind label %33
 
 16:                                               ; preds = %15
   unreachable
@@ -1524,22 +1524,22 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17hf2c570d
   store atomic i8 0, ptr %30 seq_cst, align 8, !noalias !166
   br label %23
 
-31:                                               ; preds = %34
+31:                                               ; preds = %33
   %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
   unreachable
 
-33:                                               ; preds = %34
-  resume { ptr, i32 } %35
+.thread:                                          ; preds = %33
+  resume { ptr, i32 } %34
 
-34:                                               ; preds = %15
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %15
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store atomic i8 0, ptr %36 seq_cst, align 8, !noalias !171
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store atomic i8 0, ptr %35 seq_cst, align 8, !noalias !171
   invoke void @"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hb8782ad7cb9995a3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2) #32
-          to label %33 unwind label %31
+          to label %.thread unwind label %31
 }
 
 ; Function Attrs: nonlazybind uwtable

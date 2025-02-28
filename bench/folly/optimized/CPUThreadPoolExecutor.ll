@@ -5113,7 +5113,7 @@ _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit:       ; preds = %27, %33, %35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #29
   %39 = load i64, ptr %4, align 8, !tbaa !293
   %40 = and i64 %39, -4
-  br i1 %32, label %41, label %101
+  br i1 %32, label %41, label %100
 
 41:                                               ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit
   %.not.i.i16 = icmp eq i64 %40, 0
@@ -5197,7 +5197,7 @@ _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2E
   %77 = call noundef i64 %75(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef null) #29
   %.sink.i.i.i76.not = xor i1 %.sink.i.i.i76, true
   %brmerge = or i1 %.not.i.i.i, %.sink.i.i.i76.not
-  br i1 %brmerge, label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit28, label %92
+  br i1 %brmerge, label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit28, label %.thread
 
 78:                                               ; preds = %71, %69
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
@@ -5226,7 +5226,7 @@ _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2E
   call void %87(ptr noundef nonnull align 8 dereferenceable(8) %62) #29
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit25
 
-88:                                               ; preds = %127
+88:                                               ; preds = %126
   %89 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit31
@@ -5240,169 +5240,169 @@ _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2E
 .body:                                            ; preds = %73
   %.sink.i.i.i76.not94 = xor i1 %.sink.i.i.i76, true
   %brmerge95 = or i1 %.not.i.i.i, %.sink.i.i.i76.not94
-  br i1 %brmerge95, label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit28, label %92
+  br i1 %brmerge95, label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit28, label %.thread
 
-92:                                               ; preds = %.body, %76
-  %93 = load ptr, ptr %60, align 8, !tbaa !25
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
-  %95 = load ptr, ptr %94, align 8
-  call void %95(ptr noundef nonnull align 8 dereferenceable(8) %60) #29
+.thread:                                          ; preds = %.body, %76
+  %92 = load ptr, ptr %60, align 8, !tbaa !25
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
+  %94 = load ptr, ptr %93, align 8
+  call void %94(ptr noundef nonnull align 8 dereferenceable(8) %60) #29
   br label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit28
 
-_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit28: ; preds = %.body, %76, %92
+_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit28: ; preds = %.body, %76, %.thread
   %.not.i.i29 = icmp ne i64 %61, 0
-  %96 = and i64 %.sink.i.i19, 3
-  %.not3.i.i30 = icmp eq i64 %96, 0
+  %95 = and i64 %.sink.i.i19, 3
+  %.not3.i.i30 = icmp eq i64 %95, 0
   %or.cond91 = and i1 %.not.i.i29, %.not3.i.i30
-  br i1 %or.cond91, label %97, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit31
+  br i1 %or.cond91, label %96, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit31
 
-97:                                               ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit28
-  %98 = load ptr, ptr %62, align 8, !tbaa !25
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 48
-  %100 = load ptr, ptr %99, align 8
-  call void %100(ptr noundef nonnull align 8 dereferenceable(8) %62) #29
+96:                                               ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit28
+  %97 = load ptr, ptr %62, align 8, !tbaa !25
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 48
+  %99 = load ptr, ptr %98, align 8
+  call void %99(ptr noundef nonnull align 8 dereferenceable(8) %62) #29
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit31
 
-101:                                              ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit
-  %102 = inttoptr i64 %40 to ptr
-  %103 = and i64 %.sink.i.i, -4
-  %.not.i.i.i32 = icmp eq i64 %103, 0
-  br i1 %.not.i.i.i32, label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit36, label %104
+100:                                              ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit
+  %101 = inttoptr i64 %40 to ptr
+  %102 = and i64 %.sink.i.i, -4
+  %.not.i.i.i32 = icmp eq i64 %102, 0
+  br i1 %.not.i.i.i32, label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit36, label %103
 
-104:                                              ; preds = %101
-  %105 = inttoptr i64 %103 to ptr
-  %106 = load ptr, ptr %105, align 8, !tbaa !25, !noalias !307
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
-  %108 = load ptr, ptr %107, align 8, !noalias !307
-  %109 = call noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(8) %105) #29, !noalias !307
-  %not..i.i.i33 = xor i1 %109, true
-  %110 = zext i1 %not..i.i.i33 to i64
-  %spec.select.i.i.i34 = or disjoint i64 %103, %110
+103:                                              ; preds = %100
+  %104 = inttoptr i64 %102 to ptr
+  %105 = load ptr, ptr %104, align 8, !tbaa !25, !noalias !307
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
+  %107 = load ptr, ptr %106, align 8, !noalias !307
+  %108 = call noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(8) %104) #29, !noalias !307
+  %not..i.i.i33 = xor i1 %108, true
+  %109 = zext i1 %not..i.i.i33 to i64
+  %spec.select.i.i.i34 = or disjoint i64 %102, %109
   br label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit36
 
-_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit36: ; preds = %101, %104
-  %.sink.i.i.i35 = phi i64 [ 0, %101 ], [ %spec.select.i.i.i34, %104 ]
-  %111 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %112 = getelementptr inbounds nuw i8, ptr %6, i64 56
+_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit36: ; preds = %100, %103
+  %.sink.i.i.i35 = phi i64 [ 0, %100 ], [ %spec.select.i.i.i34, %103 ]
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %111 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr @_ZN5folly14default_domainE, ptr %6, align 16
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %1, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %.sink.i.i.i35, ptr %113, align 16, !tbaa !293
-  store ptr @_ZN5folly6detail8function5call_IZNS_13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiEUlvE_Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE, ptr %111, align 16, !tbaa !49
-  store ptr @_ZN5folly6detail8function13DispatchSmall4execIZNS_13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiEUlvE_EEmNS1_2OpEPNS1_4DataESA_, ptr %112, align 8, !tbaa !51
-  %114 = load ptr, ptr %102, align 8, !tbaa !25
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  %116 = load ptr, ptr %115, align 8
-  invoke void %116(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull %6)
-          to label %117 unwind label %121
+  %112 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %.sink.i.i.i35, ptr %112, align 16, !tbaa !293
+  store ptr @_ZN5folly6detail8function5call_IZNS_13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiEUlvE_Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE, ptr %110, align 16, !tbaa !49
+  store ptr @_ZN5folly6detail8function13DispatchSmall4execIZNS_13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiEUlvE_EEmNS1_2OpEPNS1_4DataESA_, ptr %111, align 8, !tbaa !51
+  %113 = load ptr, ptr %101, align 8, !tbaa !25
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %115 = load ptr, ptr %114, align 8
+  invoke void %115(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull %6)
+          to label %116 unwind label %120
 
-117:                                              ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit36
-  %118 = load ptr, ptr %112, align 8, !tbaa !51
-  %.not.i.i37 = icmp eq ptr %118, null
-  br i1 %.not.i.i37, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit25, label %119
+116:                                              ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit36
+  %117 = load ptr, ptr %111, align 8, !tbaa !51
+  %.not.i.i37 = icmp eq ptr %117, null
+  br i1 %.not.i.i37, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit25, label %118
 
-119:                                              ; preds = %117
-  %120 = call noundef i64 %118(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef null) #29
+118:                                              ; preds = %116
+  %119 = call noundef i64 %117(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef null) #29
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit25
 
-121:                                              ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit36
-  %122 = landingpad { ptr, i32 }
+120:                                              ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit36
+  %121 = landingpad { ptr, i32 }
           cleanup
-  %123 = load ptr, ptr %112, align 8, !tbaa !51
-  %.not.i.i41 = icmp eq ptr %123, null
-  br i1 %.not.i.i41, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit31, label %124
+  %122 = load ptr, ptr %111, align 8, !tbaa !51
+  %.not.i.i41 = icmp eq ptr %122, null
+  br i1 %.not.i.i41, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit31, label %123
 
-124:                                              ; preds = %121
-  %125 = call noundef i64 %123(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef null) #29
+123:                                              ; preds = %120
+  %124 = call noundef i64 %122(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef null) #29
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit31
 
-_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit25:     ; preds = %117, %119, %84, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit
-  %126 = icmp sgt i32 %17, 9
-  br i1 %126, label %127, label %128
+_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit25:     ; preds = %116, %118, %84, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit
+  %125 = icmp sgt i32 %17, 9
+  br i1 %125, label %126, label %127
 
-127:                                              ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit25
+126:                                              ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit25
   invoke void @_ZN5folly13hazptr_domainISt6atomicE31hazptr_warning_executor_backlogEi(ptr noundef nonnull align 8 dereferenceable(444) @_ZN5folly14default_domainE, i32 noundef %17)
-          to label %128 unwind label %88
+          to label %127 unwind label %88
 
-128:                                              ; preds = %127, %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit25
-  %129 = and i64 %.sink.i.i, -4
-  %.not.i.i.i46 = icmp ne i64 %129, 0
-  %130 = and i64 %.sink.i.i, 3
-  %.not3.i.i.i47 = icmp eq i64 %130, 0
+127:                                              ; preds = %126, %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit25
+  %128 = and i64 %.sink.i.i, -4
+  %.not.i.i.i46 = icmp ne i64 %128, 0
+  %129 = and i64 %.sink.i.i, 3
+  %.not3.i.i.i47 = icmp eq i64 %129, 0
   %or.cond92 = and i1 %.not.i.i.i46, %.not3.i.i.i47
-  br i1 %or.cond92, label %131, label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit48
+  br i1 %or.cond92, label %130, label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit48
 
-131:                                              ; preds = %128
-  %132 = inttoptr i64 %129 to ptr
-  %133 = load ptr, ptr %132, align 8, !tbaa !25
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 48
-  %135 = load ptr, ptr %134, align 8
-  call void %135(ptr noundef nonnull align 8 dereferenceable(8) %132) #29
+130:                                              ; preds = %127
+  %131 = inttoptr i64 %128 to ptr
+  %132 = load ptr, ptr %131, align 8, !tbaa !25
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 48
+  %134 = load ptr, ptr %133, align 8
+  call void %134(ptr noundef nonnull align 8 dereferenceable(8) %131) #29
   br label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit48
 
-_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit31:     ; preds = %121, %124, %97, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit28, %90, %88
-  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %91, %90 ], [ %74, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit28 ], [ %74, %97 ], [ %122, %124 ], [ %122, %121 ]
-  %136 = and i64 %.sink.i.i, -4
-  %.not.i.i.i49 = icmp ne i64 %136, 0
-  %137 = and i64 %.sink.i.i, 3
-  %.not3.i.i.i50 = icmp eq i64 %137, 0
+_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit31:     ; preds = %120, %123, %96, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit28, %90, %88
+  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %91, %90 ], [ %74, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit28 ], [ %74, %96 ], [ %121, %123 ], [ %121, %120 ]
+  %135 = and i64 %.sink.i.i, -4
+  %.not.i.i.i49 = icmp ne i64 %135, 0
+  %136 = and i64 %.sink.i.i, 3
+  %.not3.i.i.i50 = icmp eq i64 %136, 0
   %or.cond93 = and i1 %.not.i.i.i49, %.not3.i.i.i50
-  br i1 %or.cond93, label %138, label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit51
+  br i1 %or.cond93, label %137, label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit51
 
-138:                                              ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit31
-  %139 = inttoptr i64 %136 to ptr
-  %140 = load ptr, ptr %139, align 8, !tbaa !25
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 48
-  %142 = load ptr, ptr %141, align 8
-  call void %142(ptr noundef nonnull align 8 dereferenceable(8) %139) #29
+137:                                              ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit31
+  %138 = inttoptr i64 %135 to ptr
+  %139 = load ptr, ptr %138, align 8, !tbaa !25
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 48
+  %141 = load ptr, ptr %140, align 8
+  call void %141(ptr noundef nonnull align 8 dereferenceable(8) %138) #29
   br label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit51
 
-_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit51: ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit31, %138
-  %143 = load i64, ptr %4, align 8, !tbaa !293
-  %144 = and i64 %143, -4
-  %145 = inttoptr i64 %144 to ptr
-  %.not.i.i52 = icmp eq i64 %144, 0
-  br i1 %.not.i.i52, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit54, label %146
+_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit51: ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit31, %137
+  %142 = load i64, ptr %4, align 8, !tbaa !293
+  %143 = and i64 %142, -4
+  %144 = inttoptr i64 %143 to ptr
+  %.not.i.i52 = icmp eq i64 %143, 0
+  br i1 %.not.i.i52, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit54, label %145
 
-146:                                              ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit51
+145:                                              ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit51
   store i64 0, ptr %4, align 8, !tbaa !190
-  %147 = and i64 %143, 3
-  %.not3.i.i53 = icmp eq i64 %147, 0
-  br i1 %.not3.i.i53, label %148, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit54
+  %146 = and i64 %142, 3
+  %.not3.i.i53 = icmp eq i64 %146, 0
+  br i1 %.not3.i.i53, label %147, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit54
 
-148:                                              ; preds = %146
-  %149 = load ptr, ptr %145, align 8, !tbaa !25
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 48
-  %151 = load ptr, ptr %150, align 8
-  call void %151(ptr noundef nonnull align 8 dereferenceable(8) %145) #29
+147:                                              ; preds = %145
+  %148 = load ptr, ptr %144, align 8, !tbaa !25
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 48
+  %150 = load ptr, ptr %149, align 8
+  call void %150(ptr noundef nonnull align 8 dereferenceable(8) %144) #29
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit54
 
-_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit54:     ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit51, %146, %148
+_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit54:     ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit51, %145, %147
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
   resume { ptr, i32 } %.pn
 
-_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit48: ; preds = %131, %128, %13
-  %152 = load i64, ptr %4, align 8, !tbaa !293
-  %153 = and i64 %152, -4
-  %154 = inttoptr i64 %153 to ptr
-  %.not.i.i55 = icmp eq i64 %153, 0
-  br i1 %.not.i.i55, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit57, label %155
+_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit48: ; preds = %130, %127, %13
+  %151 = load i64, ptr %4, align 8, !tbaa !293
+  %152 = and i64 %151, -4
+  %153 = inttoptr i64 %152 to ptr
+  %.not.i.i55 = icmp eq i64 %152, 0
+  br i1 %.not.i.i55, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit57, label %154
 
-155:                                              ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit48
+154:                                              ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit48
   store i64 0, ptr %4, align 8, !tbaa !190
-  %156 = and i64 %152, 3
-  %.not3.i.i56 = icmp eq i64 %156, 0
-  br i1 %.not3.i.i56, label %157, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit57
+  %155 = and i64 %151, 3
+  %.not3.i.i56 = icmp eq i64 %155, 0
+  br i1 %.not3.i.i56, label %156, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit57
 
-157:                                              ; preds = %155
-  %158 = load ptr, ptr %154, align 8, !tbaa !25
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 48
-  %160 = load ptr, ptr %159, align 8
-  call void %160(ptr noundef nonnull align 8 dereferenceable(8) %154) #29
+156:                                              ; preds = %154
+  %157 = load ptr, ptr %153, align 8, !tbaa !25
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 48
+  %159 = load ptr, ptr %158, align 8
+  call void %159(ptr noundef nonnull align 8 dereferenceable(8) %153) #29
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit57
 
-_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit57:     ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit48, %155, %157
+_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit57:     ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit48, %154, %156
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
   br label %.critedge
 

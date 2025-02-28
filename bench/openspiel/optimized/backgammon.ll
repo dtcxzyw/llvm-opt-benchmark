@@ -4415,7 +4415,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit66:                  ; preds = %.noexc
   %.pn23.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %.pn23.pn, %.body43 ], [ %.pn23.pn, %190 ]
   %195 = load ptr, ptr %63, align 8
   %.not.i.i.i73 = icmp eq ptr %195, null
-  br i1 %.not.i.i.i73, label %_ZNSt6vectorIiSaIiEED2Ev.exit75, label %196
+  br i1 %.not.i.i.i73, label %.body, label %196
 
 196:                                              ; preds = %.body36
   %197 = load ptr, ptr %64, align 8
@@ -4423,14 +4423,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit66:                  ; preds = %.noexc
   %199 = ptrtoint ptr %195 to i64
   %200 = sub i64 %198, %199
   call void @_ZdlPvm(ptr noundef nonnull %195, i64 noundef %200) #29
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit75
+  br label %.body
 
-_ZNSt6vectorIiSaIiEED2Ev.exit75:                  ; preds = %196, %.body36
+.body:                                            ; preds = %196, %.body36
   call void @_ZN10open_spiel5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #31
   br label %201
 
-201:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit75, %168
-  %.pn23.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn23.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit75 ], [ %169, %168 ]
+201:                                              ; preds = %.body, %168
+  %.pn23.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn23.pn.pn, %.body ], [ %169, %168 ]
   resume { ptr, i32 } %.pn23.pn.pn.pn.pn
 }
 

@@ -6655,19 +6655,21 @@ define internal fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h2d975ce980566a4aE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
+__rust_try.llvm.10157987788164207885.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1987, !noundef !4
   store i64 0, ptr %.val.i, align 8, !noalias !1990
-  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  store i8 2, ptr %2, align 1, !noalias !1990
+  %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
+  store i8 2, ptr %1, align 1, !noalias !1990
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h42e4569b2fac4993E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
+__rust_try.llvm.10157987788164207885.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1993, !noundef !4
   store i8 0, ptr %.val.i, align 1, !noalias !1996
-  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 2
-  store i8 2, ptr %2, align 1, !noalias !1996
+  %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 2
+  store i8 2, ptr %1, align 1, !noalias !1996
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -6806,10 +6808,11 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc109def7e453a99bE(ptr noalia
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17he6d2983902fedbfeE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
+__rust_try.llvm.10157987788164207885.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !2020, !noundef !4
   store i64 0, ptr %.val.i, align 8, !noalias !2023
-  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %2, align 1, !noalias !2023
+  %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  store i8 2, ptr %1, align 1, !noalias !2023
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 

@@ -3703,7 +3703,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %16, align 8, !noalias !296
   %17 = load ptr, ptr %15, align 8, !alias.scope !300, !noalias !303, !nonnull !5, !align !16, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf3283b5b8908a497E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %49
+          to label %18 unwind label %.thread13
+
+.thread13:                                        ; preds = %21, %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %48 unwind label %46
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !296
@@ -3717,7 +3723,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !306
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %22 unwind label %49
+          to label %22 unwind label %.thread13
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -3725,7 +3731,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %29 unwind label %49
+          to label %29 unwind label %.thread13
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !306
@@ -3800,21 +3806,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %36, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-46:                                               ; preds = %49, %31
+46:                                               ; preds = %.thread13, %31
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-48:                                               ; preds = %49, %31
-  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %49 ]
+48:                                               ; preds = %.thread13, %31
+  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-49:                                               ; preds = %20, %2, %21
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %48 unwind label %46
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3852,7 +3852,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %16, align 8, !noalias !335
   %17 = load ptr, ptr %15, align 8, !alias.scope !339, !noalias !342, !nonnull !5, !align !16, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h331874158887c706E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %49
+          to label %18 unwind label %.thread13
+
+.thread13:                                        ; preds = %21, %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %48 unwind label %46
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !335
@@ -3866,7 +3872,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !345
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %22 unwind label %49
+          to label %22 unwind label %.thread13
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -3874,7 +3880,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %29 unwind label %49
+          to label %29 unwind label %.thread13
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !345
@@ -3949,21 +3955,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %36, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-46:                                               ; preds = %49, %31
+46:                                               ; preds = %.thread13, %31
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-48:                                               ; preds = %49, %31
-  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %49 ]
+48:                                               ; preds = %.thread13, %31
+  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-49:                                               ; preds = %20, %2, %21
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %48 unwind label %46
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3999,7 +3999,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %16, align 8, !noalias !371
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h591efad9684f82d8E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 1 %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %17 unwind label %48
+          to label %17 unwind label %.thread13
+
+.thread13:                                        ; preds = %20, %2, %19
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %47 unwind label %45
 
 17:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !371
@@ -4013,7 +4019,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !377
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %21 unwind label %48
+          to label %21 unwind label %.thread13
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -4021,7 +4027,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %28 unwind label %48
+          to label %28 unwind label %.thread13
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !377
@@ -4096,21 +4102,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %35, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-45:                                               ; preds = %48, %30
+45:                                               ; preds = %.thread13, %30
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-47:                                               ; preds = %48, %30
-  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %48 ]
+47:                                               ; preds = %.thread13, %30
+  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-48:                                               ; preds = %19, %2, %20
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %47 unwind label %45
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4146,7 +4146,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %16, align 8, !noalias !403
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h331874158887c706E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %17 unwind label %48
+          to label %17 unwind label %.thread13
+
+.thread13:                                        ; preds = %20, %2, %19
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %47 unwind label %45
 
 17:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !403
@@ -4160,7 +4166,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !409
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %21 unwind label %48
+          to label %21 unwind label %.thread13
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -4168,7 +4174,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %28 unwind label %48
+          to label %28 unwind label %.thread13
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !409
@@ -4243,21 +4249,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %35, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-45:                                               ; preds = %48, %30
+45:                                               ; preds = %.thread13, %30
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-47:                                               ; preds = %48, %30
-  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %48 ]
+47:                                               ; preds = %.thread13, %30
+  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-48:                                               ; preds = %19, %2, %20
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %47 unwind label %45
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4293,7 +4293,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %16, align 8, !noalias !435
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb5cc52b49012ec1eE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %17 unwind label %48
+          to label %17 unwind label %.thread13
+
+.thread13:                                        ; preds = %20, %2, %19
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %47 unwind label %45
 
 17:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !435
@@ -4307,7 +4313,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !441
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %21 unwind label %48
+          to label %21 unwind label %.thread13
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -4315,7 +4321,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %28 unwind label %48
+          to label %28 unwind label %.thread13
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !441
@@ -4390,21 +4396,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %35, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-45:                                               ; preds = %48, %30
+45:                                               ; preds = %.thread13, %30
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-47:                                               ; preds = %48, %30
-  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %48 ]
+47:                                               ; preds = %.thread13, %30
+  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-48:                                               ; preds = %19, %2, %20
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %47 unwind label %45
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4442,7 +4442,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %16, align 8, !noalias !470
   %17 = load ptr, ptr %15, align 8, !alias.scope !474, !noalias !477, !nonnull !5, !align !32, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h591efad9684f82d8E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 1 %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %49
+          to label %18 unwind label %.thread13
+
+.thread13:                                        ; preds = %21, %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %48 unwind label %46
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !470
@@ -4456,7 +4462,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !480
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %22 unwind label %49
+          to label %22 unwind label %.thread13
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -4464,7 +4470,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %29 unwind label %49
+          to label %29 unwind label %.thread13
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !480
@@ -4539,21 +4545,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %36, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-46:                                               ; preds = %49, %31
+46:                                               ; preds = %.thread13, %31
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-48:                                               ; preds = %49, %31
-  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %49 ]
+48:                                               ; preds = %.thread13, %31
+  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-49:                                               ; preds = %20, %2, %21
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %48 unwind label %46
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4589,7 +4589,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %16, align 8, !noalias !506
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h797d3d7bb64555f5E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %17 unwind label %48
+          to label %17 unwind label %.thread13
+
+.thread13:                                        ; preds = %20, %2, %19
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %47 unwind label %45
 
 17:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !506
@@ -4603,7 +4609,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !512
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %21 unwind label %48
+          to label %21 unwind label %.thread13
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -4611,7 +4617,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %28 unwind label %48
+          to label %28 unwind label %.thread13
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !512
@@ -4686,21 +4692,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %35, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-45:                                               ; preds = %48, %30
+45:                                               ; preds = %.thread13, %30
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-47:                                               ; preds = %48, %30
-  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %48 ]
+47:                                               ; preds = %.thread13, %30
+  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-48:                                               ; preds = %19, %2, %20
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %47 unwind label %45
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4736,7 +4736,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %16, align 8, !noalias !538
   invoke void @"_ZN247_$LT$diesel..query_builder..select_statement..SelectStatement$LT$F$C$S$C$D$C$W$C$O$C$LOf$C$G$C$H$C$LC$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$C$diesel..backend..sql_dialect..select_statement_syntax..AnsiSqlSelectStatement$GT$$GT$8walk_ast17h1a526305f45573abE.llvm.11094046547159139149"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %17 unwind label %48
+          to label %17 unwind label %.thread13
+
+.thread13:                                        ; preds = %20, %2, %19
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %47 unwind label %45
 
 17:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !538
@@ -4750,7 +4756,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !544
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %21 unwind label %48
+          to label %21 unwind label %.thread13
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -4758,7 +4764,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %28 unwind label %48
+          to label %28 unwind label %.thread13
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !544
@@ -4833,21 +4839,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %35, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-45:                                               ; preds = %48, %30
+45:                                               ; preds = %.thread13, %30
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-47:                                               ; preds = %48, %30
-  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %48 ]
+47:                                               ; preds = %.thread13, %30
+  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-48:                                               ; preds = %19, %2, %20
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %47 unwind label %45
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4885,7 +4885,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %16, align 8, !noalias !573
   %17 = load ptr, ptr %15, align 8, !alias.scope !577, !noalias !580, !nonnull !5, !align !16, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb5cc52b49012ec1eE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %49
+          to label %18 unwind label %.thread13
+
+.thread13:                                        ; preds = %21, %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %48 unwind label %46
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !573
@@ -4899,7 +4905,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !583
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %22 unwind label %49
+          to label %22 unwind label %.thread13
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -4907,7 +4913,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %29 unwind label %49
+          to label %29 unwind label %.thread13
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !583
@@ -4982,21 +4988,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %36, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-46:                                               ; preds = %49, %31
+46:                                               ; preds = %.thread13, %31
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-48:                                               ; preds = %49, %31
-  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %49 ]
+48:                                               ; preds = %.thread13, %31
+  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-49:                                               ; preds = %20, %2, %21
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %48 unwind label %46
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5034,7 +5034,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %16, align 8, !noalias !612
   %17 = load ptr, ptr %15, align 8, !alias.scope !616, !noalias !619, !nonnull !5, !align !16, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h797d3d7bb64555f5E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %49
+          to label %18 unwind label %.thread13
+
+.thread13:                                        ; preds = %21, %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %48 unwind label %46
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !612
@@ -5048,7 +5054,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !622
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %22 unwind label %49
+          to label %22 unwind label %.thread13
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -5056,7 +5062,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %29 unwind label %49
+          to label %29 unwind label %.thread13
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !622
@@ -5131,21 +5137,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %36, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-46:                                               ; preds = %49, %31
+46:                                               ; preds = %.thread13, %31
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-48:                                               ; preds = %49, %31
-  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %49 ]
+48:                                               ; preds = %.thread13, %31
+  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-49:                                               ; preds = %20, %2, %21
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %48 unwind label %46
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5181,7 +5181,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %16, align 8, !noalias !648
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf8f008e322ca5531E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %17 unwind label %48
+          to label %17 unwind label %.thread13
+
+.thread13:                                        ; preds = %20, %2, %19
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %47 unwind label %45
 
 17:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !648
@@ -5195,7 +5201,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !654
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %21 unwind label %48
+          to label %21 unwind label %.thread13
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -5203,7 +5209,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %28 unwind label %48
+          to label %28 unwind label %.thread13
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !654
@@ -5278,21 +5284,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %35, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-45:                                               ; preds = %48, %30
+45:                                               ; preds = %.thread13, %30
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-47:                                               ; preds = %48, %30
-  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %48 ]
+47:                                               ; preds = %.thread13, %30
+  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-48:                                               ; preds = %19, %2, %20
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %47 unwind label %45
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5328,7 +5328,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %16, align 8, !noalias !680
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf3283b5b8908a497E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %17 unwind label %48
+          to label %17 unwind label %.thread13
+
+.thread13:                                        ; preds = %20, %2, %19
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %47 unwind label %45
 
 17:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !680
@@ -5342,7 +5348,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !686
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %21 unwind label %48
+          to label %21 unwind label %.thread13
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -5350,7 +5356,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %28 unwind label %48
+          to label %28 unwind label %.thread13
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !686
@@ -5425,21 +5431,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %35, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-45:                                               ; preds = %48, %30
+45:                                               ; preds = %.thread13, %30
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-47:                                               ; preds = %48, %30
-  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %48 ]
+47:                                               ; preds = %.thread13, %30
+  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-48:                                               ; preds = %19, %2, %20
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %47 unwind label %45
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5475,7 +5475,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %16, align 8, !noalias !712
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hde4186ab7164d447E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %17 unwind label %48
+          to label %17 unwind label %.thread13
+
+.thread13:                                        ; preds = %20, %2, %19
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %47 unwind label %45
 
 17:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !712
@@ -5489,7 +5495,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !718
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %21 unwind label %48
+          to label %21 unwind label %.thread13
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -5497,7 +5503,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %28 unwind label %48
+          to label %28 unwind label %.thread13
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !718
@@ -5572,21 +5578,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %35, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-45:                                               ; preds = %48, %30
+45:                                               ; preds = %.thread13, %30
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-47:                                               ; preds = %48, %30
-  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %48 ]
+47:                                               ; preds = %.thread13, %30
+  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-48:                                               ; preds = %19, %2, %20
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %47 unwind label %45
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5622,7 +5622,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %16, align 8, !noalias !744
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hcdff886df58908b1E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %17 unwind label %48
+          to label %17 unwind label %.thread13
+
+.thread13:                                        ; preds = %20, %2, %19
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %47 unwind label %45
 
 17:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !744
@@ -5636,7 +5642,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !750
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %21 unwind label %48
+          to label %21 unwind label %.thread13
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -5644,7 +5650,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %28 unwind label %48
+          to label %28 unwind label %.thread13
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !750
@@ -5719,21 +5725,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %35, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-45:                                               ; preds = %48, %30
+45:                                               ; preds = %.thread13, %30
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-47:                                               ; preds = %48, %30
-  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %48 ]
+47:                                               ; preds = %.thread13, %30
+  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-48:                                               ; preds = %19, %2, %20
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %47 unwind label %45
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5771,7 +5771,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %16, align 8, !noalias !779
   %17 = load ptr, ptr %15, align 8, !alias.scope !783, !noalias !786, !nonnull !5, !align !16, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hde4186ab7164d447E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %49
+          to label %18 unwind label %.thread13
+
+.thread13:                                        ; preds = %21, %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %48 unwind label %46
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !779
@@ -5785,7 +5791,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !789
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %22 unwind label %49
+          to label %22 unwind label %.thread13
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -5793,7 +5799,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %29 unwind label %49
+          to label %29 unwind label %.thread13
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !789
@@ -5868,21 +5874,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %36, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-46:                                               ; preds = %49, %31
+46:                                               ; preds = %.thread13, %31
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-48:                                               ; preds = %49, %31
-  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %49 ]
+48:                                               ; preds = %.thread13, %31
+  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-49:                                               ; preds = %20, %2, %21
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %48 unwind label %46
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5920,7 +5920,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %16, align 8, !noalias !818
   %17 = load ptr, ptr %15, align 8, !alias.scope !822, !noalias !825, !nonnull !5, !align !16, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hcdff886df58908b1E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %49
+          to label %18 unwind label %.thread13
+
+.thread13:                                        ; preds = %21, %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %48 unwind label %46
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !818
@@ -5934,7 +5940,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !828
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %22 unwind label %49
+          to label %22 unwind label %.thread13
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -5942,7 +5948,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %29 unwind label %49
+          to label %29 unwind label %.thread13
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !828
@@ -6017,21 +6023,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %36, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-46:                                               ; preds = %49, %31
+46:                                               ; preds = %.thread13, %31
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-48:                                               ; preds = %49, %31
-  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %49 ]
+48:                                               ; preds = %.thread13, %31
+  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-49:                                               ; preds = %20, %2, %21
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %48 unwind label %46
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6067,7 +6067,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %16, align 8, !noalias !854
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hed9bfec125d90e6cE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %17 unwind label %48
+          to label %17 unwind label %.thread13
+
+.thread13:                                        ; preds = %20, %2, %19
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %47 unwind label %45
 
 17:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !854
@@ -6081,7 +6087,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !860
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %21 unwind label %48
+          to label %21 unwind label %.thread13
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -6089,7 +6095,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %28 unwind label %48
+          to label %28 unwind label %.thread13
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !860
@@ -6164,21 +6170,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %35, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-45:                                               ; preds = %48, %30
+45:                                               ; preds = %.thread13, %30
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-47:                                               ; preds = %48, %30
-  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %48 ]
+47:                                               ; preds = %.thread13, %30
+  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-48:                                               ; preds = %19, %2, %20
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %47 unwind label %45
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6216,7 +6216,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %16, align 8, !noalias !889
   %17 = load ptr, ptr %15, align 8, !alias.scope !893, !noalias !896, !nonnull !5, !align !16, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hed9bfec125d90e6cE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %49
+          to label %18 unwind label %.thread13
+
+.thread13:                                        ; preds = %21, %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %48 unwind label %46
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !889
@@ -6230,7 +6236,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !899
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %22 unwind label %49
+          to label %22 unwind label %.thread13
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -6238,7 +6244,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %29 unwind label %49
+          to label %29 unwind label %.thread13
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !899
@@ -6313,21 +6319,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %36, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-46:                                               ; preds = %49, %31
+46:                                               ; preds = %.thread13, %31
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-48:                                               ; preds = %49, %31
-  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %49 ]
+48:                                               ; preds = %.thread13, %31
+  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-49:                                               ; preds = %20, %2, %21
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %48 unwind label %46
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6365,7 +6365,13 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %16, align 8, !noalias !928
   %17 = load ptr, ptr %15, align 8, !alias.scope !932, !noalias !935, !nonnull !5, !align !16, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf8f008e322ca5531E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %49
+          to label %18 unwind label %.thread13
+
+.thread13:                                        ; preds = %21, %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+          to label %48 unwind label %46
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !928
@@ -6379,7 +6385,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !938
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %22 unwind label %49
+          to label %22 unwind label %.thread13
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -6387,7 +6393,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   store ptr %15, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   invoke void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1182a62b7860c4763660966512a3cce0.6, i64 noundef 5)
-          to label %29 unwind label %49
+          to label %29 unwind label %.thread13
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !938
@@ -6462,21 +6468,15 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %36, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-46:                                               ; preds = %49, %31
+46:                                               ; preds = %.thread13, %31
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-48:                                               ; preds = %49, %31
-  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %49 ]
+48:                                               ; preds = %.thread13, %31
+  %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %.thread13 ]
   resume { ptr, i32 } %.pn7
-
-49:                                               ; preds = %20, %2, %21
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
-          to label %48 unwind label %46
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6513,7 +6513,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %17, align 8, !noalias !964
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hcdff886df58908b1E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %51
+          to label %18 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %50 unwind label %48
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !964
@@ -6527,7 +6533,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !970
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %30 unwind label %51
+          to label %30 unwind label %.thread16
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -6616,21 +6622,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %29, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-48:                                               ; preds = %51, %37
+48:                                               ; preds = %.thread16, %37
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-50:                                               ; preds = %51, %37
-  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %51 ]
+50:                                               ; preds = %.thread16, %37
+  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-51:                                               ; preds = %20, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %50 unwind label %48
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6667,7 +6667,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %17, align 8, !noalias !1001
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf8f008e322ca5531E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %51
+          to label %18 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %50 unwind label %48
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1001
@@ -6681,7 +6687,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1007
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %30 unwind label %51
+          to label %30 unwind label %.thread16
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -6770,21 +6776,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %29, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-48:                                               ; preds = %51, %37
+48:                                               ; preds = %.thread16, %37
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-50:                                               ; preds = %51, %37
-  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %51 ]
+50:                                               ; preds = %.thread16, %37
+  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-51:                                               ; preds = %20, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %50 unwind label %48
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6821,7 +6821,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %17, align 8, !noalias !1038
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h591efad9684f82d8E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 1 %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %51
+          to label %18 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %50 unwind label %48
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1038
@@ -6835,7 +6841,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1044
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %30 unwind label %51
+          to label %30 unwind label %.thread16
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -6924,21 +6930,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %29, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-48:                                               ; preds = %51, %37
+48:                                               ; preds = %.thread16, %37
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-50:                                               ; preds = %51, %37
-  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %51 ]
+50:                                               ; preds = %.thread16, %37
+  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-51:                                               ; preds = %20, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %50 unwind label %48
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6977,7 +6977,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %17, align 8, !noalias !1078
   %18 = load ptr, ptr %16, align 8, !alias.scope !1082, !noalias !1085, !nonnull !5, !align !16, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf8f008e322ca5531E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %19 unwind label %52
+          to label %19 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %21
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %51 unwind label %49
 
 19:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1078
@@ -6991,7 +6997,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1088
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %31 unwind label %52
+          to label %31 unwind label %.thread16
 
 22:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -7080,21 +7086,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-49:                                               ; preds = %52, %38
+49:                                               ; preds = %.thread16, %38
   %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-51:                                               ; preds = %52, %38
-  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %52 ]
+51:                                               ; preds = %.thread16, %38
+  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-52:                                               ; preds = %21, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %51 unwind label %49
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7131,7 +7131,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %17, align 8, !noalias !1119
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb5cc52b49012ec1eE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %51
+          to label %18 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %50 unwind label %48
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1119
@@ -7145,7 +7151,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1125
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %30 unwind label %51
+          to label %30 unwind label %.thread16
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -7234,21 +7240,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %29, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-48:                                               ; preds = %51, %37
+48:                                               ; preds = %.thread16, %37
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-50:                                               ; preds = %51, %37
-  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %51 ]
+50:                                               ; preds = %.thread16, %37
+  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-51:                                               ; preds = %20, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %50 unwind label %48
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7285,7 +7285,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %17, align 8, !noalias !1156
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hde4186ab7164d447E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %51
+          to label %18 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %50 unwind label %48
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1156
@@ -7299,7 +7305,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1162
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %30 unwind label %51
+          to label %30 unwind label %.thread16
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -7388,21 +7394,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %29, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-48:                                               ; preds = %51, %37
+48:                                               ; preds = %.thread16, %37
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-50:                                               ; preds = %51, %37
-  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %51 ]
+50:                                               ; preds = %.thread16, %37
+  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-51:                                               ; preds = %20, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %50 unwind label %48
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7439,7 +7439,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %17, align 8, !noalias !1193
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h331874158887c706E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %51
+          to label %18 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %50 unwind label %48
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1193
@@ -7453,7 +7459,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1199
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %30 unwind label %51
+          to label %30 unwind label %.thread16
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -7542,21 +7548,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %29, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-48:                                               ; preds = %51, %37
+48:                                               ; preds = %.thread16, %37
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-50:                                               ; preds = %51, %37
-  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %51 ]
+50:                                               ; preds = %.thread16, %37
+  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-51:                                               ; preds = %20, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %50 unwind label %48
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7595,7 +7595,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %17, align 8, !noalias !1233
   %18 = load ptr, ptr %16, align 8, !alias.scope !1237, !noalias !1240, !nonnull !5, !align !16, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb5cc52b49012ec1eE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %19 unwind label %52
+          to label %19 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %21
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %51 unwind label %49
 
 19:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1233
@@ -7609,7 +7615,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1243
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %31 unwind label %52
+          to label %31 unwind label %.thread16
 
 22:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -7698,21 +7704,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-49:                                               ; preds = %52, %38
+49:                                               ; preds = %.thread16, %38
   %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-51:                                               ; preds = %52, %38
-  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %52 ]
+51:                                               ; preds = %.thread16, %38
+  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-52:                                               ; preds = %21, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %51 unwind label %49
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7749,7 +7749,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %17, align 8, !noalias !1274
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf3283b5b8908a497E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %51
+          to label %18 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %50 unwind label %48
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1274
@@ -7763,7 +7769,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1280
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %30 unwind label %51
+          to label %30 unwind label %.thread16
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -7852,21 +7858,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %29, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-48:                                               ; preds = %51, %37
+48:                                               ; preds = %.thread16, %37
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-50:                                               ; preds = %51, %37
-  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %51 ]
+50:                                               ; preds = %.thread16, %37
+  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-51:                                               ; preds = %20, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %50 unwind label %48
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7903,7 +7903,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %17, align 8, !noalias !1311
   invoke void @"_ZN247_$LT$diesel..query_builder..select_statement..SelectStatement$LT$F$C$S$C$D$C$W$C$O$C$LOf$C$G$C$H$C$LC$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$C$diesel..backend..sql_dialect..select_statement_syntax..AnsiSqlSelectStatement$GT$$GT$8walk_ast17h1a526305f45573abE.llvm.11094046547159139149"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %51
+          to label %18 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %50 unwind label %48
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1311
@@ -7917,7 +7923,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1317
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %30 unwind label %51
+          to label %30 unwind label %.thread16
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -8006,21 +8012,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %29, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-48:                                               ; preds = %51, %37
+48:                                               ; preds = %.thread16, %37
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-50:                                               ; preds = %51, %37
-  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %51 ]
+50:                                               ; preds = %.thread16, %37
+  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-51:                                               ; preds = %20, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %50 unwind label %48
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8059,7 +8059,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %17, align 8, !noalias !1351
   %18 = load ptr, ptr %16, align 8, !alias.scope !1355, !noalias !1358, !nonnull !5, !align !32, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h591efad9684f82d8E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 1 %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %19 unwind label %52
+          to label %19 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %21
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %51 unwind label %49
 
 19:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1351
@@ -8073,7 +8079,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1361
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %31 unwind label %52
+          to label %31 unwind label %.thread16
 
 22:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -8162,21 +8168,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-49:                                               ; preds = %52, %38
+49:                                               ; preds = %.thread16, %38
   %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-51:                                               ; preds = %52, %38
-  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %52 ]
+51:                                               ; preds = %.thread16, %38
+  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-52:                                               ; preds = %21, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %51 unwind label %49
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8215,7 +8215,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %17, align 8, !noalias !1395
   %18 = load ptr, ptr %16, align 8, !alias.scope !1399, !noalias !1402, !nonnull !5, !align !16, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h331874158887c706E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %19 unwind label %52
+          to label %19 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %21
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %51 unwind label %49
 
 19:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1395
@@ -8229,7 +8235,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1405
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %31 unwind label %52
+          to label %31 unwind label %.thread16
 
 22:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -8318,21 +8324,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-49:                                               ; preds = %52, %38
+49:                                               ; preds = %.thread16, %38
   %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-51:                                               ; preds = %52, %38
-  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %52 ]
+51:                                               ; preds = %.thread16, %38
+  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-52:                                               ; preds = %21, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %51 unwind label %49
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8371,7 +8371,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %17, align 8, !noalias !1439
   %18 = load ptr, ptr %16, align 8, !alias.scope !1443, !noalias !1446, !nonnull !5, !align !16, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hde4186ab7164d447E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %19 unwind label %52
+          to label %19 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %21
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %51 unwind label %49
 
 19:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1439
@@ -8385,7 +8391,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1449
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %31 unwind label %52
+          to label %31 unwind label %.thread16
 
 22:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -8474,21 +8480,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-49:                                               ; preds = %52, %38
+49:                                               ; preds = %.thread16, %38
   %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-51:                                               ; preds = %52, %38
-  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %52 ]
+51:                                               ; preds = %.thread16, %38
+  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-52:                                               ; preds = %21, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %51 unwind label %49
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8527,7 +8527,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %17, align 8, !noalias !1483
   %18 = load ptr, ptr %16, align 8, !alias.scope !1487, !noalias !1490, !nonnull !5, !align !16, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hed9bfec125d90e6cE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %19 unwind label %52
+          to label %19 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %21
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %51 unwind label %49
 
 19:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1483
@@ -8541,7 +8547,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1493
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %31 unwind label %52
+          to label %31 unwind label %.thread16
 
 22:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -8630,21 +8636,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-49:                                               ; preds = %52, %38
+49:                                               ; preds = %.thread16, %38
   %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-51:                                               ; preds = %52, %38
-  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %52 ]
+51:                                               ; preds = %.thread16, %38
+  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-52:                                               ; preds = %21, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %51 unwind label %49
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8681,7 +8681,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %17, align 8, !noalias !1524
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hed9bfec125d90e6cE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %51
+          to label %18 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %50 unwind label %48
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1524
@@ -8695,7 +8701,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1530
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %30 unwind label %51
+          to label %30 unwind label %.thread16
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -8784,21 +8790,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %29, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-48:                                               ; preds = %51, %37
+48:                                               ; preds = %.thread16, %37
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-50:                                               ; preds = %51, %37
-  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %51 ]
+50:                                               ; preds = %.thread16, %37
+  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-51:                                               ; preds = %20, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %50 unwind label %48
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8837,7 +8837,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %17, align 8, !noalias !1564
   %18 = load ptr, ptr %16, align 8, !alias.scope !1568, !noalias !1571, !nonnull !5, !align !16, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf3283b5b8908a497E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %19 unwind label %52
+          to label %19 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %21
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %51 unwind label %49
 
 19:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1564
@@ -8851,7 +8857,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1574
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %31 unwind label %52
+          to label %31 unwind label %.thread16
 
 22:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -8940,21 +8946,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-49:                                               ; preds = %52, %38
+49:                                               ; preds = %.thread16, %38
   %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-51:                                               ; preds = %52, %38
-  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %52 ]
+51:                                               ; preds = %.thread16, %38
+  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-52:                                               ; preds = %21, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %51 unwind label %49
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8991,7 +8991,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %17, align 8, !noalias !1605
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h797d3d7bb64555f5E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %18 unwind label %51
+          to label %18 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %50 unwind label %48
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1605
@@ -9005,7 +9011,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1611
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %30 unwind label %51
+          to label %30 unwind label %.thread16
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -9094,21 +9100,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %29, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-48:                                               ; preds = %51, %37
+48:                                               ; preds = %.thread16, %37
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-50:                                               ; preds = %51, %37
-  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %51 ]
+50:                                               ; preds = %.thread16, %37
+  %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-51:                                               ; preds = %20, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %50 unwind label %48
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -9147,7 +9147,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %17, align 8, !noalias !1645
   %18 = load ptr, ptr %16, align 8, !alias.scope !1649, !noalias !1652, !nonnull !5, !align !16, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hcdff886df58908b1E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %19 unwind label %52
+          to label %19 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %21
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %51 unwind label %49
 
 19:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1645
@@ -9161,7 +9167,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1655
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %31 unwind label %52
+          to label %31 unwind label %.thread16
 
 22:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -9250,21 +9256,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-49:                                               ; preds = %52, %38
+49:                                               ; preds = %.thread16, %38
   %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-51:                                               ; preds = %52, %38
-  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %52 ]
+51:                                               ; preds = %.thread16, %38
+  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-52:                                               ; preds = %21, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %51 unwind label %49
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -9303,7 +9303,13 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   store ptr %3, ptr %17, align 8, !noalias !1689
   %18 = load ptr, ptr %16, align 8, !alias.scope !1693, !noalias !1696, !nonnull !5, !align !16, !noundef !5
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h797d3d7bb64555f5E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %19 unwind label %52
+          to label %19 unwind label %.thread16
+
+.thread16:                                        ; preds = %2, %21
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
+          to label %51 unwind label %49
 
 19:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1689
@@ -9317,7 +9323,7 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1699
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, i64 32, i1 false)
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %31 unwind label %52
+          to label %31 unwind label %.thread16
 
 22:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -9406,21 +9412,15 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$diesel..query_builder..debug_query.
   %.0 = phi i1 [ true, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E.exit" ], [ %30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit" ]
   ret i1 %.0
 
-49:                                               ; preds = %52, %38
+49:                                               ; preds = %.thread16, %38
   %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-51:                                               ; preds = %52, %38
-  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %52 ]
+51:                                               ; preds = %.thread16, %38
+  %.pn10 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %.thread16 ]
   resume { ptr, i32 } %.pn10
-
-52:                                               ; preds = %21, %2
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h4365bd3349098629E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %51 unwind label %49
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

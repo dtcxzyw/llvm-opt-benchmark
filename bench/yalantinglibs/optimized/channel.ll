@@ -5162,7 +5162,7 @@ lpad:                                             ; preds = %init
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z18test_async_channelRN7coro_io7channelIN7cinatra16coro_http_clientENS_15io_context_poolEEE(ptr writeonly sret(%"class.async_simple::coro::Lazy") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %chan) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
-AfterCoroEnd:
+CoroSave:
   %call = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #43
   store ptr @_Z18test_async_channelRN7coro_io7channelIN7cinatra16coro_http_clientENS_15io_context_poolEEE.resume, ptr %call, align 8
   %destroy.addr = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -5227,7 +5227,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z11qps_watcherv(ptr writeonly sret(%"class.async_simple::coro::Lazy") align 8 captures(none) initializes((0, 8)) %agg.result) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
-AfterCoroEnd:
+CoroSave:
   %call = tail call noalias noundef nonnull dereferenceable(408) ptr @_Znwm(i64 noundef 408) #43
   store ptr @_Z11qps_watcherv.resume, ptr %call, align 8
   %destroy.addr = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -33125,7 +33125,7 @@ if.else.i.i:                                      ; preds = %call.i6.noexc
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %if.else.i.i, %if.then.i.i
-  %15 = phi i64 [ %13, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
+  %15 = phi i64 [ %.pre.i, %if.else.i.i ], [ %13, %if.then.i.i ]
   %__promise.reload.addr.i = getelementptr inbounds nuw i8, ptr %call.i67, i64 16
   %_M_string_length.i13.i.i = getelementptr inbounds nuw i8, ptr %call.i67, i64 56
   store i64 %15, ptr %_M_string_length.i13.i.i, align 8
@@ -57590,7 +57590,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt7__cxx1112basi
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
   %11 = phi ptr [ %_M_single_bucket.i.i.i, %if.then.i.i.i ], [ %6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit ]
   %tobool.not.i.i.i.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i.i.i, label %AfterCoroEnd, label %if.then.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %CoroSave, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 72
@@ -57598,9 +57598,9 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %rem.i.i.i.i.i.i.i = urem i64 %12, %7
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %11, i64 %rem.i.i.i.i.i.i.i
   store ptr %_M_before_begin.i.i.i, ptr %arrayidx.i.i.i.i, align 8
-  br label %AfterCoroEnd
+  br label %CoroSave
 
-AfterCoroEnd:                                     ; preds = %if.end.i.i.i, %if.then.i.i.i.i
+CoroSave:                                         ; preds = %if.then.i.i.i.i, %if.end.i.i.i
   %__promise.reload.addr = getelementptr inbounds nuw i8, ptr %call, i64 16
   %_M_next_resize.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %headers, i64 40
   store i64 0, ptr %_M_next_resize.i.i.i.i.i, align 8
@@ -57778,7 +57778,7 @@ if.then.i.i.i:                                    ; preds = %_ZN7cinatra11req_co
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %_ZN7cinatra11req_contextINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit
   %26 = phi ptr [ %_M_single_bucket.i.i.i, %if.then.i.i.i ], [ %21, %_ZN7cinatra11req_contextINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit ]
   %tobool.not.i.i.i.i = icmp eq ptr %23, null
-  br i1 %tobool.not.i.i.i.i, label %AfterCoroEnd, label %if.then.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %CoroSave, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 72
@@ -57786,9 +57786,9 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %rem.i.i.i.i.i.i.i = urem i64 %27, %22
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %26, i64 %rem.i.i.i.i.i.i.i
   store ptr %_M_before_begin.i.i.i, ptr %arrayidx.i.i.i.i, align 8
-  br label %AfterCoroEnd
+  br label %CoroSave
 
-AfterCoroEnd:                                     ; preds = %if.end.i.i.i, %if.then.i.i.i.i
+CoroSave:                                         ; preds = %if.then.i.i.i.i, %if.end.i.i.i
   %__promise.reload.addr = getelementptr inbounds nuw i8, ptr %call, i64 16
   %out_buf6.reload.addr = getelementptr inbounds nuw i8, ptr %call, i64 912
   %_M_next_resize.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %headers, i64 40
@@ -64344,7 +64344,7 @@ if.then.i8.i:                                     ; preds = %_ZNSt7__cxx1112basi
   tail call void @llvm.assume(i1 %cmp3.i.i10.i)
   %add.i11.i = add nuw nsw i64 %10, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(1) %9, i64 %add.i11.i, i1 false)
-  br label %AfterCoroEnd
+  br label %CoroSave
 
 if.else.i5.i:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
   store ptr %8, ptr %content.i, align 8
@@ -64352,10 +64352,10 @@ if.else.i5.i:                                     ; preds = %_ZNSt7__cxx1112basi
   store i64 %11, ptr %7, align 8
   %_M_string_length.i12.i6.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %.pre149 = load i64, ptr %_M_string_length.i12.i6.i.phi.trans.insert, align 8
-  br label %AfterCoroEnd
+  br label %CoroSave
 
-AfterCoroEnd:                                     ; preds = %if.then.i8.i, %if.else.i5.i
-  %12 = phi i64 [ %10, %if.then.i8.i ], [ %.pre149, %if.else.i5.i ]
+CoroSave:                                         ; preds = %if.else.i5.i, %if.then.i8.i
+  %12 = phi i64 [ %.pre149, %if.else.i5.i ], [ %10, %if.then.i8.i ]
   %__promise.reload.addr = getelementptr inbounds nuw i8, ptr %call, i64 16
   %_M_string_length.i12.i6.i = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %_M_string_length.i13.i7.i = getelementptr inbounds nuw i8, ptr %call, i64 104
@@ -87143,7 +87143,7 @@ if.else.i.i:                                      ; preds = %call.i1.noexc
   br label %CoroSave85
 
 CoroSave85:                                       ; preds = %if.else.i.i, %if.then.i.i
-  %11 = phi i64 [ %9, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
+  %11 = phi i64 [ %.pre.i, %if.else.i.i ], [ %9, %if.then.i.i ]
   %__promise.reload.addr.i = getelementptr inbounds nuw i8, ptr %call.i12, i64 16
   %_M_string_length.i13.i.i = getelementptr inbounds nuw i8, ptr %call.i12, i64 344
   store i64 %11, ptr %_M_string_length.i13.i.i, align 8
@@ -89012,7 +89012,7 @@ if.else.i.i:                                      ; preds = %call.i172.noexc
   br label %CoroSave435
 
 CoroSave435:                                      ; preds = %if.else.i.i, %if.then.i.i
-  %75 = phi i64 [ %73, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
+  %75 = phi i64 [ %.pre.i, %if.else.i.i ], [ %73, %if.then.i.i ]
   %__promise.reload.addr.i = getelementptr inbounds nuw i8, ptr %call.i172175, i64 16
   %_M_string_length.i12.i.i = getelementptr inbounds nuw i8, ptr %0, i64 424
   %_M_string_length.i13.i.i = getelementptr inbounds nuw i8, ptr %call.i172175, i64 160
@@ -94124,7 +94124,7 @@ if.else.i.i:                                      ; preds = %call.i67.noexc
   br label %CoroSave261
 
 CoroSave261:                                      ; preds = %if.else.i.i, %if.then.i.i
-  %44 = phi i64 [ %42, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
+  %44 = phi i64 [ %.pre.i, %if.else.i.i ], [ %42, %if.then.i.i ]
   %__promise.reload.addr.i = getelementptr inbounds nuw i8, ptr %call.i6769, i64 16
   %_M_string_length.i12.i.i = getelementptr inbounds nuw i8, ptr %0, i64 184
   %_M_string_length.i13.i.i = getelementptr inbounds nuw i8, ptr %call.i6769, i64 344

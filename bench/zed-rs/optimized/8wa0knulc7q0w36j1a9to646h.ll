@@ -1966,7 +1966,7 @@ define internal void @"_ZN120_$LT$futures_util..stream..stream..filter_map..Filt
   %28 = load ptr, ptr %10, align 8, !alias.scope !411, !noalias !412, !nonnull !5, !noundef !5
   %29 = atomicrmw add ptr %28, i64 1 monotonic, align 8, !noalias !417
   %30 = icmp slt i64 %29, 0
-  br i1 %30, label %32, label %33
+  br i1 %30, label %32, label %35
 
 31:                                               ; preds = %23
   tail call void @llvm.trap()
@@ -1976,18 +1976,8 @@ define internal void @"_ZN120_$LT$futures_util..stream..stream..filter_map..Filt
   tail call void @llvm.trap()
   unreachable
 
-33:                                               ; preds = %27
-  %34 = load i32, ptr %11, align 8, !alias.scope !411, !noalias !412, !noundef !5
-  %35 = load i32, ptr %12, align 4, !alias.scope !411, !noalias !412, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr284drop_in_place$LT$core..option..Option$LT$rpc..peer..Peer..add_connection$LT$client..Client..set_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$gpui..executor..Task$LT$$LP$$RP$$GT$$C$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h602166fcd31c5761E"(ptr noundef nonnull align 8 %1)
-          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h6a4005a54293462eE.exit" unwind label %36, !noalias !418
-
-common.resume:                                    ; preds = %.body, %36
-  %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %40, %.body ]
-  resume { ptr, i32 } %common.resume.op
-
-36:                                               ; preds = %33
-  %37 = landingpad { ptr, i32 }
+33:                                               ; preds = %35
+  %34 = landingpad { ptr, i32 }
           cleanup
   store i64 %16, ptr %1, align 8, !noalias !418
   %.sroa.554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2001,22 +1991,32 @@ common.resume:                                    ; preds = %.body, %36
   %.sroa.968.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 432
   store ptr %28, ptr %.sroa.968.0..sroa_idx, align 8, !noalias !418
   %.sroa.1071.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 440
-  store i32 %34, ptr %.sroa.1071.0..sroa_idx, align 8, !noalias !418
+  store i32 %36, ptr %.sroa.1071.0..sroa_idx, align 8, !noalias !418
   %.sroa.1174.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 444
-  store i32 %35, ptr %.sroa.1174.0..sroa_idx, align 4, !noalias !418
+  store i32 %37, ptr %.sroa.1174.0..sroa_idx, align 4, !noalias !418
   %.sroa.1379.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 496
   store i8 0, ptr %.sroa.1379.0..sroa_idx, align 8, !noalias !418
   br label %common.resume
 
-"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h6a4005a54293462eE.exit": ; preds = %33
+35:                                               ; preds = %27
+  %36 = load i32, ptr %11, align 8, !alias.scope !411, !noalias !412, !noundef !5
+  %37 = load i32, ptr %12, align 4, !alias.scope !411, !noalias !412, !noundef !5
+  invoke fastcc void @"_ZN4core3ptr284drop_in_place$LT$core..option..Option$LT$rpc..peer..Peer..add_connection$LT$client..Client..set_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$gpui..executor..Task$LT$$LP$$RP$$GT$$C$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h602166fcd31c5761E"(ptr noundef nonnull align 8 %1)
+          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h6a4005a54293462eE.exit" unwind label %33, !noalias !418
+
+common.resume:                                    ; preds = %.body, %33
+  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %40, %.body ]
+  resume { ptr, i32 } %common.resume.op
+
+"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h6a4005a54293462eE.exit": ; preds = %35
   store i64 %16, ptr %1, align 8, !noalias !418
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %.sroa.554.0..sroa_idx55, ptr noundef nonnull align 8 dereferenceable(400) %.sroa.450.0..sroa_idx, i64 400, i1 false)
   store i64 %.sroa.5.0.copyload, ptr %.sroa.656.0..sroa_idx57, align 8, !noalias !418
   store i32 %.sroa.6.0.copyload, ptr %.sroa.759.0..sroa_idx60, align 8, !noalias !418
   store ptr %24, ptr %.sroa.865.0..sroa_idx66, align 8, !noalias !418
   store ptr %28, ptr %.sroa.968.0..sroa_idx69, align 8, !noalias !418
-  store i32 %34, ptr %.sroa.1071.0..sroa_idx72, align 8, !noalias !418
-  store i32 %35, ptr %.sroa.1174.0..sroa_idx75, align 4, !noalias !418
+  store i32 %36, ptr %.sroa.1071.0..sroa_idx72, align 8, !noalias !418
+  store i32 %37, ptr %.sroa.1174.0..sroa_idx75, align 4, !noalias !418
   store i8 0, ptr %.sroa.1379.0..sroa_idx80, align 8, !noalias !418
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %4)
   br label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$proto..AnyTypedEnvelope$GT$$GT$$GT$17ha0b1497ade111838E.exit.backedge"

@@ -6561,7 +6561,7 @@ _ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEC2ERKS3_.exit: ; preds 
 102:                                              ; preds = %98, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEC2ERKS3_.exit
   %103 = landingpad { ptr, i32 }
           cleanup
-  br label %178
+  br label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit84.thread
 
 104:                                              ; preds = %97
   %.not.i80 = icmp eq ptr %.039141, null
@@ -6576,7 +6576,7 @@ _ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEC2ERKS3_.exit: ; preds 
 
 _ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEC2EPS2_.exit: ; preds = %105, %104
   %109 = icmp eq i64 %.038142, 0
-  br i1 %109, label %110, label %122
+  br i1 %109, label %110, label %127
 
 110:                                              ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEC2EPS2_.exit
   %111 = load ptr, ptr %20, align 8, !tbaa !236
@@ -6585,141 +6585,141 @@ _ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEC2EPS2_.exit: ; preds =
   %114 = ptrtoint ptr %112 to i64
   %115 = sub i64 %113, %114
   %116 = icmp ugt i64 %115, 8
-  br i1 %116, label %117, label %124
+  br i1 %116, label %117, label %129
 
 117:                                              ; preds = %110
   %118 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %119 = load ptr, ptr %118, align 8, !tbaa !158
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 248
   %121 = load i64, ptr %120, align 8, !tbaa !3
-  br label %124
+  br label %129
 
-122:                                              ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEC2EPS2_.exit
-  %123 = load i64, ptr %95, align 8, !tbaa !3
-  br label %124
+.thread:                                          ; preds = %150
+  %122 = landingpad { ptr, i32 }
+          cleanup
+  %123 = getelementptr inbounds nuw i8, ptr %.039141, i64 88
+  %124 = load i32, ptr %123, align 4, !tbaa !159
+  %125 = add nsw i32 %124, -1
+  store i32 %125, ptr %123, align 4, !tbaa !159
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %165, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit84.thread
 
-124:                                              ; preds = %110, %117, %122
-  %.sink = phi i64 [ %121, %117 ], [ %123, %122 ], [ 0, %110 ]
+127:                                              ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEC2EPS2_.exit
+  %128 = load i64, ptr %95, align 8, !tbaa !3
+  br label %129
+
+129:                                              ; preds = %110, %117, %127
+  %.sink = phi i64 [ %121, %117 ], [ %128, %127 ], [ 0, %110 ]
   store i64 %.sink, ptr %76, align 8, !tbaa !3
-  %125 = load ptr, ptr %77, align 8, !tbaa !158
-  %.not = icmp eq ptr %125, null
-  br i1 %.not, label %128, label %126
+  %130 = load ptr, ptr %77, align 8, !tbaa !158
+  %.not = icmp eq ptr %130, null
+  br i1 %.not, label %133, label %131
 
-126:                                              ; preds = %124
-  %127 = getelementptr inbounds nuw i8, ptr %125, i64 241
-  store i8 0, ptr %127, align 1, !tbaa !241
-  br label %128
-
-128:                                              ; preds = %126, %124
-  br i1 %.not.i80, label %133, label %129
-
-129:                                              ; preds = %128
-  %130 = getelementptr inbounds nuw i8, ptr %.039141, i64 88
-  %131 = load i32, ptr %130, align 4, !tbaa !159
-  %132 = add nsw i32 %131, 1
-  store i32 %132, ptr %130, align 4, !tbaa !159
+131:                                              ; preds = %129
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 241
+  store i8 0, ptr %132, align 1, !tbaa !241
   br label %133
 
-133:                                              ; preds = %129, %128
-  store ptr %.039141, ptr %77, align 8, !tbaa !158
-  br i1 %.not, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSERKS3_.exit, label %134
+133:                                              ; preds = %131, %129
+  br i1 %.not.i80, label %138, label %134
 
 134:                                              ; preds = %133
-  %135 = getelementptr inbounds nuw i8, ptr %125, i64 88
+  %135 = getelementptr inbounds nuw i8, ptr %.039141, i64 88
   %136 = load i32, ptr %135, align 4, !tbaa !159
-  %137 = add nsw i32 %136, -1
+  %137 = add nsw i32 %136, 1
   store i32 %137, ptr %135, align 4, !tbaa !159
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %139, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSERKS3_.exit
+  br label %138
 
-139:                                              ; preds = %134
-  %140 = load ptr, ptr %125, align 8, !tbaa !38
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
-  %142 = load ptr, ptr %141, align 8
-  call void %142(ptr noundef nonnull align 8 dereferenceable(288) %125) #25
+138:                                              ; preds = %134, %133
+  store ptr %.039141, ptr %77, align 8, !tbaa !158
+  br i1 %.not, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSERKS3_.exit, label %139
+
+139:                                              ; preds = %138
+  %140 = getelementptr inbounds nuw i8, ptr %130, i64 88
+  %141 = load i32, ptr %140, align 4, !tbaa !159
+  %142 = add nsw i32 %141, -1
+  store i32 %142, ptr %140, align 4, !tbaa !159
+  %143 = icmp eq i32 %142, 0
+  br i1 %143, label %144, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSERKS3_.exit
+
+144:                                              ; preds = %139
+  %145 = load ptr, ptr %130, align 8, !tbaa !38
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %147 = load ptr, ptr %146, align 8
+  call void %147(ptr noundef nonnull align 8 dereferenceable(288) %130) #25
   br label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSERKS3_.exit
 
-_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSERKS3_.exit: ; preds = %139, %134, %133
-  %143 = getelementptr inbounds nuw i8, ptr %.039141, i64 241
-  store i8 1, ptr %143, align 1, !tbaa !241
-  %144 = load ptr, ptr %78, align 8, !tbaa !157
-  %.not47 = icmp eq ptr %144, null
-  br i1 %.not47, label %151, label %145
+_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSERKS3_.exit: ; preds = %144, %139, %138
+  %148 = getelementptr inbounds nuw i8, ptr %.039141, i64 241
+  store i8 1, ptr %148, align 1, !tbaa !241
+  %149 = load ptr, ptr %78, align 8, !tbaa !157
+  %.not47 = icmp eq ptr %149, null
+  br i1 %.not47, label %156, label %150
 
-145:                                              ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSERKS3_.exit
-  %146 = load ptr, ptr %77, align 8, !tbaa !158
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 128
-  %148 = load ptr, ptr %144, align 8, !tbaa !38
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %150 = load ptr, ptr %149, align 8
-  invoke void %150(ptr noundef nonnull align 8 dereferenceable(8) %144, ptr noundef nonnull align 8 dereferenceable(32) %147)
-          to label %151 unwind label %160
+150:                                              ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSERKS3_.exit
+  %151 = load ptr, ptr %77, align 8, !tbaa !158
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 128
+  %153 = load ptr, ptr %149, align 8, !tbaa !38
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  %155 = load ptr, ptr %154, align 8
+  invoke void %155(ptr noundef nonnull align 8 dereferenceable(8) %149, ptr noundef nonnull align 8 dereferenceable(32) %152)
+          to label %156 unwind label %.thread
 
-151:                                              ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSERKS3_.exit, %145
-  %152 = getelementptr inbounds nuw i8, ptr %.039141, i64 88
-  %153 = load i32, ptr %152, align 4, !tbaa !159
-  %154 = add nsw i32 %153, -1
-  store i32 %154, ptr %152, align 4, !tbaa !159
-  %155 = icmp eq i32 %154, 0
-  br i1 %155, label %156, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit
+156:                                              ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSERKS3_.exit, %150
+  %157 = getelementptr inbounds nuw i8, ptr %.039141, i64 88
+  %158 = load i32, ptr %157, align 4, !tbaa !159
+  %159 = add nsw i32 %158, -1
+  store i32 %159, ptr %157, align 4, !tbaa !159
+  %160 = icmp eq i32 %159, 0
+  br i1 %160, label %161, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit
 
-156:                                              ; preds = %151
-  %157 = load ptr, ptr %.039141, align 8, !tbaa !38
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %159 = load ptr, ptr %158, align 8
-  call void %159(ptr noundef nonnull align 8 dereferenceable(288) %.039141) #25
+161:                                              ; preds = %156
+  %162 = load ptr, ptr %.039141, align 8, !tbaa !38
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %164 = load ptr, ptr %163, align 8
+  call void %164(ptr noundef nonnull align 8 dereferenceable(288) %.039141) #25
   br label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit
 
-160:                                              ; preds = %145
-  %161 = landingpad { ptr, i32 }
-          cleanup
-  %162 = getelementptr inbounds nuw i8, ptr %.039141, i64 88
-  %163 = load i32, ptr %162, align 4, !tbaa !159
-  %164 = add nsw i32 %163, -1
-  store i32 %164, ptr %162, align 4, !tbaa !159
-  %165 = icmp eq i32 %164, 0
-  br i1 %165, label %166, label %178
+165:                                              ; preds = %.thread
+  %166 = load ptr, ptr %.039141, align 8, !tbaa !38
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
+  %168 = load ptr, ptr %167, align 8
+  call void %168(ptr noundef nonnull align 8 dereferenceable(288) %.039141) #25
+  br label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit84.thread
 
-166:                                              ; preds = %160
-  %167 = load ptr, ptr %.039141, align 8, !tbaa !38
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %169 = load ptr, ptr %168, align 8
-  call void %169(ptr noundef nonnull align 8 dereferenceable(288) %.039141) #25
-  br label %178
+_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit: ; preds = %101, %156, %161
+  %.342 = phi ptr [ %.039141, %156 ], [ %.039141, %161 ], [ %spec.select, %101 ]
+  %169 = getelementptr inbounds nuw i8, ptr %90, i64 88
+  %170 = load i32, ptr %169, align 4, !tbaa !159
+  %171 = add nsw i32 %170, -1
+  store i32 %171, ptr %169, align 4, !tbaa !159
+  %172 = icmp eq i32 %171, 0
+  br i1 %172, label %173, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit86
 
-_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit: ; preds = %101, %151, %156
-  %.342 = phi ptr [ %.039141, %151 ], [ %.039141, %156 ], [ %spec.select, %101 ]
-  %170 = getelementptr inbounds nuw i8, ptr %90, i64 88
-  %171 = load i32, ptr %170, align 4, !tbaa !159
-  %172 = add nsw i32 %171, -1
-  store i32 %172, ptr %170, align 4, !tbaa !159
-  %173 = icmp eq i32 %172, 0
-  br i1 %173, label %174, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit86
-
-174:                                              ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit
-  %175 = load ptr, ptr %90, align 8, !tbaa !38
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %177 = load ptr, ptr %176, align 8
-  call void %177(ptr noundef nonnull align 8 dereferenceable(288) %90) #25
+173:                                              ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit
+  %174 = load ptr, ptr %90, align 8, !tbaa !38
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %176 = load ptr, ptr %175, align 8
+  call void %176(ptr noundef nonnull align 8 dereferenceable(288) %90) #25
   br label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit86
 
-_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit86: ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit, %174
+_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit86: ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit, %173
   br i1 %96, label %.critedge66, label %79
 
-178:                                              ; preds = %160, %166, %102
-  %.pn.pn.pn.ph = phi { ptr, i32 } [ %161, %166 ], [ %161, %160 ], [ %103, %102 ]
-  %179 = getelementptr inbounds nuw i8, ptr %90, i64 88
-  %180 = load i32, ptr %179, align 4, !tbaa !159
-  %181 = add nsw i32 %180, -1
-  store i32 %181, ptr %179, align 4, !tbaa !159
-  %182 = icmp eq i32 %181, 0
-  br i1 %182, label %183, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit88
+_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit84.thread: ; preds = %102, %165, %.thread
+  %.pn.pn.pn127 = phi { ptr, i32 } [ %122, %165 ], [ %122, %.thread ], [ %103, %102 ]
+  %177 = getelementptr inbounds nuw i8, ptr %90, i64 88
+  %178 = load i32, ptr %177, align 4, !tbaa !159
+  %179 = add nsw i32 %178, -1
+  store i32 %179, ptr %177, align 4, !tbaa !159
+  %180 = icmp eq i32 %179, 0
+  br i1 %180, label %181, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit88
 
-183:                                              ; preds = %178
-  %184 = load ptr, ptr %90, align 8, !tbaa !38
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  %186 = load ptr, ptr %185, align 8
-  call void %186(ptr noundef nonnull align 8 dereferenceable(288) %90) #25
+181:                                              ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit84.thread
+  %182 = load ptr, ptr %90, align 8, !tbaa !38
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %184 = load ptr, ptr %183, align 8
+  call void %184(ptr noundef nonnull align 8 dereferenceable(288) %90) #25
   br label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit88
 
 ._crit_edge144:                                   ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIP13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit
@@ -6728,127 +6728,127 @@ _ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit86: ; preds = 
 
 ._crit_edge144.thread:                            ; preds = %79, %._crit_edge144
   %.039.lcssa156 = phi ptr [ %74, %._crit_edge144 ], [ %.342, %79 ]
-  %187 = getelementptr inbounds nuw i8, ptr %.039.lcssa156, i64 88
-  %188 = load i32, ptr %187, align 4, !tbaa !159
-  %189 = add nsw i32 %188, 1
-  store i32 %189, ptr %187, align 4, !tbaa !159
+  %185 = getelementptr inbounds nuw i8, ptr %.039.lcssa156, i64 88
+  %186 = load i32, ptr %185, align 4, !tbaa !159
+  %187 = add nsw i32 %186, 1
+  store i32 %187, ptr %185, align 4, !tbaa !159
   br label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEC2EPS2_.exit90
 
 _ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEC2EPS2_.exit90: ; preds = %._crit_edge144.thread, %._crit_edge144
   %.not.i89159 = phi i1 [ false, %._crit_edge144.thread ], [ true, %._crit_edge144 ]
   %.039.lcssa157 = phi ptr [ %.039.lcssa156, %._crit_edge144.thread ], [ null, %._crit_edge144 ]
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %191 = load ptr, ptr %190, align 8, !tbaa !158
-  %.not53 = icmp eq ptr %191, null
-  br i1 %.not53, label %196, label %192
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %189 = load ptr, ptr %188, align 8, !tbaa !158
+  %.not53 = icmp eq ptr %189, null
+  br i1 %.not53, label %194, label %190
 
-192:                                              ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEC2EPS2_.exit90
-  %193 = getelementptr inbounds nuw i8, ptr %191, i64 241
-  store i8 0, ptr %193, align 1, !tbaa !241
-  br label %196
+190:                                              ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEC2EPS2_.exit90
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 241
+  store i8 0, ptr %191, align 1, !tbaa !241
+  br label %194
 
-194:                                              ; preds = %216
-  %195 = landingpad { ptr, i32 }
+192:                                              ; preds = %214
+  %193 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not.i89159, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit88, label %248
+  br i1 %.not.i89159, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit88, label %246
 
-196:                                              ; preds = %192, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEC2EPS2_.exit90
-  br i1 %.not.i89159, label %201, label %197
+194:                                              ; preds = %190, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEC2EPS2_.exit90
+  br i1 %.not.i89159, label %199, label %195
 
-197:                                              ; preds = %196
-  %198 = getelementptr inbounds nuw i8, ptr %.039.lcssa157, i64 88
-  %199 = load i32, ptr %198, align 4, !tbaa !159
-  %200 = add nsw i32 %199, 1
-  store i32 %200, ptr %198, align 4, !tbaa !159
-  br label %201
+195:                                              ; preds = %194
+  %196 = getelementptr inbounds nuw i8, ptr %.039.lcssa157, i64 88
+  %197 = load i32, ptr %196, align 4, !tbaa !159
+  %198 = add nsw i32 %197, 1
+  store i32 %198, ptr %196, align 4, !tbaa !159
+  br label %199
 
-201:                                              ; preds = %197, %196
-  store ptr %.039.lcssa157, ptr %190, align 8, !tbaa !158
-  br i1 %.not53, label %211, label %202
+199:                                              ; preds = %195, %194
+  store ptr %.039.lcssa157, ptr %188, align 8, !tbaa !158
+  br i1 %.not53, label %209, label %200
 
-202:                                              ; preds = %201
-  %203 = getelementptr inbounds nuw i8, ptr %191, i64 88
-  %204 = load i32, ptr %203, align 4, !tbaa !159
-  %205 = add nsw i32 %204, -1
-  store i32 %205, ptr %203, align 4, !tbaa !159
-  %206 = icmp eq i32 %205, 0
-  br i1 %206, label %207, label %211
+200:                                              ; preds = %199
+  %201 = getelementptr inbounds nuw i8, ptr %189, i64 88
+  %202 = load i32, ptr %201, align 4, !tbaa !159
+  %203 = add nsw i32 %202, -1
+  store i32 %203, ptr %201, align 4, !tbaa !159
+  %204 = icmp eq i32 %203, 0
+  br i1 %204, label %205, label %209
 
-207:                                              ; preds = %202
-  %208 = load ptr, ptr %191, align 8, !tbaa !38
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
-  %210 = load ptr, ptr %209, align 8
-  call void %210(ptr noundef nonnull align 8 dereferenceable(288) %191) #25
-  br label %211
+205:                                              ; preds = %200
+  %206 = load ptr, ptr %189, align 8, !tbaa !38
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
+  %208 = load ptr, ptr %207, align 8
+  call void %208(ptr noundef nonnull align 8 dereferenceable(288) %189) #25
+  br label %209
 
-211:                                              ; preds = %201, %202, %207
-  %212 = getelementptr inbounds nuw i8, ptr %.039.lcssa157, i64 241
-  store i8 1, ptr %212, align 1, !tbaa !241
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 0, ptr %213, align 8, !tbaa !3
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %215 = load ptr, ptr %214, align 8, !tbaa !157
-  %.not54 = icmp eq ptr %215, null
-  br i1 %.not54, label %222, label %216
+209:                                              ; preds = %199, %200, %205
+  %210 = getelementptr inbounds nuw i8, ptr %.039.lcssa157, i64 241
+  store i8 1, ptr %210, align 1, !tbaa !241
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 0, ptr %211, align 8, !tbaa !3
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %213 = load ptr, ptr %212, align 8, !tbaa !157
+  %.not54 = icmp eq ptr %213, null
+  br i1 %.not54, label %220, label %214
 
-216:                                              ; preds = %211
-  %217 = load ptr, ptr %190, align 8, !tbaa !158
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 128
-  %219 = load ptr, ptr %215, align 8, !tbaa !38
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 16
-  %221 = load ptr, ptr %220, align 8
-  invoke void %221(ptr noundef nonnull align 8 dereferenceable(8) %215, ptr noundef nonnull align 8 dereferenceable(32) %218)
-          to label %222 unwind label %194
+214:                                              ; preds = %209
+  %215 = load ptr, ptr %188, align 8, !tbaa !158
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 128
+  %217 = load ptr, ptr %213, align 8, !tbaa !38
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 16
+  %219 = load ptr, ptr %218, align 8
+  invoke void %219(ptr noundef nonnull align 8 dereferenceable(8) %213, ptr noundef nonnull align 8 dereferenceable(32) %216)
+          to label %220 unwind label %192
 
-222:                                              ; preds = %216, %211
-  br i1 %.not.i89159, label %.critedge66, label %223
+220:                                              ; preds = %214, %209
+  br i1 %.not.i89159, label %.critedge66, label %221
 
-223:                                              ; preds = %222
-  %224 = getelementptr inbounds nuw i8, ptr %.039.lcssa157, i64 88
-  %225 = load i32, ptr %224, align 4, !tbaa !159
-  %226 = add nsw i32 %225, -1
-  store i32 %226, ptr %224, align 4, !tbaa !159
-  %227 = icmp eq i32 %226, 0
-  br i1 %227, label %228, label %.critedge66
+221:                                              ; preds = %220
+  %222 = getelementptr inbounds nuw i8, ptr %.039.lcssa157, i64 88
+  %223 = load i32, ptr %222, align 4, !tbaa !159
+  %224 = add nsw i32 %223, -1
+  store i32 %224, ptr %222, align 4, !tbaa !159
+  %225 = icmp eq i32 %224, 0
+  br i1 %225, label %226, label %.critedge66
 
-228:                                              ; preds = %223
-  %229 = load ptr, ptr %.039.lcssa157, align 8, !tbaa !38
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  %231 = load ptr, ptr %230, align 8
-  call void %231(ptr noundef nonnull align 8 dereferenceable(288) %.039.lcssa157) #25
+226:                                              ; preds = %221
+  %227 = load ptr, ptr %.039.lcssa157, align 8, !tbaa !38
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
+  %229 = load ptr, ptr %228, align 8
+  call void %229(ptr noundef nonnull align 8 dereferenceable(288) %.039.lcssa157) #25
   br label %.critedge66
 
-.critedge66:                                      ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit86, %228, %223, %222, %.critedge68, %55, %.critedge, %43
-  %232 = phi ptr [ %20, %228 ], [ %20, %223 ], [ %20, %222 ], [ %38, %.critedge68 ], [ %38, %55 ], [ %38, %.critedge ], [ %38, %43 ], [ %20, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit86 ]
-  %233 = load ptr, ptr %3, align 8, !tbaa !233
-  %234 = load ptr, ptr %232, align 8, !tbaa !236
-  %.not4.i.i.i.i = icmp eq ptr %233, %234
+.critedge66:                                      ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit86, %226, %221, %220, %.critedge68, %55, %.critedge, %43
+  %230 = phi ptr [ %20, %226 ], [ %20, %221 ], [ %20, %220 ], [ %38, %.critedge68 ], [ %38, %55 ], [ %38, %.critedge ], [ %38, %43 ], [ %20, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit86 ]
+  %231 = load ptr, ptr %3, align 8, !tbaa !233
+  %232 = load ptr, ptr %230, align 8, !tbaa !236
+  %.not4.i.i.i.i = icmp eq ptr %231, %232
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIP13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEES4_EvT_S6_RSaIT0_E.exit.i101, label %.lr.ph.i.i.i.i96
 
 .lr.ph.i.i.i.i96:                                 ; preds = %.critedge66, %_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i99
-  %.05.i.i.i.i97 = phi ptr [ %245, %_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i99 ], [ %233, %.critedge66 ]
-  %235 = load ptr, ptr %.05.i.i.i.i97, align 8, !tbaa !158
-  %.not.i.i.i.i.i.i98 = icmp eq ptr %235, null
-  br i1 %.not.i.i.i.i.i.i98, label %_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i99, label %236
+  %.05.i.i.i.i97 = phi ptr [ %243, %_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i99 ], [ %231, %.critedge66 ]
+  %233 = load ptr, ptr %.05.i.i.i.i97, align 8, !tbaa !158
+  %.not.i.i.i.i.i.i98 = icmp eq ptr %233, null
+  br i1 %.not.i.i.i.i.i.i98, label %_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i99, label %234
 
-236:                                              ; preds = %.lr.ph.i.i.i.i96
-  %237 = getelementptr inbounds nuw i8, ptr %235, i64 88
-  %238 = load i32, ptr %237, align 4, !tbaa !159
-  %239 = add nsw i32 %238, -1
-  store i32 %239, ptr %237, align 4, !tbaa !159
-  %240 = icmp eq i32 %239, 0
-  br i1 %240, label %241, label %_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i99
+234:                                              ; preds = %.lr.ph.i.i.i.i96
+  %235 = getelementptr inbounds nuw i8, ptr %233, i64 88
+  %236 = load i32, ptr %235, align 4, !tbaa !159
+  %237 = add nsw i32 %236, -1
+  store i32 %237, ptr %235, align 4, !tbaa !159
+  %238 = icmp eq i32 %237, 0
+  br i1 %238, label %239, label %_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i99
 
-241:                                              ; preds = %236
-  %242 = load ptr, ptr %235, align 8, !tbaa !38
-  %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
-  %244 = load ptr, ptr %243, align 8
-  call void %244(ptr noundef nonnull align 8 dereferenceable(288) %235) #25
+239:                                              ; preds = %234
+  %240 = load ptr, ptr %233, align 8, !tbaa !38
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
+  %242 = load ptr, ptr %241, align 8
+  call void %242(ptr noundef nonnull align 8 dereferenceable(288) %233) #25
   br label %_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i99
 
-_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i99: ; preds = %241, %236, %.lr.ph.i.i.i.i96
-  %245 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i97, i64 8
-  %.not.i.i.i.i100 = icmp eq ptr %245, %234
+_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i99: ; preds = %239, %234, %.lr.ph.i.i.i.i96
+  %243 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i97, i64 8
+  %.not.i.i.i.i100 = icmp eq ptr %243, %232
   br i1 %.not.i.i.i.i100, label %_ZSt8_DestroyIP13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i96, !llvm.loop !242
 
 _ZSt8_DestroyIP13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i99
@@ -6856,35 +6856,35 @@ _ZSt8_DestroyIP13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEES4_EvT_S6_R
   br label %_ZSt8_DestroyIP13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEES4_EvT_S6_RSaIT0_E.exit.i101
 
 _ZSt8_DestroyIP13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEES4_EvT_S6_RSaIT0_E.exit.i101: ; preds = %_ZSt8_DestroyIP13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, %.critedge66
-  %246 = phi ptr [ %.pr.i, %_ZSt8_DestroyIP13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i ], [ %233, %.critedge66 ]
-  %.not.i.i.i = icmp eq ptr %246, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESaIS4_EED2Ev.exit, label %247
+  %244 = phi ptr [ %.pr.i, %_ZSt8_DestroyIP13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i ], [ %231, %.critedge66 ]
+  %.not.i.i.i = icmp eq ptr %244, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESaIS4_EED2Ev.exit, label %245
 
-247:                                              ; preds = %_ZSt8_DestroyIP13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEES4_EvT_S6_RSaIT0_E.exit.i101
-  call void @_ZdlPv(ptr noundef nonnull %246) #28
+245:                                              ; preds = %_ZSt8_DestroyIP13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEES4_EvT_S6_RSaIT0_E.exit.i101
+  call void @_ZdlPv(ptr noundef nonnull %244) #28
   br label %_ZNSt6vectorI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESaIS4_EED2Ev.exit
 
-_ZNSt6vectorI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEES4_EvT_S6_RSaIT0_E.exit.i101, %247
+_ZNSt6vectorI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEES4_EvT_S6_RSaIT0_E.exit.i101, %245
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #25
   ret void
 
-248:                                              ; preds = %194
-  %249 = getelementptr inbounds nuw i8, ptr %.039.lcssa157, i64 88
-  %250 = load i32, ptr %249, align 4, !tbaa !159
-  %251 = add nsw i32 %250, -1
-  store i32 %251, ptr %249, align 4, !tbaa !159
-  %252 = icmp eq i32 %251, 0
-  br i1 %252, label %253, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit88
+246:                                              ; preds = %192
+  %247 = getelementptr inbounds nuw i8, ptr %.039.lcssa157, i64 88
+  %248 = load i32, ptr %247, align 4, !tbaa !159
+  %249 = add nsw i32 %248, -1
+  store i32 %249, ptr %247, align 4, !tbaa !159
+  %250 = icmp eq i32 %249, 0
+  br i1 %250, label %251, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit88
 
-253:                                              ; preds = %248
-  %254 = load ptr, ptr %.039.lcssa157, align 8, !tbaa !38
-  %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
-  %256 = load ptr, ptr %255, align 8
-  call void %256(ptr noundef nonnull align 8 dereferenceable(288) %.039.lcssa157) #25
+251:                                              ; preds = %246
+  %252 = load ptr, ptr %.039.lcssa157, align 8, !tbaa !38
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
+  %254 = load ptr, ptr %253, align 8
+  call void %254(ptr noundef nonnull align 8 dereferenceable(288) %.039.lcssa157) #25
   br label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit88
 
-_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit88: ; preds = %194, %248, %253, %178, %183, %64, %52, %36, %22
-  %.pn64 = phi { ptr, i32 } [ %37, %36 ], [ %.pn62, %52 ], [ %23, %22 ], [ %.pn60, %64 ], [ %.pn.pn.pn.ph, %178 ], [ %.pn.pn.pn.ph, %183 ], [ %195, %194 ], [ %195, %248 ], [ %195, %253 ]
+_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit88: ; preds = %192, %246, %251, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit84.thread, %181, %64, %52, %36, %22
+  %.pn64 = phi { ptr, i32 } [ %37, %36 ], [ %.pn62, %52 ], [ %23, %22 ], [ %.pn60, %64 ], [ %.pn.pn.pn127, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit84.thread ], [ %.pn.pn.pn127, %181 ], [ %193, %192 ], [ %193, %246 ], [ %193, %251 ]
   call void @_ZNSt6vectorI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #25
   resume { ptr, i32 } %.pn64

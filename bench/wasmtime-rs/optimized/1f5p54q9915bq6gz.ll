@@ -22502,7 +22502,7 @@ define hidden void @"_ZN9addr2line16ResUnit$LT$R$GT$18dwarf_and_unit_dwo28_$u7b$
 51:                                               ; preds = %279, %59, %43
   %52 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread158
+  br label %.thread
 
 53:                                               ; preds = %46, %35
   %.sroa.979.sroa.0.0.ph = phi i64 [ undef, %35 ], [ %.sroa.979.sroa.0.0.copyload, %46 ]
@@ -23234,11 +23234,11 @@ define hidden void @"_ZN9addr2line16ResUnit$LT$R$GT$18dwarf_and_unit_dwo28_$u7b$
           cleanup
   %274 = load i64, ptr %89, align 8, !range !618, !alias.scope !5230, !noalias !5161, !noundef !4
   %275 = icmp eq i64 %274, 47
-  br i1 %275, label %.thread158, label %276
+  br i1 %275, label %.thread, label %276
 
 276:                                              ; preds = %272
   invoke void @"_ZN4core3ptr149drop_in_place$LT$gimli..read..line..LineProgramHeader$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$C$usize$GT$$GT$17h9633a4ec44911f45E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(248) %89)
-          to label %.thread158 unwind label %280, !noalias !5161
+          to label %.thread unwind label %280, !noalias !5161
 
 "_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h68c83b13b485357fE.llvm.5456684732158232753.exit.i.i": ; preds = %.noexc.i.i, %267
   %277 = load i64, ptr %89, align 8, !range !618, !alias.scope !5233, !noalias !5161, !noundef !4
@@ -23289,11 +23289,11 @@ define hidden void @"_ZN9addr2line16ResUnit$LT$R$GT$18dwarf_and_unit_dwo28_$u7b$
 "_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h68c83b13b485357fE.exit208.i": ; preds = %287, %283
   %290 = load i64, ptr %89, align 8, !range !618, !alias.scope !5244, !noalias !5161, !noundef !4
   %291 = icmp eq i64 %290, 47
-  br i1 %291, label %.thread158, label %292
+  br i1 %291, label %.thread, label %292
 
 292:                                              ; preds = %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h68c83b13b485357fE.exit208.i"
   invoke void @"_ZN4core3ptr149drop_in_place$LT$gimli..read..line..LineProgramHeader$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$C$usize$GT$$GT$17h9633a4ec44911f45E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(248) %89)
-          to label %.thread158 unwind label %288, !noalias !5161
+          to label %.thread unwind label %288, !noalias !5161
 
 .thread194:                                       ; preds = %"_ZN4core3ptr137drop_in_place$LT$gimli..read..dwarf..Unit$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$C$usize$GT$$GT$17h5a6ce94c601f9524E.exit.i", %65
   %.sroa.10.sroa.0.2.ph = phi i8 [ %63, %65 ], [ %.sroa.10.sroa.0.0, %"_ZN4core3ptr137drop_in_place$LT$gimli..read..dwarf..Unit$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$C$usize$GT$$GT$17h5a6ce94c601f9524E.exit.i" ]
@@ -23438,12 +23438,12 @@ define hidden void @"_ZN9addr2line16ResUnit$LT$R$GT$18dwarf_and_unit_dwo28_$u7b$
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5ba350645e4ec540E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %31)
   br label %"_ZN4core3ptr154drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..dwarf..Dwarf$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$GT$$GT$$GT$17h0eda3ab8554edc28E.llvm.5281577753466666573.exit"
 
-"_ZN4core3ptr154drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..dwarf..Dwarf$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$GT$$GT$$GT$17h0eda3ab8554edc28E.llvm.5281577753466666573.exit77": ; preds = %.thread158, %327, %313
-  %.pn156 = phi { ptr, i32 } [ %314, %313 ], [ %eh.lpad-body74, %327 ], [ %eh.lpad-body74, %.thread158 ]
+"_ZN4core3ptr154drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..dwarf..Dwarf$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$GT$$GT$$GT$17h0eda3ab8554edc28E.llvm.5281577753466666573.exit77": ; preds = %.thread, %327, %313
+  %.pn156 = phi { ptr, i32 } [ %314, %313 ], [ %.pn157, %327 ], [ %.pn157, %.thread ]
   resume { ptr, i32 } %.pn156
 
-.thread158:                                       ; preds = %272, %276, %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h68c83b13b485357fE.exit208.i", %292, %51
-  %eh.lpad-body74 = phi { ptr, i32 } [ %52, %51 ], [ %273, %276 ], [ %273, %272 ], [ %.pn.i, %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h68c83b13b485357fE.exit208.i" ], [ %.pn.i, %292 ]
+.thread:                                          ; preds = %272, %276, %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h68c83b13b485357fE.exit208.i", %292, %51
+  %.pn157 = phi { ptr, i32 } [ %52, %51 ], [ %273, %276 ], [ %273, %272 ], [ %.pn.i, %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h68c83b13b485357fE.exit208.i" ], [ %.pn.i, %292 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5258)
   call void @llvm.experimental.noalias.scope.decl(metadata !5261)
   %324 = load ptr, ptr %31, align 8, !alias.scope !5264, !nonnull !4, !noundef !4
@@ -23451,7 +23451,7 @@ define hidden void @"_ZN9addr2line16ResUnit$LT$R$GT$18dwarf_and_unit_dwo28_$u7b$
   %326 = icmp eq i64 %325, 1
   br i1 %326, label %327, label %"_ZN4core3ptr154drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..dwarf..Dwarf$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$GT$$GT$$GT$17h0eda3ab8554edc28E.llvm.5281577753466666573.exit77"
 
-327:                                              ; preds = %.thread158
+327:                                              ; preds = %.thread
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5ba350645e4ec540E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %31)
           to label %"_ZN4core3ptr154drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..dwarf..Dwarf$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$GT$$GT$$GT$17h0eda3ab8554edc28E.llvm.5281577753466666573.exit77" unwind label %328

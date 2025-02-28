@@ -1134,7 +1134,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #36
-  br label %188
+  br label %.body.thread
 
 36:                                               ; preds = %2
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1347,7 +1347,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #36
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #36
-  br label %188
+  br label %.body.thread
 
 119:                                              ; preds = %36
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #36
@@ -1542,24 +1542,24 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i46
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i47, %178
   %.pn.pn = phi { ptr, i32 } [ %179, %178 ], [ %181, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i47 ], [ %181, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i46 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #36
-  br label %188
+  br label %.body.thread
 
-188:                                              ; preds = %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35
-  %.pn16.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %.pn16.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ]
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %190 = atomicrmw sub ptr %189, i64 1 acq_rel, align 8
-  %191 = icmp eq i64 %190, 1
-  br i1 %191, label %192, label %_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentials13HttpFetchBodyEED2Ev.exit50, !prof !32
+.body.thread:                                     ; preds = %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35
+  %.pn16.pn.pn.pn.pn.pn.pn.pn74 = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ], [ %.pn16.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35 ], [ %35, %34 ]
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %189 = atomicrmw sub ptr %188, i64 1 acq_rel, align 8
+  %190 = icmp eq i64 %189, 1
+  br i1 %190, label %191, label %_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentials13HttpFetchBodyEED2Ev.exit50, !prof !32
 
-192:                                              ; preds = %188
-  %193 = load ptr, ptr %0, align 16, !tbaa !12
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
-  %195 = load ptr, ptr %194, align 8
-  call void %195(ptr noundef nonnull align 16 dereferenceable(48) %0) #36
+191:                                              ; preds = %.body.thread
+  %192 = load ptr, ptr %0, align 16, !tbaa !12
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
+  %194 = load ptr, ptr %193, align 8
+  call void %194(ptr noundef nonnull align 16 dereferenceable(48) %0) #36
   br label %_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentials13HttpFetchBodyEED2Ev.exit50
 
-_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentials13HttpFetchBodyEED2Ev.exit50: ; preds = %188, %192
-  resume { ptr, i32 } %.pn16.pn.pn.pn.pn.pn.pn.pn
+_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentials13HttpFetchBodyEED2Ev.exit50: ; preds = %.body.thread, %191
+  resume { ptr, i32 } %.pn16.pn.pn.pn.pn.pn.pn.pn74
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

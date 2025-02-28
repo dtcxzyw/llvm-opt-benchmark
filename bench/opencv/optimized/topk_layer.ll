@@ -1448,7 +1448,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %72, %70
 _ZNSt14_Function_baseD2Ev.exit35.i:               ; preds = %82, %79, %77
   %.pn20.i = phi { ptr, i32 } [ %78, %77 ], [ %80, %79 ], [ %80, %82 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #25
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit41.i
+  br label %.thread.i
 
 87:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit32.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #25
@@ -1525,9 +1525,9 @@ _ZNSt14_Function_baseD2Ev.exit37.i:               ; preds = %95, %93
 _ZNSt14_Function_baseD2Ev.exit39.i:               ; preds = %105, %102, %100
   %.pn.i = phi { ptr, i32 } [ %101, %100 ], [ %103, %102 ], [ %103, %105 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #25
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit41.i
+  br label %.thread.i
 
-_ZNSt6vectorIiSaIiEED2Ev.exit41.i:                ; preds = %_ZNSt14_Function_baseD2Ev.exit39.i, %_ZNSt14_Function_baseD2Ev.exit35.i
+.thread.i:                                        ; preds = %_ZNSt14_Function_baseD2Ev.exit39.i, %_ZNSt14_Function_baseD2Ev.exit35.i
   %.pn20.pn.i = phi { ptr, i32 } [ %.pn20.i, %_ZNSt14_Function_baseD2Ev.exit35.i ], [ %.pn.i, %_ZNSt14_Function_baseD2Ev.exit39.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
@@ -1702,7 +1702,7 @@ _ZNSt14_Function_baseD2Ev.exit.i63:               ; preds = %142, %140
 _ZNSt14_Function_baseD2Ev.exit35.i54:             ; preds = %152, %149, %147
   %.pn20.i55 = phi { ptr, i32 } [ %148, %147 ], [ %150, %149 ], [ %150, %152 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit41.i44
+  br label %.thread.i44
 
 157:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit32.i40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
@@ -1779,9 +1779,9 @@ _ZNSt14_Function_baseD2Ev.exit37.i53:             ; preds = %165, %163
 _ZNSt14_Function_baseD2Ev.exit39.i42:             ; preds = %175, %172, %170
   %.pn.i43 = phi { ptr, i32 } [ %171, %170 ], [ %173, %172 ], [ %173, %175 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit41.i44
+  br label %.thread.i44
 
-_ZNSt6vectorIiSaIiEED2Ev.exit41.i44:              ; preds = %_ZNSt14_Function_baseD2Ev.exit39.i42, %_ZNSt14_Function_baseD2Ev.exit35.i54
+.thread.i44:                                      ; preds = %_ZNSt14_Function_baseD2Ev.exit39.i42, %_ZNSt14_Function_baseD2Ev.exit35.i54
   %.pn20.pn.i45 = phi { ptr, i32 } [ %.pn20.i55, %_ZNSt14_Function_baseD2Ev.exit35.i54 ], [ %.pn.i43, %_ZNSt14_Function_baseD2Ev.exit39.i42 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
@@ -1875,8 +1875,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %192, %195
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #25
   ret void
 
-.body:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit41.i, %_ZNSt6vectorIiSaIiEED2Ev.exit41.i44, %112, %110
-  %.pn = phi { ptr, i32 } [ %111, %110 ], [ %.pn20.pn.i, %_ZNSt6vectorIiSaIiEED2Ev.exit41.i ], [ %113, %112 ], [ %.pn20.pn.i45, %_ZNSt6vectorIiSaIiEED2Ev.exit41.i44 ]
+.body:                                            ; preds = %.thread.i, %.thread.i44, %112, %110
+  %.pn = phi { ptr, i32 } [ %111, %110 ], [ %.pn20.pn.i, %.thread.i ], [ %113, %112 ], [ %.pn20.pn.i45, %.thread.i44 ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #25
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #25

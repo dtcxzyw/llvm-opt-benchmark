@@ -3743,41 +3743,41 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   tail call void @llvm.experimental.noalias.scope.decl(metadata !590)
   %.val.i.i = load ptr, ptr %4, align 8, !alias.scope !588, !noalias !593, !noundef !4
   %.not.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i, label %12, label %5
+  br i1 %.not.i.i.i, label %11, label %5
 
 5:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !597)
   %6 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
   %7 = tail call noundef i8 @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17hfa12716ba528b2c6E.llvm.12416795407365802493"(ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !range !132, !noalias !600
   %8 = icmp eq i8 %7, 2
-  br i1 %8, label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread.i.i", label %9
+  br i1 %8, label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread.i.i", label %10
 
-9:                                                ; preds = %5
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$17h016011df2725dffcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %13 unwind label %10, !noalias !605
-
-10:                                               ; preds = %9
-  %11 = landingpad { ptr, i32 }
+"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h806569729ea14df3E.llvm.4322463129280257917.exit3.i.i.i.i.i": ; preds = %10
+  %9 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %4, align 8, !alias.scope !606, !noalias !609
-  resume { ptr, i32 } %11
+  store ptr null, ptr %4, align 8, !alias.scope !605, !noalias !608
+  resume { ptr, i32 } %9
 
-12:                                               ; preds = %3
+10:                                               ; preds = %5
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$17h016011df2725dffcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+          to label %12 unwind label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h806569729ea14df3E.llvm.4322463129280257917.exit3.i.i.i.i.i", !noalias !610
+
+11:                                               ; preds = %3
   store i8 3, ptr %0, align 8, !alias.scope !611, !noalias !612
   br label %_ZN4core3ops8function6FnOnce9call_once17hf01612c654225762E.exit
 
-13:                                               ; preds = %9
-  store ptr null, ptr %4, align 8, !alias.scope !606, !noalias !609
+12:                                               ; preds = %10
+  store ptr null, ptr %4, align 8, !alias.scope !605, !noalias !608
   br label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread.i.i"
 
-"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread.i.i": ; preds = %13, %5
-  %.sroa.0.0.i.i = phi i8 [ 0, %13 ], [ 2, %5 ]
+"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread.i.i": ; preds = %12, %5
+  %.sroa.0.0.i.i = phi i8 [ 0, %12 ], [ 2, %5 ]
   store i8 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !611, !noalias !612
   %.sroa.5.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %7, ptr %.sroa.5.0..sroa_idx2.i.i, align 1, !alias.scope !611, !noalias !612
   br label %_ZN4core3ops8function6FnOnce9call_once17hf01612c654225762E.exit
 
-_ZN4core3ops8function6FnOnce9call_once17hf01612c654225762E.exit: ; preds = %12, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread.i.i"
+_ZN4core3ops8function6FnOnce9call_once17hf01612c654225762E.exit: ; preds = %11, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread.i.i"
   ret void
 }
 
@@ -3789,41 +3789,41 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   tail call void @llvm.experimental.noalias.scope.decl(metadata !618)
   %.val.i.i = load ptr, ptr %4, align 8, !alias.scope !616, !noalias !621, !noundef !4
   %.not.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i, label %12, label %5
+  br i1 %.not.i.i.i, label %11, label %5
 
 5:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !625)
   %6 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
   %7 = tail call noundef i8 @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17hfa12716ba528b2c6E.llvm.12416795407365802493"(ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !range !132, !noalias !628
   %8 = icmp eq i8 %7, 2
-  br i1 %8, label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread.i.i", label %9
+  br i1 %8, label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread.i.i", label %10
 
-9:                                                ; preds = %5
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$17h016011df2725dffcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %13 unwind label %10, !noalias !633
-
-10:                                               ; preds = %9
-  %11 = landingpad { ptr, i32 }
+"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h806569729ea14df3E.llvm.4322463129280257917.exit3.i.i.i.i.i": ; preds = %10
+  %9 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %4, align 8, !alias.scope !634, !noalias !637
-  resume { ptr, i32 } %11
+  store ptr null, ptr %4, align 8, !alias.scope !633, !noalias !636
+  resume { ptr, i32 } %9
 
-12:                                               ; preds = %3
+10:                                               ; preds = %5
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$17h016011df2725dffcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+          to label %12 unwind label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h806569729ea14df3E.llvm.4322463129280257917.exit3.i.i.i.i.i", !noalias !638
+
+11:                                               ; preds = %3
   store i8 3, ptr %0, align 8, !alias.scope !639, !noalias !640
   br label %_ZN4core3ops8function6FnOnce9call_once17hb5be811552645003E.exit
 
-13:                                               ; preds = %9
-  store ptr null, ptr %4, align 8, !alias.scope !634, !noalias !637
+12:                                               ; preds = %10
+  store ptr null, ptr %4, align 8, !alias.scope !633, !noalias !636
   br label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread.i.i"
 
-"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread.i.i": ; preds = %13, %5
-  %.sroa.0.0.i.i = phi i8 [ 0, %13 ], [ 2, %5 ]
+"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread.i.i": ; preds = %12, %5
+  %.sroa.0.0.i.i = phi i8 [ 0, %12 ], [ 2, %5 ]
   store i8 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !639, !noalias !640
   %.sroa.5.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %7, ptr %.sroa.5.0..sroa_idx2.i.i, align 1, !alias.scope !639, !noalias !640
   br label %_ZN4core3ops8function6FnOnce9call_once17hb5be811552645003E.exit
 
-_ZN4core3ops8function6FnOnce9call_once17hb5be811552645003E.exit: ; preds = %12, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread.i.i"
+_ZN4core3ops8function6FnOnce9call_once17hb5be811552645003E.exit: ; preds = %11, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread.i.i"
   ret void
 }
 
@@ -3964,24 +3964,24 @@ define internal noundef range(i8 0, 5) i8 @"_ZN4core3ops8function6FnOnce40call_o
 10:                                               ; preds = %7
   %11 = load i8, ptr %5, align 4, !range !711, !noalias !721, !noundef !4
   %12 = icmp eq i8 %11, 5
-  br i1 %12, label %16, label %13
+  br i1 %12, label %15, label %14
 
-13:                                               ; preds = %10
-  invoke void @"_ZN4core3ptr116drop_in_place$LT$call..room..Room..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heda116c150600e86E.llvm.4322463129280257917"(ptr noundef nonnull align 8 %4)
-          to label %16 unwind label %14, !noalias !716
-
-14:                                               ; preds = %13
-  %15 = landingpad { ptr, i32 }
+"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$call..room..Room..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h686bbf063c850866E.llvm.4322463129280257917.exit2.i.i.i.i.i.i": ; preds = %14
+  %13 = landingpad { ptr, i32 }
           cleanup
   store i8 5, ptr %5, align 4, !noalias !721
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %13
 
-16:                                               ; preds = %13, %10
+14:                                               ; preds = %10
+  invoke void @"_ZN4core3ptr116drop_in_place$LT$call..room..Room..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heda116c150600e86E.llvm.4322463129280257917"(ptr noundef nonnull align 8 %4)
+          to label %15 unwind label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$call..room..Room..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h686bbf063c850866E.llvm.4322463129280257917.exit2.i.i.i.i.i.i", !noalias !716
+
+15:                                               ; preds = %14, %10
   store i8 5, ptr %5, align 4, !noalias !721
   br label %_ZN4core3ops8function6FnOnce9call_once17h90522401d3b9df6eE.exit
 
-_ZN4core3ops8function6FnOnce9call_once17h90522401d3b9df6eE.exit: ; preds = %2, %7, %16
-  %.sroa.0.0.i.i = phi i8 [ 4, %2 ], [ %8, %16 ], [ 3, %7 ]
+_ZN4core3ops8function6FnOnce9call_once17h90522401d3b9df6eE.exit: ; preds = %2, %7, %15
+  %.sroa.0.0.i.i = phi i8 [ 4, %2 ], [ %8, %15 ], [ 3, %7 ]
   ret i8 %.sroa.0.0.i.i
 }
 
@@ -17168,24 +17168,24 @@ define internal noundef range(i8 0, 5) i8 @"_ZN4call4room4Room19maintain_connect
 10:                                               ; preds = %7
   %11 = load i8, ptr %5, align 4, !range !711, !noalias !2504, !noundef !4
   %12 = icmp eq i8 %11, 5
-  br i1 %12, label %16, label %13
+  br i1 %12, label %15, label %14
 
-13:                                               ; preds = %10
-  invoke void @"_ZN4core3ptr116drop_in_place$LT$call..room..Room..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heda116c150600e86E.llvm.4322463129280257917"(ptr noundef nonnull align 8 %4)
-          to label %16 unwind label %14, !noalias !2499
-
-14:                                               ; preds = %13
-  %15 = landingpad { ptr, i32 }
+"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$call..room..Room..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h686bbf063c850866E.llvm.4322463129280257917.exit2.i.i.i.i": ; preds = %14
+  %13 = landingpad { ptr, i32 }
           cleanup
   store i8 5, ptr %5, align 4, !noalias !2504
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %13
 
-16:                                               ; preds = %13, %10
+14:                                               ; preds = %10
+  invoke void @"_ZN4core3ptr116drop_in_place$LT$call..room..Room..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heda116c150600e86E.llvm.4322463129280257917"(ptr noundef nonnull align 8 %4)
+          to label %15 unwind label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$call..room..Room..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h686bbf063c850866E.llvm.4322463129280257917.exit2.i.i.i.i", !noalias !2499
+
+15:                                               ; preds = %14, %10
   store i8 5, ptr %5, align 4, !noalias !2504
   br label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h4aab54d0bd6ceb6cE.exit.thread"
 
-"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h4aab54d0bd6ceb6cE.exit.thread": ; preds = %7, %16, %2
-  %.sroa.0.0 = phi i8 [ 4, %2 ], [ %8, %16 ], [ 3, %7 ]
+"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h4aab54d0bd6ceb6cE.exit.thread": ; preds = %7, %15, %2
+  %.sroa.0.0 = phi i8 [ 4, %2 ], [ %8, %15 ], [ 3, %7 ]
   ret i8 %.sroa.0.0
 }
 
@@ -17518,41 +17518,41 @@ define internal void @"_ZN4call10OneAtATime5spawn28_$u7b$$u7b$closure$u7d$$u7d$2
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !131, !noundef !4
   %.val = load ptr, ptr %4, align 8, !noundef !4
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %12, label %5
+  br i1 %.not.i, label %11, label %5
 
 5:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2538)
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %7 = tail call noundef i8 @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17hfa12716ba528b2c6E.llvm.12416795407365802493"(ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !range !132, !noalias !2541
   %8 = icmp eq i8 %7, 2
-  br i1 %8, label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread", label %9
+  br i1 %8, label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread", label %10
 
-9:                                                ; preds = %5
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$17h016011df2725dffcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %13 unwind label %10, !noalias !2546
-
-10:                                               ; preds = %9
-  %11 = landingpad { ptr, i32 }
+"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h806569729ea14df3E.llvm.4322463129280257917.exit3.i.i.i": ; preds = %10
+  %9 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %4, align 8, !alias.scope !2547, !noalias !2550
-  resume { ptr, i32 } %11
+  store ptr null, ptr %4, align 8, !alias.scope !2546, !noalias !2549
+  resume { ptr, i32 } %9
 
-12:                                               ; preds = %3
+10:                                               ; preds = %5
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$17h016011df2725dffcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+          to label %12 unwind label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h806569729ea14df3E.llvm.4322463129280257917.exit3.i.i.i", !noalias !2551
+
+11:                                               ; preds = %3
   store i8 3, ptr %0, align 8
-  br label %14
+  br label %13
 
-13:                                               ; preds = %9
-  store ptr null, ptr %4, align 8, !alias.scope !2547, !noalias !2550
+12:                                               ; preds = %10
+  store ptr null, ptr %4, align 8, !alias.scope !2546, !noalias !2549
   br label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread"
 
-"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread": ; preds = %5, %13
-  %.sroa.0.0 = phi i8 [ 0, %13 ], [ 2, %5 ]
+"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread": ; preds = %5, %12
+  %.sroa.0.0 = phi i8 [ 0, %12 ], [ 2, %5 ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %7, ptr %.sroa.5.0..sroa_idx2, align 1
-  br label %14
+  br label %13
 
-14:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread", %12
+13:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread", %11
   ret void
 }
 
@@ -17561,41 +17561,41 @@ define internal void @"_ZN4call10OneAtATime5spawn28_$u7b$$u7b$closure$u7d$$u7d$2
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !131, !noundef !4
   %.val = load ptr, ptr %4, align 8, !noundef !4
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %12, label %5
+  br i1 %.not.i, label %11, label %5
 
 5:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2552)
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %7 = tail call noundef i8 @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17hfa12716ba528b2c6E.llvm.12416795407365802493"(ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !range !132, !noalias !2555
   %8 = icmp eq i8 %7, 2
-  br i1 %8, label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread", label %9
+  br i1 %8, label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread", label %10
 
-9:                                                ; preds = %5
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$17h016011df2725dffcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %13 unwind label %10, !noalias !2560
-
-10:                                               ; preds = %9
-  %11 = landingpad { ptr, i32 }
+"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h806569729ea14df3E.llvm.4322463129280257917.exit3.i.i.i": ; preds = %10
+  %9 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %4, align 8, !alias.scope !2561, !noalias !2564
-  resume { ptr, i32 } %11
+  store ptr null, ptr %4, align 8, !alias.scope !2560, !noalias !2563
+  resume { ptr, i32 } %9
 
-12:                                               ; preds = %3
+10:                                               ; preds = %5
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$17h016011df2725dffcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+          to label %12 unwind label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h806569729ea14df3E.llvm.4322463129280257917.exit3.i.i.i", !noalias !2565
+
+11:                                               ; preds = %3
   store i8 3, ptr %0, align 8
-  br label %14
+  br label %13
 
-13:                                               ; preds = %9
-  store ptr null, ptr %4, align 8, !alias.scope !2561, !noalias !2564
+12:                                               ; preds = %10
+  store ptr null, ptr %4, align 8, !alias.scope !2560, !noalias !2563
   br label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread"
 
-"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread": ; preds = %5, %13
-  %.sroa.0.0 = phi i8 [ 0, %13 ], [ 2, %5 ]
+"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread": ; preds = %5, %12
+  %.sroa.0.0 = phi i8 [ 0, %12 ], [ 2, %5 ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %7, ptr %.sroa.5.0..sroa_idx2, align 1
-  br label %14
+  br label %13
 
-14:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread", %12
+13:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E.exit.thread", %11
   ret void
 }
 
@@ -19230,12 +19230,12 @@ attributes #36 = { noreturn nounwind }
 !602 = distinct !{!602, !"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7bb00e485dbe372aE"}
 !603 = distinct !{!603, !604, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E: argument 0"}
 !604 = distinct !{!604, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E"}
-!605 = !{!603, !591, !594, !586}
-!606 = !{!607, !598, !589}
-!607 = distinct !{!607, !608, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917: argument 0"}
-!608 = distinct !{!608, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917"}
-!609 = !{!610, !603, !591, !594, !586, !596}
-!610 = distinct !{!610, !599, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heb38423ed219b6bdE: argument 1"}
+!605 = !{!606, !598, !589}
+!606 = distinct !{!606, !607, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917: argument 0"}
+!607 = distinct !{!607, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917"}
+!608 = !{!609, !603, !591, !594, !586, !596}
+!609 = distinct !{!609, !599, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heb38423ed219b6bdE: argument 1"}
+!610 = !{!603, !591, !594, !586}
 !611 = !{!591, !586}
 !612 = !{!594, !595, !589, !596}
 !613 = !{!614}
@@ -19258,12 +19258,12 @@ attributes #36 = { noreturn nounwind }
 !630 = distinct !{!630, !"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7bb00e485dbe372aE"}
 !631 = distinct !{!631, !632, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E: argument 0"}
 !632 = distinct !{!632, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E"}
-!633 = !{!631, !619, !622, !614}
-!634 = !{!635, !626, !617}
-!635 = distinct !{!635, !636, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917: argument 0"}
-!636 = distinct !{!636, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917"}
-!637 = !{!638, !631, !619, !622, !614, !624}
-!638 = distinct !{!638, !627, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heb38423ed219b6bdE: argument 1"}
+!633 = !{!634, !626, !617}
+!634 = distinct !{!634, !635, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917: argument 0"}
+!635 = distinct !{!635, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917"}
+!636 = !{!637, !631, !619, !622, !614, !624}
+!637 = distinct !{!637, !627, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heb38423ed219b6bdE: argument 1"}
+!638 = !{!631, !619, !622, !614}
 !639 = !{!619, !614}
 !640 = !{!622, !623, !617, !624}
 !641 = !{!642}
@@ -21171,12 +21171,12 @@ attributes #36 = { noreturn nounwind }
 !2543 = distinct !{!2543, !"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7bb00e485dbe372aE"}
 !2544 = distinct !{!2544, !2545, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E: argument 0"}
 !2545 = distinct !{!2545, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E"}
-!2546 = !{!2544}
-!2547 = !{!2548, !2539}
-!2548 = distinct !{!2548, !2549, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917: argument 0"}
-!2549 = distinct !{!2549, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917"}
-!2550 = !{!2551, !2544}
-!2551 = distinct !{!2551, !2540, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heb38423ed219b6bdE: argument 1"}
+!2546 = !{!2547, !2539}
+!2547 = distinct !{!2547, !2548, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917: argument 0"}
+!2548 = distinct !{!2548, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917"}
+!2549 = !{!2550, !2544}
+!2550 = distinct !{!2550, !2540, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heb38423ed219b6bdE: argument 1"}
+!2551 = !{!2544}
 !2552 = !{!2553}
 !2553 = distinct !{!2553, !2554, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heb38423ed219b6bdE: argument 0"}
 !2554 = distinct !{!2554, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heb38423ed219b6bdE"}
@@ -21185,12 +21185,12 @@ attributes #36 = { noreturn nounwind }
 !2557 = distinct !{!2557, !"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7bb00e485dbe372aE"}
 !2558 = distinct !{!2558, !2559, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E: argument 0"}
 !2559 = distinct !{!2559, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2f457842550b5e97E"}
-!2560 = !{!2558}
-!2561 = !{!2562, !2553}
-!2562 = distinct !{!2562, !2563, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917: argument 0"}
-!2563 = distinct !{!2563, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917"}
-!2564 = !{!2565, !2558}
-!2565 = distinct !{!2565, !2554, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heb38423ed219b6bdE: argument 1"}
+!2560 = !{!2561, !2553}
+!2561 = distinct !{!2561, !2562, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917: argument 0"}
+!2562 = distinct !{!2562, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17ha9ff5875276fe6c0E.llvm.4322463129280257917"}
+!2563 = !{!2564, !2558}
+!2564 = distinct !{!2564, !2554, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heb38423ed219b6bdE: argument 1"}
+!2565 = !{!2558}
 !2566 = !{!2567, !2569, !2570, !2572, !2573}
 !2567 = distinct !{!2567, !2568, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h69c39b78cd0cb350E: argument 0"}
 !2568 = distinct !{!2568, !"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h69c39b78cd0cb350E"}

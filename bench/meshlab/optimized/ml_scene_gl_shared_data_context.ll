@@ -6737,7 +6737,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           cleanup
   br label %.loopexit.split-lp126
 
-.body109:                                         ; preds = %198, %234, %236, %239, %241, %243
+.body109:                                         ; preds = %243, %241, %239, %236, %234, %198
   %233 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #27

@@ -380,7 +380,7 @@ define hidden void @_ZN10rayon_core8registry19set_global_registry17h3dc735becaa1
 .body:                                            ; preds = %12, %16, %23
   %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %13, %16 ], [ %13, %12 ]
   invoke void @"_ZN4core3ptr142drop_in_place$LT$core..result..Result$LT$$RF$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$C$rayon_core..ThreadPoolBuildError$GT$$GT$17h95b89ff68e7ccf42E.llvm.10486466188219123340"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #18
-          to label %27 unwind label %25
+          to label %"_ZN4core3ptr134drop_in_place$LT$rayon_core..registry..init_global_registry$LT$rayon_core..registry..DefaultSpawn$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfbb9f7dd665a5667E.llvm.10486466188219123340.exit" unwind label %25
 
 _ZN3std4sync4once4Once9call_once17hec53880199bb25b3E.llvm.10486466188219123340.exit: ; preds = %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$rayon_core..registry..set_global_registry$LT$rayon_core..registry..init_global_registry$LT$rayon_core..registry..DefaultSpawn$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7c4dc808a5a08c37E.llvm.10486466188219123340.exit3.i", %11
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
@@ -394,7 +394,7 @@ _ZN3std4sync4once4Once9call_once17hec53880199bb25b3E.llvm.10486466188219123340.e
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #15
   unreachable
 
-27:                                               ; preds = %.body
+"_ZN4core3ptr134drop_in_place$LT$rayon_core..registry..init_global_registry$LT$rayon_core..registry..DefaultSpawn$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfbb9f7dd665a5667E.llvm.10486466188219123340.exit": ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

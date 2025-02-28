@@ -2371,7 +2371,7 @@ define hidden void @"_ZN136_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$
 .body:                                            ; preds = %19, %23
   %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %20, %19 ]
   invoke void @"_ZN4core3ptr163drop_in_place$LT$std..collections..hash..map..HashMap$LT$smol_str..SmolStr$C$smol_str..SmolStr$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0968227e0e3a46ceE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #54
-          to label %28 unwind label %26
+          to label %"_ZN4core3ptr105drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$smol_str..SmolStr$C$smol_str..SmolStr$RP$$GT$$GT$17h2171aacaeb459e76E.exit" unwind label %26
 
 25:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h98c64bd50e241557E.exit.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !629
@@ -2386,7 +2386,7 @@ define hidden void @"_ZN136_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #52
   unreachable
 
-28:                                               ; preds = %.body
+"_ZN4core3ptr105drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$smol_str..SmolStr$C$smol_str..SmolStr$RP$$GT$$GT$17h2171aacaeb459e76E.exit": ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

@@ -34502,12 +34502,12 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit675: ; preds = %_ZN4cvc58internal1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #26
   br label %1156
 
-1156:                                             ; preds = %994, %996, %1000, %998, %.body598, %1002
+1156:                                             ; preds = %1002, %.body598, %998, %1000, %996, %994
   %.pn332.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %997, %996 ], [ %995, %994 ], [ %999, %998 ], [ %1001, %1000 ], [ %.pn332.pn.pn.pn.pn.pn.pn.pn, %.body598 ], [ %1003, %1002 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #26
   br label %1157
 
-1157:                                             ; preds = %990, %992, %1156
+1157:                                             ; preds = %1156, %992, %990
   %.pn332.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn332.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1156 ], [ %993, %992 ], [ %991, %990 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #26
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #26

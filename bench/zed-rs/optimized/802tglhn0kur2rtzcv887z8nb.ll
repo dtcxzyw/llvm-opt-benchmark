@@ -1281,12 +1281,12 @@ define hidden void @_ZN4gpui8elements4text15InteractiveText8on_click17h97f146c8c
           cleanup
   %14 = atomicrmw sub ptr %3, i64 1 release, align 8, !noalias !278
   %15 = icmp eq i64 %14, 1
-  br i1 %15, label %16, label %55
+  br i1 %15, label %16, label %54
 
 16:                                               ; preds = %12
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf949405b16b0b75eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
-          to label %55 unwind label %17
+          to label %54 unwind label %17
 
 17:                                               ; preds = %16
   %18 = landingpad { ptr, i32 }
@@ -1350,7 +1350,7 @@ define hidden void @_ZN4gpui8elements4text15InteractiveText8on_click17h97f146c8c
 .body7:                                           ; preds = %37, %45
   store ptr %9, ptr %21, align 8
   store ptr @anon.5fc69451d0e5e7b135fb5894c1bcdc02.9.llvm.7869911825158495569, ptr %25, align 8
-  br label %55
+  br label %54
 
 "_ZN4core3ptr297drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$$u5b$core..ops..range..Range$LT$usize$GT$$u5d$$C$gpui..elements..text..InteractiveTextClickEvent$C$$RF$mut$u20$gpui..window..WindowContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$$GT$17he5b5723559d041e6E.llvm.7869911825158495569.exit": ; preds = %36, %29, %19
   store ptr %9, ptr %21, align 8
@@ -1376,33 +1376,33 @@ define hidden void @_ZN4gpui8elements4text15InteractiveText8on_click17h97f146c8c
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 160, i1 false)
   ret void
 
-54:                                               ; preds = %58, %55
+"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$17h033b65431ef6726fE.exit9": ; preds = %57, %54
   invoke void @"_ZN4core3ptr58drop_in_place$LT$gpui..elements..text..InteractiveText$GT$17he9deb6396ebb44e1E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %1) #23
-          to label %64 unwind label %62
+          to label %63 unwind label %61
 
-55:                                               ; preds = %.body7, %16, %12
+54:                                               ; preds = %.body7, %16, %12
   %.pn.ph = phi { ptr, i32 } [ %38, %.body7 ], [ %13, %12 ], [ %13, %16 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !315)
   call void @llvm.experimental.noalias.scope.decl(metadata !318)
   call void @llvm.experimental.noalias.scope.decl(metadata !321)
-  %56 = load i64, ptr %2, align 8, !alias.scope !324, !noalias !327, !noundef !4
-  %57 = icmp eq i64 %56, 0
-  br i1 %57, label %54, label %58
+  %55 = load i64, ptr %2, align 8, !alias.scope !324, !noalias !327, !noundef !4
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$17h033b65431ef6726fE.exit9", label %57
 
-58:                                               ; preds = %55
-  %59 = shl nuw i64 %56, 4
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %61 = load ptr, ptr %60, align 8, !alias.scope !324, !noalias !327, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %61, i64 noundef %59, i64 noundef 8) #24, !noalias !329
-  br label %54
+57:                                               ; preds = %54
+  %58 = shl nuw i64 %55, 4
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %60 = load ptr, ptr %59, align 8, !alias.scope !324, !noalias !327, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %60, i64 noundef %58, i64 noundef 8) #24, !noalias !329
+  br label %"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$17h033b65431ef6726fE.exit9"
 
-62:                                               ; preds = %54
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$17h033b65431ef6726fE.exit9"
+  %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #22
   unreachable
 
-64:                                               ; preds = %54
+63:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$17h033b65431ef6726fE.exit9"
   resume { ptr, i32 } %.pn.ph
 }
 

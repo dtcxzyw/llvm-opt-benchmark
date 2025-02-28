@@ -14606,8 +14606,8 @@ define internal void @"_ZN120_$LT$futures_util..stream..try_stream..and_then..An
   %45 = alloca { i8, [23 x i8] }, align 8
   %46 = alloca { { { { i64, ptr, {} }, i64 } }, { i8, [23 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i8, i8, [6 x i8] }, align 8
   %47 = alloca { i64, [10 x i64] }, align 8
-  %.sroa.0201 = alloca [8336 x i8], align 16
   %.sroa.661 = alloca [7 x i64], align 8
+  %.sroa.047.sroa.0 = alloca [8336 x i8], align 16
   %48 = alloca { i64, [12 x i64] }, align 8
   %.sroa.1443 = alloca [4 x i64], align 8
   %.sroa.14 = alloca [5 x i64], align 8
@@ -17169,8 +17169,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i.i: ; preds = %184
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #40, !noalias !1536
   unreachable
 
-common.resume:                                    ; preds = %933, %.body, %938, %.body162.i.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn79.i.i, %.body162.i.i ], [ %939, %938 ], [ %924, %.body ], [ %934, %933 ]
+common.resume:                                    ; preds = %933, %.body, %937, %.body162.i.i
+  %common.resume.op = phi { ptr, i32 } [ %.pn79.i.i, %.body162.i.i ], [ %938, %937 ], [ %924, %.body ], [ %934, %933 ]
   resume { ptr, i32 } %common.resume.op
 
 .body162.i.i:                                     ; preds = %906, %812, %807, %794
@@ -17610,7 +17610,7 @@ common.resume:                                    ; preds = %933, %.body, %938, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.050.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.1443, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %4), !noalias !1962
   invoke void @"_ZN66_$LT$datafusion_expr..expr..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hf3bae6ba2e667f9dE.llvm.3020181528030467296"(ptr noalias noundef nonnull sret({ i128, [32 x i64] }) align 16 captures(none) dereferenceable(272) %4, ptr noalias noundef nonnull readonly align 16 dereferenceable(272) %1)
-          to label %937 unwind label %933, !noalias !1968
+          to label %939 unwind label %933, !noalias !1968
 
 933:                                              ; preds = %932
   %934 = landingpad { ptr, i32 }
@@ -17624,18 +17624,10 @@ common.resume:                                    ; preds = %933, %.body, %938, 
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #40, !noalias !1968
   unreachable
 
-937:                                              ; preds = %932
-  call void @llvm.lifetime.start.p0(i64 8336, ptr nonnull %.sroa.0201)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %.sroa.0201, ptr noundef nonnull align 16 dereferenceable(272) %4, i64 272, i1 false)
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4), !noalias !1962
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !1962
-  invoke fastcc void @"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$deltalake_core..delta_datafusion..find_files..scan_table_by_partitions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h00251370740a995cE"(ptr noundef nonnull align 16 %51)
-          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h472dd121d5904949E.exit24" unwind label %938, !noalias !1969
-
-938:                                              ; preds = %937
-  %939 = landingpad { ptr, i32 }
+937:                                              ; preds = %939
+  %938 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(8336) %51, ptr noundef nonnull align 16 dereferenceable(8336) %.sroa.0201, i64 8336, i1 false), !noalias !1969
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(8336) %51, ptr noundef nonnull align 16 dereferenceable(8336) %.sroa.047.sroa.0, i64 8336, i1 false)
   %.sroa.5202.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8608
   store i64 %.sroa.1041.8.copyload, ptr %.sroa.5202.0..sroa_idx, align 16, !noalias !1969
   %.sroa.6205.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8616
@@ -17644,12 +17636,18 @@ common.resume:                                    ; preds = %933, %.body, %938, 
   store i8 0, ptr %.sroa.8.0..sroa_idx, align 16, !noalias !1969
   br label %common.resume
 
-"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h472dd121d5904949E.exit24": ; preds = %937
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(8336) %51, ptr noundef nonnull align 16 dereferenceable(8336) %.sroa.0201, i64 8336, i1 false), !noalias !1969
+939:                                              ; preds = %932
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %.sroa.047.sroa.0, ptr noundef nonnull align 16 dereferenceable(272) %4, i64 272, i1 false)
+  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4), !noalias !1962
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !1962
+  invoke fastcc void @"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$deltalake_core..delta_datafusion..find_files..scan_table_by_partitions..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h00251370740a995cE"(ptr noundef nonnull align 16 %51)
+          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h472dd121d5904949E.exit24" unwind label %937, !noalias !1969
+
+"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h472dd121d5904949E.exit24": ; preds = %939
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(8336) %51, ptr noundef nonnull align 16 dereferenceable(8336) %.sroa.047.sroa.0, i64 8336, i1 false)
   store i64 %.sroa.1041.8.copyload, ptr %.sroa.5202.0..sroa_idx203, align 16, !noalias !1969
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6205.0..sroa_idx206, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.1443, i64 32, i1 false)
   store i8 0, ptr %.sroa.8.0..sroa_idx209, align 16, !noalias !1969
-  call void @llvm.lifetime.end.p0(i64 8336, ptr nonnull %.sroa.0201)
   %940 = load i128, ptr %51, align 16, !range !1520, !noundef !5
   %941 = icmp eq i128 %940, 38
   br i1 %941, label %922, label %._crit_edge.thread

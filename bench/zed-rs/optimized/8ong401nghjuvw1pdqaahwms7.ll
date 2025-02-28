@@ -23412,7 +23412,7 @@ define void @_ZN13terminal_view12TerminalView3new17h4b5d3c0f47895b75E(ptr dead_o
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   ret void
 
-116:                                              ; preds = %127, %122, %74, %129, %126, %125, %124, %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17h4cf5eed2ebc0fd98E.exit", %121, %118, %88, %67, %.thread
+116:                                              ; preds = %127, %122, %74, %.thread63, %126, %125, %124, %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17h4cf5eed2ebc0fd98E.exit", %121, %118, %88, %67, %.thread
   %117 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #55
@@ -23462,13 +23462,13 @@ define void @_ZN13terminal_view12TerminalView3new17h4b5d3c0f47895b75E(ptr dead_o
 127:                                              ; preds = %.thread38, %36
   %.pn.pn.pn.pn.pn.pn.pn42 = phi { ptr, i32 } [ %37, %.thread38 ], [ %.pn.pn.pn.pn.pn.pn, %36 ]
   invoke void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc5a151d62bc79c0cE.llvm.1329437807393224980"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.511.0..sroa_idx)
-          to label %129 unwind label %116
+          to label %.thread63 unwind label %116
 
-128:                                              ; preds = %36, %129
-  %.pn.pn.pn.pn.pn.pn.pn.pn3666 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn42, %129 ], [ %.pn.pn.pn.pn.pn.pn, %36 ]
+128:                                              ; preds = %36, %.thread63
+  %.pn.pn.pn.pn.pn.pn.pn.pn3666 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn42, %.thread63 ], [ %.pn.pn.pn.pn.pn.pn, %36 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn3666
 
-129:                                              ; preds = %127
+.thread63:                                        ; preds = %127
   invoke void @"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$terminal..Terminal$GT$$GT$17hbda59dc4a0aa4fb6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #54
           to label %128 unwind label %116
 }

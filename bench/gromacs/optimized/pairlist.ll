@@ -14685,57 +14685,57 @@ _ZNK3gmx11DomdecZones9atomRangeEi.exit:           ; preds = %16
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 256
   tail call void @_ZN3gmx11PairlistSet18constructPairlistsENS_19InteractionLocalityERKNS_7GridSetENS_8ArrayRefINS_14PairsearchWorkEEEPNS_16nbnxn_atomdata_tERKNS_11ListOfListsIiEEiP6t_nrnbPNS_19SearchCycleCountingE(ptr noundef nonnull align 8 dereferenceable(128) %.0.i, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(232) %2, ptr %40, ptr %46, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef %48, ptr noundef %6, ptr noundef nonnull %49)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  br i1 %34, label %55, label %51
+  br i1 %34, label %.thread, label %54
 
-51:                                               ; preds = %33
-  %52 = load i64, ptr %50, align 8, !tbaa !668
-  %53 = icmp eq i64 %52, %5
-  br i1 %53, label %.thread38, label %54
+.thread:                                          ; preds = %33
+  store i64 %5, ptr %50, align 8, !tbaa !668
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 260
+  %52 = load i32, ptr %51, align 4, !tbaa !669
+  %53 = add nsw i32 %52, 1
+  store i32 %53, ptr %51, align 4, !tbaa !669
+  br label %.thread38
 
-54:                                               ; preds = %51
+54:                                               ; preds = %33
+  %55 = load i64, ptr %50, align 8, !tbaa !668
+  %56 = icmp eq i64 %55, %5
+  br i1 %56, label %.thread38, label %57
+
+57:                                               ; preds = %54
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12PairlistSets9constructENS_19InteractionLocalityEPNS_10PairSearchEPNS_16nbnxn_atomdata_tERKNS_11ListOfListsIiEElP6t_nrnbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 4019) #29
   unreachable
 
-55:                                               ; preds = %33
-  store i64 %5, ptr %50, align 8, !tbaa !668
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 260
-  %57 = load i32, ptr %56, align 4, !tbaa !669
-  %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %56, align 4, !tbaa !669
-  br label %.thread38
+.thread38:                                        ; preds = %54, %.thread
+  %58 = load i8, ptr %49, align 8, !tbaa !675, !range !120, !noundef !121
+  %59 = trunc nuw i8 %58 to i1
+  br i1 %59, label %60, label %76
 
-.thread38:                                        ; preds = %51, %55
-  %59 = load i8, ptr %49, align 8, !tbaa !675, !range !120, !noundef !121
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %77
-
-61:                                               ; preds = %.thread38
+60:                                               ; preds = %.thread38
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 5
   %.sroa.3.0.copyload.i = load i8, ptr %.sroa.3.0..sroa_idx.i, align 1, !tbaa !119
-  %62 = trunc nuw i8 %.sroa.3.0.copyload.i to i1
-  %63 = icmp ne i32 %1, 1
-  %.not39 = and i1 %63, %62
-  br i1 %.not39, label %77, label %64
+  %61 = trunc nuw i8 %.sroa.3.0.copyload.i to i1
+  %62 = icmp ne i32 %1, 1
+  %.not39 = and i1 %62, %61
+  br i1 %.not39, label %76, label %63
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 260
-  %66 = load i32, ptr %65, align 4, !tbaa !669
-  %67 = srem i32 %66, 100
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %77
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 260
+  %65 = load i32, ptr %64, align 4, !tbaa !669
+  %66 = srem i32 %65, 100
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %68, label %76
 
-69:                                               ; preds = %64
-  %70 = load ptr, ptr @stderr, align 8, !tbaa !240
-  %71 = load ptr, ptr %39, align 8, !tbaa !656
-  %72 = load ptr, ptr %41, align 8, !tbaa !658
-  %73 = ptrtoint ptr %72 to i64
-  %74 = ptrtoint ptr %71 to i64
-  %75 = sub i64 %73, %74
-  %76 = getelementptr inbounds nuw i8, ptr %71, i64 %75
-  tail call void @_ZNK3gmx19SearchCycleCounting11printCyclesEP8_IO_FILENS_8ArrayRefIKNS_14PairsearchWorkEEE(ptr noundef nonnull align 8 dereferenceable(80) %49, ptr noundef %70, ptr %71, ptr %76)
-  br label %77
+68:                                               ; preds = %63
+  %69 = load ptr, ptr @stderr, align 8, !tbaa !240
+  %70 = load ptr, ptr %39, align 8, !tbaa !656
+  %71 = load ptr, ptr %41, align 8, !tbaa !658
+  %72 = ptrtoint ptr %71 to i64
+  %73 = ptrtoint ptr %70 to i64
+  %74 = sub i64 %72, %73
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 %74
+  tail call void @_ZNK3gmx19SearchCycleCounting11printCyclesEP8_IO_FILENS_8ArrayRefIKNS_14PairsearchWorkEEE(ptr noundef nonnull align 8 dereferenceable(80) %49, ptr noundef %69, ptr %70, ptr %75)
+  br label %76
 
-77:                                               ; preds = %69, %64, %61, %.thread38
+76:                                               ; preds = %68, %63, %60, %.thread38
   ret void
 }
 

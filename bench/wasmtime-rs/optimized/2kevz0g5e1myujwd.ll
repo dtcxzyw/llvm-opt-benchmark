@@ -14372,11 +14372,11 @@ define void @_ZN18wasmtime_cranelift17compiled_function16CompiledFunction15set_a
 
 26:                                               ; preds = %22, %19
   %27 = invoke noundef i32 @_ZN16wasmtime_environ11address_map7FilePos3new17h8bda58cc0674b0baE(i32 noundef %1)
-          to label %28 unwind label %42
+          to label %28 unwind label %41
 
 28:                                               ; preds = %26
   %29 = invoke noundef i32 @_ZN16wasmtime_environ11address_map7FilePos3new17h8bda58cc0674b0baE(i32 noundef %7)
-          to label %30 unwind label %42
+          to label %30 unwind label %41
 
 30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -14415,17 +14415,17 @@ define void @_ZN18wasmtime_cranelift17compiled_function16CompiledFunction15set_a
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
-41:                                               ; preds = %42
+.thread:                                          ; preds = %41
   resume { ptr, i32 } %lpad.thr_comm
 
-42:                                               ; preds = %28, %26
+41:                                               ; preds = %28, %26
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr96drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_environ..address_map..InstructionAddressMap$GT$$GT$17hb4951e1ba4e4ac8cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #52
-          to label %41 unwind label %43
+          to label %.thread unwind label %42
 
-43:                                               ; preds = %42
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %41
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable

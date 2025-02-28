@@ -1693,7 +1693,7 @@ default.unreachable:                              ; preds = %.noexc134.i
   br label %332
 
 .body.i:                                          ; preds = %.loopexit538.i.loopexit, %.loopexit538.i.loopexit.split-lp, %687, %678, %532, %449, %.loopexit.split-lp539.i
-  %.pn.i = phi { ptr, i32 } [ %688, %687 ], [ %lpad.phi.i89, %532 ], [ %lpad.thr_comm.split-lp.i92, %449 ], [ %679, %678 ], [ %lpad.loopexit.split-lp541.i, %.loopexit.split-lp539.i ], [ %lpad.loopexit311, %.loopexit538.i.loopexit ], [ %lpad.loopexit.split-lp312, %.loopexit538.i.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %688, %687 ], [ %lpad.phi.i89, %532 ], [ %lpad.thr_comm.split-lp.i92, %449 ], [ %679, %678 ], [ %lpad.loopexit.split-lp541.i, %.loopexit.split-lp539.i ], [ %lpad.loopexit308, %.loopexit538.i.loopexit ], [ %lpad.loopexit.split-lp309, %.loopexit538.i.loopexit.split-lp ]
   %329 = load i64, ptr %57, align 8, !range !148, !alias.scope !243, !noalias !239, !noundef !4
   %330 = icmp eq i64 %329, 2
   br i1 %330, label %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$git..blame..BlameEntry$GT$$GT$17h8156f4e530ffc9beE.exit.i", label %331
@@ -1703,16 +1703,16 @@ default.unreachable:                              ; preds = %.noexc134.i
           to label %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$git..blame..BlameEntry$GT$$GT$17h8156f4e530ffc9beE.exit.i" unwind label %533, !noalias !246
 
 .loopexit538.i.loopexit:                          ; preds = %332, %351, %368, %380, %393, %406, %415, %539, %549, %557, %581, %587, %598, %605, %639, %646, %653, %682, %589, %574
-  %lpad.loopexit311 = landingpad { ptr, i32 }
+  %lpad.loopexit308 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
 .loopexit538.i.loopexit.split-lp:                 ; preds = %.invoke
-  %lpad.loopexit.split-lp312 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp309 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.loopexit.split-lp539.i:                          ; preds = %.invoke386, %.invoke.i, %409, %400, %387, %.thread.i.i, %.thread187.i.i
+.loopexit.split-lp539.i:                          ; preds = %.invoke383, %.invoke.i, %409, %400, %387, %.thread.i.i, %.thread187.i.i
   %lpad.loopexit.split-lp541.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -2494,8 +2494,8 @@ default.unreachable:                              ; preds = %.noexc134.i
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #18, !noalias !246
   unreachable
 
-535:                                              ; preds = %.invoke386, %448
-  %.sroa.8173.0 = phi ptr [ %.sroa.8.2.ph.i, %448 ], [ %612, %.invoke386 ]
+535:                                              ; preds = %.invoke383, %448
+  %.sroa.8173.0 = phi ptr [ %.sroa.8.2.ph.i, %448 ], [ %612, %.invoke383 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %56), !noalias !239
   %536 = load i64, ptr %57, align 8, !range !148, !alias.scope !431, !noalias !239, !noundef !4
   %537 = icmp eq i64 %536, 2
@@ -2692,7 +2692,7 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit.i:   ; preds = %539
   %584 = load i8, ptr %285, align 1, !range !502, !noalias !239
   %585 = load i64, ptr %286, align 8, !noalias !239
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51), !noalias !239
-  br i1 %trunc.i83, label %.invoke386, label %586
+  br i1 %trunc.i83, label %.invoke383, label %586
 
 586:                                              ; preds = %582
   store i64 1, ptr %287, align 8, !noalias !239
@@ -2816,14 +2816,14 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit.i:   ; preds = %539
   %608 = load i8, ptr %297, align 1, !range !502, !noalias !239
   %609 = load i64, ptr %298, align 8, !noalias !239
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53), !noalias !239
-  br i1 %trunc69.i, label %.invoke386, label %610
+  br i1 %trunc69.i, label %.invoke383, label %610
 
 610:                                              ; preds = %606
   store i64 1, ptr %57, align 8, !noalias !239
   store i64 %609, ptr %299, align 8, !noalias !239
   br label %.backedge.i
 
-.invoke386:                                       ; preds = %606, %582
+.invoke383:                                       ; preds = %606, %582
   %611 = phi i8 [ %584, %582 ], [ %608, %606 ]
   %612 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h1a717e12d60357e3E"(i8 noundef %611)
           to label %535 unwind label %.loopexit.split-lp539.i, !noalias !246
@@ -3171,7 +3171,7 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit288.i: ; preds = %671
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23), !noalias !658
   store ptr %11, ptr %23, align 8, !noalias !658
   %698 = icmp ult i64 %.sroa.13.0.copyload, 2
-  br i1 %698, label %.loopexit310, label %699
+  br i1 %698, label %.loopexit307, label %699
 
 699:                                              ; preds = %697
   %700 = icmp ult i64 %.sroa.13.0.copyload, 21
@@ -3179,7 +3179,7 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit288.i: ; preds = %671
 
 701:                                              ; preds = %699
   invoke void @_ZN4core5slice4sort8unstable7ipnsort17h989f957fe561b391E(ptr noalias noundef nonnull align 8 %.sroa.8173.0.copyload, i64 noundef %.sroa.13.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(8) %23)
-          to label %.loopexit310 unwind label %.loopexit.split-lp306
+          to label %.loopexit307 unwind label %.loopexit.split-lp303
 
 .lr.ph.preheader.i.i:                             ; preds = %699
   %702 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, i32 }, { { { [20 x i8] } } }, i32 }, ptr %.sroa.8173.0.copyload, i64 %.sroa.13.0.copyload
@@ -3189,12 +3189,12 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit288.i: ; preds = %671
 .lr.ph.i.i:                                       ; preds = %.noexc100, %.lr.ph.preheader.i.i
   %.sroa.0.05.i.i = phi ptr [ %704, %.noexc100 ], [ %703, %.lr.ph.preheader.i.i ]
   invoke void @_ZN4core5slice4sort6shared9smallsort11insert_tail17hd1f29e2fce4cd0ffE.llvm.12215986311500386140(ptr noundef nonnull align 8 %.sroa.8173.0.copyload, ptr noundef nonnull %.sroa.0.05.i.i, ptr noalias noundef nonnull align 8 dereferenceable(8) %23)
-          to label %.noexc100 unwind label %.loopexit305
+          to label %.noexc100 unwind label %.loopexit302
 
 .noexc100:                                        ; preds = %.lr.ph.i.i
   %704 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i, i64 280
   %.not.i.i98 = icmp eq ptr %704, %702
-  br i1 %.not.i.i98, label %.loopexit310, label %.lr.ph.i.i
+  br i1 %.not.i.i98, label %.loopexit307, label %.lr.ph.i.i
 
 705:                                              ; preds = %.thread242, %695
   %.sroa.8173.1246 = phi ptr [ %.sroa.8173.0, %.thread242 ], [ %.sroa.8173.0.copyload, %695 ]
@@ -3205,14 +3205,14 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit288.i: ; preds = %671
   store i64 -9223372036854775808, ptr %0, align 8
   br label %"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$git..blame..BlameEntry$GT$$GT$17hffad7d7c2664edf3E.exit"
 
-.loopexit305:                                     ; preds = %.lr.ph.i.i
-  %lpad.loopexit307 = landingpad { ptr, i32 }
+.loopexit302:                                     ; preds = %.lr.ph.i.i
+  %lpad.loopexit304 = landingpad { ptr, i32 }
           cleanup
   br label %885
 
-.loopexit.split-lp306:                            ; preds = %701, %"_ZN4core3ptr217drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$dyn$u20$git..hosting_provider..GitHostingProvider$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$git..hosting_provider..ParsedGitRemote$RP$$GT$$GT$17h2bb660ff6f639bf3E.exit116"
+.loopexit.split-lp303:                            ; preds = %701, %"_ZN4core3ptr217drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$dyn$u20$git..hosting_provider..GitHostingProvider$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$git..hosting_provider..ParsedGitRemote$RP$$GT$$GT$17h2bb660ff6f639bf3E.exit116"
   %.sroa.040.4.ph = phi i1 [ false, %"_ZN4core3ptr217drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$dyn$u20$git..hosting_provider..GitHostingProvider$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$git..hosting_provider..ParsedGitRemote$RP$$GT$$GT$17h2bb660ff6f639bf3E.exit116" ], [ true, %701 ]
-  %lpad.loopexit.split-lp308 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp305 = landingpad { ptr, i32 }
           cleanup
   br label %885
 
@@ -3221,7 +3221,7 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit288.i: ; preds = %671
           cleanup
   br label %.body94
 
-.loopexit310:                                     ; preds = %.noexc100, %701, %697
+.loopexit307:                                     ; preds = %.noexc100, %701, %697
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23), !noalias !658
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %87)
@@ -3240,7 +3240,7 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit288.i: ; preds = %671
   store ptr %714, ptr %84, align 8
   br i1 %709, label %715, label %719
 
-715:                                              ; preds = %.loopexit310
+715:                                              ; preds = %.loopexit307
   store ptr null, ptr %85, align 8
   %716 = atomicrmw sub ptr %714, i64 1 release, align 8, !noalias !661
   %717 = icmp eq i64 %716, 1
@@ -3251,12 +3251,12 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit288.i: ; preds = %671
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5745851eb49e3cceE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %84)
           to label %"_ZN4core3ptr77drop_in_place$LT$git..blame..Blame..for_path..$u7b$$u7b$closure$u7d$$u7d$$GT$17h45210560724f4a09E.exit" unwind label %.thread265
 
-719:                                              ; preds = %.loopexit310
+719:                                              ; preds = %.loopexit307
   invoke void @_ZN3git16hosting_provider20parse_git_remote_url17hb84dc7162fa81a49E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %85, ptr noundef nonnull %714, ptr noalias noundef nonnull readonly align 1 %711, i64 noundef %713)
           to label %"_ZN4core3ptr77drop_in_place$LT$git..blame..Blame..for_path..$u7b$$u7b$closure$u7d$$u7d$$GT$17h45210560724f4a09E.exit" unwind label %.thread265
 
 .noexc102:                                        ; preds = %736, %733, %.body138
-  br i1 %.sroa.042.3, label %882, label %"_ZN4core3ptr134drop_in_place$LT$std..collections..hash..set..HashSet$LT$git..Oid$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h69d7e0a164d4d820E.exit.thread"
+  br i1 %.sroa.042.3, label %882, label %.thread255
 
 .thread265:                                       ; preds = %719, %718
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -3290,7 +3290,7 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit288.i: ; preds = %671
 
 .body138:                                         ; preds = %.loopexit, %.loopexit.split-lp, %840, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i.i131", %847, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i135", %854, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i.i.i", %758, %754
   %.sroa.042.3 = phi i1 [ false, %754 ], [ false, %758 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i.i.i" ], [ true, %854 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i135" ], [ true, %847 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i.i131" ], [ true, %840 ], [ true, %.loopexit ], [ false, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %755, %754 ], [ %755, %758 ], [ %855, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i.i.i" ], [ %855, %854 ], [ %848, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i135" ], [ %848, %847 ], [ %lpad.phi304, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i.i131" ], [ %lpad.phi304, %840 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %755, %754 ], [ %755, %758 ], [ %855, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i.i.i" ], [ %855, %854 ], [ %848, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i135" ], [ %848, %847 ], [ %lpad.phi301, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i.i131" ], [ %lpad.phi301, %840 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.experimental.noalias.scope.decl(metadata !668)
   %731 = load ptr, ptr %85, align 8, !alias.scope !668, !noundef !4
   %732 = icmp eq ptr %731, null
@@ -3342,10 +3342,10 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit288.i: ; preds = %671
           to label %742 unwind label %.loopexit.split-lp
 
 738:                                              ; preds = %.lr.ph, %825
-  %.sroa.0174.0345 = phi ptr [ %720, %.lr.ph ], [ %739, %825 ]
-  %739 = getelementptr inbounds nuw i8, ptr %.sroa.0174.0345, i64 280
+  %.sroa.0174.0342 = phi ptr [ %720, %.lr.ph ], [ %739, %825 ]
+  %739 = getelementptr inbounds nuw i8, ptr %.sroa.0174.0342, i64 280
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %83)
-  %740 = getelementptr inbounds nuw i8, ptr %.sroa.0174.0345, i64 256
+  %740 = getelementptr inbounds nuw i8, ptr %.sroa.0174.0342, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %83, ptr noundef nonnull align 8 dereferenceable(20) %740, i64 20, i1 false)
   %741 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h21a6af74b340f09cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %86, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(20) %83)
           to label %821 unwind label %.loopexit
@@ -3513,19 +3513,19 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit288.i: ; preds = %671
 792:                                              ; preds = %789
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hea66b3ce7a56efc7E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %85)
-          to label %"_ZN4core3ptr217drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$dyn$u20$git..hosting_provider..GitHostingProvider$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$git..hosting_provider..ParsedGitRemote$RP$$GT$$GT$17h2bb660ff6f639bf3E.exit116" unwind label %"_ZN4core3ptr134drop_in_place$LT$std..collections..hash..set..HashSet$LT$git..Oid$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h69d7e0a164d4d820E.exit.thread297"
+          to label %"_ZN4core3ptr217drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$dyn$u20$git..hosting_provider..GitHostingProvider$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$git..hosting_provider..ParsedGitRemote$RP$$GT$$GT$17h2bb660ff6f639bf3E.exit116" unwind label %"_ZN4core3ptr134drop_in_place$LT$std..collections..hash..set..HashSet$LT$git..Oid$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h69d7e0a164d4d820E.exit.thread294"
 
-"_ZN4core3ptr134drop_in_place$LT$std..collections..hash..set..HashSet$LT$git..Oid$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h69d7e0a164d4d820E.exit.thread297": ; preds = %792
-  %lpad.thr_comm.split-lp299 = landingpad { ptr, i32 }
+"_ZN4core3ptr134drop_in_place$LT$std..collections..hash..set..HashSet$LT$git..Oid$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h69d7e0a164d4d820E.exit.thread294": ; preds = %792
+  %lpad.thr_comm.split-lp296 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr134drop_in_place$LT$std..collections..hash..set..HashSet$LT$git..Oid$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h69d7e0a164d4d820E.exit.thread"
+  br label %.thread255
 
 "_ZN4core3ptr217drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$dyn$u20$git..hosting_provider..GitHostingProvider$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$git..hosting_provider..ParsedGitRemote$RP$$GT$$GT$17h2bb660ff6f639bf3E.exit116": ; preds = %789, %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$git..Oid$GT$$GT$17h7792bb2568eb6ebbE.exit109", %792
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %85)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %86)
   %793 = getelementptr inbounds nuw i8, ptr %87, i64 32
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h84de44b64f45d9c6E(ptr noalias noundef nonnull align 8 dereferenceable(32) %87, ptr noalias noundef nonnull readonly align 1 %793, i64 noundef 112, i64 noundef 16)
-          to label %"_ZN4core3ptr145drop_in_place$LT$std..collections..hash..map..HashMap$LT$git..Oid$C$url..Url$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h6b9e53d07d6923a6E.exit" unwind label %.loopexit.split-lp306
+          to label %"_ZN4core3ptr145drop_in_place$LT$std..collections..hash..map..HashMap$LT$git..Oid$C$url..Url$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h6b9e53d07d6923a6E.exit" unwind label %.loopexit.split-lp303
 
 "_ZN4core3ptr145drop_in_place$LT$std..collections..hash..map..HashMap$LT$git..Oid$C$url..Url$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h6b9e53d07d6923a6E.exit": ; preds = %"_ZN4core3ptr217drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$dyn$u20$git..hosting_provider..GitHostingProvider$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$git..hosting_provider..ParsedGitRemote$RP$$GT$$GT$17h2bb660ff6f639bf3E.exit116"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %87)
@@ -3602,7 +3602,7 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit288.i: ; preds = %671
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12171.1, i64 noundef %.sroa.0170.1, i64 noundef 1) #17, !noalias !821
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4bcc0dc585979a82E.exit124"
 
-819:                                              ; preds = %896, %"_ZN4core3ptr134drop_in_place$LT$std..collections..hash..set..HashSet$LT$git..Oid$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h69d7e0a164d4d820E.exit.thread", %882, %736, %885
+819:                                              ; preds = %896, %.thread255, %882, %736, %885
   %820 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #18
@@ -3623,8 +3623,8 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit288.i: ; preds = %671
           to label %826 unwind label %.loopexit
 
 825:                                              ; preds = %821, %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h3fbd6f022bf04f54E.exit"
-  %.not346 = icmp eq ptr %739, %722
-  br i1 %.not346, label %._crit_edge, label %738
+  %.not343 = icmp eq ptr %739, %722
+  br i1 %.not343, label %._crit_edge, label %738
 
 826:                                              ; preds = %824
   %827 = load i64, ptr %78, align 8, !range !45, !noundef !4
@@ -3667,20 +3667,20 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit288.i: ; preds = %671
   store ptr %17, ptr %729, align 8, !noalias !839
   store ptr @anon.5e2d673e6eae030aad46836fb47fafd9.4, ptr %730, align 8, !noalias !839
   %839 = invoke noundef zeroext i1 @"_ZN53_$LT$git2..oid..Oid$u20$as$u20$core..fmt..Display$GT$3fmt17hee2fe65b6490271cE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(20) %740, ptr noalias noundef nonnull align 8 dereferenceable(64) %16)
-          to label %"_ZN47_$LT$git..Oid$u20$as$u20$core..fmt..Display$GT$3fmt17h06866496a9450601E.exit.i.i.i" unwind label %.loopexit300, !noalias !843
+          to label %"_ZN47_$LT$git..Oid$u20$as$u20$core..fmt..Display$GT$3fmt17h06866496a9450601E.exit.i.i.i" unwind label %.loopexit297, !noalias !843
 
-.loopexit300:                                     ; preds = %830
-  %lpad.loopexit302 = landingpad { ptr, i32 }
+.loopexit297:                                     ; preds = %830
+  %lpad.loopexit299 = landingpad { ptr, i32 }
           cleanup
   br label %840
 
-.loopexit.split-lp301:                            ; preds = %844
-  %lpad.loopexit.split-lp303 = landingpad { ptr, i32 }
+.loopexit.split-lp298:                            ; preds = %844
+  %lpad.loopexit.split-lp300 = landingpad { ptr, i32 }
           cleanup
   br label %840
 
-840:                                              ; preds = %.loopexit.split-lp301, %.loopexit300
-  %lpad.phi304 = phi { ptr, i32 } [ %lpad.loopexit302, %.loopexit300 ], [ %lpad.loopexit.split-lp303, %.loopexit.split-lp301 ]
+840:                                              ; preds = %.loopexit.split-lp298, %.loopexit297
+  %lpad.phi301 = phi { ptr, i32 } [ %lpad.loopexit299, %.loopexit297 ], [ %lpad.loopexit.split-lp300, %.loopexit.split-lp298 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !844)
   call void @llvm.experimental.noalias.scope.decl(metadata !847)
   call void @llvm.experimental.noalias.scope.decl(metadata !850)
@@ -3700,7 +3700,7 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit288.i: ; preds = %671
 
 844:                                              ; preds = %"_ZN47_$LT$git..Oid$u20$as$u20$core..fmt..Display$GT$3fmt17h06866496a9450601E.exit.i.i.i"
   invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.5e2d673e6eae030aad46836fb47fafd9.6, i64 noundef 55, ptr noundef nonnull align 1 %11, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.5e2d673e6eae030aad46836fb47fafd9.35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5e2d673e6eae030aad46836fb47fafd9.8) #16
-          to label %.noexc.i.i.i unwind label %.loopexit.split-lp301, !noalias !843
+          to label %.noexc.i.i.i unwind label %.loopexit.split-lp298, !noalias !843
 
 .noexc.i.i.i:                                     ; preds = %844
   unreachable
@@ -3805,17 +3805,17 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit288.i: ; preds = %671
   %.pn62263 = phi { ptr, i32 } [ %.pn, %.noexc102 ], [ %lpad.thr_comm, %.thread265 ]
   %883 = getelementptr inbounds nuw i8, ptr %86, i64 32
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h31e94b1ff4efa549E(ptr noalias noundef nonnull align 8 dereferenceable(32) %86, ptr noalias noundef nonnull readonly align 1 %883, i64 noundef 20, i64 noundef 16)
-          to label %"_ZN4core3ptr134drop_in_place$LT$std..collections..hash..set..HashSet$LT$git..Oid$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h69d7e0a164d4d820E.exit.thread" unwind label %819
+          to label %.thread255 unwind label %819
 
-"_ZN4core3ptr134drop_in_place$LT$std..collections..hash..set..HashSet$LT$git..Oid$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h69d7e0a164d4d820E.exit.thread": ; preds = %882, %.noexc102, %"_ZN4core3ptr134drop_in_place$LT$std..collections..hash..set..HashSet$LT$git..Oid$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h69d7e0a164d4d820E.exit.thread297"
-  %.pn62.pn296 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp299, %"_ZN4core3ptr134drop_in_place$LT$std..collections..hash..set..HashSet$LT$git..Oid$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h69d7e0a164d4d820E.exit.thread297" ], [ %.pn62263, %882 ], [ %.pn, %.noexc102 ]
+.thread255:                                       ; preds = %882, %.noexc102, %"_ZN4core3ptr134drop_in_place$LT$std..collections..hash..set..HashSet$LT$git..Oid$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h69d7e0a164d4d820E.exit.thread294"
+  %.pn62.pn261 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp296, %"_ZN4core3ptr134drop_in_place$LT$std..collections..hash..set..HashSet$LT$git..Oid$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h69d7e0a164d4d820E.exit.thread294" ], [ %.pn62263, %882 ], [ %.pn, %.noexc102 ]
   %884 = getelementptr inbounds nuw i8, ptr %87, i64 32
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h84de44b64f45d9c6E(ptr noalias noundef nonnull align 8 dereferenceable(32) %87, ptr noalias noundef nonnull readonly align 1 %884, i64 noundef 112, i64 noundef 16)
           to label %885 unwind label %819
 
-885:                                              ; preds = %.loopexit305, %.loopexit.split-lp306, %"_ZN4core3ptr134drop_in_place$LT$std..collections..hash..set..HashSet$LT$git..Oid$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h69d7e0a164d4d820E.exit.thread"
-  %.sroa.040.6.ph = phi i1 [ false, %"_ZN4core3ptr134drop_in_place$LT$std..collections..hash..set..HashSet$LT$git..Oid$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h69d7e0a164d4d820E.exit.thread" ], [ true, %.loopexit305 ], [ %.sroa.040.4.ph, %.loopexit.split-lp306 ]
-  %.pn65.ph = phi { ptr, i32 } [ %.pn62.pn296, %"_ZN4core3ptr134drop_in_place$LT$std..collections..hash..set..HashSet$LT$git..Oid$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h69d7e0a164d4d820E.exit.thread" ], [ %lpad.loopexit307, %.loopexit305 ], [ %lpad.loopexit.split-lp308, %.loopexit.split-lp306 ]
+885:                                              ; preds = %.loopexit302, %.loopexit.split-lp303, %.thread255
+  %.sroa.040.6.ph = phi i1 [ false, %.thread255 ], [ true, %.loopexit302 ], [ %.sroa.040.4.ph, %.loopexit.split-lp303 ]
+  %.pn65.ph = phi { ptr, i32 } [ %.pn62.pn261, %.thread255 ], [ %lpad.loopexit304, %.loopexit302 ], [ %lpad.loopexit.split-lp305, %.loopexit.split-lp303 ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$git..blame..BlameEntry$GT$$GT$17hffad7d7c2664edf3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %88) #19
           to label %.body94 unwind label %819
 

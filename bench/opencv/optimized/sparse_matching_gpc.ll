@@ -4653,13 +4653,13 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EED2Ev.exit: ; preds = %
   %.sroa.0197.2 = phi ptr [ %.sroa.0197.0.lcssa, %348 ], [ %.sroa.0197.3, %.loopexit.split-lp ], [ %.sroa.0197.1235, %.loopexit211 ], [ %.sroa.0197.1235, %.loopexit.split-lp212 ]
   %.pn139 = phi { ptr, i32 } [ %349, %348 ], [ %.pn133.pn.pn.pn, %.loopexit.split-lp ], [ %lpad.loopexit213, %.loopexit211 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp212 ]
   %.not.i.i.i189 = icmp eq ptr %.sroa.0197.2, null
-  br i1 %.not.i.i.i189, label %_ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EED2Ev.exit190, label %537
+  br i1 %.not.i.i.i189, label %_ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EED2Ev.exit190, label %.thread
 
-537:                                              ; preds = %536
+.thread:                                          ; preds = %536
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0197.2) #29
   br label %_ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EED2Ev.exit190
 
-_ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EED2Ev.exit190: ; preds = %536, %537
+_ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EED2Ev.exit190: ; preds = %536, %.thread
   resume { ptr, i32 } %.pn139
 }
 

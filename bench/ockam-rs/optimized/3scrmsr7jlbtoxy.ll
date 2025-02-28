@@ -2984,6 +2984,7 @@ common.ret:                                       ; preds = %"_ZN95_$LT$futures_
   %.val46 = phi ptr [ %.val46.pre, %._crit_edge ], [ %41, %40 ]
   %.val = phi ptr [ %.val.pre, %._crit_edge ], [ %28, %40 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !379)
+  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %8)
   %52 = load i64, ptr %.val, align 8, !range !276, !noalias !382, !noundef !26
   %53 = add nsw i64 %52, -3
   %54 = icmp ult i64 %53, 3
@@ -3012,35 +3013,35 @@ common.ret:                                       ; preds = %"_ZN95_$LT$futures_
 .noexc52:                                         ; preds = %57
   %64 = load i64, ptr %9, align 8, !range !401, !noalias !389, !noundef !26
   %65 = icmp eq i64 %64, 3
-  br i1 %65, label %"_ZN103_$LT$futures_util..future..maybe_done..MaybeDone$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h72251fc66cefa851E.exit.i.i", label %66
+  br i1 %65, label %"_ZN103_$LT$futures_util..future..maybe_done..MaybeDone$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h72251fc66cefa851E.exit.i.i", label %68
 
-66:                                               ; preds = %.noexc52
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %8)
+66:                                               ; preds = %68
+  %67 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %.val, ptr noundef nonnull align 8 dereferenceable(240) %8, i64 240, i1 false), !noalias !402
+  br label %.body54
+
+68:                                               ; preds = %.noexc52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %8, ptr noundef nonnull align 8 dereferenceable(240) %9, i64 240, i1 false), !noalias !389
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %9), !noalias !389
   invoke void @"_ZN4core3ptr296drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_node..context..context..Context$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h1149fc7aab560670E.llvm.10658646520225780758"(ptr noalias noundef nonnull align 8 dereferenceable(240) %.val)
-          to label %"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit.i.i.i" unwind label %67, !noalias !402
+          to label %"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit.i.i.i" unwind label %66, !noalias !403
 
-67:                                               ; preds = %66
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %.val, ptr noundef nonnull align 8 dereferenceable(240) %8, i64 240, i1 false), !noalias !405
-  br label %.body54
-
-"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit.i.i.i": ; preds = %66
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %.val, ptr noundef nonnull align 8 dereferenceable(240) %8, i64 240, i1 false), !noalias !405
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %8)
+"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit.i.i.i": ; preds = %68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %.val, ptr noundef nonnull align 8 dereferenceable(240) %8, i64 240, i1 false), !noalias !402
   %.pr.i.i = load i64, ptr %.val, align 8, !noalias !382
   %.pre25.i.i = add nsw i64 %.pr.i.i, -3
   br label %69
 
 "_ZN103_$LT$futures_util..future..maybe_done..MaybeDone$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h72251fc66cefa851E.exit.i.i": ; preds = %.noexc52
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %9), !noalias !389
+  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %8)
   br label %87
 
 69:                                               ; preds = %"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit.i.i.i", %51
   %.pre-phi.i.i = phi i64 [ %53, %51 ], [ %.pre25.i.i, %"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit.i.i.i" ]
   %70 = phi i64 [ %52, %51 ], [ %.pr.i.i, %"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit.i.i.i" ]
+  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %8)
   %71 = icmp ult i64 %.pre-phi.i.i, 3
   %72 = icmp ne i64 %.pre-phi.i.i, 1
   %.not24.i.i = and i1 %71, %72
@@ -3118,7 +3119,7 @@ common.ret:                                       ; preds = %"_ZN95_$LT$futures_
 .noexc57:                                         ; preds = %90
   %.fca.0.extract.i.i.i = extractvalue { i64, ptr } %97, 0
   %98 = icmp eq i64 %.fca.0.extract.i.i.i, 2
-  br i1 %98, label %"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h604040e88602a098E.exit.thread", label %99
+  br i1 %98, label %"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h604040e88602a098E.exit.thread", label %101
 
 .invoke81:                                        ; preds = %87, %51
   invoke void @_ZN3std9panicking11begin_panic17he3f65631a225ff00E(ptr noalias noundef nonnull readonly align 1 @anon.beb74d57c5836fb6736109f23c162de1.0.llvm.10658646520225780758, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.beb74d57c5836fb6736109f23c162de1.2.llvm.10658646520225780758) #29
@@ -3127,23 +3128,23 @@ common.ret:                                       ; preds = %"_ZN95_$LT$futures_
 .cont82:                                          ; preds = %.invoke81
   unreachable
 
-99:                                               ; preds = %.noexc57
-  %.fca.1.extract.i.i.i = extractvalue { i64, ptr } %97, 1
-  invoke void @"_ZN4core3ptr312drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$mitm_node..tcp_interceptor..registry..TcpMitmRegistry$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hfbb2504ef645e105E.llvm.10658646520225780758"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val46)
-          to label %"_ZN4core3pin12Pin$LT$P$GT$3set17h91232cb32bba52abE.llvm.10658646520225780758.exit.i.i.i" unwind label %100, !noalias !426
-
-100:                                              ; preds = %99
-  %101 = landingpad { ptr, i32 }
+99:                                               ; preds = %101
+  %100 = landingpad { ptr, i32 }
           cleanup
-  store i64 1, ptr %.val46, align 8, !alias.scope !413, !noalias !429
-  store i64 %.fca.0.extract.i.i.i, ptr %91, align 8, !alias.scope !413, !noalias !429
-  store ptr %.fca.1.extract.i.i.i, ptr %93, align 8, !alias.scope !413, !noalias !429
+  store i64 1, ptr %.val46, align 8, !alias.scope !413, !noalias !426
+  store i64 %.fca.0.extract.i.i.i, ptr %91, align 8, !alias.scope !413, !noalias !426
+  store ptr %.fca.1.extract.i.i.i, ptr %93, align 8, !alias.scope !413, !noalias !426
   br label %.body54
 
-"_ZN4core3pin12Pin$LT$P$GT$3set17h91232cb32bba52abE.llvm.10658646520225780758.exit.i.i.i": ; preds = %99
-  store i64 1, ptr %.val46, align 8, !alias.scope !413, !noalias !429
-  store i64 %.fca.0.extract.i.i.i, ptr %91, align 8, !alias.scope !413, !noalias !429
-  store ptr %.fca.1.extract.i.i.i, ptr %93, align 8, !alias.scope !413, !noalias !429
+101:                                              ; preds = %.noexc57
+  %.fca.1.extract.i.i.i = extractvalue { i64, ptr } %97, 1
+  invoke void @"_ZN4core3ptr312drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$mitm_node..tcp_interceptor..registry..TcpMitmRegistry$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hfbb2504ef645e105E.llvm.10658646520225780758"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val46)
+          to label %"_ZN4core3pin12Pin$LT$P$GT$3set17h91232cb32bba52abE.llvm.10658646520225780758.exit.i.i.i" unwind label %99, !noalias !429
+
+"_ZN4core3pin12Pin$LT$P$GT$3set17h91232cb32bba52abE.llvm.10658646520225780758.exit.i.i.i": ; preds = %101
+  store i64 1, ptr %.val46, align 8, !alias.scope !413, !noalias !426
+  store i64 %.fca.0.extract.i.i.i, ptr %91, align 8, !alias.scope !413, !noalias !426
+  store ptr %.fca.1.extract.i.i.i, ptr %93, align 8, !alias.scope !413, !noalias !426
   br label %106
 
 102:                                              ; preds = %"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h42c4f040e577fbb8E.exit.i.i"
@@ -3475,8 +3476,8 @@ common.ret:                                       ; preds = %"_ZN95_$LT$futures_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %.sroa.633, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.12, i64 224, i1 false)
   br label %18
 
-.body54:                                          ; preds = %182, %.body.i.i, %149, %138, %112, %100, %81, %67
-  %.pn39 = phi { ptr, i32 } [ %183, %182 ], [ %68, %67 ], [ %101, %100 ], [ %82, %81 ], [ %113, %112 ], [ %139, %138 ], [ %150, %149 ], [ %eh.lpad-body.i.i, %.body.i.i ]
+.body54:                                          ; preds = %182, %.body.i.i, %149, %138, %112, %99, %81, %66
+  %.pn39 = phi { ptr, i32 } [ %183, %182 ], [ %67, %66 ], [ %100, %99 ], [ %82, %81 ], [ %113, %112 ], [ %139, %138 ], [ %150, %149 ], [ %eh.lpad-body.i.i, %.body.i.i ]
   %196 = getelementptr inbounds nuw i8, ptr %1, i64 248
   invoke fastcc void @"_ZN4core3ptr312drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$mitm_node..tcp_interceptor..registry..TcpMitmRegistry$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hfbb2504ef645e105E"(ptr noalias noundef align 8 dereferenceable(24) %196) #30
           to label %185 unwind label %46
@@ -4213,10 +4214,10 @@ attributes #31 = { noinline noreturn nounwind }
 !399 = distinct !{!399, !393, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h11d79f47770a2625E: argument 2"}
 !400 = !{!398, !392, !399, !380, !390, !383, !386}
 !401 = !{i64 0, i64 4}
-!402 = !{!403, !383, !386}
-!403 = distinct !{!403, !404, !"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758: argument 1"}
-!404 = distinct !{!404, !"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758"}
-!405 = !{!403, !390, !383, !385, !386, !388}
+!402 = !{!390, !383, !385, !386, !388}
+!403 = !{!404, !383, !386}
+!404 = distinct !{!404, !405, !"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758: argument 1"}
+!405 = distinct !{!405, !"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758"}
 !406 = !{!407}
 !407 = distinct !{!407, !408, !"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h42c4f040e577fbb8E: argument 1"}
 !408 = distinct !{!408, !"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h42c4f040e577fbb8E"}
@@ -4237,10 +4238,10 @@ attributes #31 = { noinline noreturn nounwind }
 !423 = distinct !{!423, !418, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h692c7f8c61f037d9E: argument 1"}
 !424 = distinct !{!424, !415, !"_ZN103_$LT$futures_util..future..maybe_done..MaybeDone$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17ha71af20451f451cbE: argument 1"}
 !425 = !{!417, !423, !414, !424, !383, !386}
-!426 = !{!427, !383, !386}
+!426 = !{!427, !424, !383, !385, !386, !388}
 !427 = distinct !{!427, !428, !"_ZN4core3pin12Pin$LT$P$GT$3set17h91232cb32bba52abE.llvm.10658646520225780758: argument 1"}
 !428 = distinct !{!428, !"_ZN4core3pin12Pin$LT$P$GT$3set17h91232cb32bba52abE.llvm.10658646520225780758"}
-!429 = !{!427, !424, !383, !385, !386, !388}
+!429 = !{!427, !383, !386}
 !430 = !{!431}
 !431 = distinct !{!431, !432, !"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17hc2f32b86e7d06810E: argument 0"}
 !432 = distinct !{!432, !"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17hc2f32b86e7d06810E"}

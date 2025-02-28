@@ -266,23 +266,23 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.lr.ph.i.i
   %14 = landingpad { ptr, i32 }
           cleanup
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit27
+  br label %.thread66
 
 16:                                               ; preds = %.noexc13
   %17 = landingpad { ptr, i32 }
           cleanup
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit27
+  br label %.thread66
 
-_ZNSt6vectorIiSaIiEED2Ev.exit27:                  ; preds = %13, %16
-  %.sroa.23.0.ph = phi ptr [ %18, %16 ], [ %15, %13 ]
-  %.sroa.033.0.ph = phi ptr [ %2, %16 ], [ %1, %13 ]
-  %.pn.ph = phi { ptr, i32 } [ %17, %16 ], [ %14, %13 ]
-  %19 = ptrtoint ptr %.sroa.23.0.ph to i64
-  %20 = ptrtoint ptr %.sroa.033.0.ph to i64
+.thread66:                                        ; preds = %16, %13
+  %.pn59 = phi { ptr, i32 } [ %14, %13 ], [ %17, %16 ]
+  %.sroa.033.058 = phi ptr [ %1, %13 ], [ %2, %16 ]
+  %.sroa.23.057 = phi ptr [ %15, %13 ], [ %18, %16 ]
+  %19 = ptrtoint ptr %.sroa.23.057 to i64
+  %20 = ptrtoint ptr %.sroa.033.058 to i64
   %21 = sub i64 %19, %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.033.0.ph, i64 noundef %21) #13
-  resume { ptr, i32 } %.pn.ph
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.033.058, i64 noundef %21) #13
+  resume { ptr, i32 } %.pn59
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

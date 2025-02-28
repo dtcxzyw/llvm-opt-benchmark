@@ -8555,6 +8555,7 @@ common.ret:                                       ; preds = %101, %13
   %34 = phi i64 [ %.pre, %._crit_edge ], [ 3, %24 ]
   %.val = phi ptr [ %.val.pre, %._crit_edge ], [ %25, %24 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2201)
+  call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %6)
   %35 = add nsw i64 %34, -3
   %36 = icmp ult i64 %35, 3
   %37 = select i1 %36, i64 %35, i64 1
@@ -8582,7 +8583,7 @@ common.ret:                                       ; preds = %101, %13
 .noexc35:                                         ; preds = %39
   %46 = load i64, ptr %7, align 8, !range !1067, !noalias !2204, !noundef !4
   %47 = icmp eq i64 %46, 3
-  br i1 %47, label %101, label %49
+  br i1 %47, label %101, label %51
 
 48:                                               ; preds = %33
   invoke void @_ZN3std9panicking11begin_panic17h43a8b60b7f0e73c6E(ptr noalias noundef nonnull readonly align 1 @anon.33daa8398ade7879db166a44c16fb5f5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.33daa8398ade7879db166a44c16fb5f5.2) #32
@@ -8591,22 +8592,20 @@ common.ret:                                       ; preds = %101, %13
 .noexc36:                                         ; preds = %48
   unreachable
 
-49:                                               ; preds = %.noexc35
-  call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %6)
+49:                                               ; preds = %51
+  %50 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %.val, ptr noundef nonnull align 8 dereferenceable(304) %6, i64 304, i1 false), !noalias !2216
+  br label %.body37
+
+51:                                               ; preds = %.noexc35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %6, ptr noundef nonnull align 8 dereferenceable(304) %7, i64 304, i1 false), !noalias !2204
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %7), !noalias !2204
   invoke fastcc void @"_ZN4core3ptr311drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_transport_uds..router..handle..UdsRouterHandle$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h1fd363f275e6ca16E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %.val)
-          to label %"_ZN4core3pin12Pin$LT$P$GT$3set17h86d9f2a60f381825E.exit.i.i.i" unwind label %50, !noalias !2216
+          to label %"_ZN4core3pin12Pin$LT$P$GT$3set17h86d9f2a60f381825E.exit.i.i.i" unwind label %49, !noalias !2217
 
-50:                                               ; preds = %49
-  %51 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %.val, ptr noundef nonnull align 8 dereferenceable(304) %6, i64 304, i1 false), !noalias !2219
-  br label %.body37
-
-"_ZN4core3pin12Pin$LT$P$GT$3set17h86d9f2a60f381825E.exit.i.i.i": ; preds = %49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %.val, ptr noundef nonnull align 8 dereferenceable(304) %6, i64 304, i1 false), !noalias !2219
-  call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %6)
+"_ZN4core3pin12Pin$LT$P$GT$3set17h86d9f2a60f381825E.exit.i.i.i": ; preds = %51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %.val, ptr noundef nonnull align 8 dereferenceable(304) %6, i64 304, i1 false), !noalias !2216
   %.pr.i.i = load i64, ptr %.val, align 8, !noalias !2186
   %.pre.i.i = add nsw i64 %.pr.i.i, -3
   br label %52
@@ -8614,6 +8613,7 @@ common.ret:                                       ; preds = %101, %13
 52:                                               ; preds = %"_ZN4core3pin12Pin$LT$P$GT$3set17h86d9f2a60f381825E.exit.i.i.i", %33
   %.pre-phi.i.i = phi i64 [ %35, %33 ], [ %.pre.i.i, %"_ZN4core3pin12Pin$LT$P$GT$3set17h86d9f2a60f381825E.exit.i.i.i" ]
   %53 = phi i64 [ %34, %33 ], [ %.pr.i.i, %"_ZN4core3pin12Pin$LT$P$GT$3set17h86d9f2a60f381825E.exit.i.i.i" ]
+  call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %6)
   %54 = icmp ult i64 %.pre-phi.i.i, 3
   %55 = icmp ne i64 %.pre-phi.i.i, 1
   %.not19.i.i = and i1 %54, %55
@@ -8787,6 +8787,7 @@ common.ret:                                       ; preds = %101, %13
 
 101:                                              ; preds = %.noexc35
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %7), !noalias !2204
+  call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %6)
   store i64 3, ptr %0, align 8
   br label %common.ret
 
@@ -8808,8 +8809,8 @@ common.ret:                                       ; preds = %101, %13
   tail call void @llvm.assume(i1 %108)
   br label %13
 
-.body37:                                          ; preds = %98, %93, %82, %64, %50
-  %.pn = phi { ptr, i32 } [ %99, %98 ], [ %51, %50 ], [ %65, %64 ], [ %83, %82 ], [ %94, %93 ]
+.body37:                                          ; preds = %98, %93, %82, %64, %49
+  %.pn = phi { ptr, i32 } [ %99, %98 ], [ %50, %49 ], [ %65, %64 ], [ %83, %82 ], [ %94, %93 ]
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke fastcc void @"_ZN4core3ptr311drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_transport_uds..router..handle..UdsRouterHandle$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h1fd363f275e6ca16E"(ptr noalias noundef align 8 dereferenceable(304) %109) #29
           to label %.body32 unwind label %29
@@ -11480,10 +11481,10 @@ attributes #32 = { noreturn }
 !2213 = distinct !{!2213, !2208, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h59f30c3390a99ba1E: argument 0"}
 !2214 = distinct !{!2214, !2208, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h59f30c3390a99ba1E: argument 2"}
 !2215 = !{!2213, !2207, !2214, !2202, !2205, !2187, !2190}
-!2216 = !{!2217, !2187, !2190}
-!2217 = distinct !{!2217, !2218, !"_ZN4core3pin12Pin$LT$P$GT$3set17h86d9f2a60f381825E: argument 1"}
-!2218 = distinct !{!2218, !"_ZN4core3pin12Pin$LT$P$GT$3set17h86d9f2a60f381825E"}
-!2219 = !{!2217, !2205, !2187, !2189, !2190, !2192}
+!2216 = !{!2205, !2187, !2189, !2190, !2192}
+!2217 = !{!2218, !2187, !2190}
+!2218 = distinct !{!2218, !2219, !"_ZN4core3pin12Pin$LT$P$GT$3set17h86d9f2a60f381825E: argument 1"}
+!2219 = distinct !{!2219, !"_ZN4core3pin12Pin$LT$P$GT$3set17h86d9f2a60f381825E"}
 !2220 = !{!2221}
 !2221 = distinct !{!2221, !2222, !"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h92493a504cdc845bE: argument 1"}
 !2222 = distinct !{!2222, !"_ZN12futures_util6future10maybe_done20MaybeDone$LT$Fut$GT$11take_output17h92493a504cdc845bE"}

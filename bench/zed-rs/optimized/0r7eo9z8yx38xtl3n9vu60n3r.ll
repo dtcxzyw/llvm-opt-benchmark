@@ -131,7 +131,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %16
 
 16:                                               ; preds = %.lr.ph, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbec442abcfed0899E.exit"
-  %.sroa.4.021 = phi ptr [ %2, %.lr.ph ], [ %46, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbec442abcfed0899E.exit" ]
+  %.sroa.4.021 = phi ptr [ %2, %.lr.ph ], [ %45, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbec442abcfed0899E.exit" ]
   %17 = phi ptr [ %.promoted, %.lr.ph ], [ %18, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbec442abcfed0899E.exit" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
@@ -182,7 +182,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %25 = load i64, ptr %11, align 8, !range !25, !alias.scope !26, !noalias !15, !noundef !4
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %43, label %27
+  br i1 %26, label %42, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -191,12 +191,12 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %29 = load ptr, ptr %28, align 8, !alias.scope !33, !noalias !15, !nonnull !4, !noundef !4
   %30 = atomicrmw sub ptr %29, i64 1 release, align 8, !noalias !34
   %31 = icmp eq i64 %30, 1
-  br i1 %31, label %32, label %43
+  br i1 %31, label %32, label %42
 
 32:                                               ; preds = %27
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha53c5ff928737290E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %28)
-          to label %43 unwind label %35, !noalias !15
+          to label %42 unwind label %35, !noalias !15
 
 33:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !15
@@ -222,24 +222,24 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %cond.i.i = icmp ne i8 %.sroa.2.0.copyload, 0
   %39 = icmp eq i64 %.sroa.5.0.copyload, 0
   %or.cond.i.i = select i1 %cond.i.i, i1 true, i1 %39
-  br i1 %or.cond.i.i, label %43, label %40
+  br i1 %or.cond.i.i, label %42, label %40
 
 40:                                               ; preds = %37
   %41 = icmp ne ptr %.sroa.413.0.copyload, null
   tail call void @llvm.assume(i1 %41)
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.413.0.copyload, i64 noundef range(i64 1, 0) %.sroa.5.0.copyload, i64 noundef 1) #32, !noalias !35
-  br label %43
+  br label %42
 
-42:                                               ; preds = %43
+.body.i:                                          ; preds = %42
   resume { ptr, i32 } %eh.lpad-body.ph.i
 
-43:                                               ; preds = %40, %37, %32, %27, %23
+42:                                               ; preds = %40, %37, %32, %27, %23
   %eh.lpad-body.ph.i = phi { ptr, i32 } [ %38, %37 ], [ %38, %40 ], [ %24, %32 ], [ %24, %23 ], [ %24, %27 ]
   invoke fastcc void @"_ZN4core3ptr172drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$$LP$gpui..shared_string..SharedString$C$core..option..Option$LT$gpui..shared_string..SharedString$GT$$RP$$GT$$GT$17hb8d24a6ae9cb6abaE"(ptr %1, ptr %.sroa.4.021) #30
-          to label %42 unwind label %44, !noalias !12
+          to label %.body.i unwind label %43, !noalias !12
 
-44:                                               ; preds = %43
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %42
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #31, !noalias !12
   unreachable
@@ -255,7 +255,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   store i64 %.sroa.0.0.i.i, ptr %.sroa.4.sroa.4.0..sroa.5.8..sroa_idx.i, align 8, !noalias !12
   %.sroa.4.sroa.5.0..sroa.5.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.021, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.sroa.5.0..sroa.5.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i.i, i64 16, i1 false), !noalias !12
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.4.021, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.4.021, i64 48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5.i.i)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7)
@@ -263,10 +263,10 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br i1 %.not, label %._crit_edge, label %16
 
 ._crit_edge:                                      ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbec442abcfed0899E.exit", %5
-  %.sroa.4.0.lcssa = phi ptr [ %2, %5 ], [ %46, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbec442abcfed0899E.exit" ]
-  %47 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %48 = insertvalue { ptr, ptr } %47, ptr %.sroa.4.0.lcssa, 1
-  ret { ptr, ptr } %48
+  %.sroa.4.0.lcssa = phi ptr [ %2, %5 ], [ %45, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbec442abcfed0899E.exit" ]
+  %46 = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %47 = insertvalue { ptr, ptr } %46, ptr %.sroa.4.0.lcssa, 1
+  ret { ptr, ptr } %47
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

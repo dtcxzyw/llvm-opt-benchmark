@@ -99648,13 +99648,13 @@ _ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2ERKS4_.exit.i.i.i.i: ; preds 
 44:                                               ; preds = %_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEEC2ERKS4_.exit.i.i.i.i
   %45 = landingpad { ptr, i32 }
           catch ptr null
-  br label %89
+  br label %.thread46
 
 46:                                               ; preds = %41
   %47 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #56
-  br label %89
+  br label %.thread46
 
 48:                                               ; preds = %41
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch5Clara3ArgE, i64 16), ptr %21, align 8
@@ -99754,32 +99754,32 @@ _ZNSt12_Vector_baseIN5Catch5Clara3ArgESaIS2_EE13_M_deallocateEPS2_m.exit: ; pred
   store ptr %86, ptr %85, align 8
   ret void
 
-87:                                               ; preds = %89
+87:                                               ; preds = %.thread46
   %88 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %92 unwind label %93
+          to label %91 unwind label %92
 
-89:                                               ; preds = %44, %46
+.thread46:                                        ; preds = %44, %46
   %.pn.i.i.i.i = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #56
-  %90 = extractvalue { ptr, i32 } %.pn.i.i.i.i, 0
-  %91 = tail call ptr @__cxa_begin_catch(ptr %90) #56
+  %89 = extractvalue { ptr, i32 } %.pn.i.i.i.i, 0
+  %90 = tail call ptr @__cxa_begin_catch(ptr %89) #56
   tail call void @_ZdlPv(ptr noundef nonnull %20) #58
   invoke void @__cxa_rethrow() #55
-          to label %96 unwind label %87
+          to label %95 unwind label %87
 
-92:                                               ; preds = %87
+91:                                               ; preds = %87
   resume { ptr, i32 } %88
 
-93:                                               ; preds = %87
-  %94 = landingpad { ptr, i32 }
+92:                                               ; preds = %87
+  %93 = landingpad { ptr, i32 }
           catch ptr null
-  %95 = extractvalue { ptr, i32 } %94, 0
-  tail call void @__clang_call_terminate(ptr %95) #54
+  %94 = extractvalue { ptr, i32 } %93, 0
+  tail call void @__clang_call_terminate(ptr %94) #54
   unreachable
 
-96:                                               ; preds = %89
+95:                                               ; preds = %.thread46
   unreachable
 }
 
@@ -103782,20 +103782,20 @@ _ZNKSt6vectorIN5Catch13ScopedMessageESaIS1_EE12_M_check_lenEmPKc.exit: ; preds =
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load ptr, ptr %29, align 8, !noalias !1780
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(112) %30)
-          to label %_ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit.i.i.i unwind label %60
+          to label %_ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit.i.i.i unwind label %.thread46
 
 _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit.i.i.i: ; preds = %_ZNKSt6vectorIN5Catch13ScopedMessageESaIS1_EE12_M_check_lenEmPKc.exit
   %31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %4) #56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #56
   %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch16getResultCaptureEv()
-          to label %33 unwind label %60
+          to label %33 unwind label %.thread46
 
 33:                                               ; preds = %_ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit.i.i.i
   %34 = load ptr, ptr %32, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %36 = load ptr, ptr %35, align 8
   invoke void %36(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(73) %22)
-          to label %37 unwind label %60
+          to label %37 unwind label %.thread46
 
 37:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -103869,33 +103869,33 @@ _ZNSt12_Vector_baseIN5Catch13ScopedMessageESaIS1_EE13_M_deallocateEPS1_m.exit: ;
   store ptr %57, ptr %56, align 8
   ret void
 
-58:                                               ; preds = %60
+58:                                               ; preds = %.thread46
   %59 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %64 unwind label %65
+          to label %63 unwind label %64
 
-60:                                               ; preds = %_ZNKSt6vectorIN5Catch13ScopedMessageESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit.i.i.i, %33
-  %61 = landingpad { ptr, i32 }
+.thread46:                                        ; preds = %_ZNKSt6vectorIN5Catch13ScopedMessageESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit.i.i.i, %33
+  %60 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #56
-  %62 = extractvalue { ptr, i32 } %61, 0
-  %63 = call ptr @__cxa_begin_catch(ptr %62) #56
+  %61 = extractvalue { ptr, i32 } %60, 0
+  %62 = call ptr @__cxa_begin_catch(ptr %61) #56
   call void @_ZdlPv(ptr noundef nonnull %21) #58
   invoke void @__cxa_rethrow() #55
-          to label %68 unwind label %58
+          to label %67 unwind label %58
 
-64:                                               ; preds = %58
+63:                                               ; preds = %58
   resume { ptr, i32 } %59
 
-65:                                               ; preds = %58
-  %66 = landingpad { ptr, i32 }
+64:                                               ; preds = %58
+  %65 = landingpad { ptr, i32 }
           catch ptr null
-  %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #54
+  %66 = extractvalue { ptr, i32 } %65, 0
+  call void @__clang_call_terminate(ptr %66) #54
   unreachable
 
-68:                                               ; preds = %60
+67:                                               ; preds = %.thread46
   unreachable
 }
 

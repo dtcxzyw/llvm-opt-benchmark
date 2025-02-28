@@ -609,7 +609,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i71:   ; preds = %_ZN7QStringD2Ev.exi
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %36, i64 noundef 4, i64 noundef 8) #12
   br label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i75
 
-_ZN17QArrayDataPointerIiE5derefEv.exit.i.i75:     ; preds = %118, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i71
+_ZN17QArrayDataPointerIiE5derefEv.exit.i.i75:     ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i71, %118
   %119 = atomicrmw sub ptr %36, i32 1 seq_cst, align 4
   %.not.i.i76 = icmp eq i32 %119, 1
   br i1 %.not.i.i76, label %120, label %_ZN5QListIiED2Ev.exit77

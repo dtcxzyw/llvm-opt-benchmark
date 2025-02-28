@@ -95359,7 +95359,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %arraydestroy.isempty.i.i.i = icmp eq i64 %arrayinit.index.i.i.i, 0
-  br i1 %arraydestroy.isempty.i.i.i, label %invoke.cont19, label %arraydestroy.body.i.i.i
+  br i1 %arraydestroy.isempty.i.i.i, label %lpad.body.thread, label %arraydestroy.body.i.i.i
 
 arraydestroy.body.i.i.i:                          ; preds = %lpad.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
   %arraydestroy.elementPast.i.idx.i.i = phi i64 [ %arraydestroy.elementPast.i.add.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ], [ %properties.add.i.i, %lpad.i.i.i ]
@@ -95384,7 +95384,7 @@ if.then.i.i6.i.i.i:                               ; preds = %arraydestroy.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %if.then.i.i6.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
   %arraydestroy.done.i.i.i = icmp eq i64 %arraydestroy.elementPast.i.add.i.i, 32
-  br i1 %arraydestroy.done.i.i.i, label %invoke.cont19, label %arraydestroy.body.i.i.i
+  br i1 %arraydestroy.done.i.i.i, label %lpad.body.thread, label %arraydestroy.body.i.i.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i.i
   %state_map.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 832
@@ -95539,21 +95539,21 @@ _ZNSt12_Vector_baseI9StyleSpecSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %if.
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !574
   ret void
 
-lpad17:                                           ; preds = %invoke.cont19
-  %32 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %invoke.cont20 unwind label %terminate.lpad
-
-invoke.cont19:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %lpad.i.i.i
-  %33 = extractvalue { ptr, i32 } %11, 0
-  %34 = tail call ptr @__cxa_begin_catch(ptr %33) #34
+lpad.body.thread:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %lpad.i.i.i
+  %32 = extractvalue { ptr, i32 } %11, 0
+  %33 = tail call ptr @__cxa_begin_catch(ptr %32) #34
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i47) #33
   invoke void @__cxa_rethrow() #37
           to label %unreachable unwind label %lpad17
 
+lpad17:                                           ; preds = %lpad.body.thread
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %invoke.cont20 unwind label %terminate.lpad
+
 invoke.cont20:                                    ; preds = %lpad17
-  resume { ptr, i32 } %32
+  resume { ptr, i32 } %34
 
 terminate.lpad:                                   ; preds = %lpad17
   %35 = landingpad { ptr, i32 }
@@ -95562,7 +95562,7 @@ terminate.lpad:                                   ; preds = %lpad17
   tail call void @__clang_call_terminate(ptr %36) #35
   unreachable
 
-unreachable:                                      ; preds = %invoke.cont19
+unreachable:                                      ; preds = %lpad.body.thread
   unreachable
 }
 

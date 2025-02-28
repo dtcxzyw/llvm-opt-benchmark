@@ -17286,8 +17286,8 @@ _ZSt10_ConstructISt4pairIN4cvc58internal12NodeTemplateILb0EEES4_EJEEvPT_DpOT0_.e
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %27
 
-common.resume:                                    ; preds = %57, %25
-  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %58, %57 ]
+common.resume:                                    ; preds = %59, %25
+  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %60, %59 ]
   resume { ptr, i32 } %common.resume.op
 
 27:                                               ; preds = %25
@@ -17339,22 +17339,29 @@ _ZSt10_ConstructISt4pairIN4cvc58internal12NodeTemplateILb0EEES4_EJEEvPT_DpOT0_.e
   %43 = extractvalue { ptr, i32 } %42, 0
   %44 = tail call ptr @__cxa_begin_catch(ptr %43) #21
   invoke void @__cxa_rethrow() #25
-          to label %50 unwind label %45
+          to label %52 unwind label %45
 
 45:                                               ; preds = %41
   %46 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %_ZNSt12_Vector_baseISt4pairIN4cvc58internal12NodeTemplateILb0EEES4_ESaIS5_EE13_M_deallocateEPS5_m.exit unwind label %47
+          to label %.body.thread unwind label %49
 
-47:                                               ; preds = %45
-  %48 = landingpad { ptr, i32 }
+.body.thread:                                     ; preds = %45
+  %47 = extractvalue { ptr, i32 } %46, 0
+  %48 = tail call ptr @__cxa_begin_catch(ptr %47) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef %36) #24
+  invoke void @__cxa_rethrow() #25
+          to label %71 unwind label %59
+
+49:                                               ; preds = %45
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  tail call void @__clang_call_terminate(ptr %49) #23
+  %51 = extractvalue { ptr, i32 } %50, 0
+  tail call void @__clang_call_terminate(ptr %51) #23
   unreachable
 
-50:                                               ; preds = %41
+52:                                               ; preds = %41
   unreachable
 
 _ZSt27__uninitialized_default_n_aIPSt4pairIN4cvc58internal12NodeTemplateILb0EEES4_EmS5_ET_S7_T0_RSaIT1_E.exit46: ; preds = %_ZSt10_ConstructISt4pairIN4cvc58internal12NodeTemplateILb0EEES4_EJEEvPT_DpOT0_.exit.i.i.i43
@@ -17362,31 +17369,24 @@ _ZSt27__uninitialized_default_n_aIPSt4pairIN4cvc58internal12NodeTemplateILb0EEES
   br i1 %.not13.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN4cvc58internal12NodeTemplateILb0EEES4_ES6_SaIS5_EET0_T_S9_S8_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt27__uninitialized_default_n_aIPSt4pairIN4cvc58internal12NodeTemplateILb0EEES4_EmS5_ET_S7_T0_RSaIT1_E.exit46, %.lr.ph.i.i.i.i.i
-  %.015.i.i.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i.i.i ], [ %37, %_ZSt27__uninitialized_default_n_aIPSt4pairIN4cvc58internal12NodeTemplateILb0EEES4_EmS5_ET_S7_T0_RSaIT1_E.exit46 ]
-  %.01214.i.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i.i ], [ %6, %_ZSt27__uninitialized_default_n_aIPSt4pairIN4cvc58internal12NodeTemplateILb0EEES4_EmS5_ET_S7_T0_RSaIT1_E.exit46 ]
-  %51 = load ptr, ptr %.01214.i.i.i.i.i, align 8, !tbaa !3
-  store ptr %51, ptr %.015.i.i.i.i.i, align 8, !tbaa !3
-  %52 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 8
-  %53 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !3
-  store ptr %54, ptr %52, align 8, !tbaa !3
-  %55 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 16
-  %56 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %55, %5
+  %.015.i.i.i.i.i = phi ptr [ %58, %.lr.ph.i.i.i.i.i ], [ %37, %_ZSt27__uninitialized_default_n_aIPSt4pairIN4cvc58internal12NodeTemplateILb0EEES4_EmS5_ET_S7_T0_RSaIT1_E.exit46 ]
+  %.01214.i.i.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i.i.i ], [ %6, %_ZSt27__uninitialized_default_n_aIPSt4pairIN4cvc58internal12NodeTemplateILb0EEES4_EmS5_ET_S7_T0_RSaIT1_E.exit46 ]
+  %53 = load ptr, ptr %.01214.i.i.i.i.i, align 8, !tbaa !3
+  store ptr %53, ptr %.015.i.i.i.i.i, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !3
+  store ptr %56, ptr %54, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %57, %5
   br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN4cvc58internal12NodeTemplateILb0EEES4_ES6_SaIS5_EET0_T_S9_S8_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !256
 
-57:                                               ; preds = %_ZNSt12_Vector_baseISt4pairIN4cvc58internal12NodeTemplateILb0EEES4_ESaIS5_EE13_M_deallocateEPS5_m.exit
-  %58 = landingpad { ptr, i32 }
+59:                                               ; preds = %.body.thread
+  %60 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %68
-
-_ZNSt12_Vector_baseISt4pairIN4cvc58internal12NodeTemplateILb0EEES4_ESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %45
-  %59 = extractvalue { ptr, i32 } %46, 0
-  %60 = tail call ptr @__cxa_begin_catch(ptr %59) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef %36) #24
-  invoke void @__cxa_rethrow() #25
-          to label %71 unwind label %57
 
 _ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN4cvc58internal12NodeTemplateILb0EEES4_ES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPSt4pairIN4cvc58internal12NodeTemplateILb0EEES4_EmS5_ET_S7_T0_RSaIT1_E.exit46
   %.not.i48 = icmp eq ptr %6, null
@@ -17410,14 +17410,14 @@ _ZNSt12_Vector_baseISt4pairIN4cvc58internal12NodeTemplateILb0EEES4_ESaIS5_EE13_M
 67:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPSt4pairIN4cvc58internal12NodeTemplateILb0EEES4_EmS5_ET_S7_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseISt4pairIN4cvc58internal12NodeTemplateILb0EEES4_ESaIS5_EE13_M_deallocateEPS5_m.exit49, %2
   ret void
 
-68:                                               ; preds = %57
+68:                                               ; preds = %59
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
   tail call void @__clang_call_terminate(ptr %70) #23
   unreachable
 
-71:                                               ; preds = %_ZNSt12_Vector_baseISt4pairIN4cvc58internal12NodeTemplateILb0EEES4_ESaIS5_EE13_M_deallocateEPS5_m.exit
+71:                                               ; preds = %.body.thread
   unreachable
 }
 

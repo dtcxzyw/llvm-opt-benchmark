@@ -1562,17 +1562,17 @@ _ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEED2Ev.exit20: ; preds = %_ZN6ic
   %.sroa.027.1 = phi ptr [ %1, %30 ], [ %.sroa.027.032, %_ZN6icu_775MutexD2Ev.exit19 ], [ %.sroa.027.032, %40 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %.pn, %_ZN6icu_775MutexD2Ev.exit19 ], [ %.pn, %40 ]
   %44 = icmp eq ptr %.sroa.027.1, null
-  br i1 %44, label %_ZN6icu_7712LocalPointerINS_19ExternalBreakEngineEED2Ev.exit21, label %45
+  br i1 %44, label %_ZN6icu_7712LocalPointerINS_19ExternalBreakEngineEED2Ev.exit21, label %_ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEED2Ev.exit20.thread37
 
-45:                                               ; preds = %_ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEED2Ev.exit20
-  %46 = load ptr, ptr %.sroa.027.1, align 8, !tbaa !15
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.027.1) #17
+_ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEED2Ev.exit20.thread37: ; preds = %_ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEED2Ev.exit20
+  %45 = load ptr, ptr %.sroa.027.1, align 8, !tbaa !15
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load ptr, ptr %46, align 8
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.027.1) #17
   br label %_ZN6icu_7712LocalPointerINS_19ExternalBreakEngineEED2Ev.exit21
 
-_ZN6icu_7712LocalPointerINS_19ExternalBreakEngineEED2Ev.exit21: ; preds = %_ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEED2Ev.exit20.thread, %_ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEED2Ev.exit20, %45
-  %.pn.pn.pn36 = phi { ptr, i32 } [ %32, %_ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEED2Ev.exit20.thread ], [ %.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEED2Ev.exit20 ], [ %.pn.pn.pn, %45 ]
+_ZN6icu_7712LocalPointerINS_19ExternalBreakEngineEED2Ev.exit21: ; preds = %_ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEED2Ev.exit20.thread, %_ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEED2Ev.exit20, %_ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEED2Ev.exit20.thread37
+  %.pn.pn.pn36 = phi { ptr, i32 } [ %32, %_ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEED2Ev.exit20.thread ], [ %.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEED2Ev.exit20 ], [ %.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEED2Ev.exit20.thread37 ]
   resume { ptr, i32 } %.pn.pn.pn36
 }
 

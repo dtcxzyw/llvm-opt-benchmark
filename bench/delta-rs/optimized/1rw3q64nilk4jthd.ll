@@ -6958,8 +6958,8 @@ define hidden void @"_ZN164_$LT$futures_util..stream..stream..flatten..Flatten$L
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #75, !noalias !1579
   unreachable
 
-common.resume:                                    ; preds = %"_ZN4core3ptr164drop_in_place$LT$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcd1e00b7c3c770efE.llvm.4057250340930679409.exit.i.i", %73, %24, %89
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body29, %89 ], [ %25, %24 ], [ %74, %73 ], [ %eh.lpad-body25, %"_ZN4core3ptr164drop_in_place$LT$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcd1e00b7c3c770efE.llvm.4057250340930679409.exit.i.i" ]
+common.resume:                                    ; preds = %"_ZN4core3ptr164drop_in_place$LT$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcd1e00b7c3c770efE.llvm.4057250340930679409.exit.i.i", %73, %24, %"_ZN4core3ptr164drop_in_place$LT$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcd1e00b7c3c770efE.llvm.4057250340930679409.exit.i.i26"
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body29, %"_ZN4core3ptr164drop_in_place$LT$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcd1e00b7c3c770efE.llvm.4057250340930679409.exit.i.i26" ], [ %25, %24 ], [ %74, %73 ], [ %eh.lpad-body25, %"_ZN4core3ptr164drop_in_place$LT$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcd1e00b7c3c770efE.llvm.4057250340930679409.exit.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he4830dff70ad0c9bE.exit": ; preds = %23
@@ -7096,7 +7096,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr164dro
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %9)
-  br label %90
+  br label %89
 
 59:                                               ; preds = %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.4.0..sroa_idx, i64 96, i1 false)
@@ -7146,7 +7146,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr164dro
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.6.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.6.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.6, i64 96, i1 false)
-  br label %90
+  br label %89
 
 70:                                               ; preds = %"_ZN4core3ptr338drop_in_place$LT$futures_util..stream..stream..map..Map$LT$futures_util..stream..iter..Iter$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_core..operations..optimize..MergeBin$GT$$GT$$C$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h975d2e7085c0b2afE.exit.i"
   %.pre = load i64, ptr %9, align 8, !range !1444, !alias.scope !1622
@@ -7188,27 +7188,34 @@ common.resume:                                    ; preds = %"_ZN4core3ptr164dro
 
 .loopexit67:                                      ; preds = %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h01b4dc45d0595dcdE.exit", %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h01b4dc45d0595dcdE.exit.thread"
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %90
+  br label %89
+
+"_ZN4core3ptr164drop_in_place$LT$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcd1e00b7c3c770efE.llvm.4057250340930679409.exit.i.i26": ; preds = %83, %87
+  %eh.lpad-body29 = phi { ptr, i32 } [ %88, %87 ], [ %84, %83 ]
+  store i64 %.sroa.04.0.copyload.i, ptr %10, align 8, !noalias !1625
+  %.sroa.593.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.593.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.842, i64 96, i1 false)
+  br label %common.resume
 
 79:                                               ; preds = %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h01b4dc45d0595dcdE.exit"
-  %80 = load i64, ptr %10, align 8, !range !1444, !alias.scope !1625, !noalias !1628, !noundef !7
+  %80 = load i64, ptr %10, align 8, !range !1444, !alias.scope !1628, !noalias !1625, !noundef !7
   %81 = icmp eq i64 %80, -9223372036854775808
   br i1 %81, label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h5645c9e289ee3bb9E.exit18", label %82
 
 82:                                               ; preds = %79
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2991af1987a0b9daE.llvm.4057250340930679409"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
-          to label %"_ZN4core3ptr338drop_in_place$LT$futures_util..stream..stream..map..Map$LT$futures_util..stream..iter..Iter$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_core..operations..optimize..MergeBin$GT$$GT$$C$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h975d2e7085c0b2afE.exit.i27" unwind label %83, !noalias !1628
+          to label %"_ZN4core3ptr338drop_in_place$LT$futures_util..stream..stream..map..Map$LT$futures_util..stream..iter..Iter$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_core..operations..optimize..MergeBin$GT$$GT$$C$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h975d2e7085c0b2afE.exit.i27" unwind label %83, !noalias !1625
 
 83:                                               ; preds = %82
   %84 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr138drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h932f0a63972b4475E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %10)
-          to label %89 unwind label %85, !noalias !1628
+          to label %"_ZN4core3ptr164drop_in_place$LT$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcd1e00b7c3c770efE.llvm.4057250340930679409.exit.i.i26" unwind label %85, !noalias !1625
 
 85:                                               ; preds = %83
   %86 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #75, !noalias !1628
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #75, !noalias !1625
   unreachable
 
 "_ZN4core3ptr338drop_in_place$LT$futures_util..stream..stream..map..Map$LT$futures_util..stream..iter..Iter$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_core..operations..optimize..MergeBin$GT$$GT$$C$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h975d2e7085c0b2afE.exit.i27": ; preds = %82
@@ -7218,24 +7225,17 @@ common.resume:                                    ; preds = %"_ZN4core3ptr164dro
 87:                                               ; preds = %"_ZN4core3ptr338drop_in_place$LT$futures_util..stream..stream..map..Map$LT$futures_util..stream..iter..Iter$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_core..operations..optimize..MergeBin$GT$$GT$$C$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h975d2e7085c0b2afE.exit.i27"
   %88 = landingpad { ptr, i32 }
           cleanup
-  br label %89
-
-89:                                               ; preds = %87, %83
-  %eh.lpad-body29 = phi { ptr, i32 } [ %88, %87 ], [ %84, %83 ]
-  store i64 %.sroa.04.0.copyload.i, ptr %10, align 8, !noalias !1628
-  %.sroa.593.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.593.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.842, i64 96, i1 false)
-  br label %common.resume
+  br label %"_ZN4core3ptr164drop_in_place$LT$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcd1e00b7c3c770efE.llvm.4057250340930679409.exit.i.i26"
 
 "_ZN4core3pin14Pin$LT$Ptr$GT$3set17h5645c9e289ee3bb9E.exit18": ; preds = %79, %"_ZN4core3ptr338drop_in_place$LT$futures_util..stream..stream..map..Map$LT$futures_util..stream..iter..Iter$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_core..operations..optimize..MergeBin$GT$$GT$$C$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h975d2e7085c0b2afE.exit.i27"
-  store i64 %.sroa.04.0.copyload.i, ptr %10, align 8, !noalias !1628
+  store i64 %.sroa.04.0.copyload.i, ptr %10, align 8, !noalias !1625
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.593.0..sroa_idx94, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.842, i64 96, i1 false)
   br label %.backedge
 
 .backedge:                                        ; preds = %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h5645c9e289ee3bb9E.exit18", %"_ZN4core3ptr213drop_in_place$LT$core..option..Option$LT$$LP$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$C$deltalake_core..operations..optimize..MergeBin$RP$$GT$$GT$17h1f57e434d7ca2dacE.exit"
   br label %16
 
-90:                                               ; preds = %.loopexit, %.loopexit67, %"_ZN4core3ptr366drop_in_place$LT$core..option..Option$LT$futures_util..stream..stream..map..Map$LT$futures_util..stream..iter..Iter$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_core..operations..optimize..MergeBin$GT$$GT$$C$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8c7eeeea8cba9fe0E.exit34"
+89:                                               ; preds = %.loopexit, %.loopexit67, %"_ZN4core3ptr366drop_in_place$LT$core..option..Option$LT$futures_util..stream..stream..map..Map$LT$futures_util..stream..iter..Iter$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_core..operations..optimize..MergeBin$GT$$GT$$C$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8c7eeeea8cba9fe0E.exit34"
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.6)
   ret void
 }
@@ -29691,26 +29691,26 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %39
 
-42:                                               ; preds = %43
+.thread:                                          ; preds = %42
   resume { ptr, i32 } %lpad.phi
 
 .loopexit:                                        ; preds = %25, %22
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %43
+  br label %42
 
 .loopexit.split-lp:                               ; preds = %14
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %43
+  br label %42
 
-43:                                               ; preds = %.loopexit.split-lp, %.loopexit
+42:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$arrow_schema..datatype..DataType$GT$17he7cb2288da6b5fb2E.llvm.240573438051967091"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #74
-          to label %42 unwind label %44
+          to label %.thread unwind label %43
 
-44:                                               ; preds = %43
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %42
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #75
   unreachable
@@ -29724,7 +29724,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %8 = alloca { i64, [6 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h593c18429714e14dE.llvm.240573438051967091"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2)
-          to label %9 unwind label %19
+          to label %9 unwind label %18
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %8, align 8, !range !1444, !noundef !7
@@ -29757,17 +29757,17 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %14
 
-18:                                               ; preds = %19
-  resume { ptr, i32 } %20
+.thread:                                          ; preds = %18
+  resume { ptr, i32 } %19
 
-19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %4
+  %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h70694abaccd786beE.llvm.240573438051967091"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #74
-          to label %18 unwind label %21
+          to label %.thread unwind label %20
 
-21:                                               ; preds = %19
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %18
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #75
   unreachable
@@ -144651,11 +144651,11 @@ attributes #77 = { "function-inline-cost-multiplier"="2" }
 !1623 = distinct !{!1623, !1624, !"_ZN4core3ptr213drop_in_place$LT$core..option..Option$LT$$LP$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$C$deltalake_core..operations..optimize..MergeBin$RP$$GT$$GT$17h1f57e434d7ca2dacE: argument 0"}
 !1624 = distinct !{!1624, !"_ZN4core3ptr213drop_in_place$LT$core..option..Option$LT$$LP$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$C$deltalake_core..operations..optimize..MergeBin$RP$$GT$$GT$17h1f57e434d7ca2dacE"}
 !1625 = !{!1626}
-!1626 = distinct !{!1626, !1627, !"_ZN4core3ptr366drop_in_place$LT$core..option..Option$LT$futures_util..stream..stream..map..Map$LT$futures_util..stream..iter..Iter$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_core..operations..optimize..MergeBin$GT$$GT$$C$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8c7eeeea8cba9fe0E: argument 0"}
-!1627 = distinct !{!1627, !"_ZN4core3ptr366drop_in_place$LT$core..option..Option$LT$futures_util..stream..stream..map..Map$LT$futures_util..stream..iter..Iter$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_core..operations..optimize..MergeBin$GT$$GT$$C$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8c7eeeea8cba9fe0E"}
+!1626 = distinct !{!1626, !1627, !"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h5645c9e289ee3bb9E: argument 1"}
+!1627 = distinct !{!1627, !"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h5645c9e289ee3bb9E"}
 !1628 = !{!1629}
-!1629 = distinct !{!1629, !1630, !"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h5645c9e289ee3bb9E: argument 1"}
-!1630 = distinct !{!1630, !"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h5645c9e289ee3bb9E"}
+!1629 = distinct !{!1629, !1630, !"_ZN4core3ptr366drop_in_place$LT$core..option..Option$LT$futures_util..stream..stream..map..Map$LT$futures_util..stream..iter..Iter$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_core..operations..optimize..MergeBin$GT$$GT$$C$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8c7eeeea8cba9fe0E: argument 0"}
+!1630 = distinct !{!1630, !"_ZN4core3ptr366drop_in_place$LT$core..option..Option$LT$futures_util..stream..stream..map..Map$LT$futures_util..stream..iter..Iter$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_core..operations..optimize..MergeBin$GT$$GT$$C$deltalake_core..operations..optimize..MergePlan..execute..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8c7eeeea8cba9fe0E"}
 !1631 = !{!1632}
 !1632 = distinct !{!1632, !1633, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfafb2f759d9092c4E.llvm.240573438051967091: argument 0"}
 !1633 = distinct !{!1633, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfafb2f759d9092c4E.llvm.240573438051967091"}

@@ -2078,9 +2078,9 @@ define void @_ZN3gmx24QMMMTopologyPreprocessor31modifyQMMMTwoCenterInteractionsE
   ret void
 
 13:                                               ; preds = %.lr.ph220, %.loopexit153
-  %14 = phi ptr [ %6, %.lr.ph220 ], [ %219, %.loopexit153 ]
-  %15 = phi ptr [ %5, %.lr.ph220 ], [ %220, %.loopexit153 ]
-  %.070218 = phi i64 [ 0, %.lr.ph220 ], [ %221, %.loopexit153 ]
+  %14 = phi ptr [ %6, %.lr.ph220 ], [ %218, %.loopexit153 ]
+  %15 = phi ptr [ %5, %.lr.ph220 ], [ %219, %.loopexit153 ]
+  %.070218 = phi i64 [ 0, %.lr.ph220 ], [ %220, %.loopexit153 ]
   %16 = load ptr, ptr %0, align 8, !tbaa !24
   %17 = sdiv i64 %.070218, 64
   %18 = getelementptr inbounds i64, ptr %16, i64 %17
@@ -2579,16 +2579,16 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit118:       ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.0.4 = phi ptr [ %.sroa.0.3207, %.loopexit148 ], [ %.sroa.0.3207, %.loopexit.split-lp149 ], [ %.sroa.0.5200, %.loopexit147 ], [ %.sroa.0.5200, %.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %lpad.loopexit150, %.loopexit148 ], [ %lpad.loopexit.split-lp151, %.loopexit.split-lp149 ], [ %lpad.loopexit, %.loopexit147 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i119 = icmp eq ptr %.sroa.0.4, null
-  br i1 %.not.i.i.i119, label %_ZNSt6vectorIiSaIiEED2Ev.exit120, label %215
+  br i1 %.not.i.i.i119, label %_ZNSt6vectorIiSaIiEED2Ev.exit120, label %.thread133
 
-215:                                              ; preds = %214
-  %216 = ptrtoint ptr %.sroa.15.4 to i64
-  %217 = ptrtoint ptr %.sroa.0.4 to i64
-  %218 = sub i64 %216, %217
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4, i64 noundef %218) #24
+.thread133:                                       ; preds = %214
+  %215 = ptrtoint ptr %.sroa.15.4 to i64
+  %216 = ptrtoint ptr %.sroa.0.4 to i64
+  %217 = sub i64 %215, %216
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4, i64 noundef %217) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit120
 
-_ZNSt6vectorIiSaIiEED2Ev.exit120:                 ; preds = %214, %215
+_ZNSt6vectorIiSaIiEED2Ev.exit120:                 ; preds = %214, %.thread133
   resume { ptr, i32 } %.pn
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %37, %63, %._crit_edge, %43, %46
@@ -2602,15 +2602,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %switch.early.test, 
   br label %.loopexit153
 
 .loopexit153:                                     ; preds = %.loopexit153.loopexit, %13
-  %219 = phi ptr [ %.pre252, %.loopexit153.loopexit ], [ %14, %13 ]
-  %220 = phi ptr [ %.pre, %.loopexit153.loopexit ], [ %15, %13 ]
-  %221 = add nuw i64 %.070218, 1
-  %222 = ptrtoint ptr %220 to i64
-  %223 = ptrtoint ptr %219 to i64
-  %224 = sub i64 %222, %223
-  %225 = sdiv exact i64 %224, 56
-  %226 = icmp ult i64 %221, %225
-  br i1 %226, label %13, label %._crit_edge221, !llvm.loop !200
+  %218 = phi ptr [ %.pre252, %.loopexit153.loopexit ], [ %14, %13 ]
+  %219 = phi ptr [ %.pre, %.loopexit153.loopexit ], [ %15, %13 ]
+  %220 = add nuw i64 %.070218, 1
+  %221 = ptrtoint ptr %219 to i64
+  %222 = ptrtoint ptr %218 to i64
+  %223 = sub i64 %221, %222
+  %224 = sdiv exact i64 %223, 56
+  %225 = icmp ult i64 %220, %224
+  br i1 %225, label %13, label %._crit_edge221, !llvm.loop !200
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2636,9 +2636,9 @@ define void @_ZN3gmx24QMMMTopologyPreprocessor33modifyQMMMThreeCenterInteraction
   ret void
 
 14:                                               ; preds = %.lr.ph279, %.loopexit171
-  %15 = phi ptr [ %6, %.lr.ph279 ], [ %295, %.loopexit171 ]
-  %16 = phi ptr [ %5, %.lr.ph279 ], [ %296, %.loopexit171 ]
-  %.072277 = phi i64 [ 0, %.lr.ph279 ], [ %297, %.loopexit171 ]
+  %15 = phi ptr [ %6, %.lr.ph279 ], [ %294, %.loopexit171 ]
+  %16 = phi ptr [ %5, %.lr.ph279 ], [ %295, %.loopexit171 ]
+  %.072277 = phi i64 [ 0, %.lr.ph279 ], [ %296, %.loopexit171 ]
   %17 = load ptr, ptr %0, align 8, !tbaa !24
   %18 = sdiv i64 %.072277, 64
   %19 = getelementptr inbounds i64, ptr %17, i64 %18
@@ -3334,16 +3334,16 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit139:       ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.0.4 = phi ptr [ %.sroa.0.3265, %.loopexit166 ], [ %.sroa.0.3265, %.loopexit.split-lp167 ], [ %.sroa.0.6256, %.loopexit164 ], [ %.sroa.0.6256, %.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %lpad.loopexit168, %.loopexit166 ], [ %lpad.loopexit.split-lp169, %.loopexit.split-lp167 ], [ %lpad.loopexit, %.loopexit164 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i140 = icmp eq ptr %.sroa.0.4, null
-  br i1 %.not.i.i.i140, label %_ZNSt6vectorIiSaIiEED2Ev.exit141, label %291
+  br i1 %.not.i.i.i140, label %_ZNSt6vectorIiSaIiEED2Ev.exit141, label %.thread
 
-291:                                              ; preds = %290
-  %292 = ptrtoint ptr %.sroa.15.4 to i64
-  %293 = ptrtoint ptr %.sroa.0.4 to i64
-  %294 = sub i64 %292, %293
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4, i64 noundef %294) #24
+.thread:                                          ; preds = %290
+  %291 = ptrtoint ptr %.sroa.15.4 to i64
+  %292 = ptrtoint ptr %.sroa.0.4 to i64
+  %293 = sub i64 %291, %292
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4, i64 noundef %293) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit141
 
-_ZNSt6vectorIiSaIiEED2Ev.exit141:                 ; preds = %290, %291
+_ZNSt6vectorIiSaIiEED2Ev.exit141:                 ; preds = %290, %.thread
   resume { ptr, i32 } %.pn
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %77, %._crit_edge267, %55, %48
@@ -3357,15 +3357,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %77, %._crit_edge267
   br label %.loopexit171
 
 .loopexit171:                                     ; preds = %.loopexit171.loopexit, %14
-  %295 = phi ptr [ %.pre328, %.loopexit171.loopexit ], [ %15, %14 ]
-  %296 = phi ptr [ %.pre327, %.loopexit171.loopexit ], [ %16, %14 ]
-  %297 = add nuw i64 %.072277, 1
-  %298 = ptrtoint ptr %296 to i64
-  %299 = ptrtoint ptr %295 to i64
-  %300 = sub i64 %298, %299
-  %301 = sdiv exact i64 %300, 56
-  %302 = icmp ult i64 %297, %301
-  br i1 %302, label %14, label %._crit_edge280, !llvm.loop !207
+  %294 = phi ptr [ %.pre328, %.loopexit171.loopexit ], [ %15, %14 ]
+  %295 = phi ptr [ %.pre327, %.loopexit171.loopexit ], [ %16, %14 ]
+  %296 = add nuw i64 %.072277, 1
+  %297 = ptrtoint ptr %295 to i64
+  %298 = ptrtoint ptr %294 to i64
+  %299 = sub i64 %297, %298
+  %300 = sdiv exact i64 %299, 56
+  %301 = icmp ult i64 %296, %300
+  br i1 %301, label %14, label %._crit_edge280, !llvm.loop !207
 }
 
 ; Function Attrs: mustprogress uwtable

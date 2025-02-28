@@ -47298,7 +47298,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h7abaa005099ad1d7E.exit: ; preds = %"_Z
 124:                                              ; preds = %.noexc22.i, %137, %126
   %125 = landingpad { ptr, i32 }
           cleanup
-  br label %205
+  br label %204
 
 "_ZN69_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h276b28acee3a1003E.llvm.16090434240646493973.exit.i": ; preds = %119, %107
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !7353
@@ -47347,7 +47347,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h7abaa005099ad1d7E.exit: ; preds = %"_Z
   %132 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr365drop_in_place$LT$client..user..UserStore..participant_names$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Values$LT$proto..PeerId$C$client..user..Collaborator$GT$$C$$LT$collab_ui..channel_view..ChannelBufferCollaborationHub$u20$as$u20$editor..CollaborationHub$GT$..user_names..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7d3cd068837ea06E.llvm.17767530726536826055"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9) #54
-          to label %205 unwind label %133, !noalias !7397
+          to label %204 unwind label %133, !noalias !7397
 
 133:                                              ; preds = %131
   %134 = landingpad { ptr, i32 }
@@ -47381,7 +47381,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h7abaa005099ad1d7E.exit: ; preds = %"_Z
   %lpad.thr_comm.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr158drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$$C$anyhow..Error$GT$$GT$$GT$17h093814b3807770b2E.llvm.17897451826487304826"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #54
-          to label %205 unwind label %141, !noalias !7413
+          to label %204 unwind label %141, !noalias !7413
 
 141:                                              ; preds = %140
   %142 = landingpad { ptr, i32 }
@@ -47557,7 +47557,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h7abaa005099ad1d7E.exit: ; preds = %"_Z
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he40884d72c03433dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #54
           to label %198 unwind label %196, !noalias !7353
 
-196:                                              ; preds = %205, %195
+196:                                              ; preds = %204, %195
   %197 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !7404
@@ -47570,22 +47570,22 @@ _ZN4gpui3app10entity_map9EntityMap4read17h7abaa005099ad1d7E.exit: ; preds = %"_Z
   call void @llvm.experimental.noalias.scope.decl(metadata !7462)
   %199 = load i64, ptr %19, align 8, !alias.scope !7465, !noalias !7468, !noundef !4
   %200 = icmp eq i64 %199, 0
-  br i1 %200, label %205, label %201
+  br i1 %200, label %204, label %201
 
 201:                                              ; preds = %198
   %202 = shl nuw i64 %199, 3
   %203 = load ptr, ptr %84, align 8, !alias.scope !7465, !noalias !7468, !nonnull !4, !noundef !4
   call void @__rust_dealloc(ptr noundef nonnull %203, i64 noundef %202, i64 noundef 8) #52, !noalias !7470
-  br label %205
+  br label %204
 
-204:                                              ; preds = %205
+"_ZN4core3ptr165drop_in_place$LT$std..collections..hash..map..HashMap$LT$u64$C$gpui..shared_string..SharedString$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h56ef97f6b35e5d7bE.exit.i": ; preds = %204
   resume { ptr, i32 } %.pn46.i
 
-205:                                              ; preds = %201, %198, %140, %131, %124
+204:                                              ; preds = %201, %198, %140, %131, %124
   %.pn46.i = phi { ptr, i32 } [ %125, %124 ], [ %132, %131 ], [ %lpad.thr_comm.split-lp.i.i, %140 ], [ %.pn.ph.i, %198 ], [ %.pn.ph.i, %201 ]
-  %206 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h294bae5516ef00a7E(ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull readonly align 1 %206, i64 noundef 32, i64 noundef 16)
-          to label %204 unwind label %196, !noalias !7404
+  %205 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h294bae5516ef00a7E(ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull readonly align 1 %205, i64 noundef 32, i64 noundef 16)
+          to label %"_ZN4core3ptr165drop_in_place$LT$std..collections..hash..map..HashMap$LT$u64$C$gpui..shared_string..SharedString$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h56ef97f6b35e5d7bE.exit.i" unwind label %196, !noalias !7404
 
 _ZN6client4user9UserStore17participant_names17h30c914e528a6e598E.exit: ; preds = %.thread, %102, %104, %143
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !7353

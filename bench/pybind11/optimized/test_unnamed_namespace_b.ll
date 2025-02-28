@@ -10240,16 +10240,16 @@ _ZNSt6vectorIP11_typeobjectSaIS1_EE9push_backEOS1_.exit101: ; preds = %_ZNSt6vec
   %.sroa.0133.1 = phi ptr [ %.sroa.0133.0226, %49 ], [ %.sroa.0133.0.lcssa299, %64 ], [ %.sroa.0133.6241, %188 ], [ %.sroa.0133.2250, %.loopexit ], [ %.sroa.0133.2250, %.loopexit.split-lp.loopexit ], [ %.sroa.0133.2250, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn57.pn.pn.pn = phi { ptr, i32 } [ %lpad.phi177, %49 ], [ %65, %64 ], [ %lpad.phi166, %188 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit168, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp169, %.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i102 = icmp eq ptr %.sroa.0133.1, null
-  br i1 %.not.i.i.i102, label %_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit103, label %195
+  br i1 %.not.i.i.i102, label %_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit103, label %.thread
 
-195:                                              ; preds = %.loopexit.split-lp
-  %196 = ptrtoint ptr %.sroa.23.1 to i64
-  %197 = ptrtoint ptr %.sroa.0133.1 to i64
-  %198 = sub i64 %196, %197
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0133.1, i64 noundef %198) #32
+.thread:                                          ; preds = %.loopexit.split-lp
+  %195 = ptrtoint ptr %.sroa.23.1 to i64
+  %196 = ptrtoint ptr %.sroa.0133.1 to i64
+  %197 = sub i64 %195, %196
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0133.1, i64 noundef %197) #32
   br label %_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit103
 
-_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit103:  ; preds = %.loopexit.split-lp, %195
+_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit103:  ; preds = %.loopexit.split-lp, %.thread
   resume { ptr, i32 } %.pn57.pn.pn.pn
 }
 
@@ -20985,12 +20985,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit816: ; preds = %_Z
   br label %.loopexit1004
 
 .loopexit1004:                                    ; preds = %.body798, %.loopexit, %.loopexit.split-lp, %1622, %1620, %1596
-  %.merged383 = phi { ptr, i32 } [ %.pn346.pn.pn, %1596 ], [ %1623, %1622 ], [ %1621, %1620 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn350.pn, %.body798 ]
+  %.merged382 = phi { ptr, i32 } [ %.pn346.pn.pn, %1596 ], [ %1623, %1622 ], [ %1621, %1620 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn350.pn, %.body798 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #29
   br label %1624
 
 1624:                                             ; preds = %1511, %.loopexit1004, %1509
-  %.merged380 = phi { ptr, i32 } [ %1510, %1509 ], [ %1512, %1511 ], [ %.merged383, %.loopexit1004 ]
+  %.merged379 = phi { ptr, i32 } [ %1510, %1509 ], [ %1512, %1511 ], [ %.merged382, %.loopexit1004 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38) #29
   br label %1632
 
@@ -21017,7 +21017,7 @@ _ZN8pybind116objectD2Ev.exit820:                  ; preds = %1625, %1628
   br label %1633
 
 1632:                                             ; preds = %1624, %1488
-  %.merged379 = phi { ptr, i32 } [ %.merged380, %1624 ], [ %1489, %1488 ]
+  %.merged378 = phi { ptr, i32 } [ %.merged379, %1624 ], [ %1489, %1488 ]
   call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #29
   br label %.loopexit1010
@@ -21116,7 +21116,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit830: ; preds = %_Z
   br label %1737
 
 .loopexit1010:                                    ; preds = %1466, %.loopexit1005, %.loopexit.split-lp1006, %1475, %1477, %1649, %1646, %1632
-  %.merged376 = phi { ptr, i32 } [ %1647, %1646 ], [ %1650, %1649 ], [ %.merged379, %1632 ], [ %1478, %1477 ], [ %1476, %1475 ], [ %lpad.loopexit1007, %.loopexit1005 ], [ %lpad.loopexit.split-lp1008, %.loopexit.split-lp1006 ], [ %.pn356.pn.pn, %1466 ]
+  %.merged376 = phi { ptr, i32 } [ %1647, %1646 ], [ %1650, %1649 ], [ %.merged378, %1632 ], [ %1478, %1477 ], [ %1476, %1475 ], [ %lpad.loopexit1007, %.loopexit1005 ], [ %lpad.loopexit.split-lp1008, %.loopexit.split-lp1006 ], [ %.pn356.pn.pn, %1466 ]
   call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #29
   br label %1664

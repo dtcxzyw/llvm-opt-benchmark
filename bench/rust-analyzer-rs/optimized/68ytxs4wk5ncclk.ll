@@ -13305,7 +13305,7 @@ define hidden void @"_ZN11chalk_solve5infer23InferenceTable$LT$I$GT$14from_canon
   br i1 %.not, label %16, label %.preheader
 
 15:                                               ; preds = %17
-  br i1 %.1, label %69, label %67
+  br i1 %.1, label %.thread, label %67
 
 16:                                               ; preds = %3
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.1ef3bb95f0992d135edd81c3172b80ca.41, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ef3bb95f0992d135edd81c3172b80ca.42) #64
@@ -13498,18 +13498,18 @@ common.resume:                                    ; preds = %67, %55
 "_ZN4core3ptr82drop_in_place$LT$chalk_ir..CanonicalVarKinds$LT$hir_ty..interner..Interner$GT$$GT$17hbf6fb6f5216ad068E.exit": ; preds = %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h04d52b9195ad5b72E.llvm.11905809803391100490.exit.i.i", %60
   ret void
 
-65:                                               ; preds = %69, %67, %.body, %17
+65:                                               ; preds = %.thread, %67, %.body, %17
   %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #65
   unreachable
 
-67:                                               ; preds = %69, %15
+67:                                               ; preds = %.thread, %15
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @"_ZN4core3ptr82drop_in_place$LT$chalk_ir..CanonicalVarKinds$LT$hir_ty..interner..Interner$GT$$GT$17hbf6fb6f5216ad068E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %68) #66
           to label %common.resume unwind label %65
 
-69:                                               ; preds = %15
+.thread:                                          ; preds = %15
   invoke void @"_ZN4core3ptr100drop_in_place$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h9812d70d39c945abE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2) #66
           to label %67 unwind label %65
 }
@@ -13549,7 +13549,7 @@ define hidden void @"_ZN11chalk_solve5infer23InferenceTable$LT$I$GT$14from_canon
   br i1 %.not, label %18, label %.preheader
 
 17:                                               ; preds = %19
-  br i1 %.1, label %68, label %66
+  br i1 %.1, label %.thread, label %66
 
 18:                                               ; preds = %3
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.1ef3bb95f0992d135edd81c3172b80ca.41, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ef3bb95f0992d135edd81c3172b80ca.42) #64
@@ -13749,18 +13749,18 @@ common.resume:                                    ; preds = %66, %54
 "_ZN4core3ptr82drop_in_place$LT$chalk_ir..CanonicalVarKinds$LT$hir_ty..interner..Interner$GT$$GT$17hbf6fb6f5216ad068E.exit": ; preds = %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h04d52b9195ad5b72E.llvm.11905809803391100490.exit.i.i", %59
   ret void
 
-64:                                               ; preds = %68, %66, %.body, %19
+64:                                               ; preds = %.thread, %66, %.body, %19
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #65
   unreachable
 
-66:                                               ; preds = %68, %17
+66:                                               ; preds = %.thread, %17
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 48
   invoke void @"_ZN4core3ptr82drop_in_place$LT$chalk_ir..CanonicalVarKinds$LT$hir_ty..interner..Interner$GT$$GT$17hbf6fb6f5216ad068E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %67) #66
           to label %common.resume unwind label %64
 
-68:                                               ; preds = %17
+.thread:                                          ; preds = %17
   invoke void @"_ZN4core3ptr106drop_in_place$LT$chalk_ir..InEnvironment$LT$chalk_ir..DomainGoal$LT$hir_ty..interner..Interner$GT$$GT$$GT$17hc27b4379c2d1f6cdE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2) #66
           to label %66 unwind label %64
 }

@@ -967,20 +967,20 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %23
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPN5ceres8internal14ParameterBlockESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_20VertexDegreeLessThanIS5_EEEEEvT_SG_T0_(ptr nonnull %24, ptr nonnull %25, ptr nonnull %0)
-          to label %.loopexit._crit_edge.i.i unwind label %.body.thread
+          to label %.loopexit._crit_edge.i.i unwind label %.body.thread307
 
-.body.thread:                                     ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN5ceres8internal14ParameterBlockESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i
+.body.thread307:                                  ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN5ceres8internal14ParameterBlockESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN5ceres8internal14ParameterBlockESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %27, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN5ceres8internal14ParameterBlockESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %28 = landingpad { ptr, i32 }
           cleanup
   %29 = shl i64 %.sroa.4.026.i.i, 3
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %29) #28
-  br label %504
+  br label %.body.thread
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN5ceres8internal14ParameterBlockESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN5ceres8internal14ParameterBlockESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterINS3_20VertexDegreeLessThanIS5_EEEEEvT_SG_T0_T1_T2_(ptr nonnull %24, ptr nonnull %25, ptr noundef nonnull %27, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
-          to label %.loopexit._crit_edge.i.i unwind label %.body.thread
+          to label %.loopexit._crit_edge.i.i unwind label %.body.thread307
 
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN5ceres8internal14ParameterBlockESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN5ceres8internal14ParameterBlockESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i ], [ 0, %.loopexit.i.i ]
@@ -1494,7 +1494,7 @@ _ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE9push_backERKS3_.exit: ; 
   %288 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.100", ptr %287, i64 %.sroa.031.2.i14.i.i116, i32 1
   store i8 2, ptr %288, align 1, !tbaa !24
   %289 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5ceres9FindOrDieIN4absl12lts_2024011613flat_hash_mapIPNS_8internal14ParameterBlockENS2_13flat_hash_setIS6_NS2_18container_internal6HashEqIS6_vE4HashENSA_2EqESaIS6_EEESB_SC_SaISt4pairIKS6_SE_EEEEEERKNT_10value_type11second_typeERKSK_RKNSL_10first_typeE(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(8) %156)
-          to label %_ZNK5ceres8internal5GraphIPNS0_14ParameterBlockEE9NeighborsERKS3_.exit unwind label %.body.thread311
+          to label %_ZNK5ceres8internal5GraphIPNS0_14ParameterBlockEE9NeighborsERKS3_.exit unwind label %.body.thread312
 
 _ZNK5ceres8internal5GraphIPNS0_14ParameterBlockEE9NeighborsERKS3_.exit: ; preds = %.loopexit217
   %290 = load ptr, ptr %289, align 8, !tbaa !16, !nonnull !49, !noundef !49
@@ -1527,12 +1527,12 @@ _ZNK5ceres8internal5GraphIPNS0_14ParameterBlockEE9NeighborsERKS3_.exit: ; preds 
   %308 = icmp eq i8 %.lcssa.i.i.i123, -1
   br i1 %308, label %.loopexit219, label %.lr.ph257, !prof !3
 
-.body.thread311:                                  ; preds = %.loopexit217
+.body.thread312:                                  ; preds = %.loopexit217
   %309 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN5ceres8internal14ParameterBlockEcEENS1_6HashEqIS7_vE4HashENSA_2EqESaISt4pairIKS7_cEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #28
-  br label %504
+  br label %.body.thread
 
 .lr.ph257:                                        ; preds = %._crit_edge.i.i.i120, %._crit_edge.i.i.i142
   %.sroa.9.0255 = phi ptr [ %.sroa.9.1, %._crit_edge.i.i.i142 ], [ %.sroa.5.0.i.i121, %._crit_edge.i.i.i120 ]
@@ -1921,17 +1921,17 @@ _ZN4absl12lts_2024011612log_internal12Check_EQImplImiEEPNSt7__cxx1112basic_strin
   call void @_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN5ceres8internal14ParameterBlockEcEENS1_6HashEqIS7_vE4HashENSA_2EqESaISt4pairIKS7_cEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #28
   %.not.i.i.i173 = icmp eq ptr %38, null
-  br i1 %.not.i.i.i173, label %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit174, label %504
+  br i1 %.not.i.i.i173, label %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit174, label %.body.thread
 
-504:                                              ; preds = %.body.thread311, %.body.thread, %.body
-  %.pn76.pn.pn.pn.pn309 = phi { ptr, i32 } [ %28, %.body.thread ], [ %.pn76.pn.pn, %.body ], [ %309, %.body.thread311 ]
-  %505 = phi ptr [ %24, %.body.thread ], [ %38, %.body ], [ %38, %.body.thread311 ]
-  call void @_ZdlPvm(ptr noundef nonnull %505, i64 noundef %16) #33
+.body.thread:                                     ; preds = %.body.thread312, %.body.thread307, %.body
+  %.pn76.pn.pn.pn.pn310 = phi { ptr, i32 } [ %28, %.body.thread307 ], [ %.pn76.pn.pn, %.body ], [ %309, %.body.thread312 ]
+  %504 = phi ptr [ %24, %.body.thread307 ], [ %38, %.body ], [ %38, %.body.thread312 ]
+  call void @_ZdlPvm(ptr noundef nonnull %504, i64 noundef %16) #33
   br label %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit174
 
-_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit174: ; preds = %.body, %504
-  %.pn76.pn.pn.pn.pn310 = phi { ptr, i32 } [ %.pn76.pn.pn, %.body ], [ %.pn76.pn.pn.pn.pn309, %504 ]
-  resume { ptr, i32 } %.pn76.pn.pn.pn.pn310
+_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit174: ; preds = %.body, %.body.thread
+  %.pn76.pn.pn.pn.pn311 = phi { ptr, i32 } [ %.pn76.pn.pn, %.body ], [ %.pn76.pn.pn.pn.pn310, %.body.thread ]
+  resume { ptr, i32 } %.pn76.pn.pn.pn.pn311
 }
 
 ; Function Attrs: nounwind

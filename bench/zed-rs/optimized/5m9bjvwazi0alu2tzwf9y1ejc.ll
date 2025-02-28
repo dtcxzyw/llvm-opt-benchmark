@@ -241,7 +241,7 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17h815cfc9
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
   unreachable
 
-"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$$GT$17hac6f16c963a4328dE.exit": ; preds = %33, %38
+.thread:                                          ; preds = %33, %38
   resume { ptr, i32 } %34
 
 33:                                               ; preds = %15
@@ -251,11 +251,11 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17h815cfc9
   store atomic i8 0, ptr %35 seq_cst, align 8, !noalias !21
   %36 = load i64, ptr %2, align 8, !range !26, !alias.scope !27, !noundef !5
   %37 = icmp eq i64 %36, -9223372036854775808
-  br i1 %37, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$$GT$17hac6f16c963a4328dE.exit", label %38
+  br i1 %37, label %.thread, label %38
 
 38:                                               ; preds = %33
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h75d5a09e9813aab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$$GT$17hac6f16c963a4328dE.exit" unwind label %31
+          to label %.thread unwind label %31
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -343,7 +343,7 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17h99eaedf
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
   unreachable
 
-"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$project..ProjectPath$GT$$GT$17hdc6b7fbe82916212E.llvm.14456223534716380117.exit": ; preds = %40, %35, %43
+.thread:                                          ; preds = %40, %35, %43
   resume { ptr, i32 } %36
 
 35:                                               ; preds = %16
@@ -354,17 +354,17 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17h99eaedf
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %38 = load ptr, ptr %2, align 8, !alias.scope !51, !noundef !5
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$project..ProjectPath$GT$$GT$17hdc6b7fbe82916212E.llvm.14456223534716380117.exit", label %40
+  br i1 %39, label %.thread, label %40
 
 40:                                               ; preds = %35
   %41 = atomicrmw sub ptr %38, i64 1 release, align 8, !noalias !54
   %42 = icmp eq i64 %41, 1
-  br i1 %42, label %43, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$project..ProjectPath$GT$$GT$17hdc6b7fbe82916212E.llvm.14456223534716380117.exit"
+  br i1 %42, label %43, label %.thread
 
 43:                                               ; preds = %40
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$project..ProjectPath$GT$$GT$17hdc6b7fbe82916212E.llvm.14456223534716380117.exit" unwind label %33
+          to label %.thread unwind label %33
 }
 
 ; Function Attrs: nonlazybind uwtable

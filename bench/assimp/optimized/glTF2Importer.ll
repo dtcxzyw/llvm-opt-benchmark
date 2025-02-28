@@ -6043,7 +6043,7 @@ _ZN5glTF28Accessor10GetIndexerEv.exit:            ; preds = %_ZNSt6vectorIjSaIjE
 
 341:                                              ; preds = %340
   invoke void @__cxa_throw(ptr nonnull %339, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #39
-          to label %1791 unwind label %345
+          to label %1790 unwind label %345
 
 .loopexit1134:                                    ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i579, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
   %.sroa.0921.5.ph = phi ptr [ %.sroa.0921.32148, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i ], [ %.sroa.0921.6, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i579 ]
@@ -9004,7 +9004,7 @@ _ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit751:     ; preds = %.lr.ph2092, %.noexc
 
 1731:                                             ; preds = %.loopexit2891
   invoke void @__cxa_throw(ptr nonnull %1729, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #39
-          to label %1791 unwind label %1732
+          to label %1790 unwind label %1732
 
 1732:                                             ; preds = %1731
   %1733 = landingpad { ptr, i32 }
@@ -9160,51 +9160,51 @@ _ZNSt6vectorIjSaIjEED2Ev.exit760:                 ; preds = %1778, %.thread1033
   %.sroa.0955.21048 = phi ptr [ %.sroa.0955.2, %1778 ], [ %.sroa.0955.21047, %.thread1033 ]
   %.sroa.27.21046 = phi ptr [ %.sroa.27.2, %1778 ], [ %.sroa.27.21045, %.thread1033 ]
   %.not.i.i.i761 = icmp eq ptr %.sroa.0955.21048, null
-  br i1 %.not.i.i.i761, label %_ZNSt6vectorIjSaIjEED2Ev.exit762, label %1781
+  br i1 %.not.i.i.i761, label %_ZNSt6vectorIjSaIjEED2Ev.exit762, label %_ZNSt6vectorIjSaIjEED2Ev.exit760.thread
 
-1781:                                             ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit760
-  %1782 = ptrtoint ptr %.sroa.27.21046 to i64
-  %1783 = ptrtoint ptr %.sroa.0955.21048 to i64
-  %1784 = sub i64 %1782, %1783
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0955.21048, i64 noundef %1784) #38
+_ZNSt6vectorIjSaIjEED2Ev.exit760.thread:          ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit760
+  %1781 = ptrtoint ptr %.sroa.27.21046 to i64
+  %1782 = ptrtoint ptr %.sroa.0955.21048 to i64
+  %1783 = sub i64 %1781, %1782
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0955.21048, i64 noundef %1783) #38
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit762
 
-_ZNSt6vectorIjSaIjEED2Ev.exit762:                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit760, %1781
+_ZNSt6vectorIjSaIjEED2Ev.exit762:                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit760, %_ZNSt6vectorIjSaIjEED2Ev.exit760.thread
   %.not4.i.i.i.i763 = icmp eq ptr %.sroa.0978.41054, %.sroa.16.41052
   br i1 %.not4.i.i.i.i763, label %_ZSt8_DestroyIPSt10unique_ptrI6aiMeshSt14default_deleteIS1_EES4_EvT_S6_RSaIT0_E.exit.i772, label %.lr.ph.i.i.i.i764
 
 .lr.ph.i.i.i.i764:                                ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit762, %_ZSt8_DestroyISt10unique_ptrI6aiMeshSt14default_deleteIS1_EEEvPT_.exit.i.i.i.i768
-  %.05.i.i.i.i765 = phi ptr [ %1786, %_ZSt8_DestroyISt10unique_ptrI6aiMeshSt14default_deleteIS1_EEEvPT_.exit.i.i.i.i768 ], [ %.sroa.0978.41054, %_ZNSt6vectorIjSaIjEED2Ev.exit762 ]
-  %1785 = load ptr, ptr %.05.i.i.i.i765, align 8
-  %.not.i.i.i.i.i.i766 = icmp eq ptr %1785, null
+  %.05.i.i.i.i765 = phi ptr [ %1785, %_ZSt8_DestroyISt10unique_ptrI6aiMeshSt14default_deleteIS1_EEEvPT_.exit.i.i.i.i768 ], [ %.sroa.0978.41054, %_ZNSt6vectorIjSaIjEED2Ev.exit762 ]
+  %1784 = load ptr, ptr %.05.i.i.i.i765, align 8
+  %.not.i.i.i.i.i.i766 = icmp eq ptr %1784, null
   br i1 %.not.i.i.i.i.i.i766, label %_ZSt8_DestroyISt10unique_ptrI6aiMeshSt14default_deleteIS1_EEEvPT_.exit.i.i.i.i768, label %_ZNKSt14default_deleteI6aiMeshEclEPS0_.exit.i.i.i.i.i.i767
 
 _ZNKSt14default_deleteI6aiMeshEclEPS0_.exit.i.i.i.i.i.i767: ; preds = %.lr.ph.i.i.i.i764
-  call void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dereferenceable(1320) %1785) #37
-  call void @_ZdlPvm(ptr noundef nonnull %1785, i64 noundef 1320) #38
+  call void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dereferenceable(1320) %1784) #37
+  call void @_ZdlPvm(ptr noundef nonnull %1784, i64 noundef 1320) #38
   br label %_ZSt8_DestroyISt10unique_ptrI6aiMeshSt14default_deleteIS1_EEEvPT_.exit.i.i.i.i768
 
 _ZSt8_DestroyISt10unique_ptrI6aiMeshSt14default_deleteIS1_EEEvPT_.exit.i.i.i.i768: ; preds = %_ZNKSt14default_deleteI6aiMeshEclEPS0_.exit.i.i.i.i.i.i767, %.lr.ph.i.i.i.i764
   store ptr null, ptr %.05.i.i.i.i765, align 8
-  %1786 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i765, i64 8
-  %.not.i.i.i.i769 = icmp eq ptr %1786, %.sroa.16.41052
+  %1785 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i765, i64 8
+  %.not.i.i.i.i769 = icmp eq ptr %1785, %.sroa.16.41052
   br i1 %.not.i.i.i.i769, label %_ZSt8_DestroyIPSt10unique_ptrI6aiMeshSt14default_deleteIS1_EES4_EvT_S6_RSaIT0_E.exit.i772, label %.lr.ph.i.i.i.i764, !llvm.loop !41
 
 _ZSt8_DestroyIPSt10unique_ptrI6aiMeshSt14default_deleteIS1_EES4_EvT_S6_RSaIT0_E.exit.i772: ; preds = %_ZSt8_DestroyISt10unique_ptrI6aiMeshSt14default_deleteIS1_EEEvPT_.exit.i.i.i.i768, %_ZNSt6vectorIjSaIjEED2Ev.exit762
   %.not.i.i.i773 = icmp eq ptr %.sroa.0978.41054, null
-  br i1 %.not.i.i.i773, label %_ZNSt6vectorISt10unique_ptrI6aiMeshSt14default_deleteIS1_EESaIS4_EED2Ev.exit774, label %1787
+  br i1 %.not.i.i.i773, label %_ZNSt6vectorISt10unique_ptrI6aiMeshSt14default_deleteIS1_EESaIS4_EED2Ev.exit774, label %1786
 
-1787:                                             ; preds = %_ZSt8_DestroyIPSt10unique_ptrI6aiMeshSt14default_deleteIS1_EES4_EvT_S6_RSaIT0_E.exit.i772
-  %1788 = ptrtoint ptr %.sroa.28.41050 to i64
-  %1789 = ptrtoint ptr %.sroa.0978.41054 to i64
-  %1790 = sub i64 %1788, %1789
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0978.41054, i64 noundef %1790) #38
+1786:                                             ; preds = %_ZSt8_DestroyIPSt10unique_ptrI6aiMeshSt14default_deleteIS1_EES4_EvT_S6_RSaIT0_E.exit.i772
+  %1787 = ptrtoint ptr %.sroa.28.41050 to i64
+  %1788 = ptrtoint ptr %.sroa.0978.41054 to i64
+  %1789 = sub i64 %1787, %1788
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0978.41054, i64 noundef %1789) #38
   br label %_ZNSt6vectorISt10unique_ptrI6aiMeshSt14default_deleteIS1_EESaIS4_EED2Ev.exit774
 
-_ZNSt6vectorISt10unique_ptrI6aiMeshSt14default_deleteIS1_EESaIS4_EED2Ev.exit774: ; preds = %_ZSt8_DestroyIPSt10unique_ptrI6aiMeshSt14default_deleteIS1_EES4_EvT_S6_RSaIT0_E.exit.i772, %1787
+_ZNSt6vectorISt10unique_ptrI6aiMeshSt14default_deleteIS1_EESaIS4_EED2Ev.exit774: ; preds = %_ZSt8_DestroyIPSt10unique_ptrI6aiMeshSt14default_deleteIS1_EES4_EvT_S6_RSaIT0_E.exit.i772, %1786
   resume { ptr, i32 } %.pn538.pn.pn.pn1056
 
-1791:                                             ; preds = %1731, %341
+1790:                                             ; preds = %1731, %341
   unreachable
 }
 

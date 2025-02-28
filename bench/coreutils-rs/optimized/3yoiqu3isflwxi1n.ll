@@ -425,10 +425,11 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std3sys3pal6c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17heaf341317ecc0093E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+__rust_try.llvm.16452225090548864053.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !57, !noundef !9
   store i64 0, ptr %.val.i, align 8, !noalias !60
-  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  store i8 2, ptr %2, align 1, !noalias !60
+  %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
+  store i8 2, ptr %1, align 1, !noalias !60
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 

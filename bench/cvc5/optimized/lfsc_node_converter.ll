@@ -13778,7 +13778,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1301: ; preds = %_
   %switch1607 = icmp ult i64 %3126, 2
   br i1 %switch1607, label %.loopexit1456, label %.lr.ph1554
 
-.loopexit1455:                                    ; preds = %3188, %.lr.ph1554
+.loopexit1455:                                    ; preds = %3189, %.lr.ph1554
   %3152 = add i32 %3166, 1
   %3153 = zext i32 %3152 to i64
   %3154 = icmp ugt i64 %3126, %3153
@@ -13818,11 +13818,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1301: ; preds = %_
   %.not1565 = icmp eq i32 %.053515551605, 0
   br i1 %.not1565, label %.loopexit1455, label %.lr.ph1554.split
 
-.lr.ph1554.split:                                 ; preds = %.lr.ph1554, %3188
-  %3168 = phi i64 [ %3190, %3188 ], [ %3165, %.lr.ph1554 ]
-  %.05341552 = phi i32 [ %3189, %3188 ], [ %3166, %.lr.ph1554 ]
+.lr.ph1554.split:                                 ; preds = %.lr.ph1554, %3189
+  %3168 = phi i64 [ %3191, %3189 ], [ %3165, %.lr.ph1554 ]
+  %.05341552 = phi i32 [ %3190, %3189 ], [ %3166, %.lr.ph1554 ]
   %.not1566 = icmp eq i32 %.05341552, 1
-  br i1 %.not1566, label %3188, label %3169
+  br i1 %.not1566, label %3189, label %3169
 
 3169:                                             ; preds = %.lr.ph1554.split
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %336) #25
@@ -13854,12 +13854,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1301: ; preds = %_
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %339) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %339) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %336) #25
-  br label %3188
+  br label %3189
 
 3181:                                             ; preds = %3169
   %3182 = landingpad { ptr, i32 }
           cleanup
-  br label %3192
+  br label %3188
 
 3183:                                             ; preds = %3176
   %3184 = landingpad { ptr, i32 }
@@ -13875,20 +13875,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1301: ; preds = %_
 3187:                                             ; preds = %3185, %3183
   %.pn633 = phi { ptr, i32 } [ %3186, %3185 ], [ %3184, %3183 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %339) #25
-  br label %3192
+  br label %3188
 
-3188:                                             ; preds = %.lr.ph1554.split, %3180
-  %3189 = add i32 %.05341552, 1
-  %3190 = zext i32 %3189 to i64
-  %3191 = icmp ugt i64 %3126, %3190
-  br i1 %3191, label %.lr.ph1554.split, label %.loopexit1455, !llvm.loop !146
-
-3192:                                             ; preds = %3181, %3187
+3188:                                             ; preds = %3187, %3181
   %.pn633.pn = phi { ptr, i32 } [ %.pn633, %3187 ], [ %3182, %3181 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %339) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %336) #25
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
   br label %3383
+
+3189:                                             ; preds = %.lr.ph1554.split, %3180
+  %3190 = add i32 %.05341552, 1
+  %3191 = zext i32 %3190 to i64
+  %3192 = icmp ugt i64 %3126, %3191
+  br i1 %3192, label %.lr.ph1554.split, label %.loopexit1455, !llvm.loop !146
 
 3193:                                             ; preds = %3145
   %3194 = getelementptr inbounds nuw i8, ptr %332, i64 8
@@ -14503,8 +14503,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1334: ; preds = %_
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %332) #25
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit1022
 
-3383:                                             ; preds = %3382, %3192, %3163, %3161
-  %.pn633.pn.pn.pn = phi { ptr, i32 } [ %.pn633.pn, %3192 ], [ %3164, %3163 ], [ %.pn616.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3382 ], [ %3162, %3161 ]
+3383:                                             ; preds = %3382, %3188, %3163, %3161
+  %.pn633.pn.pn.pn = phi { ptr, i32 } [ %.pn633.pn, %3188 ], [ %3164, %3163 ], [ %.pn616.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3382 ], [ %3162, %3161 ]
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %332) #25
   br label %3384
 

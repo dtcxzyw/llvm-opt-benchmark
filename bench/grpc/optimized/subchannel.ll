@@ -3129,14 +3129,14 @@ _ZN9grpc_core17WeakRefCountedPtrINS_10SubchannelEED2Ev.exit: ; preds = %_ZN4absl
 25:                                               ; preds = %2
   %26 = landingpad { ptr, i32 }
           cleanup
-  br label %32
+  br label %_ZN4absl12lts_202407229MutexLockD2Ev.exit11.thread
 
 27:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #41
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %32 unwind label %29
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit11.thread unwind label %29
 
 29:                                               ; preds = %27
   %30 = landingpad { ptr, i32 }
@@ -3145,20 +3145,20 @@ _ZN9grpc_core17WeakRefCountedPtrINS_10SubchannelEED2Ev.exit: ; preds = %_ZN4absl
   call void @__clang_call_terminate(ptr %31) #40
   unreachable
 
-32:                                               ; preds = %25, %27
-  %.pn7.ph = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = atomicrmw sub ptr %33, i64 1 acq_rel, align 8
-  %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %_ZN9grpc_core17WeakRefCountedPtrINS_10SubchannelEED2Ev.exit13, !prof !50
+_ZN4absl12lts_202407229MutexLockD2Ev.exit11.thread: ; preds = %27, %25
+  %.pn723 = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = atomicrmw sub ptr %32, i64 1 acq_rel, align 8
+  %34 = icmp eq i64 %33, 1
+  br i1 %34, label %35, label %_ZN9grpc_core17WeakRefCountedPtrINS_10SubchannelEED2Ev.exit13, !prof !50
 
-36:                                               ; preds = %32
+35:                                               ; preds = %_ZN4absl12lts_202407229MutexLockD2Ev.exit11.thread
   call void @_ZN9grpc_core10SubchannelD1Ev(ptr noundef nonnull align 8 dereferenceable(912) %0) #41
   call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 912) #43
   br label %_ZN9grpc_core17WeakRefCountedPtrINS_10SubchannelEED2Ev.exit13
 
-_ZN9grpc_core17WeakRefCountedPtrINS_10SubchannelEED2Ev.exit13: ; preds = %32, %36
-  resume { ptr, i32 } %.pn7.ph
+_ZN9grpc_core17WeakRefCountedPtrINS_10SubchannelEED2Ev.exit13: ; preds = %_ZN4absl12lts_202407229MutexLockD2Ev.exit11.thread, %35
+  resume { ptr, i32 } %.pn723
 }
 
 declare void @_ZNK9grpc_core19ProxyMapperRegistry10MapAddressERK21grpc_resolved_addressPNS_11ChannelArgsE(ptr dead_on_unwind writable sret(%"class.std::optional") align 4, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 4 dereferenceable(132), ptr noundef) local_unnamed_addr #0

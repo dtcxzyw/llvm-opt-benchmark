@@ -71840,69 +71840,67 @@ define hidden void @"_ZN120_$LT$futures_util..stream..stream..filter_map..Filter
 
 20:                                               ; preds = %13
   %21 = icmp eq ptr %16, null
-  br i1 %21, label %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$zbus..message..Message$GT$$GT$17h3bca36d1e6f86710E.exit", label %22
+  br i1 %21, label %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$zbus..message..Message$GT$$GT$17h3bca36d1e6f86710E.exit", label %24
 
-22:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4)
+22:                                               ; preds = %"_ZN4core3ptr54drop_in_place$LT$ashpd..desktop..settings..Setting$GT$17h1f9e94c89883ba73E.exit.i.i.i.i"
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %6, ptr noundef nonnull align 8 dereferenceable(192) %4, i64 192, i1 false)
+  resume { ptr, i32 } %23
+
+24:                                               ; preds = %20
   call void @"_ZN5ashpd5proxy5Proxy16signal_with_args28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hced4284d6be4a4efE.llvm.4626617337515605756"(ptr noalias noundef nonnull sret([192 x i8]) align 8 captures(none) dereferenceable(192) %4, ptr noalias noundef nonnull align 1 %5, ptr noundef nonnull %16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17536)
-  %23 = load i64, ptr %6, align 8, !range !6835, !alias.scope !17536, !noalias !17539, !noundef !4
-  %24 = icmp eq i64 %23, 23
-  br i1 %24, label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h5c6a28c54e7d4e4bE.exit", label %25
-
-25:                                               ; preds = %22
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17542), !noalias !17539
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17545), !noalias !17539
-  %26 = icmp eq i64 %23, 22
+  %25 = load i64, ptr %6, align 8, !range !6835, !alias.scope !17536, !noalias !17539, !noundef !4
+  %26 = icmp eq i64 %25, 23
   br i1 %26, label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h5c6a28c54e7d4e4bE.exit", label %27
 
-27:                                               ; preds = %25
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17548), !noalias !17539
-  %28 = icmp eq i64 %23, 21
+27:                                               ; preds = %24
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17542), !noalias !17539
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17545), !noalias !17539
+  %28 = icmp eq i64 %25, 22
   br i1 %28, label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h5c6a28c54e7d4e4bE.exit", label %29
 
 29:                                               ; preds = %27
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17548), !noalias !17539
+  %30 = icmp eq i64 %25, 21
+  br i1 %30, label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h5c6a28c54e7d4e4bE.exit", label %31
+
+31:                                               ; preds = %29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17551), !noalias !17539
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17554), !noalias !17539
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17557), !noalias !17539
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17560), !noalias !17539
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17563), !noalias !17539
-  %30 = load i64, ptr %7, align 8, !alias.scope !17566, !noalias !17569, !noundef !4
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd9f69489c7cab3deE.exit.i.i.i.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i.i.i.i.i"
+  %32 = load i64, ptr %7, align 8, !alias.scope !17566, !noalias !17569, !noundef !4
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd9f69489c7cab3deE.exit.i.i.i.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i.i.i.i.i": ; preds = %29
-  %32 = load ptr, ptr %8, align 8, !alias.scope !17566, !noalias !17569, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef %30, i64 noundef 1) #34, !noalias !17571
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i.i.i.i.i": ; preds = %31
+  %34 = load ptr, ptr %8, align 8, !alias.scope !17566, !noalias !17569, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %34, i64 noundef %32, i64 noundef 1) #34, !noalias !17571
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd9f69489c7cab3deE.exit.i.i.i.i.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd9f69489c7cab3deE.exit.i.i.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i.i.i.i.i", %29
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd9f69489c7cab3deE.exit.i.i.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i.i.i.i.i", %31
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17572), !noalias !17539
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17575), !noalias !17539
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17578), !noalias !17539
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17581), !noalias !17539
-  %33 = load i64, ptr %9, align 8, !alias.scope !17584, !noalias !17587, !noundef !4
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %"_ZN4core3ptr54drop_in_place$LT$ashpd..desktop..settings..Setting$GT$17h1f9e94c89883ba73E.exit.i.i.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i4.i.i.i.i.i"
+  %35 = load i64, ptr %9, align 8, !alias.scope !17584, !noalias !17587, !noundef !4
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %"_ZN4core3ptr54drop_in_place$LT$ashpd..desktop..settings..Setting$GT$17h1f9e94c89883ba73E.exit.i.i.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i4.i.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i4.i.i.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd9f69489c7cab3deE.exit.i.i.i.i.i"
-  %35 = load ptr, ptr %10, align 8, !alias.scope !17584, !noalias !17587, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef %33, i64 noundef 1) #34, !noalias !17589
+  %37 = load ptr, ptr %10, align 8, !alias.scope !17584, !noalias !17587, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %35, i64 noundef 1) #34, !noalias !17589
   br label %"_ZN4core3ptr54drop_in_place$LT$ashpd..desktop..settings..Setting$GT$17h1f9e94c89883ba73E.exit.i.i.i.i"
 
 "_ZN4core3ptr54drop_in_place$LT$ashpd..desktop..settings..Setting$GT$17h1f9e94c89883ba73E.exit.i.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i4.i.i.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd9f69489c7cab3deE.exit.i.i.i.i.i"
   invoke void @"_ZN4core3ptr43drop_in_place$LT$zvariant..value..Value$GT$17h3cb5b2e97c47ed71E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(192) %6)
-          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h5c6a28c54e7d4e4bE.exit" unwind label %36
+          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h5c6a28c54e7d4e4bE.exit" unwind label %22
 
-36:                                               ; preds = %"_ZN4core3ptr54drop_in_place$LT$ashpd..desktop..settings..Setting$GT$17h1f9e94c89883ba73E.exit.i.i.i.i"
-  %37 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %6, ptr noundef nonnull align 8 dereferenceable(192) %4, i64 192, i1 false), !noalias !17539
-  resume { ptr, i32 } %37
-
-"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h5c6a28c54e7d4e4bE.exit": ; preds = %27, %25, %22, %"_ZN4core3ptr54drop_in_place$LT$ashpd..desktop..settings..Setting$GT$17h1f9e94c89883ba73E.exit.i.i.i.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %6, ptr noundef nonnull align 8 dereferenceable(192) %4, i64 192, i1 false), !noalias !17539
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4)
+"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h5c6a28c54e7d4e4bE.exit": ; preds = %29, %27, %24, %"_ZN4core3ptr54drop_in_place$LT$ashpd..desktop..settings..Setting$GT$17h1f9e94c89883ba73E.exit.i.i.i.i"
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %6, ptr noundef nonnull align 8 dereferenceable(192) %4, i64 192, i1 false)
   br label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ashpd..desktop..settings..Setting$GT$$GT$17ha84baaeee8df2c28E.exit.backedge"
 
 "_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$zbus..message..Message$GT$$GT$17h3bca36d1e6f86710E.exit": ; preds = %20, %41
@@ -85903,7 +85901,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097855486efdde92E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr551drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..wp..viewporter..generated..client..wp_viewporter..WpViewporter$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2e119fb96f3271bfE.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
@@ -85917,7 +85915,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr551drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..wp..viewporter..generated..client..wp_viewporter..WpViewporter$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2e119fb96f3271bfE.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -85937,7 +85935,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097855486efdde92E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr511drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_client..protocol..wl_seat..WlSeat$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h871576ef220be429E.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
@@ -85951,7 +85949,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr511drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_client..protocol..wl_seat..WlSeat$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h871576ef220be429E.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -85971,7 +85969,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097855486efdde92E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr517drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_client..protocol..wl_surface..WlSurface$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h80ced07131495655E.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
@@ -85985,7 +85983,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr517drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_client..protocol..wl_surface..WlSurface$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h80ced07131495655E.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -86005,7 +86003,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097855486efdde92E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr523drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_client..protocol..wl_compositor..WlCompositor$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hde3b3054e04c147fE.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
@@ -86019,7 +86017,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr523drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_client..protocol..wl_compositor..WlCompositor$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hde3b3054e04c147fE.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -86039,7 +86037,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097855486efdde92E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr580drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..wp..cursor_shape..v1..generated..client..wp_cursor_shape_manager_v1..WpCursorShapeManagerV1$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27b417d3c7a8f929E.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
@@ -86053,7 +86051,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr580drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..wp..cursor_shape..v1..generated..client..wp_cursor_shape_manager_v1..WpCursorShapeManagerV1$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27b417d3c7a8f929E.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -86073,7 +86071,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097855486efdde92E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr611drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..wp..primary_selection..zv1..generated..client..zwp_primary_selection_device_manager_v1..ZwpPrimarySelectionDeviceManagerV1$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hda8fa81a721d6871E.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
@@ -86087,7 +86085,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr611drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..wp..primary_selection..zv1..generated..client..zwp_primary_selection_device_manager_v1..ZwpPrimarySelectionDeviceManagerV1$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hda8fa81a721d6871E.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -86107,7 +86105,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097855486efdde92E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr592drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..wp..fractional_scale..v1..generated..client..wp_fractional_scale_manager_v1..WpFractionalScaleManagerV1$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc09f27f8643023c3E.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
@@ -86121,7 +86119,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr592drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..wp..fractional_scale..v1..generated..client..wp_fractional_scale_manager_v1..WpFractionalScaleManagerV1$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc09f27f8643023c3E.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -86141,7 +86139,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097855486efdde92E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr539drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_client..protocol..wl_data_device_manager..WlDataDeviceManager$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h838a9c8be828cac8E.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
@@ -86155,7 +86153,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr539drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_client..protocol..wl_data_device_manager..WlDataDeviceManager$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h838a9c8be828cac8E.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -86175,7 +86173,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097855486efdde92E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr519drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_client..protocol..wl_registry..WlRegistry$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9a354c2392fd8de0E.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
@@ -86189,7 +86187,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr519drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_client..protocol..wl_registry..WlRegistry$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9a354c2392fd8de0E.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -86209,7 +86207,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097855486efdde92E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr542drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..xdg..shell..generated..client..xdg_wm_base..XdgWmBase$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hecdb1feeb392667eE.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
@@ -86223,7 +86221,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr542drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..xdg..shell..generated..client..xdg_wm_base..XdgWmBase$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hecdb1feeb392667eE.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -86243,7 +86241,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097855486efdde92E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr517drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_client..protocol..wl_display..WlDisplay$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf7a142220df4e11dE.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
@@ -86257,7 +86255,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr517drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_client..protocol..wl_display..WlDisplay$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf7a142220df4e11dE.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -86277,7 +86275,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097855486efdde92E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr543drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..xdg..shell..generated..client..xdg_surface..XdgSurface$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hece3bb815956d141E.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
@@ -86291,7 +86289,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr543drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..xdg..shell..generated..client..xdg_surface..XdgSurface$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hece3bb815956d141E.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -86311,7 +86309,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097855486efdde92E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr581drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..xdg..decoration..zv1..generated..client..zxdg_decoration_manager_v1..ZxdgDecorationManagerV1$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc2d37c4e06b9dbfdE.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
@@ -86325,7 +86323,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr581drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..xdg..decoration..zv1..generated..client..zxdg_decoration_manager_v1..ZxdgDecorationManagerV1$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc2d37c4e06b9dbfdE.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -86345,7 +86343,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097855486efdde92E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr569drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols_plasma..blur..generated..client..org_kde_kwin_blur_manager..OrgKdeKwinBlurManager$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h58d915733f5c29b1E.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
@@ -86359,7 +86357,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr569drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols_plasma..blur..generated..client..org_kde_kwin_blur_manager..OrgKdeKwinBlurManager$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h58d915733f5c29b1E.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -86379,7 +86377,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097855486efdde92E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr563drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..xdg..activation..v1..generated..client..xdg_activation_v1..XdgActivationV1$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h46d3b3c841b92c44E.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
@@ -86393,7 +86391,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr563drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..xdg..activation..v1..generated..client..xdg_activation_v1..XdgActivationV1$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h46d3b3c841b92c44E.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -86413,7 +86411,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097855486efdde92E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4)
-          to label %11 unwind label %9
+          to label %"_ZN4core3ptr577drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..wp..text_input..zv3..generated..client..zwp_text_input_manager_v3..ZwpTextInputManagerV3$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7b9a6a037c5588a4E.exit" unwind label %9
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3)
@@ -86427,7 +86425,7 @@ define hidden void @"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-11:                                               ; preds = %6
+"_ZN4core3ptr577drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$wayland_backend..protocol..Argument$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$$u3b$$u20$4$u5d$$GT$$C$wayland_backend..protocol..Message$LT$wayland_backend..sys..client..ObjectId$C$std..os..fd..owned..BorrowedFd$GT$..map_fd$LT$i32$C$wayland_client..conn..Connection..send_request$LT$wayland_protocols..wp..text_input..zv3..generated..client..zwp_text_input_manager_v3..ZwpTextInputManagerV3$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7b9a6a037c5588a4E.exit": ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -111354,7 +111352,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.2840939845381089846.exit.
   call void @__rust_dealloc(ptr noundef nonnull %179, i64 noundef %.pre, i64 noundef 1) #34, !noalias !23841
   br label %"_ZN4core3ptr106drop_in_place$LT$std..sync..mpmc..zero..Packet$LT$gpui..platform..linux..xdg_desktop_portal..Event$GT$$GT$17h088692af36587cd8E.exit"
 
-180:                                              ; preds = %240, %210, %144, %.body
+180:                                              ; preds = %239, %210, %144, %.body
   %181 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
@@ -111516,14 +111514,14 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.2840939845381089846.exit.
   ret void
 
 238:                                              ; preds = %.body
-  br i1 %.sroa.021.3, label %240, label %239
+  br i1 %.sroa.021.3, label %239, label %.thread100
 
-239:                                              ; preds = %240, %238
+.thread100:                                       ; preds = %239, %238
   resume { ptr, i32 } %.pn
 
-240:                                              ; preds = %238
+239:                                              ; preds = %238
   invoke void @"_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..sync..mpmc..zero..Inner$GT$$GT$17h54d763187bf0b526E.llvm.2840939845381089846"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17) #41
-          to label %239 unwind label %180
+          to label %.thread100 unwind label %180
 }
 
 ; Function Attrs: nonlazybind uwtable

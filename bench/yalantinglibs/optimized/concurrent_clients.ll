@@ -2571,7 +2571,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z9call_echoi(ptr writeonly sret(%"class.async_simple::coro::Lazy") align 8 captures(none) initializes((0, 8)) %agg.result, i32 noundef %cnt) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-AfterCoroEnd:
+CoroSave:
   %call = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #38
   store ptr @_Z9call_echoi.resume, ptr %call, align 8
   %destroy.addr = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -3356,7 +3356,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z11qps_watcherv(ptr writeonly sret(%"class.async_simple::coro::Lazy") align 8 captures(none) initializes((0, 8)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-AfterCoroEnd:
+CoroSave:
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #38
   store ptr @_Z11qps_watcherv.resume, ptr %call, align 8
   %destroy.addr = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -52597,7 +52597,7 @@ if.else.i.i:                                      ; preds = %call.i55.noexc
   br label %invoke.cont93
 
 invoke.cont93:                                    ; preds = %if.else.i.i, %if.then.i.i
-  %47 = phi i64 [ %45, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
+  %47 = phi i64 [ %.pre.i, %if.else.i.i ], [ %45, %if.then.i.i ]
   %__promise.reload.addr.i = getelementptr inbounds nuw i8, ptr %call.i5556, i64 16
   %_M_string_length.i12.i.i = getelementptr inbounds nuw i8, ptr %0, i64 224
   %_M_string_length.i13.i.i = getelementptr inbounds nuw i8, ptr %call.i5556, i64 56
@@ -57830,7 +57830,7 @@ if.else.i.i:                                      ; preds = %call.i28.noexc
   br label %invoke.cont73
 
 invoke.cont73:                                    ; preds = %if.else.i.i, %if.then.i.i
-  %44 = phi i64 [ %42, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
+  %44 = phi i64 [ %.pre.i, %if.else.i.i ], [ %42, %if.then.i.i ]
   %__promise.reload.addr.i = getelementptr inbounds nuw i8, ptr %call.i2829, i64 16
   %_M_string_length.i12.i.i = getelementptr inbounds nuw i8, ptr %0, i64 360
   %_M_string_length.i13.i.i = getelementptr inbounds nuw i8, ptr %call.i2829, i64 56

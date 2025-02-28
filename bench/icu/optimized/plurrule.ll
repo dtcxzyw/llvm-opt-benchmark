@@ -2139,13 +2139,13 @@ define noundef ptr @_ZN6icu_7711PluralRules17internalForLocaleERKNS_6LocaleE11UP
 _ZN6icu_7712LocalPointerINS_11PluralRulesEEC2EPS1_R10UErrorCode.exit: ; preds = %17
   %.pre = load i32, ptr %2, align 4, !tbaa !13
   %22 = icmp slt i32 %.pre, 1
-  br i1 %22, label %25, label %.thread50
+  br i1 %22, label %25, label %.thread52
 
 23:                                               ; preds = %17
   %24 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %15) #29
-  br label %72
+  br label %_ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit
 
 25:                                               ; preds = %_ZN6icu_7712LocalPointerINS_11PluralRulesEEC2EPS1_R10UErrorCode.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #29
@@ -2167,12 +2167,12 @@ _ZN6icu_7712LocalPointerINS_11PluralRulesEEC2EPS1_R10UErrorCode.exit: ; preds = 
 36:                                               ; preds = %26
   %37 = load i32, ptr %2, align 4, !tbaa !13
   %38 = icmp eq i32 %37, 7
-  br i1 %38, label %68, label %40
+  br i1 %38, label %69, label %40
 
 .thread42:                                        ; preds = %25
   %39 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit
+  br label %65
 
 40:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #29
@@ -2216,12 +2216,12 @@ _ZN6icu_7712LocalPointerINS_20StandardPluralRangesEED2Ev.exit: ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %51 = load i8, ptr %50, align 4, !tbaa !23
   %.not.i.i.i = icmp eq i8 %51, 0
-  br i1 %.not.i.i.i, label %.thread55, label %52
+  br i1 %.not.i.i.i, label %.thread57, label %52
 
 52:                                               ; preds = %_ZN6icu_7712LocalPointerINS_20StandardPluralRangesEED2Ev.exit
   %53 = load ptr, ptr %8, align 8, !tbaa !26
   invoke void @uprv_free_77(ptr noundef %53)
-          to label %.thread55 unwind label %54
+          to label %.thread57 unwind label %54
 
 54:                                               ; preds = %52
   %55 = landingpad { ptr, i32 }
@@ -2230,7 +2230,7 @@ _ZN6icu_7712LocalPointerINS_20StandardPluralRangesEED2Ev.exit: ; preds = %47
   call void @__clang_call_terminate(ptr %56) #31
   unreachable
 
-.thread55:                                        ; preds = %52, %_ZN6icu_7712LocalPointerINS_20StandardPluralRangesEED2Ev.exit
+.thread57:                                        ; preds = %52, %_ZN6icu_7712LocalPointerINS_20StandardPluralRangesEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #29
   call void @_ZN6icu_7716PluralRuleParserD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %6) #29
@@ -2269,35 +2269,35 @@ _ZN6icu_7712LocalPointerINS_20StandardPluralRangesEED2Ev.exit: ; preds = %47
 .thread46:                                        ; preds = %64, %43
   %.pn.pn.pn.ph = phi { ptr, i32 } [ %44, %43 ], [ %.pn.pn, %64 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #29
-  br label %_ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit
+  br label %65
 
-_ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit: ; preds = %.thread42, %.thread46
+65:                                               ; preds = %.thread46, %.thread42
   %.pn.pn.pn.pn44 = phi { ptr, i32 } [ %39, %.thread42 ], [ %.pn.pn.pn.ph, %.thread46 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #29
-  %65 = load ptr, ptr %15, align 8, !tbaa !15
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load ptr, ptr %66, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(28) %15) #29
-  br label %72
+  %66 = load ptr, ptr %15, align 8, !tbaa !15
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load ptr, ptr %67, align 8
+  call void %68(ptr noundef nonnull align 8 dereferenceable(28) %15) #29
+  br label %_ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit
 
-68:                                               ; preds = %36
+69:                                               ; preds = %36
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #29
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #29
-  br label %.thread50
+  br label %.thread52
 
-.thread50:                                        ; preds = %_ZN6icu_7712LocalPointerINS_11PluralRulesEEC2EPS1_R10UErrorCode.exit, %68
-  %69 = load ptr, ptr %15, align 8, !tbaa !15
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load ptr, ptr %70, align 8
-  call void %71(ptr noundef nonnull align 8 dereferenceable(28) %15) #29
+.thread52:                                        ; preds = %_ZN6icu_7712LocalPointerINS_11PluralRulesEEC2EPS1_R10UErrorCode.exit, %69
+  %70 = load ptr, ptr %15, align 8, !tbaa !15
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = load ptr, ptr %71, align 8
+  call void %72(ptr noundef nonnull align 8 dereferenceable(28) %15) #29
   br label %_ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit35
 
-72:                                               ; preds = %23, %_ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn44, %_ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit ], [ %24, %23 ]
+_ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit: ; preds = %65, %23
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %.pn.pn.pn.pn44, %65 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 
-_ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit35: ; preds = %18, %21, %.thread55, %.thread50, %3, %13
-  %.024 = phi ptr [ null, %13 ], [ null, %3 ], [ null, %.thread50 ], [ %15, %.thread55 ], [ null, %21 ], [ null, %18 ]
+_ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit35: ; preds = %18, %21, %.thread57, %.thread52, %3, %13
+  %.024 = phi ptr [ null, %13 ], [ null, %3 ], [ null, %.thread52 ], [ %15, %.thread57 ], [ null, %21 ], [ null, %18 ]
   ret ptr %.024
 }
 

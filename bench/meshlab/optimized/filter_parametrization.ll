@@ -4200,7 +4200,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZNKSt6vectorIiSaIi
 .body.thread212:                                  ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %24 = landingpad { ptr, i32 }
           cleanup
-  br label %210
+  br label %.body.thread220
 
 _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %3, %17
   %.sroa.0175.1196 = phi ptr [ %9, %17 ], [ null, %3 ]
@@ -4635,26 +4635,26 @@ _ZNSt6vectorIiSaIiEED2Ev.exit84:                  ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.0185.1240 = phi ptr [ %.sroa.0185.1.lcssa, %204 ], [ %.sroa.0185.1241, %.thread ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %204 ], [ %.pn204, %.thread ]
   %.not.i.i.i90 = icmp eq ptr %.sroa.0175.1196, null
-  br i1 %.not.i.i.i90, label %_ZNSt6vectorIiSaIiEED2Ev.exit91, label %210
+  br i1 %.not.i.i.i90, label %_ZNSt6vectorIiSaIiEED2Ev.exit91, label %.body.thread220
 
-210:                                              ; preds = %.body.thread212, %.body
+.body.thread220:                                  ; preds = %.body.thread212, %.body
   %.pn.pn219 = phi { ptr, i32 } [ %24, %.body.thread212 ], [ %.pn.pn, %.body ]
   %.sroa.0185.0218 = phi ptr [ null, %.body.thread212 ], [ %.sroa.0185.1240, %.body ]
   %.sroa.0175.0217 = phi ptr [ %9, %.body.thread212 ], [ %.sroa.0175.1196, %.body ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0175.0217) #36
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit91
 
-_ZNSt6vectorIiSaIiEED2Ev.exit91:                  ; preds = %.body, %210
-  %.pn.pn211 = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %.pn.pn219, %210 ]
-  %.sroa.0185.0210 = phi ptr [ %.sroa.0185.1240, %.body ], [ %.sroa.0185.0218, %210 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit91:                  ; preds = %.body, %.body.thread220
+  %.pn.pn211 = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %.pn.pn219, %.body.thread220 ]
+  %.sroa.0185.0210 = phi ptr [ %.sroa.0185.1240, %.body ], [ %.sroa.0185.0218, %.body.thread220 ]
   %.not.i.i.i92 = icmp eq ptr %.sroa.0185.0210, null
-  br i1 %.not.i.i.i92, label %_ZNSt6vectorIiSaIiEED2Ev.exit93, label %211
+  br i1 %.not.i.i.i92, label %_ZNSt6vectorIiSaIiEED2Ev.exit93, label %210
 
-211:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit91
+210:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit91
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0185.0210) #36
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit93
 
-_ZNSt6vectorIiSaIiEED2Ev.exit93:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit91, %211
+_ZNSt6vectorIiSaIiEED2Ev.exit93:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit91, %210
   resume { ptr, i32 } %.pn.pn211
 }
 
@@ -11785,7 +11785,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 121:                                              ; preds = %21, %.noexc
   %122 = landingpad { ptr, i32 }
           cleanup
-  br label %133
+  br label %130
 
 123:                                              ; preds = %.invoke
   %124 = landingpad { ptr, i32 }
@@ -11804,22 +11804,22 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %129 = phi ptr [ %.pre, %125 ], [ null, %123 ]
   %.pn45 = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ]
   call void @free(ptr noundef %129) #21
-  br label %133
+  br label %130
+
+130:                                              ; preds = %128, %121
+  %.pn45.pn = phi { ptr, i32 } [ %.pn45, %128 ], [ %122, %121 ]
+  %131 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %131) #21
+  resume { ptr, i32 } %.pn45.pn
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit._crit_edge: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.preheader
-  %130 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %130) #21
-  %131 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %131) #21
-  %132 = load ptr, ptr %7, align 8
+  %132 = load ptr, ptr %9, align 8
   call void @free(ptr noundef %132) #21
-  ret void
-
-133:                                              ; preds = %121, %128
-  %.pn45.pn = phi { ptr, i32 } [ %.pn45, %128 ], [ %122, %121 ]
+  %133 = load ptr, ptr %8, align 8
+  call void @free(ptr noundef %133) #21
   %134 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %134) #21
-  resume { ptr, i32 } %.pn45.pn
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -12700,8 +12700,8 @@ define hidden void @"_ZN3vim11change_list26_$LT$impl$u20$vim..Vim$GT$19push_to_c
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #47
   unreachable
 
-"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$text..selection..Selection$LT$editor..display_map..DisplayPoint$GT$$GT$$GT$17h929c785749dc2916E.exit": ; preds = %54, %51, %83, %81, %39
-  %.pn67 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %39 ], [ %lpad.phi, %81 ], [ %lpad.phi, %83 ], [ %52, %51 ], [ %52, %54 ]
+"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$text..selection..Selection$LT$editor..display_map..DisplayPoint$GT$$GT$$GT$17h929c785749dc2916E.exit": ; preds = %51, %54, %83, %81, %39
+  %.pn67 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %39 ], [ %lpad.phi, %81 ], [ %lpad.phi, %83 ], [ %52, %54 ], [ %52, %51 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$editor..display_map..DisplaySnapshot$GT$17hadd2b8ee046e5887E"(ptr noalias noundef nonnull align 8 dereferenceable(632) %6) #48
           to label %86 unwind label %79
 
@@ -23386,8 +23386,8 @@ define hidden void @"_ZN3vim6normal4yank26_$LT$impl$u20$vim..Vim$GT$11copy_range
   %40 = invoke noundef align 8 dereferenceable(32) ptr @_ZN6editor6Editor6buffer17hb6e1640a43abe99bE(ptr noundef nonnull align 8 %1)
           to label %49 unwind label %47
 
-.body:                                            ; preds = %234, %240, %199, %205, %47, %371
-  %.pn32.pn = phi { ptr, i32 } [ %.pn32102, %371 ], [ %48, %47 ], [ %200, %205 ], [ %200, %199 ], [ %235, %240 ], [ %235, %234 ]
+.body:                                            ; preds = %234, %240, %199, %205, %47, %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit.thread"
+  %.pn32.pn = phi { ptr, i32 } [ %.pn32102, %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit.thread" ], [ %48, %47 ], [ %200, %205 ], [ %200, %199 ], [ %235, %240 ], [ %235, %234 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4268)
   call void @llvm.experimental.noalias.scope.decl(metadata !4271)
   call void @llvm.experimental.noalias.scope.decl(metadata !4274)
@@ -23483,7 +23483,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit: ; preds = %.no
 75:                                               ; preds = %96, %72
   %76 = landingpad { ptr, i32 }
           cleanup
-  br label %372
+  br label %371
 
 77:                                               ; preds = %72
   %78 = load i64, ptr %15, align 8, !range !226, !noundef !5
@@ -23814,7 +23814,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit: ; preds = %.no
           to label %_ZN6editor6Editor20highlight_background17h414fb97c40309b6fE.exit unwind label %.loopexit.split-lp
 
 "_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit": ; preds = %100, %"_ZN4core3ptr197drop_in_place$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$rope..point..Point$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3b791baad780533fE.exit"
-  br i1 %.sroa.022.1, label %364, label %371
+  br i1 %.sroa.022.1, label %364, label %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit.thread"
 
 "_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit53": ; preds = %167, %164
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
@@ -24253,7 +24253,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit84: ; preds = %329, %326
   store i64 %357, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !4559
   br label %300
 
-358:                                              ; preds = %307, %372, %371, %362, %360
+358:                                              ; preds = %307, %371, %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit.thread", %362, %360
   %359 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #47
@@ -24277,26 +24277,26 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit84: ; preds = %329, %326
   call void @llvm.experimental.noalias.scope.decl(metadata !4568)
   %365 = load i64, ptr %33, align 8, !alias.scope !4571, !noalias !4574, !noundef !5
   %366 = icmp eq i64 %365, 0
-  br i1 %366, label %372, label %367
+  br i1 %366, label %371, label %367
 
 367:                                              ; preds = %364
   %368 = shl nuw i64 %365, 4
   %369 = load ptr, ptr %84, align 8, !alias.scope !4571, !noalias !4574, !nonnull !5, !noundef !5
   call void @__rust_dealloc(ptr noundef nonnull %369, i64 noundef %368, i64 noundef 8) #46, !noalias !4576
-  br label %372
+  br label %371
 
 370:                                              ; preds = %96
   unreachable
 
-371:                                              ; preds = %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit", %372
-  %.pn32102 = phi { ptr, i32 } [ %.pn32.ph, %372 ], [ %.pn, %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit" ]
+"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit.thread": ; preds = %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit", %371
+  %.pn32102 = phi { ptr, i32 } [ %.pn32.ph, %371 ], [ %.pn, %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit" ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$multi_buffer..MultiBufferSnapshot$GT$17ha7f30677deb2c761E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %35) #48
           to label %.body unwind label %358
 
-372:                                              ; preds = %75, %364, %367
+371:                                              ; preds = %75, %364, %367
   %.pn32.ph = phi { ptr, i32 } [ %76, %75 ], [ %.pn, %364 ], [ %.pn, %367 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h72b36b59dff56c04E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34) #48
-          to label %371 unwind label %358
+          to label %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit.thread" unwind label %358
 
 "_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$rope..point..Point$GT$$GT$$GT$17h2f064c6bf62db944E.exit": ; preds = %43, %.body
   resume { ptr, i32 } %.pn32.pn

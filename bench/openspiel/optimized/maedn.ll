@@ -2635,7 +2635,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.thread:             ; preds = %60
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit42, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp43, %.loopexit.split-lp.loopexit.split-lp ]
   %118 = load ptr, ptr %73, align 8
   %.not.i.i.i23 = icmp eq ptr %118, null
-  br i1 %.not.i.i.i23, label %_ZNSt6vectorIN10open_spiel5maedn15TurnHistoryInfoESaIS2_EED2Ev.exit, label %119
+  br i1 %.not.i.i.i23, label %.body, label %119
 
 119:                                              ; preds = %.loopexit.split-lp
   %120 = load ptr, ptr %74, align 8
@@ -2643,7 +2643,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.thread:             ; preds = %60
   %122 = ptrtoint ptr %118 to i64
   %123 = sub i64 %121, %122
   call void @_ZdlPvm(ptr noundef nonnull %118, i64 noundef %123) #25
-  br label %_ZNSt6vectorIN10open_spiel5maedn15TurnHistoryInfoESaIS2_EED2Ev.exit
+  br label %.body
 
 124:                                              ; preds = %.lr.ph49, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit34
   %125 = phi ptr [ %81, %.lr.ph49 ], [ %149, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit34 ]
@@ -2722,12 +2722,12 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit34:         ; preds = %_ZNSt6vectorIiSaIiE
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit34, %.preheader
   ret void
 
-_ZNSt6vectorIN10open_spiel5maedn15TurnHistoryInfoESaIS2_EED2Ev.exit: ; preds = %119, %.loopexit.split-lp
+.body:                                            ; preds = %119, %.loopexit.split-lp
   %151 = load ptr, ptr %68, align 8
   %.not.i.i.i35 = icmp eq ptr %151, null
   br i1 %.not.i.i.i35, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %152
 
-152:                                              ; preds = %_ZNSt6vectorIN10open_spiel5maedn15TurnHistoryInfoESaIS2_EED2Ev.exit
+152:                                              ; preds = %.body
   %153 = load ptr, ptr %72, align 8
   %154 = ptrtoint ptr %153 to i64
   %155 = ptrtoint ptr %151 to i64
@@ -2735,7 +2735,7 @@ _ZNSt6vectorIN10open_spiel5maedn15TurnHistoryInfoESaIS2_EED2Ev.exit: ; preds = %
   call void @_ZdlPvm(ptr noundef nonnull %151, i64 noundef %156) #25
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %152, %_ZNSt6vectorIN10open_spiel5maedn15TurnHistoryInfoESaIS2_EED2Ev.exit
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %152, %.body
   %.pr = load ptr, ptr %67, align 8
   %.not.i.i.i36 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i36, label %_ZNSt6vectorIiSaIiEED2Ev.exit37, label %157

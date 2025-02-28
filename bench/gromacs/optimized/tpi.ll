@@ -10242,7 +10242,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPimiET_
   %946 = getelementptr inbounds nuw i32, ptr %938, i64 %945
   store i32 %932, ptr %946, align 4, !tbaa !182
   invoke void @_Z8gmx_sumimPiPK9t_commrec(i64 noundef %935, ptr noundef nonnull %938, ptr noundef nonnull %920)
-          to label %947 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit14.i
+          to label %947 unwind label %.thread.i
 
 947:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i
   %948 = icmp eq ptr %938, %.0.i.i.i.i.i.i
@@ -10266,7 +10266,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPimiET_
   %.not.i.i.i339 = icmp eq ptr %954, %.0.i.i.i.i.i.i
   br i1 %.not.i.i.i339, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !751
 
-_ZNSt6vectorIiSaIiEED2Ev.exit14.i:                ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i
+.thread.i:                                        ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i
   %955 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %938, i64 noundef %937) #27
@@ -10970,8 +10970,8 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit: ; preds = %_ZN14gmx_ffpara
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit, %1249
   ret void
 
-.body:                                            ; preds = %1012, %_ZNSt6vectorIiSaIiEED2Ev.exit14.i, %824, %831, %893, %830, %685, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit386, %1110, %1010, %683
-  %.pn259.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %684, %683 ], [ %686, %685 ], [ %1011, %1010 ], [ %.pn248.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit386 ], [ %.pn242.pn.pn, %1110 ], [ %825, %824 ], [ %.pn255, %830 ], [ %.pn259, %893 ], [ %832, %831 ], [ %1013, %1012 ], [ %955, %_ZNSt6vectorIiSaIiEED2Ev.exit14.i ]
+.body:                                            ; preds = %1012, %.thread.i, %824, %831, %893, %830, %685, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit386, %1110, %1010, %683
+  %.pn259.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %684, %683 ], [ %686, %685 ], [ %1011, %1010 ], [ %.pn248.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit386 ], [ %.pn242.pn.pn, %1110 ], [ %825, %824 ], [ %.pn255, %830 ], [ %.pn259, %893 ], [ %832, %831 ], [ %1013, %1012 ], [ %955, %.thread.i ]
   call void @_ZN3gmx21TestParticleInsertionD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %18) #28
   br label %1252
 

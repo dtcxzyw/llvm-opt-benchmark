@@ -16628,7 +16628,7 @@ _ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFra
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #33
   %232 = icmp eq ptr %8, %.133
   %or.cond = select i1 %.1, i1 true, i1 %232
-  br i1 %or.cond, label %.loopexit, label %.preheader
+  br i1 %or.cond, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %231, %_ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEED2Ev.exit87
   %233 = phi ptr [ %234, %_ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEED2Ev.exit87 ], [ %.133, %231 ]
@@ -16649,9 +16649,9 @@ _ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFra
 
 _ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEED2Ev.exit87: ; preds = %.preheader
   %242 = icmp eq ptr %234, %8
-  br i1 %242, label %.loopexit, label %.preheader
+  br i1 %242, label %.thread, label %.preheader
 
-.loopexit:                                        ; preds = %_ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEED2Ev.exit87, %231
+.thread:                                          ; preds = %_ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEED2Ev.exit87, %231
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #33
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }

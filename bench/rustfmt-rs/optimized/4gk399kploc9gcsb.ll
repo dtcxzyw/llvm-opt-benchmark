@@ -301,7 +301,7 @@ define hidden void @_ZN12rustc_errors10diagnostic10Diagnostic3new17h0980e284e3c1
 
 9:                                                ; preds = %4
   invoke void @_ZN5alloc5alloc18handle_alloc_error17hb78d9ab02c2055b6E(i64 noundef 8, i64 noundef 72) #47
-          to label %.noexc unwind label %16
+          to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %9
   unreachable
@@ -319,20 +319,20 @@ define hidden void @_ZN12rustc_errors10diagnostic10Diagnostic3new17h0980e284e3c1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 
-13:                                               ; preds = %16
+13:                                               ; preds = %15
   %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7bbd4fcd6f160435E() #48
   unreachable
 
-15:                                               ; preds = %16
-  resume { ptr, i32 } %17
+.thread:                                          ; preds = %15
+  resume { ptr, i32 } %16
 
-16:                                               ; preds = %9
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %9
+  %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr60drop_in_place$LT$rustc_error_messages..DiagnosticMessage$GT$17h6e5c0be348e2f69cE.llvm.3925314320651144617"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2) #49
-          to label %15 unwind label %13
+          to label %.thread unwind label %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4770,10 +4770,11 @@ define hidden void @_ZN3std9panicking3try17h778073eaddf10822E(ptr noalias nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h7bc76ed134fc408eE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+__rust_try.llvm.3925314320651144617.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !876, !noundef !5
   store i64 0, ptr %.val.i, align 8, !noalias !879
-  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %2, align 1, !noalias !879
+  %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  store i8 2, ptr %1, align 1, !noalias !879
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 

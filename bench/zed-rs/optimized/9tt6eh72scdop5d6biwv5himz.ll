@@ -884,8 +884,8 @@ define hidden noundef nonnull ptr @"_ZN8sum_tree16SumTree$LT$T$GT$13from_par_ite
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #27, !noalias !272
   unreachable
 
-common.resume:                                    ; preds = %50, %43, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %30, %50 ], [ %44, %43 ]
+common.resume:                                    ; preds = %.body.thread, %43, %12
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %30, %.body.thread ], [ %44, %43 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5rayon4iter13from_par_iter16collect_extended17h63b41e2442fb54beE.exit: ; preds = %2
@@ -941,7 +941,7 @@ _ZN5rayon4iter13from_par_iter16collect_extended17h63b41e2442fb54beE.exit: ; pred
   %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..sync..ArcInner$LT$sum_tree..Node$LT$rope..Chunk$GT$$GT$$GT$17h32d9ea7921ea8261E"(ptr noalias noundef nonnull align 8 dereferenceable(2240) %5) #28
-          to label %50 unwind label %31
+          to label %.body.thread unwind label %31
 
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
@@ -1007,12 +1007,12 @@ _ZN5rayon4iter13from_par_iter16collect_extended17h63b41e2442fb54beE.exit: ; pred
   %49 = icmp ult i64 %48, 2
   br i1 %49, label %._crit_edge, label %40
 
-50:                                               ; preds = %29
+.body.thread:                                     ; preds = %29
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$GT$17ha1e17e3dea9606d6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #28
-          to label %common.resume unwind label %51
+          to label %common.resume unwind label %50
 
-51:                                               ; preds = %50
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %.body.thread
+  %51 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #27
   unreachable

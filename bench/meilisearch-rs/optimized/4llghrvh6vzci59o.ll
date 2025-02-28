@@ -44984,7 +44984,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17had050e1855d6b7a0E(p
 
 37:                                               ; preds = %24
   invoke void @"_ZN4core3ptr57drop_in_place$LT$serde_json..value..ser..SerializeVec$GT$17ha31749c0686192aeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #44
-          to label %40 unwind label %38
+          to label %.body unwind label %38
 
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
@@ -44992,7 +44992,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17had050e1855d6b7a0E(p
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #42
   unreachable
 
-40:                                               ; preds = %37
+.body:                                            ; preds = %37
   resume { ptr, i32 } %25
 }
 

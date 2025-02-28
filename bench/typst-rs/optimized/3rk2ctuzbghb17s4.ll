@@ -2802,19 +2802,21 @@ define internal fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h2ee39e318661b84aE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
+__rust_try.llvm.11057974413330164255.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !245, !noundef !12
   store i64 0, ptr %.val.i, align 8, !noalias !248
-  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %2, align 1, !noalias !248
+  %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  store i8 2, ptr %1, align 1, !noalias !248
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17hde548be308b18df6E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
+__rust_try.llvm.11057974413330164255.exit:
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !251, !noundef !12
   store i64 0, ptr %.val.i, align 8, !noalias !254
-  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  store i8 2, ptr %2, align 1, !noalias !254
+  %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
+  store i8 2, ptr %1, align 1, !noalias !254
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -93103,8 +93105,8 @@ define hidden void @_ZN5typst4eval6access11access_dict17h0447fb808ee67f90E(ptr n
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #83
   unreachable
 
-common.resume:                                    ; preds = %167, %132, %138, %62, %58, %84, %80, %124, %.noexc3.i.i, %150, %146, %155, %151
-  %common.resume.op = phi { ptr, i32 } [ %59, %62 ], [ %59, %58 ], [ %81, %84 ], [ %81, %80 ], [ %115, %124 ], [ %115, %.noexc3.i.i ], [ %94, %150 ], [ %94, %146 ], [ %152, %155 ], [ %152, %151 ], [ %133, %132 ], [ %139, %138 ], [ %168, %167 ]
+common.resume:                                    ; preds = %167, %132, %138, %62, %58, %84, %80, %124, %.thread.i.i, %150, %146, %155, %151
+  %common.resume.op = phi { ptr, i32 } [ %59, %62 ], [ %59, %58 ], [ %81, %84 ], [ %81, %80 ], [ %115, %124 ], [ %115, %.thread.i.i ], [ %94, %150 ], [ %94, %146 ], [ %152, %155 ], [ %152, %151 ], [ %133, %132 ], [ %139, %138 ], [ %168, %167 ]
   resume { ptr, i32 } %common.resume.op
 
 80:                                               ; preds = %92, %select.unfold
@@ -93229,7 +93231,7 @@ select.unfold:                                    ; preds = %52
 
 113:                                              ; preds = %114
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
-          to label %.noexc3.i.i unwind label %119, !noalias !23332
+          to label %.thread.i.i unwind label %119, !noalias !23332
 
 114:                                              ; preds = %112
   %115 = landingpad { ptr, i32 }
@@ -93237,7 +93239,7 @@ select.unfold:                                    ; preds = %52
   %116 = getelementptr inbounds nuw i8, ptr %10, i64 15
   %117 = load i8, ptr %116, align 1, !alias.scope !23336, !noalias !23332, !noundef !12
   %118 = icmp sgt i8 %117, -1
-  br i1 %118, label %113, label %.noexc3.i.i
+  br i1 %118, label %113, label %.thread.i.i
 
 119:                                              ; preds = %124, %113
   %120 = landingpad { ptr, i32 }
@@ -93245,13 +93247,13 @@ select.unfold:                                    ; preds = %52
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #83, !noalias !23343
   unreachable
 
-.noexc3.i.i:                                      ; preds = %114, %113
+.thread.i.i:                                      ; preds = %114, %113
   %121 = getelementptr inbounds nuw i8, ptr %11, i64 15
   %122 = load i8, ptr %121, align 1, !alias.scope !23344, !noalias !23343, !noundef !12
   %123 = icmp sgt i8 %122, -1
   br i1 %123, label %124, label %common.resume
 
-124:                                              ; preds = %.noexc3.i.i
+124:                                              ; preds = %.thread.i.i
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
           to label %common.resume unwind label %119, !noalias !23343
 
@@ -103233,7 +103235,7 @@ define internal fastcc { ptr, i64 } @_ZN5typst6layout6length6Length22ensure_that
 
 80:                                               ; preds = %81
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
-          to label %.noexc3.i.i unwind label %86, !noalias !25282
+          to label %.thread.i.i unwind label %86, !noalias !25282
 
 81:                                               ; preds = %79
   %82 = landingpad { ptr, i32 }
@@ -103241,7 +103243,7 @@ define internal fastcc { ptr, i64 } @_ZN5typst6layout6length6Length22ensure_that
   %83 = getelementptr inbounds nuw i8, ptr %10, i64 15
   %84 = load i8, ptr %83, align 1, !alias.scope !25286, !noalias !25282, !noundef !12
   %85 = icmp sgt i8 %84, -1
-  br i1 %85, label %80, label %.noexc3.i.i
+  br i1 %85, label %80, label %.thread.i.i
 
 86:                                               ; preds = %91, %80
   %87 = landingpad { ptr, i32 }
@@ -103249,13 +103251,13 @@ define internal fastcc { ptr, i64 } @_ZN5typst6layout6length6Length22ensure_that
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #83, !noalias !25293
   unreachable
 
-.noexc3.i.i:                                      ; preds = %81, %80
+.thread.i.i:                                      ; preds = %81, %80
   %88 = getelementptr inbounds nuw i8, ptr %11, i64 15
   %89 = load i8, ptr %88, align 1, !alias.scope !25294, !noalias !25293, !noundef !12
   %90 = icmp sgt i8 %89, -1
   br i1 %90, label %91, label %common.resume
 
-91:                                               ; preds = %.noexc3.i.i
+91:                                               ; preds = %.thread.i.i
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
           to label %common.resume unwind label %86, !noalias !25293
 
@@ -103324,8 +103326,8 @@ define internal fastcc { ptr, i64 } @_ZN5typst6layout6length6Length22ensure_that
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #83, !noalias !25316
   unreachable
 
-common.resume:                                    ; preds = %35, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit26", %91, %.noexc3.i.i, %120, %116, %99, %105
-  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %106, %105 ], [ %.pn, %35 ], [ %.pn, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit26" ], [ %82, %91 ], [ %82, %.noexc3.i.i ], [ %61, %120 ], [ %61, %116 ]
+common.resume:                                    ; preds = %35, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit26", %91, %.thread.i.i, %120, %116, %99, %105
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %106, %105 ], [ %.pn, %35 ], [ %.pn, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit26" ], [ %82, %91 ], [ %82, %.thread.i.i ], [ %61, %120 ], [ %61, %116 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4d7ae720d5e6be4eE.exit": ; preds = %103

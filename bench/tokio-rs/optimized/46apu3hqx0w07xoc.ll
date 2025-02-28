@@ -7601,8 +7601,8 @@ define hidden void @_ZN5tokio7runtime7builder7Builder22build_threaded_runtime17h
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %.sroa.9)
   br label %123
 
-51:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h61bd32dcab581fd2E.exit72.thread"
-  br i1 %.1129, label %133, label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit74"
+51:                                               ; preds = %.thread91
+  br i1 %.195, label %133, label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit74"
 
 .thread86:                                        ; preds = %44
   %52 = landingpad { ptr, i32 }
@@ -7669,7 +7669,7 @@ define hidden void @_ZN5tokio7runtime7builder7Builder22build_threaded_runtime17h
   unreachable
 
 74:                                               ; preds = %63, %80
-  %.sroa.5138.0 = phi ptr [ %.val54, %80 ], [ undef, %63 ]
+  %.sroa.5136.0 = phi ptr [ %.val54, %80 ], [ undef, %63 ]
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %76 = load ptr, ptr %75, align 8, !noundef !17
   %77 = icmp eq ptr %76, null
@@ -7678,7 +7678,7 @@ define hidden void @_ZN5tokio7runtime7builder7Builder22build_threaded_runtime17h
 78:                                               ; preds = %89
   %79 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h61bd32dcab581fd2E.exit72.thread"
+  br label %.thread91
 
 80:                                               ; preds = %69
   %81 = icmp ne ptr %.val54, null
@@ -7702,7 +7702,7 @@ define hidden void @_ZN5tokio7runtime7builder7Builder22build_threaded_runtime17h
   br label %89
 
 89:                                               ; preds = %74, %87
-  %.sroa.5140.0 = phi ptr [ %.val52, %87 ], [ undef, %74 ]
+  %.sroa.5138.0 = phi ptr [ %.val52, %87 ], [ undef, %74 ]
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %91 = load i32, ptr %90, align 8, !range !332, !noundef !17
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -7725,11 +7725,11 @@ define hidden void @_ZN5tokio7runtime7builder7Builder22build_threaded_runtime17h
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %67, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %.sroa.5138.0, ptr %105, align 8
+  store ptr %.sroa.5136.0, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %76, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %.sroa.5140.0, ptr %107, align 8
+  store ptr %.sroa.5138.0, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 68
   store i8 %99, ptr %108, align 4
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -7825,14 +7825,14 @@ define hidden void @_ZN5tokio7runtime7builder7Builder22build_threaded_runtime17h
 123:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17ha17145d6ce3ac4a6E.exit68", %49
   ret void
 
-124:                                              ; preds = %.thread122, %132, %119, %133, %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h61bd32dcab581fd2E.exit72.thread", %127, %.thread105
+124:                                              ; preds = %.thread122, %132, %119, %133, %.thread91, %127, %.thread105
   %125 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #39
   unreachable
 
 126:                                              ; preds = %.thread105
-  br i1 %.131110, label %127, label %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h61bd32dcab581fd2E.exit72.thread"
+  br i1 %.131110, label %127, label %.thread91
 
 .thread105:                                       ; preds = %119, %.thread115
   %.pn46114 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread115 ], [ %120, %119 ]
@@ -7842,33 +7842,33 @@ define hidden void @_ZN5tokio7runtime7builder7Builder22build_threaded_runtime17h
 
 127:                                              ; preds = %126
   invoke void @"_ZN4core3ptr76drop_in_place$LT$tokio..runtime..scheduler..multi_thread..worker..Launch$GT$17h8883f73de050f3deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #38
-          to label %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h61bd32dcab581fd2E.exit72.thread" unwind label %124
+          to label %.thread91 unwind label %124
 
 128:                                              ; preds = %59, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h18ac4f87ca9fc323E.exit"
   %129 = landingpad { ptr, i32 }
           cleanup
   %130 = atomicrmw sub ptr %.fca.0.extract, i64 1 release, align 8, !noalias !810
   %131 = icmp eq i64 %130, 1
-  br i1 %131, label %132, label %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h61bd32dcab581fd2E.exit72.thread"
+  br i1 %131, label %132, label %.thread91
 
 132:                                              ; preds = %128
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hbe1f6e056c8cdec0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
-          to label %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h61bd32dcab581fd2E.exit72.thread" unwind label %124
+          to label %.thread91 unwind label %124
 
-"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h61bd32dcab581fd2E.exit72.thread": ; preds = %127, %126, %78, %128, %132
-  %.pn46.pn.pn130 = phi { ptr, i32 } [ %129, %132 ], [ %129, %128 ], [ %.pn46114, %127 ], [ %.pn46114, %126 ], [ %79, %78 ]
-  %.1129 = phi i1 [ true, %132 ], [ true, %128 ], [ false, %127 ], [ false, %126 ], [ false, %78 ]
+.thread91:                                        ; preds = %127, %126, %78, %128, %132
+  %.pn46.pn.pn96 = phi { ptr, i32 } [ %129, %132 ], [ %129, %128 ], [ %.pn46114, %127 ], [ %.pn46114, %126 ], [ %79, %78 ]
+  %.195 = phi i1 [ true, %132 ], [ true, %128 ], [ false, %127 ], [ false, %126 ], [ false, %78 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$tokio..runtime..blocking..pool..BlockingPool$GT$17h1fd7d3e43bf61171E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14) #38
           to label %51 unwind label %124
 
 133:                                              ; preds = %.thread86, %51
-  %.pn46.pn.pn.pn90 = phi { ptr, i32 } [ %52, %.thread86 ], [ %.pn46.pn.pn130, %51 ]
+  %.pn46.pn.pn.pn90 = phi { ptr, i32 } [ %52, %.thread86 ], [ %.pn46.pn.pn96, %51 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Handle$GT$17h558090c734fe91abE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %17) #38
           to label %.thread122 unwind label %124
 
 "_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit74": ; preds = %.thread122, %51
-  %.pn46.pn.pn.pn89124 = phi { ptr, i32 } [ %.pn46.pn.pn130, %51 ], [ %.pn46.pn.pn.pn90, %.thread122 ]
+  %.pn46.pn.pn.pn89124 = phi { ptr, i32 } [ %.pn46.pn.pn96, %51 ], [ %.pn46.pn.pn.pn90, %.thread122 ]
   resume { ptr, i32 } %.pn46.pn.pn.pn89124
 
 .thread122:                                       ; preds = %133

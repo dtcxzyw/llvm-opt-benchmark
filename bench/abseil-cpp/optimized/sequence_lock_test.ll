@@ -8481,7 +8481,7 @@ _ZN4absl10FixedArrayISt6atomicImELm18446744073709551615ESaIS2_EED2Ev.exit: ; pre
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #32
   ret void
 
-127:                                              ; preds = %69, %_ZN7testing7MessageD2Ev.exit71
+127:                                              ; preds = %_ZN7testing7MessageD2Ev.exit71, %69
   %.pn27.pn.pn = phi { ptr, i32 } [ %.pn27.pn, %_ZN7testing7MessageD2Ev.exit71 ], [ %70, %69 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #32
   %128 = load ptr, ptr %6, align 8, !tbaa !306

@@ -7680,8 +7680,8 @@ _ZN6icu_7715MaybeStackArrayIcLi30EE12releaseArrayEv.exit.i.i: ; preds = %17, %15
   store i8 1, ptr %10, align 4, !tbaa !101
   br label %_ZN6icu_7715MaybeStackArrayIcLi30EEC2Ei10UErrorCode.exit
 
-common.resume:                                    ; preds = %80, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %81, %80 ]
+common.resume:                                    ; preds = %.body, %19
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %73, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %17, %12
@@ -7731,7 +7731,7 @@ _ZN6icu_7715MaybeStackArrayIcLi30EEC2Ei10UErrorCode.exit.._crit_edge_crit_edge: 
   %43 = load i32, ptr %42, align 4, !tbaa !27
   %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 100, ptr noundef nonnull @.str.18, i32 noundef %28, i32 noundef %30, ptr noundef nonnull %34, ptr noundef nonnull %38, ptr noundef %spec.select, ptr noundef nonnull @.str.22, i32 noundef %43) #26
   invoke void @_ZN6icu_7713UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %4, i32 noundef -1, i32 noundef 0)
-          to label %73 unwind label %80
+          to label %74 unwind label %.body
 
 45:                                               ; preds = %.lr.ph, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit ]
@@ -7781,35 +7781,35 @@ _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %52, %54
   %72 = icmp slt i64 %indvars.iv.next, %71
   br i1 %72, label %45, label %._crit_edge, !llvm.loop !102
 
-73:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4) #26
-  %74 = load i8, ptr %10, align 4, !tbaa !101
-  %.not.i.i12 = icmp eq i8 %74, 0
-  br i1 %.not.i.i12, label %_ZN6icu_7715MaybeStackArrayIcLi30EED2Ev.exit, label %75
-
-75:                                               ; preds = %73
-  %76 = load ptr, ptr %3, align 8, !tbaa !98
-  invoke void @uprv_free_77(ptr noundef %76)
-          to label %_ZN6icu_7715MaybeStackArrayIcLi30EED2Ev.exit unwind label %77
-
-77:                                               ; preds = %75
-  %78 = landingpad { ptr, i32 }
-          catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #28
-  unreachable
-
-_ZN6icu_7715MaybeStackArrayIcLi30EED2Ev.exit:     ; preds = %73, %75
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
-  ret void
-
-80:                                               ; preds = %._crit_edge
-  %81 = landingpad { ptr, i32 }
+.body:                                            ; preds = %._crit_edge
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4) #26
   call void @_ZN6icu_7715MaybeStackArrayIcLi30EED2Ev(ptr noundef nonnull align 8 dereferenceable(43) %3) #26
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
   br label %common.resume
+
+74:                                               ; preds = %._crit_edge
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4) #26
+  %75 = load i8, ptr %10, align 4, !tbaa !101
+  %.not.i.i12 = icmp eq i8 %75, 0
+  br i1 %.not.i.i12, label %_ZN6icu_7715MaybeStackArrayIcLi30EED2Ev.exit, label %76
+
+76:                                               ; preds = %74
+  %77 = load ptr, ptr %3, align 8, !tbaa !98
+  invoke void @uprv_free_77(ptr noundef %77)
+          to label %_ZN6icu_7715MaybeStackArrayIcLi30EED2Ev.exit unwind label %78
+
+78:                                               ; preds = %76
+  %79 = landingpad { ptr, i32 }
+          catch ptr null
+  %80 = extractvalue { ptr, i32 } %79, 0
+  call void @__clang_call_terminate(ptr %80) #28
+  unreachable
+
+_ZN6icu_7715MaybeStackArrayIcLi30EED2Ev.exit:     ; preds = %74, %76
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  ret void
 }
 
 ; Function Attrs: nofree nounwind

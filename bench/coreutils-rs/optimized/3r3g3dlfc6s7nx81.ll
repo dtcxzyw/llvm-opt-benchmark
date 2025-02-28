@@ -448,11 +448,11 @@ common.resume:                                    ; preds = %36, %21
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h4c2c700f9abdc6c8E.exit": ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.0.0.copyload.i1 = load ptr, ptr %40, align 8, !noalias !110, !nonnull !30, !noundef !30
-  %.sroa.42.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sroa.42.0.copyload.i3 = load i64, ptr %.sroa.42.0..sroa_idx.i2, align 8, !noalias !110
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i1, i64 184
-  %42 = getelementptr inbounds { [3 x i64] }, ptr %41, i64 %.sroa.42.0.copyload.i3
+  %.sroa.0.0.copyload.i2 = load ptr, ptr %40, align 8, !noalias !110, !nonnull !30, !noundef !30
+  %.sroa.42.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sroa.42.0.copyload.i4 = load i64, ptr %.sroa.42.0..sroa_idx.i3, align 8, !noalias !110
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i2, i64 184
+  %42 = getelementptr inbounds { [3 x i64] }, ptr %41, i64 %.sroa.42.0.copyload.i4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !118
   %.pr = load i64, ptr %14, align 8, !alias.scope !120

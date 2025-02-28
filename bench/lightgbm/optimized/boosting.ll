@@ -3077,7 +3077,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc30
 35:                                               ; preds = %26, %25
   %36 = landingpad { ptr, i32 }
           cleanup
-  br label %112
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit53
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -3282,13 +3282,13 @@ _ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit: ; preds = %
 105:                                              ; preds = %64
   %106 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit53
+  br label %.thread
 
 107:                                              ; preds = %68
   %108 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %67) #30
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit53
+  br label %.thread
 
 _ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit51.loopexit: ; preds = %_ZNKSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -3306,15 +3306,15 @@ _ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit51: ; preds =
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
   tail call void %111(ptr noundef nonnull align 8 dereferenceable(648) %67) #21
+  br label %.thread
+
+.thread:                                          ; preds = %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit51, %107, %105
+  %.pn2698 = phi { ptr, i32 } [ %106, %105 ], [ %108, %107 ], [ %lpad.phi, %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit51 ]
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.067.0133) #30
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit53
 
-_ZNSt6vectorIiSaIiEED2Ev.exit53:                  ; preds = %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit51, %107, %105
-  %.pn26.ph = phi { ptr, i32 } [ %106, %105 ], [ %108, %107 ], [ %lpad.phi, %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit51 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.067.0133) #30
-  br label %112
-
-112:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit53, %35
-  %.pn26.pn = phi { ptr, i32 } [ %.pn26.ph, %_ZNSt6vectorIiSaIiEED2Ev.exit53 ], [ %36, %35 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit53:                  ; preds = %.thread, %35
+  %.pn26.pn = phi { ptr, i32 } [ %36, %35 ], [ %.pn2698, %.thread ]
   call void @_ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #21
   resume { ptr, i32 } %.pn26.pn

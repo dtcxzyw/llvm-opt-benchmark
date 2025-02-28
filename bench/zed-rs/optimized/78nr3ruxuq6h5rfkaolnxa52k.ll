@@ -13846,7 +13846,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %16, ptr noundef nonnull align 8 dereferenceable(240) %3, i64 240, i1 false)
   br label %13
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hd94887994cbec9c2E.llvm.9821464140440248780.exit": ; preds = %17, %21
+.thread:                                          ; preds = %17, %21
   resume { ptr, i32 } %18
 
 17:                                               ; preds = %4
@@ -13854,11 +13854,11 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
           cleanup
   %19 = load i64, ptr %3, align 8, !range !360, !alias.scope !2651, !noundef !4
   %20 = icmp eq i64 %19, -9223372036854775807
-  br i1 %20, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hd94887994cbec9c2E.llvm.9821464140440248780.exit", label %21
+  br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %17
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17hd4ed3311557e41b3E"(ptr noalias noundef nonnull align 8 dereferenceable(240) %3)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hd94887994cbec9c2E.llvm.9821464140440248780.exit" unwind label %22
+          to label %.thread unwind label %22
 
 22:                                               ; preds = %21
   %23 = landingpad { ptr, i32 }
@@ -14008,16 +14008,16 @@ define internal fastcc void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
   br label %38
 
-44:                                               ; preds = %.thread21
+.thread:                                          ; preds = %.thread21
   resume { ptr, i32 } %eh.lpad-body24
 
 .thread21:                                        ; preds = %33, %.thread25
   %eh.lpad-body24 = phi { ptr, i32 } [ %22, %.thread25 ], [ %34, %33 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h1959c6778b9edf02E.llvm.9821464140440248780"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3) #41
-          to label %44 unwind label %45
+          to label %.thread unwind label %44
 
-45:                                               ; preds = %.thread21
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %.thread21
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #40
   unreachable

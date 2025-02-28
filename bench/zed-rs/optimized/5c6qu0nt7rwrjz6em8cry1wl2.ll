@@ -19662,7 +19662,7 @@ define void @_ZN7channel12channel_chat11ChannelChat14message_update17h9bc98fb97c
   %.sroa.06.0 = phi i8 [ %.sroa.06.259, %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit38.thread" ], [ %.sroa.06.259, %209 ], [ %.sroa.03.092, %.critedge21 ], [ %.sroa.03.092, %.critedge21.thread70 ]
   %.sroa.04.0 = phi i8 [ %.sroa.04.160, %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit38.thread" ], [ %.sroa.04.160, %209 ], [ %.sroa.03.092, %.critedge21 ], [ %.sroa.03.092, %.critedge21.thread70 ]
   %35 = trunc nuw i8 %.sroa.04.0 to i1
-  br i1 %35, label %210, label %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$u64$RP$$GT$$GT$17hb0c569d15ce1c0c3E.exit41"
+  br i1 %35, label %.thread, label %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$u64$RP$$GT$$GT$17hb0c569d15ce1c0c3E.exit41"
 
 36:                                               ; preds = %30, %7
   %.sroa.0.0.i = phi i8 [ %34, %30 ], [ 0, %7 ]
@@ -19954,7 +19954,7 @@ define void @_ZN7channel12channel_chat11ChannelChat14message_update17h9bc98fb97c
   invoke void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17hdad3783b3bec3c37E"(ptr noalias noundef nonnull align 8 dereferenceable(552) %22, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b2967b9594c92d80631b6cf020eae139.128)
           to label %127 unwind label %137
 
-140:                                              ; preds = %207, %146, %218, %128
+140:                                              ; preds = %207, %146, %.thread104, %128
   %141 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #27
@@ -20113,9 +20113,9 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.9435049372332397451.ex
   call void @__rust_dealloc(ptr noundef nonnull %192, i64 noundef %190, i64 noundef 8) #28, !noalias !2635
   br label %.thread103
 
-"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$u64$RP$$GT$$GT$17hb0c569d15ce1c0c3E.exit41": ; preds = %213, %210, %"_ZN4core3ptr132drop_in_place$LT$sum_tree..cursor..Cursor$LT$channel..channel_chat..ChannelMessage$C$channel..channel_chat..ChannelMessageId$GT$$GT$17hf4cc92296d142221E.exit40"
+"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$u64$RP$$GT$$GT$17hb0c569d15ce1c0c3E.exit41": ; preds = %212, %.thread, %"_ZN4core3ptr132drop_in_place$LT$sum_tree..cursor..Cursor$LT$channel..channel_chat..ChannelMessage$C$channel..channel_chat..ChannelMessageId$GT$$GT$17hf4cc92296d142221E.exit40"
   %193 = trunc nuw i8 %.sroa.06.0 to i1
-  br i1 %193, label %218, label %217
+  br i1 %193, label %.thread104, label %216
 
 194:                                              ; preds = %"_ZN4gpui3app13model_context21ModelContext$LT$T$GT$6notify17h6691eb0c2cdddbf9E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE.exit36"
   ret void
@@ -20172,27 +20172,27 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.9435049372332397451.ex
   store i32 0, ptr %38, align 8, !alias.scope !2666
   br label %"_ZN4core3ptr132drop_in_place$LT$sum_tree..cursor..Cursor$LT$channel..channel_chat..ChannelMessage$C$channel..channel_chat..ChannelMessageId$GT$$GT$17hf4cc92296d142221E.exit40"
 
-210:                                              ; preds = %"_ZN4core3ptr132drop_in_place$LT$sum_tree..cursor..Cursor$LT$channel..channel_chat..ChannelMessage$C$channel..channel_chat..ChannelMessageId$GT$$GT$17hf4cc92296d142221E.exit40"
+.thread:                                          ; preds = %"_ZN4core3ptr132drop_in_place$LT$sum_tree..cursor..Cursor$LT$channel..channel_chat..ChannelMessage$C$channel..channel_chat..ChannelMessageId$GT$$GT$17hf4cc92296d142221E.exit40"
   call void @llvm.experimental.noalias.scope.decl(metadata !2669)
   call void @llvm.experimental.noalias.scope.decl(metadata !2672)
   call void @llvm.experimental.noalias.scope.decl(metadata !2675)
-  %211 = load i64, ptr %4, align 8, !alias.scope !2678, !noalias !2681, !noundef !5
-  %212 = icmp eq i64 %211, 0
-  br i1 %212, label %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$u64$RP$$GT$$GT$17hb0c569d15ce1c0c3E.exit41", label %213
+  %210 = load i64, ptr %4, align 8, !alias.scope !2678, !noalias !2681, !noundef !5
+  %211 = icmp eq i64 %210, 0
+  br i1 %211, label %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$u64$RP$$GT$$GT$17hb0c569d15ce1c0c3E.exit41", label %212
 
-213:                                              ; preds = %210
-  %214 = mul nuw i64 %211, 24
-  %215 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %216 = load ptr, ptr %215, align 8, !alias.scope !2678, !noalias !2681, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %216, i64 noundef %214, i64 noundef 8) #28, !noalias !2683
+212:                                              ; preds = %.thread
+  %213 = mul nuw i64 %210, 24
+  %214 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %215 = load ptr, ptr %214, align 8, !alias.scope !2678, !noalias !2681, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %215, i64 noundef %213, i64 noundef 8) #28, !noalias !2683
   br label %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$u64$RP$$GT$$GT$17hb0c569d15ce1c0c3E.exit41"
 
-217:                                              ; preds = %218, %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$u64$RP$$GT$$GT$17hb0c569d15ce1c0c3E.exit41"
+216:                                              ; preds = %.thread104, %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$u64$RP$$GT$$GT$17hb0c569d15ce1c0c3E.exit41"
   resume { ptr, i32 } %.pn15.pn.pn
 
-218:                                              ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$u64$RP$$GT$$GT$17hb0c569d15ce1c0c3E.exit41"
+.thread104:                                       ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$u64$RP$$GT$$GT$17hb0c569d15ce1c0c3E.exit41"
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #26
-          to label %217 unwind label %140
+          to label %216 unwind label %140
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

@@ -42053,14 +42053,9 @@ default.unreachable:                              ; preds = %126
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
   %138 = icmp slt i32 %124, 0
-  br i1 %138, label %.split, label %.noexc27
+  br i1 %138, label %.split, label %.split9.thread
 
-.split:                                           ; preds = %137
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6)
-  call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.1a7877b4d25764724cd66411c116da83.44.llvm.6092180546091225645, i64 noundef 43, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.42.llvm.6092180546091225645, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.693) #36
-  unreachable
-
-.noexc27:                                         ; preds = %137
+.split9.thread:                                   ; preds = %137
   %139 = call noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags14with_trap_code17h523ab09698224c2aE(i16 noundef 0, i16 noundef 14, i16 undef), !noalias !6155
   %140 = or i16 %139, 1
   %141 = getelementptr inbounds nuw i8, ptr %15, i64 1
@@ -42083,13 +42078,18 @@ default.unreachable:                              ; preds = %126
   invoke void @_ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %15, ptr noalias noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(4856) %1, ptr noalias noundef nonnull readonly align 1 dereferenceable(13) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %3)
           to label %.noexc31 unwind label %145
 
-145:                                              ; preds = %.noexc27
+.split:                                           ; preds = %137
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6)
+  call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.1a7877b4d25764724cd66411c116da83.44.llvm.6092180546091225645, i64 noundef 43, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.42.llvm.6092180546091225645, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.693) #36
+  unreachable
+
+145:                                              ; preds = %.split9.thread
   %146 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef align 8 dereferenceable(40) %15) #38
           to label %common.resume unwind label %156
 
-.noexc31:                                         ; preds = %.noexc27
+.noexc31:                                         ; preds = %.split9.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !6164
   call fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef align 8 dereferenceable(40) %15)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)

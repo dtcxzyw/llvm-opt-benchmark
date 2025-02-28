@@ -796,7 +796,7 @@ _ZN2cvngIdLi2ELi2EEENS_4MatxIT_XT0_EXT1_EEERKS3_.exit: ; preds = %27
   store ptr %4, ptr %48, align 8, !tbaa !12
   store i64 8589934593, ptr %47, align 8
   invoke void @_ZN2cv3reg9MapAffineC1ERKNS_11_InputArrayES4_(ptr noundef nonnull align 8 dereferenceable(56) %44, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %49 unwind label %69
+          to label %49 unwind label %.thread22
 
 49:                                               ; preds = %42
   store ptr %44, ptr %0, align 8, !tbaa !71
@@ -821,7 +821,7 @@ _ZN2cvngIdLi2ELi2EEENS_4MatxIT_XT0_EXT1_EEERKS3_.exit: ; preds = %27
   %60 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %71 unwind label %61
+          to label %70 unwind label %61
 
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
@@ -848,21 +848,21 @@ _ZN2cvngIdLi2ELi2EEENS_4MatxIT_XT0_EXT1_EEERKS3_.exit: ; preds = %27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
   ret void
 
-69:                                               ; preds = %42
-  %70 = landingpad { ptr, i32 }
+.thread22:                                        ; preds = %42
+  %69 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #20
   call void @_ZdlPv(ptr noundef nonnull %44) #22
-  br label %72
+  br label %71
 
-71:                                               ; preds = %59
+70:                                               ; preds = %59
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #20
-  br label %72
+  br label %71
 
-72:                                               ; preds = %71, %69
-  %.pn.pn20 = phi { ptr, i32 } [ %70, %69 ], [ %60, %71 ]
+71:                                               ; preds = %70, %.thread22
+  %.pn.pn20 = phi { ptr, i32 } [ %69, %.thread22 ], [ %60, %70 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
   resume { ptr, i32 } %.pn.pn20

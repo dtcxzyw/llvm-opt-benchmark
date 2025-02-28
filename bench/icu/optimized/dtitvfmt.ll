@@ -2178,13 +2178,13 @@ _ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEEC2EPS1_R10UErrorCode.ex
   store ptr null, ptr %24, align 8, !tbaa !17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %23, ptr %25, align 8, !tbaa !21
-  br label %92
+  br label %93
 
 26:                                               ; preds = %17
   %27 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %15) #19
-  br label %98
+  br label %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit
 
 28:                                               ; preds = %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEEC2EPS1_R10UErrorCode.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #19
@@ -2285,7 +2285,7 @@ _ZN6icu_7728FieldPositionIteratorHandler8getErrorER10UErrorCode.exit: ; preds = 
 66:                                               ; preds = %28
   %67 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit
+  br label %89
 
 68:                                               ; preds = %85, %81, %_ZN6icu_7728FieldPositionIteratorHandler8getErrorER10UErrorCode.exit
   %69 = landingpad { ptr, i32 }
@@ -2335,12 +2335,12 @@ _ZN6icu_7728FieldPositionIteratorHandler8getErrorER10UErrorCode.exit: ; preds = 
           to label %86 unwind label %68
 
 86:                                               ; preds = %79, %85, %82, %63
-  %.sink54 = phi ptr [ null, %63 ], [ null, %82 ], [ %15, %85 ], [ %15, %79 ]
+  %.sink56 = phi ptr [ null, %63 ], [ null, %82 ], [ %15, %85 ], [ %15, %79 ]
   %.sink = phi i32 [ %64, %63 ], [ %83, %82 ], [ 0, %85 ], [ 0, %79 ]
   %.sroa.041.1 = phi ptr [ %15, %63 ], [ %15, %82 ], [ null, %85 ], [ null, %79 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7721FormattedDateIntervalE, i64 16), ptr %0, align 8, !tbaa !15
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink54, ptr %87, align 8, !tbaa !17
+  store ptr %.sink56, ptr %87, align 8, !tbaa !17
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sink, ptr %88, align 8, !tbaa !21
   call void @_ZN6icu_7728FieldPositionIteratorHandlerD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
@@ -2348,42 +2348,42 @@ _ZN6icu_7728FieldPositionIteratorHandler8getErrorER10UErrorCode.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #19
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #19
-  br label %92
+  br label %93
 
 _ZN6icu_775MutexD2Ev.exit38:                      ; preds = %70, %72, %77, %68
   %.pn31 = phi { ptr, i32 } [ %69, %68 ], [ %78, %77 ], [ %71, %70 ], [ %73, %72 ]
   call void @_ZN6icu_7728FieldPositionIteratorHandlerD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
-  br label %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit
+  br label %89
 
-_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit: ; preds = %_ZN6icu_775MutexD2Ev.exit38, %66
+89:                                               ; preds = %66, %_ZN6icu_775MutexD2Ev.exit38
   %.pn31.pn = phi { ptr, i32 } [ %.pn31, %_ZN6icu_775MutexD2Ev.exit38 ], [ %67, %66 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #19
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #19
-  %89 = load ptr, ptr %15, align 8, !tbaa !15
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %91 = load ptr, ptr %90, align 8
-  call void %91(ptr noundef nonnull align 8 dereferenceable(104) %15) #19
-  br label %98
+  %90 = load ptr, ptr %15, align 8, !tbaa !15
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %92 = load ptr, ptr %91, align 8
+  call void %92(ptr noundef nonnull align 8 dereferenceable(104) %15) #19
+  br label %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit
 
-92:                                               ; preds = %86, %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEEC2EPS1_R10UErrorCode.exit.thread
+93:                                               ; preds = %86, %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEEC2EPS1_R10UErrorCode.exit.thread
   %.sroa.041.0 = phi ptr [ %.sroa.041.1, %86 ], [ %15, %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEEC2EPS1_R10UErrorCode.exit.thread ]
-  %93 = icmp eq ptr %.sroa.041.0, null
-  br i1 %93, label %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit39, label %94
+  %94 = icmp eq ptr %.sroa.041.0, null
+  br i1 %94, label %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit39, label %95
 
-94:                                               ; preds = %92
-  %95 = load ptr, ptr %.sroa.041.0, align 8, !tbaa !15
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %97 = load ptr, ptr %96, align 8
-  call void %97(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.041.0) #19
+95:                                               ; preds = %93
+  %96 = load ptr, ptr %.sroa.041.0, align 8, !tbaa !15
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %98 = load ptr, ptr %97, align 8
+  call void %98(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.041.0) #19
   br label %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit39
 
-98:                                               ; preds = %26, %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit
-  %.pn31.pn.pn.pn = phi { ptr, i32 } [ %.pn31.pn, %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit ], [ %27, %26 ]
+_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit: ; preds = %89, %26
+  %.pn31.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %.pn31.pn, %89 ]
   resume { ptr, i32 } %.pn31.pn.pn.pn
 
-_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit39: ; preds = %94, %92, %11
+_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit39: ; preds = %95, %93, %11
   ret void
 }
 
@@ -2808,13 +2808,13 @@ _ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEEC2EPS1_R10UErrorCode.ex
   store ptr null, ptr %25, align 8, !tbaa !17
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %24, ptr %26, align 8, !tbaa !21
-  br label %72
+  br label %73
 
 27:                                               ; preds = %18
   %28 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %16) #19
-  br label %78
+  br label %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit
 
 29:                                               ; preds = %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEEC2EPS1_R10UErrorCode.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #19
@@ -2879,7 +2879,7 @@ _ZN6icu_7728FieldPositionIteratorHandler8getErrorER10UErrorCode.exit: ; preds = 
 49:                                               ; preds = %29
   %50 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit
+  br label %69
 
 51:                                               ; preds = %65, %64, %_ZN6icu_7728FieldPositionIteratorHandler8getErrorER10UErrorCode.exit
   %52 = landingpad { ptr, i32 }
@@ -2924,12 +2924,12 @@ _ZN6icu_7728FieldPositionIteratorHandler8getErrorER10UErrorCode.exit: ; preds = 
           to label %66 unwind label %51
 
 66:                                               ; preds = %62, %65, %46
-  %.sink50 = phi ptr [ null, %46 ], [ %16, %65 ], [ %16, %62 ]
+  %.sink52 = phi ptr [ null, %46 ], [ %16, %65 ], [ %16, %62 ]
   %.sink = phi i32 [ %47, %46 ], [ 0, %65 ], [ 0, %62 ]
   %.sroa.037.1 = phi ptr [ %16, %46 ], [ null, %65 ], [ null, %62 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7721FormattedDateIntervalE, i64 16), ptr %0, align 8, !tbaa !15
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink50, ptr %67, align 8, !tbaa !17
+  store ptr %.sink52, ptr %67, align 8, !tbaa !17
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sink, ptr %68, align 8, !tbaa !21
   call void @_ZN6icu_7728FieldPositionIteratorHandlerD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #19
@@ -2937,42 +2937,42 @@ _ZN6icu_7728FieldPositionIteratorHandler8getErrorER10UErrorCode.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #19
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #19
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #19
-  br label %72
+  br label %73
 
 _ZN6icu_775MutexD2Ev.exit34:                      ; preds = %53, %55, %60, %51
   %.pn29 = phi { ptr, i32 } [ %52, %51 ], [ %61, %60 ], [ %54, %53 ], [ %56, %55 ]
   call void @_ZN6icu_7728FieldPositionIteratorHandlerD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #19
-  br label %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit
+  br label %69
 
-_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit: ; preds = %_ZN6icu_775MutexD2Ev.exit34, %49
+69:                                               ; preds = %49, %_ZN6icu_775MutexD2Ev.exit34
   %.pn29.pn = phi { ptr, i32 } [ %.pn29, %_ZN6icu_775MutexD2Ev.exit34 ], [ %50, %49 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #19
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #19
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #19
-  %69 = load ptr, ptr %16, align 8, !tbaa !15
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load ptr, ptr %70, align 8
-  call void %71(ptr noundef nonnull align 8 dereferenceable(104) %16) #19
-  br label %78
+  %70 = load ptr, ptr %16, align 8, !tbaa !15
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = load ptr, ptr %71, align 8
+  call void %72(ptr noundef nonnull align 8 dereferenceable(104) %16) #19
+  br label %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit
 
-72:                                               ; preds = %66, %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEEC2EPS1_R10UErrorCode.exit.thread
+73:                                               ; preds = %66, %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEEC2EPS1_R10UErrorCode.exit.thread
   %.sroa.037.0 = phi ptr [ %.sroa.037.1, %66 ], [ %16, %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEEC2EPS1_R10UErrorCode.exit.thread ]
-  %73 = icmp eq ptr %.sroa.037.0, null
-  br i1 %73, label %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit35, label %74
+  %74 = icmp eq ptr %.sroa.037.0, null
+  br i1 %74, label %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit35, label %75
 
-74:                                               ; preds = %72
-  %75 = load ptr, ptr %.sroa.037.0, align 8, !tbaa !15
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %77 = load ptr, ptr %76, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.037.0) #19
+75:                                               ; preds = %73
+  %76 = load ptr, ptr %.sroa.037.0, align 8, !tbaa !15
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %78 = load ptr, ptr %77, align 8
+  call void %78(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.037.0) #19
   br label %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit35
 
-78:                                               ; preds = %27, %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit
-  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %.pn29.pn, %_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit ], [ %28, %27 ]
+_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit: ; preds = %69, %27
+  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %.pn29.pn, %69 ]
   resume { ptr, i32 } %.pn29.pn.pn.pn
 
-_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit35: ; preds = %74, %72, %12
+_ZN6icu_7712LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit35: ; preds = %75, %73, %12
   ret void
 }
 

@@ -5853,8 +5853,8 @@ _ZN2cv3dnnL12copyVecToMatIiEEvRNS_3MatERKSt6vectorIT_SaIS5_EE.exit.i: ; preds = 
   invoke fastcc void @_ZN2cv3dnnL21broadcast1D2TargetMatERNS_3MatERKSt6vectorIiSaIiEEi(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i32 noundef %5)
           to label %_ZN2cv3dnnL23broadcastStandardMatrixIiEEvRNS_3MatERKSt6vectorIT_SaIS5_EERKS4_IiSaIiEEi.exit unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit17.i
 
-common.resume:                                    ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit22.i46, %_ZNSt6vectorIiSaIiEED2Ev.exit22.i, %_ZNSt6vectorIiSaIiEED2Ev.exit17.i31, %_ZNSt6vectorIiSaIiEED2Ev.exit17.i
-  %common.resume.op = phi { ptr, i32 } [ %50, %_ZNSt6vectorIiSaIiEED2Ev.exit17.i ], [ %82, %_ZNSt6vectorIiSaIiEED2Ev.exit17.i31 ], [ %117, %_ZNSt6vectorIiSaIiEED2Ev.exit22.i ], [ %149, %_ZNSt6vectorIiSaIiEED2Ev.exit22.i46 ]
+common.resume:                                    ; preds = %.thread6.i46, %.thread6.i, %_ZNSt6vectorIiSaIiEED2Ev.exit17.i31, %_ZNSt6vectorIiSaIiEED2Ev.exit17.i
+  %common.resume.op = phi { ptr, i32 } [ %50, %_ZNSt6vectorIiSaIiEED2Ev.exit17.i ], [ %82, %_ZNSt6vectorIiSaIiEED2Ev.exit17.i31 ], [ %117, %.thread6.i ], [ %149, %.thread6.i46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorIiSaIiEED2Ev.exit17.i:                ; preds = %_ZN2cv3dnnL12copyVecToMatIiEEvRNS_3MatERKSt6vectorIT_SaIS5_EE.exit.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.loopexit.i
@@ -6025,9 +6025,9 @@ _ZN2cv3dnnL23broadcastStandardMatrixIfEEvRNS_3MatERKSt6vectorIT_SaIS5_EERKS4_IiS
   store i32 33619968, ptr %13, align 8, !tbaa !141
   store ptr %1, ptr %115, align 8, !tbaa !143
   invoke fastcc void @_ZN2cv3dnnL12block_repeatERKNS_11_InputArrayERKSt6vectorIiSaIiEEiiRKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, i32 noundef %5, i32 noundef range(i32 1, 0) %6, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %_ZN2cv3dnnL22broadcastBlockedMatrixIiEEvRNS_3MatERKSt6vectorIT_SaIS5_EERKS4_IiSaIiEEii.exit unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit22.i
+          to label %_ZN2cv3dnnL22broadcastBlockedMatrixIiEEvRNS_3MatERKSt6vectorIT_SaIS5_EERKS4_IiSaIiEEii.exit unwind label %.thread6.i
 
-_ZNSt6vectorIiSaIiEED2Ev.exit22.i:                ; preds = %105
+.thread6.i:                                       ; preds = %105
   %117 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #22
@@ -6115,9 +6115,9 @@ _ZN2cv3dnnL22broadcastBlockedMatrixIiEEvRNS_3MatERKSt6vectorIT_SaIS5_EERKS4_IiSa
   store i32 33619968, ptr %10, align 8, !tbaa !141
   store ptr %0, ptr %147, align 8, !tbaa !143
   invoke fastcc void @_ZN2cv3dnnL12block_repeatERKNS_11_InputArrayERKSt6vectorIiSaIiEEiiRKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %5, i32 noundef range(i32 1, 0) %6, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %_ZN2cv3dnnL22broadcastBlockedMatrixIfEEvRNS_3MatERKSt6vectorIT_SaIS5_EERKS4_IiSaIiEEii.exit unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit22.i46
+          to label %_ZN2cv3dnnL22broadcastBlockedMatrixIfEEvRNS_3MatERKSt6vectorIT_SaIS5_EERKS4_IiSaIiEEii.exit unwind label %.thread6.i46
 
-_ZNSt6vectorIiSaIiEED2Ev.exit22.i46:              ; preds = %137
+.thread6.i46:                                     ; preds = %137
   %149 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #22

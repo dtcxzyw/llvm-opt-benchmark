@@ -9992,8 +9992,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h7ce17e53ed5738c5E.exit: ; preds = %"_Z
           to label %.thread88 unwind label %147
 
 .thread88:                                        ; preds = %141, %145, %.body32, %.body30
-  %.pn96 = phi { ptr, i32 } [ %eh.lpad-body, %.body30 ], [ %121, %.body32 ], [ %128, %145 ], [ %128, %141 ]
-  resume { ptr, i32 } %.pn96
+  %.pn.pn91 = phi { ptr, i32 } [ %eh.lpad-body, %.body30 ], [ %121, %.body32 ], [ %128, %145 ], [ %128, %141 ]
+  resume { ptr, i32 } %.pn.pn91
 }
 
 ; Function Attrs: nonlazybind uwtable

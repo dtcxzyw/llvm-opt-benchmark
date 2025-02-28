@@ -2101,12 +2101,12 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit221: ; preds = %_ZN4cvc58internal1
   br label %489
 
 489:                                              ; preds = %485, %487
-  %.pn81 = phi { ptr, i32 } [ %488, %487 ], [ %486, %485 ]
+  %.pn81.pn = phi { ptr, i32 } [ %488, %487 ], [ %486, %485 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #23
   br label %490
 
 490:                                              ; preds = %489, %483
-  %.pn81.pn.pn = phi { ptr, i32 } [ %.pn81, %489 ], [ %484, %483 ]
+  %.pn81.pn.pn = phi { ptr, i32 } [ %.pn81.pn, %489 ], [ %484, %483 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #23
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #23
   br label %.body205

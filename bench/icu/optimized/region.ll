@@ -757,12 +757,12 @@ _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit638: ; preds = %8
 118:                                              ; preds = %1
   %119 = landingpad { ptr, i32 }
           cleanup
-  br label %1270
+  br label %1268
 
 120:                                              ; preds = %65
   %121 = landingpad { ptr, i32 }
           cleanup
-  br label %1269
+  br label %1267
 
 122:                                              ; preds = %70
   %123 = landingpad { ptr, i32 }
@@ -4027,39 +4027,39 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit809: ; preds = %128, %1259
 
 1260:                                             ; preds = %126, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit809
   %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit809 ], [ %127, %126 ]
-  br i1 %76, label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810, label %1261
+  br i1 %76, label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810, label %.thread961
 
-1261:                                             ; preds = %1260
-  %1262 = load ptr, ptr %75, align 8, !tbaa !26
-  %1263 = getelementptr inbounds nuw i8, ptr %1262, i64 8
-  %1264 = load ptr, ptr %1263, align 8
-  call void %1264(ptr noundef nonnull align 8 dereferenceable(40) %75) #19
+.thread961:                                       ; preds = %1260
+  %1261 = load ptr, ptr %75, align 8, !tbaa !26
+  %1262 = getelementptr inbounds nuw i8, ptr %1261, i64 8
+  %1263 = load ptr, ptr %1262, align 8
+  call void %1263(ptr noundef nonnull align 8 dereferenceable(40) %75) #19
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810
 
-_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810: ; preds = %1261, %1260, %124
-  %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %125, %124 ], [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1260 ], [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1261 ]
-  br i1 %69, label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit811, label %1265
+_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810: ; preds = %.thread961, %1260, %124
+  %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %125, %124 ], [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1260 ], [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.thread961 ]
+  br i1 %69, label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit811, label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810.thread
 
-1265:                                             ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810
-  %1266 = load ptr, ptr %68, align 8, !tbaa !26
-  %1267 = getelementptr inbounds nuw i8, ptr %1266, i64 8
-  %1268 = load ptr, ptr %1267, align 8
-  call void %1268(ptr noundef nonnull align 8 dereferenceable(40) %68) #19
+_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810.thread: ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810
+  %1264 = load ptr, ptr %68, align 8, !tbaa !26
+  %1265 = getelementptr inbounds nuw i8, ptr %1264, i64 8
+  %1266 = load ptr, ptr %1265, align 8
+  call void %1266(ptr noundef nonnull align 8 dereferenceable(40) %68) #19
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit811
 
-_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit811: ; preds = %1265, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810, %122
-  %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %123, %122 ], [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810 ], [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1265 ]
+_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit811: ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810.thread, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810, %122
+  %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %123, %122 ], [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810 ], [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810.thread ]
   call void @_ZN6icu_778internal16LocalOpenPointerI10UHashtableXadL_Z14uhash_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #19
-  br label %1269
+  br label %1267
 
-1269:                                             ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit811, %120
+1267:                                             ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit811, %120
   %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit811 ], [ %121, %120 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #19
   call void @_ZN6icu_778internal16LocalOpenPointerI10UHashtableXadL_Z14uhash_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #19
-  br label %1270
+  br label %1268
 
-1270:                                             ; preds = %1269, %118
-  %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1269 ], [ %119, %118 ]
+1268:                                             ; preds = %1267, %118
+  %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1267 ], [ %119, %118 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #19
   call void @_ZN6icu_778internal16LocalOpenPointerI10UHashtableXadL_Z14uhash_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #19

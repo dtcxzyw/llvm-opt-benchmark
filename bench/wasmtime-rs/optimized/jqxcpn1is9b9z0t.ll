@@ -4001,7 +4001,7 @@ default.unreachable59:                            ; preds = %3
   %28 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %"_ZN4core3ptr48drop_in_place$LT$wasi_common..sync..dir..Dir$GT$17h31be2a4462bed8c4E.exit27"
+  br label %"_ZN4core3ptr50drop_in_place$LT$wasi_common..sync..file..File$GT$17haa1287bcca3c729bE.exit25"
 
 29:                                               ; preds = %8
   %30 = load i32, ptr %4, align 8, !range !376, !alias.scope !543, !noalias !546, !noundef !4
@@ -4034,7 +4034,7 @@ default.unreachable59:                            ; preds = %3
   %42 = landingpad { ptr, i32 }
           cleanup
   %43 = invoke noundef i32 @close(i32 noundef %35)
-          to label %"_ZN4core3ptr48drop_in_place$LT$wasi_common..sync..dir..Dir$GT$17h31be2a4462bed8c4E.exit27" unwind label %44
+          to label %"_ZN4core3ptr50drop_in_place$LT$wasi_common..sync..file..File$GT$17haa1287bcca3c729bE.exit25" unwind label %44
 
 44:                                               ; preds = %41
   %45 = landingpad { ptr, i32 }
@@ -4056,7 +4056,7 @@ default.unreachable59:                            ; preds = %3
   %49 = landingpad { ptr, i32 }
           cleanup
   %50 = invoke noundef i32 @close(i32 noundef %35)
-          to label %"_ZN4core3ptr48drop_in_place$LT$wasi_common..sync..dir..Dir$GT$17h31be2a4462bed8c4E.exit27" unwind label %51
+          to label %"_ZN4core3ptr50drop_in_place$LT$wasi_common..sync..file..File$GT$17haa1287bcca3c729bE.exit25" unwind label %51
 
 51:                                               ; preds = %48
   %52 = landingpad { ptr, i32 }
@@ -4078,7 +4078,7 @@ default.unreachable59:                            ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %7
 
-"_ZN4core3ptr48drop_in_place$LT$wasi_common..sync..dir..Dir$GT$17h31be2a4462bed8c4E.exit27": ; preds = %41, %48, %27
+"_ZN4core3ptr50drop_in_place$LT$wasi_common..sync..file..File$GT$17haa1287bcca3c729bE.exit25": ; preds = %41, %48, %27
   %.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %49, %48 ], [ %42, %41 ]
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn.pn

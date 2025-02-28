@@ -20,12 +20,13 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h1dc61410852669b5E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+__rust_try.llvm.13811261307866518544.exit:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %2 = load ptr, ptr %0, align 8, !alias.scope !10, !noalias !11, !noundef !14
-  store i64 0, ptr %2, align 8, !noalias !15
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i8 2, ptr %3, align 1, !noalias !15
+  %1 = load ptr, ptr %0, align 8, !alias.scope !10, !noalias !11, !noundef !14
+  store i64 0, ptr %1, align 8, !noalias !15
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i8 2, ptr %2, align 1, !noalias !15
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 

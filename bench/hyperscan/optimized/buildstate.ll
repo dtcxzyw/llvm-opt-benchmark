@@ -720,7 +720,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %3, i64 %8
   tail call void @_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEvNS6_IPS1_S3_EET_SC_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %51, ptr %48, ptr %50)
-  br label %139
+  br label %138
 
 52:                                               ; preds = %.lr.ph97, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit
   %.sroa.065.096 = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i, %.lr.ph97 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i36, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit ]
@@ -927,20 +927,20 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit: ; preds = %_ZSt4findIN9__gnu
   %137 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i51 = icmp eq ptr %66, null
-  br i1 %.not.i.i.i51, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit52, label %138
+  br i1 %.not.i.i.i51, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit52, label %.thread70
 
-138:                                              ; preds = %136
+.thread70:                                        ; preds = %136
   tail call void @_ZdlPv(ptr noundef nonnull %66) #26
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit52
 
-_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit52: ; preds = %136, %138
+_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit52: ; preds = %136, %.thread70
   resume { ptr, i32 } %137
 
 ._crit_edge98:                                    ; preds = %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit
   tail call void @_ZN3ue216cleanupPositionsERSt6vectorINS_12PositionInfoESaIS1_EE(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  br label %139
+  br label %138
 
-139:                                              ; preds = %._crit_edge98, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEjET_S9_S9_RKT0_.exit.thread
+138:                                              ; preds = %._crit_edge98, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEjET_S9_S9_RKT0_.exit.thread
   ret void
 }
 

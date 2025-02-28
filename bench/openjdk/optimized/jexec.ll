@@ -83,147 +83,147 @@ getJavaPath.exit52:                               ; preds = %16
 
 .critedge:                                        ; preds = %.critedge.sink.split, %getJavaPath.exit, %getJavaPath.exit52
   %23 = icmp samesign ugt i32 %0, 33554429
-  br i1 %23, label %24, label %31
+  br i1 %23, label %.critedge.thread, label %30
 
-24:                                               ; preds = %.critedge
-  %25 = tail call ptr @__errno_location() #15
-  %26 = load i32, ptr %25, align 4
-  %.not.i55 = icmp eq i32 %26, 0
-  br i1 %.not.i55, label %28, label %27
+.critedge.thread:                                 ; preds = %.critedge
+  %24 = tail call ptr @__errno_location() #15
+  %25 = load i32, ptr %24, align 4
+  %.not.i55 = icmp eq i32 %25, 0
+  br i1 %.not.i55, label %27, label %26
 
-27:                                               ; preds = %24
+26:                                               ; preds = %.critedge.thread
   call void @perror(ptr noundef nonnull @.str.3) #16
-  br label %28
+  br label %27
 
-28:                                               ; preds = %27, %24
-  %29 = icmp ne i32 %26, 0
-  %30 = zext i1 %29 to i32
-  call void @exit(i32 noundef %30) #20
+27:                                               ; preds = %26, %.critedge.thread
+  %28 = icmp ne i32 %25, 0
+  %29 = zext i1 %28 to i32
+  call void @exit(i32 noundef %29) #20
   unreachable
 
-31:                                               ; preds = %.critedge
-  %32 = shl nuw nsw i32 %0, 3
-  %33 = add nuw nsw i32 %32, 16
-  %34 = zext nneg i32 %33 to i64
-  %35 = call noalias ptr @malloc(i64 noundef %34) #21
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %44
+30:                                               ; preds = %.critedge
+  %31 = shl nuw nsw i32 %0, 3
+  %32 = add nuw nsw i32 %31, 16
+  %33 = zext nneg i32 %32 to i64
+  %34 = call noalias ptr @malloc(i64 noundef %33) #21
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %43
 
-37:                                               ; preds = %31
-  %38 = tail call ptr @__errno_location() #15
-  %39 = load i32, ptr %38, align 4
-  %.not.i57 = icmp eq i32 %39, 0
-  br i1 %.not.i57, label %41, label %40
+36:                                               ; preds = %30
+  %37 = tail call ptr @__errno_location() #15
+  %38 = load i32, ptr %37, align 4
+  %.not.i57 = icmp eq i32 %38, 0
+  br i1 %.not.i57, label %40, label %39
 
-40:                                               ; preds = %37
+39:                                               ; preds = %36
   call void @perror(ptr noundef nonnull @.str.4) #16
-  br label %41
+  br label %40
 
-41:                                               ; preds = %40, %37
-  %42 = icmp ne i32 %39, 0
-  %43 = zext i1 %42 to i32
-  call void @exit(i32 noundef %43) #20
+40:                                               ; preds = %39, %36
+  %41 = icmp ne i32 %38, 0
+  %42 = zext i1 %41 to i32
+  call void @exit(i32 noundef %42) #20
   unreachable
 
-44:                                               ; preds = %31
-  store ptr %3, ptr %35, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr @.str.5, ptr %45, align 8
-  %46 = icmp samesign ugt i32 %0, 1
-  br i1 %46, label %47, label %70
+43:                                               ; preds = %30
+  store ptr %3, ptr %34, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store ptr @.str.5, ptr %44, align 8
+  %45 = icmp samesign ugt i32 %0, 1
+  br i1 %45, label %46, label %69
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = call ptr @realpath(ptr noundef %49, ptr noundef nonnull %4) #18
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %59
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = call ptr @realpath(ptr noundef %48, ptr noundef nonnull %4) #18
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %58
 
-52:                                               ; preds = %47
-  %53 = tail call ptr @__errno_location() #15
-  %54 = load i32, ptr %53, align 4
-  %.not.i59 = icmp eq i32 %54, 0
-  br i1 %.not.i59, label %56, label %55
+51:                                               ; preds = %46
+  %52 = tail call ptr @__errno_location() #15
+  %53 = load i32, ptr %52, align 4
+  %.not.i59 = icmp eq i32 %53, 0
+  br i1 %.not.i59, label %55, label %54
 
-55:                                               ; preds = %52
+54:                                               ; preds = %51
   call void @perror(ptr noundef nonnull @.str.6) #16
-  br label %56
+  br label %55
 
-56:                                               ; preds = %55, %52
-  %57 = icmp ne i32 %54, 0
-  %58 = zext i1 %57 to i32
-  call void @exit(i32 noundef %58) #20
+55:                                               ; preds = %54, %51
+  %56 = icmp ne i32 %53, 0
+  %57 = zext i1 %56 to i32
+  call void @exit(i32 noundef %57) #20
   unreachable
 
-59:                                               ; preds = %47
-  %60 = call ptr @isJar(ptr noundef nonnull %4)
-  %.not42 = icmp eq ptr %60, null
-  br i1 %.not42, label %68, label %61
+58:                                               ; preds = %46
+  %59 = call ptr @isJar(ptr noundef nonnull %4)
+  %.not42 = icmp eq ptr %59, null
+  br i1 %.not42, label %67, label %60
 
-61:                                               ; preds = %59
-  %62 = tail call ptr @__errno_location() #15
-  %63 = load i32, ptr %62, align 4
-  %.not.i61 = icmp eq i32 %63, 0
-  br i1 %.not.i61, label %65, label %64
+60:                                               ; preds = %58
+  %61 = tail call ptr @__errno_location() #15
+  %62 = load i32, ptr %61, align 4
+  %.not.i61 = icmp eq i32 %62, 0
+  br i1 %.not.i61, label %64, label %63
 
-64:                                               ; preds = %61
-  call void @perror(ptr noundef nonnull %60) #16
-  br label %65
+63:                                               ; preds = %60
+  call void @perror(ptr noundef nonnull %59) #16
+  br label %64
 
-65:                                               ; preds = %64, %61
-  %66 = icmp ne i32 %63, 0
-  %67 = zext i1 %66 to i32
-  call void @exit(i32 noundef %67) #20
+64:                                               ; preds = %63, %60
+  %65 = icmp ne i32 %62, 0
+  %66 = zext i1 %65 to i32
+  call void @exit(i32 noundef %66) #20
   unreachable
 
-68:                                               ; preds = %59
-  %69 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store ptr %4, ptr %69, align 8
-  br label %70
+67:                                               ; preds = %58
+  %68 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  store ptr %4, ptr %68, align 8
+  br label %69
 
-70:                                               ; preds = %68, %44
-  %.037 = phi i32 [ 3, %68 ], [ 2, %44 ]
-  %.036 = phi i32 [ 2, %68 ], [ 1, %44 ]
-  %71 = icmp samesign ult i32 %.036, %0
-  %72 = zext nneg i32 %.037 to i64
-  br i1 %71, label %.lr.ph.preheader, label %._crit_edge
+69:                                               ; preds = %67, %43
+  %.037 = phi i32 [ 3, %67 ], [ 2, %43 ]
+  %.036 = phi i32 [ 2, %67 ], [ 1, %43 ]
+  %70 = icmp samesign ult i32 %.036, %0
+  %71 = zext nneg i32 %.037 to i64
+  br i1 %70, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %70
-  %73 = shl nuw nsw i64 %72, 3
-  %scevgep = getelementptr i8, ptr %35, i64 %73
-  %74 = shl nuw nsw i32 %.036, 3
-  %75 = zext nneg i32 %74 to i64
-  %scevgep71 = getelementptr i8, ptr %1, i64 %75
-  %76 = xor i32 %.036, -1
-  %77 = add nsw i32 %0, %76
-  %78 = zext i32 %77 to i64
-  %79 = shl nuw nsw i64 %78, 3
-  %80 = add nuw nsw i64 %79, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %scevgep71, i64 %80, i1 false)
-  %81 = add nuw nsw i32 %.037, %0
-  %82 = sub nuw nsw i32 %81, %.036
-  %wide.trip.count = zext nneg i32 %82 to i64
+.lr.ph.preheader:                                 ; preds = %69
+  %72 = shl nuw nsw i64 %71, 3
+  %scevgep = getelementptr i8, ptr %34, i64 %72
+  %73 = shl nuw nsw i32 %.036, 3
+  %74 = zext nneg i32 %73 to i64
+  %scevgep71 = getelementptr i8, ptr %1, i64 %74
+  %75 = xor i32 %.036, -1
+  %76 = add nsw i32 %0, %75
+  %77 = zext i32 %76 to i64
+  %78 = shl nuw nsw i64 %77, 3
+  %79 = add nuw nsw i64 %78, 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %scevgep71, i64 %79, i1 false)
+  %80 = add nuw nsw i32 %.037, %0
+  %81 = sub nuw nsw i32 %80, %.036
+  %wide.trip.count = zext nneg i32 %81 to i64
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.preheader, %70
-  %.pre-phi = phi i64 [ %72, %70 ], [ %wide.trip.count, %.lr.ph.preheader ]
-  %83 = getelementptr inbounds nuw ptr, ptr %35, i64 %.pre-phi
-  store ptr null, ptr %83, align 8
-  %84 = call i32 @execv(ptr noundef nonnull %3, ptr noundef nonnull %35) #18
-  call void @free(ptr noundef nonnull %35) #18
-  %85 = tail call ptr @__errno_location() #15
-  %86 = load i32, ptr %85, align 4
-  %.not.i63 = icmp eq i32 %86, 0
-  br i1 %.not.i63, label %88, label %87
+._crit_edge:                                      ; preds = %.lr.ph.preheader, %69
+  %.pre-phi = phi i64 [ %71, %69 ], [ %wide.trip.count, %.lr.ph.preheader ]
+  %82 = getelementptr inbounds nuw ptr, ptr %34, i64 %.pre-phi
+  store ptr null, ptr %82, align 8
+  %83 = call i32 @execv(ptr noundef nonnull %3, ptr noundef nonnull %34) #18
+  call void @free(ptr noundef nonnull %34) #18
+  %84 = tail call ptr @__errno_location() #15
+  %85 = load i32, ptr %84, align 4
+  %.not.i63 = icmp eq i32 %85, 0
+  br i1 %.not.i63, label %87, label %86
 
-87:                                               ; preds = %._crit_edge
+86:                                               ; preds = %._crit_edge
   call void @perror(ptr noundef nonnull @.str.7) #16
-  br label %88
+  br label %87
 
-88:                                               ; preds = %87, %._crit_edge
-  %89 = icmp ne i32 %86, 0
-  %90 = zext i1 %89 to i32
-  call void @exit(i32 noundef %90) #20
+87:                                               ; preds = %86, %._crit_edge
+  %88 = icmp ne i32 %85, 0
+  %89 = zext i1 %88 to i32
+  call void @exit(i32 noundef %89) #20
   unreachable
 }
 

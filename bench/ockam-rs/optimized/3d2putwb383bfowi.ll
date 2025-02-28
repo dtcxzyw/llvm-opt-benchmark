@@ -3529,6 +3529,12 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #26
   unreachable
 
+77:                                               ; preds = %.body20, %73
+  %.pn14 = phi { ptr, i32 } [ %74, %73 ], [ %.pn11.pn, %.body20 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
+  store i8 2, ptr %10, align 8
+  resume { ptr, i32 } %.pn14
+
 .body23:                                          ; preds = %64, %59
   %.pn11 = phi { ptr, i32 } [ %60, %59 ], [ %65, %64 ]
   invoke void @"_ZN4core3ptr132drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$alloc..vec..Vec$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$GT$$GT$17h8d000e95e940287fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #25
@@ -3538,12 +3544,6 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   %.pn11.pn = phi { ptr, i32 } [ %.pn11, %.body23 ], [ %24, %23 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %77
-
-77:                                               ; preds = %73, %.body20
-  %.pn14 = phi { ptr, i32 } [ %74, %73 ], [ %.pn11.pn, %.body20 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
-  store i8 2, ptr %10, align 8
-  resume { ptr, i32 } %.pn14
 
 78:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fb60ad9b4e811ac5b3a9c6868ed6715f.67) #27

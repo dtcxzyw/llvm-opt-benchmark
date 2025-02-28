@@ -12180,7 +12180,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit225: ; preds = %_ZN4cvc58internal1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #25
   br label %804
 
-273:                                              ; preds = %261, %267, %268
+273:                                              ; preds = %268, %267, %261
   %.pn117 = phi { ptr, i32 } [ %269, %268 ], [ %262, %261 ], [ %.pn115, %267 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #25
   br label %common.resume

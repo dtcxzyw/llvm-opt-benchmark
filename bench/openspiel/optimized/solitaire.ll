@@ -9417,7 +9417,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit21: ; preds = %_ZNSt6
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = icmp ne i32 %70, %72
-  %.not55 = select i1 %68, i1 true, i1 %73
+  %.not60 = select i1 %68, i1 true, i1 %73
   br label %76
 
 _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit25: ; preds = %21
@@ -9430,7 +9430,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit25: ; preds = %21
   br label %76
 
 76:                                               ; preds = %3, %75, %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit21
-  %.08 = phi i1 [ false, %75 ], [ %.not55, %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit21 ], [ true, %3 ]
+  %.08 = phi i1 [ false, %75 ], [ %.not60, %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit21 ], [ true, %3 ]
   ret i1 %.08
 }
 

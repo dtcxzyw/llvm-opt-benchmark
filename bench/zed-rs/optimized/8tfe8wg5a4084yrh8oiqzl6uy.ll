@@ -2296,7 +2296,7 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h1272f3f49a3f4
   br label %15
 
 14:                                               ; preds = %28, %.body
-  br i1 %.sroa.02.3.lpad-body, label %54, label %53
+  br i1 %.sroa.02.3.lpad-body, label %.thread, label %53
 
 15:                                               ; preds = %47, %3
   call void @llvm.experimental.noalias.scope.decl(metadata !197)
@@ -2418,16 +2418,16 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h1272f3f49a3f4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %15
 
-51:                                               ; preds = %54
+51:                                               ; preds = %.thread
   %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #18
   unreachable
 
-53:                                               ; preds = %54, %14
+53:                                               ; preds = %.thread, %14
   resume { ptr, i32 } %eh.lpad-body
 
-54:                                               ; preds = %14
+.thread:                                          ; preds = %14
   invoke void @"_ZN4core3ptr110drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$GT$17h5a4eed9fc457a1a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #19
           to label %53 unwind label %51
 }

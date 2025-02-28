@@ -1777,13 +1777,13 @@ _ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit271:        ; preds = %595, %.loopexit.spl
   %.pn155.pn = phi { ptr, i32 } [ %120, %119 ], [ %.pn155, %597 ], [ %.pn155511, %598 ]
   call void @_ZN7QVectorI7QPointFED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #22
   %.not.i.i.i274 = icmp eq ptr %75, null
-  br i1 %.not.i.i.i274, label %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EED2Ev.exit275, label %601
+  br i1 %.not.i.i.i274, label %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EED2Ev.exit275, label %.thread341
 
-601:                                              ; preds = %600
+.thread341:                                       ; preds = %600
   call void @_ZdlPv(ptr noundef nonnull %75) #23
   br label %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EED2Ev.exit275
 
-_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EED2Ev.exit275: ; preds = %600, %601
+_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EED2Ev.exit275: ; preds = %600, %.thread341
   resume { ptr, i32 } %.pn155.pn
 }
 

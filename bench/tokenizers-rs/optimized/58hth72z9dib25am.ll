@@ -950,7 +950,7 @@ define hidden void @"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$7collect17h8c1a5b
   %6 = load i64, ptr %1, align 8, !range !60, !noundef !4
   %trunc = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %trunc, label %16, label %8
+  br i1 %trunc, label %15, label %8
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !235
@@ -968,7 +968,7 @@ define hidden void @"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$7collect17h8c1a5b
   %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h78023e7b71b845eaE.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
-          to label %15 unwind label %13, !noalias !235
+          to label %"_ZN4core3ptr192drop_in_place$LT$rayon..iter..flat_map..FlatMap$LT$rayon..collections..hash_set..Iter$LT$usize$GT$$C$tokenizers..models..bpe..trainer..BpeTrainer..do_train..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h90213fcd8c8970cfE.exit.i.i.i" unwind label %13, !noalias !235
 
 13:                                               ; preds = %11
   %14 = landingpad { ptr, i32 }
@@ -976,23 +976,23 @@ define hidden void @"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$7collect17h8c1a5b
   call void @_ZN4core9panicking16panic_in_cleanup17hc8e2b17e1b6d1381E() #40, !noalias !235
   unreachable
 
-15:                                               ; preds = %11
+"_ZN4core3ptr192drop_in_place$LT$rayon..iter..flat_map..FlatMap$LT$rayon..collections..hash_set..Iter$LT$usize$GT$$C$tokenizers..models..bpe..trainer..BpeTrainer..do_train..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h90213fcd8c8970cfE.exit.i.i.i": ; preds = %11
   resume { ptr, i32 } %12
 
 _ZN5rayon4iter16ParallelIterator7collect17h58e8060fd653052eE.exit: ; preds = %8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !235
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !248
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !235
-  br label %17
+  br label %16
 
-16:                                               ; preds = %2
+15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3), !noalias !249
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 8 dereferenceable(136) %7, i64 136, i1 false)
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h7a533224bc5b13a5E.llvm.4432219087322099438"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(136) %3), !noalias !256
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3), !noalias !249
-  br label %17
+  br label %16
 
-17:                                               ; preds = %16, %_ZN5rayon4iter16ParallelIterator7collect17h58e8060fd653052eE.exit
+16:                                               ; preds = %15, %_ZN5rayon4iter16ParallelIterator7collect17h58e8060fd653052eE.exit
   ret void
 }
 

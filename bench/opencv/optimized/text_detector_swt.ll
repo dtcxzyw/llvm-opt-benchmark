@@ -3006,7 +3006,7 @@ _ZNSt11_Deque_baseIiSaIiEE16_M_destroy_nodesEPPiS3_.exit.i.i.i.i.i.i: ; preds = 
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %1082, %1081 ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ], [ %lpad.loopexit.i.i, %.loopexit39.i.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit39.i.loopexit.split-lp.i.i ]
   call void @_ZNSt5stackIiSt5dequeIiSaIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %25) #23, !noalias !82
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %25) #23, !noalias !82
-  br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit28.i.i
+  br label %.body22.thread.i.i
 
 1212:                                             ; preds = %_ZNSt11_Deque_baseIiSaIiEE16_M_destroy_nodesEPPiS3_.exit.i.i.i.i.i.i, %._crit_edge.i.i.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %25) #23, !noalias !82
@@ -3017,7 +3017,7 @@ _ZNSt11_Deque_baseIiSaIiEE16_M_destroy_nodesEPPiS3_.exit.i.i.i.i.i.i: ; preds = 
 1214:                                             ; preds = %1033
   %1215 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit28.i.i
+  br label %.body22.thread.i.i
 
 1216:                                             ; preds = %1212, %1025
   %.1.i.i = phi i32 [ %1213, %1212 ], [ %.01259.i.i, %1025 ]
@@ -3025,8 +3025,8 @@ _ZNSt11_Deque_baseIiSaIiEE16_M_destroy_nodesEPPiS3_.exit.i.i.i.i.i.i: ; preds = 
   %exitcond.not.i.i = icmp eq i32 %1217, %.0254.lcssa409412.i
   br i1 %exitcond.not.i.i, label %_ZN2cv4text12_GLOBAL__N_120connected_componentsERSt6vectorIS2_IiSaIiEESaIS4_EERS4_i.exit.i, label %1025, !llvm.loop !141
 
-_ZNSt13_Bvector_baseISaIbEED2Ev.exit28.i.i:       ; preds = %1214, %.loopexit39.i.i.i
-  %.pn.ph.i.i = phi { ptr, i32 } [ %.pn.pn.i.i.i, %.loopexit39.i.i.i ], [ %1215, %1214 ]
+.body22.thread.i.i:                               ; preds = %1214, %.loopexit39.i.i.i
+  %.pn50.i.i = phi { ptr, i32 } [ %.pn.pn.i.i.i, %.loopexit39.i.i.i ], [ %1215, %1214 ]
   call void @_ZdlPv(ptr noundef nonnull %1015) #25, !noalias !82
   br label %.body203.thread.i
 
@@ -3389,8 +3389,8 @@ _ZNSt6vectorIN2cv4text12_GLOBAL__N_18SWTPointESaIS3_EE9push_backERKS3_.exit.i: ;
   call fastcc void @_ZNSt6vectorIS_IN2cv4text12_GLOBAL__N_18SWTPointESaIS3_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %60) #23
   br label %.body203.thread.i
 
-.body203.thread.i:                                ; preds = %.body203.i, %.body203.thread431.i, %.body203.thread435.i, %.body203.thread438.i, %1229, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit28.i.i
-  %.pn.pn429.i = phi { ptr, i32 } [ %lpad.loopexit.i101, %.body203.i ], [ %.pn.ph.i, %.body203.thread431.i ], [ %lpad.loopexit.split-lp.i103, %.body203.thread435.i ], [ %lpad.loopexit439.i, %.body203.thread438.i ], [ %.pn.ph.i.i, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit28.i.i ], [ %1230, %1229 ]
+.body203.thread.i:                                ; preds = %.body203.i, %.body203.thread431.i, %.body203.thread435.i, %.body203.thread438.i, %1229, %.body22.thread.i.i
+  %.pn.pn429.i = phi { ptr, i32 } [ %lpad.loopexit.i101, %.body203.i ], [ %.pn.ph.i, %.body203.thread431.i ], [ %lpad.loopexit.split-lp.i103, %.body203.thread435.i ], [ %lpad.loopexit439.i, %.body203.thread438.i ], [ %.pn50.i.i, %.body22.thread.i.i ], [ %1230, %1229 ]
   call void @_ZdlPv(ptr noundef nonnull %701) #25, !noalias !82
   br label %.body154.i
 

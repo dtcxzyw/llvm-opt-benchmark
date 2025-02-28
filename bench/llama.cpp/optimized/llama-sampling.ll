@@ -8017,7 +8017,7 @@ _ZNSt6vectorI16llama_token_dataSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6v
 187:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i80 = icmp eq ptr %.sroa.0.0197, null
-  br i1 %.not.i.i.i80, label %_ZNSt6vectorI16llama_token_dataSaIS0_EED2Ev.exit81, label %203
+  br i1 %.not.i.i.i80, label %_ZNSt6vectorI16llama_token_dataSaIS0_EED2Ev.exit81.thread, label %203
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIP16llama_token_dataSt6vectorIS2_SaIS2_EEEES3_ET0_T_S9_S8_.exit: ; preds = %158, %._crit_edge203
   %188 = phi i64 [ %162, %158 ], [ 0, %._crit_edge203 ]
@@ -8067,18 +8067,18 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
 
 203:                                              ; preds = %187
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0197, i64 noundef %171) #32
-  br label %_ZNSt6vectorI16llama_token_dataSaIS0_EED2Ev.exit81
+  br label %_ZNSt6vectorI16llama_token_dataSaIS0_EED2Ev.exit81.thread
 
-_ZNSt6vectorI16llama_token_dataSaIS0_EED2Ev.exit81: ; preds = %187, %203
+_ZNSt6vectorI16llama_token_dataSaIS0_EED2Ev.exit81.thread: ; preds = %187, %203
   %204 = ptrtoint ptr %27 to i64
   %205 = sub i64 %204, %137
   tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %205) #32
   br label %_ZNSt6vectorImSaImEED2Ev.exit83
 
-_ZNSt6vectorImSaImEED2Ev.exit83:                  ; preds = %.loopexit152, %.loopexit.split-lp153, %141, %_ZNSt6vectorI16llama_token_dataSaIS0_EED2Ev.exit81
-  %206 = phi ptr [ %60, %141 ], [ %60, %_ZNSt6vectorI16llama_token_dataSaIS0_EED2Ev.exit81 ], [ %31, %.loopexit152 ], [ %31, %.loopexit.split-lp153 ]
-  %207 = phi ptr [ %61, %141 ], [ %61, %_ZNSt6vectorI16llama_token_dataSaIS0_EED2Ev.exit81 ], [ %33, %.loopexit152 ], [ %33, %.loopexit.split-lp153 ]
-  %.pn63 = phi { ptr, i32 } [ %142, %141 ], [ %lpad.phi, %_ZNSt6vectorI16llama_token_dataSaIS0_EED2Ev.exit81 ], [ %lpad.loopexit154, %.loopexit152 ], [ %lpad.loopexit.split-lp155, %.loopexit.split-lp153 ]
+_ZNSt6vectorImSaImEED2Ev.exit83:                  ; preds = %.loopexit152, %.loopexit.split-lp153, %141, %_ZNSt6vectorI16llama_token_dataSaIS0_EED2Ev.exit81.thread
+  %206 = phi ptr [ %60, %141 ], [ %60, %_ZNSt6vectorI16llama_token_dataSaIS0_EED2Ev.exit81.thread ], [ %31, %.loopexit152 ], [ %31, %.loopexit.split-lp153 ]
+  %207 = phi ptr [ %61, %141 ], [ %61, %_ZNSt6vectorI16llama_token_dataSaIS0_EED2Ev.exit81.thread ], [ %33, %.loopexit152 ], [ %33, %.loopexit.split-lp153 ]
+  %.pn63 = phi { ptr, i32 } [ %142, %141 ], [ %lpad.phi, %_ZNSt6vectorI16llama_token_dataSaIS0_EED2Ev.exit81.thread ], [ %lpad.loopexit154, %.loopexit152 ], [ %lpad.loopexit.split-lp155, %.loopexit.split-lp153 ]
   %.not.i.i.i84 = icmp eq ptr %207, null
   br i1 %.not.i.i.i84, label %_ZNSt6vectorIfSaIfEED2Ev.exit85, label %208
 

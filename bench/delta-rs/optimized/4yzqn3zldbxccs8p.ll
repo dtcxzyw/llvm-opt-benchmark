@@ -1708,63 +1708,69 @@ define hidden void @_ZN10aws_config4meta11credentials5chain24CredentialsProvider
   %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %9 = tail call noundef align 8 dereferenceable_or_null(40) ptr @__rust_alloc(i64 noundef 40, i64 noundef 8) #24
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %13
+  br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 40) #35
-          to label %.noexc unwind label %27
+          to label %.noexc unwind label %.thread
 
 .noexc:                                           ; preds = %11
   unreachable
 
 12:                                               ; preds = %.body
   call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef 40, i64 noundef 8) #24, !noalias !299
-  br label %29
+  br label %28
 
-13:                                               ; preds = %4
+.thread:                                          ; preds = %11
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr97drop_in_place$LT$aws_config..environment..credentials..EnvironmentVariableCredentialsProvider$GT$17h272e260196b70133E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #36
+          to label %28 unwind label %26
+
+14:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %14, align 8, !alias.scope !302, !noalias !307
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %2, ptr %15, align 8, !alias.scope !302, !noalias !307
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %1, ptr %15, align 8, !alias.scope !302, !noalias !307
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %2, ptr %16, align 8, !alias.scope !302, !noalias !307
   store i64 -9223372036854775808, ptr %6, align 8, !alias.scope !302, !noalias !307
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %3, ptr %5, align 8
-  %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %17 = tail call noundef align 8 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef 8, i64 noundef 8) #24
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %24
+  %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %18 = tail call noundef align 8 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef 8, i64 noundef 8) #24
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %25
 
-19:                                               ; preds = %13
+20:                                               ; preds = %14
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 8) #35
-          to label %.noexc5 unwind label %20
+          to label %.noexc5 unwind label %21
 
-.noexc5:                                          ; preds = %19
+.noexc5:                                          ; preds = %20
   unreachable
 
-20:                                               ; preds = %19
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %20
+  %22 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr97drop_in_place$LT$aws_config..environment..credentials..EnvironmentVariableCredentialsProvider$GT$17h272e260196b70133E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #36
-          to label %.body unwind label %22
+          to label %.body unwind label %23
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %21
+  %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-.body:                                            ; preds = %20
+.body:                                            ; preds = %21
   invoke void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb4fe7e915d4e64f9E.llvm.8209374114036670355"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #36
-          to label %12 unwind label %25
+          to label %12 unwind label %26
 
-24:                                               ; preds = %13
-  store ptr %3, ptr %17, align 8
+25:                                               ; preds = %14
+  store ptr %3, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %17, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %18, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr @anon.e9045b00a1ae718fdaff1813a74cc412.113.llvm.8209374114036670355, ptr %.sroa.5.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
@@ -1774,20 +1780,14 @@ define hidden void @_ZN10aws_config4meta11credentials5chain24CredentialsProvider
   store i64 1, ptr %.sroa.5.0..sroa_idx9, align 8
   ret void
 
-25:                                               ; preds = %27, %.body
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %.thread, %.body
+  %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-27:                                               ; preds = %11
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr97drop_in_place$LT$aws_config..environment..credentials..EnvironmentVariableCredentialsProvider$GT$17h272e260196b70133E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #36
-          to label %29 unwind label %25
-
-29:                                               ; preds = %12, %27
-  %.pn314 = phi { ptr, i32 } [ %21, %12 ], [ %28, %27 ]
+28:                                               ; preds = %12, %.thread
+  %.pn314 = phi { ptr, i32 } [ %22, %12 ], [ %13, %.thread ]
   resume { ptr, i32 } %.pn314
 }
 
@@ -1798,63 +1798,69 @@ define hidden void @_ZN10aws_config4meta5token18TokenProviderChain9first_try17h4
   %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %8 = tail call noundef align 8 dereferenceable_or_null(40) ptr @__rust_alloc(i64 noundef 40, i64 noundef 8) #24
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %12
+  br i1 %9, label %10, label %13
 
 10:                                               ; preds = %4
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 40) #35
-          to label %.noexc unwind label %26
+          to label %.noexc unwind label %.thread
 
 .noexc:                                           ; preds = %10
   unreachable
 
 11:                                               ; preds = %.body
   call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 40, i64 noundef 8) #24, !noalias !310
-  br label %28
+  br label %27
 
-12:                                               ; preds = %4
+.thread:                                          ; preds = %10
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr73drop_in_place$LT$aws_config..profile..token..ProfileFileTokenProvider$GT$17h9938a8ef5dbde6dfE"(ptr noalias noundef nonnull align 8 dereferenceable(624) %3) #36
+          to label %27 unwind label %25
+
+13:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %13, align 8, !alias.scope !313, !noalias !318
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %2, ptr %14, align 8, !alias.scope !313, !noalias !318
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %1, ptr %14, align 8, !alias.scope !313, !noalias !318
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %2, ptr %15, align 8, !alias.scope !313, !noalias !318
   store i64 -9223372036854775808, ptr %6, align 8, !alias.scope !313, !noalias !318
   call void @llvm.lifetime.start.p0(i64 624, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(624) %5, ptr noundef nonnull align 8 dereferenceable(624) %3, i64 624, i1 false)
-  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !321
-  %16 = tail call noundef align 8 dereferenceable_or_null(624) ptr @__rust_alloc(i64 noundef 624, i64 noundef 8) #24, !noalias !321
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %23
+  %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !321
+  %17 = tail call noundef align 8 dereferenceable_or_null(624) ptr @__rust_alloc(i64 noundef 624, i64 noundef 8) #24, !noalias !321
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %24
 
-18:                                               ; preds = %12
+19:                                               ; preds = %13
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 624) #35
-          to label %.noexc5 unwind label %19
+          to label %.noexc5 unwind label %20
 
-.noexc5:                                          ; preds = %18
+.noexc5:                                          ; preds = %19
   unreachable
 
-19:                                               ; preds = %18
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %19
+  %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$aws_config..profile..token..ProfileFileTokenProvider$GT$17h9938a8ef5dbde6dfE"(ptr noalias noundef nonnull align 8 dereferenceable(624) %5) #36
-          to label %.body unwind label %21
+          to label %.body unwind label %22
 
-21:                                               ; preds = %19
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %20
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-.body:                                            ; preds = %19
+.body:                                            ; preds = %20
   invoke void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb4fe7e915d4e64f9E.llvm.8209374114036670355"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #36
-          to label %11 unwind label %24
+          to label %11 unwind label %25
 
-23:                                               ; preds = %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(624) %16, ptr noundef nonnull align 8 dereferenceable(624) %3, i64 624, i1 false)
+24:                                               ; preds = %13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(624) %17, ptr noundef nonnull align 8 dereferenceable(624) %3, i64 624, i1 false)
   call void @llvm.lifetime.end.p0(i64 624, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %16, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %17, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr @anon.e9045b00a1ae718fdaff1813a74cc412.116.llvm.8209374114036670355, ptr %.sroa.5.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
@@ -1864,20 +1870,14 @@ define hidden void @_ZN10aws_config4meta5token18TokenProviderChain9first_try17h4
   store i64 1, ptr %.sroa.5.0..sroa_idx9, align 8
   ret void
 
-24:                                               ; preds = %26, %.body
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %.thread, %.body
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-26:                                               ; preds = %10
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr73drop_in_place$LT$aws_config..profile..token..ProfileFileTokenProvider$GT$17h9938a8ef5dbde6dfE"(ptr noalias noundef nonnull align 8 dereferenceable(624) %3) #36
-          to label %28 unwind label %24
-
-28:                                               ; preds = %11, %26
-  %.pn314 = phi { ptr, i32 } [ %20, %11 ], [ %27, %26 ]
+27:                                               ; preds = %11, %.thread
+  %.pn314 = phi { ptr, i32 } [ %21, %11 ], [ %12, %.thread ]
   resume { ptr, i32 } %.pn314
 }
 

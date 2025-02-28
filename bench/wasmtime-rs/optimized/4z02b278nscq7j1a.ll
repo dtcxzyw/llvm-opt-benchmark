@@ -11747,7 +11747,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17069743828446960565.exit
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_wasi..stdio..worker_thread_stdin..StdinState$GT$$GT$17hf3b9ba8ea5937776E"(ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZN13wasmtime_wasi5stdio19worker_thread_stdin11GlobalStdin3get5STDIN17h65d652500f910f17E, i64 32), i8 %.0.i.i.i.i) #43
           to label %.body unwind label %73
 
-71:                                               ; preds = %56, %53, %52
+71:                                               ; preds = %52, %53, %56
   %72 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN13wasmtime_wasi5stdio19worker_thread_stdin11GlobalStdin3get5STDIN17h65d652500f910f17E, i64 40), align 8

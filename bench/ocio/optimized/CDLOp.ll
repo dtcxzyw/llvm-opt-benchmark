@@ -201,7 +201,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11CreateCDLOpERNS_10OpRcPtrVecENS_9C
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store double %32, ptr %34, align 8, !tbaa !7
   invoke void @_ZN19OpenColorIO_v2_5dev9CDLOpDataC1ERKNS0_5StyleERKNS0_13ChannelParamsES6_S6_d(ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, double noundef %5)
-          to label %35 unwind label %75
+          to label %35 unwind label %.thread30
 
 35:                                               ; preds = %7
   store ptr %13, ptr %9, align 8, !tbaa !9
@@ -224,7 +224,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11CreateCDLOpERNS_10OpRcPtrVecENS_9C
   %45 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %74 unwind label %46
+          to label %75 unwind label %46
 
 46:                                               ; preds = %44
   %47 = landingpad { ptr, i32 }
@@ -250,7 +250,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11CreateCDLOpERNS_10OpRcPtrVecENS_9C
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #23
   invoke void @_ZN19OpenColorIO_v2_5dev11CreateCDLOpERNS_10OpRcPtrVecERSt10shared_ptrINS_9CDLOpDataEENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %6)
-          to label %55 unwind label %77
+          to label %55 unwind label %76
 
 55:                                               ; preds = %50
   %56 = load atomic i64, ptr %52 acquire, align 8
@@ -298,29 +298,29 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev9CDLOpDataELN9__gnu_cxx12_Lock_policyE
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #23
   ret void
 
-74:                                               ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #23
-  br label %79
-
-75:                                               ; preds = %7
-  %76 = landingpad { ptr, i32 }
+.thread30:                                        ; preds = %7
+  %74 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #23
   call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef 256) #27
-  br label %79
+  br label %78
 
-77:                                               ; preds = %50
-  %78 = landingpad { ptr, i32 }
+75:                                               ; preds = %44
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #23
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #23
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #23
+  br label %78
+
+76:                                               ; preds = %50
+  %77 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev9CDLOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #23
-  br label %79
+  br label %78
 
-79:                                               ; preds = %74, %75, %77
-  %.pn22 = phi { ptr, i32 } [ %78, %77 ], [ %76, %75 ], [ %45, %74 ]
+78:                                               ; preds = %75, %.thread30, %76
+  %.pn22 = phi { ptr, i32 } [ %77, %76 ], [ %74, %.thread30 ], [ %45, %75 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #23
   resume { ptr, i32 } %.pn22
 }

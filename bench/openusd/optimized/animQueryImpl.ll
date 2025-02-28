@@ -2055,7 +2055,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdSkel_AnimQueryImpl3NewERK
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16UsdSkelAnimation16_GetStaticTfTypeEv()
   %5 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry14FindSchemaInfoERKNS_6TfTypeE(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %6 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim4_IsAEPKNS_17UsdSchemaRegistry10SchemaInfoE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %5)
-  br i1 %6, label %7, label %12
+  br i1 %6, label %7, label %13
 
 7:                                                ; preds = %2
   %8 = tail call noalias noundef nonnull dereferenceable(600) ptr @_Znwm(i64 noundef 600) #18
@@ -2070,30 +2070,30 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdSkel_AnimQueryImpl3NewERK
 _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_30UsdSkel_SkelAnimationQueryImplEED2Ev.exit: ; preds = %9
   store ptr %8, ptr %0, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdSkelAnimationD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
-  br label %13
+  br label %14
 
 .thread:                                          ; preds = %7
   %10 = landingpad { ptr, i32 }
           cleanup
-  br label %14
+  br label %12
 
 .thread14:                                        ; preds = %9
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdSkelAnimationD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
-  br label %14
+  br label %12
 
-12:                                               ; preds = %2
-  store ptr null, ptr %0, align 8
-  br label %13
-
-13:                                               ; preds = %12, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_30UsdSkel_SkelAnimationQueryImplEED2Ev.exit
-  ret void
-
-14:                                               ; preds = %.thread, %.thread14
+12:                                               ; preds = %.thread14, %.thread
   %.pn.pn13 = phi { ptr, i32 } [ %10, %.thread ], [ %11, %.thread14 ]
   call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 600) #17
   resume { ptr, i32 } %.pn.pn13
+
+13:                                               ; preds = %2
+  store ptr null, ptr %0, align 8
+  br label %14
+
+14:                                               ; preds = %13, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_30UsdSkel_SkelAnimationQueryImplEED2Ev.exit
+  ret void
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

@@ -3732,7 +3732,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker6create17he2
   %.1 = phi i8 [ %.2, %.thread302 ], [ %.0, %40 ]
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %.thread302 ], [ %41, %40 ]
   %39 = trunc nuw i8 %.176 to i1
-  br i1 %39, label %296, label %294
+  br i1 %39, label %295, label %293
 
 40:                                               ; preds = %"_ZN4core3ptr181drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$$GT$17h02c89311de487d3dE.exit136", %7
   %.0 = phi i8 [ 0, %"_ZN4core3ptr181drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$$GT$17h02c89311de487d3dE.exit136" ], [ 1, %7 ]
@@ -3752,10 +3752,10 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker6create17he2
   %47 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4f2782f083d791bdE"(i64 noundef %1, i1 noundef zeroext false)
           to label %50 unwind label %48
 
-.thread302:                                       ; preds = %.body131, %119, %185, %189, %293, %.thread226.thread307, %48
-  %.277 = phi i8 [ 1, %293 ], [ 1, %.thread226.thread307 ], [ 1, %48 ], [ 0, %189 ], [ 0, %185 ], [ 0, %119 ], [ 0, %.body131 ]
-  %.2 = phi i8 [ 1, %293 ], [ 1, %.thread226.thread307 ], [ 1, %48 ], [ 0, %189 ], [ 0, %185 ], [ 0, %119 ], [ 1, %.body131 ]
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn212, %293 ], [ %.pn.pn.pn.pn225, %.thread226.thread307 ], [ %49, %48 ], [ %.pn119, %189 ], [ %.pn119, %185 ], [ %120, %119 ], [ %.pn113.pn, %.body131 ]
+.thread302:                                       ; preds = %.body131, %119, %185, %189, %292, %.thread226.thread307, %48
+  %.277 = phi i8 [ 1, %292 ], [ 1, %.thread226.thread307 ], [ 1, %48 ], [ 0, %189 ], [ 0, %185 ], [ 0, %119 ], [ 0, %.body131 ]
+  %.2 = phi i8 [ 1, %292 ], [ 1, %.thread226.thread307 ], [ 1, %48 ], [ 0, %189 ], [ 0, %185 ], [ 0, %119 ], [ 1, %.body131 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn212, %292 ], [ %.pn.pn.pn.pn225, %.thread226.thread307 ], [ %49, %48 ], [ %.pn119, %189 ], [ %.pn119, %185 ], [ %120, %119 ], [ %.pn113.pn, %.body131 ]
   invoke void @"_ZN4core3ptr122drop_in_place$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$17h268da69b0b50b08bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34) #27
           to label %38 unwind label %183
 
@@ -3777,12 +3777,12 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker6create17he2
           to label %57 unwind label %.thread
 
 .thread226.thread307:                             ; preds = %.thread216
-  br i1 %.183222, label %293, label %.thread302
+  br i1 %.183222, label %292, label %.thread302
 
 .thread:                                          ; preds = %50
   %56 = landingpad { ptr, i32 }
           cleanup
-  br label %293
+  br label %292
 
 57:                                               ; preds = %50
   %58 = extractvalue { i64, ptr } %55, 0
@@ -4208,7 +4208,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker6create17he2
   %182 = icmp eq ptr %181, %180
   br i1 %182, label %._crit_edge344, label %138
 
-183:                                              ; preds = %306, %301, %292, %286, %281, %226, %190, %189, %.body139, %102, %"_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h5aeceb602446b18aE.exit", %.thread275, %296, %293, %.thread216, %287, %277, %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$tokio..runtime..scheduler..multi_thread..park..Parker$GT$$GT$17h61b350146ec8c270E.exit", %191, %"_ZN4core3ptr166drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$$GT$17hf32fb640747ea93cE.exit", %"_ZN4core3ptr181drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$$GT$17h02c89311de487d3dE.exit", %103, %.thread302
+183:                                              ; preds = %305, %300, %291, %285, %281, %226, %190, %189, %.body139, %102, %"_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h5aeceb602446b18aE.exit", %.thread275, %295, %292, %.thread216, %286, %277, %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$tokio..runtime..scheduler..multi_thread..park..Parker$GT$$GT$17h61b350146ec8c270E.exit", %191, %"_ZN4core3ptr166drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$$GT$17hf32fb640747ea93cE.exit", %"_ZN4core3ptr181drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$$GT$17h02c89311de487d3dE.exit", %103, %.thread302
   %184 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #28
@@ -4275,12 +4275,12 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker6create17he2
           cleanup
   %204 = atomicrmw sub ptr %197, i64 1 release, align 8, !noalias !741
   %205 = icmp eq i64 %204, 1
-  br i1 %205, label %206, label %287
+  br i1 %205, label %206, label %286
 
 206:                                              ; preds = %202
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hbfeaf56c9b11782fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %62)
-          to label %287 unwind label %207, !noalias !735
+          to label %286 unwind label %207, !noalias !735
 
 207:                                              ; preds = %206
   %208 = landingpad { ptr, i32 }
@@ -4302,7 +4302,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker6create17he2
   unreachable
 
 .thread268:                                       ; preds = %.thread260, %281
-  br i1 %.399257, label %282, label %288
+  br i1 %.399257, label %.thread247, label %287
 
 213:                                              ; preds = %273
   %214 = landingpad { ptr, i32 }
@@ -4522,92 +4522,92 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats27tuned_global_queue_interv
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h893350e6aa5761a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28)
           to label %.thread268 unwind label %183
 
-282:                                              ; preds = %.thread268
+.thread247:                                       ; preds = %.thread268
   call void @llvm.experimental.noalias.scope.decl(metadata !791)
   call void @llvm.experimental.noalias.scope.decl(metadata !794)
   call void @llvm.experimental.noalias.scope.decl(metadata !797)
-  %283 = load ptr, ptr %29, align 8, !alias.scope !800, !nonnull !19, !noundef !19
-  %284 = atomicrmw sub ptr %283, i64 1 release, align 8, !noalias !800
-  %285 = icmp eq i64 %284, 1
-  br i1 %285, label %286, label %287
+  %282 = load ptr, ptr %29, align 8, !alias.scope !800, !nonnull !19, !noundef !19
+  %283 = atomicrmw sub ptr %282, i64 1 release, align 8, !noalias !800
+  %284 = icmp eq i64 %283, 1
+  br i1 %284, label %285, label %286
 
-286:                                              ; preds = %282
+285:                                              ; preds = %.thread247
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h893350e6aa5761a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %29)
+          to label %286 unwind label %183
+
+286:                                              ; preds = %202, %206, %285, %.thread247
+  %.pn.pn.pn.ph = phi { ptr, i32 } [ %203, %206 ], [ %203, %202 ], [ %.pn259, %285 ], [ %.pn259, %.thread247 ]
+  invoke void @"_ZN4core3ptr161drop_in_place$LT$tokio..runtime..scheduler..multi_thread..queue..Local$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h75025c21a1f4cd5dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30) #27
           to label %287 unwind label %183
 
-287:                                              ; preds = %202, %206, %286, %282
-  %.pn.pn.pn.ph = phi { ptr, i32 } [ %203, %206 ], [ %203, %202 ], [ %.pn259, %286 ], [ %.pn259, %282 ]
-  invoke void @"_ZN4core3ptr161drop_in_place$LT$tokio..runtime..scheduler..multi_thread..queue..Local$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h75025c21a1f4cd5dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30) #27
-          to label %288 unwind label %183
-
-288:                                              ; preds = %287, %.thread268
-  %.pn.pn.pn245 = phi { ptr, i32 } [ %.pn.pn.pn.ph, %287 ], [ %.pn259, %.thread268 ]
+287:                                              ; preds = %286, %.thread268
+  %.pn.pn.pn245 = phi { ptr, i32 } [ %.pn.pn.pn.ph, %286 ], [ %.pn259, %.thread268 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !801)
   call void @llvm.experimental.noalias.scope.decl(metadata !804)
   call void @llvm.experimental.noalias.scope.decl(metadata !807)
-  %289 = load ptr, ptr %31, align 8, !alias.scope !810, !nonnull !19, !noundef !19
-  %290 = atomicrmw sub ptr %289, i64 1 release, align 8, !noalias !810
-  %291 = icmp eq i64 %290, 1
-  br i1 %291, label %292, label %.thread216
+  %288 = load ptr, ptr %31, align 8, !alias.scope !810, !nonnull !19, !noundef !19
+  %289 = atomicrmw sub ptr %288, i64 1 release, align 8, !noalias !810
+  %290 = icmp eq i64 %289, 1
+  br i1 %290, label %291, label %.thread216
 
-292:                                              ; preds = %288
+291:                                              ; preds = %287
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h467c839c0287a51eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %31)
           to label %.thread216 unwind label %183
 
-.thread216:                                       ; preds = %191, %.loopexit, %.loopexit.split-lp, %213, %260, %288, %292
-  %.pn.pn.pn.pn225 = phi { ptr, i32 } [ %.pn.pn.pn245, %292 ], [ %.pn.pn.pn245, %288 ], [ %261, %260 ], [ %214, %213 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn119.pn289, %191 ]
-  %.183222 = phi i1 [ true, %292 ], [ true, %288 ], [ true, %260 ], [ true, %213 ], [ true, %.loopexit ], [ true, %.loopexit.split-lp ], [ false, %191 ]
+.thread216:                                       ; preds = %191, %.loopexit, %.loopexit.split-lp, %213, %260, %287, %291
+  %.pn.pn.pn.pn225 = phi { ptr, i32 } [ %.pn.pn.pn245, %291 ], [ %.pn.pn.pn245, %287 ], [ %261, %260 ], [ %214, %213 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn119.pn289, %191 ]
+  %.183222 = phi i1 [ true, %291 ], [ true, %287 ], [ true, %260 ], [ true, %213 ], [ true, %.loopexit ], [ true, %.loopexit.split-lp ], [ false, %191 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$tokio..runtime..metrics..mock..WorkerMetrics$GT$$GT$17h9e7dcb2b810eeb30E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #27
           to label %.thread226.thread307 unwind label %183
 
-293:                                              ; preds = %.thread, %.thread226.thread307
+292:                                              ; preds = %.thread, %.thread226.thread307
   %.pn.pn.pn.pn.pn212 = phi { ptr, i32 } [ %56, %.thread ], [ %.pn.pn.pn.pn225, %.thread226.thread307 ]
   invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$tokio..runtime..scheduler..multi_thread..worker..Remote$GT$$GT$17hb110bd1a4b7a2e93E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #27
           to label %.thread302 unwind label %183
 
-294:                                              ; preds = %296, %38
-  %295 = trunc nuw i8 %.1 to i1
-  br i1 %295, label %297, label %302
+293:                                              ; preds = %295, %38
+  %294 = trunc nuw i8 %.1 to i1
+  br i1 %294, label %296, label %301
 
-296:                                              ; preds = %38
+295:                                              ; preds = %38
   invoke void @"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..config..Config$GT$17h7521fe96e75aa238E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6) #27
-          to label %294 unwind label %183
+          to label %293 unwind label %183
 
-297:                                              ; preds = %294
+296:                                              ; preds = %293
   call void @llvm.experimental.noalias.scope.decl(metadata !811)
   call void @llvm.experimental.noalias.scope.decl(metadata !814)
   call void @llvm.experimental.noalias.scope.decl(metadata !817)
-  %298 = load ptr, ptr %35, align 8, !alias.scope !820, !nonnull !19, !noundef !19
-  %299 = atomicrmw sub ptr %298, i64 1 release, align 8, !noalias !820
-  %300 = icmp eq i64 %299, 1
-  br i1 %300, label %301, label %.thread275
+  %297 = load ptr, ptr %35, align 8, !alias.scope !820, !nonnull !19, !noundef !19
+  %298 = atomicrmw sub ptr %297, i64 1 release, align 8, !noalias !820
+  %299 = icmp eq i64 %298, 1
+  br i1 %299, label %300, label %.thread275
 
-301:                                              ; preds = %297
+300:                                              ; preds = %296
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hbe1f6e056c8cdec0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %35)
           to label %.thread275 unwind label %183
 
-302:                                              ; preds = %294, %.thread275
+301:                                              ; preds = %293, %.thread275
   call void @llvm.experimental.noalias.scope.decl(metadata !821)
   call void @llvm.experimental.noalias.scope.decl(metadata !824)
   call void @llvm.experimental.noalias.scope.decl(metadata !827)
-  %303 = load ptr, ptr %36, align 8, !alias.scope !830, !nonnull !19, !noundef !19
-  %304 = atomicrmw sub ptr %303, i64 1 release, align 8, !noalias !830
-  %305 = icmp eq i64 %304, 1
-  br i1 %305, label %306, label %"_ZN4core3ptr74drop_in_place$LT$tokio..runtime..scheduler..multi_thread..park..Parker$GT$17hced509b37f454eb5E.exit171"
+  %302 = load ptr, ptr %36, align 8, !alias.scope !830, !nonnull !19, !noundef !19
+  %303 = atomicrmw sub ptr %302, i64 1 release, align 8, !noalias !830
+  %304 = icmp eq i64 %303, 1
+  br i1 %304, label %305, label %"_ZN4core3ptr74drop_in_place$LT$tokio..runtime..scheduler..multi_thread..park..Parker$GT$17hced509b37f454eb5E.exit171"
 
-306:                                              ; preds = %302
+305:                                              ; preds = %301
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h893350e6aa5761a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %36)
           to label %"_ZN4core3ptr74drop_in_place$LT$tokio..runtime..scheduler..multi_thread..park..Parker$GT$17hced509b37f454eb5E.exit171" unwind label %183
 
-.thread275:                                       ; preds = %301, %297
+.thread275:                                       ; preds = %300, %296
   invoke void @"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Handle$GT$17h558090c734fe91abE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %3) #27
-          to label %302 unwind label %183
+          to label %301 unwind label %183
 
-"_ZN4core3ptr74drop_in_place$LT$tokio..runtime..scheduler..multi_thread..park..Parker$GT$17hced509b37f454eb5E.exit171": ; preds = %302, %306
+"_ZN4core3ptr74drop_in_place$LT$tokio..runtime..scheduler..multi_thread..park..Parker$GT$17hced509b37f454eb5E.exit171": ; preds = %301, %305
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -6182,7 +6182,7 @@ define internal fastcc noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_t
   %43 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$17ha26688f98449db27E"(ptr nonnull %2) #27
-          to label %.thread unwind label %131
+          to label %.thread unwind label %130
 
 44:                                               ; preds = %35
   store i64 -1, ptr %39, align 8
@@ -6213,7 +6213,7 @@ define internal fastcc noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_t
 
 52:                                               ; preds = %35
   invoke void @_ZN4core4cell22panic_already_borrowed17h3ef59d0d58797532E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.61) #25
-          to label %133 unwind label %42
+          to label %132 unwind label %42
 
 53:                                               ; preds = %"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$17h7906750d7d0e8f69E.exit.i", %44
   %54 = phi i64 [ %51, %"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$17h7906750d7d0e8f69E.exit.i" ], [ 0, %44 ]
@@ -6229,7 +6229,7 @@ define internal fastcc noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_t
 
 57:                                               ; preds = %53
   invoke void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17h386ba5c2183d9221E(ptr noundef nonnull @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, ptr noundef nonnull @_ZN5tokio7runtime7context7CONTEXT7__getit7destroy17hee31cdf84bf17fd5E)
-          to label %.noexc21 unwind label %128
+          to label %.noexc21 unwind label %127
 
 .noexc21:                                         ; preds = %57
   store i8 1, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h5f8ec821a32f13ccE, align 1
@@ -6276,7 +6276,7 @@ define internal fastcc noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_t
   unreachable
 
 .thread68.i:                                      ; preds = %.thread61.i
-  br i1 %.265.i, label %119, label %.body25
+  br i1 %.265.i, label %.thread.i, label %.body25
 
 69:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -6320,7 +6320,7 @@ define internal fastcc noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_t
 .thread68.thread.i:                               ; preds = %86
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br label %119
+  br label %.thread.i
 
 83:                                               ; preds = %74
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
@@ -6412,7 +6412,7 @@ _ZN5tokio7runtime4task3raw7RawTask4poll17h1e6c599c93371073E.exit.i: ; preds = %"
   %115 = icmp eq i64 %114, 0
   br i1 %115, label %.lr.ph.i, label %._crit_edge.i
 
-116:                                              ; preds = %119, %.thread61.i, %100
+116:                                              ; preds = %.thread.i, %.thread61.i, %100
   %117 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #28
@@ -6427,12 +6427,12 @@ _ZN5tokio7runtime4task3raw7RawTask4poll17h1e6c599c93371073E.exit.i: ; preds = %"
   invoke void @"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h00c58693331cd200E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #27
           to label %.thread68.i unwind label %116
 
-119:                                              ; preds = %.thread68.thread.i, %.thread68.i
+.thread.i:                                        ; preds = %.thread68.thread.i, %.thread68.i
   %.pn34118.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i, %.thread68.thread.i ], [ %.pn66.i, %.thread68.i ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$17he54f96d1f85bf4acE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %67) #27
           to label %.thread79.i unwind label %116
 
-.thread79.i:                                      ; preds = %119
+.thread79.i:                                      ; preds = %.thread.i
   call void @__rust_dealloc(ptr noundef nonnull %67, i64 noundef 80, i64 noundef 8) #26
   br label %.body25
 
@@ -6448,65 +6448,65 @@ _ZN5tokio7runtime4task3raw7RawTask4poll17h1e6c599c93371073E.exit.i: ; preds = %"
 
 .body25:                                          ; preds = %.loopexit, %.loopexit.split-lp, %.thread68.i, %.thread79.i
   %eh.lpad-body26 = phi { ptr, i32 } [ %.pn66.i, %.thread68.i ], [ %.pn34118.i, %.thread79.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %120 = load i8, ptr %5, align 1, !range !199, !alias.scope !1034, !noundef !19
-  %.not.i = icmp eq i8 %120, 2
-  br i1 %.not.i, label %.body9.thread63, label %121
+  %119 = load i8, ptr %5, align 1, !range !199, !alias.scope !1034, !noundef !19
+  %.not.i = icmp eq i8 %119, 2
+  br i1 %.not.i, label %.body9.thread63, label %120
 
-121:                                              ; preds = %.body25
-  %122 = invoke noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he3ddcd4ec8f29ea4E.llvm.700930863383756518"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.8f1c2a9ba625317444d89e3e953ec42b.44.llvm.700930863383756518, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %5)
-          to label %.body9.thread63 unwind label %126
+120:                                              ; preds = %.body25
+  %121 = invoke noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he3ddcd4ec8f29ea4E.llvm.700930863383756518"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.8f1c2a9ba625317444d89e3e953ec42b.44.llvm.700930863383756518, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %5)
+          to label %.body9.thread63 unwind label %125
 
 "_ZN5tokio7runtime9scheduler12multi_thread6worker7Context8run_task28_$u7b$$u7b$closure$u7d$$u7d$17hdf04f210c1ea72f9E.exit": ; preds = %.lr.ph.i, %82
-  %123 = load i8, ptr %5, align 1, !range !199, !alias.scope !1037, !noundef !19
-  %.not.i28 = icmp eq i8 %123, 2
-  br i1 %.not.i28, label %130, label %124
+  %122 = load i8, ptr %5, align 1, !range !199, !alias.scope !1037, !noundef !19
+  %.not.i28 = icmp eq i8 %122, 2
+  br i1 %.not.i28, label %129, label %123
 
-124:                                              ; preds = %"_ZN5tokio7runtime9scheduler12multi_thread6worker7Context8run_task28_$u7b$$u7b$closure$u7d$$u7d$17hdf04f210c1ea72f9E.exit"
-  %125 = call noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he3ddcd4ec8f29ea4E.llvm.700930863383756518"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.8f1c2a9ba625317444d89e3e953ec42b.44.llvm.700930863383756518, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %5)
-  br label %130
+123:                                              ; preds = %"_ZN5tokio7runtime9scheduler12multi_thread6worker7Context8run_task28_$u7b$$u7b$closure$u7d$$u7d$17hdf04f210c1ea72f9E.exit"
+  %124 = call noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he3ddcd4ec8f29ea4E.llvm.700930863383756518"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.8f1c2a9ba625317444d89e3e953ec42b.44.llvm.700930863383756518, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %5)
+  br label %129
 
-126:                                              ; preds = %121, %128
-  %127 = landingpad { ptr, i32 }
+125:                                              ; preds = %120, %127
+  %126 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #28
   unreachable
 
-128:                                              ; preds = %57
-  %129 = landingpad { ptr, i32 }
+127:                                              ; preds = %57
+  %128 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$tokio..runtime..scheduler..multi_thread..worker..Context..run_task..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9668be19ce29a6feE"(ptr nonnull %55) #27
-          to label %.body9.thread63 unwind label %126
+          to label %.body9.thread63 unwind label %125
 
-130:                                              ; preds = %124, %"_ZN5tokio7runtime9scheduler12multi_thread6worker7Context8run_task28_$u7b$$u7b$closure$u7d$$u7d$17hdf04f210c1ea72f9E.exit"
+129:                                              ; preds = %123, %"_ZN5tokio7runtime9scheduler12multi_thread6worker7Context8run_task28_$u7b$$u7b$closure$u7d$$u7d$17hdf04f210c1ea72f9E.exit"
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret ptr %67
 
-131:                                              ; preds = %42, %134, %.thread
-  %132 = landingpad { ptr, i32 }
+130:                                              ; preds = %42, %133, %.thread
+  %131 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #28
   unreachable
 
-133:                                              ; preds = %52
+132:                                              ; preds = %52
   unreachable
 
 .body9:                                           ; preds = %.thread
-  br i1 %.1643, label %134, label %.body9.thread63
+  br i1 %.1643, label %133, label %.body9.thread63
 
 .thread:                                          ; preds = %.body18, %42, %.thread46
   %.pn45 = phi { ptr, i32 } [ %34, %.thread46 ], [ %48, %.body18 ], [ %43, %42 ]
   %.1643 = phi i1 [ true, %.thread46 ], [ false, %.body18 ], [ false, %42 ]
   invoke void @"_ZN4core3ptr143drop_in_place$LT$tokio..runtime..task..LocalNotified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17he15ada26ed0f83d0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #27
-          to label %.body9 unwind label %131
+          to label %.body9 unwind label %130
 
-.body9.thread63:                                  ; preds = %121, %.body25, %128, %134, %.body9
-  %.pn4466 = phi { ptr, i32 } [ %.pn45, %134 ], [ %.pn45, %.body9 ], [ %eh.lpad-body26, %121 ], [ %eh.lpad-body26, %.body25 ], [ %129, %128 ]
+.body9.thread63:                                  ; preds = %120, %.body25, %127, %133, %.body9
+  %.pn4466 = phi { ptr, i32 } [ %.pn45, %133 ], [ %.pn45, %.body9 ], [ %eh.lpad-body26, %120 ], [ %eh.lpad-body26, %.body25 ], [ %128, %127 ]
   resume { ptr, i32 } %.pn4466
 
-134:                                              ; preds = %.body9
+133:                                              ; preds = %.body9
   invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$17h7906750d7d0e8f69E"(ptr %2) #27
-          to label %.body9.thread63 unwind label %131
+          to label %.body9.thread63 unwind label %130
 }
 
 ; Function Attrs: nonlazybind uwtable

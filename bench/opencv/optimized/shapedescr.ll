@@ -1000,7 +1000,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %18, align 8, !tbaa !3
   invoke void @_ZN2cv16fitEllipseDirectERKNS_11_InputArrayE(ptr dead_on_unwind writable sret(%"class.cv::RotatedRect") align 4 %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %.critedge32 unwind label %33
+          to label %.critedge32 unwind label %.thread35
 
 19:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18
@@ -1012,7 +1012,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %22, align 8, !tbaa !3
   invoke fastcc void @_ZN2cvL18fitEllipseNoDirectERKNS_11_InputArrayE(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %.critedge unwind label %35
+          to label %.critedge unwind label %.thread38
 
 .critedge:                                        ; preds = %19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
@@ -1048,32 +1048,32 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge31, %25
 29:                                               ; preds = %12, %9, %2
   %30 = landingpad { ptr, i32 }
           cleanup
-  br label %38
+  br label %36
 
 31:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %37
+  br label %35
 
-33:                                               ; preds = %15
-  %34 = landingpad { ptr, i32 }
+.thread35:                                        ; preds = %15
+  %33 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
-  br label %37
+  br label %35
 
-35:                                               ; preds = %19
-  %36 = landingpad { ptr, i32 }
+.thread38:                                        ; preds = %19
+  %34 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
-  br label %37
+  br label %35
 
-37:                                               ; preds = %35, %33, %31
-  %.pn24.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %36, %35 ], [ %32, %31 ]
+35:                                               ; preds = %.thread38, %.thread35, %31
+  %.pn24.pn.pn = phi { ptr, i32 } [ %33, %.thread35 ], [ %32, %31 ], [ %34, %.thread38 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #18
-  br label %38
+  br label %36
 
-38:                                               ; preds = %37, %29
-  %.pn24.pn.pn.pn = phi { ptr, i32 } [ %.pn24.pn.pn, %37 ], [ %30, %29 ]
+36:                                               ; preds = %35, %29
+  %.pn24.pn.pn.pn = phi { ptr, i32 } [ %.pn24.pn.pn, %35 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #18
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18

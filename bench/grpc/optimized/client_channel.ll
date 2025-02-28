@@ -13320,7 +13320,7 @@ _ZN9grpc_core13RefCountedPtrINS_21DefaultConfigSelectorEED2Ev.exit: ; preds = %3
   %66 = load ptr, ptr %65, align 8, !tbaa !483
   %67 = load ptr, ptr %4, align 8, !tbaa !485, !noalias !480
   invoke void %66(ptr noundef %67)
-          to label %.thread163 unwind label %68
+          to label %.thread168 unwind label %68
 
 68:                                               ; preds = %61
   %69 = landingpad { ptr, i32 }
@@ -13391,7 +13391,7 @@ _ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit: ; preds = %78
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #42
   %97 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #45
-          to label %98 unwind label %.thread169
+          to label %98 unwind label %.thread174
 
 98:                                               ; preds = %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 32
@@ -13635,7 +13635,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE17_M_rea
 187:                                              ; preds = %51
   %188 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread163
+  br label %.thread168
 
 189:                                              ; preds = %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEEC2ERKS2_.exit
   %190 = landingpad { ptr, i32 }
@@ -13645,14 +13645,14 @@ _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE17_M_rea
 _ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit71: ; preds = %87, %189
   %.pn31 = phi { ptr, i32 } [ %190, %189 ], [ %88, %87 ]
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #42
-  br label %.thread163
+  br label %.thread168
 
-.thread163:                                       ; preds = %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit71, %61, %187
+.thread168:                                       ; preds = %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit71, %61, %187
   %.pn31.pn = phi { ptr, i32 } [ %.pn31, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit71 ], [ %188, %187 ], [ %62, %61 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #42
   br label %.sink.split
 
-.thread169:                                       ; preds = %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit
+.thread174:                                       ; preds = %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit
   %191 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #42
@@ -13710,9 +13710,9 @@ _ZN9grpc_core17CoreConfiguration3GetEv.exit:      ; preds = %"_ZN9grpc_core24Int
 
 207:                                              ; preds = %205
   %208 = and i16 %206, 256
-  %.not178 = icmp eq i16 %208, 0
+  %.not182 = icmp eq i16 %208, 0
   %209 = trunc i16 %206 to i1
-  %.0.i74 = or i1 %.not178, %209
+  %.0.i74 = or i1 %.not182, %209
   br i1 %.0.i74, label %210, label %.critedge53
 
 210:                                              ; preds = %207
@@ -14301,16 +14301,16 @@ _ZN9grpc_core13RefCountedPtrINS_14ConfigSelectorEED2Ev.exit104: ; preds = %_ZN9g
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %10) #42
   %451 = atomicrmw sub ptr %100, i64 1 acq_rel, align 8
   %452 = icmp eq i64 %451, 1
-  br i1 %452, label %453, label %.thread174, !prof !26
+  br i1 %452, label %453, label %.thread, !prof !26
 
 453:                                              ; preds = %450
   %454 = load ptr, ptr %97, align 8, !tbaa !8
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 8
   %456 = load ptr, ptr %455, align 8
   call void %456(ptr noundef nonnull align 8 dereferenceable(48) %97) #42
-  br label %.thread174
+  br label %.thread
 
-.thread174:                                       ; preds = %450, %453
+.thread:                                          ; preds = %450, %453
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #42
   br label %.sink.split
 
@@ -14326,28 +14326,28 @@ _ZN9grpc_core13RefCountedPtrINS_14ConfigSelectorEED2Ev.exit104: ; preds = %_ZN9g
   %.not.i107 = icmp eq ptr %.sroa.0121.8, null
   br i1 %.not.i107, label %_ZN9grpc_core13RefCountedPtrINS_14ConfigSelectorEED2Ev.exit108, label %458
 
-.sink.split:                                      ; preds = %.thread163, %.thread169, %.thread174
-  %.pn38.pn.pn.pn.pn.pn.pn.pn.pn168.ph = phi { ptr, i32 } [ %.pn38.pn.pn.pn.pn.pn.pn136, %.thread174 ], [ %191, %.thread169 ], [ %.pn31.pn, %.thread163 ]
+.sink.split:                                      ; preds = %.thread168, %.thread174, %.thread
+  %.pn38.pn.pn.pn.pn.pn.pn.pn.pn173.ph = phi { ptr, i32 } [ %.pn38.pn.pn.pn.pn.pn.pn136, %.thread ], [ %191, %.thread174 ], [ %.pn31.pn, %.thread168 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #42
   br label %458
 
 458:                                              ; preds = %.sink.split, %457
-  %.pn38.pn.pn.pn.pn.pn.pn.pn.pn168 = phi { ptr, i32 } [ %.pn38.pn.pn, %457 ], [ %.pn38.pn.pn.pn.pn.pn.pn.pn.pn168.ph, %.sink.split ]
-  %.sroa.0121.2167 = phi ptr [ %.sroa.0121.8, %457 ], [ %.sroa.0121.0, %.sink.split ]
-  %459 = getelementptr inbounds nuw i8, ptr %.sroa.0121.2167, i64 8
+  %.pn38.pn.pn.pn.pn.pn.pn.pn.pn173 = phi { ptr, i32 } [ %.pn38.pn.pn, %457 ], [ %.pn38.pn.pn.pn.pn.pn.pn.pn.pn173.ph, %.sink.split ]
+  %.sroa.0121.2172 = phi ptr [ %.sroa.0121.8, %457 ], [ %.sroa.0121.0, %.sink.split ]
+  %459 = getelementptr inbounds nuw i8, ptr %.sroa.0121.2172, i64 8
   %460 = atomicrmw sub ptr %459, i64 1 acq_rel, align 8
   %461 = icmp eq i64 %460, 1
   br i1 %461, label %462, label %_ZN9grpc_core13RefCountedPtrINS_14ConfigSelectorEED2Ev.exit108, !prof !26
 
 462:                                              ; preds = %458
-  %463 = load ptr, ptr %.sroa.0121.2167, align 8, !tbaa !8
+  %463 = load ptr, ptr %.sroa.0121.2172, align 8, !tbaa !8
   %464 = getelementptr inbounds nuw i8, ptr %463, i64 8
   %465 = load ptr, ptr %464, align 8
-  call void %465(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0121.2167) #42
+  call void %465(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0121.2172) #42
   br label %_ZN9grpc_core13RefCountedPtrINS_14ConfigSelectorEED2Ev.exit108
 
 _ZN9grpc_core13RefCountedPtrINS_14ConfigSelectorEED2Ev.exit108: ; preds = %462, %458, %457, %50
-  %.pn38.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %50 ], [ %.pn38.pn.pn, %457 ], [ %.pn38.pn.pn.pn.pn.pn.pn.pn.pn168, %458 ], [ %.pn38.pn.pn.pn.pn.pn.pn.pn.pn168, %462 ]
+  %.pn38.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %50 ], [ %.pn38.pn.pn, %457 ], [ %.pn38.pn.pn.pn.pn.pn.pn.pn.pn173, %458 ], [ %.pn38.pn.pn.pn.pn.pn.pn.pn.pn173, %462 ]
   resume { ptr, i32 } %.pn38.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 

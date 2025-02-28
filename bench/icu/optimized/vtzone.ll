@@ -2953,12 +2953,12 @@ define void @_ZN6icu_779VTimeZone5parseER10UErrorCode(ptr noundef nonnull align 
 60:                                               ; preds = %34
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %674
+  br label %673
 
 62:                                               ; preds = %42
   %63 = landingpad { ptr, i32 }
           cleanup
-  br label %673
+  br label %672
 
 64:                                               ; preds = %463
   %65 = landingpad { ptr, i32 }
@@ -3881,7 +3881,7 @@ _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit: ; 
 
 478:                                              ; preds = %475
   invoke void @_ZN6icu_7717RuleBasedTimeZoneC1ERKNS_13UnicodeStringEPNS_19InitialTimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(105) %476, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull %465)
-          to label %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEEC2EPS1_R10UErrorCode.exit unwind label %668
+          to label %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEEC2EPS1_R10UErrorCode.exit unwind label %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit395.thread489
 
 479:                                              ; preds = %475
   %480 = load i32, ptr %1, align 4
@@ -4364,29 +4364,29 @@ _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit: ; preds = %331, %1
   call void %667(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.0.1) #16
   br label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit
 
-668:                                              ; preds = %478
-  %669 = landingpad { ptr, i32 }
+_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit395.thread489: ; preds = %478
+  %668 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %476) #16
-  %670 = load ptr, ptr %465, align 8, !tbaa !17
-  %671 = getelementptr inbounds nuw i8, ptr %670, i64 8
-  %672 = load ptr, ptr %671, align 8
-  call void %672(ptr noundef nonnull align 8 dereferenceable(80) %465) #16
+  %669 = load ptr, ptr %465, align 8, !tbaa !17
+  %670 = getelementptr inbounds nuw i8, ptr %669, i64 8
+  %671 = load ptr, ptr %670, align 8
+  call void %671(ptr noundef nonnull align 8 dereferenceable(80) %465) #16
   br label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit
 
-_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit: ; preds = %664, %662, %473, %668, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit386, %346, %320, %305, %303, %80, %194, %196, %199, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit387, %378, %333, %275, %263, %250, %239, %228, %223, %192, %162, %146, %133, %129, %82, %64
-  %.pn322.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %81, %80 ], [ %83, %82 ], [ %.pn301.pn, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit387 ], [ %379, %378 ], [ %334, %333 ], [ %276, %275 ], [ %264, %263 ], [ %251, %250 ], [ %240, %239 ], [ %229, %228 ], [ %224, %223 ], [ %193, %192 ], [ %163, %162 ], [ %147, %146 ], [ %134, %133 ], [ %.pn320, %129 ], [ %195, %194 ], [ %200, %199 ], [ %197, %196 ], [ %304, %303 ], [ %306, %305 ], [ %321, %320 ], [ %348, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit386 ], [ %347, %346 ], [ %474, %473 ], [ %669, %668 ], [ %.pn290.pn, %662 ], [ %.pn290.pn, %664 ]
+_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit: ; preds = %664, %662, %473, %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit395.thread489, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit386, %346, %320, %305, %303, %80, %194, %196, %199, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit387, %378, %333, %275, %263, %250, %239, %228, %223, %192, %162, %146, %133, %129, %82, %64
+  %.pn322.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %81, %80 ], [ %83, %82 ], [ %.pn301.pn, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit387 ], [ %379, %378 ], [ %334, %333 ], [ %276, %275 ], [ %264, %263 ], [ %251, %250 ], [ %240, %239 ], [ %229, %228 ], [ %224, %223 ], [ %193, %192 ], [ %163, %162 ], [ %147, %146 ], [ %134, %133 ], [ %.pn320, %129 ], [ %195, %194 ], [ %200, %199 ], [ %197, %196 ], [ %304, %303 ], [ %306, %305 ], [ %321, %320 ], [ %348, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit386 ], [ %347, %346 ], [ %474, %473 ], [ %668, %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit395.thread489 ], [ %.pn290.pn, %662 ], [ %.pn290.pn, %664 ]
   call void @_ZN6icu_777UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #16
-  br label %673
+  br label %672
 
-673:                                              ; preds = %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit, %62
+672:                                              ; preds = %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit, %62
   %.pn322.pn.pn.pn = phi { ptr, i32 } [ %.pn322.pn.pn, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit ], [ %63, %62 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #16
   call void @_ZN6icu_777UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #16
-  br label %674
+  br label %673
 
-674:                                              ; preds = %673, %60
-  %.pn322.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn322.pn.pn.pn, %673 ], [ %61, %60 ]
+673:                                              ; preds = %672, %60
+  %.pn322.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn322.pn.pn.pn, %672 ], [ %61, %60 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #16
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #16
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #16

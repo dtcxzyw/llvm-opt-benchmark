@@ -3004,19 +3004,25 @@ define void @_RNvXse_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_13InvariantTextNt
   %10 = alloca [32 x i8], align 8
   %.sroa.4 = alloca [24 x i8], align 8
   %11 = alloca [32 x i8], align 8
-  %.sroa.654 = alloca [24 x i8], align 8
+  %.sroa.652 = alloca [24 x i8], align 8
   %12 = alloca [32 x i8], align 8
   %13 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.654)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.652)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !731)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i64, ptr %14, align 8, !alias.scope !731, !noalias !734, !noundef !5
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE8pop_backB1b_.exit.thread, label %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE8pop_backB1b_.exit
+
+.thread42:                                        ; preds = %52, %.thread38
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1J_(ptr noalias noundef nonnull align 8 dereferenceable(32) %12) #28
+          to label %.thread46 unwind label %56
 
 _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE8pop_backB1b_.exit: ; preds = %3
   %17 = add i64 %15, -1
@@ -3033,9 +3039,9 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %25 = load ptr, ptr %24, align 8, !alias.scope !731, !noalias !734, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds { i64, [3 x i64] }, ptr %25, i64 %.sroa.01.0.i
-  %.sroa.0.0.copyload53 = load i64, ptr %26, align 8, !noalias !731
-  %.sroa.654.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.654, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.654.0..sroa_idx, i64 24, i1 false), !noalias !731
+  %.sroa.0.0.copyload51 = load i64, ptr %26, align 8, !noalias !731
+  %.sroa.652.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.652, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.652.0..sroa_idx, i64 24, i1 false), !noalias !731
   tail call void @llvm.experimental.noalias.scope.decl(metadata !736)
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %28 = load i64, ptr %27, align 8, !alias.scope !736, !noalias !739, !noundef !5
@@ -3055,7 +3061,7 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG
 _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE9pop_frontB1b_.exit: ; preds = %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE8pop_backB1b_.exit.thread, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE8pop_backB1b_.exit
   %33 = phi i64 [ %31, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE8pop_backB1b_.exit.thread ], [ %28, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE8pop_backB1b_.exit ]
   %34 = phi ptr [ %30, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE8pop_backB1b_.exit.thread ], [ %27, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE8pop_backB1b_.exit ]
-  %.sroa.0.057 = phi i64 [ 2, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE8pop_backB1b_.exit.thread ], [ %.sroa.0.0.copyload53, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE8pop_backB1b_.exit ]
+  %.sroa.0.055 = phi i64 [ 2, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE8pop_backB1b_.exit.thread ], [ %.sroa.0.0.copyload51, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE8pop_backB1b_.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %36 = load i64, ptr %35, align 8, !alias.scope !736, !noalias !739, !noundef !5
   %37 = add i64 %36, 1
@@ -3074,15 +3080,15 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG
   %.sroa.0.0.copyload16 = load i64, ptr %44, align 8, !noalias !736
   %.sroa.6.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %44, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.654, i64 24, i1 false)
-  %45 = icmp eq i64 %.sroa.0.057, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.652, i64 24, i1 false)
+  %45 = icmp eq i64 %.sroa.0.055, 2
   %46 = icmp eq i64 %.sroa.0.0.copyload16, 2
   br i1 %45, label %48, label %49
 
 _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE9pop_frontB1b_.exit.thread: ; preds = %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE8pop_backB1b_.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.654.0..sroa_idx, i64 24, i1 false)
-  %47 = icmp eq i64 %.sroa.0.0.copyload53, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.652.0..sroa_idx, i64 24, i1 false)
+  %47 = icmp eq i64 %.sroa.0.0.copyload51, 2
   br i1 %47, label %.thread36, label %.thread38
 
 48:                                               ; preds = %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE9pop_frontB1b_.exit
@@ -3101,7 +3107,7 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG
 
 .thread38:                                        ; preds = %48, %49, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE9pop_frontB1b_.exit.thread
   %.sroa.4.sink = phi ptr [ %.sroa.4, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE9pop_frontB1b_.exit.thread ], [ %.sroa.4, %49 ], [ %.sroa.6.0..sroa_idx18, %48 ]
-  %.sroa.019.0 = phi i64 [ %.sroa.0.0.copyload53, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE9pop_frontB1b_.exit.thread ], [ %.sroa.0.057, %49 ], [ %.sroa.0.0.copyload16, %48 ]
+  %.sroa.019.0 = phi i64 [ %.sroa.0.0.copyload51, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE9pop_frontB1b_.exit.thread ], [ %.sroa.0.055, %49 ], [ %.sroa.0.0.copyload16, %48 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.sink, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !746)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
@@ -3114,7 +3120,7 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG
   store i64 1, ptr %51, align 8, !noalias !749
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !751
   invoke void @_RNvXs_NtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB6_3VecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEINtB4_18SpecFromIterNestedB13_INtNtNtCs1LoaDTb72WA_4core5array4iter8IntoIterB13_Kj1_EE9from_iterB19_(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
-          to label %_RNvXsh_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_13InvariantTextINtNtCs1LoaDTb72WA_4core7convert4FromNtB5_17InvariantFragmentE4from.exit unwind label %58
+          to label %_RNvXsh_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_13InvariantTextINtNtCs1LoaDTb72WA_4core7convert4FromNtB5_17InvariantFragmentE4from.exit unwind label %.thread42
 
 _RNvXsh_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_13InvariantTextINtNtCs1LoaDTb72WA_4core7convert4FromNtB5_17InvariantFragmentE4from.exit: ; preds = %.thread38
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %5, align 8, !alias.scope !755, !noalias !758
@@ -3134,14 +3140,14 @@ _RNvXsh_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_13InvariantTextINtNtCs1LoaDTb7
   br label %53
 
 52:                                               ; preds = %49
-  store i64 %.sroa.0.057, ptr %10, align 8
+  store i64 %.sroa.0.055, ptr %10, align 8
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.654, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.652, i64 24, i1 false)
   store i64 %.sroa.0.0.copyload16, ptr %9, align 8
   %.sroa.6.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx17, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx18, i64 24, i1 false)
   invoke void @_RNvXsl_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_17InvariantFragmentNtNtNtCs1LoaDTb72WA_4core3ops5arith3Add3add(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %9)
-          to label %53 unwind label %58
+          to label %53 unwind label %.thread42
 
 53:                                               ; preds = %_RNvXsh_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_13InvariantTextINtNtCs1LoaDTb72WA_4core7convert4FromNtB5_17InvariantFragmentE4from.exit, %.thread36, %52
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -3168,29 +3174,23 @@ _RNvXsh_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_13InvariantTextINtNtCs1LoaDTb7
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.5.0.copyload.i.i, ptr %.sroa.622.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.654)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.652)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   ret void
 
-56:                                               ; preds = %.thread48, %58
+56:                                               ; preds = %.thread46, %.thread42
   %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() #26
   unreachable
 
-58:                                               ; preds = %52, %.thread38
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1J_(ptr noalias noundef nonnull align 8 dereferenceable(32) %12) #28
-          to label %.thread48 unwind label %56
-
-59:                                               ; preds = %.thread48
+58:                                               ; preds = %.thread46
   resume { ptr, i32 } %lpad.thr_comm
 
-.thread48:                                        ; preds = %58
+.thread46:                                        ; preds = %.thread42
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1J_(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #28
-          to label %59 unwind label %56
+          to label %58 unwind label %56
 }
 
 ; Function Attrs: nonlazybind uwtable

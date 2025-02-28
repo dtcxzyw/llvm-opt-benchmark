@@ -6392,7 +6392,7 @@ _ZN12clap_builder7builder12value_parser11ValueParser9parse_ref17he6c26e3c7a41b22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %100), !noalias !1688
   br label %1918
 
-.thread939:                                       ; preds = %.loopexit1041, %.loopexit.split-lp1042, %1903, %1913, %1908
+.thread939:                                       ; preds = %.loopexit1041, %.loopexit.split-lp1042, %1908, %1913, %1903
   %.pn295942 = phi { ptr, i32 } [ %1904, %1903 ], [ %1909, %1913 ], [ %1909, %1908 ], [ %lpad.loopexit1043, %.loopexit1041 ], [ %lpad.loopexit.split-lp1044, %.loopexit.split-lp1042 ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$clap_builder..parser..arg_matcher..ArgMatcher$GT$17h9e3aebe339bf73a5E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %187) #16
           to label %1937 unwind label %750

@@ -6549,8 +6549,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %62
 68:                                               ; preds = %67
   unreachable
 
-common.resume:                                    ; preds = %197, %131, %.body, %2061, %223, %93, %69
-  %common.resume.op = phi { ptr, i32 } [ %70, %69 ], [ %94, %93 ], [ %132, %131 ], [ %.pn412, %197 ], [ %.pn446.pn.pn, %.body ], [ %.pn446.pn.pn, %2061 ], [ %224, %223 ]
+common.resume:                                    ; preds = %197, %131, %.body, %.body.thread1000, %223, %93, %69
+  %common.resume.op = phi { ptr, i32 } [ %70, %69 ], [ %94, %93 ], [ %132, %131 ], [ %.pn412, %197 ], [ %.pn446.pn.pn, %.body ], [ %.pn446.pn.pn, %.body.thread1000 ], [ %224, %223 ]
   resume { ptr, i32 } %common.resume.op
 
 69:                                               ; preds = %67, %62
@@ -11246,9 +11246,9 @@ _ZN6google8protobuf8internal14WireFormatLite17WriteInt32ToArrayEiiPh.exit: ; pre
   %.sroa.0.2 = phi ptr [ %.sroa.0.0, %1199 ], [ %.sroa.0.0, %1186 ], [ %.sroa.0.0, %1131 ], [ %.sroa.0.0, %1075 ], [ %.sroa.0.0, %1019 ], [ %.sroa.0.0, %963 ], [ %.sroa.0.0, %907 ], [ %.sroa.0.0, %851 ], [ %.sroa.0.0, %795 ], [ %.sroa.0.0, %720 ], [ %.sroa.0.0, %646 ], [ %.sroa.0.0, %572 ], [ %.sroa.0.0, %495 ], [ %.sroa.0.0, %418 ], [ %.sroa.0.0, %344 ], [ %.sroa.0.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit974 ], [ %.sroa.0.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.0.0, %1910 ], [ %.sroa.0.0, %1751 ], [ %.sroa.0.0, %1717 ], [ %.sroa.0.0, %1683 ], [ %.sroa.0.0, %1649 ], [ %.sroa.0.0, %1615 ], [ %.sroa.0.0, %1581 ], [ %.sroa.0.0, %1547 ], [ %.sroa.0.0, %1513 ], [ %.sroa.0.0, %1464 ], [ %.sroa.0.0, %1415 ], [ %.sroa.0.0, %1363 ], [ %.sroa.0.0, %1311 ], [ %.sroa.0.0, %1262 ], [ %.sroa.0.0, %266 ], [ %.sroa.0.1, %236 ], [ %.sroa.0.0, %1209 ], [ %.sroa.0.0, %1212 ]
   %.pn446.pn.pn = phi { ptr, i32 } [ %.pn446.pn, %1199 ], [ %.pn418, %1186 ], [ %.pn420, %1131 ], [ %.pn422, %1075 ], [ %.pn424, %1019 ], [ %.pn426, %963 ], [ %.pn428, %907 ], [ %.pn430, %851 ], [ %.pn432, %795 ], [ %.pn434, %720 ], [ %.pn436, %646 ], [ %.pn438, %572 ], [ %.pn440, %495 ], [ %.pn442, %418 ], [ %.pn444, %344 ], [ %2055, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit974 ], [ %1935, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %1911, %1910 ], [ %1752, %1751 ], [ %1718, %1717 ], [ %1684, %1683 ], [ %1650, %1649 ], [ %1616, %1615 ], [ %1582, %1581 ], [ %1548, %1547 ], [ %1514, %1513 ], [ %1465, %1464 ], [ %1416, %1415 ], [ %1364, %1363 ], [ %1312, %1311 ], [ %1263, %1262 ], [ %267, %266 ], [ %237, %236 ], [ %lpad.phi1071, %1209 ], [ %1213, %1212 ]
   %.not.i.i.i977 = icmp eq ptr %.sroa.0.2, null
-  br i1 %.not.i.i.i977, label %common.resume, label %2061
+  br i1 %.not.i.i.i977, label %common.resume, label %.body.thread1000
 
-2061:                                             ; preds = %.body
+.body.thread1000:                                 ; preds = %.body
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2) #25
   br label %common.resume
 

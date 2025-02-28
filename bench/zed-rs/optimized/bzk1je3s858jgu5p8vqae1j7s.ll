@@ -8154,7 +8154,7 @@ define hidden { i64, ptr } @"_ZN6remote11ssh_session15SshRemoteClient9reconnect2
   %.sroa.0108 = alloca [64 x i8], align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %22 = load i8, ptr %21, align 8, !range !933, !noundef !5
-  switch i8 %22, label %default.unreachable192 [
+  switch i8 %22, label %default.unreachable190 [
     i8 0, label %.thread
     i8 1, label %31
     i8 2, label %32
@@ -8163,7 +8163,7 @@ define hidden { i64, ptr } @"_ZN6remote11ssh_session15SshRemoteClient9reconnect2
     i8 5, label %220
   ]
 
-default.unreachable192:                           ; preds = %.noexc.i, %33, %2
+default.unreachable190:                           ; preds = %.noexc.i, %33, %2
   unreachable
 
 23:                                               ; preds = %2
@@ -8206,7 +8206,7 @@ default.unreachable192:                           ; preds = %.noexc.i, %33, %2
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !54, !noalias !2556
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  switch i8 %.pre, label %default.unreachable192 [
+  switch i8 %.pre, label %default.unreachable190 [
     i8 0, label %36
     i8 1, label %44
     i8 2, label %45
@@ -8299,7 +8299,7 @@ default.unreachable192:                           ; preds = %.noexc.i, %33, %2
 
 .noexc.i:                                         ; preds = %71
   %72 = load i64, ptr %3, align 8, !range !181, !noalias !2567, !noundef !5
-  switch i64 %72, label %default.unreachable192 [
+  switch i64 %72, label %default.unreachable190 [
     i64 2, label %77
     i64 0, label %73
     i64 1, label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d5eeee00bb74995E.exit.thread20.i"
@@ -8576,7 +8576,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr81drop
   unreachable
 
 164:                                              ; preds = %229, %222, %208, %336, %144, %134, %.body75
-  %.pn46.pn.pn = phi { ptr, i32 } [ %.pn30, %.body75 ], [ %145, %144 ], [ %135, %134 ], [ %.pn40.pn.pn181191, %336 ], [ %209, %208 ], [ %230, %229 ], [ %223, %222 ]
+  %.pn46.pn.pn = phi { ptr, i32 } [ %.pn30, %.body75 ], [ %145, %144 ], [ %135, %134 ], [ %.pn40.pn.pn179189, %336 ], [ %209, %208 ], [ %230, %229 ], [ %223, %222 ]
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 297
   %166 = load i8, ptr %165, align 1, !range !80, !noundef !5
   %167 = trunc nuw i8 %166 to i1
@@ -8801,9 +8801,9 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr50drop
   %240 = load ptr, ptr %239, align 8, !noundef !5
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 232
   invoke void @_ZN6remote11ssh_session16ChannelForwarder3new17h32885c5c847e2c05E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %11, ptr noundef %237, ptr noundef %240, ptr noalias noundef nonnull align 8 dereferenceable(40) %241)
-          to label %243 unwind label %.thread177
+          to label %243 unwind label %.thread175
 
-.thread177:                                       ; preds = %233
+.thread175:                                       ; preds = %233
   %242 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
@@ -8944,7 +8944,7 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr50drop
           cleanup
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %4)
   invoke void @"_ZN4core3ptr62drop_in_place$LT$remote..ssh_session..SshRemoteClientState$GT$17h7a050eee2ac09babE"(ptr noalias noundef nonnull align 8 dereferenceable(248) %10) #22
-          to label %.thread188 unwind label %169
+          to label %.thread186 unwind label %169
 
 286:                                              ; preds = %273, %283
   %287 = getelementptr inbounds nuw i8, ptr %.val64, i64 112
@@ -8982,11 +8982,11 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr50drop
   %299 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %4)
-  br label %.thread188
+  br label %.thread186
 
 300:                                              ; preds = %291, %292
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %4)
-  br label %.thread188
+  br label %.thread186
 
 301:                                              ; preds = %298, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$remote..ssh_session..SshRemoteClientState$GT$$GT$17h0cb04824b3989a2aE.exit"
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %4)
@@ -9080,7 +9080,7 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr50drop
 
 326:                                              ; preds = %"_ZN4core3ptr91drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$remote..ssh_session..SshClientDelegate$GT$$GT$17h370e2818eb5c8850E.exit"
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %9)
-  br label %.thread188
+  br label %.thread186
 
 327:                                              ; preds = %270
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
@@ -9110,13 +9110,13 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr50drop
 333:                                              ; preds = %332
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   invoke void @"_ZN4core3ptr82drop_in_place$LT$futures_channel..mpsc..UnboundedSender$LT$proto..Envelope$GT$$GT$17h0fd19190dc435631E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13) #22
-          to label %.thread185 unwind label %169
+          to label %.thread183 unwind label %169
 
-.thread185:                                       ; preds = %333
+.thread183:                                       ; preds = %333
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   br label %335
 
-.thread188:                                       ; preds = %300, %.thread162, %326, %.thread166
+.thread186:                                       ; preds = %300, %.thread162, %326, %.thread166
   %.pn40.pn.ph = phi { ptr, i32 } [ %299, %.thread166 ], [ %272, %326 ], [ %293, %300 ], [ %285, %.thread162 ]
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
@@ -9126,16 +9126,16 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr50drop
 
 334:                                              ; preds = %335
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
-  br i1 %.sroa.013.0184, label %337, label %336
+  br i1 %.sroa.013.0182, label %337, label %336
 
-335:                                              ; preds = %.thread185, %.thread177
-  %.sroa.013.0184 = phi i1 [ true, %.thread177 ], [ false, %.thread185 ]
-  %.pn40.pn.pn182 = phi { ptr, i32 } [ %242, %.thread177 ], [ %lpad.phi, %.thread185 ]
+335:                                              ; preds = %.thread183, %.thread175
+  %.sroa.013.0182 = phi i1 [ true, %.thread175 ], [ false, %.thread183 ]
+  %.pn40.pn.pn180 = phi { ptr, i32 } [ %242, %.thread175 ], [ %lpad.phi, %.thread183 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$async_process..Child$GT$17h7641045e1c18bdf3E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %15) #22
           to label %334 unwind label %169
 
-336:                                              ; preds = %.thread188, %337, %334
-  %.pn40.pn.pn181191 = phi { ptr, i32 } [ %.pn40.pn.ph, %.thread188 ], [ %.pn40.pn.pn182, %337 ], [ %.pn40.pn.pn182, %334 ]
+336:                                              ; preds = %.thread186, %337, %334
+  %.pn40.pn.pn179189 = phi { ptr, i32 } [ %.pn40.pn.ph, %.thread186 ], [ %.pn40.pn.pn180, %337 ], [ %.pn40.pn.pn180, %334 ]
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %16)
   br label %164
 

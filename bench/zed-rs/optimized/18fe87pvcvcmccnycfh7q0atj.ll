@@ -1775,7 +1775,7 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17hfa25ec3
 
 15:                                               ; preds = %11
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.a2cdd523ae9b53ea509263efbadc8131.10, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2cdd523ae9b53ea509263efbadc8131.12) #37
-          to label %16 unwind label %34
+          to label %16 unwind label %33
 
 16:                                               ; preds = %15
   unreachable
@@ -1820,22 +1820,22 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17hfa25ec3
   store atomic i8 0, ptr %30 seq_cst, align 8, !noalias !441
   br label %23
 
-31:                                               ; preds = %34
+31:                                               ; preds = %33
   %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #40
   unreachable
 
-33:                                               ; preds = %34
-  resume { ptr, i32 } %35
+.thread:                                          ; preds = %33
+  resume { ptr, i32 } %34
 
-34:                                               ; preds = %15
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %15
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 416
-  store atomic i8 0, ptr %36 seq_cst, align 8, !noalias !446
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 416
+  store atomic i8 0, ptr %35 seq_cst, align 8, !noalias !446
   invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$$LP$proto..Envelope$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$17h80e6899cde065062E"(ptr noalias noundef align 8 dereferenceable(416) %2) #39
-          to label %33 unwind label %31
+          to label %.thread unwind label %31
 }
 
 ; Function Attrs: nonlazybind uwtable

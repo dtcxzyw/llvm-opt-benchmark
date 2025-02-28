@@ -2583,52 +2583,52 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   %59 = invoke noundef zeroext i1 @_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE5parseEPNS_8IOStreamE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %21)
-          to label %60 unwind label %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i24
+          to label %60 unwind label %.thread35
 
 60:                                               ; preds = %58
-  br i1 %59, label %61, label %62
+  br i1 %59, label %65, label %66
 
-61:                                               ; preds = %60
-  invoke void @_ZN6Assimp11X3DImporter9ParseFileERNS_10TXmlParserIN4pugi8xml_nodeEEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(40) %7)
-          to label %62 unwind label %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i24
-
-62:                                               ; preds = %61, %60
-  call void @_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
-  %63 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %64 = load ptr, ptr %63, align 8
-  %.not.i.i.i.i = icmp eq ptr %64, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit, label %65
-
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %67 = load ptr, ptr %66, align 8
-  %68 = ptrtoint ptr %67 to i64
-  %69 = ptrtoint ptr %64 to i64
-  %70 = sub i64 %68, %69
-  call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef %70) #33
-  br label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %62, %65
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #31
-  %71 = load ptr, ptr %21, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %73 = load ptr, ptr %72, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(8) %21) #31
-  ret void
-
-_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i24: ; preds = %58, %61
-  %74 = landingpad { ptr, i32 }
+.thread35:                                        ; preds = %58, %65
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #31
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #31
+  %62 = load ptr, ptr %21, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %64 = load ptr, ptr %63, align 8
+  call void %64(ptr noundef nonnull align 8 dereferenceable(8) %21) #31
+  br label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit25
+
+65:                                               ; preds = %60
+  invoke void @_ZN6Assimp11X3DImporter9ParseFileERNS_10TXmlParserIN4pugi8xml_nodeEEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(40) %7)
+          to label %66 unwind label %.thread35
+
+66:                                               ; preds = %65, %60
+  call void @_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %68 = load ptr, ptr %67, align 8
+  %.not.i.i.i.i = icmp eq ptr %68, null
+  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit, label %69
+
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %71 = load ptr, ptr %70, align 8
+  %72 = ptrtoint ptr %71 to i64
+  %73 = ptrtoint ptr %68 to i64
+  %74 = sub i64 %72, %73
+  call void @_ZdlPvm(ptr noundef nonnull %68, i64 noundef %74) #33
+  br label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit
+
+_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %66, %69
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #31
   %75 = load ptr, ptr %21, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(8) %21) #31
-  br label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit25
+  ret void
 
-_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit25: ; preds = %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i21, %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i24, %27
-  %.pn16.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %74, %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i24 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i21 ], [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22 ], [ %.pn.pn31, %57 ]
+_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit25: ; preds = %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i21, %.thread35, %27
+  %.pn16.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %61, %.thread35 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i21 ], [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22 ], [ %.pn.pn31, %57 ]
   resume { ptr, i32 } %.pn16.pn.pn
 
 78:                                               ; preds = %26

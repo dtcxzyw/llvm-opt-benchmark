@@ -12316,8 +12316,8 @@ define internal void @"_ZN14ide_completion11completions9attribute6derive20comple
   br label %.thread63
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h2c8b6f227f6b95fdE.exit": ; preds = %.noexc
-  %.not125 = icmp eq ptr %45, null
-  br i1 %.not125, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h2c8b6f227f6b95fdE.exit.thread", label %138
+  %.not124 = icmp eq ptr %45, null
+  br i1 %.not124, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h2c8b6f227f6b95fdE.exit.thread", label %138
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h2c8b6f227f6b95fdE.exit.thread": ; preds = %37, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h2c8b6f227f6b95fdE.exit"
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12384,9 +12384,9 @@ define internal void @"_ZN14ide_completion11completions9attribute6derive20comple
   %.add = add nuw nsw i64 %.idx, 32
   br i1 %74, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h7f4be570bbb3b019E.exit", label %.preheader
 
-.thread77:                                        ; preds = %.loopexit, %.loopexit.split-lp, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread122", %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit", %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread", %133
-  %.5 = phi i8 [ 1, %133 ], [ 1, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread" ], [ 1, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit" ], [ 1, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread122" ], [ 1, %.loopexit ], [ %.4.ph, %.loopexit.split-lp ]
-  %.pn40 = phi { ptr, i32 } [ %134, %133 ], [ %.pn.pn121, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread" ], [ %lpad.thr_comm99, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit" ], [ %lpad.thr_comm.split-lp100, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread122" ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.thread77:                                        ; preds = %.loopexit, %.loopexit.split-lp, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread121", %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit", %.thread80, %133
+  %.5 = phi i8 [ 1, %133 ], [ 1, %.thread80 ], [ 1, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit" ], [ 1, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread121" ], [ 1, %.loopexit ], [ %.4.ph, %.loopexit.split-lp ]
+  %.pn40 = phi { ptr, i32 } [ %134, %133 ], [ %.pn.pn84, %.thread80 ], [ %lpad.thr_comm99, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit" ], [ %lpad.thr_comm.split-lp100, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread121" ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h5ba97c416cdfadc7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #33
           to label %.thread63 unwind label %130
 
@@ -12464,7 +12464,7 @@ define internal void @"_ZN14ide_completion11completions9attribute6derive20comple
           to label %99 unwind label %133
 
 "_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit": ; preds = %129
-  br i1 %.2.ph, label %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread", label %.thread77
+  br i1 %.2.ph, label %.thread80, label %.thread77
 
 99:                                               ; preds = %96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -12495,7 +12495,7 @@ define internal void @"_ZN14ide_completion11completions9attribute6derive20comple
 .thread94:                                        ; preds = %106, %105
   %lpad.thr_comm92 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread"
+  br label %.thread80
 
 105:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
@@ -12516,7 +12516,7 @@ define internal void @"_ZN14ide_completion11completions9attribute6derive20comple
   invoke void @"_ZN61_$LT$hir..Macro$u20$as$u20$ide_db..documentation..HasDocs$GT$4docs17ha49e7dce26da181cE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %12, i32 noundef %53, i32 noundef %55, ptr noundef nonnull align 1 %110, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1eb937629536308b0fe3bd2cbcc08bd4.17.llvm.18152640266846470746)
           to label %111 unwind label %129
 
-"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread122": ; preds = %116
+"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread121": ; preds = %116
   %lpad.thr_comm.split-lp100 = landingpad { ptr, i32 }
           cleanup
   br label %.thread77
@@ -12546,7 +12546,7 @@ define internal void @"_ZN14ide_completion11completions9attribute6derive20comple
   %118 = load ptr, ptr %117, align 8, !nonnull !9, !align !44, !noundef !9
   %119 = load ptr, ptr %48, align 8, !nonnull !9, !align !44, !noundef !9
   invoke void @"_ZN14ide_completion11completions47_$LT$impl$u20$ide_completion..item..Builder$GT$6add_to17h8c82241c43d3a96dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(320) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %118, ptr noundef nonnull align 8 %119)
-          to label %120 unwind label %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread122"
+          to label %120 unwind label %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread121"
 
 120:                                              ; preds = %116
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %9)
@@ -12591,7 +12591,7 @@ define internal void @"_ZN14ide_completion11completions9attribute6derive20comple
   invoke void @"_ZN4core3ptr50drop_in_place$LT$ide_completion..item..Builder$GT$17hdc3cf802c61ba50eE"(ptr noalias noundef nonnull align 8 dereferenceable(320) %15) #33
           to label %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit" unwind label %130
 
-130:                                              ; preds = %132, %149, %.thread63, %133, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread", %129, %.thread77
+130:                                              ; preds = %132, %149, %.thread63, %133, %.thread80, %129, %.thread77
   %131 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34
@@ -12601,10 +12601,10 @@ define internal void @"_ZN14ide_completion11completions9attribute6derive20comple
   %lpad.thr_comm.split-lp93 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2651449517a25461E.llvm.13297079808459514206"(ptr noalias noundef nonnull align 8 dereferenceable(32) %103)
-          to label %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread" unwind label %130
+          to label %.thread80 unwind label %130
 
-"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit.thread": ; preds = %132, %.thread94, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit"
-  %.pn.pn121 = phi { ptr, i32 } [ %lpad.thr_comm99, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit" ], [ %lpad.thr_comm.split-lp93, %132 ], [ %lpad.thr_comm92, %.thread94 ]
+.thread80:                                        ; preds = %132, %.thread94, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit"
+  %.pn.pn84 = phi { ptr, i32 } [ %lpad.thr_comm99, %"_ZN4core3ptr218drop_in_place$LT$itertools..intersperse..IntersperseWith$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$C$itertools..intersperse..IntersperseElementSimple$LT$$RF$str$GT$$GT$$GT$17h7a73bb5c7086a0bbE.exit" ], [ %lpad.thr_comm.split-lp93, %132 ], [ %lpad.thr_comm92, %.thread94 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb173e8889283780eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #33
           to label %.thread77 unwind label %130
 

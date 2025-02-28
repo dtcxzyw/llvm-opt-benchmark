@@ -145473,7 +145473,7 @@ define internal void @"_ZN7project15DirectoryLister14list_directory28_$u7b$$u7b$
   %8 = alloca [24 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load i8, ptr %9, align 8, !range !2106, !noundef !4
-  switch i8 %10, label %default.unreachable119 [
+  switch i8 %10, label %default.unreachable117 [
     i8 0, label %17
     i8 1, label %54
     i8 2, label %55
@@ -145484,16 +145484,16 @@ define internal void @"_ZN7project15DirectoryLister14list_directory28_$u7b$$u7b$
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !40898, !noalias !40903
-  %.phi.trans.insert115 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %.pre116 = load ptr, ptr %.phi.trans.insert115, align 8, !alias.scope !40898, !noalias !40903
+  %.phi.trans.insert113 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %.pre114 = load ptr, ptr %.phi.trans.insert113, align 8, !alias.scope !40898, !noalias !40903
   br label %56
 
-default.unreachable119:                           ; preds = %3
+default.unreachable117:                           ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
-  %.phi.trans.insert117 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %.pre118 = load ptr, ptr %.phi.trans.insert117, align 8, !alias.scope !40906, !noalias !40909
+  %.phi.trans.insert115 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %.pre116 = load ptr, ptr %.phi.trans.insert115, align 8, !alias.scope !40906, !noalias !40909
   br label %101
 
 12:                                               ; preds = %261, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he9051d552d6da052E.llvm.10723454985916948783.exit"
@@ -145602,7 +145602,7 @@ default.unreachable119:                           ; preds = %3
   unreachable
 
 56:                                               ; preds = %._crit_edge, %46
-  %57 = phi ptr [ %.pre116, %._crit_edge ], [ %48, %46 ]
+  %57 = phi ptr [ %.pre114, %._crit_edge ], [ %48, %46 ]
   %58 = phi ptr [ %.pre, %._crit_edge ], [ %47, %46 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -145725,7 +145725,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr59drop
   unreachable
 
 101:                                              ; preds = %11, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd1f6fad126378231E.exit32"
-  %102 = phi ptr [ %.pre118, %11 ], [ %145, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd1f6fad126378231E.exit32" ]
+  %102 = phi ptr [ %.pre116, %11 ], [ %145, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd1f6fad126378231E.exit32" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40906)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40994)
@@ -145752,8 +145752,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr59drop
 112:                                              ; preds = %"_ZN99_$LT$futures_util..stream..stream..next..Next$LT$St$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hee3b419ec1e02157E.exit"
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx113 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.5.0.copyload114 = load i64, ptr %.sroa.5.0..sroa_idx113, align 8
+  %.sroa.5.0..sroa_idx111 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.5.0.copyload112 = load i64, ptr %.sroa.5.0..sroa_idx111, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   switch i64 %110, label %114 [
     i64 -9223372036854775807, label %211
@@ -145768,7 +145768,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr59drop
 114:                                              ; preds = %112
   %115 = icmp ne ptr %.sroa.4.0.copyload, null
   tail call void @llvm.assume(i1 %115)
-  %116 = invoke { ptr, i64 } @_ZN3std4path4Path9file_name17h36210b8c17d883f5E(ptr noalias noundef nonnull readonly align 1 %.sroa.4.0.copyload, i64 noundef %.sroa.5.0.copyload114)
+  %116 = invoke { ptr, i64 } @_ZN3std4path4Path9file_name17h36210b8c17d883f5E(ptr noalias noundef nonnull readonly align 1 %.sroa.4.0.copyload, i64 noundef %.sroa.5.0.copyload112)
           to label %120 unwind label %118
 
 .body33:                                          ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8318809290061399519.exit.i.i1.i.i.i.i.i", %136, %128, %118

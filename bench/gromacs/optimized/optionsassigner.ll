@@ -1074,66 +1074,66 @@ define noundef zeroext i1 @_ZN3gmx15OptionsAssigner14tryStartOptionEPKc(ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !26
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %2
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx15OptionsAssigner14tryStartOptionEPKcENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef 189) #20
   unreachable
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !27
-  %11 = getelementptr inbounds i8, ptr %10, i64 -8
-  %12 = load ptr, ptr %11, align 8, !tbaa !21
-  %13 = tail call noundef ptr @_ZNK3gmx8internal17OptionSectionImpl10findOptionEPKc(ptr noundef nonnull align 8 dereferenceable(201) %12, ptr noundef %1)
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit
+.thread:                                          ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
+  %10 = getelementptr inbounds i8, ptr %9, i64 -8
+  %11 = load ptr, ptr %10, align 8, !tbaa !21
+  %12 = tail call noundef ptr @_ZNK3gmx8internal17OptionSectionImpl10findOptionEPKc(ptr noundef nonnull align 8 dereferenceable(201) %11, ptr noundef %1)
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit
 
-15:                                               ; preds = %8
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %17 = load i8, ptr %16, align 8, !tbaa !8, !range !28, !noundef !29
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit.thread
+14:                                               ; preds = %.thread
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %16 = load i8, ptr %15, align 8, !tbaa !8, !range !28, !noundef !29
+  %17 = trunc nuw i8 %16 to i1
+  br i1 %17, label %18, label %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit.thread
 
-19:                                               ; preds = %15
-  %20 = load i8, ptr %1, align 1, !tbaa !30
-  %21 = icmp eq i8 %20, 110
-  br i1 %21, label %22, label %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit.thread
+18:                                               ; preds = %14
+  %19 = load i8, ptr %1, align 1, !tbaa !30
+  %20 = icmp eq i8 %19, 110
+  br i1 %20, label %21, label %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit.thread
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %24 = load i8, ptr %23, align 1, !tbaa !30
-  %25 = icmp eq i8 %24, 111
-  br i1 %25, label %26, label %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit.thread
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %23 = load i8, ptr %22, align 1, !tbaa !30
+  %24 = icmp eq i8 %23, 111
+  br i1 %24, label %25, label %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit.thread
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %28 = tail call noundef ptr @_ZNK3gmx8internal17OptionSectionImpl10findOptionEPKc(ptr noundef nonnull align 8 dereferenceable(201) %12, ptr noundef nonnull %27)
-  %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit.thread, label %29
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %27 = tail call noundef ptr @_ZNK3gmx8internal17OptionSectionImpl10findOptionEPKc(ptr noundef nonnull align 8 dereferenceable(201) %11, ptr noundef nonnull %26)
+  %.not.i = icmp eq ptr %27, null
+  br i1 %.not.i, label %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit.thread, label %28
 
-29:                                               ; preds = %26
-  %30 = tail call noundef zeroext i1 @_ZNK3gmx21AbstractOptionStorage9isBooleanEv(ptr noundef nonnull align 8 dereferenceable(98) %28)
-  br i1 %30, label %31, label %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit.thread
+28:                                               ; preds = %25
+  %29 = tail call noundef zeroext i1 @_ZNK3gmx21AbstractOptionStorage9isBooleanEv(ptr noundef nonnull align 8 dereferenceable(98) %27)
+  br i1 %29, label %30, label %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit.thread
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  store i8 1, ptr %32, align 4, !tbaa !31
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  store i8 1, ptr %31, align 4, !tbaa !31
   br label %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit
 
-_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit: ; preds = %31, %8
-  %.0.i = phi ptr [ %28, %31 ], [ %13, %8 ]
+_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit: ; preds = %30, %.thread
+  %.0.i = phi ptr [ %27, %30 ], [ %12, %.thread ]
   tail call void @_ZN3gmx21AbstractOptionStorage8startSetEv(ptr noundef nonnull align 8 dereferenceable(98) %.0.i)
-  %33 = load ptr, ptr %0, align 8, !tbaa !32
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  store ptr %.0.i, ptr %34, align 8, !tbaa !26
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  store i32 0, ptr %35, align 8, !tbaa !72
+  %32 = load ptr, ptr %0, align 8, !tbaa !32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  store ptr %.0.i, ptr %33, align 8, !tbaa !26
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 48
+  store i32 0, ptr %34, align 8, !tbaa !72
   br label %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit.thread
 
-_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit.thread: ; preds = %26, %29, %15, %19, %22, %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit
-  %36 = phi i1 [ true, %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit ], [ false, %22 ], [ false, %19 ], [ false, %15 ], [ false, %29 ], [ false, %26 ]
-  ret i1 %36
+_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit.thread: ; preds = %25, %28, %14, %18, %21, %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit
+  %35 = phi i1 [ true, %_ZN3gmx15OptionsAssigner4Impl10findOptionEPKc.exit ], [ false, %21 ], [ false, %18 ], [ false, %14 ], [ false, %28 ], [ false, %25 ]
+  ret i1 %35
 }
 
 declare void @_ZN3gmx21AbstractOptionStorage8startSetEv(ptr noundef nonnull align 8 dereferenceable(98)) local_unnamed_addr #2

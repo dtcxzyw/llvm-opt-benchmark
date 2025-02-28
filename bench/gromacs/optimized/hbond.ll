@@ -13984,16 +13984,16 @@ _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit:        ; preds = %.loopexit, %959
   %.sroa.0280.10 = phi ptr [ %.sroa.0280.8485, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit223 ], [ %.sroa.0280.0537, %262 ], [ %.sroa.0280.1, %.sink.split.i ], [ %.sroa.0280.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84.i ], [ %.sroa.0280.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65.i ], [ %.sroa.0280.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit245 ], [ %.sroa.0280.3, %.split ], [ %.sroa.0280.3.us, %.split.us ], [ %.sroa.0280.5.ph.us, %.loopexit341.split.us ], [ %.sroa.0280.5.ph344, %.loopexit.split-lp342 ], [ %.sroa.0280.1, %.loopexit.split-lp324 ], [ %.sroa.0280.1, %.loopexit323 ]
   %.pn77.pn.pn = phi { ptr, i32 } [ %.pn74.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit223 ], [ %263, %262 ], [ %.pn42.pn.pn.pn.pn.pn.pn.pn.ph.i, %.sink.split.i ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84.i ], [ %.pn42.pn.pn.pn.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65.i ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit245 ], [ %280, %.split ], [ %261, %.split.us ], [ %lpad.loopexit345.us, %.loopexit341.split.us ], [ %lpad.loopexit.split-lp346, %.loopexit.split-lp342 ], [ %lpad.loopexit.split-lp326, %.loopexit.split-lp324 ], [ %lpad.loopexit325, %.loopexit323 ]
   %.not.i.i.i253 = icmp eq ptr %.sroa.0280.10, null
-  br i1 %.not.i.i.i253, label %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit254, label %963
+  br i1 %.not.i.i.i253, label %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit254, label %.body250.thread
 
-963:                                              ; preds = %.body250
-  %964 = ptrtoint ptr %.sroa.28.10 to i64
-  %965 = ptrtoint ptr %.sroa.0280.10 to i64
-  %966 = sub i64 %964, %965
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0280.10, i64 noundef %966) #32
+.body250.thread:                                  ; preds = %.body250
+  %963 = ptrtoint ptr %.sroa.28.10 to i64
+  %964 = ptrtoint ptr %.sroa.0280.10 to i64
+  %965 = sub i64 %963, %964
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0280.10, i64 noundef %965) #32
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit254
 
-_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit254:     ; preds = %.body250, %963
+_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit254:     ; preds = %.body250, %.body250.thread
   resume { ptr, i32 } %.pn77.pn.pn
 }
 

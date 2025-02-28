@@ -4612,7 +4612,7 @@ _ZN7rocksdb6StatusD2Ev.exit.us:                   ; preds = %_ZNKSt14default_del
 .split79.us:                                      ; preds = %36
   %56 = landingpad { ptr, i32 }
           cleanup
-  br label %91
+  br label %81
 
 .preheader.split:                                 ; preds = %.preheader, %_ZN7rocksdb6StatusD2Ev.exit
   %.sroa.066.0 = phi ptr [ %.sroa.066.1, %_ZN7rocksdb6StatusD2Ev.exit ], [ null, %.preheader ]
@@ -4663,7 +4663,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %59, %58
 70:                                               ; preds = %65
   %71 = load i8, ptr %7, align 8, !tbaa !24
   %72 = icmp eq i8 %71, 0
-  br i1 %72, label %80, label %73
+  br i1 %72, label %82, label %73
 
 73:                                               ; preds = %70
   store ptr null, ptr %19, align 8, !tbaa !124
@@ -4690,58 +4690,58 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %59, %58
   store ptr %79, ptr %19, align 8, !tbaa !87
   br label %_ZN7rocksdb6StatusC2EOS0_.exit
 
-80:                                               ; preds = %70
+.split79:                                         ; preds = %65
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  br label %81
+
+81:                                               ; preds = %.split79.us, %.split79
+  %.us-phi80 = phi ptr [ %.sroa.066.1, %.split79 ], [ %.sroa.066.1.us, %.split79.us ]
+  %.us-phi81 = phi { ptr, i32 } [ %80, %.split79 ], [ %56, %.split79.us ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #31
+  br label %98
+
+82:                                               ; preds = %70
   %.not46 = icmp eq ptr %.031, %.030
-  br i1 %.not46, label %83, label %81
+  br i1 %.not46, label %85, label %83
 
-81:                                               ; preds = %80
-  %82 = getelementptr inbounds nuw i8, ptr %.031, i64 %.038
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.030, ptr align 1 %82, i64 %.sroa.speculated, i1 false)
-  br label %83
+83:                                               ; preds = %82
+  %84 = getelementptr inbounds nuw i8, ptr %.031, i64 %.038
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.030, ptr align 1 %84, i64 %.sroa.speculated, i1 false)
+  br label %85
 
-83:                                               ; preds = %80, %81
+85:                                               ; preds = %82, %83
   %.not76 = icmp ugt i64 %.0, %57
-  br i1 %.not76, label %85, label %84
+  br i1 %.not76, label %87, label %86
 
-84:                                               ; preds = %83
+86:                                               ; preds = %85
   store ptr null, ptr %19, align 8, !tbaa !124, !alias.scope !215
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.fr, i8 0, i64 6, i1 false), !alias.scope !215
   br label %_ZN7rocksdb6StatusC2EOS0_.exit
 
-85:                                               ; preds = %83
-  %86 = sub nuw i64 %.0, %.sroa.speculated
-  %87 = getelementptr inbounds nuw i8, ptr %.030, i64 %.sroa.speculated
-  %88 = add i64 %.040, 1
+87:                                               ; preds = %85
+  %88 = sub nuw i64 %.0, %.sroa.speculated
+  %89 = getelementptr inbounds nuw i8, ptr %.030, i64 %.sroa.speculated
+  %90 = add i64 %.040, 1
   br label %_ZN7rocksdb6StatusC2EOS0_.exit
 
-_ZN7rocksdb6StatusC2EOS0_.exit:                   ; preds = %73, %84, %85
-  %.174 = phi i64 [ 0, %84 ], [ %86, %85 ], [ %.0, %73 ]
-  %.141 = phi i64 [ %.040, %84 ], [ %88, %85 ], [ %.040, %73 ]
-  %.139 = phi i64 [ %.038, %84 ], [ 0, %85 ], [ %.038, %73 ]
-  %.1 = phi ptr [ %.030, %84 ], [ %87, %85 ], [ %.030, %73 ]
-  %cond = phi i1 [ false, %84 ], [ true, %85 ], [ false, %73 ]
-  %89 = load ptr, ptr %30, align 8, !tbaa !87
-  %.not.i.i51 = icmp eq ptr %89, null
+_ZN7rocksdb6StatusC2EOS0_.exit:                   ; preds = %73, %86, %87
+  %.174 = phi i64 [ 0, %86 ], [ %88, %87 ], [ %.0, %73 ]
+  %.141 = phi i64 [ %.040, %86 ], [ %90, %87 ], [ %.040, %73 ]
+  %.139 = phi i64 [ %.038, %86 ], [ 0, %87 ], [ %.038, %73 ]
+  %.1 = phi ptr [ %.030, %86 ], [ %89, %87 ], [ %.030, %73 ]
+  %cond = phi i1 [ false, %86 ], [ true, %87 ], [ false, %73 ]
+  %91 = load ptr, ptr %30, align 8, !tbaa !87
+  %.not.i.i51 = icmp eq ptr %91, null
   br i1 %.not.i.i51, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit
-  call void @_ZdaPv(ptr noundef nonnull %89) #30
+  call void @_ZdaPv(ptr noundef nonnull %91) #30
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #31
   br i1 %cond, label %.preheader.split, label %.split83.us, !llvm.loop !218
-
-.split79:                                         ; preds = %65
-  %90 = landingpad { ptr, i32 }
-          cleanup
-  br label %91
-
-91:                                               ; preds = %.split79.us, %.split79
-  %.us-phi80 = phi ptr [ %.sroa.066.1, %.split79 ], [ %.sroa.066.1.us, %.split79.us ]
-  %.us-phi81 = phi { ptr, i32 } [ %90, %.split79 ], [ %56, %.split79.us ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #31
-  br label %98
 
 .split83.us:                                      ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %_ZN7rocksdb6StatusD2Ev.exit.us
   %.us-phi84 = phi ptr [ %.sroa.066.1.us, %_ZN7rocksdb6StatusD2Ev.exit.us ], [ %.sroa.066.1, %_ZN7rocksdb6StatusD2Ev.exit ]
@@ -4773,9 +4773,9 @@ _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit57: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i56
   ret void
 
-98:                                               ; preds = %.split, %.split.us, %91, %61
-  %.sroa.066.3 = phi ptr [ %.us-phi80, %91 ], [ null, %61 ], [ null, %.split.us ], [ null, %.split ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.us-phi81, %91 ], [ %62, %61 ], [ %55, %.split.us ], [ %63, %.split ]
+98:                                               ; preds = %.split, %.split.us, %81, %61
+  %.sroa.066.3 = phi ptr [ %.us-phi80, %81 ], [ null, %61 ], [ null, %.split.us ], [ null, %.split ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.us-phi81, %81 ], [ %62, %61 ], [ %55, %.split.us ], [ %63, %.split ]
   %99 = load ptr, ptr %6, align 8, !tbaa !166
   %100 = icmp eq ptr %99, %12
   br i1 %100, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i59, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58

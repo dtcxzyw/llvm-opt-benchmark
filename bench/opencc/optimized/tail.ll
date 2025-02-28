@@ -556,7 +556,7 @@ _ZN6marisa8grimoire6vector6VectorIjE6resizeEmRKj.exit.thread: ; preds = %._crit_
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store ptr @.str.3, ptr %44, align 8, !tbaa !16
   invoke void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZNSt9exceptionD2Ev) #17
-          to label %206 unwind label %57
+          to label %205 unwind label %57
 
 45:                                               ; preds = %.preheader126, %55
   %.048129 = phi i64 [ 0, %.preheader126 ], [ %56, %55 ]
@@ -908,7 +908,7 @@ thread-pre-split:                                 ; preds = %._crit_edge137
   %190 = getelementptr inbounds nuw i8, ptr %186, i64 24
   store ptr @.str.4, ptr %190, align 8, !tbaa !16
   invoke void @__cxa_throw(ptr nonnull %186, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZNSt9exceptionD2Ev) #17
-          to label %206 unwind label %.loopexit.split-lp
+          to label %205 unwind label %.loopexit.split-lp
 
 191:                                              ; preds = %182, %60
   %.not = icmp eq i64 %29, 0
@@ -948,16 +948,16 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit:    ; preds = %192, %200
   %.pn59.pn = phi { ptr, i32 } [ %202, %201 ], [ %58, %57 ], [ %137, %136 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   %204 = icmp eq ptr %.sroa.0.0113150, null
-  br i1 %204, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit85, label %205
+  br i1 %204, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit85, label %.thread
 
-205:                                              ; preds = %203
+.thread:                                          ; preds = %203
   tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.0113150) #18
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit85
 
-_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit85:  ; preds = %203, %205
+_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit85:  ; preds = %203, %.thread
   resume { ptr, i32 } %.pn59.pn
 
-206:                                              ; preds = %185, %39
+205:                                              ; preds = %185, %39
   unreachable
 }
 

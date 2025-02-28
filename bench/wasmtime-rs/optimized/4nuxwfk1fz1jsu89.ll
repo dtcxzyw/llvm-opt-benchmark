@@ -2469,26 +2469,26 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   br label %38
 
-41:                                               ; preds = %42
+.thread:                                          ; preds = %41
   resume { ptr, i32 } %lpad.phi
 
 .loopexit:                                        ; preds = %25, %22
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %42
+  br label %41
 
 .loopexit.split-lp:                               ; preds = %14
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %42
+  br label %41
 
-42:                                               ; preds = %.loopexit.split-lp, %.loopexit
+41:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$wasmtime_wasi..preview1..Descriptor$GT$17h7fd1cd2445db41d9E.llvm.484570838511886111"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #29
-          to label %41 unwind label %43
+          to label %.thread unwind label %42
 
-43:                                               ; preds = %42
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %41
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #30
   unreachable

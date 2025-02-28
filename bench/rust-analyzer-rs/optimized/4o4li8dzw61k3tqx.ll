@@ -21759,7 +21759,7 @@ define void @_ZN3hir11term_search11LookupTable3new17h708e270d0beb78f1E(ptr noali
           to label %23 unwind label %21
 
 20:                                               ; preds = %21
-  br i1 %.1, label %36, label %35
+  br i1 %.1, label %.thread, label %35
 
 21:                                               ; preds = %30, %26, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$hir..Type$GT$$GT$$GT$17hd631f18bc0d10bbfE.exit3", %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$hir..Type$GT$$GT$$GT$17hd631f18bc0d10bbfE.exit", %4
   %.1 = phi i1 [ false, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$hir..Type$GT$$GT$$GT$17hd631f18bc0d10bbfE.exit3" ], [ true, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$hir..Type$GT$$GT$$GT$17hd631f18bc0d10bbfE.exit" ], [ true, %4 ], [ true, %26 ], [ true, %30 ]
@@ -21803,16 +21803,16 @@ define void @_ZN3hir11term_search11LookupTable3new17h708e270d0beb78f1E(ptr noali
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %9)
   ret void
 
-33:                                               ; preds = %36, %21
+33:                                               ; preds = %.thread, %21
   %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #45
   unreachable
 
-35:                                               ; preds = %36, %20
+35:                                               ; preds = %.thread, %20
   resume { ptr, i32 } %22
 
-36:                                               ; preds = %20
+.thread:                                          ; preds = %20
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17hfc567958041da211E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #44
           to label %35 unwind label %33
 }

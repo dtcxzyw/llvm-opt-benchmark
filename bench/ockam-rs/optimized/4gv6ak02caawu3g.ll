@@ -1300,23 +1300,25 @@ __rust_try.llvm.17557471103795588278.exit:        ; preds = %9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17hd0f53da3703f690fE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+__rust_try.llvm.17557471103795588278.exit:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
-  %2 = load ptr, ptr %0, align 8, !alias.scope !273, !noalias !274, !noundef !18
-  store i64 0, ptr %2, align 8, !noalias !277
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i8 2, ptr %3, align 1, !noalias !277
+  %1 = load ptr, ptr %0, align 8, !alias.scope !273, !noalias !274, !noundef !18
+  store i64 0, ptr %1, align 8, !noalias !277
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i8 2, ptr %2, align 1, !noalias !277
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17hf3f95fa3f55ebe19E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+__rust_try.llvm.17557471103795588278.exit:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !278)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !281)
-  %2 = load ptr, ptr %0, align 8, !alias.scope !284, !noalias !285, !noundef !18
-  store i64 0, ptr %2, align 8, !noalias !288
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 2, ptr %3, align 1, !noalias !288
+  %1 = load ptr, ptr %0, align 8, !alias.scope !284, !noalias !285, !noundef !18
+  store i64 0, ptr %1, align 8, !noalias !288
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 2, ptr %2, align 1, !noalias !288
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 

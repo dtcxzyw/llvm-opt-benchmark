@@ -131,7 +131,7 @@ _ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit.i: ; preds = %3, %_ZN5folly8Execu
   tail call void %57(ptr noundef nonnull align 8 dereferenceable(8) %54) #12, !noalias !17
   %.sink.i.i12.not = xor i1 %.sink.i.i12, true
   %brmerge = or i1 %.not.i.i, %.sink.i.i12.not
-  br i1 %brmerge, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit6, label %62
+  br i1 %brmerge, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit6, label %.thread
 
 "_ZN5folly20ExecutorWithPriority13createDynamicIZNS0_6createENS_8Executor9KeepAliveIS2_EEaE3$_0EES4_S4_OT_.exit": ; preds = %44, %"_ZN5folly8Executor9KeepAliveINS_6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS1_IS0_EEaE3$_0EEED2Ev.exit.i"
   %.not.i.i.i14.not = xor i1 %.not.i.i, true
@@ -151,16 +151,16 @@ _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit:       ; preds = %"_ZN5folly20Executo
 .body:                                            ; preds = %49
   %.sink.i.i12.not26 = xor i1 %.sink.i.i12, true
   %brmerge27 = or i1 %.not.i.i, %.sink.i.i12.not26
-  br i1 %brmerge27, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit6, label %62
+  br i1 %brmerge27, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit6, label %.thread
 
-62:                                               ; preds = %.body, %53
-  %63 = load ptr, ptr %16, align 8, !tbaa !12
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(8) %16) #12
+.thread:                                          ; preds = %.body, %53
+  %62 = load ptr, ptr %16, align 8, !tbaa !12
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
+  %64 = load ptr, ptr %63, align 8
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(8) %16) #12
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit6
 
-_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit6:      ; preds = %.body, %53, %62
+_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit6:      ; preds = %.body, %53, %.thread
   resume { ptr, i32 } %50
 }
 

@@ -38573,7 +38573,7 @@ define hidden void @_ZN15tree_sitter_cli8generate13parse_grammar10parse_rule17ha
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %140, i64 48, i1 false)
   invoke void @_ZN15tree_sitter_cli8generate13parse_grammar10parse_rule17ha587c134aae58972E(ptr noalias noundef nonnull sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %15)
-          to label %233 unwind label %231
+          to label %230 unwind label %228
 
 141:                                              ; preds = %2
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -38582,7 +38582,7 @@ define hidden void @_ZN15tree_sitter_cli8generate13parse_grammar10parse_rule17ha
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %143, i64 48, i1 false)
   invoke void @_ZN15tree_sitter_cli8generate13parse_grammar10parse_rule17ha587c134aae58972E(ptr noalias noundef nonnull sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
-          to label %236 unwind label %234
+          to label %233 unwind label %231
 
 144:                                              ; preds = %146
   %145 = landingpad { ptr, i32 }
@@ -38605,7 +38605,7 @@ define hidden void @_ZN15tree_sitter_cli8generate13parse_grammar10parse_rule17ha
   tail call void @__rust_dealloc(ptr noundef nonnull %52, i64 noundef 48, i64 noundef 8) #46
   br label %149
 
-149:                                              ; preds = %_ZN15tree_sitter_cli8generate5rules4Rule15immediate_token17h73fa6249f0b8529bE.exit, %_ZN15tree_sitter_cli8generate5rules4Rule5token17h44d5f7e31b7d6d48E.exit, %227, %219, %211, %206, %201, %186, %164, %"_ZN4core6option15Option$LT$T$GT$6map_or17ha5c2d09a0942077cE.exit", %148, %101, %94, %91, %57, %56
+149:                                              ; preds = %_ZN15tree_sitter_cli8generate5rules4Rule15immediate_token17h73fa6249f0b8529bE.exit, %_ZN15tree_sitter_cli8generate5rules4Rule5token17h44d5f7e31b7d6d48E.exit, %225, %218, %211, %206, %201, %186, %164, %"_ZN4core6option15Option$LT$T$GT$6map_or17ha5c2d09a0942077cE.exit", %148, %101, %94, %91, %57, %56
   ret void
 
 150:                                              ; preds = %144, %152
@@ -38619,14 +38619,14 @@ define hidden void @_ZN15tree_sitter_cli8generate13parse_grammar10parse_rule17ha
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44) #44
           to label %150 unwind label %154
 
-154:                                              ; preds = %228, %220, %212, %188, %167, %.body, %152
+154:                                              ; preds = %226, %219, %212, %188, %167, %.body, %152
   %155 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #45
   unreachable
 
-156:                                              ; preds = %234, %231, %.thread154, %.thread147, %.thread140, %203, %.body68, %187, %165, %150, %.body
-  %.pn31 = phi { ptr, i32 } [ %235, %234 ], [ %232, %231 ], [ %230, %.thread154 ], [ %222, %.thread147 ], [ %214, %.thread140 ], [ %204, %203 ], [ %eh.lpad-body69, %.body68 ], [ %.pn29137, %187 ], [ %166, %165 ], [ %eh.lpad-body, %.body ], [ %151, %150 ]
+156:                                              ; preds = %231, %228, %.thread154, %.thread147, %.thread140, %203, %.body68, %187, %165, %150, %.body
+  %.pn31 = phi { ptr, i32 } [ %232, %231 ], [ %229, %228 ], [ %.pn157, %.thread154 ], [ %.pn25150, %.thread147 ], [ %.pn27143, %.thread140 ], [ %204, %203 ], [ %eh.lpad-body69, %.body68 ], [ %.pn29137, %187 ], [ %166, %165 ], [ %eh.lpad-body, %.body ], [ %151, %150 ]
   resume { ptr, i32 } %.pn31
 
 157:                                              ; preds = %85, %82
@@ -38862,120 +38862,120 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.16258808753110442553.e
           to label %.thread140 unwind label %154
 
 .thread140:                                       ; preds = %208, %212
-  %214 = phi { ptr, i32 } [ %209, %208 ], [ %213, %212 ]
+  %.pn27143 = phi { ptr, i32 } [ %209, %208 ], [ %213, %212 ]
   call void @__rust_dealloc(ptr noundef nonnull %123, i64 noundef 48, i64 noundef 8) #46
   br label %156
 
 "_ZN15tree_sitter_cli8generate13parse_grammar163_$LT$impl$u20$core..convert..From$LT$tree_sitter_cli..generate..parse_grammar..PrecedenceValueJSON$GT$$u20$for$u20$tree_sitter_cli..generate..rules..Precedence$GT$4from17h79fefa94e8142995E.exit60": ; preds = %126, %131
   %.sroa.0122.0.copyload.sink = phi i64 [ %.sroa.0122.0.copyload, %131 ], [ -9223372036854775807, %126 ]
-  %215 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i32 %.sroa.3124.0.copyload, ptr %215, align 8, !alias.scope !8415
+  %214 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i32 %.sroa.3124.0.copyload, ptr %214, align 8, !alias.scope !8415
   store i64 %.sroa.0122.0.copyload.sink, ptr %21, align 8, !alias.scope !8415
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(48) %129, i64 48, i1 false)
   invoke void @_ZN15tree_sitter_cli8generate13parse_grammar10parse_rule17ha587c134aae58972E(ptr noalias noundef nonnull sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %19)
-          to label %218 unwind label %220
+          to label %217 unwind label %219
 
-216:                                              ; preds = %218
-  %217 = landingpad { ptr, i32 }
+215:                                              ; preds = %217
+  %216 = landingpad { ptr, i32 }
           cleanup
   br label %.thread147
 
-218:                                              ; preds = %"_ZN15tree_sitter_cli8generate13parse_grammar163_$LT$impl$u20$core..convert..From$LT$tree_sitter_cli..generate..parse_grammar..PrecedenceValueJSON$GT$$u20$for$u20$tree_sitter_cli..generate..rules..Precedence$GT$4from17h79fefa94e8142995E.exit60"
+217:                                              ; preds = %"_ZN15tree_sitter_cli8generate13parse_grammar163_$LT$impl$u20$core..convert..From$LT$tree_sitter_cli..generate..parse_grammar..PrecedenceValueJSON$GT$$u20$for$u20$tree_sitter_cli..generate..rules..Precedence$GT$4from17h79fefa94e8142995E.exit60"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !8419
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %21, i64 24, i1 false), !noalias !8424
   invoke void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h68907909b105aa12E(ptr noalias noundef nonnull sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
-          to label %219 unwind label %216
+          to label %218 unwind label %215
 
-219:                                              ; preds = %218
+218:                                              ; preds = %217
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !8419
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   tail call void @__rust_dealloc(ptr noundef nonnull %129, i64 noundef 48, i64 noundef 8) #46
   br label %149
 
-220:                                              ; preds = %"_ZN15tree_sitter_cli8generate13parse_grammar163_$LT$impl$u20$core..convert..From$LT$tree_sitter_cli..generate..parse_grammar..PrecedenceValueJSON$GT$$u20$for$u20$tree_sitter_cli..generate..rules..Precedence$GT$4from17h79fefa94e8142995E.exit60"
-  %221 = landingpad { ptr, i32 }
+219:                                              ; preds = %"_ZN15tree_sitter_cli8generate13parse_grammar163_$LT$impl$u20$core..convert..From$LT$tree_sitter_cli..generate..parse_grammar..PrecedenceValueJSON$GT$$u20$for$u20$tree_sitter_cli..generate..rules..Precedence$GT$4from17h79fefa94e8142995E.exit60"
+  %220 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$tree_sitter_cli..generate..rules..Precedence$GT$17he25aa4704d81d7b1E"(ptr noalias noundef align 8 dereferenceable(24) %21) #44
           to label %.thread147 unwind label %154
 
-.thread147:                                       ; preds = %216, %220
-  %222 = phi { ptr, i32 } [ %217, %216 ], [ %221, %220 ]
+.thread147:                                       ; preds = %215, %219
+  %.pn25150 = phi { ptr, i32 } [ %216, %215 ], [ %220, %219 ]
   call void @__rust_dealloc(ptr noundef nonnull %129, i64 noundef 48, i64 noundef 8) #46
   br label %156
 
 "_ZN15tree_sitter_cli8generate13parse_grammar163_$LT$impl$u20$core..convert..From$LT$tree_sitter_cli..generate..parse_grammar..PrecedenceValueJSON$GT$$u20$for$u20$tree_sitter_cli..generate..rules..Precedence$GT$4from17h79fefa94e8142995E.exit61": ; preds = %132, %137
   %.sroa.0104.0.copyload.sink = phi i64 [ %.sroa.0104.0.copyload, %137 ], [ -9223372036854775807, %132 ]
-  %223 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 %.sroa.3106.0.copyload, ptr %223, align 8, !alias.scope !8425
+  %221 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store i32 %.sroa.3106.0.copyload, ptr %221, align 8, !alias.scope !8425
   store i64 %.sroa.0104.0.copyload.sink, ptr %27, align 8, !alias.scope !8425
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(48) %135, i64 48, i1 false)
   invoke void @_ZN15tree_sitter_cli8generate13parse_grammar10parse_rule17ha587c134aae58972E(ptr noalias noundef nonnull sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) %26, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %25)
-          to label %226 unwind label %228
+          to label %224 unwind label %226
 
-224:                                              ; preds = %226
-  %225 = landingpad { ptr, i32 }
+222:                                              ; preds = %224
+  %223 = landingpad { ptr, i32 }
           cleanup
   br label %.thread154
 
-226:                                              ; preds = %"_ZN15tree_sitter_cli8generate13parse_grammar163_$LT$impl$u20$core..convert..From$LT$tree_sitter_cli..generate..parse_grammar..PrecedenceValueJSON$GT$$u20$for$u20$tree_sitter_cli..generate..rules..Precedence$GT$4from17h79fefa94e8142995E.exit61"
+224:                                              ; preds = %"_ZN15tree_sitter_cli8generate13parse_grammar163_$LT$impl$u20$core..convert..From$LT$tree_sitter_cli..generate..parse_grammar..PrecedenceValueJSON$GT$$u20$for$u20$tree_sitter_cli..generate..rules..Precedence$GT$4from17h79fefa94e8142995E.exit61"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !8429
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %27, i64 24, i1 false), !noalias !8434
   invoke void @_ZN15tree_sitter_cli8generate5rules12add_metadata17h31d618b73ee38b06E(ptr noalias noundef nonnull sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %26, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
-          to label %227 unwind label %224
+          to label %225 unwind label %222
 
-227:                                              ; preds = %226
+225:                                              ; preds = %224
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !8429
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   tail call void @__rust_dealloc(ptr noundef nonnull %135, i64 noundef 48, i64 noundef 8) #46
   br label %149
 
-228:                                              ; preds = %"_ZN15tree_sitter_cli8generate13parse_grammar163_$LT$impl$u20$core..convert..From$LT$tree_sitter_cli..generate..parse_grammar..PrecedenceValueJSON$GT$$u20$for$u20$tree_sitter_cli..generate..rules..Precedence$GT$4from17h79fefa94e8142995E.exit61"
-  %229 = landingpad { ptr, i32 }
+226:                                              ; preds = %"_ZN15tree_sitter_cli8generate13parse_grammar163_$LT$impl$u20$core..convert..From$LT$tree_sitter_cli..generate..parse_grammar..PrecedenceValueJSON$GT$$u20$for$u20$tree_sitter_cli..generate..rules..Precedence$GT$4from17h79fefa94e8142995E.exit61"
+  %227 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$tree_sitter_cli..generate..rules..Precedence$GT$17he25aa4704d81d7b1E"(ptr noalias noundef align 8 dereferenceable(24) %27) #44
           to label %.thread154 unwind label %154
 
-.thread154:                                       ; preds = %224, %228
-  %230 = phi { ptr, i32 } [ %225, %224 ], [ %229, %228 ]
+.thread154:                                       ; preds = %222, %226
+  %.pn157 = phi { ptr, i32 } [ %223, %222 ], [ %227, %226 ]
   call void @__rust_dealloc(ptr noundef nonnull %135, i64 noundef 48, i64 noundef 8) #46
   br label %156
 
-231:                                              ; preds = %233, %138
-  %232 = landingpad { ptr, i32 }
+228:                                              ; preds = %230, %138
+  %229 = landingpad { ptr, i32 }
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %140, i64 noundef 48, i64 noundef 8) #46
   br label %156
 
-233:                                              ; preds = %138
+230:                                              ; preds = %138
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   invoke void @_ZN15tree_sitter_cli8generate5rules12add_metadata17ha43c5ff2143bfc7dE(ptr noalias noundef nonnull sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %16)
-          to label %_ZN15tree_sitter_cli8generate5rules4Rule5token17h44d5f7e31b7d6d48E.exit unwind label %231
+          to label %_ZN15tree_sitter_cli8generate5rules4Rule5token17h44d5f7e31b7d6d48E.exit unwind label %228
 
-_ZN15tree_sitter_cli8generate5rules4Rule5token17h44d5f7e31b7d6d48E.exit: ; preds = %233
+_ZN15tree_sitter_cli8generate5rules4Rule5token17h44d5f7e31b7d6d48E.exit: ; preds = %230
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %16)
   tail call void @__rust_dealloc(ptr noundef nonnull %140, i64 noundef 48, i64 noundef 8) #46
   br label %149
 
-234:                                              ; preds = %236, %141
-  %235 = landingpad { ptr, i32 }
+231:                                              ; preds = %233, %141
+  %232 = landingpad { ptr, i32 }
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %143, i64 noundef 48, i64 noundef 8) #46
   br label %156
 
-236:                                              ; preds = %141
+233:                                              ; preds = %141
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   invoke void @_ZN15tree_sitter_cli8generate5rules12add_metadata17hd409b6c3273ba805E(ptr noalias noundef nonnull sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %14)
-          to label %_ZN15tree_sitter_cli8generate5rules4Rule15immediate_token17h73fa6249f0b8529bE.exit unwind label %234
+          to label %_ZN15tree_sitter_cli8generate5rules4Rule15immediate_token17h73fa6249f0b8529bE.exit unwind label %231
 
-_ZN15tree_sitter_cli8generate5rules4Rule15immediate_token17h73fa6249f0b8529bE.exit: ; preds = %236
+_ZN15tree_sitter_cli8generate5rules4Rule15immediate_token17h73fa6249f0b8529bE.exit: ; preds = %233
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %14)
   tail call void @__rust_dealloc(ptr noundef nonnull %143, i64 noundef 48, i64 noundef 8) #46
   br label %149
