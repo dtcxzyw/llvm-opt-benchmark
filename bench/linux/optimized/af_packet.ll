@@ -2918,7 +2918,7 @@ define internal range(i32 -92, 1) i32 @packet_getsockopt(ptr noundef readonly ca
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #19
   %11 = icmp eq i32 %1, 263
-  br i1 %11, label %12, label %149
+  br i1 %11, label %12, label %138
 
 12:                                               ; preds = %5
   %13 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -2930,17 +2930,17 @@ define internal range(i32 -92, 1) i32 @packet_getsockopt(ptr noundef readonly ca
   tail call void @llvm.write_register.i64(metadata !0, i64 %17)
   %19 = and i64 %18, 4294967295
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %21, label %149
+  br i1 %20, label %21, label %138
 
 21:                                               ; preds = %12
   %22 = icmp slt i32 %16, 0
-  br i1 %22, label %149, label %23
+  br i1 %22, label %138, label %23
 
 23:                                               ; preds = %21
   store i32 0, ptr %6, align 4, !annotation !48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, i8 0, i64 12, i1 false), !annotation !48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !annotation !48
-  switch i32 %2, label %149 [
+  switch i32 %2, label %138 [
     i32 6, label %24
     i32 8, label %36
     i32 9, label %42
@@ -2952,10 +2952,10 @@ define internal range(i32 -92, 1) i32 @packet_getsockopt(ptr noundef readonly ca
     i32 14, label %74
     i32 17, label %80
     i32 18, label %83
-    i32 23, label %103
-    i32 21, label %107
-    i32 19, label %120
-    i32 20, label %126
+    i32 23, label %92
+    i32 21, label %96
+    i32 19, label %109
+    i32 20, label %115
   ]
 
 24:                                               ; preds = %23
@@ -2976,7 +2976,7 @@ define internal range(i32 -92, 1) i32 @packet_getsockopt(ptr noundef readonly ca
   %34 = add i32 %33, %28
   store i32 %34, ptr %7, align 4
   %35 = select i1 %31, i32 12, i32 8
-  br label %132
+  br label %121
 
 36:                                               ; preds = %23
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 1208
@@ -2985,7 +2985,7 @@ define internal range(i32 -92, 1) i32 @packet_getsockopt(ptr noundef readonly ca
   %40 = lshr i32 %39, 1
   %41 = and i32 %40, 1
   store i32 %41, ptr %6, align 4
-  br label %132
+  br label %121
 
 42:                                               ; preds = %23
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 1208
@@ -2993,7 +2993,7 @@ define internal range(i32 -92, 1) i32 @packet_getsockopt(ptr noundef readonly ca
   %45 = trunc i64 %44 to i32
   %46 = and i32 %45, 1
   store i32 %46, ptr %6, align 4
-  br label %132
+  br label %121
 
 47:                                               ; preds = %23
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 1220
@@ -3001,35 +3001,35 @@ define internal range(i32 -92, 1) i32 @packet_getsockopt(ptr noundef readonly ca
   %50 = icmp ne i8 %49, 0
   %51 = zext i1 %50 to i32
   store i32 %51, ptr %6, align 4
-  br label %132
+  br label %121
 
 52:                                               ; preds = %23
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 1220
   %54 = load volatile i8, ptr %53, align 4
   %55 = zext i8 %54 to i32
   store i32 %55, ptr %6, align 4
-  br label %132
+  br label %121
 
 56:                                               ; preds = %23
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 1248
   %58 = load i32, ptr %57, align 32
   store i32 %58, ptr %6, align 4
-  br label %132
+  br label %121
 
 59:                                               ; preds = %23
   %60 = tail call i32 @llvm.umin.i32(i32 %16, i32 4)
   %61 = icmp samesign ult i32 %16, 4
-  br i1 %61, label %149, label %62
+  br i1 %61, label %138, label %62
 
 62:                                               ; preds = %59
   %63 = zext nneg i32 %60 to i64
   %64 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %3, i64 noundef %63) #19
   %65 = icmp eq i64 %64, 0
-  br i1 %65, label %66, label %149
+  br i1 %65, label %66, label %138
 
 66:                                               ; preds = %62
   %67 = load i32, ptr %6, align 4
-  switch i32 %67, label %149 [
+  switch i32 %67, label %138 [
     i32 0, label %68
     i32 1, label %69
     i32 2, label %70
@@ -3037,21 +3037,21 @@ define internal range(i32 -92, 1) i32 @packet_getsockopt(ptr noundef readonly ca
 
 68:                                               ; preds = %66
   store i32 32, ptr %6, align 4
-  br label %132
+  br label %121
 
 69:                                               ; preds = %66
   store i32 32, ptr %6, align 4
-  br label %132
+  br label %121
 
 70:                                               ; preds = %66
   store i32 48, ptr %6, align 4
-  br label %132
+  br label %121
 
 71:                                               ; preds = %23
   %72 = getelementptr inbounds nuw i8, ptr %10, i64 1256
   %73 = load i32, ptr %72, align 8
   store i32 %73, ptr %6, align 4
-  br label %132
+  br label %121
 
 74:                                               ; preds = %23
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 1208
@@ -3060,114 +3060,103 @@ define internal range(i32 -92, 1) i32 @packet_getsockopt(ptr noundef readonly ca
   %78 = lshr i32 %77, 3
   %79 = and i32 %78, 1
   store i32 %79, ptr %6, align 4
-  br label %132
+  br label %121
 
 80:                                               ; preds = %23
   %81 = getelementptr inbounds nuw i8, ptr %10, i64 1260
   %82 = load volatile i32, ptr %81, align 4
   store i32 %82, ptr %6, align 4
-  br label %132
+  br label %121
 
 83:                                               ; preds = %23
   %84 = getelementptr inbounds nuw i8, ptr %10, i64 744
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, null
-  br i1 %86, label %101, label %87
+  br i1 %86, label %90, label %87
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %89 = load i16, ptr %88, align 16
-  %90 = zext i16 %89 to i32
-  %91 = getelementptr inbounds nuw i8, ptr %85, i64 18
-  %92 = load i8, ptr %91, align 2
-  %93 = zext i8 %92 to i32
-  %94 = shl nuw nsw i32 %93, 16
-  %95 = or disjoint i32 %94, %90
-  %96 = getelementptr inbounds nuw i8, ptr %85, i64 19
-  %97 = load i8, ptr %96, align 1
-  %98 = zext i8 %97 to i32
-  %99 = shl nuw i32 %98, 24
-  %100 = or disjoint i32 %95, %99
-  br label %101
+  %89 = load i32, ptr %88, align 16
+  br label %90
 
-101:                                              ; preds = %87, %83
-  %102 = phi i32 [ %100, %87 ], [ 0, %83 ]
-  store i32 %102, ptr %6, align 4
-  br label %132
+90:                                               ; preds = %87, %83
+  %91 = phi i32 [ %89, %87 ], [ 0, %83 ]
+  store i32 %91, ptr %6, align 4
+  br label %121
 
-103:                                              ; preds = %23
-  %104 = getelementptr inbounds nuw i8, ptr %10, i64 1346
-  %105 = load i8, ptr %104, align 2, !range !57, !noundef !58
-  %106 = zext nneg i8 %105 to i32
-  store i32 %106, ptr %6, align 4
-  br label %132
+92:                                               ; preds = %23
+  %93 = getelementptr inbounds nuw i8, ptr %10, i64 1346
+  %94 = load i8, ptr %93, align 2, !range !57, !noundef !58
+  %95 = zext nneg i8 %94 to i32
+  store i32 %95, ptr %6, align 4
+  br label %121
 
-107:                                              ; preds = %23
-  %108 = getelementptr inbounds nuw i8, ptr %10, i64 1224
-  %109 = load ptr, ptr %108, align 8
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %149, label %111
+96:                                               ; preds = %23
+  %97 = getelementptr inbounds nuw i8, ptr %10, i64 1224
+  %98 = load ptr, ptr %97, align 8
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %138, label %100
 
-111:                                              ; preds = %107
-  %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %113 = load volatile i64, ptr %112, align 8
-  store i64 %113, ptr %8, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  %115 = load volatile i64, ptr %114, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %115, ptr %116, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  %118 = load volatile i64, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %118, ptr %119, align 8
-  br label %132
+100:                                              ; preds = %96
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %102 = load volatile i64, ptr %101, align 8
+  store i64 %102, ptr %8, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %104 = load volatile i64, ptr %103, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %104, ptr %105, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %98, i64 24
+  %107 = load volatile i64, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 %107, ptr %108, align 8
+  br label %121
 
-120:                                              ; preds = %23
-  %121 = getelementptr inbounds nuw i8, ptr %10, i64 1208
-  %122 = load volatile i64, ptr %121, align 8
-  %123 = trunc i64 %122 to i32
-  %124 = lshr i32 %123, 2
-  %125 = and i32 %124, 1
-  store i32 %125, ptr %6, align 4
-  br label %132
+109:                                              ; preds = %23
+  %110 = getelementptr inbounds nuw i8, ptr %10, i64 1208
+  %111 = load volatile i64, ptr %110, align 8
+  %112 = trunc i64 %111 to i32
+  %113 = lshr i32 %112, 2
+  %114 = and i32 %113, 1
+  store i32 %114, ptr %6, align 4
+  br label %121
 
-126:                                              ; preds = %23
-  %127 = getelementptr inbounds nuw i8, ptr %10, i64 1208
-  %128 = load volatile i64, ptr %127, align 8
-  %129 = trunc i64 %128 to i32
-  %130 = lshr i32 %129, 6
-  %131 = and i32 %130, 1
-  store i32 %131, ptr %6, align 4
-  br label %132
+115:                                              ; preds = %23
+  %116 = getelementptr inbounds nuw i8, ptr %10, i64 1208
+  %117 = load volatile i64, ptr %116, align 8
+  %118 = trunc i64 %117 to i32
+  %119 = lshr i32 %118, 6
+  %120 = and i32 %119, 1
+  store i32 %120, ptr %6, align 4
+  br label %121
 
-132:                                              ; preds = %126, %120, %111, %103, %101, %80, %74, %71, %70, %69, %68, %56, %52, %47, %42, %36, %24
-  %133 = phi ptr [ %6, %126 ], [ %6, %120 ], [ %8, %111 ], [ %6, %103 ], [ %6, %101 ], [ %6, %80 ], [ %6, %74 ], [ %6, %71 ], [ %6, %70 ], [ %6, %69 ], [ %6, %68 ], [ %6, %56 ], [ %6, %52 ], [ %6, %47 ], [ %6, %42 ], [ %6, %36 ], [ %7, %24 ]
-  %134 = phi i32 [ 4, %126 ], [ 4, %120 ], [ 24, %111 ], [ 4, %103 ], [ 4, %101 ], [ 4, %80 ], [ 4, %74 ], [ 4, %71 ], [ 4, %70 ], [ 4, %69 ], [ 4, %68 ], [ 4, %56 ], [ 4, %52 ], [ 4, %47 ], [ 4, %42 ], [ 4, %36 ], [ %35, %24 ]
-  %135 = phi i32 [ %16, %126 ], [ %16, %120 ], [ %16, %111 ], [ %16, %103 ], [ %16, %101 ], [ %16, %80 ], [ %16, %74 ], [ %16, %71 ], [ %60, %70 ], [ %60, %69 ], [ %60, %68 ], [ %16, %56 ], [ %16, %52 ], [ %16, %47 ], [ %16, %42 ], [ %16, %36 ], [ %16, %24 ]
-  %136 = call i32 @llvm.umin.i32(i32 %135, i32 %134)
-  %137 = call i64 @llvm.read_register.i64(metadata !0)
-  %138 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %4, i32 %136, i64 4, i64 %137) #19, !srcloc !59
-  %139 = extractvalue { ptr, i64 } %138, 0
-  %140 = extractvalue { ptr, i64 } %138, 1
-  %141 = ptrtoint ptr %139 to i64
-  call void @llvm.write_register.i64(metadata !0, i64 %140)
-  %142 = and i64 %141, 4294967295
-  %143 = icmp eq i64 %142, 0
-  br i1 %143, label %144, label %149
+121:                                              ; preds = %115, %109, %100, %92, %90, %80, %74, %71, %70, %69, %68, %56, %52, %47, %42, %36, %24
+  %122 = phi ptr [ %6, %115 ], [ %6, %109 ], [ %8, %100 ], [ %6, %92 ], [ %6, %90 ], [ %6, %80 ], [ %6, %74 ], [ %6, %71 ], [ %6, %70 ], [ %6, %69 ], [ %6, %68 ], [ %6, %56 ], [ %6, %52 ], [ %6, %47 ], [ %6, %42 ], [ %6, %36 ], [ %7, %24 ]
+  %123 = phi i32 [ 4, %115 ], [ 4, %109 ], [ 24, %100 ], [ 4, %92 ], [ 4, %90 ], [ 4, %80 ], [ 4, %74 ], [ 4, %71 ], [ 4, %70 ], [ 4, %69 ], [ 4, %68 ], [ 4, %56 ], [ 4, %52 ], [ 4, %47 ], [ 4, %42 ], [ 4, %36 ], [ %35, %24 ]
+  %124 = phi i32 [ %16, %115 ], [ %16, %109 ], [ %16, %100 ], [ %16, %92 ], [ %16, %90 ], [ %16, %80 ], [ %16, %74 ], [ %16, %71 ], [ %60, %70 ], [ %60, %69 ], [ %60, %68 ], [ %16, %56 ], [ %16, %52 ], [ %16, %47 ], [ %16, %42 ], [ %16, %36 ], [ %16, %24 ]
+  %125 = call i32 @llvm.umin.i32(i32 %124, i32 %123)
+  %126 = call i64 @llvm.read_register.i64(metadata !0)
+  %127 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %4, i32 %125, i64 4, i64 %126) #19, !srcloc !59
+  %128 = extractvalue { ptr, i64 } %127, 0
+  %129 = extractvalue { ptr, i64 } %127, 1
+  %130 = ptrtoint ptr %128 to i64
+  call void @llvm.write_register.i64(metadata !0, i64 %129)
+  %131 = and i64 %130, 4294967295
+  %132 = icmp eq i64 %131, 0
+  br i1 %132, label %133, label %138
 
-144:                                              ; preds = %132
-  %145 = zext nneg i32 %136 to i64
-  %146 = call i64 @_copy_to_user(ptr noundef %3, ptr noundef nonnull %133, i64 noundef %145) #19
-  %147 = icmp eq i64 %146, 0
-  %148 = select i1 %147, i32 0, i32 -14
-  br label %149
+133:                                              ; preds = %121
+  %134 = zext nneg i32 %125 to i64
+  %135 = call i64 @_copy_to_user(ptr noundef %3, ptr noundef nonnull %122, i64 noundef %134) #19
+  %136 = icmp eq i64 %135, 0
+  %137 = select i1 %136, i32 0, i32 -14
+  br label %138
 
-149:                                              ; preds = %144, %132, %107, %66, %62, %59, %23, %21, %12, %5
-  %150 = phi i32 [ -92, %5 ], [ -14, %12 ], [ -22, %21 ], [ -22, %59 ], [ -14, %62 ], [ -22, %66 ], [ -22, %107 ], [ -92, %23 ], [ -14, %132 ], [ %148, %144 ]
+138:                                              ; preds = %133, %121, %96, %66, %62, %59, %23, %21, %12, %5
+  %139 = phi i32 [ -92, %5 ], [ -14, %12 ], [ -22, %21 ], [ -22, %59 ], [ -14, %62 ], [ -22, %66 ], [ -22, %96 ], [ -92, %23 ], [ -14, %121 ], [ %137, %133 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
-  ret i32 %150
+  ret i32 %139
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -304,17 +304,11 @@ define hidden i32 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u2
   %8 = icmp ult i64 %4, 22
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw { [4 x i8] }, ptr %7, i64 %4
-  %.sroa.03.0.copyload = load i8, ptr %9, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %.sroa.4.0.copyload = load i24, ptr %.sroa.4.0..sroa_idx, align 1
-  %10 = zext i24 %.sroa.4.0.copyload to i32
-  %11 = shl nuw i32 %10, 8
-  %12 = zext i8 %.sroa.03.0.copyload to i32
-  %13 = or disjoint i32 %11, %12
+  %.sroa.03.0.copyload = load i32, ptr %9, align 4
   br label %.thread
 
 .thread:                                          ; preds = %1, %5
-  %.sroa.0.0.insert.insert = phi i32 [ %13, %5 ], [ 2, %1 ]
+  %.sroa.0.0.insert.insert = phi i32 [ %.sroa.03.0.copyload, %5 ], [ 2, %1 ]
   ret i32 %.sroa.0.0.insert.insert
 }
 
