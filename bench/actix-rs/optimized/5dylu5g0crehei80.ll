@@ -14186,7 +14186,7 @@ common.ret:                                       ; preds = %96, %81, %62
   br label %common.ret
 
 98:                                               ; preds = %95, %91
-  %.sroa.036.sroa.11.0103 = phi ptr [ %.sroa.036.sroa.11.0.copyload71, %91 ], [ %.sroa.036.sroa.11.0.copyload, %95 ]
+  %.sroa.7.2.in = phi ptr [ %.sroa.036.sroa.11.0.copyload71, %91 ], [ %.sroa.036.sroa.11.0.copyload, %95 ]
   %.sroa.7.2.in = phi i64 [ %.sroa.036.sroa.0.0.copyload67, %91 ], [ %.sroa.4.i23.sroa.3.8.insert.insert, %95 ]
   %.sroa.052.2 = phi i8 [ 1, %91 ], [ 3, %95 ]
   %.sroa.8.sroa.4.sroa.0.2 = phi ptr [ %.sroa.036.sroa.12.sroa.0.0.copyload76, %91 ], [ undef, %95 ]

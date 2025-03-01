@@ -1559,17 +1559,17 @@ get_flexray_mapping.exit:                         ; preds = %7
   store i64 %11, ptr %5, align 8
   %12 = call ptr @g_hash_table_lookup(ptr noundef nonnull %8, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %get_flexray_mapping.exit.thread, label %14
+  %18 = icmp eq ptr %12, null
+  br i1 %18, label %get_flexray_mapping.exit.thread, label %19
 
-14:                                               ; preds = %get_flexray_mapping.exit
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %16 = load i32, ptr %15, align 4
-  %17 = call fastcc i32 @dissect_ipdum_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %16)
+19:                                               ; preds = %get_flexray_mapping.exit
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %21 = load i32, ptr %20, align 4
+  %22 = call fastcc i32 @dissect_ipdum_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %21)
   br label %get_flexray_mapping.exit.thread
 
-get_flexray_mapping.exit.thread:                  ; preds = %7, %get_flexray_mapping.exit, %14
-  %.0 = phi i32 [ %17, %14 ], [ 0, %get_flexray_mapping.exit ], [ 0, %7 ]
+get_flexray_mapping.exit.thread:                  ; preds = %7, %get_flexray_mapping.exit, %19
+  %.0 = phi i32 [ %22, %19 ], [ 0, %get_flexray_mapping.exit ], [ 0, %7 ]
   ret i32 %.0
 }
 

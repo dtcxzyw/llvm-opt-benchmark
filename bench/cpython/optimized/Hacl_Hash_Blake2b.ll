@@ -1856,40 +1856,40 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_reset_with_key_and_params(p
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.8131.0.copyload.i, ptr readonly align 1 %2, i64 %8, i1 false)
   br label %reset_raw.exit
 
-reset_raw.exit:                                   ; preds = %3, %7
+reset_raw.exit:; preds = %3, %7
   %.sroa.083.0.copyload.i = load i64, ptr %1, align 8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.8.0.copyload.i = load i64, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !3
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.9.0.copyload.i = load i16, ptr %.sroa.9.0..sroa_idx.i, align 8
-  %12 = zext i16 %.sroa.9.0.copyload.i to i64
+  %.sroa.083.0.copyload = load i16, ptr %.sroa.9.0..sroa_idx.i, align 8
+  %12 = zext i16 %.sroa.083.0.copyload to i64
   %.sroa.1186.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.1186.0.copyload.i = load ptr, ptr %.sroa.1186.0..sroa_idx.i, align 8, !tbaa !15
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.13.0.copyload.i = load ptr, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !15
   %13 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 32
-  %14 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 64
+  %.sroa.8.0..sroa_idx = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 64
   %15 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 96
-  store i64 7640891576956012808, ptr %14, align 8, !tbaa !3
+  store i64 7640891576956012808, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !3
   %16 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 72
   store i64 -4942790177534073029, ptr %16, align 8, !tbaa !3
-  %17 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 80
-  store i64 4354685564936845355, ptr %17, align 8, !tbaa !3
-  %18 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 88
-  store i64 -6534734903238641935, ptr %18, align 8, !tbaa !3
+  %.sroa.1186.0..sroa_idx = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 80
+  store i64 4354685564936845355, ptr %.sroa.1186.0..sroa_idx, align 8, !tbaa !3
+  %.sroa.13.0..sroa_idx = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 88
+  store i64 -6534734903238641935, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !3
   store i64 5840696475078001361, ptr %15, align 8, !tbaa !3
-  %19 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 104
+  %17 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 104
   store i64 -7276294671716946913, ptr %19, align 8, !tbaa !3
   %20 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 112
   store i64 2270897969802886507, ptr %20, align 8, !tbaa !3
   %21 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 120
   store i64 6620516959819538809, ptr %21, align 8, !tbaa !3
   %.sroa.1186.0.copyload.val.i = load i64, ptr %.sroa.1186.0.copyload.i, align 1
-  %22 = getelementptr i8, ptr %.sroa.1186.0.copyload.i, i64 8
-  %.val137.i = load i64, ptr %22, align 1
+  %21 = getelementptr i8, ptr %.sroa.1186.0.copyload.i, i64 8
+  %.val137.i = load i64, ptr %21, align 1
   %.sroa.13.0.copyload.val.i = load i64, ptr %.sroa.13.0.copyload.i, align 1
-  %23 = getelementptr i8, ptr %.sroa.13.0.copyload.i, i64 8
-  %.val.i = load i64, ptr %23, align 1
+  %22 = getelementptr i8, ptr %.sroa.13.0.copyload.i, i64 8
+  %.val.i = load i64, ptr %22, align 1
   %24 = xor i64 %.sroa.083.0.copyload.i, 7640891576956012808
   %25 = xor i64 %.sroa.8.0.copyload.i, -4942790177534073029
   %26 = xor i64 %12, 4354685564936845355
@@ -1898,8 +1898,8 @@ reset_raw.exit:                                   ; preds = %3, %7
   %29 = xor i64 %.sroa.13.0.copyload.val.i, 2270897969802886507
   %30 = xor i64 %.val.i, 6620516959819538809
   store i64 %24, ptr %.sroa.7130.0.copyload.i, align 8, !tbaa !3
-  %31 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 8
-  store i64 %25, ptr %31, align 8, !tbaa !3
+  %26 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 8
+  store i64 %25, ptr %26, align 8, !tbaa !3
   %32 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 16
   store i64 %26, ptr %32, align 8, !tbaa !3
   %33 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 24
@@ -1955,7 +1955,7 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_reset_with_key(ptr noundef 
 
 reset_raw.exit:                                   ; preds = %2, %4
   %..i = phi i64 [ 128, %4 ], [ 0, %2 ]
-  %.sroa.0.1.insert.ext.pre-phi = phi i64 [ %9, %4 ], [ 0, %2 ]
+  %.sroa.484.0.copyload.i = phi i64 [ %9, %4 ], [ 0, %2 ]
   %.sroa.0.0.insert.ext = zext i8 %.sroa.4.0.copyload.i to i64
   %.sroa.0.1.insert.insert = or disjoint i64 %.sroa.0.1.insert.ext.pre-phi, %.sroa.0.0.insert.ext
   %10 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 32
@@ -1979,17 +1979,17 @@ reset_raw.exit:                                   ; preds = %2, %4
   store i64 %19, ptr %.sroa.7130.0.copyload.i, align 8, !tbaa !3
   %20 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 8
   store i64 -4942790177534073029, ptr %20, align 8, !tbaa !3
-  %21 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 16
-  store i64 4354685564936845355, ptr %21, align 8, !tbaa !3
-  %22 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 24
-  store i64 -6534734903238641935, ptr %22, align 8, !tbaa !3
+  %22 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 16
+  store i64 4354685564936845355, ptr %22, align 8, !tbaa !3
+  %23 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 24
+  store i64 -6534734903238641935, ptr %23, align 8, !tbaa !3
   store i64 5840696475078001361, ptr %10, align 8, !tbaa !3
-  %23 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 40
-  store i64 -7276294671716946913, ptr %23, align 8, !tbaa !3
-  %24 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 48
-  store i64 2270897969802886507, ptr %24, align 8, !tbaa !3
-  %25 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 56
-  store i64 6620516959819538809, ptr %25, align 8, !tbaa !3
+  %25 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 40
+  store i64 -7276294671716946913, ptr %25, align 8, !tbaa !3
+  %26 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 48
+  store i64 2270897969802886507, ptr %26, align 8, !tbaa !3
+  %27 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 56
+  store i64 6620516959819538809, ptr %27, align 8, !tbaa !3
   %.sroa.9132.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %.sroa.0.0.copyload.i, ptr %0, align 8, !tbaa !9
   store i8 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !9
@@ -2043,14 +2043,14 @@ python_hashlib_Hacl_Hash_Blake2b_reset_with_key.exit:
   %13 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 16
   store i64 4354685564936845355, ptr %13, align 8, !tbaa !3
   %14 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 24
-  store i64 -6534734903238641935, ptr %14, align 8, !tbaa !3
+  store i64 -6534734903238641935, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !3
   store i64 5840696475078001361, ptr %2, align 8, !tbaa !3
-  %15 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 40
-  store i64 -7276294671716946913, ptr %15, align 8, !tbaa !3
-  %16 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 48
-  store i64 2270897969802886507, ptr %16, align 8, !tbaa !3
-  %17 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 56
-  store i64 6620516959819538809, ptr %17, align 8, !tbaa !3
+  %16 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 40
+  store i64 -7276294671716946913, ptr %16, align 8, !tbaa !3
+  %17 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 48
+  store i64 2270897969802886507, ptr %17, align 8, !tbaa !3
+  %18 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 56
+  store i64 6620516959819538809, ptr %18, align 8, !tbaa !3
   %.sroa.9132.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %0, align 8, !tbaa !9
   store i8 %.sroa.4.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 1, !tbaa !9

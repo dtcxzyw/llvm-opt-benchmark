@@ -4941,7 +4941,7 @@ define internal i32 @dissect_spdu_message_flexray(ptr noundef %0, ptr noundef %1
 7:                                                ; preds = %4
   %8 = load ptr, ptr @data_spdu_flexray_mappings, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %20, label %10
+  br i1 %9, label %25, label %10
 
 10:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
@@ -4952,7 +4952,7 @@ define internal i32 @dissect_spdu_message_flexray(ptr noundef %0, ptr noundef %1
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
 
-15:                                               ; preds = %10
+24:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = call fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17, i1 noundef zeroext true)
@@ -4961,9 +4961,9 @@ define internal i32 @dissect_spdu_message_flexray(ptr noundef %0, ptr noundef %1
 19:                                               ; preds = %10, %15
   %.1 = phi i32 [ %18, %15 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  br label %20
+  br label %25
 
-20:                                               ; preds = %7, %19
+25:                                               ; preds = %7, %19
   %.0 = phi i32 [ %.1, %19 ], [ 0, %7 ]
   ret i32 %.0
 }
