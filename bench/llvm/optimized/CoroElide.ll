@@ -2119,7 +2119,7 @@ _ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i: ; preds = %1014
   br label %_ZN4llvm8succ_endEPKNS_10BasicBlockE.exit.i.i.i
 
 _ZN4llvm8succ_endEPKNS_10BasicBlockE.exit.i.i.i:  ; preds = %_ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i, %1014, %_ZNK4llvm15SmallPtrSetImplIPKNS_10SwitchInstEE5countES3_.exit.thread.i.i.i
-  %.0.i.i172.i.i.i = phi ptr [ %1015, %_ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i ], [ null, %1014 ], [ null, %_ZNK4llvm15SmallPtrSetImplIPKNS_10SwitchInstEE5countES3_.exit.thread.i.i.i ]
+  %.0.i.i172.i.i.i = phi ptr [ %1015, %_ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i ], [ %1015, %1014 ], [ null, %_ZNK4llvm15SmallPtrSetImplIPKNS_10SwitchInstEE5countES3_.exit.thread.i.i.i ]
   %.sink.i.i.i.i.i = phi i32 [ %1019, %_ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i ], [ 0, %1014 ], [ 0, %_ZNK4llvm15SmallPtrSetImplIPKNS_10SwitchInstEE5countES3_.exit.thread.i.i.i ]
   %1020 = sext i32 %.sink.i.i.i.i.i to i64
   %1021 = load i32, ptr %243, align 8, !tbaa !47

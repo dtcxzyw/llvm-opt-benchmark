@@ -1842,7 +1842,7 @@ define dso_local ptr @acpi_get_next_subnode(ptr noundef %0, ptr noundef %1) #0 a
   br label %.thread14
 
 .thread14:                                        ; preds = %27, %.thread12
-  %29 = phi ptr [ %spec.select, %.thread12 ], [ %16, %27 ]
+  %29 = phi ptr [ %11, %.thread12 ], [ %16, %27 ]
   %30 = phi ptr [ %11, %.thread12 ], [ %17, %27 ]
   %31 = phi ptr [ null, %.thread12 ], [ %28, %27 ]
   store ptr %31, ptr %3, align 8

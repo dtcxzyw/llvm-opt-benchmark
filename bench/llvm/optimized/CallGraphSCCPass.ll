@@ -556,83 +556,81 @@ define dso_local void @_ZN4llvm16CallGraphSCCPass17assignPassManagerERNS_7PMStac
   %28 = load ptr, ptr %4, align 8, !tbaa !78
   %29 = getelementptr inbounds i8, ptr %28, i64 -8
   %30 = load ptr, ptr %29, align 8, !tbaa !80
-  br i1 %27, label %31, label %35
+  br i1 %27, label %31, label %33
 
 31:                                               ; preds = %.critedge
-  %32 = icmp eq ptr %30, null
-  %33 = getelementptr inbounds i8, ptr %30, i64 -32
-  %34 = select i1 %32, ptr null, ptr %33
-  br label %70
+  %32 = getelementptr inbounds i8, ptr %30, i64 -32
+  br label %68
 
-35:                                               ; preds = %.critedge
-  %36 = tail call noalias noundef nonnull dereferenceable(416) ptr @_Znwm(i64 noundef 416) #23
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr null, ptr %37, align 8, !tbaa !83
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store ptr @_ZN12_GLOBAL__N_113CGPassManager2IDE, ptr %38, align 8, !tbaa !87
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store i32 4, ptr %39, align 8, !tbaa !88
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  store ptr null, ptr %41, align 8, !tbaa !89
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  %43 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  store ptr %43, ptr %42, align 8, !tbaa !25
-  %44 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  store i32 0, ptr %44, align 8, !tbaa !26
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 60
-  store i32 16, ptr %45, align 4, !tbaa !27
-  %46 = getelementptr inbounds nuw i8, ptr %36, i64 240
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %46, i8 0, i64 20, i1 false)
-  %47 = getelementptr inbounds nuw i8, ptr %36, i64 264
-  %48 = getelementptr inbounds nuw i8, ptr %36, i64 280
-  store ptr %48, ptr %47, align 8, !tbaa !25
-  %49 = getelementptr inbounds nuw i8, ptr %36, i64 272
-  store i32 0, ptr %49, align 8, !tbaa !26
-  %50 = getelementptr inbounds nuw i8, ptr %36, i64 276
-  store i32 16, ptr %50, align 4, !tbaa !27
-  %51 = getelementptr inbounds nuw i8, ptr %36, i64 408
-  store i32 0, ptr %51, align 8, !tbaa !99
-  %scevgep.i.i.i = getelementptr inbounds nuw i8, ptr %36, i64 192
+33:                                               ; preds = %.critedge
+  %34 = tail call noalias noundef nonnull dereferenceable(416) ptr @_Znwm(i64 noundef 416) #23
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store ptr null, ptr %35, align 8, !tbaa !83
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  store ptr @_ZN12_GLOBAL__N_113CGPassManager2IDE, ptr %36, align 8, !tbaa !87
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  store i32 4, ptr %37, align 8, !tbaa !88
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  store ptr null, ptr %39, align 8, !tbaa !89
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  store ptr %41, ptr %40, align 8, !tbaa !25
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 56
+  store i32 0, ptr %42, align 8, !tbaa !26
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 60
+  store i32 16, ptr %43, align 4, !tbaa !27
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 240
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %44, i8 0, i64 20, i1 false)
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 264
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 280
+  store ptr %46, ptr %45, align 8, !tbaa !25
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 272
+  store i32 0, ptr %47, align 8, !tbaa !26
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 276
+  store i32 16, ptr %48, align 4, !tbaa !27
+  %49 = getelementptr inbounds nuw i8, ptr %34, i64 408
+  store i32 0, ptr %49, align 8, !tbaa !99
+  %scevgep.i.i.i = getelementptr inbounds nuw i8, ptr %34, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %scevgep.i.i.i, i8 0, i64 48, i1 false), !tbaa !100
-  store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN12_GLOBAL__N_113CGPassManagerE, i64 16), ptr %36, align 8, !tbaa !3
-  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_113CGPassManagerE, i64 192), ptr %40, align 8, !tbaa !3
-  %52 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !89
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 112
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 120
-  %56 = load i32, ptr %55, align 8, !tbaa !26
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 124
-  %58 = load i32, ptr %57, align 4, !tbaa !27
-  %.not.i.i.not.i.i = icmp ult i32 %56, %58
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit, label %59, !prof !33
+  store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN12_GLOBAL__N_113CGPassManagerE, i64 16), ptr %34, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_113CGPassManagerE, i64 192), ptr %38, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !89
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 120
+  %54 = load i32, ptr %53, align 8, !tbaa !26
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 124
+  %56 = load i32, ptr %55, align 4, !tbaa !27
+  %.not.i.i.not.i.i = icmp ult i32 %54, %56
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit, label %57, !prof !33
 
-59:                                               ; preds = %35
-  %60 = zext i32 %56 to i64
-  %61 = add nuw nsw i64 %60, 1
-  %62 = getelementptr inbounds nuw i8, ptr %53, i64 128
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull %62, i64 noundef %61, i64 noundef 8) #22
-  %.pre.i.i = load i32, ptr %55, align 8, !tbaa !26
+57:                                               ; preds = %33
+  %58 = zext i32 %54 to i64
+  %59 = add nuw nsw i64 %58, 1
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 128
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull %60, i64 noundef %59, i64 noundef 8) #22
+  %.pre.i.i = load i32, ptr %53, align 8, !tbaa !26
   br label %_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit
 
-_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit: ; preds = %35, %59
-  %63 = phi i32 [ %56, %35 ], [ %.pre.i.i, %59 ]
-  %64 = load ptr, ptr %54, align 8, !tbaa !25
-  %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
-  %67 = ptrtoint ptr %40 to i64
-  store i64 %67, ptr %66, align 1
-  %68 = load i32, ptr %55, align 8, !tbaa !26
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %55, align 8, !tbaa !26
-  tail call void @_ZN4llvm17PMTopLevelManager12schedulePassEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(680) %53, ptr noundef nonnull %36) #22
-  tail call void @_ZN4llvm7PMStack4pushEPNS_13PMDataManagerE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %40) #22
-  br label %70
+_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit: ; preds = %33, %57
+  %61 = phi i32 [ %54, %33 ], [ %.pre.i.i, %57 ]
+  %62 = load ptr, ptr %52, align 8, !tbaa !25
+  %63 = zext i32 %61 to i64
+  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %63
+  %65 = ptrtoint ptr %38 to i64
+  store i64 %65, ptr %64, align 1
+  %66 = load i32, ptr %53, align 8, !tbaa !26
+  %67 = add i32 %66, 1
+  store i32 %67, ptr %53, align 8, !tbaa !26
+  tail call void @_ZN4llvm17PMTopLevelManager12schedulePassEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(680) %51, ptr noundef nonnull %34) #22
+  tail call void @_ZN4llvm7PMStack4pushEPNS_13PMDataManagerE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %38) #22
+  br label %68
 
-70:                                               ; preds = %_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit, %31
-  %.0 = phi ptr [ %34, %31 ], [ %36, %_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit ]
-  %71 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  tail call void @_ZN4llvm13PMDataManager3addEPNS_4PassEb(ptr noundef nonnull align 8 dereferenceable(380) %71, ptr noundef nonnull %0, i1 noundef zeroext true) #22
+68:                                               ; preds = %_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit, %31
+  %.0 = phi ptr [ %32, %31 ], [ %34, %_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit ]
+  %69 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  tail call void @_ZN4llvm13PMDataManager3addEPNS_4PassEb(ptr noundef nonnull align 8 dereferenceable(380) %69, ptr noundef nonnull %0, i1 noundef zeroext true) #22
   ret void
 }
 

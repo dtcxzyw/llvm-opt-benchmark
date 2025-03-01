@@ -28355,10 +28355,10 @@ _ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i26: ; preds = %34
   %.lobit.i.i.i.i.i.i.i = and i32 %41, 1
   %42 = zext nneg i32 %.lobit.i.i.i.i.i.i.i to i64
   %43 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %40, i64 %42
-  %44 = load i32, ptr %43, align 8, !tbaa !714
-  %.not.i23 = icmp eq i32 %44, 0
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  br i1 %.not.i23, label %._crit_edge, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = load i32, ptr %43, align 8, !tbaa !714
+  %.not.i29 = icmp eq i32 %45, 0
+  br i1 %.not.i29, label %._crit_edge, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit
 
 _ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i26
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 12
@@ -28381,7 +28381,7 @@ _ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang10Member
 51:                                               ; preds = %.lr.ph, %50
   %52 = phi i32 [ %49, %.lr.ph ], [ %58, %50 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %53 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %45, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %44, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %53, i64 32, i1 false)
   store i32 %52, ptr %48, align 4, !tbaa !714
   %54 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_19TemplateArgumentLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -31796,10 +31796,10 @@ _ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i26: ; preds = %34
   %.lobit.i.i.i.i.i.i.i = and i32 %41, 1
   %42 = zext nneg i32 %.lobit.i.i.i.i.i.i.i to i64
   %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %42
-  %44 = load i32, ptr %43, align 8, !tbaa !714
-  %.not.i23 = icmp eq i32 %44, 0
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  br i1 %.not.i23, label %._crit_edge, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = load i32, ptr %43, align 8, !tbaa !714
+  %.not.i29 = icmp eq i32 %45, 0
+  br i1 %.not.i29, label %._crit_edge, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit
 
 _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i26
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 12
@@ -31822,7 +31822,7 @@ _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang11DeclR
 51:                                               ; preds = %.lr.ph, %50
   %52 = phi i32 [ %49, %.lr.ph ], [ %58, %50 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %53 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %45, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %44, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %53, i64 32, i1 false)
   store i32 %52, ptr %48, align 4, !tbaa !714
   %54 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_19TemplateArgumentLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -95466,10 +95466,10 @@ _ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i26: ; preds = %27
   %.lobit.i.i.i.i.i.i.i = and i32 %34, 1
   %35 = zext nneg i32 %.lobit.i.i.i.i.i.i.i to i64
   %36 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %33, i64 %35
-  %37 = load i32, ptr %36, align 8, !tbaa !714
-  %.not.i23 = icmp eq i32 %37, 0
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  br i1 %.not.i23, label %._crit_edge, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load i32, ptr %36, align 8, !tbaa !714
+  %.not.i29 = icmp eq i32 %38, 0
+  br i1 %.not.i29, label %._crit_edge, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit
 
 _ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i26
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 12
@@ -95488,7 +95488,7 @@ _ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang10Member
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %38, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %37, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 32, i1 false)
   call fastcc void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor5matchINS_19TemplateArgumentLocEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -98337,10 +98337,10 @@ _ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i26: ; preds = %27
   %.lobit.i.i.i.i.i.i.i = and i32 %34, 1
   %35 = zext nneg i32 %.lobit.i.i.i.i.i.i.i to i64
   %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %35
-  %37 = load i32, ptr %36, align 8, !tbaa !714
-  %.not.i23 = icmp eq i32 %37, 0
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  br i1 %.not.i23, label %._crit_edge, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load i32, ptr %36, align 8, !tbaa !714
+  %.not.i29 = icmp eq i32 %38, 0
+  br i1 %.not.i29, label %._crit_edge, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit
 
 _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i26
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 12
@@ -98359,7 +98359,7 @@ _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang11DeclR
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %38, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %37, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 32, i1 false)
   call fastcc void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor5matchINS_19TemplateArgumentLocEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)

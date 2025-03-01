@@ -6849,7 +6849,7 @@ sortslice_copy_incr.exit149.i:                    ; preds = %247, %243
   br label %merge_lo.exit
 
 .thread258.i:                                     ; preds = %sortslice_copy_incr.exit120.i, %sortslice_copy_incr.exit149.i, %sortslice_advance.exit.i, %107
-  %.sroa.16.0.i = phi ptr [ %.sroa.16.0.copyload.i, %107 ], [ %spec.select.i, %sortslice_advance.exit.i ], [ %.sroa.16.11.i, %sortslice_copy_incr.exit149.i ], [ %.sroa.16.9.i, %sortslice_copy_incr.exit120.i ]
+  %.sroa.16.0.i = phi ptr [ %.sroa.16.0.copyload.i, %107 ], [ %187, %sortslice_advance.exit.i ], [ %.sroa.16.11.i, %sortslice_copy_incr.exit149.i ], [ %.sroa.16.9.i, %sortslice_copy_incr.exit120.i ]
   %.sroa.0194.0.i = phi ptr [ %.sroa.0194.0.copyload.i, %107 ], [ %186, %sortslice_advance.exit.i ], [ %244, %sortslice_copy_incr.exit149.i ], [ %133, %sortslice_copy_incr.exit120.i ]
   %.sroa.14.0.i = phi ptr [ %.sroa.14.8.i, %107 ], [ %.sroa.14.6.i, %sortslice_advance.exit.i ], [ %.sroa.14.7.i, %sortslice_copy_incr.exit149.i ], [ %.sroa.14.2.i, %sortslice_copy_incr.exit120.i ]
   %.sroa.0180.0.i = phi ptr [ %98, %107 ], [ %.sroa.0180.6.i, %sortslice_advance.exit.i ], [ %.sroa.0180.7.i, %sortslice_copy_incr.exit149.i ], [ %.sroa.0180.2.i, %sortslice_copy_incr.exit120.i ]
@@ -7348,7 +7348,7 @@ sortslice_copy_decr.exit153.i:                    ; preds = %433, %429
   br label %merge_lo.exit
 
 .thread259.i:                                     ; preds = %sortslice_copy_decr.exit138.i, %sortslice_memcpy.exit151.i, %sortslice_copy_decr.exit145.i, %sortslice_copy_decr.exit.i
-  %.sroa.14.1.i75 = phi ptr [ %.sroa.14.0.i60, %sortslice_copy_decr.exit.i ], [ %.sroa.14.11.i, %sortslice_memcpy.exit151.i ], [ %.sroa.14.10.i71, %sortslice_copy_decr.exit145.i ], [ %.sroa.14.9.i81, %sortslice_copy_decr.exit138.i ]
+  %.sroa.14.1.i75 = phi ptr [ %300, %sortslice_copy_decr.exit.i ], [ %422, %sortslice_memcpy.exit151.i ], [ %.sroa.14.10.i71, %sortslice_copy_decr.exit145.i ], [ %.sroa.14.9.i81, %sortslice_copy_decr.exit138.i ]
   %.sroa.0195.0.i = phi ptr [ %298, %sortslice_copy_decr.exit.i ], [ %421, %sortslice_memcpy.exit151.i ], [ %402, %sortslice_copy_decr.exit145.i ], [ %336, %sortslice_copy_decr.exit138.i ]
   %.sroa.26.0.i = phi ptr [ %.sroa.26.10.i, %sortslice_copy_decr.exit.i ], [ %spec.select278.i, %sortslice_memcpy.exit151.i ], [ %.sroa.26.14.i, %sortslice_copy_decr.exit145.i ], [ %.sroa.26.12.i, %sortslice_copy_decr.exit138.i ]
   %.sroa.0165.0.i = phi ptr [ %306, %sortslice_copy_decr.exit.i ], [ %419, %sortslice_memcpy.exit151.i ], [ %404, %sortslice_copy_decr.exit145.i ], [ %338, %sortslice_copy_decr.exit138.i ]

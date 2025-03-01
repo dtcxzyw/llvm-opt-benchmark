@@ -55457,7 +55457,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit751: ; preds = %_Z
   %1243 = phi ptr [ %spec.select.i384, %1241 ], [ %spec.select.i, %1240 ]
   %1244 = phi i64 [ %97, %1241 ], [ %108, %1240 ]
   %1245 = phi i64 [ %108, %1241 ], [ %97, %1240 ]
-  %1246 = phi ptr [ %spec.select.i, %1241 ], [ %spec.select.i384, %1240 ]
+  %1246 = phi ptr [ %.sroa.01226.0, %1241 ], [ %.sroa.01210.0, %1240 ]
   %1247 = icmp sgt i64 %1245, 0
   br i1 %1247, label %.lr.ph.preheader, label %._crit_edge
 

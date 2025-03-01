@@ -12418,7 +12418,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %.thread3466
   br i1 %.not1724, label %._crit_edge3743, label %.lr.ph3742, !llvm.loop !515
 
 ._crit_edge3743:                                  ; preds = %3248, %_ZN4llvm10BasicBlock13getTerminatorEv.exit
-  %.0.i.i22183868 = phi ptr [ %spec.select.i.i2217, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ %.0.i.i22183867, %3248 ]
+  %.0.i.i22183868 = phi ptr [ %3237, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ %.0.i.i22183867, %3248 ]
   %3251 = load i8, ptr %.0.i.i22183868, align 8, !tbaa !112
   switch i8 %3251, label %.thread3210 [
     i8 30, label %3252

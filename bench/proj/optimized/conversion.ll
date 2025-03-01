@@ -19192,7 +19192,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit723: ; preds = %13
   %.not1014 = icmp eq ptr %1330, getelementptr inbounds nuw inrange(-72, 48) (i8, ptr @_ZTVN5osgeo4proj3crs19DerivedProjectedCRSE, i64 152)
   %1331 = getelementptr inbounds i8, ptr %.0375847, i64 -24
   %brmerge = or i1 %.not813.not, %.not1014
-  %.mux = select i1 %.not1014, ptr %1331, ptr null
   br i1 %brmerge, label %.thread852, label %1332
 
 1332:                                             ; preds = %.thread844
@@ -19408,7 +19407,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EE
 
 .thread852:                                       ; preds = %.thread844, %_ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit736
   %1417 = phi ptr [ %.pre1025, %_ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit736 ], [ %1330, %.thread844 ]
-  %1418 = phi ptr [ null, %_ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit736 ], [ %.mux, %.thread844 ]
+  %1418 = phi ptr [ null, %_ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit736 ], [ %1331, %.thread844 ]
   %1419 = icmp eq ptr %1417, getelementptr inbounds nuw inrange(-72, 48) (i8, ptr @_ZTVN5osgeo4proj3crs12ProjectedCRSE, i64 208)
   br i1 %1419, label %1429, label %1420
 

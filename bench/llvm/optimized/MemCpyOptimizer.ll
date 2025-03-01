@@ -12826,7 +12826,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i:   ; preds = %39
   br label %_ZN4llvm8succ_endEPNS_10BasicBlockE.exit.i
 
 _ZN4llvm8succ_endEPNS_10BasicBlockE.exit.i:       ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i, %39, %33
-  %.0.i.i.i29.i = phi ptr [ %40, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i ], [ null, %39 ], [ null, %33 ]
+  %.0.i.i.i29.i = phi ptr [ %40, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i ], [ %40, %39 ], [ null, %33 ]
   %.sink.i.i.i = phi i32 [ %44, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i ], [ 0, %39 ], [ 0, %33 ]
   %45 = sext i32 %.sink.i.i.i to i64
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 8

@@ -123274,6 +123274,7 @@ _ZN4absl4Cord12CharIteratorppEv.exit:             ; preds = %_ZN4absl4Cord13Chun
 _ZNK4absl4Cord11chunk_beginEv.exit:               ; preds = %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i1182, %3328
   %.sink3487 = phi i64 [ %3330, %3328 ], [ %3313, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i1182 ], [ %3294, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i ]
   %spec.select.i.i.i.sink = phi ptr [ %spec.select.i.i.i, %3328 ], [ %.sroa.3.0.i.i.i.i1184, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i1182 ], [ %.sroa.3.0.i.i.i.i.i1192, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i ]
+  %.sroa.2.0.copyload.i1215 = phi ptr [ %362, %3328 ], [ %.sroa.3.0.i.i.i.i1184, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i1182 ], [ %.sroa.3.0.i.i.i.i.i1192, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i ]
   store i64 %.sink3487, ptr %226, align 8, !tbaa !23, !alias.scope !1721
   store ptr %spec.select.i.i.i.sink, ptr %.sroa.4.0..sroa_idx.i.i.i1185, align 8, !tbaa !150, !alias.scope !1721
   %3489 = icmp ult i64 %.sink3487, 5
@@ -123286,7 +123287,7 @@ _ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit1221.thre
   br label %3492
 
 _ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit1221: ; preds = %_ZNK4absl4Cord11chunk_beginEv.exit
-  %bcmp.i.i1219 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %spec.select.i.i.i.sink, ptr noundef nonnull dereferenceable(5) @.str.57, i64 5)
+  %bcmp.i.i1219 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.2.0.copyload.i1215, ptr noundef nonnull dereferenceable(5) @.str.57, i64 5)
   %3490 = icmp eq i32 %bcmp.i.i1219, 0
   %3491 = zext i1 %3490 to i8
   store i8 %3491, ptr %225, align 8, !tbaa !73

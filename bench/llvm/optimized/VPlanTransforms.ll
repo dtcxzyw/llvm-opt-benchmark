@@ -16324,7 +16324,7 @@ _ZN4llvm15VPlanTransforms7runPassIJEEEvPFvRNS_5VPlanEDpT_ES3_DpRNSt16remove_refe
   br label %.lr.ph68.i
 
 ._crit_edge.i:                                    ; preds = %.split.loop.exit61.i, %134
-  %.031.lcssa.i = phi ptr [ %138, %134 ], [ %164, %.split.loop.exit61.i ]
+  %.031.lcssa.i = phi ptr [ %138, %134 ], [ %163, %.split.loop.exit61.i ]
   tail call void @_ZN4llvm7VPValue18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(56) %.031.lcssa.i, ptr noundef nonnull %138) #20
   br label %165
 

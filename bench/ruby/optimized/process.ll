@@ -2084,12 +2084,10 @@ rb_check_argv.exit.i:                             ; preds = %.lr.ph.i.i
   %92 = icmp eq i32 %.131, 1
   %or.cond = and i1 %.not24.i, %92
   %spec.select = select i1 %or.cond, i32 0, i32 %.131
-  %spec.select38 = select i1 %or.cond, ptr null, ptr %.0
   br label %rb_exec_getargs.exit
 
 rb_exec_getargs.exit:                             ; preds = %90, %rb_check_argv.exit.i
   %.4 = phi i32 [ %.131, %rb_check_argv.exit.i ], [ %spec.select, %90 ]
-  %.2 = phi ptr [ %.0, %rb_check_argv.exit.i ], [ %spec.select38, %90 ]
   %.0.i8 = phi i64 [ %.pre.i.i, %rb_check_argv.exit.i ], [ %91, %90 ]
   %93 = load i64, ptr %14, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -2469,7 +2467,7 @@ RSTRING_PTR.exit148.i:                            ; preds = %218, %RSTRING_PTR.e
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #27
-  %234 = getelementptr i64, ptr %.2, i64 %indvars.iv.i
+  %234 = getelementptr i64, ptr %.0, i64 %indvars.iv.i
   %235 = load i64, ptr %234, align 8, !tbaa !43
   store i64 %235, ptr %9, align 8, !tbaa !43
   %236 = call ptr @rb_string_value_cstr(ptr noundef nonnull %9) #27

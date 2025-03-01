@@ -11834,7 +11834,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i:     ; preds = %98
   br label %_ZN4llvm8succ_endEPNS_10BasicBlockE.exit
 
 _ZN4llvm8succ_endEPNS_10BasicBlockE.exit:         ; preds = %"_ZN4llvm6all_ofIRNS_10BasicBlockEZZNS_21hasPartialIVConditionERKNS_4LoopEjRKNS_9MemorySSAERNS_9AAResultsEENK3$_0clEPS1_SC_NS_11SmallVectorIPNS_12MemoryAccessELj4EEEEUlRNS_11InstructionEE0_EEbOT_T0_.exit", %98, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i
-  %.0.i.i.i198 = phi ptr [ %99, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i ], [ null, %98 ], [ null, %"_ZN4llvm6all_ofIRNS_10BasicBlockEZZNS_21hasPartialIVConditionERKNS_4LoopEjRKNS_9MemorySSAERNS_9AAResultsEENK3$_0clEPS1_SC_NS_11SmallVectorIPNS_12MemoryAccessELj4EEEEUlRNS_11InstructionEE0_EEbOT_T0_.exit" ]
+  %.0.i.i.i198 = phi ptr [ %99, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i ], [ %99, %98 ], [ null, %"_ZN4llvm6all_ofIRNS_10BasicBlockEZZNS_21hasPartialIVConditionERKNS_4LoopEjRKNS_9MemorySSAERNS_9AAResultsEENK3$_0clEPS1_SC_NS_11SmallVectorIPNS_12MemoryAccessELj4EEEEUlRNS_11InstructionEE0_EEbOT_T0_.exit" ]
   %.sink.i.i = phi i32 [ %103, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i ], [ 0, %98 ], [ 0, %"_ZN4llvm6all_ofIRNS_10BasicBlockEZZNS_21hasPartialIVConditionERKNS_4LoopEjRKNS_9MemorySSAERNS_9AAResultsEENK3$_0clEPS1_SC_NS_11SmallVectorIPNS_12MemoryAccessELj4EEEEUlRNS_11InstructionEE0_EEbOT_T0_.exit" ]
   %104 = sext i32 %.sink.i.i to i64
   %105 = load i32, ptr %23, align 8, !tbaa !9

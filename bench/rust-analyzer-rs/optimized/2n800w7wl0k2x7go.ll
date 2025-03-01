@@ -16679,7 +16679,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h3a64be80392ece0cE.exit.i.i: ; 
   call void @llvm.experimental.noalias.scope.decl(metadata !5499)
   %92 = load i64, ptr %91, align 8, !range !430, !alias.scope !5502, !noalias !5503, !noundef !25
   %93 = icmp eq i64 %92, -9223372036854775806
-  %..i.i.i.i = select i1 %93, ptr null, ptr %91
+  %.0.i.i.i.i = select i1 %93, ptr null, ptr %91
   br i1 %93, label %.thread, label %94
 
 .thread:                                          ; preds = %90
@@ -16811,14 +16811,14 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17ha168bd1c76a656e8E.exit.i.i.i
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h3935cca21fdd06c6E.exit.i.i.i.i.i.i.i": ; preds = %121, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$ide_db..search..FileReference$GT$$GT$17hfa432b638203edf3E.exit.i.i.i.i.i.i.i"
   %.sroa.725.sroa.0.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.725.sroa.0.0.i.i.i.i.i.i.i, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$ide_db..search..FileReference$GT$$GT$17hfa432b638203edf3E.exit.i.i.i.i.i.i.i" ], [ %.sroa.725.sroa.0.0.copyload.i.i.i.i.i.i.i, %121 ]
   %.sroa.725.sroa.5.1.i.i.i.i.i.i.i = phi i64 [ %.sroa.725.sroa.5.0.i.i.i.i.i.i.i, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$ide_db..search..FileReference$GT$$GT$17hfa432b638203edf3E.exit.i.i.i.i.i.i.i" ], [ %.sroa.725.sroa.5.0.copyload.i.i.i.i.i.i.i, %121 ]
-  %.sink.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.023.i.i.i.i.i.i.i, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$ide_db..search..FileReference$GT$$GT$17hfa432b638203edf3E.exit.i.i.i.i.i.i.i" ], [ %..i.i.i.i, %121 ]
+  %.sink.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.023.i.i.i.i.i.i.i, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$ide_db..search..FileReference$GT$$GT$17hfa432b638203edf3E.exit.i.i.i.i.i.i.i" ], [ %91, %121 ]
   store i64 -9223372036854775808, ptr %.sink.i.i.i.i.i.i.i.i, align 8, !alias.scope !5561, !noalias !5560
   %.sroa.023.i.i.i.i.i.i.i.0..sroa.023.i.i.i.i.i.i.i.0..sroa.023.i.i.i.i.i.i.i.0..sroa.023.i.i.i.i.i.i.0..sroa.023.i.i.i.i.i.i.0..sroa.023.i.i.i.i.i.0..sroa.023.i.i.i.i.i.0..sroa.023.i.i.i.i.0..sroa.023.i.i.i.i.0..sroa.023.i.i.i.0..sroa.023.i.i.i.0..sroa.023.i.i.0..sroa.023.i.i.0..sroa.023.i.0..sroa.023.i.0..sroa.023.0..sroa.023.0..sroa.023.0..i.i.i.i.i.i.i = load i64, ptr %.sroa.023.i.i.i.i.i.i.i, align 8, !range !571, !noalias !5558, !noundef !25
   %122 = icmp eq i64 %.sroa.023.i.i.i.i.i.i.i.0..sroa.023.i.i.i.i.i.i.i.0..sroa.023.i.i.i.i.i.i.i.0..sroa.023.i.i.i.i.i.i.0..sroa.023.i.i.i.i.i.i.0..sroa.023.i.i.i.i.i.0..sroa.023.i.i.i.i.i.0..sroa.023.i.i.i.i.0..sroa.023.i.i.i.i.0..sroa.023.i.i.i.0..sroa.023.i.i.i.0..sroa.023.i.i.0..sroa.023.i.i.0..sroa.023.i.0..sroa.023.i.0..sroa.023.0..sroa.023.0..sroa.023.0..i.i.i.i.i.i.i, -9223372036854775808
   br i1 %122, label %123, label %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$ide_db..search..FileReference$GT$$GT$$GT$17h9d8c5fa876cba2f0E.exit.i.i.i.i.i.i.i"
 
 123:                                              ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h3935cca21fdd06c6E.exit.i.i.i.i.i.i.i"
-  %124 = getelementptr inbounds nuw i8, ptr %..i.i.i.i, i64 56
+  %124 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   call void @llvm.experimental.noalias.scope.decl(metadata !5562)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !5565
   %125 = load ptr, ptr %124, align 8, !alias.scope !5567, !noalias !5568, !noundef !25
@@ -16832,7 +16832,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17ha168bd1c76a656e8E.exit.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !5577)
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 792
   %129 = load ptr, ptr %128, align 8, !alias.scope !5579, !noalias !5580, !nonnull !25, !noundef !25
-  %130 = getelementptr inbounds nuw i8, ptr %..i.i.i.i, i64 64
+  %130 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   %131 = load ptr, ptr %130, align 8, !alias.scope !5579, !noalias !5580, !nonnull !25, !noundef !25
   %132 = icmp eq ptr %131, %129
   br i1 %132, label %_ZN4core3ops8function6FnOnce9call_once17h7821b9561ba931dbE.exit.thread.i8.i.i.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h7821b9561ba931dbE.exit.i1.i.i.i.i.i.i.i

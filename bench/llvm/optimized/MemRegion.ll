@@ -520,7 +520,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZNK5clang4en
   %6 = load i32, ptr %5, align 8, !tbaa !19
   %7 = icmp slt i32 %6, 9
   %.not18 = icmp eq ptr %4, null
-  %.not = or i1 %7, %.not18
+  %.not = or i1 %.not18, %7
   br i1 %.not, label %.thread, label %2, !llvm.loop !31
 
 .thread:                                          ; preds = %2

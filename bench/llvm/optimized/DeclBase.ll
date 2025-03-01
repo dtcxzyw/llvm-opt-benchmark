@@ -25500,7 +25500,7 @@ _ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit: ; preds = %52,
   br i1 %86, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.critedge37, %.critedge
-  %.032.lcssa = phi ptr [ %11, %.critedge ], [ %.0.i.i.i.i71, %.critedge37 ]
+  %.032.lcssa = phi ptr [ %11, %.critedge ], [ %91, %.critedge37 ]
   store ptr %1, ptr %.032.lcssa, align 8, !tbaa !785
   br label %164
 

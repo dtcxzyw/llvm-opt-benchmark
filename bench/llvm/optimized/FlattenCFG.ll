@@ -673,7 +673,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit263.i.i: ; preds = %273, %269
   br label %_ZN4llvm10BasicBlock13getTerminatorEv.exit269.i.i
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit269.i.i: ; preds = %360, %_ZN4llvm10BasicBlock13getTerminatorEv.exit263.i.i
-  %.0182.i.i = phi ptr [ %.0.i.i262.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit263.i.i ], [ %spec.select.i.i267.i.i, %360 ]
+  %.0182.i.i = phi ptr [ %.0.i.i262.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit263.i.i ], [ %304, %360 ]
   %.0179.i.i = phi ptr [ %283, %_ZN4llvm10BasicBlock13getTerminatorEv.exit263.i.i ], [ %.0.i.i, %360 ]
   %293 = getelementptr inbounds i8, ptr %.0182.i.i, i64 -32
   %294 = getelementptr inbounds %"class.llvm::Use", ptr %293, i64 %286

@@ -307,7 +307,6 @@ _ZNK4llvm4Pass22getAnalysisIfAvailableINS_31MachineDominatorTreeWrapperPassEEEPT
 39:                                               ; preds = %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_31MachineDominatorTreeWrapperPassEEEPT_v.exit.thread
   %.not21 = icmp eq ptr %38, null
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  %spec.select44 = select i1 %.not21, ptr null, ptr %40
   br i1 %.not21, label %_ZNSt10unique_ptrIN4llvm20MachineDominatorTreeESt14default_deleteIS1_EED2Ev.exit, label %58
 
 _ZNSt10unique_ptrIN4llvm20MachineDominatorTreeESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_31MachineDominatorTreeWrapperPassEEEPT_v.exit.thread.thread, %39
@@ -342,7 +341,7 @@ _ZNSt10unique_ptrIN4llvm20MachineDominatorTreeESt14default_deleteIS1_EED2Ev.exit
   br label %58
 
 58:                                               ; preds = %_ZNSt10unique_ptrIN4llvm20MachineDominatorTreeESt14default_deleteIS1_EED2Ev.exit, %39
-  %.0 = phi ptr [ %spec.select44, %39 ], [ %57, %_ZNSt10unique_ptrIN4llvm20MachineDominatorTreeESt14default_deleteIS1_EED2Ev.exit ]
+  %.0 = phi ptr [ %40, %39 ], [ %57, %_ZNSt10unique_ptrIN4llvm20MachineDominatorTreeESt14default_deleteIS1_EED2Ev.exit ]
   %59 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #16, !noalias !217
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 64
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 80

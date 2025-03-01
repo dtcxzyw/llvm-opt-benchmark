@@ -155,14 +155,12 @@ _gres_limit_reserved_cores.exit:                  ; preds = %42, %54, %56, %59, 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %76 = load ptr, ptr %75, align 8
-  %.not131 = icmp eq ptr %76, null
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %spec.select147 = select i1 %.not131, ptr null, ptr %77
   br label %78
 
 78:                                               ; preds = %74, %72, %68
   %.0113 = phi ptr [ %71, %72 ], [ null, %68 ], [ %76, %74 ]
-  %.0112 = phi ptr [ %73, %72 ], [ null, %68 ], [ %spec.select147, %74 ]
+  %.0112 = phi ptr [ %73, %72 ], [ null, %68 ], [ %77, %74 ]
   %79 = call ptr @slurm_list_create(ptr noundef nonnull @slurm_gres_sock_delete) #5
   %80 = call ptr @slurm_list_iterator_create(ptr noundef nonnull %0) #5
   %81 = call ptr @slurm_list_next(ptr noundef %80) #5

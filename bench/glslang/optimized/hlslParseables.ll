@@ -3967,7 +3967,7 @@ _ZN12_GLOBAL__N_16NthArgEPKci.exit.i:             ; preds = %_ZN12_GLOBAL__N_112
   br i1 %113, label %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i.thread, label %.split2.i
 
 _ZN12_GLOBAL__N_16NthArgEPKci.exit.i.thread:      ; preds = %.split.i, %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i
-  %.06.lcssa.i.i509 = phi ptr [ %spec.select.i.i, %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i ], [ %.0104472, %.split.i ]
+  %.06.lcssa.i.i509 = phi ptr [ %115, %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i ], [ %.0104472, %.split.i ]
   %119 = load i8, ptr %.06.lcssa.i.i509, align 1
   switch i8 %119, label %121 [
     i8 86, label %.sink.split.i

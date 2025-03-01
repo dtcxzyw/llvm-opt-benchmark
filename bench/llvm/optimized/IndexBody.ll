@@ -6798,10 +6798,10 @@ _ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i24: ; preds = %47
   %.lobit.i.i.i.i.i.i.i = and i32 %54, 1
   %55 = zext nneg i32 %.lobit.i.i.i.i.i.i.i to i64
   %56 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %53, i64 %55
-  %57 = load i32, ptr %56, align 8, !tbaa !102
-  %.not.i22 = icmp eq i32 %57, 0
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  br i1 %.not.i22, label %._crit_edge, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %58 = load i32, ptr %56, align 8, !tbaa !102
+  %.not.i27 = icmp eq i32 %58, 0
+  br i1 %.not.i27, label %._crit_edge, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit
 
 _ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i24
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 12
@@ -6820,7 +6820,7 @@ _ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang10Member
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %61 ]
-  %62 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %58, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %57, i64 %indvars.iv
   %63 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111BodyIndexerEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %62)
   br i1 %63, label %61, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111BodyIndexerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -9506,10 +9506,10 @@ _ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i24: ; preds = %43
   %.lobit.i.i.i.i.i.i.i = and i32 %50, 1
   %51 = zext nneg i32 %.lobit.i.i.i.i.i.i.i to i64
   %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
-  %53 = load i32, ptr %52, align 8, !tbaa !102
-  %.not.i22 = icmp eq i32 %53, 0
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  br i1 %.not.i22, label %._crit_edge, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = load i32, ptr %52, align 8, !tbaa !102
+  %.not.i27 = icmp eq i32 %54, 0
+  br i1 %.not.i27, label %._crit_edge, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit
 
 _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i24
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 12
@@ -9528,7 +9528,7 @@ _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang11DeclR
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %57 ]
-  %58 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %54, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %53, i64 %indvars.iv
   %59 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111BodyIndexerEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %58)
   br i1 %59, label %57, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111BodyIndexerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 

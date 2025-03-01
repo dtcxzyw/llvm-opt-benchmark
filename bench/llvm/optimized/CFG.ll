@@ -26194,91 +26194,90 @@ _ZL31tryTransformToIntOrEnumConstantPKN5clang4ExprE.exit29.i: ; preds = %_ZL28Is
   br i1 %or.cond15.i, label %701, label %.critedge31
 
 701:                                              ; preds = %_ZL31tryTransformToIntOrEnumConstantPKN5clang4ExprE.exit29.i
-  %702 = select i1 %699, ptr %691, ptr null
   br i1 %700, label %.thread, label %.thread97
 
 .thread:                                          ; preds = %_ZL28IsIntegerLiteralConstantExprPKN5clang4ExprE.exit.thread.i18._ZL31tryTransformToIntOrEnumConstantPKN5clang4ExprE.exit29_crit_edge.i, %701
   br label %.thread97
 
 .thread97:                                        ; preds = %_ZL28IsIntegerLiteralConstantExprPKN5clang4ExprE.exit.i24._ZL31tryTransformToIntOrEnumConstantPKN5clang4ExprE.exit29_crit_edge.i, %701, %.thread
-  %703 = phi ptr [ %.08.i.i, %.thread ], [ %702, %701 ], [ %670, %_ZL28IsIntegerLiteralConstantExprPKN5clang4ExprE.exit.i24._ZL31tryTransformToIntOrEnumConstantPKN5clang4ExprE.exit29_crit_edge.i ]
+  %702 = phi ptr [ %.08.i.i, %.thread ], [ %691, %701 ], [ %670, %_ZL28IsIntegerLiteralConstantExprPKN5clang4ExprE.exit.i24._ZL31tryTransformToIntOrEnumConstantPKN5clang4ExprE.exit29_crit_edge.i ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #26
   store i8 0, ptr %4, align 8, !tbaa !1018
-  %704 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 0, ptr %704, align 1, !tbaa !1021
-  %705 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %705, align 8, !tbaa !1022
-  %706 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %706, align 8, !tbaa !1023
-  %707 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i8 0, ptr %707, align 4
-  %708 = load ptr, ptr %0, align 8, !tbaa !70
-  %709 = call noundef zeroext i1 @_ZNK5clang4Expr13EvaluateAsIntERNS0_10EvalResultERKNS_10ASTContextENS0_15SideEffectsKindEb(ptr noundef nonnull align 8 dereferenceable(16) %703, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(23216) %708, i32 noundef 0, i1 noundef zeroext false) #26
-  br i1 %709, label %710, label %731
+  %703 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i8 0, ptr %703, align 1, !tbaa !1021
+  %704 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %704, align 8, !tbaa !1022
+  %705 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 0, ptr %705, align 8, !tbaa !1023
+  %706 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i8 0, ptr %706, align 4
+  %707 = load ptr, ptr %0, align 8, !tbaa !70
+  %708 = call noundef zeroext i1 @_ZNK5clang4Expr13EvaluateAsIntERNS0_10EvalResultERKNS_10ASTContextENS0_15SideEffectsKindEb(ptr noundef nonnull align 8 dereferenceable(16) %702, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(23216) %707, i32 noundef 0, i1 noundef zeroext false) #26
+  br i1 %708, label %709, label %730
 
-710:                                              ; preds = %.thread97
-  %711 = getelementptr inbounds nuw i8, ptr %4, i64 24
+709:                                              ; preds = %.thread97
+  %710 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
-  %712 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 64, ptr %712, align 8, !tbaa !184, !alias.scope !1127
+  %711 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 64, ptr %711, align 8, !tbaa !184, !alias.scope !1127
   store i64 0, ptr %3, align 8, !alias.scope !1127
-  %713 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 0, ptr %713, align 4, !tbaa !1103, !alias.scope !1127
-  %714 = call noundef i32 @_ZN4llvm6APSInt13compareValuesERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(13) %711, ptr noundef nonnull align 8 dereferenceable(13) %3)
-  %715 = load i32, ptr %712, align 8, !tbaa !184
-  %716 = icmp ugt i32 %715, 64
-  br i1 %716, label %717, label %_ZNK4llvm6APSInteqEl.exit.i
+  %712 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 0, ptr %712, align 4, !tbaa !1103, !alias.scope !1127
+  %713 = call noundef i32 @_ZN4llvm6APSInt13compareValuesERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(13) %710, ptr noundef nonnull align 8 dereferenceable(13) %3)
+  %714 = load i32, ptr %711, align 8, !tbaa !184
+  %715 = icmp ugt i32 %714, 64
+  br i1 %715, label %716, label %_ZNK4llvm6APSInteqEl.exit.i
 
-717:                                              ; preds = %710
-  %718 = load ptr, ptr %3, align 8, !tbaa !51
-  %719 = icmp eq ptr %718, null
-  br i1 %719, label %_ZNK4llvm6APSInteqEl.exit.i, label %720
+716:                                              ; preds = %709
+  %717 = load ptr, ptr %3, align 8, !tbaa !51
+  %718 = icmp eq ptr %717, null
+  br i1 %718, label %_ZNK4llvm6APSInteqEl.exit.i, label %719
 
-720:                                              ; preds = %717
-  call void @_ZdaPv(ptr noundef nonnull %718) #29
+719:                                              ; preds = %716
+  call void @_ZdaPv(ptr noundef nonnull %717) #29
   br label %_ZNK4llvm6APSInteqEl.exit.i
 
-_ZNK4llvm6APSInteqEl.exit.i:                      ; preds = %720, %717, %710
-  %721 = icmp eq i32 %714, 0
+_ZNK4llvm6APSInteqEl.exit.i:                      ; preds = %719, %716, %709
+  %720 = icmp eq i32 %713, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
-  br i1 %721, label %731, label %722
+  br i1 %720, label %730, label %721
 
-722:                                              ; preds = %_ZNK4llvm6APSInteqEl.exit.i
-  %723 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %724 = load ptr, ptr %723, align 8, !tbaa !122
-  %725 = getelementptr inbounds nuw i8, ptr %724, i64 48
-  %726 = load ptr, ptr %725, align 8, !tbaa !1105
-  %.not.i69 = icmp eq ptr %726, null
-  br i1 %.not.i69, label %731, label %727
+721:                                              ; preds = %_ZNK4llvm6APSInteqEl.exit.i
+  %722 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %723 = load ptr, ptr %722, align 8, !tbaa !122
+  %724 = getelementptr inbounds nuw i8, ptr %723, i64 48
+  %725 = load ptr, ptr %724, align 8, !tbaa !1105
+  %.not.i69 = icmp eq ptr %725, null
+  br i1 %.not.i69, label %730, label %726
 
-727:                                              ; preds = %722
-  %728 = load ptr, ptr %726, align 8, !tbaa !285
-  %729 = getelementptr inbounds nuw i8, ptr %728, i64 40
-  %730 = load ptr, ptr %729, align 8
-  call void %730(ptr noundef nonnull align 8 dereferenceable(8) %726, ptr noundef nonnull %1) #26
-  br label %731
+726:                                              ; preds = %721
+  %727 = load ptr, ptr %725, align 8, !tbaa !285
+  %728 = getelementptr inbounds nuw i8, ptr %727, i64 40
+  %729 = load ptr, ptr %728, align 8
+  call void %729(ptr noundef nonnull align 8 dereferenceable(8) %725, ptr noundef nonnull %1) #26
+  br label %730
 
-731:                                              ; preds = %727, %722, %_ZNK4llvm6APSInteqEl.exit.i, %.thread97
-  %732 = phi i1 [ false, %.thread97 ], [ false, %_ZNK4llvm6APSInteqEl.exit.i ], [ true, %727 ], [ true, %722 ]
-  %733 = load i32, ptr %706, align 8, !tbaa !1023
-  %switch.i.i.i66 = icmp ult i32 %733, 2
-  br i1 %switch.i.i.i66, label %_ZN12_GLOBAL__N_110CFGBuilder31checkIncorrectBitwiseOrOperatorEPKN5clang14BinaryOperatorE.exit, label %734
+730:                                              ; preds = %726, %721, %_ZNK4llvm6APSInteqEl.exit.i, %.thread97
+  %731 = phi i1 [ false, %.thread97 ], [ false, %_ZNK4llvm6APSInteqEl.exit.i ], [ true, %726 ], [ true, %721 ]
+  %732 = load i32, ptr %705, align 8, !tbaa !1023
+  %switch.i.i.i66 = icmp ult i32 %732, 2
+  br i1 %switch.i.i.i66, label %_ZN12_GLOBAL__N_110CFGBuilder31checkIncorrectBitwiseOrOperatorEPKN5clang14BinaryOperatorE.exit, label %733
 
-734:                                              ; preds = %731
-  call void @_ZN5clang7APValue24DestroyDataAndMakeUninitEv(ptr noundef nonnull align 8 dereferenceable(56) %706) #26
+733:                                              ; preds = %730
+  call void @_ZN5clang7APValue24DestroyDataAndMakeUninitEv(ptr noundef nonnull align 8 dereferenceable(56) %705) #26
   br label %_ZN12_GLOBAL__N_110CFGBuilder31checkIncorrectBitwiseOrOperatorEPKN5clang14BinaryOperatorE.exit
 
-_ZN12_GLOBAL__N_110CFGBuilder31checkIncorrectBitwiseOrOperatorEPKN5clang14BinaryOperatorE.exit: ; preds = %731, %734
+_ZN12_GLOBAL__N_110CFGBuilder31checkIncorrectBitwiseOrOperatorEPKN5clang14BinaryOperatorE.exit: ; preds = %730, %733
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #26
-  br i1 %732, label %.critedge31.thread, label %.critedge31
+  br i1 %731, label %.critedge31.thread, label %.critedge31
 
 .critedge31:                                      ; preds = %_ZL28IsIntegerLiteralConstantExprPKN5clang4ExprE.exit.i24._ZL31tryTransformToIntOrEnumConstantPKN5clang4ExprE.exit29_crit_edge.i, %_ZL28IsIntegerLiteralConstantExprPKN5clang4ExprE.exit.thread.i18._ZL31tryTransformToIntOrEnumConstantPKN5clang4ExprE.exit29_crit_edge.i, %_ZL31tryTransformToIntOrEnumConstantPKN5clang4ExprE.exit29.i, %556, %.thread5.i, %629, %2, %_ZN12_GLOBAL__N_110CFGBuilder30checkIncorrectEqualityOperatorEPKN5clang14BinaryOperatorE.exit, %_ZN12_GLOBAL__N_110CFGBuilder32checkIncorrectRelationalOperatorEPKN5clang14BinaryOperatorE.exit, %_ZN12_GLOBAL__N_110CFGBuilder31checkIncorrectBitwiseOrOperatorEPKN5clang14BinaryOperatorE.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #26
-  %735 = load ptr, ptr %0, align 8, !tbaa !70
-  %736 = call noundef zeroext i1 @_ZNK5clang4Expr26EvaluateAsBooleanConditionERbRKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 8 dereferenceable(23216) %735, i1 noundef zeroext false) #26
-  %737 = load i8, ptr %23, align 1, !range !129
-  %738 = zext nneg i8 %737 to i32
-  %.sroa.088.4 = select i1 %736, i32 %738, i32 -1
+  %734 = load ptr, ptr %0, align 8, !tbaa !70
+  %735 = call noundef zeroext i1 @_ZNK5clang4Expr26EvaluateAsBooleanConditionERbRKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 8 dereferenceable(23216) %734, i1 noundef zeroext false) #26
+  %736 = load i8, ptr %23, align 1, !range !129
+  %737 = zext nneg i8 %736 to i32
+  %.sroa.088.4 = select i1 %735, i32 %737, i32 -1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #26
   br label %.critedge31.thread
 

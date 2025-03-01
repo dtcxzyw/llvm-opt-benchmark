@@ -874,7 +874,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 
 127:                                              ; preds = %121, %116
   %.pn558 = phi { ptr, i8 } [ %120, %116 ], [ %126, %121 ]
-  %.0298 = phi ptr [ %118, %116 ], [ %.0.i329, %121 ]
+  %.0298 = phi ptr [ %118, %116 ], [ %124, %121 ]
   %.sroa.6473.0 = extractvalue { ptr, i8 } %.pn558, 1
   %.sroa.0472.0 = extractvalue { ptr, i8 } %.pn558, 0
   %128 = getelementptr inbounds nuw i8, ptr %.0298, i64 48

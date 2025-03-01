@@ -15442,7 +15442,7 @@ declare void @_ZN4llvm5Value8takeNameEPS0_(ptr noundef nonnull align 8 dereferen
 declare void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL19getTrueOrFalseValueRN12_GLOBAL__N_118SelectOptimizeImpl10SelectLikeEbRN4llvm13SmallDenseMapIPNS3_11InstructionESt4pairIPNS3_5ValueES9_ELj2ENS3_12DenseMapInfoIS6_vEENS3_6detail12DenseMapPairIS6_SA_EEEEPNS3_10BasicBlockE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i1 noundef zeroext %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %2, ptr noundef readonly captures(address) %3) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL19getTrueOrFalseValueRN12_GLOBAL__N_118SelectOptimizeImpl10SelectLikeEbRN4llvm13SmallDenseMapIPNS3_11InstructionESt4pairIPNS3_5ValueES9_ELj2ENS3_12DenseMapInfoIS6_vEENS3_6detail12DenseMapPairIS6_SA_EEEEPNS3_10BasicBlockE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i1 noundef zeroext %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %2, ptr noundef readonly captures(none) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !260, !range !54, !noundef !55
   %7 = trunc nuw i8 %6 to i1
@@ -15903,25 +15903,11 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i88:     ; preds = %240, %236
 _ZN4llvm4User10setOperandEjPNS_5ValueE.exit89:    ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionESt4pairIPNS_5ValueES6_ELj2ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E4findEPKS2_.exit77, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i85, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i88, %_ZNK4llvm4User10getOperandEj.exit62
   %243 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %244 = load ptr, ptr %243, align 8, !tbaa !341
-  %245 = icmp eq ptr %243, %244
-  br i1 %245, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit, label %246
-
-246:                                              ; preds = %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit89
-  %247 = getelementptr inbounds i8, ptr %244, i64 -24
-  %248 = load i8, ptr %247, align 8, !tbaa !184
-  %249 = add i8 %248, -30
-  %250 = icmp ult i8 %249, 11
-  %spec.select.i.i90 = select i1 %250, ptr %247, ptr null
-  br label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
-
-_ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit89, %246
-  %.0.i.i = phi ptr [ null, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit89 ], [ %spec.select.i.i90, %246 ]
-  %251 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  tail call void @_ZN4llvm11Instruction12insertBeforeENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsIS0_Lb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %85, ptr nonnull %251, i64 0) #21
+  tail call void @_ZN4llvm11Instruction12insertBeforeENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsIS0_Lb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %85, ptr nonnull %244, i64 0) #21
   br label %.thread
 
-.thread:                                          ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionESt4pairIPNS_5ValueES6_ELj2ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E4findEPKS2_.exit, %44, %81, %_ZN4llvm10BasicBlock13getTerminatorEv.exit
-  %.3 = phi ptr [ %85, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ %82, %81 ], [ %43, %44 ], [ %43, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionESt4pairIPNS_5ValueES6_ELj2ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E4findEPKS2_.exit ]
+.thread:                                          ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionESt4pairIPNS_5ValueES6_ELj2ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E4findEPKS2_.exit, %44, %81, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit89
+  %.3 = phi ptr [ %85, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit89 ], [ %82, %81 ], [ %43, %44 ], [ %43, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionESt4pairIPNS_5ValueES6_ELj2ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E4findEPKS2_.exit ]
   ret ptr %.3
 }
 

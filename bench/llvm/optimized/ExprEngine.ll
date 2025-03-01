@@ -9733,7 +9733,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit143: ; preds 
 
 111:                                              ; preds = %106, %102
   %.pn = phi { ptr, i8 } [ %110, %106 ], [ %105, %102 ]
-  %.0 = phi ptr [ %.0.i148, %106 ], [ %104, %102 ]
+  %.0 = phi ptr [ %109, %106 ], [ %104, %102 ]
   %storemerge204 = extractvalue { ptr, i8 } %.pn, 0
   store ptr %storemerge204, ptr %16, align 8, !tbaa !737
   %storemerge = extractvalue { ptr, i8 } %.pn, 1

@@ -12941,7 +12941,7 @@ _ZN4llvm17ICFLoopSafetyInfoD2Ev.exit.i:           ; preds = %_ZN4llvm12DenseMapB
   br label %_ZL18shouldInsertFreezeRN4llvm4LoopERNS_11InstructionERNS_13DominatorTreeERNS_15AssumptionCacheE.exit
 
 _ZL18shouldInsertFreezeRN4llvm4LoopERNS_11InstructionERNS_13DominatorTreeERNS_15AssumptionCacheE.exit: ; preds = %_ZN4llvm17ICFLoopSafetyInfoD2Ev.exit.i, %2233, %_ZL20turnSelectIntoBranchPN4llvm10SelectInstERNS_13DominatorTreeERNS_8LoopInfoEPNS_16MemorySSAUpdaterEPNS_15AssumptionCacheE.exit
-  %2308 = phi ptr [ %spec.select.i.i.i144, %_ZL20turnSelectIntoBranchPN4llvm10SelectInstERNS_13DominatorTreeERNS_8LoopInfoEPNS_16MemorySSAUpdaterEPNS_15AssumptionCacheE.exit ], [ %.pre316, %_ZN4llvm17ICFLoopSafetyInfoD2Ev.exit.i ], [ %2234, %2233 ]
+  %2308 = phi ptr [ %1967, %_ZL20turnSelectIntoBranchPN4llvm10SelectInstERNS_13DominatorTreeERNS_8LoopInfoEPNS_16MemorySSAUpdaterEPNS_15AssumptionCacheE.exit ], [ %.pre316, %_ZN4llvm17ICFLoopSafetyInfoD2Ev.exit.i ], [ %2234, %2233 ]
   %.048.in = phi i1 [ %1937, %_ZL20turnSelectIntoBranchPN4llvm10SelectInstERNS_13DominatorTreeERNS_8LoopInfoEPNS_16MemorySSAUpdaterEPNS_15AssumptionCacheE.exit ], [ %.1.i169, %_ZN4llvm17ICFLoopSafetyInfoD2Ev.exit.i ], [ false, %2233 ]
   %.0.copyload.i.i.i.i.i = load i64, ptr %1068, align 8
   %.not.i.i177 = icmp ult i64 %.0.copyload.i.i.i.i.i, 8

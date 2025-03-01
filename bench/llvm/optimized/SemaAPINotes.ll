@@ -8651,8 +8651,7 @@ select.unfold._crit_edge:                         ; preds = %_ZN5clang11DeclCont
   br label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5clang11DeclContext9getParentEv.exit
-  %storemerge64 = phi ptr [ %53, %_ZN5clang11DeclContext9getParentEv.exit ], [ %spec.select.i.i, %.lr.ph.preheader ]
-  %30 = getelementptr inbounds nuw i8, ptr %storemerge64, i64 48
+  %30 = phi ptr [ %.0.i.i, %_ZN5clang11DeclContext9getParentEv.exit ], [ %0, %.lr.ph.preheader ]
   %31 = call noundef zeroext i1 @_ZNK5clang11DeclContext17isInlineNamespaceEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #19
   br i1 %31, label %_ZNSt5stackIPN5clang13NamespaceDeclESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit, label %32
 

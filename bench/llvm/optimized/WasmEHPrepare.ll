@@ -477,7 +477,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i50.i: ; preds = %120
   br label %_ZN4llvm8succ_endEPNS_10BasicBlockE.exit.i.i
 
 _ZN4llvm8succ_endEPNS_10BasicBlockE.exit.i.i:     ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i50.i, %120, %.loopexit.i.i
-  %.0.i.i.i5.i.i = phi ptr [ %121, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i50.i ], [ null, %120 ], [ null, %.loopexit.i.i ]
+  %.0.i.i.i5.i.i = phi ptr [ %121, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i50.i ], [ %121, %120 ], [ null, %.loopexit.i.i ]
   %.sink.i.i.i39.i = phi i32 [ %125, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i50.i ], [ 0, %120 ], [ 0, %.loopexit.i.i ]
   %126 = sext i32 %.sink.i.i.i39.i to i64
   %127 = zext i32 %105 to i64

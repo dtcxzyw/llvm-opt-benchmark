@@ -13234,12 +13234,10 @@ define hidden void @_ZN14PhaseIdealLoop16clone_outer_loopEP8LoopNodeNS_13CloneLo
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 232
   %50 = load ptr, ptr %49, align 8
   %51 = tail call noundef zeroext i8 %50(ptr noundef nonnull align 8 dereferenceable(92) %1) #9
-  %.not.i.i.i = icmp eq i8 %47, %51
-  %..i.i.i = select i1 %.not.i.i.i, ptr %38, ptr null
   br label %_ZNK15CountedLoopNode8loopexitEv.exit
 
 _ZNK15CountedLoopNode8loopexitEv.exit:            ; preds = %16, %35, %43
-  %.0.i.i.i = phi ptr [ null, %16 ], [ null, %35 ], [ %..i.i.i, %43 ]
+  %.0.i.i.i = phi ptr [ null, %16 ], [ null, %35 ], [ %38, %43 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %53 = load i32, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 8

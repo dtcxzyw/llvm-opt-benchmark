@@ -2171,7 +2171,7 @@ _ZN4llvm10succ_emptyEPKNS_10BasicBlockE.exit.i.i.i: ; preds = %70
   br i1 %76, label %_ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i.i, label %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit.i.i.i
 
 _ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i.i: ; preds = %_ZN4llvm10succ_emptyEPKNS_10BasicBlockE.exit.i.i.i, %70, %.loopexit.i.i
-  %.0.i.i.i.i = phi ptr [ null, %.loopexit.i.i ], [ %71, %_ZN4llvm10succ_emptyEPKNS_10BasicBlockE.exit.i.i.i ], [ null, %70 ]
+  %.0.i.i.i.i = phi ptr [ null, %.loopexit.i.i ], [ %71, %_ZN4llvm10succ_emptyEPKNS_10BasicBlockE.exit.i.i.i ], [ %71, %70 ]
   %77 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL20HideUnreachablePaths, i64 120), align 8, !tbaa !53, !range !51, !noundef !52
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %82

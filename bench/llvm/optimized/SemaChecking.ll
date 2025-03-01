@@ -71055,7 +71055,6 @@ define dso_local void @_ZN5clang4Sema20CheckFloatComparisonENS_14SourceLocationE
   %33 = and i16 %32, 511
   %34 = add nsw i16 %33, -81
   %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i16 %34, 10
-  %spec.select.i.i3.i = select i1 %spec.select.i.i.i.i.i.i.i.i.i, ptr %31, ptr null
   %spec.select.i = select i1 %30, i1 %spec.select.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %spec.select.i, label %38, label %35
 
@@ -71064,13 +71063,12 @@ define dso_local void @_ZN5clang4Sema20CheckFloatComparisonENS_14SourceLocationE
   %spec.select.i.i.i87 = select i1 %36, ptr %31, ptr null
   %37 = add nsw i16 %29, -81
   %spec.select.i.i.i.i.i.i.i.i.i88 = icmp ult i16 %37, 10
-  %spec.select.i.i3.i89 = select i1 %spec.select.i.i.i.i.i.i.i.i.i88, ptr %27, ptr null
   %spec.select.i90 = select i1 %36, i1 %spec.select.i.i.i.i.i.i.i.i.i88, i1 false
   br i1 %spec.select.i90, label %38, label %.critedge71
 
 38:                                               ; preds = %35, %26
   %.0148 = phi ptr [ %spec.select.i.i.i, %26 ], [ %spec.select.i.i.i87, %35 ]
-  %.0 = phi ptr [ %spec.select.i.i3.i, %26 ], [ %spec.select.i.i3.i89, %35 ]
+  %.0 = phi ptr [ %31, %26 ], [ %27, %35 ]
   %39 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !1653
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8

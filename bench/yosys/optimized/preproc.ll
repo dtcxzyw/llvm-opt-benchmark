@@ -6171,7 +6171,6 @@ define linkonce_odr void @_ZNK5Yosys9arg_map_t8get_valsERKNSt7__cxx1112basic_str
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %spec.select = select i1 %25, ptr %26, ptr null
   %27 = load ptr, ptr %16, align 8
   %28 = load ptr, ptr %3, align 8
   %29 = ptrtoint ptr %27 to i64
@@ -6241,8 +6240,8 @@ define linkonce_odr void @_ZNK5Yosys9arg_map_t8get_valsERKNSt7__cxx1112basic_str
 58:                                               ; preds = %45
   unreachable
 
-_ZN5YosysL9all_whiteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %40, %.lr.ph.i, %37, %.thread, %36
-  %.0 = phi ptr [ %35, %36 ], [ %spec.select, %.thread ], [ %26, %37 ], [ %26, %40 ], [ %35, %.lr.ph.i ]
+_ZN5YosysL9all_whiteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.lr.ph.i, %40, %37, %.thread, %36
+  %.0 = phi ptr [ %35, %36 ], [ %26, %.thread ], [ %26, %37 ], [ %35, %.lr.ph.i ], [ %26, %40 ]
   %59 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23, !noalias !52
   %60 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.49, ptr noundef %59, i32 noundef %60)

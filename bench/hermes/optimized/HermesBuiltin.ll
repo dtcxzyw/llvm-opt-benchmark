@@ -3846,42 +3846,30 @@ entry:
   %1 = load ptr, ptr %args, align 8, !noalias !63
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %retval.sroa.0.0.copyload.i = load i64, ptr %incdec.ptr.i.i.i, align 8
-  %cmp.i.i = icmp ugt i64 %retval.sroa.0.0.copyload.i, -844424930131969
-  br i1 %cmp.i.i, label %cond.true.i1, label %_ZN6hermes2vm10dyn_vmcastINS0_8JSRegExpEEEPT_NS0_11HermesValueE.exit
-
-cond.true.i1:                                     ; preds = %entry
-  %and.i.i = and i64 %retval.sroa.0.0.copyload.i, 281474976710655
-  %2 = inttoptr i64 %and.i.i to ptr
-  %bf.load.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %2, align 4
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i.i, -16777216
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i, 1040187392
-  %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, ptr %2, ptr null
-  br label %_ZN6hermes2vm10dyn_vmcastINS0_8JSRegExpEEEPT_NS0_11HermesValueE.exit
-
-_ZN6hermes2vm10dyn_vmcastINS0_8JSRegExpEEEPT_NS0_11HermesValueE.exit: ; preds = %entry, %cond.true.i1
-  %cond.i = phi ptr [ %spec.select.i.i.i, %cond.true.i1 ], [ null, %entry ]
   %cmp.i3 = icmp ugt i32 %0, 1
   br i1 %cmp.i3, label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit8, label %_ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit
 
-_ZNK6hermes2vm10NativeArgs6getArgEj.exit8:        ; preds = %_ZN6hermes2vm10dyn_vmcastINS0_8JSRegExpEEEPT_NS0_11HermesValueE.exit
-  %3 = load ptr, ptr %args, align 8, !noalias !66
-  %incdec.ptr.i.i.i6 = getelementptr inbounds i8, ptr %3, i64 -16
+_ZNK6hermes2vm10NativeArgs6getArgEj.exit8:        ; preds = %entry
+  %2 = load ptr, ptr %args, align 8, !noalias !66
+  %incdec.ptr.i.i.i6 = getelementptr inbounds i8, ptr %2, i64 -16
   %retval.sroa.0.0.copyload.i7 = load i64, ptr %incdec.ptr.i.i.i6, align 8
   %cmp.i.i9 = icmp ugt i64 %retval.sroa.0.0.copyload.i7, -844424930131969
   br i1 %cmp.i.i9, label %cond.true.i11, label %_ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit
 
 cond.true.i11:                                    ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit8
   %and.i.i12 = and i64 %retval.sroa.0.0.copyload.i7, 281474976710655
-  %4 = inttoptr i64 %and.i.i12 to ptr
-  %bf.load.i.i.i.i.i.i.i.i.i.i.i13 = load i32, ptr %4, align 4
-  %5 = add i32 %bf.load.i.i.i.i.i.i.i.i.i.i.i13, -436207616
-  %6 = icmp ult i32 %5, 855638016
-  %spec.select.i.i.i14 = select i1 %6, ptr %4, ptr null
+  %3 = inttoptr i64 %and.i.i12 to ptr
+  %bf.load.i.i.i.i.i.i.i.i.i.i.i13 = load i32, ptr %3, align 4
+  %4 = add i32 %bf.load.i.i.i.i.i.i.i.i.i.i.i13, -436207616
+  %5 = icmp ult i32 %4, 855638016
+  %spec.select.i.i.i14 = select i1 %5, ptr %3, ptr null
   br label %_ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit
 
-_ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit: ; preds = %_ZN6hermes2vm10dyn_vmcastINS0_8JSRegExpEEEPT_NS0_11HermesValueE.exit, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit8, %cond.true.i11
-  %cond.i10 = phi ptr [ %spec.select.i.i.i14, %cond.true.i11 ], [ null, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit8 ], [ null, %_ZN6hermes2vm10dyn_vmcastINS0_8JSRegExpEEEPT_NS0_11HermesValueE.exit ]
-  tail call void @_ZN6hermes2vm8JSRegExp20setGroupNameMappingsERNS0_7RuntimeEPNS0_8JSObjectE(ptr noundef nonnull align 8 dereferenceable(48) %cond.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %cond.i10) #12
+_ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit: ; preds = %entry, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit8, %cond.true.i11
+  %cond.i10 = phi ptr [ %spec.select.i.i.i14, %cond.true.i11 ], [ null, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit8 ], [ null, %entry ]
+  %and.i.i = and i64 %retval.sroa.0.0.copyload.i, 281474976710655
+  %6 = inttoptr i64 %and.i.i to ptr
+  tail call void @_ZN6hermes2vm8JSRegExp20setGroupNameMappingsERNS0_7RuntimeEPNS0_8JSObjectE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %cond.i10) #12
   ret { i32, i64 } { i32 1, i64 -1688849860263936 }
 }
 
