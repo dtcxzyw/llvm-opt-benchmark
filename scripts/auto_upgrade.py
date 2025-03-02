@@ -132,6 +132,7 @@ supported_project = [
     "simdjson",
     "snappy",
     "taskflow",
+    "tinygltf",
 ]
 
 modify_only = [
