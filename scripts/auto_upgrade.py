@@ -133,6 +133,7 @@ supported_project = [
     "snappy",
     "taskflow",
     "tinygltf",
+    "tinympc",
 ]
 
 modify_only = [
