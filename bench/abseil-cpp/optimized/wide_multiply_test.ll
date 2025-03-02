@@ -7123,13 +7123,13 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_114Eq256MatcherP2IiiE10gmoc
   %6 = icmp eq i128 %.sroa.01.0.insert.insert.i, %.sroa.0.0.insert.insert.i
   br i1 %6, label %7, label %12
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0.0.copyload = load i64, ptr %8, align 16, !tbaa !133
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.0.0.copyload = load i64, ptr %10, align 16, !tbaa !133
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !133
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %10 = load i32, ptr %9, align 4, !tbaa !46
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %12 = load i32, ptr %11, align 4, !tbaa !46
   %.sroa.22.0.insert.ext.i6 = zext i64 %.sroa.2.0.copyload to i128
   %.sroa.22.0.insert.shift.i7 = shl nuw i128 %.sroa.22.0.insert.ext.i6, 64
   %.sroa.01.0.insert.ext.i8 = zext i64 %.sroa.0.0.copyload to i128
@@ -7138,7 +7138,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_114Eq256MatcherP2IiiE10gmoc
   %11 = icmp eq i128 %.sroa.01.0.insert.insert.i9, %.sroa.0.0.insert.insert.i13
   br label %12
 
-12:                                               ; preds = %7, %3
+12:; preds = %9, %3
   %13 = phi i1 [ false, %3 ], [ %11, %7 ]
   ret i1 %13
 }
@@ -8878,7 +8878,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_114Eq256MatcherP2IN4absl7ui
   %.sroa.0.0.insert.ext.i = zext i64 %.sroa.01.0.copyload to i128
   %.sroa.0.0.insert.insert.i = or disjoint i128 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %5 = icmp eq i128 %.sroa.01.0.insert.insert.i, %.sroa.0.0.insert.insert.i
-  br i1 %5, label %6, label %11
+  br i1 %5, label %6, label %13
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8891,13 +8891,13 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_114Eq256MatcherP2IN4absl7ui
   %.sroa.22.0.insert.shift.i8 = shl nuw i128 %.sroa.22.0.insert.ext.i7, 64
   %.sroa.01.0.insert.ext.i9 = zext i64 %.sroa.0.0.copyload to i128
   %.sroa.01.0.insert.insert.i10 = or disjoint i128 %.sroa.22.0.insert.shift.i8, %.sroa.01.0.insert.ext.i9
-  %.sroa.0.0.insert.insert.i14 = sext i32 %9 to i128
-  %10 = icmp eq i128 %.sroa.01.0.insert.insert.i10, %.sroa.0.0.insert.insert.i14
+  %.sroa.0.0.insert.insert.i14 = sext i32 %11 to i128
+  %12 = icmp eq i128 %.sroa.01.0.insert.insert.i10, %.sroa.0.0.insert.insert.i14
   br label %11
 
-11:                                               ; preds = %6, %3
-  %12 = phi i1 [ false, %3 ], [ %10, %6 ]
-  ret i1 %12
+13:                                               ; preds = %6, %3
+  %14 = phi i1 [ false, %3 ], [ %12, %6 ]
+  ret i1 %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9697,13 +9697,13 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_114Eq256MatcherP2IiN4absl7u
   %6 = icmp eq i128 %.sroa.01.0.insert.insert.i, %.sroa.0.0.insert.insert.i
   br i1 %6, label %7, label %11
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.01.0.copyload = load i64, ptr %8, align 16, !tbaa !133
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.01.0.copyload = load i64, ptr %10, align 16, !tbaa !133
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !133
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.0.0.copyload = load i64, ptr %9, align 16, !tbaa !133
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.0.0.copyload = load i64, ptr %11, align 16, !tbaa !133
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !133
   %.sroa.22.0.insert.ext.i7 = zext i64 %.sroa.22.0.copyload to i128
@@ -9714,12 +9714,12 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_114Eq256MatcherP2IiN4absl7u
   %.sroa.2.0.insert.shift.i12 = shl nuw i128 %.sroa.2.0.insert.ext.i11, 64
   %.sroa.0.0.insert.ext.i13 = zext i64 %.sroa.0.0.copyload to i128
   %.sroa.0.0.insert.insert.i14 = or disjoint i128 %.sroa.2.0.insert.shift.i12, %.sroa.0.0.insert.ext.i13
-  %10 = icmp eq i128 %.sroa.01.0.insert.insert.i10, %.sroa.0.0.insert.insert.i14
-  br label %11
+  %12 = icmp eq i128 %.sroa.01.0.insert.insert.i10, %.sroa.0.0.insert.insert.i14
+  br label %13
 
-11:                                               ; preds = %7, %3
-  %12 = phi i1 [ false, %3 ], [ %10, %7 ]
-  ret i1 %12
+13:                                               ; preds = %9, %3
+  %14 = phi i1 [ false, %3 ], [ %12, %9 ]
+  ret i1 %14
 }
 
 ; Function Attrs: mustprogress uwtable
